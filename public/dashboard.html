@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KTKC School Programs Repository</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Operational test build</p>
+        <h1>KTKC School Programs Repository</h1>
+        <p class="lead">A single portal for the website-builder program sites, repository APIs, shared curriculum documents, and fillable Schoolmaster forms. Use this build to test structure, downloads, navigation, and compatibility before deeper application changes.</p>
+        <div class="button-row">
+          <a class="btn primary" href="#programs">Browse programs</a>
+          <a class="btn secondary" href="#resources">Open resource library</a>
+          <a class="btn secondary" href="/api/curriculum">View curriculum API</a>
+        </div>
+        <p id="statusBanner" class="status-banner">Loading repository data…</p>
+      </div>
+      <aside class="hero-panel">
+        <h2>Included in this build</h2>
+        <ul class="check-list">
+          <li>Program site launcher for all bundled schools</li>
+          <li>Shared handbook and promotion documents</li>
+          <li>Fillable Schoolmaster forms</li>
+          <li>Repository API links and file manifests</li>
+          <li>Compatibility aliases for officer site navigation</li>
+        </ul>
+      </aside>
+    </div>
+  </header>
+
+  <main class="wrap page-stack">
+    <section class="panel">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Repository overview</p>
+          <h2>Testing dashboard</h2>
+        </div>
+      </div>
+      <div id="summaryStats" class="stats-grid"></div>
+      <div class="api-list">
+        <a href="/api/health"><code>/api/health</code></a>
+        <a href="/api/curriculum"><code>/api/curriculum</code></a>
+        <a href="/api/resources"><code>/api/resources</code></a>
+      </div>
+    </section>
+
+    <section id="programs" class="panel">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Programs</p>
+          <h2>School program sites</h2>
+        </div>
+      </div>
+      <div id="programGroups" class="page-stack"></div>
+    </section>
+
+    <section id="resources" class="panel">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Shared downloads</p>
+          <h2>Resource library</h2>
+        </div>
+      </div>
+      <div id="resourceSections" class="page-stack"></div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

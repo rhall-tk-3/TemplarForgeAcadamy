@@ -3,74 +3,234 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>KTKC School Programs Repository</title>
+  <title>Templar Forge Academy — Welcome</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="stylesheet" href="/styles.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* ── FULL-SCREEN BACKGROUND ── */
+    .page {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Castle background image */
+    .bg {
+      position: absolute;
+      inset: 0;
+      background:
+        url('/images/castle-bg.png') center center / cover no-repeat;
+      z-index: 0;
+    }
+
+    /* Dark dramatic overlay so text pops */
+    .bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(10, 5, 0, 0.52) 0%,
+        rgba(20, 8, 2, 0.38) 40%,
+        rgba(10, 5, 0, 0.72) 100%
+      );
+    }
+
+    /* ── TOP-LEFT CREST ── */
+    .crest {
+      position: absolute;
+      top: 18px;
+      left: 22px;
+      z-index: 10;
+      width: clamp(100px, 12vw, 170px);
+      filter: drop-shadow(0 4px 18px rgba(0,0,0,0.75));
+      /* strips any white/checker background */
+      mix-blend-mode: normal;
+    }
+
+    /* ── TOP-RIGHT SEAL ── */
+    .seal {
+      position: absolute;
+      top: 14px;
+      right: 20px;
+      z-index: 10;
+      width: clamp(95px, 11vw, 155px);
+      filter: drop-shadow(0 4px 18px rgba(0,0,0,0.75));
+    }
+
+    /* ── CENTER CONTENT ── */
+    .center {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 32px;
+      gap: 28px;
+    }
+
+    /* Decorative top rule */
+    .rule {
+      width: clamp(180px, 38vw, 560px);
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #c9a227, #8b0000, #c9a227, transparent);
+    }
+
+    /* ── MAIN TITLE ── */
+    .title {
+      /* Algerian is a Windows/system font — we cascade to similar serifs */
+      font-family: 'Algerian', 'MedievalSharp', 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+      font-size: clamp(2rem, 5.5vw, 5.2rem);
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      line-height: 1.15;
+      color: #f5d97e;
+      text-shadow:
+        0 0 18px rgba(197, 150, 20, 0.9),
+        0 0 40px rgba(180, 100, 0, 0.6),
+        3px 4px 0px rgba(0,0,0,0.85),
+        0 2px 8px rgba(0,0,0,0.9);
+      text-transform: uppercase;
+      max-width: 880px;
+    }
+
+    /* Gold divider cross */
+    .divider {
+      font-size: 1.6rem;
+      color: #c9a227;
+      text-shadow: 0 0 12px rgba(201,162,39,0.8);
+      letter-spacing: 0.4em;
+    }
+
+    /* ── ENTER BUTTON ── */
+    .enter-btn {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 14px 48px;
+      font-family: 'Palatino Linotype', 'Palatino', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #1a0a00;
+      background: linear-gradient(135deg, #e8c84a 0%, #b8860b 45%, #e8c84a 100%);
+      border: 2px solid #8b0000;
+      border-radius: 4px;
+      text-decoration: none;
+      box-shadow:
+        0 0 0 1px rgba(201,162,39,0.4),
+        0 6px 28px rgba(0,0,0,0.65),
+        inset 0 1px 0 rgba(255,255,180,0.35);
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+    .enter-btn:hover {
+      background: linear-gradient(135deg, #ffd84a 0%, #c8960b 45%, #ffd84a 100%);
+      box-shadow:
+        0 0 0 2px rgba(201,162,39,0.7),
+        0 8px 36px rgba(0,0,0,0.75),
+        0 0 30px rgba(197,150,20,0.4);
+      transform: translateY(-2px);
+    }
+
+    /* ── BOTTOM FOOTER ── */
+    .footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 18px 24px 20px;
+      background: linear-gradient(0deg, rgba(0,0,0,0.82) 0%, transparent 100%);
+    }
+
+    .footer-line {
+      width: clamp(120px, 30vw, 440px);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #c9a227, transparent);
+      margin-bottom: 10px;
+    }
+
+    .footer-name {
+      font-family: 'Algerian', 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+      font-size: clamp(0.75rem, 1.8vw, 1.15rem);
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: #e8d08a;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.9), 0 0 14px rgba(197,150,20,0.5);
+      text-align: center;
+    }
+
+    .footer-trademark {
+      font-family: 'Palatino Linotype', 'Palatino', serif;
+      font-size: clamp(0.62rem, 1.1vw, 0.82rem);
+      letter-spacing: 0.14em;
+      color: #b8984a;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.8);
+      margin-top: 3px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .crest { width: 80px; top: 10px; left: 10px; }
+      .seal  { width: 76px; top: 8px;  right: 10px; }
+      .title { font-size: 1.65rem; }
+      .enter-btn { padding: 12px 32px; font-size: 0.9rem; }
+    }
+  </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <p class="eyebrow">Operational test build</p>
-        <h1>KTKC School Programs Repository</h1>
-        <p class="lead">A single portal for the website-builder program sites, repository APIs, shared curriculum documents, and fillable Schoolmaster forms. Use this build to test structure, downloads, navigation, and compatibility before deeper application changes.</p>
-        <div class="button-row">
-          <a class="btn primary" href="#programs">Browse programs</a>
-          <a class="btn secondary" href="#resources">Open resource library</a>
-          <a class="btn secondary" href="/api/curriculum">View curriculum API</a>
-        </div>
-        <p id="statusBanner" class="status-banner">Loading repository data…</p>
-      </div>
-      <aside class="hero-panel">
-        <h2>Included in this build</h2>
-        <ul class="check-list">
-          <li>Program site launcher for all bundled schools</li>
-          <li>Shared handbook and promotion documents</li>
-          <li>Fillable Schoolmaster forms</li>
-          <li>Repository API links and file manifests</li>
-          <li>Compatibility aliases for officer site navigation</li>
-        </ul>
-      </aside>
+  <div class="page">
+
+    <!-- Background castle image -->
+    <div class="bg"></div>
+
+    <!-- TOP LEFT: Order Crest (no white bg — PNG with transparency) -->
+    <img class="crest" src="/images/order-crest.png" alt="Order Crest">
+
+    <!-- TOP RIGHT: Order Seal (no background) -->
+    <img class="seal" src="/images/order-seal.png" alt="Order Seal">
+
+    <!-- CENTER: Main welcome content -->
+    <div class="center">
+      <div class="rule"></div>
+
+      <h1 class="title">Welcome to the<br>Templar Forge Academy</h1>
+
+      <div class="divider">✦ ✠ ✦</div>
+
+      <a class="enter-btn" href="/dashboard">Enter the Repository</a>
+
+      <div class="rule"></div>
     </div>
-  </header>
 
-  <main class="wrap page-stack">
-    <section class="panel">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Repository overview</p>
-          <h2>Testing dashboard</h2>
-        </div>
-      </div>
-      <div id="summaryStats" class="stats-grid"></div>
-      <div class="api-list">
-        <a href="/api/health"><code>/api/health</code></a>
-        <a href="/api/curriculum"><code>/api/curriculum</code></a>
-        <a href="/api/resources"><code>/api/resources</code></a>
-      </div>
-    </section>
+    <!-- BOTTOM FOOTER: Order name + trademark -->
+    <footer class="footer">
+      <div class="footer-line"></div>
+      <div class="footer-name">Knights Templar of the Kingdom of Christ</div>
+      <div class="footer-trademark">™ &amp; ® &nbsp;·&nbsp; All Rights Reserved &nbsp;·&nbsp; Est. 2026</div>
+    </footer>
 
-    <section id="programs" class="panel">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Programs</p>
-          <h2>School program sites</h2>
-        </div>
-      </div>
-      <div id="programGroups" class="page-stack"></div>
-    </section>
-
-    <section id="resources" class="panel">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Shared downloads</p>
-          <h2>Resource library</h2>
-        </div>
-      </div>
-      <div id="resourceSections" class="page-stack"></div>
-    </section>
-  </main>
-
-  <script src="/app.js"></script>
+  </div>
 </body>
 </html>
