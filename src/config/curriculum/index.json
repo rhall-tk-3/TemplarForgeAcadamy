@@ -1,0 +1,337 @@
+{
+  "repository": "KTKC School Programs Repository",
+  "generated_from": "website-builder cleaned program bundle",
+  "programs": [
+    {
+      "slug": "levie",
+      "title": "Levie School Program",
+      "phase": "Foundational rank",
+      "siteEntry": "programs/levie/site/index.html",
+      "audience": "Adult",
+      "durationWeeks": 8,
+      "programType": "foundational",
+      "hasReadingLog": true,
+      "hasSyllabus": false,
+      "hasLessonPlan": true,
+      "navAliases": {
+        "weeks": "programs/levie/site/weeks/index.html",
+        "schoolmaster": "programs/levie/site/schoolmaster/index.html"
+      },
+      "sharedResourceKeys": [
+        "curriculum-handbook",
+        "weekly-lesson-plan-packet",
+        "promotion-and-assessment-guide",
+        "attendance-sheets",
+        "oral-review-rubrics",
+        "advancement-checklists",
+        "final-evaluation-forms"
+      ],
+      "resources": [
+        "programs/levie/resources/Levie_School_Lesson_Plan.html",
+        "programs/levie/resources/Levie_Required_Reading_List.html",
+        "programs/levie/resources/levie-student-reading-log.html"
+      ]
+    },
+    {
+      "slug": "squire",
+      "title": "Squire School Program",
+      "phase": "Foundational rank",
+      "siteEntry": "programs/squire/site/index.html",
+      "audience": "Youth",
+      "durationWeeks": 8,
+      "programType": "foundational",
+      "hasReadingLog": false,
+      "hasSyllabus": false,
+      "hasLessonPlan": true,
+      "navAliases": {
+        "weeks": "programs/squire/site/weeks/index.html",
+        "schoolmaster": "programs/squire/site/schoolmaster/index.html"
+      },
+      "sharedResourceKeys": [
+        "curriculum-handbook",
+        "weekly-lesson-plan-packet",
+        "promotion-and-assessment-guide",
+        "attendance-sheets",
+        "oral-review-rubrics",
+        "advancement-checklists",
+        "final-evaluation-forms"
+      ],
+      "resources": [
+        "programs/squire/resources/Squire_School_Lesson_Plan.html",
+        "programs/squire/resources/Squire_Required_Reading_List.html"
+      ]
+    },
+    {
+      "slug": "corporal",
+      "title": "Corporal School Program",
+      "phase": "Rank advancement",
+      "siteEntry": "programs/corporal/site/index.html",
+      "audience": "Adult",
+      "durationWeeks": 8,
+      "programType": "rank-advancement",
+      "hasReadingLog": true,
+      "hasSyllabus": false,
+      "hasLessonPlan": true,
+      "navAliases": {
+        "weeks": "programs/corporal/site/weeks/index.html",
+        "schoolmaster": "programs/corporal/site/schoolmaster/index.html"
+      },
+      "sharedResourceKeys": [
+        "curriculum-handbook",
+        "weekly-lesson-plan-packet",
+        "promotion-and-assessment-guide",
+        "attendance-sheets",
+        "oral-review-rubrics",
+        "advancement-checklists",
+        "final-evaluation-forms"
+      ],
+      "resources": [
+        "programs/corporal/resources/Corporal_School_Lesson_Plan.html",
+        "programs/corporal/resources/corporal-required-reading-list.html",
+        "programs/corporal/resources/corporal-reading-log.html"
+      ]
+    },
+    {
+      "slug": "sergeant",
+      "title": "Sergeant School Program",
+      "phase": "Rank advancement",
+      "siteEntry": "programs/sergeant/site/index.html",
+      "audience": "Adult",
+      "durationWeeks": 8,
+      "programType": "rank-advancement",
+      "hasReadingLog": true,
+      "hasSyllabus": false,
+      "hasLessonPlan": true,
+      "navAliases": {
+        "weeks": "programs/sergeant/site/weeks/index.html",
+        "schoolmaster": "programs/sergeant/site/schoolmaster/index.html"
+      },
+      "sharedResourceKeys": [
+        "curriculum-handbook",
+        "weekly-lesson-plan-packet",
+        "promotion-and-assessment-guide",
+        "attendance-sheets",
+        "oral-review-rubrics",
+        "advancement-checklists",
+        "final-evaluation-forms"
+      ],
+      "resources": [
+        "programs/sergeant/resources/Sergeant_School_Lesson_Plan.html",
+        "programs/sergeant/resources/sergeant-required-reading-list.html",
+        "programs/sergeant/resources/sergeant-reading-log.html"
+      ]
+    },
+    {
+      "slug": "sfc",
+      "title": "Sergeant First Class School Program",
+      "phase": "Rank advancement",
+      "siteEntry": "programs/sfc/site/index.html",
+      "audience": "Adult",
+      "durationWeeks": 8,
+      "programType": "rank-advancement",
+      "hasReadingLog": true,
+      "hasSyllabus": false,
+      "hasLessonPlan": true,
+      "navAliases": {
+        "weeks": "programs/sfc/site/weeks/index.html",
+        "schoolmaster": "programs/sfc/site/schoolmaster/index.html"
+      },
+      "sharedResourceKeys": [
+        "curriculum-handbook",
+        "weekly-lesson-plan-packet",
+        "promotion-and-assessment-guide",
+        "attendance-sheets",
+        "oral-review-rubrics",
+        "advancement-checklists",
+        "final-evaluation-forms"
+      ],
+      "resources": [
+        "programs/sfc/resources/Sergeant_First_Class_School_Lesson_Plan.html",
+        "programs/sfc/resources/sfc-required-reading-list.html",
+        "programs/sfc/resources/sfc-reading-log.html"
+      ]
+    },
+    {
+      "slug": "knight-aspirant",
+      "title": "Knight Aspirant School Program",
+      "phase": "Knight preparation",
+      "siteEntry": "programs/knight-aspirant/site/index.html",
+      "audience": "Adult",
+      "durationWeeks": 8,
+      "programType": "knight-preparation",
+      "hasReadingLog": true,
+      "hasSyllabus": false,
+      "hasLessonPlan": true,
+      "navAliases": {
+        "weeks": "programs/knight-aspirant/site/weeks/index.html",
+        "schoolmaster": "programs/knight-aspirant/site/schoolmaster/index.html"
+      },
+      "sharedResourceKeys": [
+        "curriculum-handbook",
+        "weekly-lesson-plan-packet",
+        "promotion-and-assessment-guide",
+        "attendance-sheets",
+        "oral-review-rubrics",
+        "advancement-checklists",
+        "final-evaluation-forms"
+      ],
+      "resources": [
+        "programs/knight-aspirant/resources/knight-aspirant-school-program-printable.html",
+        "programs/knight-aspirant/resources/knight-aspirant-required-reading-list.html",
+        "programs/knight-aspirant/resources/knight-aspirant-reading-log.html"
+      ]
+    },
+    {
+      "slug": "knight",
+      "title": "Knight School Program",
+      "phase": "Knight formation",
+      "siteEntry": "programs/knight/site/index.html",
+      "audience": "Adult",
+      "durationWeeks": 4,
+      "programType": "knight-formation",
+      "hasReadingLog": true,
+      "hasSyllabus": false,
+      "hasLessonPlan": true,
+      "navAliases": {
+        "weeks": "programs/knight/site/weeks/index.html",
+        "schoolmaster": "programs/knight/site/schoolmaster/index.html"
+      },
+      "sharedResourceKeys": [
+        "curriculum-handbook",
+        "weekly-lesson-plan-packet",
+        "promotion-and-assessment-guide",
+        "attendance-sheets",
+        "oral-review-rubrics",
+        "advancement-checklists",
+        "final-evaluation-forms"
+      ],
+      "resources": [
+        "programs/knight/resources/knight-lesson-plan.html",
+        "programs/knight/resources/knight-required-reading-list.html",
+        "programs/knight/resources/knight-reading-log.html"
+      ]
+    },
+    {
+      "slug": "lieutenant",
+      "title": "Lieutenant School Program",
+      "phase": "Officer Formation Level I",
+      "siteEntry": "programs/lieutenant/site/index.html",
+      "audience": "Adult",
+      "durationWeeks": 12,
+      "programType": "officer-formation",
+      "hasReadingLog": true,
+      "hasSyllabus": true,
+      "hasLessonPlan": true,
+      "navAliases": {
+        "weeks": "programs/lieutenant/site/weeks/index.html",
+        "schoolmaster": "programs/lieutenant/site/schoolmaster/index.html"
+      },
+      "sharedResourceKeys": [
+        "curriculum-handbook",
+        "weekly-lesson-plan-packet",
+        "promotion-and-assessment-guide",
+        "attendance-sheets",
+        "oral-review-rubrics",
+        "advancement-checklists",
+        "final-evaluation-forms"
+      ],
+      "resources": [
+        "programs/lieutenant/resources/Lieutenant_School_Lesson_Plan.html",
+        "programs/lieutenant/site/downloads/Lieutenant_Required_Reading_List.html",
+        "programs/lieutenant/site/downloads/Lieutenant_Reading_Log.html",
+        "programs/lieutenant/site/downloads/Lieutenant_School_Syllabus.pdf"
+      ]
+    },
+    {
+      "slug": "captain",
+      "title": "Captain School Program",
+      "phase": "Officer Formation Level II",
+      "siteEntry": "programs/captain/site/index.html",
+      "audience": "Adult",
+      "durationWeeks": 12,
+      "programType": "officer-formation",
+      "hasReadingLog": false,
+      "hasSyllabus": true,
+      "hasLessonPlan": true,
+      "navAliases": {
+        "weeks": "programs/captain/site/weeks/index.html",
+        "schoolmaster": "programs/captain/site/schoolmaster/index.html"
+      },
+      "sharedResourceKeys": [
+        "curriculum-handbook",
+        "weekly-lesson-plan-packet",
+        "promotion-and-assessment-guide",
+        "attendance-sheets",
+        "oral-review-rubrics",
+        "advancement-checklists",
+        "final-evaluation-forms"
+      ],
+      "resources": [
+        "programs/captain/site/downloads/Captain_School_Syllabus.pdf",
+        "programs/captain/site/downloads/Captain_School_Lesson_Plan.html",
+        "programs/captain/site/downloads/Captain_Required_Reading_List.html"
+      ]
+    },
+    {
+      "slug": "major",
+      "title": "Major School Program",
+      "phase": "Officer Formation Level III",
+      "siteEntry": "programs/major/site/index.html",
+      "audience": "Adult",
+      "durationWeeks": 12,
+      "programType": "officer-formation",
+      "hasReadingLog": true,
+      "hasSyllabus": true,
+      "hasLessonPlan": true,
+      "navAliases": {
+        "weeks": "programs/major/site/weeks/index.html",
+        "schoolmaster": "programs/major/site/schoolmaster/index.html"
+      },
+      "sharedResourceKeys": [
+        "curriculum-handbook",
+        "weekly-lesson-plan-packet",
+        "promotion-and-assessment-guide",
+        "attendance-sheets",
+        "oral-review-rubrics",
+        "advancement-checklists",
+        "final-evaluation-forms"
+      ],
+      "resources": [
+        "programs/major/site/downloads/Major_School_Syllabus.pdf",
+        "programs/major/site/downloads/Major_School_Lesson_Plan.html",
+        "programs/major/site/downloads/Major_Required_Reading_List.html",
+        "programs/major/site/downloads/Major_Reading_Log.html"
+      ]
+    },
+    {
+      "slug": "commander",
+      "title": "Commander School Program",
+      "phase": "Officer Formation Level IV",
+      "siteEntry": "programs/commander/site/index.html",
+      "audience": "Adult",
+      "durationWeeks": 12,
+      "programType": "officer-formation",
+      "hasReadingLog": false,
+      "hasSyllabus": true,
+      "hasLessonPlan": true,
+      "navAliases": {
+        "weeks": "programs/commander/site/weeks/index.html",
+        "schoolmaster": "programs/commander/site/schoolmaster/index.html"
+      },
+      "sharedResourceKeys": [
+        "curriculum-handbook",
+        "weekly-lesson-plan-packet",
+        "promotion-and-assessment-guide",
+        "attendance-sheets",
+        "oral-review-rubrics",
+        "advancement-checklists",
+        "final-evaluation-forms"
+      ],
+      "resources": [
+        "programs/commander/site/downloads/Commander_School_Syllabus.pdf",
+        "programs/commander/site/downloads/Commander_School_Lesson_Plan.html",
+        "programs/commander/site/downloads/Commander_Required_Reading_List.html"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: ktkc-school-programs
+    env: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: ENABLE_RESOURCE_API
+        value: true

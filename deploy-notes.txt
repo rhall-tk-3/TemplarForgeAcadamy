@@ -1,0 +1,27 @@
+Operational deployment checklist
+
+1. Unzip repository
+2. Run: npm install
+3. Run: npm test
+4. Run: npm run verify:deploy
+5. Run: npm run smoke
+6. Run locally: npm start
+7. Open: http://localhost:3000
+8. Confirm these endpoints:
+   - /api/health
+   - /api/curriculum
+   - /api/resources
+9. Confirm shared downloads open:
+   - /resources/core-documents/18-Curriculum-Handbook.pdf
+   - /resources/schoolmaster-forms/26-Fillable-Attendance-Sheets.pdf
+10. Deploy options included:
+   - Render: render.yaml
+   - Docker: Dockerfile
+   - Procfile-compatible hosts: Procfile
+
+Recommended fastest deployment tonight:
+- Push repo to GitHub
+- Import into Render
+- Use npm ci for build and npm start for runtime
+- Confirm /api/health returns status ok
+- Confirm officer alias pages resolve for captain, major, and commander
