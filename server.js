@@ -26,7 +26,13 @@ app.get('/api/programs/:slug', (req, res) => {
   return res.json(program);
 });
 
+// Login / welcome page is the root entry point
 app.get('/', (_req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'login.html'));
+});
+
+// Repository dashboard accessible at /dashboard
+app.get('/dashboard', (_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
