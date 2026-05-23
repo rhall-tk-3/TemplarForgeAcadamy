@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Schoolmaster Dashboard — Templar Forge Academy</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/shared.css">
+  <style>
+    body { background: linear-gradient(180deg, #080008 0%, #050005 100%); }
+
+    .main-content { flex: 1; padding: 32px; max-width: 1100px; margin: 0 auto; width: 100%; }
+
+    .admin-banner {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 24px 28px;
+      background: linear-gradient(135deg, #180010, #0e000a);
+      border: 1px solid #5a0020;
+      border-left: 4px solid #8b0000;
+      border-radius: 14px;
+      margin-bottom: 28px;
+    }
+    .admin-banner img { width: 56px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.9)); }
+    .admin-banner h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #ff9090;
+    }
+    .admin-banner p { color: #8a6060; font-size: 0.95rem; margin-top: 4px; }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #8b3030;
+      margin-bottom: 14px;
+    }
+
+    /* Member table */
+    .member-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+    .member-table th {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #8b3030;
+      padding: 10px 14px;
+      border-bottom: 1px solid #3a0010;
+      text-align: left;
+    }
+    .member-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #200008;
+      color: #c8a8a8;
+      vertical-align: middle;
+    }
+    .member-table tr:hover td { background: rgba(139,0,0,0.08); }
+    .member-table .role-badge {
+      display: inline-flex;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .member-table .role-member { background: rgba(201,162,39,0.12); border: 1px solid #c9a227; color: #e8c96a; }
+    .member-table .role-admin  { background: rgba(139,0,0,0.2);     border: 1px solid #8b0000;  color: #ff9090; }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .stat-box {
+      background: linear-gradient(135deg, #180010, #0e0008);
+      border: 1px solid #3a0010;
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+    }
+    .stat-box .num {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: #c92727;
+      display: block;
+    }
+    .stat-box .lbl { font-size: 0.82rem; color: #6a3030; margin-top: 4px; }
+
+    .admin-card {
+      background: linear-gradient(160deg, #180010, #0e0008);
+      border: 1px solid #3a0010;
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .api-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      background: #0a0005;
+      border: 1px solid #3a0010;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 0.82rem;
+      color: #c92727;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .api-link:hover { border-color: #8b0000; color: #ff9090; }
+
+    /* Override topbar for admin */
+    .topbar { background: linear-gradient(180deg, rgba(10,0,5,0.96) 0%, rgba(20,0,10,0.9) 100%); border-bottom-color: #3a0010; }
+    .topbar-brand-text { color: #ff9090; }
+    .topbar-brand-sub  { color: #8b3030; }
+    .topbar-nav a      { color: #c92727; }
+    .topbar-nav a:hover { border-color: #c92727; color: #ff9090; }
+    .topbar-nav a.btn-nav { background: linear-gradient(135deg, #8b0000, #5a0000); color: #ffcccc; }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <!-- TOP BAR -->
+    <nav class="topbar">
+      <a class="topbar-brand" href="/">
+        <img src="/images/order-seal.png" alt="Seal" style="height:48px;">
+        <div>
+          <div class="topbar-brand-text">Schoolmaster Command</div>
+          <div class="topbar-brand-sub">Admin Access — Templar Forge Academy</div>
+        </div>
+      </a>
+      <div class="topbar-nav">
+        <span id="nav-greeting" style="font-family:'Cinzel',serif;font-size:0.82rem;color:#8b3030;"></span>
+        <a href="/auth/logout" class="btn-nav">Sign Out</a>
+      </div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+      <!-- Admin banner -->
+      <div class="admin-banner">
+        <img src="/images/order-seal.png" alt="Seal">
+        <div>
+          <h2>✠ Schoolmaster Dashboard</h2>
+          <p id="admin-welcome">Administrative access — Templar Forge Academy</p>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stat-row">
+        <div class="stat-box">
+          <span class="num" id="stat-members">—</span>
+          <div class="lbl">Registered Members</div>
+        </div>
+        <div class="stat-box">
+          <span class="num">11</span>
+          <div class="lbl">Active Programs</div>
+        </div>
+        <div class="stat-box">
+          <span class="num">7</span>
+          <div class="lbl">Shared Documents</div>
+        </div>
+        <div class="stat-box">
+          <span class="num" id="stat-api" style="font-size:1.2rem;padding-top:4px;">OK</span>
+          <div class="lbl">API Status</div>
+        </div>
+      </div>
+
+      <div class="gold-rule" style="background:linear-gradient(90deg,transparent,#8b0000,#c9a227,#8b0000,transparent);"></div>
+
+      <!-- Member roster -->
+      <div style="margin-bottom:28px;">
+        <div class="section-title">✠ Member Roster</div>
+        <div class="admin-card">
+          <table class="member-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Salutation</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Joined</th>
+              </tr>
+            </thead>
+            <tbody id="member-tbody">
+              <tr><td colspan="5" style="color:#4a1020;text-align:center;padding:20px;">Loading roster…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="gold-rule" style="background:linear-gradient(90deg,transparent,#8b0000,#c9a227,#8b0000,transparent);"></div>
+
+      <!-- Curriculum overview -->
+      <div style="margin-bottom:28px;">
+        <div class="section-title">⚔ Curriculum Programs</div>
+        <div class="dash-grid" id="program-grid">
+          <div style="color:#4a1020;font-size:0.9rem;">Loading…</div>
+        </div>
+      </div>
+
+      <div class="gold-rule" style="background:linear-gradient(90deg,transparent,#8b0000,#c9a227,#8b0000,transparent);"></div>
+
+      <!-- API links -->
+      <div>
+        <div class="section-title">⚙ Repository API</div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;">
+          <a class="api-link" href="/api/health" target="_blank">/api/health</a>
+          <a class="api-link" href="/api/curriculum" target="_blank">/api/curriculum</a>
+          <a class="api-link" href="/api/resources" target="_blank">/api/resources</a>
+          <a class="api-link" href="/api/curriculum/phases" target="_blank">/api/curriculum/phases</a>
+          <a class="api-link" href="/admin/members" target="_blank">/admin/members</a>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    // Guard — must be admin
+    fetch('/auth/me')
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(user => {
+        if (user.role !== 'admin') { window.location.href = '/member'; return; }
+        document.getElementById('nav-greeting').textContent = `Schoolmaster ${user.username}`;
+        document.getElementById('admin-welcome').textContent =
+          `Signed in as Schoolmaster ${user.username} — full administrative access`;
+      })
+      .catch(() => { window.location.href = '/login'; });
+
+    // API health
+    fetch('/api/health').then(r => r.json()).then(d => {
+      document.getElementById('stat-api').textContent = d.status.toUpperCase();
+    });
+
+    // Member roster
+    fetch('/admin/members')
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(data => {
+        document.getElementById('stat-members').textContent = data.members.length;
+        const tbody = document.getElementById('member-tbody');
+        if (!data.members.length) {
+          tbody.innerHTML = '<tr><td colspan="5" style="color:#4a1020;text-align:center;padding:20px;">No members yet</td></tr>';
+          return;
+        }
+        tbody.innerHTML = data.members.map((m, i) => `
+          <tr>
+            <td style="color:#4a1020;">${i + 1}</td>
+            <td>${m.salutation || '—'}</td>
+            <td style="color:#e8c8a8;font-family:'Cinzel',serif;">${m.username}</td>
+            <td><span class="role-badge ${m.role === 'admin' ? 'role-admin' : 'role-member'}">${m.role}</span></td>
+            <td style="color:#4a1020;font-size:0.82rem;">${new Date(m.createdAt).toLocaleDateString()}</td>
+          </tr>
+        `).join('');
+      })
+      .catch(() => {
+        document.getElementById('member-tbody').innerHTML =
+          '<tr><td colspan="5" style="color:#4a1020;text-align:center;">Could not load roster</td></tr>';
+      });
+
+    // Programs
+    fetch('/api/curriculum').then(r => r.json()).then(data => {
+      document.getElementById('program-grid').innerHTML = data.programs.map(p => `
+        <div class="dash-card" style="background:linear-gradient(160deg,#180010,#0e0008);border-color:#3a0010;">
+          <h3 style="color:#ff9090;">${p.title}</h3>
+          <p style="color:#6a3030;">${p.phase} · ${p.durationLabel}</p>
+          <div style="margin-top:10px;">
+            <a href="/${p.siteEntry}" style="color:#c92727;font-family:'Cinzel',serif;font-size:0.78rem;">Open Site →</a>
+          </div>
+        </div>
+      `).join('');
+    });
+  </script>
+</body>
+</html>

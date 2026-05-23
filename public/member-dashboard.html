@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Member Dashboard — Templar Forge Academy</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/shared.css">
+  <style>
+    body { background: linear-gradient(180deg, #0e0800 0%, #080500 100%); }
+
+    .main-content { flex: 1; padding: 32px; max-width: 1100px; margin: 0 auto; width: 100%; }
+
+    .welcome-banner {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 24px 28px;
+      background: linear-gradient(135deg, #1e1208, #130c04);
+      border: 1px solid #3a2408;
+      border-left: 4px solid #c9a227;
+      border-radius: 14px;
+      margin-bottom: 28px;
+    }
+    .welcome-banner img { width: 56px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.8)); }
+    .welcome-banner h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #e8c96a;
+    }
+    .welcome-banner p { color: #9a8060; font-size: 0.95rem; margin-top: 4px; }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #8b6530;
+      margin-bottom: 14px;
+    }
+
+    .program-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      background: linear-gradient(135deg, #1a1006, #100a02);
+      border: 1px solid #2a1a06;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #c9a84c;
+      font-family: 'Cinzel', serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      margin-bottom: 10px;
+    }
+    .program-link:hover {
+      border-color: #c9a227;
+      color: #e8c96a;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    }
+    .program-link .arrow { opacity: 0.5; }
+    .program-link:hover .arrow { opacity: 1; }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .stat-box {
+      background: linear-gradient(135deg, #1a1006, #100a02);
+      border: 1px solid #2a1a06;
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+    }
+    .stat-box .num {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: #c9a227;
+      display: block;
+    }
+    .stat-box .lbl { font-size: 0.82rem; color: #6a5030; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <!-- TOP BAR -->
+    <nav class="topbar">
+      <a class="topbar-brand" href="/">
+        <img src="/images/order-crest.png" alt="Crest">
+        <div>
+          <div class="topbar-brand-text">Templar Forge Academy</div>
+          <div class="topbar-brand-sub">Member Portal</div>
+        </div>
+      </a>
+      <div class="topbar-nav">
+        <span id="nav-greeting" style="font-family:'Cinzel',serif;font-size:0.82rem;color:#8b6530;"></span>
+        <a href="/auth/logout" class="btn-nav">Sign Out</a>
+      </div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+      <!-- Welcome banner -->
+      <div class="welcome-banner">
+        <img src="/images/order-seal.png" alt="Seal">
+        <div>
+          <h2 id="welcome-heading">Welcome, Brother</h2>
+          <p>You are signed into the Templar Forge Academy member portal.</p>
+        </div>
+      </div>
+
+      <!-- Stats row -->
+      <div class="stat-row">
+        <div class="stat-box">
+          <span class="num">11</span>
+          <div class="lbl">Programs Available</div>
+        </div>
+        <div class="stat-box">
+          <span class="num">7</span>
+          <div class="lbl">Shared Documents</div>
+        </div>
+        <div class="stat-box">
+          <span class="num" id="stat-phase">—</span>
+          <div class="lbl">Your Phase</div>
+        </div>
+      </div>
+
+      <div class="gold-rule"></div>
+
+      <!-- School Programs -->
+      <div style="margin-bottom:28px;">
+        <div class="section-title">✠ School Programs</div>
+        <div id="program-links">
+          <div style="color:#4a3010;font-size:0.9rem;">Loading programs…</div>
+        </div>
+      </div>
+
+      <div class="gold-rule"></div>
+
+      <!-- Resource Library -->
+      <div>
+        <div class="section-title">⚔ Shared Resource Library</div>
+        <div class="dash-grid" id="resource-grid">
+          <div style="color:#4a3010;font-size:0.9rem;">Loading resources…</div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    // Load session info
+    fetch('/auth/me')
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(user => {
+        const greeting = `${user.salutation} ${user.username}`;
+        document.getElementById('welcome-heading').textContent = `Welcome, ${greeting}`;
+        document.getElementById('nav-greeting').textContent = greeting;
+        document.getElementById('stat-phase').textContent = 'Active';
+      })
+      .catch(() => { window.location.href = '/login'; });
+
+    // Load programs
+    fetch('/api/curriculum')
+      .then(r => r.json())
+      .then(data => {
+        const container = document.getElementById('program-links');
+        container.innerHTML = data.programs.map(p => `
+          <a class="program-link" href="/${p.siteEntry}">
+            <span>✠ ${p.title}</span>
+            <span class="arrow">→</span>
+          </a>
+        `).join('');
+      });
+
+    // Load resources
+    fetch('/api/resources')
+      .then(r => r.json())
+      .then(data => {
+        const container = document.getElementById('resource-grid');
+        container.innerHTML = data.sections.map(section => `
+          <div class="dash-card">
+            <div class="card-icon">📜</div>
+            <h3>${section.title}</h3>
+            <p>${section.description}</p>
+            <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px;">
+              ${section.items.map(item => `
+                <a href="${item.path}" target="_blank"
+                   style="color:#c9a84c;font-size:0.88rem;text-decoration:none;font-family:'Cinzel',serif;">
+                  ↓ ${item.title}
+                </a>
+              `).join('')}
+            </div>
+          </div>
+        `).join('');
+      });
+  </script>
+</body>
+</html>

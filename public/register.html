@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create Account — Templar Forge Academy</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/shared.css">
+  <style>
+    body {
+      background:
+        radial-gradient(ellipse at top, rgba(80,40,0,0.35) 0%, transparent 60%),
+        linear-gradient(180deg, #0e0800 0%, #080500 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+    .auth-box { width: 100%; max-width: 440px; }
+
+    .auth-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .auth-header img {
+      width: 90px;
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.8));
+      margin-bottom: 14px;
+    }
+    .auth-header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #e8c96a;
+      text-shadow: 0 2px 0 rgba(0,0,0,0.9), 0 4px 12px rgba(0,0,0,0.7);
+    }
+    .auth-header p { color: #7a6040; font-size: 0.95rem; margin-top: 6px; }
+
+    .auth-card { padding: 32px 28px; }
+    .form-stack { display: flex; flex-direction: column; gap: 20px; }
+
+    .form-footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #6a5030;
+    }
+    .form-footer a {
+      color: #c9a84c;
+      text-decoration: none;
+      font-family: 'Cinzel', serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .form-footer a:hover { color: #e8c96a; text-decoration: underline; }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 22px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #4a3010;
+      text-decoration: none;
+    }
+    .back-link:hover { color: #7a6030; }
+
+    .oath-text {
+      font-size: 0.85rem;
+      color: #6a5030;
+      text-align: center;
+      line-height: 1.6;
+      border: 1px solid #2a1a06;
+      border-radius: 8px;
+      padding: 12px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-box">
+
+    <div class="auth-header">
+      <img src="/images/order-crest.png" alt="Order Crest">
+      <h1>Join the Order</h1>
+      <p>Create your member account</p>
+    </div>
+
+    <div class="card auth-card">
+
+      <div id="alert" class="alert"></div>
+
+      <form class="form-stack" id="register-form" onsubmit="handleRegister(event)">
+
+        <!-- Brother / Sister -->
+        <div class="form-group">
+          <label>I am a</label>
+          <div class="sex-toggle">
+            <input type="radio" name="salutation" id="brother" value="Brother" checked>
+            <label for="brother">⚔ Brother</label>
+            <input type="radio" name="salutation" id="sister" value="Sister">
+            <label for="sister">✦ Sister</label>
+          </div>
+        </div>
+
+        <!-- Name -->
+        <div class="form-group">
+          <label for="username">Name</label>
+          <input type="text" id="username" name="username" placeholder="name" autocomplete="username" required>
+        </div>
+
+        <!-- Passcode -->
+        <div class="form-group">
+          <label for="password">Passcode</label>
+          <input type="password" id="password" name="password" placeholder="passcode" autocomplete="new-password" required>
+        </div>
+
+        <!-- Confirm Passcode -->
+        <div class="form-group">
+          <label for="confirm">Confirm Passcode</label>
+          <input type="password" id="confirm" name="confirm" placeholder="confirm passcode" required>
+        </div>
+
+        <p class="oath-text">
+          "I seek entrance to the Forge in service, honor, and truth."
+        </p>
+
+        <button type="submit" class="btn-primary">Create Account</button>
+
+      </form>
+
+      <div class="form-footer">
+        Already have an account? <a href="/login">Sign In</a>
+      </div>
+
+    </div>
+
+    <a class="back-link" href="/">← Return to the Gates</a>
+
+  </div>
+
+  <script>
+    function showAlert(msg, type) {
+      const el = document.getElementById('alert');
+      el.textContent = msg;
+      el.className = 'alert ' + type;
+    }
+
+    async function handleRegister(e) {
+      e.preventDefault();
+      const username   = document.getElementById('username').value.trim();
+      const password   = document.getElementById('password').value;
+      const confirm    = document.getElementById('confirm').value;
+      const salutation = document.querySelector('input[name="salutation"]:checked').value;
+
+      if (password !== confirm) {
+        showAlert('Passcodes do not match.', 'error');
+        return;
+      }
+      if (password.length < 4) {
+        showAlert('Passcode must be at least 4 characters.', 'error');
+        return;
+      }
+
+      const res = await fetch('/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password, salutation })
+      });
+      const data = await res.json();
+
+      if (res.ok) {
+        showAlert('Account created! Redirecting…', 'success');
+        setTimeout(() => { window.location.href = data.redirect; }, 1200);
+      } else {
+        showAlert(data.error || 'Registration failed.', 'error');
+      }
+    }
+  </script>
+</body>
+</html>

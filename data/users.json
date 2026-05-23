@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1000000000000",
+    "username": "Schoolmaster",
+    "salutation": null,
+    "role": "admin",
+    "password": "$2b$10$CyN.RxiXboBVaLjrl81AHusdWfMCguKoEBkNV4kUQyWHZTpmbrS.y",
+    "createdAt": "2026-05-23T08:15:02.951Z"
+  },
+  {
+    "id": "1779524149727",
+    "username": "TestBrother",
+    "salutation": "Brother",
+    "role": "member",
+    "password": "$2b$10$.HwZy5KV.GREOGhmp26r1uXK1Es5GUbHsJfbjLUwiUSNWgkMFewZ6",
+    "createdAt": "2026-05-23T08:15:49.727Z"
+  }
+]

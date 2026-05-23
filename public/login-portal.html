@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign In — Templar Forge Academy</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/shared.css">
+  <style>
+    body {
+      background:
+        radial-gradient(ellipse at top, rgba(80,40,0,0.35) 0%, transparent 60%),
+        linear-gradient(180deg, #0e0800 0%, #080500 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+
+    .auth-box {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    /* Header above card */
+    .auth-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .auth-header img {
+      width: 100px;
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.8));
+      margin-bottom: 16px;
+    }
+    .auth-header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #e8c96a;
+      text-shadow: 0 2px 0 rgba(0,0,0,0.9), 0 4px 12px rgba(0,0,0,0.7);
+    }
+    .auth-header p {
+      color: #7a6040;
+      font-size: 0.95rem;
+      margin-top: 6px;
+      letter-spacing: 0.06em;
+    }
+
+    /* Card */
+    .auth-card {
+      padding: 32px 28px;
+    }
+
+    .form-stack { display: flex; flex-direction: column; gap: 20px; }
+
+    /* Tabs: Member / Admin */
+    .role-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid #3a2408;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 4px;
+    }
+    .role-tab {
+      padding: 12px;
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #6a5030;
+      background: #0a0600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .role-tab.active {
+      background: linear-gradient(135deg, #2a1a05, #1a0e02);
+      color: #e8c96a;
+      box-shadow: inset 0 -2px 0 #c9a227;
+    }
+    .role-tab:first-child { border-right: 1px solid #3a2408; }
+
+    .form-footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #6a5030;
+    }
+    .form-footer a {
+      color: #c9a84c;
+      text-decoration: none;
+      font-family: 'Cinzel', serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .form-footer a:hover { color: #e8c96a; text-decoration: underline; }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 22px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #4a3010;
+      text-decoration: none;
+    }
+    .back-link:hover { color: #7a6030; }
+
+    /* Admin field hidden by default */
+    #admin-key-group { display: none; }
+  </style>
+</head>
+<body>
+  <div class="auth-box">
+
+    <div class="auth-header">
+      <img src="/images/order-crest.png" alt="Order Crest">
+      <h1>Enter the Forge</h1>
+      <p>Sign in to your account</p>
+    </div>
+
+    <div class="card auth-card">
+
+      <!-- Role selector tabs -->
+      <div class="role-tabs">
+        <button class="role-tab active" id="tab-member" onclick="setRole('member')">⚔ Member</button>
+        <button class="role-tab" id="tab-admin"  onclick="setRole('admin')">✠ Schoolmaster</button>
+      </div>
+
+      <div id="alert" class="alert"></div>
+
+      <form class="form-stack" id="login-form" onsubmit="handleLogin(event)">
+
+        <!-- Brother / Sister toggle (members only) -->
+        <div class="form-group" id="salutation-group">
+          <label>I am a</label>
+          <div class="sex-toggle">
+            <input type="radio" name="salutation" id="brother" value="Brother" checked>
+            <label for="brother">⚔ Brother</label>
+            <input type="radio" name="salutation" id="sister" value="Sister">
+            <label for="sister">✦ Sister</label>
+          </div>
+        </div>
+
+        <!-- Name -->
+        <div class="form-group">
+          <label for="username">Name</label>
+          <input type="text" id="username" name="username" placeholder="name" autocomplete="username" required>
+        </div>
+
+        <!-- Passcode -->
+        <div class="form-group">
+          <label for="password">Passcode</label>
+          <input type="password" id="password" name="password" placeholder="passcode" autocomplete="current-password" required>
+        </div>
+
+        <!-- Admin key (schoolmaster only) -->
+        <div class="form-group" id="admin-key-group">
+          <label for="admin-key">Schoolmaster Key</label>
+          <input type="password" id="admin-key" name="adminKey" placeholder="master key">
+        </div>
+
+        <button type="submit" class="btn-primary">Sign In</button>
+
+      </form>
+
+      <div class="form-footer">
+        No account yet? <a href="/register">Create Account</a>
+      </div>
+
+    </div>
+
+    <a class="back-link" href="/">← Return to the Gates</a>
+
+  </div>
+
+  <script>
+    let currentRole = 'member';
+
+    function setRole(role) {
+      currentRole = role;
+      document.getElementById('tab-member').classList.toggle('active', role === 'member');
+      document.getElementById('tab-admin').classList.toggle('active',  role === 'admin');
+      document.getElementById('salutation-group').style.display = role === 'member' ? '' : 'none';
+      document.getElementById('admin-key-group').style.display  = role === 'admin'  ? '' : 'none';
+      clearAlert();
+    }
+
+    function showAlert(msg, type) {
+      const el = document.getElementById('alert');
+      el.textContent = msg;
+      el.className = 'alert ' + type;
+    }
+    function clearAlert() {
+      const el = document.getElementById('alert');
+      el.className = 'alert';
+      el.textContent = '';
+    }
+
+    async function handleLogin(e) {
+      e.preventDefault();
+      clearAlert();
+
+      const username  = document.getElementById('username').value.trim();
+      const password  = document.getElementById('password').value;
+      const adminKey  = document.getElementById('admin-key').value;
+      const salutation = currentRole === 'member'
+        ? document.querySelector('input[name="salutation"]:checked').value
+        : null;
+
+      const res = await fetch('/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password, adminKey, salutation, role: currentRole })
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        window.location.href = data.redirect;
+      } else {
+        showAlert(data.error || 'Sign in failed.', 'error');
+      }
+    }
+  </script>
+</body>
+</html>

@@ -15,7 +15,9 @@
     "setup:prod": "sh scripts/setup-production.sh"
   },
   "dependencies": {
-    "express": "^4.21.2"
+    "bcryptjs": "^3.0.3",
+    "express": "^4.21.2",
+    "express-session": "^1.19.0"
   },
   "engines": {
     "node": ">=18"
