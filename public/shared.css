@@ -6,7 +6,12 @@ html, body { width: 100%; min-height: 100%; }
 
 body {
   font-family: 'Crimson Text', Georgia, serif;
-  background: #0e0800;
+  background-color: #000;
+  background-image: url('/images/templar-cross.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  background-attachment: fixed;
   color: #e8d9b8;
 }
 
