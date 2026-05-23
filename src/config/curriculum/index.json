@@ -3,6 +3,35 @@
   "generated_from": "website-builder cleaned program bundle",
   "programs": [
     {
+      "slug": "squire",
+      "title": "Squire School Program",
+      "phase": "Foundational rank",
+      "siteEntry": "programs/squire/site/index.html",
+      "audience": "Youth",
+      "durationWeeks": 8,
+      "programType": "foundational",
+      "hasReadingLog": false,
+      "hasSyllabus": false,
+      "hasLessonPlan": true,
+      "navAliases": {
+        "weeks": "programs/squire/site/weeks/index.html",
+        "schoolmaster": "programs/squire/site/schoolmaster/index.html"
+      },
+      "sharedResourceKeys": [
+        "curriculum-handbook",
+        "weekly-lesson-plan-packet",
+        "promotion-and-assessment-guide",
+        "attendance-sheets",
+        "oral-review-rubrics",
+        "advancement-checklists",
+        "final-evaluation-forms"
+      ],
+      "resources": [
+        "programs/squire/resources/Squire_School_Lesson_Plan.html",
+        "programs/squire/resources/Squire_Required_Reading_List.html"
+      ]
+    },
+    {
       "slug": "levie",
       "title": "Levie School Program",
       "phase": "Foundational rank",
@@ -30,35 +59,6 @@
         "programs/levie/resources/Levie_School_Lesson_Plan.html",
         "programs/levie/resources/Levie_Required_Reading_List.html",
         "programs/levie/resources/levie-student-reading-log.html"
-      ]
-    },
-    {
-      "slug": "squire",
-      "title": "Squire School Program",
-      "phase": "Foundational rank",
-      "siteEntry": "programs/squire/site/index.html",
-      "audience": "Youth",
-      "durationWeeks": 8,
-      "programType": "foundational",
-      "hasReadingLog": false,
-      "hasSyllabus": false,
-      "hasLessonPlan": true,
-      "navAliases": {
-        "weeks": "programs/squire/site/weeks/index.html",
-        "schoolmaster": "programs/squire/site/schoolmaster/index.html"
-      },
-      "sharedResourceKeys": [
-        "curriculum-handbook",
-        "weekly-lesson-plan-packet",
-        "promotion-and-assessment-guide",
-        "attendance-sheets",
-        "oral-review-rubrics",
-        "advancement-checklists",
-        "final-evaluation-forms"
-      ],
-      "resources": [
-        "programs/squire/resources/Squire_School_Lesson_Plan.html",
-        "programs/squire/resources/Squire_Required_Reading_List.html"
       ]
     },
     {

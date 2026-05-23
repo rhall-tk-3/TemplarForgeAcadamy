@@ -1,11 +1,11 @@
 [
   {
     "id": "1000000000000",
-    "username": "Schoolmaster",
+    "username": "Schoolmaster26",
     "salutation": null,
     "role": "admin",
-    "password": "$2b$10$CyN.RxiXboBVaLjrl81AHusdWfMCguKoEBkNV4kUQyWHZTpmbrS.y",
-    "createdAt": "2026-05-23T08:15:02.951Z"
+    "password": "$2b$12$kq.5SOuuNUBVRtVQZkzV8OSqqtx6dTr/nvk.stj92FjMoRVS.ERD2",
+    "createdAt": "2026-05-23T08:49:48.964Z"
   },
   {
     "id": "1779524149727",
@@ -13,6 +13,55 @@
     "salutation": "Brother",
     "role": "member",
     "password": "$2b$10$.HwZy5KV.GREOGhmp26r1uXK1Es5GUbHsJfbjLUwiUSNWgkMFewZ6",
-    "createdAt": "2026-05-23T08:15:49.727Z"
+    "createdAt": "2026-05-23T08:15:49.727Z",
+    "assignedProgram": null,
+    "programAssignedAt": null,
+    "programHistory": [],
+    "currentWeek": null,
+    "examSubmissions": [],
+    "progressNotes": [],
+    "temple": null,
+    "email": null,
+    "phone": null,
+    "photoPath": null,
+    "unlockedSlugs": [],
+    "birthday": null,
+    "rank": null,
+    "rankName": null,
+    "rankAssignedAt": null,
+    "rankHistory": [],
+    "programStatus": "active",
+    "statusNote": null,
+    "statusChangedAt": null
+  },
+  {
+    "id": "1779525248778",
+    "username": "Ryan",
+    "salutation": "Brother",
+    "role": "member",
+    "password": "$2b$10$NOM58Htm27jZ2RVmY5yHLej85y60nFE9v2JOZmKusH9RjqEDGVTBK",
+    "createdAt": "2026-05-23T08:34:08.778Z",
+    "assignedProgram": "levie",
+    "programAssignedAt": "2026-05-23T08:52:11.454Z",
+    "programHistory": [],
+    "currentWeek": 1,
+    "examSubmissions": [],
+    "progressNotes": [],
+    "temple": "Georgia",
+    "email": "rhall@tkkc.info",
+    "phone": "14782326293",
+    "photoPath": "/uploads/1779525248778-1779528660601.jpg",
+    "unlockedSlugs": [
+      "levie",
+      "squire"
+    ],
+    "birthday": "1993-03-05",
+    "rank": null,
+    "rankName": null,
+    "rankAssignedAt": null,
+    "rankHistory": [],
+    "programStatus": "active",
+    "statusNote": null,
+    "statusChangedAt": null
   }
 ]

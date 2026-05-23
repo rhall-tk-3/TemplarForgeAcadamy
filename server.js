@@ -6,7 +6,9 @@ const curriculumController      = require('./src/controllers/curriculumControlle
 const healthController          = require('./src/controllers/healthController');
 const repositoryResourceController = require('./src/controllers/repositoryResourceController');
 const authRouter                = require('./src/auth/authRouter');
-const { getAllUsers }            = require('./src/auth/userStore');
+const progressionRouter         = require('./src/auth/progressionRouter');
+const profileRouter             = require('./src/auth/profileRouter');
+const { getAllUsers, seedSchoolmaster } = require('./src/auth/userStore');
 
 const app  = express();
 const PORT = process.env.PORT || 3000;
@@ -32,9 +34,11 @@ function requireAdmin(req, res, next) {
 }
 
 // ── API ROUTES ──
-app.use('/api/health',    healthController.router);
-app.use('/api/curriculum', curriculumController.router);
-app.use('/api/resources',  repositoryResourceController.router);
+app.use('/api/health',      healthController.router);
+app.use('/api/curriculum',  curriculumController.router);
+app.use('/api/resources',   repositoryResourceController.router);
+app.use('/api/progression', progressionRouter);
+app.use('/api/profile',     profileRouter);
 
 app.get('/api/programs', (_req, res) => {
   res.json({ programs: getCurriculumIndex() });
@@ -54,46 +58,55 @@ app.get('/admin/members', requireAdmin, (_req, res) => {
 });
 
 // ── PAGE ROUTES ──
-// Landing / welcome page
 app.get('/', (_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
-
-// Login page
 app.get('/login', (_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'login-portal.html'));
 });
-
-// Register page
 app.get('/register', (_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'register.html'));
 });
-
-// Member dashboard (protected)
 app.get('/member', requireMember, (req, res) => {
   if (req.session.role === 'admin') return res.redirect('/schoolmaster');
   res.sendFile(path.join(__dirname, 'public', 'member-dashboard.html'));
 });
-
-// Schoolmaster / Admin dashboard (protected, admin only)
+app.get('/profile', requireMember, (req, res) => {
+  if (req.session.role === 'admin') return res.redirect('/schoolmaster');
+  res.sendFile(path.join(__dirname, 'public', 'member-profile.html'));
+});
 app.get('/schoolmaster', requireAdmin, (_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'schoolmaster-dashboard.html'));
 });
-
-// Repository dashboard (legacy)
+app.get('/lesson', requireMember, (req, res) => {
+  if (req.session.role === 'admin') return res.redirect('/schoolmaster');
+  res.sendFile(path.join(__dirname, 'public', 'lesson.html'));
+});
+// Legacy
 app.get('/dashboard', (_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
 });
 
-// ── STATIC FILES (after routes so /index.html doesn't hijack /) ──
+// ── STATIC FILES ──
+app.use('/uploads', express.static(path.join(__dirname, 'data', 'uploads')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// ── START ──
-if (require.main === module) {
-  app.listen(PORT, () => {
-    console.log(`KTKC Templar Forge Academy running on http://localhost:${PORT}`);
-    console.log(`Admin key: ${process.env.ADMIN_KEY || 'forge-master-2026'}`);
-  });
+// ── BOOT ──
+async function start() {
+  // Seed / sync the one Schoolmaster account
+  await seedSchoolmaster();
+  console.log(`✠ Schoolmaster account ready: ${process.env.SM_USERNAME || 'Schoolmaster26'}`);
+
+  if (require.main === module) {
+    app.listen(PORT, () => {
+      console.log(`KTKC Templar Forge Academy running on http://localhost:${PORT}`);
+    });
+  }
 }
+
+start().catch(err => {
+  console.error('Startup error:', err);
+  process.exit(1);
+});
 
 module.exports = app;

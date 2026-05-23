@@ -1,0 +1,463 @@
+{
+  "slug": "captain",
+  "title": "Captain School Program",
+  "description": "Officer Formation Level II. Functional area leadership, strategic planning, resources, partnerships, and excellence culture.",
+  "weeks": [
+    {
+      "week": 1,
+      "title": "The Captain's Mandate: Leading Functional Areas",
+      "objectives": [
+        "Understand the Captain's expanded scope across functional areas",
+        "Identify the functional areas typically under a Captain's authority",
+        "Design a simple organizational chart for your area of responsibility"
+      ],
+      "lesson": "A Captain in the Order is responsible not for a single program but for a functional area \u2014 training, community service, administration, or finance. This is a shift from managing projects to managing systems. The Captain asks not 'How do I run this event?' but 'How do I build and maintain the infrastructure that allows events to run well consistently?' The Captain's mandate includes: setting the standards for all programs in their area; selecting and forming the officers who report to them; monitoring performance across multiple programs simultaneously; and representing their functional area's needs to the commanding officer. The Templar Order's equivalent structure assigned Commanders to geographic regions \u2014 responsible not just for what was happening today but for the overall health of the Order's presence in an entire territory. A Captain who is still operating as a Lieutenant \u2014 managing one thing at a time, personally involved in every detail \u2014 has not made the transition their rank demands.",
+      "keyTerms": [
+        {
+          "term": "Functional Area",
+          "definition": "A cluster of related programs and responsibilities under a single officer's authority"
+        },
+        {
+          "term": "Infrastructure",
+          "definition": "The systems, standards, and trained people that allow programs to function reliably"
+        },
+        {
+          "term": "Captain's Mandate",
+          "definition": "Responsibility for the health of an entire functional area, not just specific projects within it"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What is the difference between a Lieutenant's and a Captain's scope of responsibility?",
+          "type": "short"
+        },
+        {
+          "question": "What does 'managing infrastructure' mean versus 'managing projects'?",
+          "type": "short"
+        },
+        {
+          "question": "Draw a simple organizational chart for your functional area. Who reports to you? Who do you report to?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "title": "Developing Officers: The Captain's Primary Investment",
+      "objectives": [
+        "Understand why developing other officers is the Captain's most important work",
+        "Learn the officer development cycle",
+        "Apply the cycle to two officers currently under your authority"
+      ],
+      "lesson": "The Captain's most important work is not any program or event \u2014 it is the development of the officers who report to them. A Captain who is the best officer in their area but has not developed their subordinate officers has failed at the essential task. The officer development cycle has four stages: (1) Assign \u2014 give the officer a specific responsibility with clear goals and a timeline. (2) Coach \u2014 meet regularly to discuss progress, remove obstacles, and provide honest feedback. (3) Assess \u2014 evaluate performance against the original goals, not against a vague sense of satisfaction. (4) Stretch \u2014 give the officer something harder and more significant than what they have done before. This cycle, repeated consistently, produces officers capable of operating without constant supervision \u2014 the only kind of officer worth having. A Captain who skips coaching will get compliance but not growth. One who skips assessment will give feedback that cannot be taken seriously because it has no objective basis.",
+      "keyTerms": [
+        {
+          "term": "Officer Development Cycle",
+          "definition": "Assign, Coach, Assess, Stretch \u2014 the four-stage process for developing officers under your authority"
+        },
+        {
+          "term": "Coaching",
+          "definition": "Regular conversation between an officer and their superior focused on current work, obstacles, and growth"
+        },
+        {
+          "term": "Stretch Assignment",
+          "definition": "A responsibility given to develop a leader beyond their current demonstrated capacity"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Name and define the four stages of the officer development cycle.",
+          "type": "short"
+        },
+        {
+          "question": "What is the result of skipping the coaching stage?",
+          "type": "short"
+        },
+        {
+          "question": "Apply the officer development cycle to one officer currently under your authority. Write out each stage.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "title": "Strategic Planning for the Order's Future",
+      "objectives": [
+        "Understand the Captain's role in multi-year strategic planning",
+        "Learn the components of a simple strategic plan",
+        "Develop a three-year plan for one functional area"
+      ],
+      "lesson": "Strategic planning is not a luxury for large organizations \u2014 it is the discipline that separates organizations that drift from those that grow with intention. A Captain must be able to think three to five years ahead and ask: Where is this functional area currently? Where should it be in three years? What specific changes need to happen to get there? The components of a simple strategic plan are: (1) Current state assessment \u2014 honest description of what is working and what is not. (2) Vision \u2014 a clear picture of what success looks like in three years. (3) Strategic priorities \u2014 the three to five most important things that must change or grow. (4) Action steps \u2014 specific, dated actions assigned to specific people. (5) Metrics \u2014 how will we know we are making progress? The Templar Order's multi-decade operations across multiple continents were coordinated by something very like this framework \u2014 not formal documents, but clear collective understanding of mission, condition, and required action.",
+      "keyTerms": [
+        {
+          "term": "Strategic Plan",
+          "definition": "A multi-year document describing current state, vision, priorities, actions, and success metrics"
+        },
+        {
+          "term": "Current State Assessment",
+          "definition": "Honest description of an organization's current strengths and weaknesses; the starting point of all planning"
+        },
+        {
+          "term": "Metrics",
+          "definition": "Specific, measurable indicators of progress toward a strategic goal"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What are the five components of a simple strategic plan?",
+          "type": "short"
+        },
+        {
+          "question": "Why is 'current state assessment' the starting point of all planning?",
+          "type": "short"
+        },
+        {
+          "question": "Write a three-year strategic plan for one functional area of the Order.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "title": "Resource Management: People, Time, and Money",
+      "objectives": [
+        "Understand the Captain's responsibility for all three forms of resource",
+        "Apply allocation principles to a specific planning scenario",
+        "Identify the most common resource mismanagement patterns in voluntary organizations"
+      ],
+      "lesson": "Every organizational problem is ultimately a resource problem \u2014 too little of something, allocated to the wrong thing, at the wrong time. The Captain manages three resources: people (the most precious), time (the most irreplaceable), and money (the most visible). People management means deploying members where their gifts are most needed, not where they are most comfortable or most visible. Time management means protecting the Order's most valuable hours \u2014 assembly time, officer meetings, community service \u2014 from being consumed by low-priority activities. Money management means ensuring that every expenditure serves the mission at the level of its cost. The most common resource mismanagement patterns in voluntary organizations are: (1) The right people in the wrong roles; (2) Assembly time consumed by administrative business that could be handled in writing; (3) Money spent on appearance rather than mission. A Captain who addresses these patterns in their functional area will make an outsized contribution to the Order's health.",
+      "keyTerms": [
+        {
+          "term": "Resource Allocation",
+          "definition": "The assignment of people, time, and money to specific purposes in proportion to their priority"
+        },
+        {
+          "term": "People Management",
+          "definition": "Deploying members where their gifts best serve the Order's mission"
+        },
+        {
+          "term": "Time Protection",
+          "definition": "The discipline of preventing low-priority activities from consuming the Order's most valuable hours"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What are the three resources a Captain manages?",
+          "type": "short"
+        },
+        {
+          "question": "Name the three most common resource mismanagement patterns in voluntary organizations.",
+          "type": "short"
+        },
+        {
+          "question": "Identify one resource mismanagement pattern in your functional area and describe how you will address it.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "title": "Inter-Officer Relations: Collaboration Across Functional Areas",
+      "objectives": [
+        "Understand the Captain's obligation to collaborate with peer officers",
+        "Learn the common causes of inter-officer conflict",
+        "Practice the skill of peer-level communication and cooperation"
+      ],
+      "lesson": "A Captain operates in a peer environment. Unlike the Lieutenant who reports to a Captain, or the Commander who oversees all Captains, the Captain must work alongside peers who have equal authority in their own functional areas. This requires a different set of skills than managing up or managing down. Peer collaboration requires: (1) Respect for boundaries \u2014 the Captain does not give direction to members in another Captain's area without coordination. (2) Information sharing \u2014 proactive communication of anything that affects a peer's area. (3) Disagreement management \u2014 conflicts with peers are resolved privately and at the level of the peers, not escalated to the commanding officer unless necessary. (4) Mutual support \u2014 when another functional area is under-resourced or struggling, the Captain offers help before being asked. The Templar Order's geographic commands often had to cooperate across boundaries \u2014 sharing resources, personnel, and intelligence. The Commanders who cooperated well extended the Order's effectiveness. Those who competed with peers weakened it.",
+      "keyTerms": [
+        {
+          "term": "Peer Collaboration",
+          "definition": "Working effectively with officers of equal rank who have authority in adjacent functional areas"
+        },
+        {
+          "term": "Boundary Respect",
+          "definition": "Declining to direct or interfere with members in another officer's area without coordination"
+        },
+        {
+          "term": "Proactive Information Sharing",
+          "definition": "Communicating relevant information to peers before they ask for it"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What four skills are required for effective peer collaboration?",
+          "type": "short"
+        },
+        {
+          "question": "Why should inter-officer conflicts be resolved at the peer level when possible?",
+          "type": "short"
+        },
+        {
+          "question": "Describe a situation where you cooperated effectively \u2014 or failed to \u2014 with a peer. What did you learn?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "title": "Crisis Communication and Reputation Management",
+      "objectives": [
+        "Understand how crises damage organizational reputation if mishandled",
+        "Learn the principles of honest, timely crisis communication",
+        "Practice preparing a crisis response statement"
+      ],
+      "lesson": "Every organization will face a moment when something goes seriously wrong \u2014 a member misconduct, a financial discrepancy, a public embarrassment. The quality of the organization's response to such moments determines whether it emerges with its integrity intact or diminished. The principles of crisis communication are: (1) Respond quickly \u2014 silence is interpreted as guilt or incompetence. (2) Tell the truth \u2014 partial truths that are later contradicted are more damaging than the original crisis. (3) Own what is yours \u2014 the organization acknowledges its failures without overstating them. (4) Describe the correction \u2014 what is being done to fix the problem and prevent recurrence. (5) Follow through \u2014 the stated correction must actually happen. The worst crisis communication is the response that promises accountability and delivers none. The best is the honest acknowledgment that something went wrong, that the right people are responsible, and that the organization's commitment to its values is unchanged.",
+      "keyTerms": [
+        {
+          "term": "Crisis Communication",
+          "definition": "The timely, honest communication of what went wrong and what is being done about it"
+        },
+        {
+          "term": "Reputation Management",
+          "definition": "The ongoing care of the organization's credibility through consistent conduct and honest communication"
+        },
+        {
+          "term": "Accountability",
+          "definition": "The named, specific assignment of responsibility for what went wrong and commitment to correction"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "State the five principles of crisis communication.",
+          "type": "short"
+        },
+        {
+          "question": "Why is 'partial truth' more damaging than full disclosure in a crisis?",
+          "type": "short"
+        },
+        {
+          "question": "Write a crisis response statement for a hypothetical Order misconduct situation.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 7,
+      "title": "Theological Foundations of Leadership Authority",
+      "objectives": [
+        "Study the Scriptural basis for servant authority",
+        "Apply the theology of servant leadership to the Captain's role",
+        "Reflect on the gap between stated values and actual practice"
+      ],
+      "lesson": "Leadership authority in the Christian tradition is grounded in a startling inversion: the leader serves. Jesus washed his disciples' feet \u2014 the work of the lowest servant \u2014 and declared 'The greatest among you shall be your servant.' The Apostle Paul described his own authority as 'for building up, not for tearing down.' The medieval Templar tradition encoded this in the Rule: the Master was to be the most observant of the Rule, the most diligent in prayer, the most accessible to the poorest member. Authority in the Order is not a reward for service \u2014 it is an increase in the obligation to serve. A Captain who uses their authority primarily to command, to be recognized, or to be served has inverted the biblical model. The most convicting question for any officer is not 'Have I met my obligations?' but 'Have the people under my authority become more capable, more virtuous, and more free because I have led them?'",
+      "keyTerms": [
+        {
+          "term": "Servant Authority",
+          "definition": "The biblical model in which authority is the obligation to serve, not the privilege to be served"
+        },
+        {
+          "term": "Building Up",
+          "definition": "The Pauline principle that authority exists to develop others, not to advance self"
+        },
+        {
+          "term": "Convicting Question",
+          "definition": "Have the people under my authority become more capable and free because of my leadership?"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What is the 'startling inversion' in the Christian theology of authority?",
+          "type": "short"
+        },
+        {
+          "question": "How did the Templar Rule embody servant authority at the highest levels of leadership?",
+          "type": "short"
+        },
+        {
+          "question": "Answer the 'convicting question' honestly for one person under your authority. What do you observe?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 8,
+      "title": "Building a Culture of Excellence",
+      "objectives": [
+        "Define excellence as a standard, not an event",
+        "Identify the conditions that produce excellent cultures",
+        "Apply the conditions framework to your functional area"
+      ],
+      "lesson": "Excellence is not produced by occasional exceptional effort \u2014 it is produced by consistent systems that make excellent performance the path of least resistance. A culture of excellence in a functional area has four characteristics: (1) Clear standards \u2014 everyone knows exactly what excellent looks like in every aspect of the work. (2) Honest feedback \u2014 people receive accurate, timely information about how they are performing against those standards. (3) Consistent accountability \u2014 the same standards are applied to everyone, every time. (4) Celebration of excellence \u2014 when the standard is met or exceeded, it is acknowledged publicly and specifically. Most organizations have the first characteristic and fail on the second, third, or fourth. The Templar chapter meeting was the ancient equivalent of the performance review: it was the mechanism through which standards were communicated, performance evaluated, accountability enforced, and excellence recognized. A Captain who conducts this process regularly in their functional area \u2014 even informally \u2014 builds a culture that sustains excellence beyond any individual leader.",
+      "keyTerms": [
+        {
+          "term": "Culture of Excellence",
+          "definition": "An organizational environment in which excellent performance is the expected norm, not the rare exception"
+        },
+        {
+          "term": "Consistent Accountability",
+          "definition": "The application of the same standard to every member every time; the foundation of a fair culture"
+        },
+        {
+          "term": "Celebration",
+          "definition": "The public acknowledgment of excellent performance; essential for reinforcing the standard"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Name the four characteristics of a culture of excellence.",
+          "type": "short"
+        },
+        {
+          "question": "Which of the four characteristics is most commonly absent? Why?",
+          "type": "short"
+        },
+        {
+          "question": "Describe the current culture in your functional area. Which characteristic needs the most development?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 9,
+      "title": "Navigating Organizational Politics with Integrity",
+      "objectives": [
+        "Understand the reality of organizational politics in any voluntary association",
+        "Learn to navigate politics without becoming cynical or corrupt",
+        "Apply the integrity framework to a specific political challenge"
+      ],
+      "lesson": "Organizational politics exist in every human institution, including religious and fraternal orders. Politics is simply the reality that decisions are made by people with relationships, preferences, histories, and interests \u2014 not by algorithms. The question is not whether politics will be present but how a Captain will navigate them. The integrity framework for political navigation has four elements: (1) Build relationships before you need them \u2014 invest in people without instrumental purpose; trust is built in advance, not in crisis. (2) Be transparent about your interests \u2014 when you advocate for a decision that benefits your functional area, say so openly. (3) Never trade the truth for an advantage \u2014 the officer who wins by misrepresentation has purchased a short-term gain with long-term credibility. (4) Maintain the same standard for friends and opponents \u2014 the officer who holds allies to a different standard than adversaries has compromised the institution's fairness.",
+      "keyTerms": [
+        {
+          "term": "Organizational Politics",
+          "definition": "The reality that decisions are made by people with relationships, preferences, and interests"
+        },
+        {
+          "term": "Integrity Framework",
+          "definition": "The four principles for navigating politics without becoming cynical or corrupt"
+        },
+        {
+          "term": "Relational Capital",
+          "definition": "Trust built through consistent investment in relationships before it is needed"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What is organizational politics and why is it present in all human institutions?",
+          "type": "short"
+        },
+        {
+          "question": "What does 'never trade the truth for an advantage' mean in practice?",
+          "type": "short"
+        },
+        {
+          "question": "Describe a political challenge you have faced. Apply the integrity framework to it.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 10,
+      "title": "The Captain and the Community: Building External Partnerships",
+      "objectives": [
+        "Understand the Captain's role in building relationships outside the Order",
+        "Identify potential community partners and the principles of healthy partnership",
+        "Draft a proposal for one specific community partnership"
+      ],
+      "lesson": "The Knights Templar built their influence and served their mission by forming strategic relationships with European monarchs, the papacy, merchant guilds, and local communities. These relationships were not mere transactions \u2014 they were partnerships of mutual benefit through which the Order could accomplish what it could not accomplish alone. A Captain in the modern Order should be building similar relationships: with local churches, civic organizations, veterans groups, schools, and community service organizations. The principles of healthy external partnership are: (1) Aligned values \u2014 the partner shares the Order's commitment to service, integrity, and community. (2) Mutual benefit \u2014 the partnership serves both organizations' missions. (3) Clear expectations \u2014 both parties understand what each will contribute and what each will receive. (4) Relationship maintenance \u2014 partnerships require ongoing investment, not just initial agreement. A Captain who builds one strong external partnership per year will substantially expand the Order's capacity to serve.",
+      "keyTerms": [
+        {
+          "term": "External Partnership",
+          "definition": "A relationship with an organization outside the Order that expands the Order's capacity to serve"
+        },
+        {
+          "term": "Aligned Values",
+          "definition": "The requirement that a partner share the Order's core commitments to service and integrity"
+        },
+        {
+          "term": "Mutual Benefit",
+          "definition": "The principle that healthy partnerships serve both organizations' missions, not just one"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Name the four principles of healthy external partnership.",
+          "type": "short"
+        },
+        {
+          "question": "How did the medieval Templars use external partnerships to advance their mission?",
+          "type": "short"
+        },
+        {
+          "question": "Draft a brief proposal for one specific community partnership you believe the Order should pursue.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 11,
+      "title": "Preparing for Commander-Level Responsibility",
+      "objectives": [
+        "Understand the scope of the Commander's role",
+        "Identify the gaps in your current competency that the Major program will address",
+        "Prepare a realistic assessment of your readiness for further advancement"
+      ],
+      "lesson": "The Major and Commander programs represent the final formation track \u2014 the level at which an officer shapes the entire character of the Order's presence in a region or nationally. The Captain who aspires to Commander must first reckon honestly with what they do not yet know and what capacities they have not yet developed. The Major program will address: advanced strategic planning, governance and constitutional authority, inter-Order diplomacy, financial oversight at scale, and the theological dimensions of senior leadership. A Captain preparing for advancement should be asking: Where have I led well and where have I fallen short? What do my subordinate officers say about working under my authority \u2014 honestly? What functional areas am I confident in and where am I still developing? The officer who arrives at advancement review with accurate self-knowledge is much more ready for further formation than one who arrives with an inflated r\u00e9sum\u00e9 and blind spots intact.",
+      "keyTerms": [
+        {
+          "term": "Commander",
+          "definition": "The highest officer rank in the KTKC; responsible for the entire Order's operations in their jurisdiction"
+        },
+        {
+          "term": "Honest Self-Assessment",
+          "definition": "The accurate evaluation of one's leadership strengths and gaps without inflation or false modesty"
+        },
+        {
+          "term": "Governance",
+          "definition": "The constitutional and procedural framework within which an Order's senior officers exercise authority"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What additional competencies will the Major program address?",
+          "type": "short"
+        },
+        {
+          "question": "Why is honest self-assessment more valuable than an inflated r\u00e9sum\u00e9 at advancement?",
+          "type": "short"
+        },
+        {
+          "question": "Write an honest assessment of your leadership strengths and the gaps you need to develop.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 12,
+      "title": "Captain Review and Major Program Preparation",
+      "objectives": [
+        "Review all twelve weeks of the Captain program",
+        "Prepare a comprehensive senior officer portfolio",
+        "Set clear, specific goals for the Major program"
+      ],
+      "lesson": "You have completed the Captain program. You have studied functional area leadership, officer development, strategic planning, resource management, inter-officer collaboration, crisis communication, theological foundations, excellence culture, organizational politics, community partnership, and preparation for further advancement. Before your review, prepare a senior officer portfolio containing: (1) A strategic plan for your functional area including current state, three-year vision, and specific actions. (2) A summary of officer development work \u2014 two officers you have developed, their current status, and what they are ready for. (3) Documentation of one external partnership you have established or strengthened. (4) A written reflection on the theological dimension of your leadership \u2014 how does your faith shape how you exercise authority? (5) Your goals for the Major program. The Major program will require you to think about the Order's constitutional structure, its relationship to other orders, and the theological foundations of organizational governance.",
+      "keyTerms": [
+        {
+          "term": "Senior Officer Portfolio",
+          "definition": "The comprehensive documentation of a Captain's strategic, developmental, and theological leadership"
+        },
+        {
+          "term": "Constitutional Structure",
+          "definition": "The formal rules and processes by which the Order governs itself and exercises authority"
+        },
+        {
+          "term": "Major Program",
+          "definition": "Officer Formation Level III; governance, inter-Order diplomacy, and senior theological formation"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What five documents should be in the Captain advancement portfolio?",
+          "type": "short"
+        },
+        {
+          "question": "What new topics will the Major program introduce?",
+          "type": "short"
+        },
+        {
+          "question": "Write your Captain advancement statement. Summarize your strategic work, officer development, and growth.",
+          "type": "essay"
+        }
+      ]
+    }
+  ]
+}

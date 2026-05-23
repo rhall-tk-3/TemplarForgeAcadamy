@@ -10,7 +10,8 @@ body {
   background-image: url('/images/templar-cross.png');
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: contain;
+  /* Shrunk: cross occupies at most 42% of viewport width, never taller than 42vh */
+  background-size: clamp(160px, 42vmin, 420px);
   background-attachment: fixed;
   color: #e8d9b8;
 }
@@ -81,6 +82,71 @@ body {
 }
 .topbar-nav a.btn-nav:hover {
   background: linear-gradient(135deg, #e8c040, #a07820);
+}
+
+/* ── KTKC MOTTO BAR ── */
+/*
+ * Sits between the brand block and the user-nav on every topbar.
+ * flex: 1 lets it expand to fill available space so it stays centred
+ * regardless of brand or nav width.
+ */
+.topbar-motto {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  pointer-events: none;   /* purely decorative — doesn't intercept clicks */
+  overflow: hidden;
+  padding: 0 12px;
+}
+.topbar-motto-word {
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+}
+/* Separator dots between the four words */
+.topbar-motto-sep {
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  color: #4a3810;
+  padding: 0 8px;
+  line-height: 1;
+  align-self: center;
+}
+/* The initial capital letter — each word gets its own colour via modifier classes */
+.topbar-motto-cap {
+  font-family: 'Cinzel', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  text-shadow: 0 0 12px currentColor, 0 2px 6px rgba(0,0,0,0.8);
+}
+/* The rest of the word in warm parchment */
+.topbar-motto-rest {
+  font-family: 'Cinzel', serif;
+  font-size: 1.0rem;
+  font-weight: 400;
+  color: #7a6030;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+/* Per-letter accent colours — K · T · K · C */
+.topbar-motto-cap.k1 { color: #e8c040; }   /* Knowledge  — bright gold    */
+.topbar-motto-cap.t  { color: #e89020; }   /* Training   — amber-orange   */
+.topbar-motto-cap.k2 { color: #d4a832; }   /* Knightliness — deep gold    */
+.topbar-motto-cap.c  { color: #e86818; }   /* Courage    — ember-red      */
+
+/* Hide the rest-words on small screens so topbar doesn't overflow */
+@media (max-width: 900px) {
+  .topbar-motto-rest { display: none; }
+  .topbar-motto-sep  { padding: 0 5px; }
+  .topbar-motto-cap  { font-size: 1.15rem; }
+}
+/* On very small screens hide the entire motto */
+@media (max-width: 560px) {
+  .topbar-motto { display: none; }
 }
 
 /* ── CARD ── */
@@ -299,7 +365,28 @@ body {
 ::-webkit-scrollbar-thumb { background: #3a2408; border-radius: 3px; }
 
 /* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  body {
+    background-size: clamp(120px, 38vmin, 320px);
+  }
+}
+
 @media (max-width: 640px) {
+  body {
+    /* Mobile: cross is tastefully small, never blocks content */
+    background-size: clamp(90px, 30vmin, 200px);
+  }
   .topbar { padding: 10px 16px; }
+  .topbar-brand img { height: 38px; }
+  .topbar-brand-text { font-size: 0.88rem; }
   .page-header { padding: 24px 16px 18px; }
+  .dash-grid { grid-template-columns: 1fr; }
+  .auth-box { padding: 0 8px; }
+}
+
+@media (max-width: 380px) {
+  body {
+    background-size: clamp(70px, 26vmin, 160px);
+  }
+  .topbar-brand-text { display: none; }
 }

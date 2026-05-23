@@ -7,209 +7,617 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/shared.css">
   <style>
-    body {
-      background-color: #000;
-      background-image: url('/images/templar-cross.png');
+    /* ── HALL BACKGROUND — fills viewport, no crop, no distortion ── */
+    html {
+      /* Anchor the fixed bg to the html root so it never shifts on mobile */
+      background-color: #080504;
+      background-image: url('/images/member-hall-bg.jpg');
       background-repeat: no-repeat;
       background-position: center center;
-      background-size: contain;
+      /* cover = fills 100% of viewport in both axes, aspect ratio preserved,
+         image crops symmetrically rather than distorting */
+      background-size: cover;
       background-attachment: fixed;
     }
 
-    .main-content { flex: 1; padding: 32px; max-width: 1100px; margin: 0 auto; width: 100%; }
+    body {
+      /* Remove any competing background from shared.css for this page */
+      background: transparent !important;
+    }
 
+    /* Semi-transparent overlay keeps content readable over the hall scene */
+    .page-wrap {
+      position: relative;
+    }
+    .page-wrap::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      /* Gradient: heavier at top (topbar) and bottom, lighter in the middle
+         so the hall perspective shines through the content area */
+      background: linear-gradient(
+        180deg,
+        rgba(4, 2, 1, 0.82) 0%,
+        rgba(6, 3, 1, 0.55) 18%,
+        rgba(4, 2, 1, 0.48) 50%,
+        rgba(4, 2, 1, 0.62) 80%,
+        rgba(2, 1, 0, 0.80) 100%
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Lift all direct children of page-wrap above the overlay */
+    .page-wrap > * { position: relative; z-index: 1; }
+
+    /* ── Mobile: switch to scroll so fixed bg shows correctly ── */
+    @media (max-width: 640px) {
+      html {
+        background-attachment: scroll;
+        /* On narrow screens keep the hall centred on its focal point */
+        background-position: 42% center;
+      }
+    }
+
+    .main-content { flex:1; padding:clamp(18px,4vw,32px); max-width:1100px; margin:0 auto; width:100%; }
+
+    /* ── Welcome banner ── */
     .welcome-banner {
+      display:flex; align-items:center; gap:18px; padding:20px 24px;
+      background: linear-gradient(135deg, rgba(30,18,8,0.88), rgba(19,12,4,0.88));
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border:1px solid rgba(74,48,16,0.7); border-left:4px solid #c9a227;
+      border-radius:14px; margin-bottom:24px;
+    }
+    .welcome-banner h2  { font-family:'Cinzel',serif; font-size:clamp(1rem,2.5vw,1.3rem); font-weight:700; color:#e8c96a; }
+    .welcome-banner p   { color:#9a8060; font-size:0.9rem; margin-top:3px; }
+
+    /* ── Profile avatar in welcome banner ── */
+    .banner-avatar {
+      flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #8b6510;
+      background: #0a0600;
+      display: block;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+    }
+    .banner-avatar-placeholder {
+      flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1e1208, #0a0600);
+      border: 2px solid #4a3010;
       display: flex;
       align-items: center;
-      gap: 20px;
-      padding: 24px 28px;
-      background: linear-gradient(135deg, #1e1208, #130c04);
-      border: 1px solid #3a2408;
-      border-left: 4px solid #c9a227;
-      border-radius: 14px;
-      margin-bottom: 28px;
+      justify-content: center;
+      font-size: 24px;
+      color: #4a3010;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.7);
     }
-    .welcome-banner img { width: 56px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.8)); }
-    .welcome-banner h2 {
-      font-family: 'Cinzel', serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #e8c96a;
-    }
-    .welcome-banner p { color: #9a8060; font-size: 0.95rem; margin-top: 4px; }
 
     .section-title {
-      font-family: 'Cinzel', serif;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #8b6530;
-      margin-bottom: 14px;
+      font-family:'Cinzel',serif; font-size:0.76rem; font-weight:700;
+      letter-spacing:0.2em; text-transform:uppercase; color:#8b6530; margin-bottom:14px;
     }
 
-    .program-link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 20px;
-      background: linear-gradient(135deg, #1a1006, #100a02);
-      border: 1px solid #2a1a06;
-      border-radius: 10px;
-      text-decoration: none;
-      color: #c9a84c;
-      font-family: 'Cinzel', serif;
-      font-size: 0.88rem;
-      font-weight: 600;
-      transition: all 0.2s;
-      margin-bottom: 10px;
-    }
-    .program-link:hover {
-      border-color: #c9a227;
-      color: #e8c96a;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
-    }
-    .program-link .arrow { opacity: 0.5; }
-    .program-link:hover .arrow { opacity: 1; }
-
-    .stat-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 14px;
-      margin-bottom: 28px;
-    }
+    /* ── Stats ── */
+    .stat-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:24px; }
     .stat-box {
-      background: linear-gradient(135deg, #1a1006, #100a02);
-      border: 1px solid #2a1a06;
-      border-radius: 12px;
-      padding: 18px;
-      text-align: center;
+      background: linear-gradient(135deg, rgba(26,16,6,0.82), rgba(16,10,2,0.82));
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border:1px solid rgba(42,26,6,0.6); border-radius:12px; padding:16px; text-align:center;
     }
-    .stat-box .num {
+    .stat-box .num  { font-family:'Cinzel',serif; font-size:1.8rem; font-weight:900; color:#c9a227; display:block; }
+    .stat-box .lbl  { font-size:0.78rem; color:#6a5030; margin-top:4px; }
+
+    /* ── Active program card ── */
+    .active-prog-card {
+      background: linear-gradient(135deg, rgba(30,18,8,0.86), rgba(19,12,4,0.86));
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border:1px solid rgba(74,48,16,0.65); border-radius:14px; padding:22px;
+      margin-bottom:24px;
+    }
+    .active-prog-card.empty {
+      border-style:dashed; border-color:rgba(42,26,6,0.5); text-align:center; padding:32px;
+    }
+    .prog-title {
+      font-family:'Cinzel',serif; font-size:clamp(1rem,2.8vw,1.4rem); font-weight:900;
+      color:#e8c96a; margin-bottom:6px;
+    }
+    .prog-phase  { font-size:0.82rem; color:#8b6530; margin-bottom:16px; }
+
+    /* Progress bar */
+    .prog-track { margin-bottom:16px; }
+    .prog-track-label {
+      display:flex; justify-content:space-between;
+      font-family:'Cinzel',serif; font-size:0.72rem; color:#6a5030;
+      margin-bottom:6px;
+    }
+    .prog-bar-wrap {
+      height:10px; background:#1a1006; border-radius:999px;
+      border:1px solid #2a1a06; overflow:hidden;
+    }
+    .prog-bar-fill {
+      height:100%; border-radius:999px;
+      background:linear-gradient(90deg,#8b6510,#e8c84a);
+      transition:width 0.6s ease;
+    }
+
+    .prog-links { display:flex; gap:12px; flex-wrap:wrap; margin-top:14px; }
+    .prog-link {
+      display:inline-flex; align-items:center; gap:6px;
+      padding:9px 18px; border-radius:8px;
+      font-family:'Cinzel',serif; font-size:0.8rem; font-weight:700;
+      letter-spacing:0.1em; text-transform:uppercase; text-decoration:none;
+      transition:all 0.2s;
+    }
+    .prog-link.primary {
+      background:linear-gradient(135deg,#e8c84a,#b8860b); color:#1a0800;
+    }
+    .prog-link.primary:hover { background:linear-gradient(135deg,#ffd84a,#c8960b); }
+    .prog-link.ghost {
+      background:transparent; border:1px solid #3a2408; color:#c9a84c;
+    }
+    .prog-link.ghost:hover { border-color:#c9a227; color:#e8c96a; }
+
+    /* ── All programs list ── */
+    .program-link {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 18px;
+      background: linear-gradient(135deg, rgba(26,16,6,0.80), rgba(16,10,2,0.80));
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      border:1px solid rgba(42,26,6,0.55); border-radius:10px;
+      text-decoration:none; color:#c9a84c;
+      font-family:'Cinzel',serif; font-size:0.85rem; font-weight:600;
+      transition:all 0.2s; margin-bottom:8px;
+    }
+    .program-link:hover { border-color:#c9a227; color:#e8c96a; box-shadow:0 4px 16px rgba(0,0,0,0.4); }
+    .program-link.current   { border-color:#c9a227; background:linear-gradient(135deg,#241a08,#160e02); }
+    .program-link.completed  { border-color:#2a6020; }
+    /* Guarded: dimmed, no pointer, no hover lift */
+    .program-link.guarded {
+      opacity: 0.45;
+      cursor: not-allowed;
+      pointer-events: none;
+      border-color: #6a1010;
+      background: linear-gradient(135deg,#120505,#0a0202);
+    }
+    .program-link .prog-badge {
+      display:inline-flex; align-items:center; gap:5px;
+      padding:2px 8px; border-radius:999px;
+      font-size:0.66rem; font-weight:700; letter-spacing:0.06em;
+    }
+    .program-link .prog-badge.current  { background:rgba(201,162,39,0.12); border:1px solid #c9a227; color:#e8c96a; }
+    .program-link .prog-badge.complete { background:rgba(0,80,0,0.2);      border:1px solid #2a6020; color:#90e090; }
+    .program-link .prog-badge.guarded  {
+      background: rgba(139,0,0,0.18);
+      border: 1px solid #8b0000;
+      color: #c92727;
+      letter-spacing: 0.14em;
+    }
+
+    /* ── History ── */
+    .history-item {
+      display:flex; justify-content:space-between; align-items:center;
+      gap:12px; padding:10px 0; border-bottom:1px solid #1a1006; flex-wrap:wrap;
+    }
+    .history-item:last-child { border-bottom:none; }
+    .history-title { font-family:'Cinzel',serif; font-size:0.85rem; color:#e8c8a8; }
+    .history-meta  { font-size:0.76rem; color:#4a3010; }
+    .grade-pill {
+      padding:3px 10px; border-radius:999px;
+      background:rgba(0,80,0,0.2); border:1px solid #2a6020; color:#90e090;
+      font-family:'Cinzel',serif; font-size:0.68rem; font-weight:700;
+    }
+
+    /* ── Rank badge ── */
+    .rank-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 2px 10px;
+      border-radius: 999px;
       font-family: 'Cinzel', serif;
-      font-size: 2rem;
-      font-weight: 900;
-      color: #c9a227;
-      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #d08080;
+      background: rgba(139,0,60,0.12);
+      border: 1px solid rgba(139,0,60,0.35);
     }
-    .stat-box .lbl { font-size: 0.82rem; color: #6a5030; margin-top: 4px; }
+
+    /* ── Paused warning banner ── */
+    .paused-dash-banner {
+      display: none;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 20px;
+      background: linear-gradient(135deg, rgba(80,50,0,0.30), rgba(60,40,0,0.35));
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border: 1px solid #8b6000;
+      border-left: 4px solid #e8b040;
+      border-radius: 14px;
+      margin-bottom: 20px;
+    }
+    .paused-dash-banner.show { display: flex; }
+    .paused-dash-banner-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .paused-dash-banner h3 { font-family:'Cinzel',serif; font-size:0.9rem; font-weight:700; color:#e8b040; margin-bottom:4px; }
+    .paused-dash-banner p  { font-family:'Crimson Text',serif; font-size:0.9rem; color:#c8a050; line-height:1.5; }
+      color:#4a3010; font-size:0.95rem; line-height:1.7;
+    }
+    .unassigned-msg strong { color:#8b6530; font-family:'Cinzel',serif; }
+
+    /* Override shared.css dash-card so it's translucent on this page */
+    .dash-card {
+      background: linear-gradient(160deg, rgba(30,18,8,0.84), rgba(19,12,4,0.84)) !important;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-color: rgba(58,36,8,0.6) !important;
+    }
+
+    /* Gold rule stays opaque */
+    .gold-rule { opacity: 0.7; }
+
+    @media (max-width:640px) {
+      .welcome-banner { flex-direction:column; align-items:flex-start; gap:12px; }
+    }
   </style>
 </head>
 <body>
-  <div class="page-wrap">
+<div class="page-wrap">
 
-    <!-- TOP BAR -->
-    <nav class="topbar">
-      <a class="topbar-brand" href="/">
-        <img src="/images/order-crest.png" alt="Crest">
-        <div>
-          <div class="topbar-brand-text">Templar Forge Academy</div>
-          <div class="topbar-brand-sub">Member Portal</div>
-        </div>
-      </a>
-      <div class="topbar-nav">
-        <span id="nav-greeting" style="font-family:'Cinzel',serif;font-size:0.82rem;color:#8b6530;"></span>
-        <a href="/auth/logout" class="btn-nav">Sign Out</a>
-      </div>
-    </nav>
-
-    <!-- MAIN -->
-    <main class="main-content">
-
-      <!-- Welcome banner -->
-      <div class="welcome-banner">
-        <img src="/images/order-seal.png" alt="Seal">
-        <div>
-          <h2 id="welcome-heading">Welcome, Brother</h2>
-          <p>You are signed into the Templar Forge Academy member portal.</p>
-        </div>
-      </div>
-
-      <!-- Stats row -->
-      <div class="stat-row">
-        <div class="stat-box">
-          <span class="num">11</span>
-          <div class="lbl">Programs Available</div>
-        </div>
-        <div class="stat-box">
-          <span class="num">7</span>
-          <div class="lbl">Shared Documents</div>
-        </div>
-        <div class="stat-box">
-          <span class="num" id="stat-phase">—</span>
-          <div class="lbl">Your Phase</div>
-        </div>
-      </div>
-
-      <div class="gold-rule"></div>
-
-      <!-- School Programs -->
-      <div style="margin-bottom:28px;">
-        <div class="section-title">✠ School Programs</div>
-        <div id="program-links">
-          <div style="color:#4a3010;font-size:0.9rem;">Loading programs…</div>
-        </div>
-      </div>
-
-      <div class="gold-rule"></div>
-
-      <!-- Resource Library -->
+  <!-- TOP BAR -->
+  <nav class="topbar">
+    <a class="topbar-brand" href="/">
+      <img src="/images/order-crest.png" alt="Crest">
       <div>
-        <div class="section-title">⚔ Shared Resource Library</div>
-        <div class="dash-grid" id="resource-grid">
-          <div style="color:#4a3010;font-size:0.9rem;">Loading resources…</div>
+        <div class="topbar-brand-text">Templar Forge Academy</div>
+        <div class="topbar-brand-sub">Member Portal</div>
+      </div>
+    </a>
+    <!-- KTKC Motto -->
+    <div class="topbar-motto">
+      <span class="topbar-motto-word"><span class="topbar-motto-cap k1">K</span><span class="topbar-motto-rest">nowledge</span></span>
+      <span class="topbar-motto-sep">·</span>
+      <span class="topbar-motto-word"><span class="topbar-motto-cap t">T</span><span class="topbar-motto-rest">raining</span></span>
+      <span class="topbar-motto-sep">·</span>
+      <span class="topbar-motto-word"><span class="topbar-motto-cap k2">K</span><span class="topbar-motto-rest">nightliness</span></span>
+      <span class="topbar-motto-sep">·</span>
+      <span class="topbar-motto-word"><span class="topbar-motto-cap c">C</span><span class="topbar-motto-rest">ourage</span></span>
+    </div>
+    <div class="topbar-nav">
+      <span id="nav-greeting" style="font-family:'Cinzel',serif;font-size:0.8rem;color:#8b6530;"></span>
+      <a href="/profile" title="My Profile" style="font-size:1.1rem;letter-spacing:0;padding:6px 10px;" aria-label="Profile">⚔</a>
+      <a href="/auth/logout" class="btn-nav">Sign Out</a>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- Paused program warning -->
+    <div class="paused-dash-banner" id="paused-dash-banner">
+      <div class="paused-dash-banner-icon">⏸</div>
+      <div>
+        <h3>Training Program Paused</h3>
+        <p id="paused-dash-msg">Your training program has been paused by the Schoolmaster. Contact your ranking officer for further instruction.</p>
+      </div>
+    </div>
+
+    <!-- Welcome banner -->
+    <div class="welcome-banner">
+      <!-- Profile photo (or shield placeholder if none uploaded) -->
+      <img id="banner-avatar-img" class="banner-avatar" src="" alt="Profile Photo" style="display:none;">
+      <div id="banner-avatar-placeholder" class="banner-avatar-placeholder">🛡</div>
+      <div>
+        <h2 id="welcome-heading">Welcome, Brother</h2>
+        <p id="welcome-sub">You are signed into the Templar Forge Academy member portal.</p>
+        <div id="welcome-rank-badge" style="margin-top:6px;display:none;"></div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stat-row">
+      <div class="stat-box">
+        <span class="num" id="stat-week">—</span>
+        <div class="lbl">Current Week</div>
+      </div>
+      <div class="stat-box">
+        <span class="num" id="stat-completed">—</span>
+        <div class="lbl">Programs Completed</div>
+      </div>
+      <div class="stat-box">
+        <span class="num" id="stat-exams">—</span>
+        <div class="lbl">Exams Submitted</div>
+      </div>
+      <div class="stat-box">
+        <span class="num">11</span>
+        <div class="lbl">Programs in Order</div>
+      </div>
+    </div>
+
+    <div class="gold-rule"></div>
+
+    <!-- ── ACTIVE PROGRAM ── -->
+    <div style="margin-bottom:28px;">
+      <div class="section-title">✠ Your Assigned Program</div>
+      <div id="active-prog-container"></div>
+    </div>
+
+    <div class="gold-rule"></div>
+
+    <!-- ── ALL PROGRAMS ── -->
+    <div style="margin-bottom:28px;">
+      <div class="section-title">⚔ Full Program Progression</div>
+      <div id="program-links">
+        <div style="color:#4a3010;font-size:0.88rem;">Loading programs…</div>
+      </div>
+    </div>
+
+    <div class="gold-rule"></div>
+
+    <!-- ── PROGRAM HISTORY ── -->
+    <div style="margin-bottom:28px;">
+      <div class="section-title">📜 Your Program History</div>
+      <div id="history-container">
+        <div style="color:#4a3010;font-size:0.88rem;">No completed programs yet.</div>
+      </div>
+    </div>
+
+    <div class="gold-rule"></div>
+
+    <!-- ── PROGRAM DOCUMENTS ── -->
+    <div>
+      <div class="section-title">📚 Program Documents & Resources</div>
+      <div class="dash-grid" id="resource-grid">
+        <div style="color:#4a3010;font-size:0.88rem;">Loading documents…</div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+let userProgression = null;
+let allPrograms     = [];
+
+// ── Load session + profile ──
+Promise.all([
+  fetch('/auth/me').then(r => r.ok ? r.json() : Promise.reject()),
+  fetch('/api/profile/me').then(r => r.ok ? r.json() : null).catch(() => null)
+])
+  .then(([user, profile]) => {
+    const greeting = `${user.salutation ? user.salutation+' ' : ''}${user.username}`;
+    document.getElementById('welcome-heading').innerHTML =
+      `Welcome, ${greeting} <a href="/profile" title="My Profile" style="font-size:0.82em;vertical-align:middle;text-decoration:none;margin-left:6px;opacity:0.85;" aria-label="My Profile">⚔</a>`;
+    document.getElementById('nav-greeting').textContent = greeting;
+
+    // Show profile photo or shield placeholder
+    if (profile && profile.photoPath) {
+      const img = document.getElementById('banner-avatar-img');
+      img.onload = () => {
+        document.getElementById('banner-avatar-placeholder').style.display = 'none';
+        img.style.display = 'block';
+      };
+      img.onerror = () => { /* keep placeholder */ };
+      img.src = '/uploads/' + profile.photoPath.split('/').pop();
+    }
+
+    // Rank badge in welcome banner
+    const rankWrap = document.getElementById('welcome-rank-badge');
+    if (profile && profile.rank) {
+      const label = profile.rankName ? profile.rankName : profile.rank;
+      rankWrap.innerHTML = `<span class="rank-badge">⚜ ${label}</span>`;
+      rankWrap.style.display = 'block';
+    }
+
+    // Paused program banner
+    if (profile && profile.programStatus === 'paused') {
+      const banner = document.getElementById('paused-dash-banner');
+      const msgEl  = document.getElementById('paused-dash-msg');
+      if (profile.statusNote) {
+        msgEl.textContent = `Your training program has been paused by the Schoolmaster: "${profile.statusNote}" — Contact your ranking officer for further instruction.`;
+      }
+      banner.classList.add('show');
+    }
+
+    loadData();
+  })
+  .catch(() => { window.location.href = '/login'; });
+
+async function loadData() {
+  const [progRes, currRes, resRes] = await Promise.all([
+    fetch('/api/progression/me').then(r => r.json()),
+    fetch('/api/curriculum').then(r => r.json()),
+    fetch('/api/resources/for-program').then(r => r.ok ? r.json() : { sections: [] })
+  ]);
+
+  userProgression = progRes;
+  allPrograms     = currRes.programs || [];
+
+  renderStats();
+  renderActiveProgram();
+  renderProgramList();
+  renderHistory();
+  renderResources(resRes);
+}
+
+function renderStats() {
+  const p = userProgression;
+  document.getElementById('stat-week').textContent      = p.currentWeek      || '—';
+  document.getElementById('stat-completed').textContent = (p.programHistory||[]).filter(h=>h.completedAt).length || 0;
+  document.getElementById('stat-exams').textContent     = (p.examSubmissions||[]).length || 0;
+
+  const prog = p.assignedProgram;
+  document.getElementById('welcome-sub').textContent = prog
+    ? `Currently studying: ${prog.title} · Week ${p.currentWeek || 1} of ${prog.durationWeeks}`
+    : 'Awaiting program assignment from the Schoolmaster.';
+}
+
+function renderActiveProgram() {
+  const container = document.getElementById('active-prog-container');
+  const p = userProgression;
+  const prog = p.assignedProgram;
+
+  if (!prog) {
+    container.innerHTML = `
+      <div class="active-prog-card empty">
+        <div style="font-size:2rem;margin-bottom:12px;">✠</div>
+        <div class="unassigned-msg">
+          <strong>Awaiting Assignment</strong><br>
+          Your Schoolmaster will assign your first program.<br>
+          Review the progression list below to prepare.
+        </div>
+      </div>`;
+    return;
+  }
+
+  const week     = p.currentWeek || 1;
+  const total    = prog.durationWeeks;
+  const pct      = Math.round((week / total) * 100);
+
+  container.innerHTML = `
+    <div class="active-prog-card">
+      <div class="prog-title">✠ ${prog.title}</div>
+      <div class="prog-phase">${prog.phase} · ${total} weeks</div>
+
+      <div class="prog-track">
+        <div class="prog-track-label">
+          <span>Week ${week} of ${total}</span>
+          <span>${pct}%</span>
+        </div>
+        <div class="prog-bar-wrap">
+          <div class="prog-bar-fill" style="width:${pct}%"></div>
         </div>
       </div>
 
-    </main>
-  </div>
+      <div class="prog-links">
+        <a class="prog-link primary" href="/lesson">
+          ✠ Begin This Week's Lesson
+        </a>
+      </div>
+    </div>`;
+}
 
-  <script>
-    // Load session info
-    fetch('/auth/me')
-      .then(r => r.ok ? r.json() : Promise.reject())
-      .then(user => {
-        const greeting = `${user.salutation} ${user.username}`;
-        document.getElementById('welcome-heading').textContent = `Welcome, ${greeting}`;
-        document.getElementById('nav-greeting').textContent = greeting;
-        document.getElementById('stat-phase').textContent = 'Active';
-      })
-      .catch(() => { window.location.href = '/login'; });
+function renderProgramList() {
+  const container  = document.getElementById('program-links');
+  const assigned   = userProgression?.assignedProgram?.slug;
+  const completed  = new Set((userProgression?.programHistory||[]).filter(h=>h.completedAt).map(h=>h.slug));
+  const unlocked   = new Set(userProgression?.unlockedSlugs || []);
 
-    // Load programs
-    fetch('/api/curriculum')
-      .then(r => r.json())
-      .then(data => {
-        const container = document.getElementById('program-links');
-        container.innerHTML = data.programs.map(p => `
-          <a class="program-link" href="/${p.siteEntry}">
-            <span>✠ ${p.title}</span>
-            <span class="arrow">→</span>
-          </a>
-        `).join('');
-      });
+  container.innerHTML = allPrograms.map(p => {
+    const isCurrent   = p.slug === assigned;
+    const isCompleted = completed.has(p.slug);
+    // A program is accessible if it is the current one, already completed, or explicitly unlocked by SM
+    const isAccessible = isCurrent || isCompleted || unlocked.has(p.slug);
+    const isGuarded    = !isAccessible;
 
-    // Load resources
-    fetch('/api/resources')
-      .then(r => r.json())
-      .then(data => {
-        const container = document.getElementById('resource-grid');
-        container.innerHTML = data.sections.map(section => `
-          <div class="dash-card">
-            <div class="card-icon">📜</div>
-            <h3>${section.title}</h3>
-            <p>${section.description}</p>
-            <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px;">
-              ${section.items.map(item => `
-                <a href="${item.path}" target="_blank"
-                   style="color:#c9a84c;font-size:0.88rem;text-decoration:none;font-family:'Cinzel',serif;">
-                  ↓ ${item.title}
-                </a>
-              `).join('')}
-            </div>
-          </div>
-        `).join('');
-      });
-  </script>
+    let badge;
+    if (isCurrent) {
+      badge = '<span class="prog-badge current">▶ Current</span>';
+    } else if (isCompleted) {
+      badge = '<span class="prog-badge complete">✔ Complete</span>';
+    } else if (isGuarded) {
+      badge = '<span class="prog-badge guarded">⛨ GUARDED</span>';
+    } else {
+      badge = ''; // unlocked by SM but not yet assigned — no badge
+    }
+
+    const arrow = isGuarded ? '' : '<span style="opacity:0.4;">→</span>';
+
+    if (isGuarded) {
+      // Render as non-interactive div — member cannot click through
+      return `<div class="program-link guarded">
+        <span>✠ ${p.title} <span style="font-size:0.76rem;color:#3a1010;">· ${p.phase}</span></span>
+        <span style="display:flex;align-items:center;gap:8px;">${badge}</span>
+      </div>`;
+    }
+
+    return `<a class="program-link ${isCurrent?'current':isCompleted?'completed':''}"
+               href="/${p.siteEntry}" target="_blank">
+      <span>✠ ${p.title} <span style="font-size:0.76rem;color:#4a3010;">· ${p.phase}</span></span>
+      <span style="display:flex;align-items:center;gap:8px;">${badge}${arrow}</span>
+    </a>`;
+  }).join('');
+}
+
+function renderHistory() {
+  const container = document.getElementById('history-container');
+  const hist = (userProgression?.programHistory||[]).filter(h=>h.completedAt);
+
+  if (!hist.length) {
+    container.innerHTML = '<div style="color:#4a3010;font-size:0.88rem;">No completed programs yet.</div>';
+    return;
+  }
+
+  container.innerHTML = hist.map(h => {
+    const prog = allPrograms.find(p => p.slug === h.slug);
+    return `<div class="history-item">
+      <div>
+        <div class="history-title">${prog ? prog.title : h.slug}</div>
+        <div class="history-meta">Completed ${new Date(h.completedAt).toLocaleDateString()}</div>
+      </div>
+      ${h.grade ? `<span class="grade-pill">${h.grade}</span>` : '<span class="grade-pill" style="opacity:0.5;">Complete</span>'}
+    </div>`;
+  }).join('');
+}
+
+function renderResources(data) {
+  const container = document.getElementById('resource-grid');
+  const sections  = data && data.sections;
+
+  if (!sections || sections.length === 0) {
+    container.innerHTML = `
+      <div style="grid-column:1/-1;color:#4a3010;font-size:0.9rem;font-family:'Cinzel',serif;
+                  padding:20px 0;text-align:center;">
+        ✠ Documents will appear here once you are assigned a program.
+      </div>`;
+    return;
+  }
+
+  container.innerHTML = sections.map(section => {
+    const items = (section.items || []).map(item => {
+      // Determine icon and download hint by type
+      const isHtml = item.type === 'html';
+      const label  = isHtml ? '↗ View' : '↓ Download';
+      const target = isHtml ? '_blank' : '_blank';
+      return `
+        <a href="${item.path}" target="${target}"
+           style="display:flex;align-items:center;gap:10px;padding:10px 12px;
+                  background:rgba(180,140,60,0.06);border:1px solid rgba(180,140,60,0.18);
+                  border-radius:6px;color:#c9a84c;text-decoration:none;
+                  font-family:'Cinzel',serif;font-size:0.8rem;letter-spacing:0.04em;
+                  transition:background 0.2s,color 0.2s;"
+           onmouseover="this.style.background='rgba(180,140,60,0.14)';this.style.color='#e8c040';"
+           onmouseout="this.style.background='rgba(180,140,60,0.06)';this.style.color='#c9a84c';">
+          <span style="font-size:1.1rem;flex-shrink:0;">${item.icon || '📄'}</span>
+          <span style="flex:1;line-height:1.35;">${item.title}</span>
+          <span style="font-size:0.72rem;color:#8a6030;flex-shrink:0;">${label}</span>
+        </a>`;
+    }).join('');
+
+    return `
+      <div class="dash-card" style="display:flex;flex-direction:column;gap:0;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+          <h3 style="font-family:'Cinzel',serif;font-size:0.88rem;color:#e8c040;
+                     letter-spacing:0.06em;font-weight:700;">${section.title}</h3>
+        </div>
+        <p style="font-size:0.82rem;color:#7a6030;margin-bottom:14px;line-height:1.5;">
+          ${section.description}
+        </p>
+        <div style="display:flex;flex-direction:column;gap:8px;">${items}</div>
+      </div>`;
+  }).join('');
+}
+</script>
 </body>
 </html>

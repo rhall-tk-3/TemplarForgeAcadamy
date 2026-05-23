@@ -1,0 +1,463 @@
+{
+  "slug": "lieutenant",
+  "title": "Lieutenant School Program",
+  "description": "Officer Formation Level I. Institutional responsibility, operational planning, conflict management, ethics, and succession.",
+  "weeks": [
+    {
+      "week": 1,
+      "title": "Introduction to Officer Formation: Authority and Accountability",
+      "objectives": [
+        "Define officer formation and how it differs from rank formation",
+        "Understand the dual obligation of authority and accountability",
+        "Identify the specific responsibilities of a Lieutenant in the Order"
+      ],
+      "lesson": "Officer formation in the Order begins at the rank of Lieutenant. Up to this point, advancement has been primarily personal formation \u2014 virtue, knowledge, mentorship, and service. The officer track adds a new dimension: institutional responsibility. A Lieutenant is accountable not only for their own conduct but for the conduct of the members under their charge and for the health of the programs and systems assigned to them. This is a qualitative shift. The Templar Order understood this shift and built it into the structure of advancement deliberately. Officers were not simply experienced members \u2014 they were members who had demonstrated the capacity for institutional thinking. A Lieutenant who is still operating with a personal formation mindset \u2014 focused primarily on their own growth and standing \u2014 is not yet occupying their office fully. The first act of officer formation is to ask: 'Who is my office for? What does this institution need from me?'",
+      "keyTerms": [
+        {
+          "term": "Officer Formation",
+          "definition": "The development of members for institutional responsibility; distinct from personal rank formation"
+        },
+        {
+          "term": "Institutional Thinking",
+          "definition": "The habit of asking what the organization needs rather than what the individual wants"
+        },
+        {
+          "term": "Lieutenant",
+          "definition": "Officer Formation Level I in the KTKC; the first officer rank, responsible for specific assigned programs or functions"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What is the key difference between rank formation and officer formation?",
+          "type": "short"
+        },
+        {
+          "question": "What does 'institutional thinking' require of a Lieutenant?",
+          "type": "short"
+        },
+        {
+          "question": "Describe one specific responsibility you expect to carry as a Lieutenant. How will you prepare?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "title": "The Officer's Relationship with Subordinates",
+      "objectives": [
+        "Understand the officer's obligation to serve those under their authority",
+        "Practice the discipline of listening before directing",
+        "Identify the three modes of officer engagement with subordinates"
+      ],
+      "lesson": "An officer's relationship with subordinates is defined by three obligations: formation (helping them grow), protection (defending their wellbeing and dignity), and direction (giving clear guidance toward the Order's goals). The officer who only directs, without forming and protecting, produces compliant but underdeveloped members. The one who only forms, without directing, produces warm but unfocused communities. The Templar model demanded all three simultaneously. Formation means intentional investment in the member's knowledge, character, and skill. Protection means standing between the member and any force \u2014 internal or external \u2014 that would harm them unjustly, including protecting them from the officer's own misuse of authority. Direction means setting clear expectations and holding consistently to them. A Lieutenant who masters these three obligations will develop members who are capable of advancing and who will carry the Order's values forward after the Lieutenant has moved on.",
+      "keyTerms": [
+        {
+          "term": "Formation",
+          "definition": "The intentional development of a member's knowledge, character, and skill"
+        },
+        {
+          "term": "Protection",
+          "definition": "The officer's obligation to defend subordinates from harm, including misuse of authority"
+        },
+        {
+          "term": "Direction",
+          "definition": "The setting of clear expectations and consistent follow-through toward the Order's goals"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Name and define the three obligations of an officer to subordinates.",
+          "type": "short"
+        },
+        {
+          "question": "Why is 'protection' listed as an officer obligation? What does it mean in practice?",
+          "type": "short"
+        },
+        {
+          "question": "Describe one subordinate you are currently forming. What are you doing in each of the three areas?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "title": "Planning and Execution: The Officer's Operational Cycle",
+      "objectives": [
+        "Understand the four stages of the operational cycle",
+        "Apply the cycle to planning a specific Order event or program",
+        "Identify common points of failure in each stage"
+      ],
+      "lesson": "Every officer initiative \u2014 whether a program, an event, or an ongoing responsibility \u2014 passes through four stages: (1) Planning \u2014 defining the goal, identifying resources, assigning roles, setting timelines. (2) Briefing \u2014 communicating the plan clearly to everyone responsible for execution, leaving no ambiguity about who does what by when. (3) Execution \u2014 conducting the activity with discipline, adapting to unexpected developments without losing sight of the goal. (4) Debrief \u2014 reviewing what happened honestly: what worked, what failed, what should be different next time. The most common failure point in fraternal organizations is the debrief. Events happen, and then the organization moves on without ever analyzing what occurred or extracting lessons. This means the same errors repeat cycle after cycle. A Lieutenant who disciplines themselves to debrief every significant initiative \u2014 even informally \u2014 will improve faster than any other officer in the Order.",
+      "keyTerms": [
+        {
+          "term": "Operational Cycle",
+          "definition": "The four-stage process: Planning, Briefing, Execution, Debrief"
+        },
+        {
+          "term": "Briefing",
+          "definition": "The communication of a plan to all responsible parties before execution; ambiguity is the enemy"
+        },
+        {
+          "term": "Debrief",
+          "definition": "The honest review of what happened after execution; the primary mechanism for organizational learning"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Name the four stages of the operational cycle in order.",
+          "type": "short"
+        },
+        {
+          "question": "Why is the debrief the most commonly skipped stage?",
+          "type": "short"
+        },
+        {
+          "question": "Plan a specific Order initiative using all four stages. Write out each stage briefly.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "title": "Doctrine, Tradition, and the Officer's Role as Guardian",
+      "objectives": [
+        "Understand the difference between doctrine and tradition",
+        "Identify which elements of the Order's practice are fixed and which are flexible",
+        "Practice the skill of preserving essentials while allowing adaptation"
+      ],
+      "lesson": "One of the most important and most difficult responsibilities of an officer is knowing what to preserve and what to adapt. Doctrine \u2014 the core beliefs, commitments, and values of the Order \u2014 is not negotiable. It defines what the Order is. Tradition \u2014 the particular practices, customs, and forms through which doctrine is expressed \u2014 is important but adaptive. The confusion of doctrine with tradition is one of the most dangerous errors in any religious or fraternal organization. An officer who treats a particular ceremonial form as if it were doctrine will resist all adaptation and eventually strangle the Order's capacity to serve new generations. An officer who treats doctrine as if it were merely tradition will dissolve the Order's identity into cultural accommodation. The medieval Templars held their vows, their mission, and their obedience to God as doctrine. They adapted their uniforms, their properties, their financial instruments, and their deployment locations as tradition required. A Lieutenant must be able to distinguish between the two.",
+      "keyTerms": [
+        {
+          "term": "Doctrine",
+          "definition": "The core beliefs, commitments, and values that define the Order's identity; non-negotiable"
+        },
+        {
+          "term": "Tradition",
+          "definition": "The particular practices and forms through which doctrine is expressed; important but adaptive"
+        },
+        {
+          "term": "Guardian",
+          "definition": "The officer's role as protector of doctrine while allowing appropriate adaptation of tradition"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What is the difference between doctrine and tradition in the Order?",
+          "type": "short"
+        },
+        {
+          "question": "What happens when an officer confuses doctrine with tradition?",
+          "type": "short"
+        },
+        {
+          "question": "Identify one element of your assembly's practice that is doctrinal and one that is traditional. Explain.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "title": "Conflict Management at the Officer Level",
+      "objectives": [
+        "Understand the officer's unique responsibility in conflict situations",
+        "Learn the escalation ladder for handling conflict",
+        "Practice de-escalation language and technique"
+      ],
+      "lesson": "A Lieutenant will face conflicts that lower ranks cannot or should not resolve \u2014 disputes between senior members, questions of authority, grievances that have not been resolved at the chapter level. The officer's first responsibility in any conflict is to understand it fully before acting. This means listening to all parties separately, without prejudgment, and asking more questions than you give answers. The escalation ladder for conflict runs from: (1) Self-resolution by the parties themselves (best outcome), to (2) Mediation by a neutral member, to (3) Private counsel by an officer, to (4) Formal chapter process. An officer who skips straight to formal process for every conflict will exhaust the chapter and damage relationships. One who never escalates will allow serious problems to fester. The officer must match the response to the seriousness of the conflict. Personal disagreements belong at level 1 or 2. Violations of the Rule belong at level 3 or 4. Crimes belong at level 4 and outside the Order's purview.",
+      "keyTerms": [
+        {
+          "term": "Escalation Ladder",
+          "definition": "The four-level framework for matching conflict response to conflict severity"
+        },
+        {
+          "term": "Mediation",
+          "definition": "The use of a neutral third party to help two parties resolve a conflict without formal process"
+        },
+        {
+          "term": "Due Process",
+          "definition": "The right of every member to be heard fairly and to know the charges against them before any formal action is taken"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Name the four levels of the escalation ladder in order.",
+          "type": "short"
+        },
+        {
+          "question": "What is the officer's first responsibility when they encounter a conflict?",
+          "type": "short"
+        },
+        {
+          "question": "Describe a conflict you have witnessed. Which level of the escalation ladder was appropriate?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "title": "The Officer as Institutional Memory",
+      "objectives": [
+        "Understand the role of institutional memory in organizational health",
+        "Identify practices that build and preserve institutional memory",
+        "Begin maintaining records that serve the Order's future leaders"
+      ],
+      "lesson": "Institutional memory is the accumulated knowledge of how things have been done, why decisions were made, who has served, and what the Order has learned over time. Organizations without institutional memory repeat the same mistakes, reinvent the same wheels, and lose the contributions of former leaders as soon as they depart. The Templars maintained detailed records \u2014 financial accounts, property registers, correspondence, and chapter minutes \u2014 precisely because the Order's continuity depended on information surviving individual changes in leadership. A Lieutenant should begin \u2014 immediately, this week \u2014 maintaining records of their office: decisions made, members assigned, events conducted, problems encountered and resolved, members who have served and how. These records are not for the Lieutenant's personal credit. They are for the next person who occupies the office. An officer who does not maintain records has not served their successor. An officer who does will be thanked for generations.",
+      "keyTerms": [
+        {
+          "term": "Institutional Memory",
+          "definition": "The accumulated knowledge of an organization's history, decisions, and learned wisdom"
+        },
+        {
+          "term": "Records",
+          "definition": "Written documentation of decisions, events, and personnel that preserves institutional memory"
+        },
+        {
+          "term": "Continuity",
+          "definition": "The ability of an organization to maintain its identity and function across changes in individual leadership"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Why do organizations without institutional memory tend to repeat the same mistakes?",
+          "type": "short"
+        },
+        {
+          "question": "What specific records should a Lieutenant begin maintaining this week?",
+          "type": "short"
+        },
+        {
+          "question": "Write a brief 'office handover document' describing your current responsibilities for your successor.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 7,
+      "title": "Spiritual Formation of Officers: The Inner Life of Authority",
+      "objectives": [
+        "Understand why spiritual formation is more important, not less, at officer level",
+        "Study the example of humility in authority from the Templar tradition",
+        "Develop a personal practice of officer-level spiritual formation"
+      ],
+      "lesson": "Power \u2014 even the modest authority of a fraternal order \u2014 is spiritually dangerous. It tends toward pride, toward self-justification, toward treating one's own judgment as sufficient. The Templars required their most senior officers to maintain the most rigorous personal discipline precisely because they held the most authority. The Grand Master was under the Rule as strictly as the newest knight \u2014 he could be corrected by the chapter, overruled by the council, and judged by the Pope. No one in the Templar Order was above accountability. An officer who has achieved their rank through years of formation and now relaxes their spiritual discipline has made a grave error. The officer level is when spiritual formation becomes most critical \u2014 because the decisions of officers affect the largest number of people. A Lieutenant who prays seriously, maintains an examination of conscience, reads Scripture, and meets with a spiritual mentor will make better decisions. Not because prayer is magic, but because the practice of humility before God shapes the character that makes good judgment possible.",
+      "keyTerms": [
+        {
+          "term": "Officer-level Spiritual Formation",
+          "definition": "The intensified practice of prayer, Scripture, and examination required by the responsibilities of office"
+        },
+        {
+          "term": "Accountability to God",
+          "definition": "The practice of placing one's authority under divine judgment before it is exercised"
+        },
+        {
+          "term": "Humility in Authority",
+          "definition": "The discipline of remembering that all authority is given, not owned; that it serves others, not self"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Why is spiritual formation more critical at officer level than at lower ranks?",
+          "type": "short"
+        },
+        {
+          "question": "How did the Templar Rule apply to its most senior officers?",
+          "type": "short"
+        },
+        {
+          "question": "Describe your current spiritual formation practices. What will you add now that you are an officer?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 8,
+      "title": "Public Communication and the Order's External Presence",
+      "objectives": [
+        "Understand the officer's role as the Order's public representative",
+        "Learn the principles of effective external communication",
+        "Practice preparing and delivering a public statement about the Order"
+      ],
+      "lesson": "A Lieutenant represents the Order not only inside the assembly but outside it \u2014 to the community, to prospective members, to other organizations. The standard for external communication is higher than internal communication because the stakes are different. Inside the assembly, you can be casual, imprecise, and exploratory. Outside it, every word carries the weight of the Order's reputation. The principles of effective external communication for an officer are: (1) Be prepared \u2014 know what the Order is and what it is not before speaking about it publicly. (2) Be consistent \u2014 the same description of the Order should be available from every officer. (3) Be appropriate \u2014 do not share internal matters externally; the Order has a right to privacy in its proceedings. (4) Be inviting \u2014 the tone of public communication should welcome those who are genuinely seeking without pressuring those who are not. A Lieutenant who violates any of these principles damages the Order more than silence would.",
+      "keyTerms": [
+        {
+          "term": "External Communication",
+          "definition": "Communication from an officer to those outside the Order; subject to higher standards of preparation and consistency"
+        },
+        {
+          "term": "Consistency of Message",
+          "definition": "The requirement that all officers describe the Order in compatible terms when speaking publicly"
+        },
+        {
+          "term": "Appropriate Disclosure",
+          "definition": "The principle that internal matters are not shared externally; the Order has a right to confidentiality"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Name the four principles of effective external communication for an officer.",
+          "type": "short"
+        },
+        {
+          "question": "Why is consistency of message between officers important to the Order's reputation?",
+          "type": "short"
+        },
+        {
+          "question": "Prepare a brief public statement about the KTKC for a community audience. Practice delivering it.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 9,
+      "title": "Leading Change: When and How to Reform",
+      "objectives": [
+        "Understand the difference between reform and disruption",
+        "Learn the conditions under which change is appropriate",
+        "Apply a change management framework to one aspect of Order life"
+      ],
+      "lesson": "Every institution eventually needs to change. The question is not whether change is coming but how it will be managed. The officer who resists all change preserves a form while the life drains out of it. The officer who changes constantly destroys the trust that institutional stability provides. The Templars adapted repeatedly across two centuries \u2014 their financial practices, their properties, their relationships with European monarchs \u2014 while maintaining the core of their identity. The conditions that warrant change are: (1) The current practice is failing to serve the mission. (2) A better approach has been identified and tested. (3) Those affected have been consulted and their concerns addressed. (4) The change is introduced gradually, with clear communication, and with the authority to reverse it if it fails. An officer who introduces change without meeting these conditions will face resistance that is not obstinacy but reasonable protection of institutional stability.",
+      "keyTerms": [
+        {
+          "term": "Reform",
+          "definition": "Intentional, mission-aligned change introduced through proper process with consultation and consent"
+        },
+        {
+          "term": "Change Management",
+          "definition": "The art of introducing change in ways that preserve trust and allow for correction if needed"
+        },
+        {
+          "term": "Institutional Stability",
+          "definition": "The predictability and reliability of the Order's practices that allows members to trust and plan"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What four conditions warrant change in an organizational practice?",
+          "type": "short"
+        },
+        {
+          "question": "What is the difference between reform and disruption?",
+          "type": "short"
+        },
+        {
+          "question": "Identify one change you believe the assembly needs. Apply the four conditions framework to it.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 10,
+      "title": "Ethics and the Officer: Navigating Difficult Decisions",
+      "objectives": [
+        "Understand the ethical framework for officer decision-making",
+        "Apply the framework to three common officer dilemmas",
+        "Develop a personal decision-making protocol for difficult situations"
+      ],
+      "lesson": "Officers in the Order will face situations where the right decision is not obvious. A member has violated the Rule in a way that is serious but forgivable. A superior officer has asked the Lieutenant to act against their conscience. Two members are in conflict and each has legitimate grievances. The financial need of the Order conflicts with the financial distress of individual members. An ethical framework for officers is built on five questions: (1) Is this consistent with the Order's doctrine? (2) Would I be comfortable if the Grand Master saw exactly what I am doing and why? (3) Does this serve the member's genuine good, not just their preference? (4) Have I consulted someone wiser than myself? (5) Can I live with this decision in ten years? These five questions will not always produce an easy answer. But they will produce a defensible one \u2014 a decision made with care, consultation, and integrity.",
+      "keyTerms": [
+        {
+          "term": "Ethical Framework",
+          "definition": "A set of consistent principles for making difficult decisions; more reliable than case-by-case judgment"
+        },
+        {
+          "term": "Conscience",
+          "definition": "The interior faculty that evaluates one's actions against a moral standard; must be formed and consulted"
+        },
+        {
+          "term": "Defensible Decision",
+          "definition": "A decision that was made through a proper process, consulted wisely, and is consistent with stated values"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "State the five questions of the officer ethical framework.",
+          "type": "short"
+        },
+        {
+          "question": "What does it mean to make a 'defensible decision'?",
+          "type": "short"
+        },
+        {
+          "question": "Apply the five questions to one difficult decision you have faced or might face as an officer.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 11,
+      "title": "Developing the Next Generation of Officers",
+      "objectives": [
+        "Understand the officer's responsibility for identifying and forming future officers",
+        "Learn the difference between leadership development and task assignment",
+        "Create a two-year development plan for one identified future officer"
+      ],
+      "lesson": "The most important thing a Lieutenant does is not any single program or event \u2014 it is the formation of the next generation of officers. An officer who does not look three to five years ahead and ask 'Who will occupy this office when I move on?' is operating without the most critical strategic priority. The difference between leadership development and task assignment is this: task assignment asks 'What do I need done?' Leadership development asks 'What does this person need to experience to grow into their potential?' Both are necessary. But an officer who only assigns tasks has not developed a leader \u2014 they have trained a helper. Leadership development requires: identifying the right person (character before competence), giving them successively more significant responsibilities, providing honest feedback after each one, and publicly advocating for them when they are ready. This is how the Templar Order built an institution that lasted two centuries across a continent.",
+      "keyTerms": [
+        {
+          "term": "Leadership Development",
+          "definition": "The intentional formation of a person for future leadership responsibility"
+        },
+        {
+          "term": "Talent Identification",
+          "definition": "The capacity to recognize potential in people before that potential is fully developed"
+        },
+        {
+          "term": "Advocacy",
+          "definition": "The practice of speaking for a developing leader to those with the authority to give them greater opportunity"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What is the difference between leadership development and task assignment?",
+          "type": "short"
+        },
+        {
+          "question": "Why should character be assessed before competence in identifying future leaders?",
+          "type": "short"
+        },
+        {
+          "question": "Create a two-year development plan for one person you believe has officer potential.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 12,
+      "title": "Lieutenant Review and Captain Program Preparation",
+      "objectives": [
+        "Review the twelve weeks of officer formation at the Lieutenant level",
+        "Prepare a comprehensive officer portfolio for advancement review",
+        "Set clear goals for the Captain program"
+      ],
+      "lesson": "You have completed the Lieutenant program. Twelve weeks of officer formation have covered the foundations of institutional responsibility: authority and accountability, subordinate relationships, operational planning, doctrine and tradition, conflict management, institutional memory, spiritual formation, external communication, change leadership, ethics, and succession development. Before your advancement review, prepare an officer portfolio containing: (1) A summary of one program or initiative you led from planning through debrief. (2) A development plan for one member you are forming for future leadership. (3) A written reflection on the most difficult officer decision you have made and how you navigated it. (4) A statement of your goals for the Captain program. The Captain level will expand your scope of responsibility: from specific programs to entire functional areas of the Order's life. Come prepared to think at a larger scale.",
+      "keyTerms": [
+        {
+          "term": "Officer Portfolio",
+          "definition": "A collection of documents demonstrating an officer's performance, formation of others, and reflective capacity"
+        },
+        {
+          "term": "Scope of Responsibility",
+          "definition": "The range of functions and people for which an officer is accountable; expands with each rank"
+        },
+        {
+          "term": "Captain Program",
+          "definition": "Officer Formation Level II; expands scope from specific programs to entire functional areas"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What four documents should be included in the Lieutenant advancement portfolio?",
+          "type": "short"
+        },
+        {
+          "question": "How does the Captain's scope of responsibility differ from the Lieutenant's?",
+          "type": "short"
+        },
+        {
+          "question": "Write your Lieutenant advancement statement. Summarize what you have led, formed, and learned.",
+          "type": "essay"
+        }
+      ]
+    }
+  ]
+}

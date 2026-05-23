@@ -3,296 +3,1301 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Schoolmaster Dashboard — Templar Forge Academy</title>
+  <title>Schoolmaster Command — Templar Forge Academy</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/shared.css">
   <style>
-    body {
-      background-color: #000;
-      background-image: url('/images/templar-cross.png');
+    /* ── ARMORY BACKGROUND ── */
+    html {
+      background-color: #060203;
+      background-image: url('/images/schoolmaster-bg.jpg');
       background-repeat: no-repeat;
       background-position: center center;
-      background-size: contain;
+      background-size: cover;
       background-attachment: fixed;
     }
+    body { background: transparent !important; }
 
-    .main-content { flex: 1; padding: 32px; max-width: 1100px; margin: 0 auto; width: 100%; }
+    .page-wrap { position: relative; }
+    .page-wrap::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(180deg,rgba(8,0,4,.88) 0%,rgba(12,0,6,.62) 18%,rgba(8,0,4,.55) 50%,rgba(8,0,4,.68) 80%,rgba(4,0,2,.88) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .page-wrap > * { position: relative; z-index: 1; }
+    .detail-overlay { z-index: 200; }
 
-    .admin-banner {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 24px 28px;
-      background: linear-gradient(135deg, #180010, #0e000a);
-      border: 1px solid #5a0020;
-      border-left: 4px solid #8b0000;
-      border-radius: 14px;
-      margin-bottom: 28px;
+    @media (max-width: 640px) {
+      html { background-attachment: scroll; background-position: 50% center; }
     }
-    .admin-banner img { width: 56px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.9)); }
-    .admin-banner h2 {
-      font-family: 'Cinzel', serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #ff9090;
+
+    /* ── Topbar crimson theme ── */
+    .topbar { background: linear-gradient(180deg,rgba(10,0,5,.97) 0%,rgba(22,0,12,.92) 100%); border-bottom-color:#4a0018; }
+    .topbar-brand-text { color:#ff9090; }
+    .topbar-brand-sub  { color:#8b3030; }
+    .topbar-nav a      { color:#c92727; }
+    .topbar-nav a:hover { border-color:#c92727; color:#ff9090; }
+    .topbar-nav a.btn-nav { background:linear-gradient(135deg,#8b0000,#5a0000); color:#ffcccc; border-color:transparent; }
+    .topbar-nav a.btn-nav:hover { background:linear-gradient(135deg,#aa0000,#770000); }
+
+    .main-content { flex:1; padding:clamp(18px,4vw,32px); max-width:1200px; margin:0 auto; width:100%; }
+
+    /* ── Command banner ── */
+    .command-banner {
+      display:flex; align-items:center; gap:18px; padding:20px 24px;
+      background:linear-gradient(135deg,rgba(26,0,16,.88),rgba(14,0,8,.88));
+      backdrop-filter:blur(5px); -webkit-backdrop-filter:blur(5px);
+      border:1px solid rgba(90,0,32,.7); border-left:4px solid #8b0000;
+      border-radius:14px; margin-bottom:24px;
     }
-    .admin-banner p { color: #8a6060; font-size: 0.95rem; margin-top: 4px; }
+    .command-banner img { width:52px; filter:drop-shadow(0 2px 8px rgba(0,0,0,.9)); flex-shrink:0; }
+    .command-banner h2  { font-family:'Cinzel',serif; font-size:clamp(1rem,2.5vw,1.3rem); font-weight:700; color:#ff9090; }
+    .command-banner p   { color:#8a5050; font-size:.9rem; margin-top:3px; }
 
     .section-title {
-      font-family: 'Cinzel', serif;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #8b3030;
-      margin-bottom: 14px;
+      font-family:'Cinzel',serif; font-size:.76rem; font-weight:700;
+      letter-spacing:.2em; text-transform:uppercase; color:#8b3030; margin-bottom:14px;
     }
 
-    /* Member table */
-    .member-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.92rem;
-    }
-    .member-table th {
-      font-family: 'Cinzel', serif;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #8b3030;
-      padding: 10px 14px;
-      border-bottom: 1px solid #3a0010;
-      text-align: left;
-    }
-    .member-table td {
-      padding: 12px 14px;
-      border-bottom: 1px solid #200008;
-      color: #c8a8a8;
-      vertical-align: middle;
-    }
-    .member-table tr:hover td { background: rgba(139,0,0,0.08); }
-    .member-table .role-badge {
-      display: inline-flex;
-      padding: 3px 10px;
-      border-radius: 999px;
-      font-family: 'Cinzel', serif;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .member-table .role-member { background: rgba(201,162,39,0.12); border: 1px solid #c9a227; color: #e8c96a; }
-    .member-table .role-admin  { background: rgba(139,0,0,0.2);     border: 1px solid #8b0000;  color: #ff9090; }
-
-    .stat-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 14px;
-      margin-bottom: 28px;
-    }
+    /* ── Stats ── */
+    .stat-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:12px; margin-bottom:24px; }
     .stat-box {
-      background: linear-gradient(135deg, #180010, #0e0008);
-      border: 1px solid #3a0010;
-      border-radius: 12px;
-      padding: 18px;
-      text-align: center;
+      background:linear-gradient(135deg,rgba(26,0,16,.82),rgba(14,0,8,.82));
+      backdrop-filter:blur(5px); -webkit-backdrop-filter:blur(5px);
+      border:1px solid rgba(58,0,16,.65); border-radius:12px; padding:16px; text-align:center;
     }
-    .stat-box .num {
-      font-family: 'Cinzel', serif;
-      font-size: 2rem;
-      font-weight: 900;
-      color: #c92727;
-      display: block;
-    }
-    .stat-box .lbl { font-size: 0.82rem; color: #6a3030; margin-top: 4px; }
+    .stat-box .num { font-family:'Cinzel',serif; font-size:1.8rem; font-weight:900; color:#c92727; display:block; }
+    .stat-box .lbl { font-size:.78rem; color:#6a2020; margin-top:4px; }
+    .stat-box.overdue-stat .num { color:#e8b040; }
 
-    .admin-card {
-      background: linear-gradient(160deg, #180010, #0e0008);
-      border: 1px solid #3a0010;
-      border-radius: 14px;
-      padding: 22px;
+    .gold-rule-red { height:1px; background:linear-gradient(90deg,transparent,#8b0000,#c9a227,#8b0000,transparent); margin:22px 0; }
+
+    /* ── Cards ── */
+    .sm-card {
+      background:linear-gradient(160deg,rgba(24,0,16,.84),rgba(14,0,8,.84));
+      backdrop-filter:blur(5px); -webkit-backdrop-filter:blur(5px);
+      border:1px solid rgba(58,0,16,.65); border-radius:14px; padding:20px;
     }
 
-    .api-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      background: #0a0005;
-      border: 1px solid #3a0010;
-      border-radius: 8px;
-      font-family: monospace;
-      font-size: 0.82rem;
-      color: #c92727;
-      text-decoration: none;
-      transition: border-color 0.2s;
+    /* ── Member roster table ── */
+    .member-table { width:100%; border-collapse:collapse; font-size:.88rem; }
+    .member-table th {
+      font-family:'Cinzel',serif; font-size:.68rem; font-weight:700;
+      letter-spacing:.14em; text-transform:uppercase; color:#8b3030;
+      padding:9px 12px; border-bottom:1px solid #3a0010; text-align:left;
     }
-    .api-link:hover { border-color: #8b0000; color: #ff9090; }
+    .member-table td { padding:11px 12px; border-bottom:1px solid #1a0008; color:#c8a8a8; vertical-align:middle; }
+    .member-table tr:hover td { background:rgba(139,0,0,.07); cursor:pointer; }
+    .member-table tr.selected td { background:rgba(139,0,0,.14); }
 
-    /* Override topbar for admin */
-    .topbar { background: linear-gradient(180deg, rgba(10,0,5,0.96) 0%, rgba(20,0,10,0.9) 100%); border-bottom-color: #3a0010; }
-    .topbar-brand-text { color: #ff9090; }
-    .topbar-brand-sub  { color: #8b3030; }
-    .topbar-nav a      { color: #c92727; }
-    .topbar-nav a:hover { border-color: #c92727; color: #ff9090; }
-    .topbar-nav a.btn-nav { background: linear-gradient(135deg, #8b0000, #5a0000); color: #ffcccc; }
+    .prog-pill {
+      display:inline-flex; align-items:center; gap:5px;
+      padding:3px 9px; border-radius:999px; font-family:'Cinzel',serif;
+      font-size:.66rem; font-weight:700; letter-spacing:.08em;
+      text-transform:uppercase; white-space:nowrap;
+    }
+    .prog-pill.assigned  { background:rgba(201,162,39,.12); border:1px solid #c9a227; color:#e8c96a; }
+    .prog-pill.none      { background:rgba(60,0,0,.2);      border:1px solid #3a0010;  color:#6a3030; }
+    .prog-pill.complete  { background:rgba(0,80,0,.2);       border:1px solid #2a6020;  color:#90e090; }
+    .prog-pill.paused    { background:rgba(60,40,0,.3);      border:1px solid #8b6000;  color:#e8b040; }
+
+    .week-badge {
+      display:inline-block; padding:2px 8px; border-radius:999px;
+      background:rgba(139,0,0,.2); border:1px solid #5a0020;
+      font-family:'Cinzel',serif; font-size:.66rem; color:#c92727; font-weight:700;
+    }
+    .pending-badge {
+      display:inline-flex; align-items:center; justify-content:center;
+      width:20px; height:20px; border-radius:50%;
+      background:#8b0000; color:#ffcccc; font-size:.7rem; font-weight:700;
+    }
+
+    /* ── Overdue warning badge ── */
+    .overdue-badge {
+      display:inline-flex; align-items:center; gap:4px;
+      padding:2px 8px; border-radius:999px;
+      background:rgba(200,100,0,.25); border:1px solid #c87020;
+      font-family:'Cinzel',serif; font-size:.62rem; font-weight:700;
+      letter-spacing:.08em; color:#e8b040; white-space:nowrap;
+    }
+
+    /* ── Rank badge ── */
+    .rank-badge {
+      display:inline-flex; align-items:center; gap:4px;
+      padding:2px 8px; border-radius:999px;
+      background:rgba(139,0,60,.15); border:1px solid #6a0030;
+      font-family:'Cinzel',serif; font-size:.62rem; font-weight:700;
+      letter-spacing:.08em; color:#d08080; white-space:nowrap;
+    }
+
+    /* ── Detail panel ── */
+    .detail-overlay {
+      position:fixed; inset:0; z-index:200;
+      background:rgba(0,0,0,.7); display:none; align-items:flex-start; justify-content:flex-end;
+    }
+    .detail-overlay.open { display:flex; }
+    .detail-panel {
+      width:min(580px,100vw); height:100vh; overflow-y:auto;
+      background:linear-gradient(180deg,rgba(18,0,8,.96),rgba(10,0,5,.96));
+      backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+      border-left:1px solid rgba(90,0,32,.8);
+      box-shadow:-8px 0 40px rgba(0,0,0,.9);
+      padding:24px; display:flex; flex-direction:column; gap:20px;
+    }
+    .detail-close {
+      align-self:flex-end; background:none; border:1px solid #3a0010; border-radius:6px;
+      color:#8b3030; padding:6px 14px; cursor:pointer; font-family:'Cinzel',serif;
+      font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; transition:all .2s;
+    }
+    .detail-close:hover { border-color:#8b0000; color:#ff9090; }
+
+    .detail-name { font-family:'Cinzel',serif; font-size:1.3rem; font-weight:900; color:#ff9090; }
+    .detail-sub  { font-size:.88rem; color:#6a3030; margin-top:4px; }
+
+    .detail-section { margin-top:4px; }
+    .detail-section-title {
+      font-family:'Cinzel',serif; font-size:.7rem; font-weight:700;
+      letter-spacing:.18em; text-transform:uppercase; color:#8b0000;
+      margin-bottom:10px; padding-bottom:5px; border-bottom:1px solid #3a0010;
+    }
+
+    /* Program assignment */
+    .assign-form { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+    .assign-form select {
+      flex:1; min-width:160px;
+      background:#0a0005; border:1px solid #3a0010; border-radius:8px;
+      padding:9px 12px; color:#e8c96a; font-family:'Cinzel',serif; font-size:.78rem;
+      appearance:none; cursor:pointer;
+    }
+    .assign-form select:focus { outline:none; border-color:#8b0000; }
+
+    .sm-btn {
+      padding:9px 18px; border-radius:8px; border:none; cursor:pointer;
+      font-family:'Cinzel',serif; font-size:.76rem; font-weight:700;
+      letter-spacing:.1em; text-transform:uppercase; transition:all .2s;
+    }
+    .sm-btn.primary { background:linear-gradient(135deg,#8b0000,#5a0000); color:#ffcccc; }
+    .sm-btn.primary:hover { background:linear-gradient(135deg,#aa0000,#770000); }
+    .sm-btn.gold    { background:linear-gradient(135deg,#e8c84a,#b8860b); color:#1a0800; }
+    .sm-btn.gold:hover { background:linear-gradient(135deg,#ffd84a,#c8960b); }
+    .sm-btn.ghost   { background:transparent; border:1px solid #3a0010; color:#8b3030; }
+    .sm-btn.ghost:hover { border-color:#8b0000; color:#c92727; }
+    .sm-btn.amber   { background:linear-gradient(135deg,#8b6000,#5a3a00); color:#ffe090; }
+    .sm-btn.amber:hover { background:linear-gradient(135deg,#aa7800,#6a4800); }
+    .sm-btn.danger  { background:linear-gradient(135deg,#6a0000,#3a0000); color:#ff9090; border:1px solid #8b0000; }
+    .sm-btn.danger:hover { background:linear-gradient(135deg,#8a0000,#500000); }
+    .sm-btn.green   { background:linear-gradient(135deg,#1a5010,#0e3008); color:#90e090; }
+    .sm-btn.green:hover { background:linear-gradient(135deg,#2a6018,#183808); }
+
+    /* Week control */
+    .week-ctrl { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .week-num {
+      font-family:'Cinzel',serif; font-size:1.4rem; font-weight:900; color:#c92727;
+      min-width:40px; text-align:center;
+    }
+
+    /* Exam submissions */
+    .exam-item { background:#0a0005; border:1px solid #2a0010; border-radius:10px; padding:14px; margin-bottom:10px; }
+    .exam-item-header { display:flex; justify-content:space-between; align-items:start; gap:10px; flex-wrap:wrap; margin-bottom:8px; }
+    .exam-meta { font-family:'Cinzel',serif; font-size:.76rem; color:#8b3030; }
+    .exam-status-pending  { color:#e8c96a; font-size:.76rem; font-weight:700; }
+    .exam-status-reviewed { color:#90e090; font-size:.76rem; font-weight:700; }
+    .qa-list { display:flex; flex-direction:column; gap:8px; margin:10px 0; }
+    .qa-item { background:#060003; border-radius:6px; padding:10px 12px; }
+    .qa-q { font-size:.8rem; color:#6a3030; margin-bottom:4px; font-style:italic; }
+    .qa-a { font-size:.88rem; color:#c8a8a8; }
+    .review-form { display:flex; flex-direction:column; gap:8px; margin-top:10px; }
+    .review-form input[type="text"],
+    .review-form textarea {
+      background:#0a0005; border:1px solid #3a0010; border-radius:6px;
+      padding:8px 10px; color:#e8d9b8; font-family:'Crimson Text',serif; font-size:.95rem; resize:vertical;
+    }
+    .review-form input[type="text"]:focus,
+    .review-form textarea:focus { outline:none; border-color:#8b0000; }
+
+    /* History / notes */
+    .history-item {
+      display:flex; justify-content:space-between; align-items:center; gap:12px;
+      padding:10px 0; border-bottom:1px solid #1a0008; flex-wrap:wrap;
+    }
+    .history-item:last-child { border-bottom:none; }
+    .history-title { font-family:'Cinzel',serif; font-size:.82rem; color:#e8c8a8; }
+    .history-meta  { font-size:.76rem; color:#4a1020; }
+    .note-item { padding:10px 0; border-bottom:1px solid #1a0008; }
+    .note-item:last-child { border-bottom:none; }
+    .note-date { font-size:.72rem; color:#4a1020; margin-bottom:4px; }
+    .note-text  { font-size:.88rem; color:#c8a8a8; line-height:1.5; }
+    .note-add { display:flex; gap:8px; margin-top:10px; flex-wrap:wrap; }
+    .note-add textarea {
+      flex:1; min-width:180px; min-height:60px;
+      background:#0a0005; border:1px solid #3a0010; border-radius:8px;
+      padding:8px 10px; color:#e8d9b8; font-family:'Crimson Text',serif;
+      font-size:.95rem; resize:vertical;
+    }
+    .note-add textarea:focus { outline:none; border-color:#8b0000; }
+
+    /* ── Unlock list rows ── */
+    .unlock-row {
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px; padding:7px 10px; border-radius:7px;
+      background:rgba(10,0,5,.4); border:1px solid #1e0010;
+    }
+    .unlock-row-name { font-family:'Cinzel',serif; font-size:.74rem; color:#c8a8a8; flex:1; }
+    .unlock-row-name.is-guarded { color:#6a2020; }
+    .unlock-row-badge {
+      font-family:'Cinzel',serif; font-size:.62rem; font-weight:700;
+      letter-spacing:.1em; padding:2px 7px; border-radius:999px;
+    }
+    .unlock-row-badge.guarded  { background:rgba(139,0,0,.18); border:1px solid #8b0000; color:#c92727; }
+    .unlock-row-badge.unlocked { background:rgba(0,80,0,.2);   border:1px solid #2a6020; color:#90e090; }
+    .unlock-row-badge.current  { background:rgba(201,162,39,.12); border:1px solid #c9a227; color:#e8c96a; }
+    .unlock-btn {
+      font-family:'Cinzel',serif; font-size:.66rem; font-weight:700;
+      letter-spacing:.08em; text-transform:uppercase;
+      padding:4px 10px; border-radius:6px; border:none; cursor:pointer;
+      transition:all .2s; white-space:nowrap;
+    }
+    .unlock-btn.do-unlock { background:linear-gradient(135deg,#2a6020,#1a4010); color:#90e090; }
+    .unlock-btn.do-unlock:hover { background:linear-gradient(135deg,#3a8030,#2a5020); }
+    .unlock-btn.do-lock   { background:rgba(80,0,0,.3); border:1px solid #4a0010; color:#c96060; }
+    .unlock-btn.do-lock:hover { background:rgba(110,0,0,.4); border-color:#8b0000; }
+
+    /* ── Profile section in detail panel ── */
+    .profile-section {
+      display:flex; gap:14px; align-items:flex-start;
+      background:rgba(10,0,5,.5); border:1px solid #2a0010;
+      border-radius:10px; padding:14px;
+    }
+    .profile-avatar {
+      flex-shrink:0; width:64px; height:64px; border-radius:50%;
+      object-fit:cover; border:2px solid #5a0020; background:#0a0005; display:block;
+    }
+    .profile-avatar-placeholder {
+      flex-shrink:0; width:64px; height:64px; border-radius:50%;
+      background:linear-gradient(135deg,#1a0010,#0a0005); border:2px solid #2a0010;
+      display:flex; align-items:center; justify-content:center;
+      font-size:26px; color:#3a1020;
+    }
+    .profile-info { flex:1; min-width:0; }
+    .profile-info-row { display:flex; align-items:baseline; gap:6px; margin-bottom:5px; flex-wrap:wrap; }
+    .profile-info-label {
+      font-family:'Cinzel',serif; font-size:.68rem; font-weight:700;
+      letter-spacing:.14em; text-transform:uppercase; color:#6a0020; white-space:nowrap;
+    }
+    .profile-info-value { font-family:'Crimson Text',serif; font-size:.92rem; color:#c8a8a8; word-break:break-word; }
+    .profile-info-value.empty { color:#3a1020; font-style:italic; }
+    .profile-temple-badge {
+      display:inline-block; font-family:'Cinzel',serif; font-size:.7rem; color:#e8c96a;
+      background:rgba(201,162,39,.08); border:1px solid rgba(201,162,39,.2);
+      border-radius:20px; padding:2px 10px; letter-spacing:.08em; margin-bottom:8px;
+    }
+
+    /* ── Rank assignment section ── */
+    .rank-section-note {
+      font-family:'Crimson Text',serif; font-size:.88rem; color:#6a3030;
+      line-height:1.5; margin-bottom:14px;
+    }
+    .rank-history-item {
+      display:flex; justify-content:space-between; align-items:center;
+      padding:7px 0; border-bottom:1px solid #1a0008; flex-wrap:wrap; gap:8px;
+    }
+    .rank-history-item:last-child { border-bottom:none; }
+    .rank-history-title { font-family:'Cinzel',serif; font-size:.78rem; color:#d08080; }
+    .rank-history-sub   { font-size:.72rem; color:#4a1020; margin-top:2px; }
+
+    /* ── Status section ── */
+    .status-indicator {
+      display:inline-flex; align-items:center; gap:6px;
+      padding:4px 12px; border-radius:999px;
+      font-family:'Cinzel',serif; font-size:.72rem; font-weight:700;
+      letter-spacing:.1em; text-transform:uppercase;
+    }
+    .status-indicator.active { background:rgba(0,80,0,.2); border:1px solid #2a6020; color:#90e090; }
+    .status-indicator.paused { background:rgba(140,90,0,.25); border:1px solid #8b6000; color:#e8b040; }
+
+    /* ── Overdue warning in detail panel ── */
+    .overdue-alert {
+      background:rgba(160,80,0,.2); border:1px solid #a06000; border-left:4px solid #e8b040;
+      border-radius:10px; padding:12px 14px;
+    }
+    .overdue-alert-title {
+      font-family:'Cinzel',serif; font-size:.76rem; font-weight:700;
+      letter-spacing:.1em; text-transform:uppercase; color:#e8b040; margin-bottom:4px;
+    }
+    .overdue-alert p { font-family:'Crimson Text',serif; font-size:.88rem; color:#c8a050; line-height:1.5; }
+
+    /* ── Danger zone (delete member) ── */
+    .danger-zone {
+      border:1px solid #5a0000; border-radius:10px; padding:14px;
+      background:rgba(60,0,0,.2);
+    }
+    .danger-zone-title {
+      font-family:'Cinzel',serif; font-size:.7rem; font-weight:700;
+      letter-spacing:.15em; text-transform:uppercase; color:#8b0000;
+      margin-bottom:8px;
+    }
+    .danger-zone p { font-family:'Crimson Text',serif; font-size:.86rem; color:#6a2020; line-height:1.5; margin-bottom:10px; }
+
+    /* Toast */
+    .toast {
+      position:fixed; bottom:24px; right:24px; z-index:999;
+      padding:12px 20px; border-radius:10px; font-family:'Cinzel',serif;
+      font-size:.82rem; font-weight:700; letter-spacing:.1em;
+      background:linear-gradient(135deg,#1a0010,#0e0008);
+      border:1px solid #8b0000; color:#ff9090;
+      box-shadow:0 8px 32px rgba(0,0,0,.8);
+      transform:translateY(80px); opacity:0; transition:all .35s ease;
+      pointer-events:none;
+    }
+    .toast.show { transform:translateY(0); opacity:1; }
+    .toast.success { border-color:#2a6020; color:#90e090; }
+    .toast.warning { border-color:#8b6000; color:#e8b040; }
+
+    /* Override shared dash-card */
+    .dash-card {
+      background:linear-gradient(160deg,rgba(24,0,16,.84),rgba(14,0,8,.84)) !important;
+      backdrop-filter:blur(5px); -webkit-backdrop-filter:blur(5px);
+      border-color:rgba(58,0,16,.6) !important;
+    }
+    body { background-image:none !important; }
+
+    /* ── Status note textarea ── */
+    .status-note-input {
+      width:100%; min-height:50px; resize:vertical;
+      background:#0a0005; border:1px solid #3a0010; border-radius:6px;
+      padding:8px 10px; color:#e8d9b8; font-family:'Crimson Text',serif;
+      font-size:.95rem; margin-top:8px;
+    }
+    .status-note-input:focus { outline:none; border-color:#8b0000; }
+
+    @media (max-width:640px) {
+      .member-table th:nth-child(4),
+      .member-table td:nth-child(4) { display:none; }
+      .detail-panel { padding:16px; }
+      .stat-box .num { font-size:1.5rem; }
+    }
   </style>
 </head>
 <body>
-  <div class="page-wrap">
+<div class="page-wrap">
 
-    <!-- TOP BAR -->
-    <nav class="topbar">
-      <a class="topbar-brand" href="/">
-        <img src="/images/order-seal.png" alt="Seal" style="height:48px;">
-        <div>
-          <div class="topbar-brand-text">Schoolmaster Command</div>
-          <div class="topbar-brand-sub">Admin Access — Templar Forge Academy</div>
-        </div>
-      </a>
-      <div class="topbar-nav">
-        <span id="nav-greeting" style="font-family:'Cinzel',serif;font-size:0.82rem;color:#8b3030;"></span>
-        <a href="/auth/logout" class="btn-nav">Sign Out</a>
-      </div>
-    </nav>
-
-    <!-- MAIN -->
-    <main class="main-content">
-
-      <!-- Admin banner -->
-      <div class="admin-banner">
-        <img src="/images/order-seal.png" alt="Seal">
-        <div>
-          <h2>✠ Schoolmaster Dashboard</h2>
-          <p id="admin-welcome">Administrative access — Templar Forge Academy</p>
-        </div>
-      </div>
-
-      <!-- Stats -->
-      <div class="stat-row">
-        <div class="stat-box">
-          <span class="num" id="stat-members">—</span>
-          <div class="lbl">Registered Members</div>
-        </div>
-        <div class="stat-box">
-          <span class="num">11</span>
-          <div class="lbl">Active Programs</div>
-        </div>
-        <div class="stat-box">
-          <span class="num">7</span>
-          <div class="lbl">Shared Documents</div>
-        </div>
-        <div class="stat-box">
-          <span class="num" id="stat-api" style="font-size:1.2rem;padding-top:4px;">OK</span>
-          <div class="lbl">API Status</div>
-        </div>
-      </div>
-
-      <div class="gold-rule" style="background:linear-gradient(90deg,transparent,#8b0000,#c9a227,#8b0000,transparent);"></div>
-
-      <!-- Member roster -->
-      <div style="margin-bottom:28px;">
-        <div class="section-title">✠ Member Roster</div>
-        <div class="admin-card">
-          <table class="member-table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Salutation</th>
-                <th>Name</th>
-                <th>Role</th>
-                <th>Joined</th>
-              </tr>
-            </thead>
-            <tbody id="member-tbody">
-              <tr><td colspan="5" style="color:#4a1020;text-align:center;padding:20px;">Loading roster…</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="gold-rule" style="background:linear-gradient(90deg,transparent,#8b0000,#c9a227,#8b0000,transparent);"></div>
-
-      <!-- Curriculum overview -->
-      <div style="margin-bottom:28px;">
-        <div class="section-title">⚔ Curriculum Programs</div>
-        <div class="dash-grid" id="program-grid">
-          <div style="color:#4a1020;font-size:0.9rem;">Loading…</div>
-        </div>
-      </div>
-
-      <div class="gold-rule" style="background:linear-gradient(90deg,transparent,#8b0000,#c9a227,#8b0000,transparent);"></div>
-
-      <!-- API links -->
+  <!-- TOP BAR -->
+  <nav class="topbar">
+    <a class="topbar-brand" href="/">
+      <img src="/images/order-seal.png" alt="Seal" style="height:46px;">
       <div>
-        <div class="section-title">⚙ Repository API</div>
-        <div style="display:flex;flex-wrap:wrap;gap:10px;">
-          <a class="api-link" href="/api/health" target="_blank">/api/health</a>
-          <a class="api-link" href="/api/curriculum" target="_blank">/api/curriculum</a>
-          <a class="api-link" href="/api/resources" target="_blank">/api/resources</a>
-          <a class="api-link" href="/api/curriculum/phases" target="_blank">/api/curriculum/phases</a>
-          <a class="api-link" href="/admin/members" target="_blank">/admin/members</a>
-        </div>
+        <div class="topbar-brand-text">Schoolmaster Command</div>
+        <div class="topbar-brand-sub">Knowledge Oversight — Templar Forge Academy</div>
       </div>
+    </a>
+    <!-- KTKC Motto -->
+    <div class="topbar-motto">
+      <span class="topbar-motto-word"><span class="topbar-motto-cap k1">K</span><span class="topbar-motto-rest">nowledge</span></span>
+      <span class="topbar-motto-sep">·</span>
+      <span class="topbar-motto-word"><span class="topbar-motto-cap t">T</span><span class="topbar-motto-rest">raining</span></span>
+      <span class="topbar-motto-sep">·</span>
+      <span class="topbar-motto-word"><span class="topbar-motto-cap k2">K</span><span class="topbar-motto-rest">nightliness</span></span>
+      <span class="topbar-motto-sep">·</span>
+      <span class="topbar-motto-word"><span class="topbar-motto-cap c">C</span><span class="topbar-motto-rest">ourage</span></span>
+    </div>
+    <div class="topbar-nav">
+      <span id="nav-greeting" style="font-family:'Cinzel',serif;font-size:.8rem;color:#8b3030;"></span>
+      <a href="/auth/logout" class="btn-nav">Sign Out</a>
+    </div>
+  </nav>
 
-    </main>
-  </div>
+  <!-- MAIN -->
+  <main class="main-content">
 
-  <script>
-    // Guard — must be admin
-    fetch('/auth/me')
-      .then(r => r.ok ? r.json() : Promise.reject())
-      .then(user => {
-        if (user.role !== 'admin') { window.location.href = '/member'; return; }
-        document.getElementById('nav-greeting').textContent = `Schoolmaster ${user.username}`;
-        document.getElementById('admin-welcome').textContent =
-          `Signed in as Schoolmaster ${user.username} — full administrative access`;
-      })
-      .catch(() => { window.location.href = '/login'; });
+    <!-- Command banner -->
+    <div class="command-banner">
+      <img src="/images/order-seal.png" alt="Seal">
+      <div>
+        <h2>✠ Schoolmaster Command</h2>
+        <p id="sm-welcome">Administrative oversight of all member progression</p>
+      </div>
+    </div>
 
-    // API health
-    fetch('/api/health').then(r => r.json()).then(d => {
-      document.getElementById('stat-api').textContent = d.status.toUpperCase();
-    });
+    <!-- Stats -->
+    <div class="stat-row">
+      <div class="stat-box">
+        <span class="num" id="stat-members">—</span>
+        <div class="lbl">Enrolled Members</div>
+      </div>
+      <div class="stat-box">
+        <span class="num" id="stat-active">—</span>
+        <div class="lbl">Active Programs</div>
+      </div>
+      <div class="stat-box">
+        <span class="num" id="stat-pending">—</span>
+        <div class="lbl">Exams Pending</div>
+      </div>
+      <div class="stat-box">
+        <span class="num" id="stat-complete">—</span>
+        <div class="lbl">Programs Completed</div>
+      </div>
+      <div class="stat-box overdue-stat">
+        <span class="num" id="stat-overdue">—</span>
+        <div class="lbl">Overdue Lessons</div>
+      </div>
+    </div>
 
-    // Member roster
-    fetch('/admin/members')
-      .then(r => r.ok ? r.json() : Promise.reject())
-      .then(data => {
-        document.getElementById('stat-members').textContent = data.members.length;
-        const tbody = document.getElementById('member-tbody');
-        if (!data.members.length) {
-          tbody.innerHTML = '<tr><td colspan="5" style="color:#4a1020;text-align:center;padding:20px;">No members yet</td></tr>';
-          return;
-        }
-        tbody.innerHTML = data.members.map((m, i) => `
-          <tr>
-            <td style="color:#4a1020;">${i + 1}</td>
-            <td>${m.salutation || '—'}</td>
-            <td style="color:#e8c8a8;font-family:'Cinzel',serif;">${m.username}</td>
-            <td><span class="role-badge ${m.role === 'admin' ? 'role-admin' : 'role-member'}">${m.role}</span></td>
-            <td style="color:#4a1020;font-size:0.82rem;">${new Date(m.createdAt).toLocaleDateString()}</td>
-          </tr>
-        `).join('');
-      })
-      .catch(() => {
-        document.getElementById('member-tbody').innerHTML =
-          '<tr><td colspan="5" style="color:#4a1020;text-align:center;">Could not load roster</td></tr>';
-      });
+    <div class="gold-rule-red"></div>
 
-    // Programs
-    fetch('/api/curriculum').then(r => r.json()).then(data => {
-      document.getElementById('program-grid').innerHTML = data.programs.map(p => `
-        <div class="dash-card" style="background:linear-gradient(160deg,#180010,#0e0008);border-color:#3a0010;">
-          <h3 style="color:#ff9090;">${p.title}</h3>
-          <p style="color:#6a3030;">${p.phase} · ${p.durationLabel}</p>
-          <div style="margin-top:10px;">
-            <a href="/${p.siteEntry}" style="color:#c92727;font-family:'Cinzel',serif;font-size:0.78rem;">Open Site →</a>
+    <!-- Member Roster -->
+    <div style="margin-bottom:24px;">
+      <div class="section-title">✠ Member Roster — Click a Member to Manage</div>
+      <div class="sm-card" style="padding:0;overflow:hidden;">
+        <table class="member-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Member</th>
+              <th>Rank</th>
+              <th>Assigned Program</th>
+              <th>Week</th>
+              <th>Status</th>
+              <th>Exams</th>
+            </tr>
+          </thead>
+          <tbody id="member-tbody">
+            <tr><td colspan="7" style="color:#4a1020;text-align:center;padding:20px;">Loading roster…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="gold-rule-red"></div>
+
+    <!-- Programs Reference -->
+    <div>
+      <div class="section-title">⚔ Available Programs (Knowledge Progression Order)</div>
+      <div class="dash-grid" id="program-grid" style="margin-bottom:8px;">
+        <div style="color:#4a1020;font-size:.88rem;">Loading…</div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ── MEMBER DETAIL PANEL ── -->
+<div class="detail-overlay" id="detail-overlay" onclick="closeDetail(event)">
+  <div class="detail-panel" id="detail-panel" onclick="event.stopPropagation()">
+
+    <button class="detail-close" onclick="closeDetail()">✕ Close</button>
+
+    <div>
+      <div class="detail-name" id="d-name">—</div>
+      <div class="detail-sub"  id="d-sub">—</div>
+      <div id="d-rank-display" style="margin-top:6px;display:none;"></div>
+    </div>
+
+    <!-- ── Overdue Alert ── -->
+    <div id="d-overdue-alert" class="overdue-alert" style="display:none;">
+      <div class="overdue-alert-title">⚠ Lesson Overdue — Action Required</div>
+      <p id="d-overdue-msg">This member has been on the current lesson for more than 2 weeks.
+        Notify the appropriate ranking officer of this deficiency.</p>
+    </div>
+
+    <!-- Profile Info -->
+    <div class="detail-section" id="d-profile-section">
+      <div class="detail-section-title">👤 Member Profile</div>
+      <div class="profile-section">
+        <img id="d-avatar-img" class="profile-avatar" src="" alt="Profile Photo" style="display:none;">
+        <div id="d-avatar-placeholder" class="profile-avatar-placeholder">🛡</div>
+        <div class="profile-info">
+          <div id="d-temple-badge" class="profile-temple-badge" style="display:none;">✠ Temple of —</div>
+          <div class="profile-info-row">
+            <span class="profile-info-label">Email</span>
+            <span class="profile-info-value" id="d-profile-email"><em style="color:#3a1020;">Not provided</em></span>
+          </div>
+          <div class="profile-info-row">
+            <span class="profile-info-label">Phone</span>
+            <span class="profile-info-value" id="d-profile-phone"><em style="color:#3a1020;">Not provided</em></span>
+          </div>
+          <div class="profile-info-row">
+            <span class="profile-info-label">Age</span>
+            <span class="profile-info-value" id="d-profile-age"><em style="color:#3a1020;">—</em></span>
           </div>
         </div>
-      `).join('');
+      </div>
+    </div>
+
+    <!-- ── Member Status ── -->
+    <div class="detail-section">
+      <div class="detail-section-title">⚙ Member Program Status</div>
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px;">
+        <div id="d-status-indicator" class="status-indicator active">● Active</div>
+        <div id="d-status-note-display" style="font-family:'Crimson Text',serif;font-size:.88rem;color:#6a3030;"></div>
+      </div>
+      <textarea class="status-note-input" id="d-status-note-input"
+        placeholder="Optional reason or note for this status change…"></textarea>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+        <button class="sm-btn green" onclick="setMemberStatus('active')">▶ Set Active</button>
+        <button class="sm-btn amber" onclick="setMemberStatus('paused')">⏸ Pause Program</button>
+      </div>
+    </div>
+
+    <!-- Assign Program -->
+    <div class="detail-section">
+      <div class="detail-section-title">✠ Program Assignment</div>
+      <div id="d-current-prog" style="margin-bottom:12px;color:#c8a0a0;font-size:.88rem;">No program assigned</div>
+      <div class="assign-form">
+        <select id="d-prog-select">
+          <option value="">— Select Program —</option>
+        </select>
+        <button class="sm-btn primary" onclick="assignProgram()">Assign</button>
+      </div>
+      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;" id="d-prog-actions">
+        <a id="d-prog-site-link" href="#" target="_blank"
+           style="display:none;font-family:'Cinzel',serif;font-size:.76rem;color:#c92727;text-decoration:none;">
+          Open Program Site →
+        </a>
+        <a id="d-sm-site-link" href="#" target="_blank"
+           style="display:none;font-family:'Cinzel',serif;font-size:.76rem;color:#e8c96a;text-decoration:none;">
+          Open Schoolmaster Guide →
+        </a>
+      </div>
+    </div>
+
+    <!-- Week Control -->
+    <div class="detail-section" id="d-week-section" style="display:none;">
+      <div class="detail-section-title">📅 Week Progression</div>
+      <div class="week-ctrl">
+        <button class="sm-btn ghost" onclick="changeWeek(-1)">◀ Back</button>
+        <div>
+          <div class="week-num" id="d-week-num">1</div>
+          <div style="font-size:.72rem;color:#4a1020;text-align:center;">of <span id="d-week-total">—</span></div>
+        </div>
+        <button class="sm-btn ghost" onclick="changeWeek(1)">Next ▶</button>
+        <button class="sm-btn primary" onclick="setWeekManual()" title="Set specific week">Set Week</button>
+      </div>
+      <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="sm-btn gold"    onclick="completeProgram(false)">Mark Complete</button>
+        <button class="sm-btn primary" onclick="completeProgram(true)">Complete & Assign Next</button>
+      </div>
+    </div>
+
+    <!-- ── Rank Assignment ── -->
+    <div class="detail-section">
+      <div class="detail-section-title">⚜ Rank Assignment</div>
+      <p class="rank-section-note">
+        Assign a formal rank upon completion of the corresponding school program.
+        The rank is conferred by the Grandmaster — enter the display name given at the ceremony
+        (rank title only, not office title).
+      </p>
+
+      <!-- Current rank display -->
+      <div id="d-current-rank" style="margin-bottom:14px;"></div>
+
+      <!-- Rank assign form -->
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+          <select id="d-rank-select" style="flex:1;min-width:160px;background:#0a0005;border:1px solid #3a0010;border-radius:8px;padding:9px 12px;color:#e8c96a;font-family:'Cinzel',serif;font-size:.78rem;appearance:none;cursor:pointer;">
+            <option value="">— Select Rank to Confer —</option>
+          </select>
+        </div>
+        <input type="text" id="d-rank-name-input"
+          placeholder="Display name at ceremony — e.g. Sir James (optional)"
+          style="background:#0a0005;border:1px solid #3a0010;border-radius:8px;padding:9px 12px;color:#e8d9b8;font-family:'Crimson Text',serif;font-size:.95rem;outline:none;transition:border-color .2s;"
+          onfocus="this.style.borderColor='#8b0000'" onblur="this.style.borderColor='#3a0010'">
+        <button class="sm-btn gold" onclick="assignRank()">⚜ Formally Confer Rank</button>
+      </div>
+
+      <!-- Rank history -->
+      <div id="d-rank-history" style="margin-top:14px;"></div>
+    </div>
+
+    <!-- Exam Submissions -->
+    <div class="detail-section">
+      <div class="detail-section-title">📋 Exam Submissions</div>
+      <div id="d-exams">
+        <div style="color:#4a1020;font-size:.85rem;">No exam submissions yet.</div>
+      </div>
+    </div>
+
+    <!-- Program History -->
+    <div class="detail-section">
+      <div class="detail-section-title">📜 Program History</div>
+      <div id="d-history">
+        <div style="color:#4a1020;font-size:.85rem;">No completed programs.</div>
+      </div>
+    </div>
+
+    <!-- Schoolmaster Notes -->
+    <div class="detail-section">
+      <div class="detail-section-title">🖊 Schoolmaster Notes</div>
+      <div id="d-notes">
+        <div style="color:#4a1020;font-size:.85rem;">No notes yet.</div>
+      </div>
+      <div class="note-add">
+        <textarea id="d-note-input" placeholder="Add a note about this member's progress…"></textarea>
+        <button class="sm-btn primary" onclick="addNote()" style="align-self:flex-end;">Add Note</button>
+      </div>
+    </div>
+
+    <!-- Program Access (Unlock / Lock) -->
+    <div class="detail-section">
+      <div class="detail-section-title">⛨ Program Access</div>
+      <div style="font-family:'Crimson Text',serif;font-size:.88rem;color:#6a3030;margin-bottom:14px;line-height:1.5;">
+        All programs are <strong style="color:#c92727;">GUARDED</strong> until unlocked here.
+        Unlock after the member is formally advanced in rank by the Grandmaster.
+      </div>
+      <div id="d-unlock-list" style="display:flex;flex-direction:column;gap:6px;"></div>
+    </div>
+
+    <!-- ── Danger Zone ── -->
+    <div class="detail-section">
+      <div class="detail-section-title">⚠ Danger Zone</div>
+      <div class="danger-zone">
+        <div class="danger-zone-title">Permanently Delete Member</div>
+        <p>
+          This will permanently remove the member's account, profile, and all progression data.
+          This action cannot be undone. Use for members who have left the Order.
+        </p>
+        <button class="sm-btn danger" onclick="deleteMember()">✕ Delete Member Account</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Toast notification -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ── State ──
+let allPrograms    = [];
+let allMembers     = [];
+let selectedMember = null;
+
+// ── Auth guard ──
+fetch('/auth/me')
+  .then(r => r.ok ? r.json() : Promise.reject())
+  .then(user => {
+    if (user.role !== 'admin') { window.location.href = '/member'; return; }
+    document.getElementById('nav-greeting').textContent = user.username;
+    document.getElementById('sm-welcome').textContent =
+      `Signed in as ${user.username} — full knowledge oversight`;
+    loadData();
+  })
+  .catch(() => { window.location.href = '/login'; });
+
+// ── Load everything ──
+async function loadData() {
+  const [progRes, membRes] = await Promise.all([
+    fetch('/api/curriculum').then(r => r.json()),
+    fetch('/api/progression/members').then(r => r.json())
+  ]);
+  allPrograms = progRes.programs || [];
+  allMembers  = membRes.members  || [];
+  populateRoster();
+  populateProgramGrid();
+  populateStats();
+  populateAssignSelect();
+  populateRankSelect();
+}
+
+function populateStats() {
+  document.getElementById('stat-members').textContent  = allMembers.length;
+  document.getElementById('stat-active').textContent   =
+    allMembers.filter(m => m.assignedProgram && m.programStatus !== 'paused').length;
+  document.getElementById('stat-pending').textContent  =
+    allMembers.reduce((n,m) => n + (m.pendingExamCount||0), 0);
+  document.getElementById('stat-complete').textContent =
+    allMembers.reduce((n,m) => n + (m.programHistory||[]).filter(h=>h.completedAt).length, 0);
+  document.getElementById('stat-overdue').textContent  =
+    allMembers.filter(m => m.overdue).length;
+}
+
+function populateRoster() {
+  const tbody = document.getElementById('member-tbody');
+  if (!allMembers.length) {
+    tbody.innerHTML = '<tr><td colspan="7" style="color:#4a1020;text-align:center;padding:20px;">No members enrolled yet.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = allMembers.map((m, i) => {
+    const prog = m.assignedProgram;
+
+    // Status pill
+    let statusCell;
+    if (m.programStatus === 'paused') {
+      statusCell = `<span class="prog-pill paused">⏸ Paused</span>`;
+    } else if (m.overdue) {
+      statusCell = `<span class="overdue-badge">⚠ Overdue</span>`;
+    } else {
+      statusCell = `<span style="color:#3a1020;font-size:.78rem;">Active</span>`;
+    }
+
+    const progCell = prog
+      ? `<span class="prog-pill assigned">✠ ${prog.title}</span>`
+      : `<span class="prog-pill none">Unassigned</span>`;
+    const weekCell = prog && m.currentWeek
+      ? `<span class="week-badge">Wk ${m.currentWeek}</span>`
+      : '—';
+    const examCell = m.pendingExamCount
+      ? `<span class="pending-badge">${m.pendingExamCount}</span>`
+      : '<span style="color:#3a0010;">—</span>';
+
+    // Rank display (abbreviated)
+    const rankCell = m.rank
+      ? `<span class="rank-badge">⚜ ${m.rankName || m.rank}</span>`
+      : '<span style="color:#2a1010;font-size:.76rem;">—</span>';
+
+    return `<tr data-id="${m.id}" onclick="selectMember('${m.id}')">
+      <td style="color:#4a1020;">${i+1}</td>
+      <td style="color:#e8c8a8;font-family:'Cinzel',serif;">${m.salutation ? m.salutation+' ' : ''}${m.username}</td>
+      <td>${rankCell}</td>
+      <td>${progCell}</td>
+      <td>${weekCell}</td>
+      <td>${statusCell}</td>
+      <td style="text-align:center;">${examCell}</td>
+    </tr>`;
+  }).join('');
+}
+
+function populateProgramGrid() {
+  document.getElementById('program-grid').innerHTML = allPrograms.map((p, i) => `
+    <div class="dash-card" style="background:linear-gradient(160deg,#180010,#0e0008);border-color:#3a0010;">
+      <div style="font-family:'Cinzel',serif;font-size:.66rem;color:#4a1020;margin-bottom:6px;">
+        ${String(i+1).padStart(2,'0')} · ${p.phase}
+      </div>
+      <h3 style="color:#ff9090;font-size:.92rem;">${p.title}</h3>
+      <p style="color:#6a2020;font-size:.82rem;margin-top:4px;">${p.durationWeeks} weeks · ${p.audience}</p>
+      <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="/${p.siteEntry}" target="_blank"
+           style="color:#c92727;font-family:'Cinzel',serif;font-size:.72rem;text-decoration:none;">
+          Program Site →
+        </a>
+        ${p.navAliases?.schoolmaster ? `<a href="/${p.navAliases.schoolmaster}" target="_blank"
+           style="color:#e8c96a;font-family:'Cinzel',serif;font-size:.72rem;text-decoration:none;">
+          SM Guide →
+        </a>` : ''}
+      </div>
+    </div>
+  `).join('');
+}
+
+function populateAssignSelect() {
+  const sel = document.getElementById('d-prog-select');
+  sel.innerHTML = '<option value="">— Select Program —</option>' +
+    allPrograms.map(p => `<option value="${p.slug}">${p.title}</option>`).join('');
+}
+
+function populateRankSelect() {
+  // Ranks correspond to program completion slugs
+  const sel = document.getElementById('d-rank-select');
+  sel.innerHTML = '<option value="">— Select Rank to Confer —</option>' +
+    allPrograms.map(p => `<option value="${p.slug}">${p.title}</option>`).join('');
+}
+
+// ── Member detail ──
+function selectMember(id) {
+  selectedMember = allMembers.find(m => m.id === id);
+  if (!selectedMember) return;
+  document.querySelectorAll('.member-table tr').forEach(r => r.classList.remove('selected'));
+  document.querySelector(`tr[data-id="${id}"]`)?.classList.add('selected');
+  renderDetailPanel(selectedMember);
+  document.getElementById('detail-overlay').classList.add('open');
+}
+
+function renderDetailPanel(m) {
+  document.getElementById('d-name').textContent =
+    `${m.salutation ? m.salutation+' ' : ''}${m.username}`;
+  document.getElementById('d-sub').textContent =
+    `Member since ${new Date(m.createdAt).toLocaleDateString()}`;
+
+  // Rank display in header
+  const rankDisp = document.getElementById('d-rank-display');
+  if (m.rank) {
+    const prog = allPrograms.find(p => p.slug === m.rank);
+    const label = m.rankName
+      ? `${m.rankName} — ${prog ? prog.title : m.rank}`
+      : (prog ? prog.title : m.rank);
+    rankDisp.innerHTML = `<span class="rank-badge" style="font-size:.78rem;">⚜ ${label}</span>`;
+    rankDisp.style.display = 'block';
+  } else {
+    rankDisp.style.display = 'none';
+  }
+
+  // Overdue alert
+  const overdueAlert = document.getElementById('d-overdue-alert');
+  if (m.overdue && m.assignedProgram) {
+    const since = m.weekSetAt || m.programAssignedAt;
+    const days  = since ? Math.floor((Date.now() - new Date(since).getTime()) / 86400000) : null;
+    document.getElementById('d-overdue-msg').textContent =
+      `This member has been on Week ${m.currentWeek} for ${days !== null ? days + ' days' : 'over 2 weeks'} ` +
+      `(threshold: 14 days). Per Order protocol, notify the appropriate ranking officer of this deficiency ` +
+      `so they may contact the member directly.`;
+    overdueAlert.style.display = 'block';
+  } else {
+    overdueAlert.style.display = 'none';
+  }
+
+  // Member profile (photo, temple, email, phone, age)
+  renderMemberProfile(m.id);
+
+  // Status
+  renderStatusSection(m);
+
+  // Rank section
+  renderRankSection(m);
+
+  // Current program
+  const prog = m.assignedProgram;
+  const cpEl = document.getElementById('d-current-prog');
+  if (prog) {
+    cpEl.innerHTML = `<span class="prog-pill assigned">✠ ${prog.title}</span>
+      <span style="margin-left:8px;font-size:.82rem;color:#8a5050;">
+        Week ${m.currentWeek||1} of ${prog.durationWeeks}
+      </span>`;
+  } else {
+    cpEl.innerHTML = '<span style="color:#4a1020;">No program currently assigned.</span>';
+  }
+
+  // Program links
+  const siteLink = document.getElementById('d-prog-site-link');
+  const smLink   = document.getElementById('d-sm-site-link');
+  if (prog) {
+    siteLink.href = '/'+prog.siteEntry; siteLink.style.display = 'inline';
+    if (prog.schoolmasterEntry) { smLink.href = '/'+prog.schoolmasterEntry; smLink.style.display = 'inline'; }
+    else smLink.style.display = 'none';
+  } else {
+    siteLink.style.display = 'none';
+    smLink.style.display   = 'none';
+  }
+
+  if (prog) document.getElementById('d-prog-select').value = prog.slug;
+
+  const weekSec = document.getElementById('d-week-section');
+  if (prog) {
+    weekSec.style.display = '';
+    document.getElementById('d-week-num').textContent   = m.currentWeek || 1;
+    document.getElementById('d-week-total').textContent = prog.durationWeeks;
+  } else {
+    weekSec.style.display = 'none';
+  }
+
+  renderExams(m);
+  renderHistory(m);
+  renderNotes(m);
+  renderUnlockList(m);
+}
+
+// ── Status section ──
+function renderStatusSection(m) {
+  const indicator = document.getElementById('d-status-indicator');
+  const noteDisp  = document.getElementById('d-status-note-display');
+  const status    = m.programStatus || 'active';
+
+  indicator.className = `status-indicator ${status}`;
+  indicator.textContent = status === 'paused' ? '⏸ Paused' : '● Active';
+
+  if (m.statusNote) {
+    noteDisp.textContent = m.statusNote;
+  } else {
+    noteDisp.textContent = '';
+  }
+  document.getElementById('d-status-note-input').value = '';
+}
+
+// ── Rank section ──
+function renderRankSection(m) {
+  const currentRankEl = document.getElementById('d-current-rank');
+  if (m.rank) {
+    const prog = allPrograms.find(p => p.slug === m.rank);
+    const label = m.rankName ? `${m.rankName} (${prog ? prog.title : m.rank})` : (prog ? prog.title : m.rank);
+    const since = m.rankAssignedAt ? new Date(m.rankAssignedAt).toLocaleDateString() : '';
+    currentRankEl.innerHTML = `
+      <div style="margin-bottom:8px;">
+        <span class="rank-badge" style="font-size:.76rem;">⚜ Current Rank: ${label}</span>
+        ${since ? `<span style="font-size:.72rem;color:#4a1020;margin-left:8px;">Assigned ${since}</span>` : ''}
+      </div>`;
+  } else {
+    currentRankEl.innerHTML = '<div style="font-size:.82rem;color:#3a1020;margin-bottom:8px;">No rank assigned yet.</div>';
+  }
+
+  // Rank history
+  const histEl = document.getElementById('d-rank-history');
+  const hist = m.rankHistory || [];
+  if (hist.length > 0) {
+    histEl.innerHTML = `<div style="font-family:'Cinzel',serif;font-size:.66rem;color:#6a0020;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;">Rank History</div>` +
+      hist.slice().reverse().map(h => {
+        const prog = allPrograms.find(p => p.slug === h.rank);
+        const label = h.rankName ? `${h.rankName} — ${prog ? prog.title : h.rank}` : (prog ? prog.title : h.rank);
+        return `<div class="rank-history-item">
+          <div>
+            <div class="rank-history-title">⚜ ${label}</div>
+            <div class="rank-history-sub">${new Date(h.assignedAt).toLocaleDateString()} · by ${h.assignedBy}</div>
+          </div>
+        </div>`;
+      }).join('');
+  } else {
+    histEl.innerHTML = '';
+  }
+}
+
+// ── Profile section ──
+function renderMemberProfile(memberId) {
+  document.getElementById('d-avatar-img').style.display = 'none';
+  document.getElementById('d-avatar-placeholder').style.display = 'flex';
+  document.getElementById('d-temple-badge').style.display = 'none';
+  document.getElementById('d-profile-email').innerHTML = '<em style="color:#3a1020;">Loading…</em>';
+  document.getElementById('d-profile-phone').innerHTML = '<em style="color:#3a1020;">Loading…</em>';
+  document.getElementById('d-profile-age').innerHTML   = '<em style="color:#3a1020;">—</em>';
+
+  fetch(`/api/profile/${memberId}`)
+    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+    .then(data => {
+      if (data.photoPath) {
+        const img = document.getElementById('d-avatar-img');
+        img.onload = () => {
+          document.getElementById('d-avatar-placeholder').style.display = 'none';
+          img.style.display = 'block';
+        };
+        img.onerror = () => { img.style.display='none'; document.getElementById('d-avatar-placeholder').style.display='flex'; };
+        img.src = '/uploads/' + data.photoPath.split('/').pop();
+      }
+      const badge = document.getElementById('d-temple-badge');
+      if (data.temple) {
+        badge.textContent = `✠ Temple of ${data.temple}`;
+        badge.style.display = 'inline-block';
+      }
+      const emailEl = document.getElementById('d-profile-email');
+      if (data.email) {
+        emailEl.innerHTML = `<a href="mailto:${data.email}" style="color:#c8a8a8;text-decoration:none;">${data.email}</a>`;
+      } else {
+        emailEl.innerHTML = '<em style="color:#3a1020;">Not provided</em>';
+      }
+      const phoneEl = document.getElementById('d-profile-phone');
+      if (data.phone) {
+        phoneEl.innerHTML = `<a href="tel:${data.phone.replace(/\D/g,'')}" style="color:#c8a8a8;text-decoration:none;">${data.phone}</a>`;
+      } else {
+        phoneEl.innerHTML = '<em style="color:#3a1020;">Not provided</em>';
+      }
+      const ageEl = document.getElementById('d-profile-age');
+      if (data.age !== null && data.age !== undefined) {
+        ageEl.textContent = data.age;
+      } else {
+        ageEl.innerHTML = '<em style="color:#3a1020;">Not provided</em>';
+      }
+    })
+    .catch(() => {
+      document.getElementById('d-profile-email').innerHTML = '<em style="color:#3a1020;">Unavailable</em>';
+      document.getElementById('d-profile-phone').innerHTML = '<em style="color:#3a1020;">Unavailable</em>';
     });
-  </script>
+}
+
+function renderExams(m) {
+  const el   = document.getElementById('d-exams');
+  const subs = m.examSubmissions || [];
+  if (!subs.length) { el.innerHTML = '<div style="color:#4a1020;font-size:.85rem;">No exam submissions yet.</div>'; return; }
+  el.innerHTML = subs.map((s, i) => {
+    const prog = allPrograms.find(p => p.slug === s.programSlug);
+    const answers = (s.answers||[]).map(a => `
+      <div class="qa-item">
+        <div class="qa-q">${a.question || 'Q'+(i+1)}</div>
+        <div class="qa-a">${a.answer   || '<em style="color:#4a1020;">No answer</em>'}</div>
+      </div>`).join('');
+    const status = s.reviewedAt
+      ? `<span class="exam-status-reviewed">✔ Reviewed · Grade: ${s.grade||'—'}</span>`
+      : `<span class="exam-status-pending">⏳ Pending Review</span>`;
+    const reviewForm = !s.reviewedAt ? `
+      <div class="review-form">
+        <input type="text" id="grade-${i}" placeholder="Grade (e.g. Pass / 85%)">
+        <textarea id="notes-${i}" placeholder="Feedback / notes…" rows="2"></textarea>
+        <button class="sm-btn gold" onclick="submitReview(${i})">Save Review</button>
+      </div>` : `<div style="margin-top:8px;font-size:.82rem;color:#6a4040;">Notes: ${s.notes||'—'}</div>`;
+    return `<div class="exam-item">
+      <div class="exam-item-header">
+        <div>
+          <div class="exam-meta">${prog ? prog.title : s.programSlug} · Week ${s.week}</div>
+          <div style="font-size:.76rem;color:#3a1010;margin-top:2px;">${new Date(s.submittedAt).toLocaleString()}</div>
+        </div>
+        ${status}
+      </div>
+      ${answers ? `<div class="qa-list">${answers}</div>` : ''}
+      ${reviewForm}
+    </div>`;
+  }).join('');
+}
+
+function renderHistory(m) {
+  const el   = document.getElementById('d-history');
+  const hist = (m.programHistory||[]).filter(h => h.completedAt);
+  if (!hist.length) { el.innerHTML = '<div style="color:#4a1020;font-size:.85rem;">No completed programs.</div>'; return; }
+  el.innerHTML = hist.map(h => {
+    const prog = allPrograms.find(p => p.slug === h.slug);
+    return `<div class="history-item">
+      <div>
+        <div class="history-title">${prog ? prog.title : h.slug}</div>
+        <div class="history-meta">Completed ${new Date(h.completedAt).toLocaleDateString()}</div>
+      </div>
+      <span class="prog-pill complete">${h.grade || 'Complete'}</span>
+    </div>`;
+  }).join('');
+}
+
+function renderNotes(m) {
+  const el    = document.getElementById('d-notes');
+  const notes = m.progressNotes || [];
+  if (!notes.length) { el.innerHTML = '<div style="color:#4a1020;font-size:.85rem;">No notes yet.</div>'; return; }
+  el.innerHTML = notes.slice().reverse().map(n => `
+    <div class="note-item">
+      <div class="note-date">${new Date(n.date).toLocaleString()}</div>
+      <div class="note-text">${n.note}</div>
+    </div>`).join('');
+}
+
+function closeDetail(e) {
+  if (e && e.target !== document.getElementById('detail-overlay')) return;
+  document.getElementById('detail-overlay').classList.remove('open');
+  document.querySelectorAll('.member-table tr').forEach(r => r.classList.remove('selected'));
+  selectedMember = null;
+}
+
+// ── Program unlock list ──
+function renderUnlockList(m) {
+  const el        = document.getElementById('d-unlock-list');
+  const assigned  = m.assignedProgram?.slug;
+  const completed = new Set((m.programHistory||[]).filter(h=>h.completedAt).map(h=>h.slug));
+  const unlocked  = new Set(m.unlockedSlugs || []);
+
+  el.innerHTML = allPrograms.map(p => {
+    const isCurrent   = p.slug === assigned;
+    const isCompleted = completed.has(p.slug);
+    const isUnlocked  = unlocked.has(p.slug) || isCurrent || isCompleted;
+    const isGuarded   = !isUnlocked;
+
+    let badge;
+    if (isCurrent)        badge = `<span class="unlock-row-badge current">▶ Active</span>`;
+    else if (isCompleted) badge = `<span class="unlock-row-badge unlocked">✔ Complete</span>`;
+    else if (isUnlocked)  badge = `<span class="unlock-row-badge unlocked">✔ Unlocked</span>`;
+    else                  badge = `<span class="unlock-row-badge guarded">⛨ Guarded</span>`;
+
+    let btn = '';
+    if (!isCurrent && !isCompleted) {
+      btn = isGuarded
+        ? `<button class="unlock-btn do-unlock" onclick="unlockProgram('${p.slug}')">Unlock</button>`
+        : `<button class="unlock-btn do-lock"   onclick="lockProgram('${p.slug}')">Lock</button>`;
+    }
+
+    return `<div class="unlock-row">
+      <span class="unlock-row-name ${isGuarded?'is-guarded':''}">✠ ${p.title}</span>
+      ${badge}
+      ${btn}
+    </div>`;
+  }).join('');
+}
+
+// ── Actions ──
+
+async function assignProgram() {
+  if (!selectedMember) return;
+  const slug = document.getElementById('d-prog-select').value;
+  if (!slug) { toast('Select a program first.'); return; }
+  const res  = await fetch(`/api/progression/member/${selectedMember.id}/assign`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ programSlug: slug })
+  });
+  const data = await res.json();
+  if (res.ok) { toast(data.message, true); await refreshMember(selectedMember.id); }
+  else         toast(data.error || 'Assignment failed.');
+}
+
+async function changeWeek(delta) {
+  if (!selectedMember) return;
+  const cur  = selectedMember.currentWeek || 1;
+  const res  = await fetch(`/api/progression/member/${selectedMember.id}/advance`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ week: cur + delta })
+  });
+  const data = await res.json();
+  if (res.ok) { toast(`Week set to ${data.week}`, true); await refreshMember(selectedMember.id); }
+  else         toast(data.error || 'Failed.');
+}
+
+async function setWeekManual() {
+  const w = prompt('Enter week number:');
+  if (!w || isNaN(Number(w))) return;
+  const res  = await fetch(`/api/progression/member/${selectedMember.id}/advance`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ week: Number(w) })
+  });
+  const data = await res.json();
+  if (res.ok) { toast(`Week set to ${data.week}`, true); await refreshMember(selectedMember.id); }
+  else         toast(data.error || 'Failed.');
+}
+
+async function submitReview(examIdx) {
+  if (!selectedMember) return;
+  const grade = document.getElementById(`grade-${examIdx}`)?.value?.trim();
+  const notes = document.getElementById(`notes-${examIdx}`)?.value?.trim();
+  const res   = await fetch(`/api/progression/member/${selectedMember.id}/exam/${examIdx}/review`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ grade, notes })
+  });
+  const data = await res.json();
+  if (res.ok) { toast('Review saved.', true); await refreshMember(selectedMember.id); }
+  else         toast(data.error || 'Save failed.');
+}
+
+async function addNote() {
+  if (!selectedMember) return;
+  const note = document.getElementById('d-note-input').value.trim();
+  if (!note) return;
+  const res  = await fetch(`/api/progression/member/${selectedMember.id}/note`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ note })
+  });
+  const data = await res.json();
+  if (res.ok) {
+    document.getElementById('d-note-input').value = '';
+    toast('Note saved.', true);
+    await refreshMember(selectedMember.id);
+  } else toast(data.error || 'Save failed.');
+}
+
+async function completeProgram(assignNext) {
+  if (!selectedMember) return;
+  const grade = prompt('Enter final grade (or leave blank):') || null;
+  let nextSlug = null;
+  if (assignNext) {
+    const current = selectedMember.assignedProgram?.slug;
+    const idx     = allPrograms.findIndex(p => p.slug === current);
+    const next    = idx !== -1 && idx < allPrograms.length - 1 ? allPrograms[idx+1] : null;
+    if (next) {
+      if (window.confirm(`Assign next program: "${next.title}"?`)) nextSlug = next.slug;
+    } else {
+      alert('No next program in the progression. Marking complete only.');
+    }
+  }
+  const res  = await fetch(`/api/progression/member/${selectedMember.id}/complete`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ grade, nextProgramSlug: nextSlug })
+  });
+  const data = await res.json();
+  if (res.ok) { toast(data.message, true); await refreshMember(selectedMember.id); }
+  else         toast(data.error || 'Failed.');
+}
+
+async function unlockProgram(slug) {
+  if (!selectedMember) return;
+  const prog = allPrograms.find(p => p.slug === slug);
+  const res  = await fetch(`/api/progression/member/${selectedMember.id}/unlock`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ programSlug: slug })
+  });
+  const data = await res.json();
+  if (!data.ok) { toast(data.error || 'Error'); return; }
+  toast(`✔ ${prog ? prog.title : slug} — Unlocked`, true);
+  await refreshMember(selectedMember.id);
+}
+
+async function lockProgram(slug) {
+  if (!selectedMember) return;
+  const prog = allPrograms.find(p => p.slug === slug);
+  if (!confirm(`Lock "${prog ? prog.title : slug}" for ${selectedMember.username}?\nThey will see GUARDED and cannot access it.`)) return;
+  const res  = await fetch(`/api/progression/member/${selectedMember.id}/lock`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ programSlug: slug })
+  });
+  const data = await res.json();
+  if (!data.ok) { toast(data.error || 'Error'); return; }
+  toast(`⛨ ${prog ? prog.title : slug} — Locked`);
+  await refreshMember(selectedMember.id);
+}
+
+// ── Rank assignment ──
+async function assignRank() {
+  if (!selectedMember) return;
+  const rank     = document.getElementById('d-rank-select').value;
+  const rankName = document.getElementById('d-rank-name-input').value.trim();
+  if (!rank) { toast('Select a rank to confer.'); return; }
+
+  const prog = allPrograms.find(p => p.slug === rank);
+  const label = rankName
+    ? `"${rankName}" — ${prog ? prog.title : rank}`
+    : (prog ? prog.title : rank);
+
+  if (!confirm(`Formally confer rank:\n${label}\nto ${selectedMember.username}?\n\nThis will be recorded in their rank history.`)) return;
+
+  const res  = await fetch(`/api/progression/member/${selectedMember.id}/rank`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ rank, rankName: rankName || null })
+  });
+  const data = await res.json();
+  if (res.ok) {
+    document.getElementById('d-rank-name-input').value = '';
+    document.getElementById('d-rank-select').value = '';
+    toast(`⚜ Rank conferred: ${label}`, true);
+    await refreshMember(selectedMember.id);
+  } else toast(data.error || 'Failed.');
+}
+
+// ── Member status (pause / activate) ──
+async function setMemberStatus(status) {
+  if (!selectedMember) return;
+  const note = document.getElementById('d-status-note-input').value.trim();
+  const label = status === 'paused' ? 'Pause' : 'Activate';
+  if (!confirm(`${label} program for ${selectedMember.username}?`)) return;
+
+  const res  = await fetch(`/api/progression/member/${selectedMember.id}/status`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ status, note: note || null })
+  });
+  const data = await res.json();
+  if (res.ok) {
+    toast(data.message, status === 'active');
+    if (status === 'paused') toast(data.message, false);
+    await refreshMember(selectedMember.id);
+  } else toast(data.error || 'Failed.');
+}
+
+// ── Delete member ──
+async function deleteMember() {
+  if (!selectedMember) return;
+  const name = selectedMember.username;
+  if (!confirm(`PERMANENTLY DELETE member "${name}"?\n\nAll profile and progression data will be removed.\nThis cannot be undone.`)) return;
+  if (!confirm(`Second confirmation: delete "${name}" permanently?`)) return;
+
+  const res  = await fetch(`/api/progression/member/${selectedMember.id}`, { method:'DELETE' });
+  const data = await res.json();
+  if (res.ok) {
+    toast(`✕ ${name} deleted.`);
+    closeDetail();
+    // Remove from local list and refresh roster
+    allMembers = allMembers.filter(m => m.id !== selectedMember.id);
+    selectedMember = null;
+    populateRoster();
+    populateStats();
+  } else toast(data.error || 'Deletion failed.');
+}
+
+// ── Refresh a single member ──
+async function refreshMember(id) {
+  const r       = await fetch(`/api/progression/member/${id}`);
+  const updated = await r.json();
+  const idx     = allMembers.findIndex(m => m.id === id);
+  if (idx !== -1) allMembers[idx] = updated;
+  selectedMember = updated;
+  populateRoster();
+  populateStats();
+  renderDetailPanel(updated);
+}
+
+// ── Toast ──
+let toastTimer;
+function toast(msg, success=false, warning=false) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.className = 'toast show' + (success ? ' success' : warning ? ' warning' : '');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { el.className = 'toast'; }, 3500);
+}
+</script>
 </body>
 </html>

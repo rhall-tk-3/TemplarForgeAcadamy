@@ -1,0 +1,167 @@
+{
+  "slug": "squire",
+  "title": "Squire School Program",
+  "description": "The foundational program for youth members entering the Order. Covers basic history, honor, duty, and service.",
+  "weeks": [
+    {
+      "week": 1,
+      "title": "The History of the Knights Templar",
+      "objectives": [
+        "Understand the founding of the Knights Templar in 1118 AD",
+        "Identify the nine founding knights and their mission",
+        "Explain the original purpose of protecting Christian pilgrims"
+      ],
+      "lesson": "The Knights Templar were founded around 1118 AD by Hugues de Payens and eight companion knights. They approached King Baldwin II of Jerusalem for permission to establish their order. Their original purpose was to protect Christian pilgrims traveling to the Holy Land. Baldwin II granted them quarters in the Temple Mount, giving them their name — the Poor Fellow-Soldiers of Christ and of the Temple of Solomon. The Order grew rapidly, earning support from St. Bernard of Clairvaux, who wrote the Rule of the Templars outlining their conduct, dress, and discipline. The Templars wore the distinctive white mantle bearing a red cross, symbolizing their purity and willingness to shed blood in service to Christ. By 1139, Pope Innocent II issued the Papal Bull Omne Datum Optimum, granting the Templars extraordinary privileges — exempt from local laws and answering only to the Pope.",
+      "keyTerms": [
+        {"term": "Hugues de Payens", "definition": "Co-founder and first Grand Master of the Knights Templar"},
+        {"term": "Temple Mount", "definition": "Site on which the Templars established their headquarters in Jerusalem"},
+        {"term": "Omne Datum Optimum", "definition": "Papal Bull of 1139 granting the Templars special privileges and papal protection"}
+      ],
+      "examQuestions": [
+        {"question": "In what year were the Knights Templar founded, and by whom?", "type": "short"},
+        {"question": "What was the original stated mission of the Knights Templar?", "type": "short"},
+        {"question": "What did Pope Innocent II's Bull of 1139 grant to the Templars?", "type": "short"}
+      ]
+    },
+    {
+      "week": 2,
+      "title": "The Code of Honor and Chivalry",
+      "objectives": [
+        "Define chivalry and its key virtues",
+        "Identify the seven knightly virtues",
+        "Apply principles of chivalry to daily conduct"
+      ],
+      "lesson": "Chivalry is the code of conduct historically associated with knighthood. It combines Christian piety, martial skill, and noble courtesy into a way of life. The seven knightly virtues are: Courage — facing danger without faltering; Justice — treating all people fairly; Mercy — showing compassion to those who are defeated; Generosity — giving freely of time and resources; Faith — holding firm to one's beliefs; Nobility — behaving with grace and dignity; Hope — maintaining confidence in good outcomes. A squire's first duty is to master these virtues in daily life before any sword is placed in their hand. Chivalry is not merely ceremony — it is the living practice of excellence. A true member of the Order does not seek honor for themselves; honor is bestowed by others who witness virtuous action. The squire must internalize these virtues and be able to identify them in both historical figures and in contemporary life.",
+      "keyTerms": [
+        {"term": "Chivalry", "definition": "The code of conduct combining piety, martial skill, and noble courtesy expected of knights"},
+        {"term": "Virtue", "definition": "A moral quality considered excellent in a person; a standard of conduct"},
+        {"term": "Fortitude", "definition": "Mental and emotional strength in the face of adversity; moral courage"}
+      ],
+      "examQuestions": [
+        {"question": "Name four of the seven knightly virtues and briefly explain each.", "type": "short"},
+        {"question": "Why is chivalry described as a 'living practice' rather than just ceremony?", "type": "short"},
+        {"question": "Describe a real-world situation where a squire could demonstrate the virtue of mercy.", "type": "essay"}
+      ]
+    },
+    {
+      "week": 3,
+      "title": "The Structure of the Order",
+      "objectives": [
+        "Understand the rank structure of the KTKC",
+        "Identify the role of each rank from Levie through Commander",
+        "Explain the purpose of the Schoolmaster and program progression"
+      ],
+      "lesson": "The Knights Templar of the Keeping of the Castle (KTKC) is organized in a clear hierarchy of ranks and offices. The progression of ranks begins with the Levie (adult foundational entry), with the Squire program serving youth members. From there, members advance through Corporal, Sergeant, Sergeant First Class, Knight Aspirant, Knight, and into the officer ranks: Lieutenant, Captain, Major, and Commander. Each rank represents earned achievement through the School Program — knowledge tested, virtue demonstrated, and service rendered. The Schoolmaster oversees the training and certification of all members, maintaining the standards of the Order's school programs. Offices such as Chaplain, Standard Bearer, and Chancellor are positions of responsibility assigned by the commanding officer — they are separate from earned rank. A member must always remember that rank is earned through the School, while office is given through trust. Both carry obligations of service to the Order and to the Craft.",
+      "keyTerms": [
+        {"term": "Levie", "definition": "The foundational rank program for adult members entering the Order"},
+        {"term": "Schoolmaster", "definition": "The officer responsible for overseeing all school programs and member training progression"},
+        {"term": "Office", "definition": "An appointed position of responsibility, separate from earned rank"}
+      ],
+      "examQuestions": [
+        {"question": "What is the difference between a 'rank' and an 'office' in the KTKC?", "type": "short"},
+        {"question": "List the rank progression from Levie through Commander in correct order.", "type": "short"},
+        {"question": "What is the role of the Schoolmaster in the Order?", "type": "short"}
+      ]
+    },
+    {
+      "week": 4,
+      "title": "Prayer, Scripture, and the Templar Faith",
+      "objectives": [
+        "Understand the role of faith in the Templar tradition",
+        "Learn the Order's opening and closing prayers",
+        "Reflect on Scripture passages used in Templar ceremony"
+      ],
+      "lesson": "The Knights Templar were above all a religious military order. Their daily life was structured around the canonical hours of prayer — rising before dawn for Matins and continuing through the day to Compline before sleep. The Rule of the Templars required members to hear Mass when possible, to confess regularly, and to maintain personal piety. The Psalms were central to Templar devotion — particularly Psalm 24 ('The earth is the Lord's') and Psalm 91 ('He who dwells in the shelter of the Most High'). Modern orders rooted in Templar tradition continue this emphasis on faith as foundational to all action. Members of the KTKC open and close every assembly with prayer, acknowledging that all rank, honor, and achievement flows from God rather than from personal merit. A squire must learn the opening and closing prayers of the Order by memory and understand their meaning — not as ritual recitation but as sincere acknowledgment of divine authority.",
+      "keyTerms": [
+        {"term": "Canonical Hours", "definition": "The seven periods of prayer observed daily in the Templar Rule, from Matins to Compline"},
+        {"term": "Psalm 91", "definition": "A psalm of protection used in Templar tradition, affirming God as refuge and shield"},
+        {"term": "Piety", "definition": "Reverence and devotion to God expressed through prayer, conduct, and service"}
+      ],
+      "examQuestions": [
+        {"question": "Why was prayer so central to daily Templar life according to the Rule?", "type": "short"},
+        {"question": "What is the significance of Psalm 91 in Templar tradition?", "type": "short"},
+        {"question": "Write in your own words why faith must come before rank or honor in the Order.", "type": "essay"}
+      ]
+    },
+    {
+      "week": 5,
+      "title": "Service, Duty, and the Squire's Pledge",
+      "objectives": [
+        "Define service as a core obligation of membership",
+        "Understand what is meant by 'duty before self'",
+        "Prepare to articulate the Squire's Pledge with sincerity"
+      ],
+      "lesson": "Service is not optional in the Order — it is the reason the Order exists. The Templars did not build wealth and power for themselves; they built it in service to the poor, the pilgrim, and the Church. A squire's highest ambition is not to wear the mantle but to serve those who cannot serve themselves. Duty means fulfilling obligations even when it is difficult, unpopular, or costly. The phrase 'Non nobis, Domine, non nobis, sed nomini tuo da gloriam' — Not unto us, Lord, not unto us, but to Your Name give glory — was the motto of the Templars. It captures the spirit of service: action without seeking personal credit. The Squire's Pledge is the commitment made before the Order at the time of enrollment. It covers obedience to the Rule, diligence in study, respect for superiors, and service to the community. A squire who masters service first will find that all other virtues follow.",
+      "keyTerms": [
+        {"term": "Non nobis, Domine", "definition": "Templar motto — 'Not unto us, Lord' — expressing service without self-seeking"},
+        {"term": "Squire's Pledge", "definition": "The formal commitment made by a squire upon entering the Order's school program"},
+        {"term": "Duty", "definition": "An obligation required by one's position; acting correctly regardless of personal cost"}
+      ],
+      "examQuestions": [
+        {"question": "Translate and explain the Templar motto 'Non nobis, Domine'.", "type": "short"},
+        {"question": "What does 'duty before self' mean in practical terms for a squire?", "type": "short"},
+        {"question": "Describe one specific way you can demonstrate service this week in your community or family.", "type": "essay"}
+      ]
+    },
+    {
+      "week": 6,
+      "title": "Symbols, Regalia, and Ceremony",
+      "objectives": [
+        "Identify the key symbols used by the Templar Order",
+        "Understand the meaning of the cross, the mantle, and the seal",
+        "Explain the purpose and reverence of formal ceremony"
+      ],
+      "lesson": "Every symbol in the Order carries meaning. The red cross on the white mantle represents the blood of Christ shed for humanity — willingness to die rather than renounce the Faith. The crossed keys represent access to sacred knowledge protected by the Order. The two knights on one horse (the famous Templar seal 'Sigillum Militum Xpisti') represents brotherly unity and poverty — two knights sharing a single mount. The skull and crossbones ('La Tête de Mort') used in some Templar traditions represents mortality — the reminder that all earthly power is temporary and that the knight serves eternal rather than temporal ends. Ceremony is the visible expression of invisible commitments. When a member wears regalia, stands at attention, or speaks the formal opening — they are not performing theater. They are making a public declaration of their allegiance to the values the symbols represent. Ceremony should never be rushed or treated casually.",
+      "keyTerms": [
+        {"term": "Sigillum Militum Xpisti", "definition": "The official seal of the Knights Templar depicting two knights on one horse, symbolizing poverty and brotherhood"},
+        {"term": "La Tête de Mort", "definition": "The skull-and-crossbones symbol used to represent mortality and the transience of earthly power"},
+        {"term": "Regalia", "definition": "The formal dress, insignia, and ceremonial items worn or carried by members of the Order"}
+      ],
+      "examQuestions": [
+        {"question": "What does the image of two knights sharing one horse represent on the Templar seal?", "type": "short"},
+        {"question": "Why should ceremony never be treated casually according to this lesson?", "type": "short"},
+        {"question": "Choose one Templar symbol and write a paragraph explaining its meaning and why it matters today.", "type": "essay"}
+      ]
+    },
+    {
+      "week": 7,
+      "title": "Brotherhood, Loyalty, and the Bond of the Order",
+      "objectives": [
+        "Define brotherhood as it applies to the Order",
+        "Understand the obligations members have to one another",
+        "Identify conduct that strengthens or weakens the bonds of brotherhood"
+      ],
+      "lesson": "Brotherhood in the Order is not sentiment — it is covenant. When a member takes their oath, they bind themselves to every other member. The strength of the Order depends entirely on whether its members can be trusted absolutely by one another. The Templars of the medieval period understood that a single disloyal knight could betray an entire column in the field. In the modern Order, a single member who speaks ill of brethren, reveals private information, or acts dishonorably outside the assembly dishonors every person who wears the mantle. Brotherhood requires active maintenance — greeting brothers, supporting their families, attending assemblies, interceding when a member falls into difficulty, and speaking truth with kindness when correction is needed. Loyalty does not mean blind agreement — it means unwavering commitment to the person's good even when that requires difficult honesty. A squire should be able to name the members of their local assembly, know something about each one, and be ready to serve them.",
+      "keyTerms": [
+        {"term": "Covenant", "definition": "A solemn, binding agreement; stronger than a contract because it involves the whole person"},
+        {"term": "Loyalty", "definition": "Steadfast fidelity to a person, cause, or institution; not blind agreement but faithful commitment"},
+        {"term": "Brotherhood", "definition": "The bond of mutual obligation, trust, and care shared by members of the Order"}
+      ],
+      "examQuestions": [
+        {"question": "Why is brotherhood described as 'covenant' rather than just friendship?", "type": "short"},
+        {"question": "Name two specific actions that strengthen the bonds of brotherhood.", "type": "short"},
+        {"question": "Write about a time when loyalty required you to do something difficult. What did you learn?", "type": "essay"}
+      ]
+    },
+    {
+      "week": 8,
+      "title": "Advancement, Examination, and the Path Forward",
+      "objectives": [
+        "Review all major topics covered in the Squire program",
+        "Demonstrate readiness for formal advancement review",
+        "Articulate personal goals for continued growth in the Order"
+      ],
+      "lesson": "The Squire program has covered the foundations upon which all further advancement in the Order is built. History, honor, prayer, service, symbols, brotherhood — these are not academic subjects to be memorized and forgotten. They are the living framework of your life in the Order. At the end of this program, the Schoolmaster will conduct a formal review of your progress. This is not a test to be passed by reciting correct answers — it is a conversation about who you are becoming. Before your advancement review, reflect on the following: What virtue has challenged you most this year? What service have you rendered that you are most proud of? What do you believe the Order is called to accomplish? What rank do you aspire to, and why? The path forward leads to the Levie program if you have not yet entered it, or to continued study and service within the squire rank. Every step forward in the Order is earned — not given.",
+      "keyTerms": [
+        {"term": "Advancement Review", "definition": "The formal evaluation conducted by the Schoolmaster to assess readiness for rank progression"},
+        {"term": "Reflection", "definition": "Honest examination of one's own conduct, growth, and areas needing improvement"},
+        {"term": "Aspiration", "definition": "The desire for growth toward a worthy goal; the motivation to serve at higher levels"}
+      ],
+      "examQuestions": [
+        {"question": "What is the difference between 'passing a test' and being ready for an advancement review?", "type": "short"},
+        {"question": "Which of the topics in the Squire program was most meaningful to you, and why?", "type": "essay"},
+        {"question": "What is one virtue you intend to develop more fully in the coming year? How will you do it?", "type": "essay"}
+      ]
+    }
+  ]
+}

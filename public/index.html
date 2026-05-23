@@ -13,14 +13,15 @@
     html, body {
       width: 100%;
       height: 100%;
-      overflow: hidden;
+      /* Allow scroll on very small screens so nothing is ever clipped */
+      overflow: auto;
     }
 
     /* ── FULL-SCREEN BACKGROUND ── */
     .page {
       position: relative;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -51,7 +52,7 @@
 
     /* ── TOP-LEFT CREST ── */
     .crest {
-      width: clamp(100px, 12vw, 170px);
+      width: clamp(60px, 10vw, 150px);
       mix-blend-mode: normal;
       filter:
         drop-shadow(0 2px 0px rgba(0,0,0,0.9))
@@ -71,10 +72,10 @@
     /* ── TOP-RIGHT SEAL ── */
     .seal {
       position: absolute;
-      top: 18px;
-      right: 22px;
+      top: clamp(10px, 2vh, 18px);
+      right: clamp(10px, 2vw, 22px);
       z-index: 10;
-      width: clamp(100px, 12vw, 170px);
+      width: clamp(60px, 10vw, 150px);
       mix-blend-mode: normal;
       filter:
         drop-shadow(0 2px 0px rgba(0,0,0,0.9))
@@ -91,8 +92,9 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 0 32px;
-      gap: 28px;
+      padding: clamp(80px, 14vh, 140px) clamp(16px, 5vw, 48px) clamp(80px, 12vh, 120px);
+      gap: clamp(14px, 3vh, 28px);
+      width: 100%;
     }
 
     /* Decorative top rule */
@@ -104,21 +106,15 @@
 
     /* ── MAIN TITLE ── */
     .title {
-      /* Cinzel — elegant Roman-inscription serif, not cartoony */
       font-family: 'Cinzel', 'Trajan Pro', 'Palatino Linotype', 'Times New Roman', serif;
-      font-size: clamp(1.9rem, 5vw, 4.8rem);
+      font-size: clamp(1.35rem, 5.5vw, 4.8rem);
       font-weight: 900;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       line-height: 1.2;
-      /* Aged parchment-gold colour */
       color: #e8c96a;
       text-transform: uppercase;
-      max-width: 900px;
-      /* 3-D shadow stack:
-         1 — tight cast shadow directly below (the "3D lift")
-         2 — slightly wider shadow for depth
-         3 — subtle warm ambient glow so it reads against the bg
-      */
+      max-width: min(900px, 90vw);
+      word-break: break-word;
       text-shadow:
         0 2px 0   rgba(0,0,0,0.95),
         0 4px 0   rgba(0,0,0,0.75),
@@ -129,7 +125,7 @@
 
     /* Gold divider cross */
     .divider {
-      font-size: 1.6rem;
+      font-size: clamp(1rem, 3vw, 1.6rem);
       color: #c9a227;
       text-shadow: 0 0 12px rgba(201,162,39,0.8);
       letter-spacing: 0.4em;
@@ -138,12 +134,12 @@
     /* ── ENTER BUTTON ── */
     .enter-btn {
       display: inline-block;
-      margin-top: 8px;
-      padding: 14px 48px;
+      margin-top: 4px;
+      padding: clamp(10px, 2vh, 14px) clamp(24px, 6vw, 48px);
       font-family: 'Palatino Linotype', 'Palatino', serif;
-      font-size: 1.05rem;
+      font-size: clamp(0.82rem, 2.2vw, 1.05rem);
       font-weight: 700;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: #1a0a00;
       background: linear-gradient(135deg, #e8c84a 0%, #b8860b 45%, #e8c84a 100%);
@@ -156,6 +152,9 @@
         inset 0 1px 0 rgba(255,255,180,0.35);
       transition: all 0.25s ease;
       cursor: pointer;
+      /* Tap-friendly on touch screens */
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
     }
     .enter-btn:hover {
       background: linear-gradient(135deg, #ffd84a 0%, #c8960b 45%, #ffd84a 100%);
@@ -177,7 +176,7 @@
       flex-direction: column;
       align-items: center;
       gap: 4px;
-      padding: 18px 24px 20px;
+      padding: clamp(12px, 2.5vh, 18px) clamp(12px, 3vw, 24px) clamp(14px, 2.5vh, 20px);
       background: linear-gradient(0deg, rgba(0,0,0,0.82) 0%, transparent 100%);
     }
 
@@ -190,13 +189,14 @@
 
     .footer-name {
       font-family: 'Algerian', 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
-      font-size: clamp(0.75rem, 1.8vw, 1.15rem);
+      font-size: clamp(0.6rem, 1.8vw, 1.05rem);
       font-weight: 700;
-      letter-spacing: 0.26em;
+      letter-spacing: clamp(0.1em, 0.26em, 0.26em);
       text-transform: uppercase;
       color: #e8d08a;
       text-shadow: 0 2px 10px rgba(0,0,0,0.9), 0 0 14px rgba(197,150,20,0.5);
       text-align: center;
+      word-break: break-word;
     }
 
     .footer-trademark {
@@ -210,10 +210,26 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
-      .crest { width: 80px; top: 10px; left: 10px; }
-      .seal  { width: 76px; top: 8px;  right: 10px; }
-      .title { font-size: 1.65rem; }
-      .enter-btn { padding: 12px 32px; font-size: 0.9rem; }
+      .crest { width: clamp(50px, 13vw, 76px); }
+      .seal  { width: clamp(50px, 13vw, 72px); }
+      .title { font-size: clamp(1.15rem, 5.5vw, 1.8rem); letter-spacing: 0.06em; }
+      .enter-btn { padding: 11px 28px; font-size: 0.85rem; letter-spacing: 0.14em; }
+      .rule { width: clamp(120px, 70vw, 320px); }
+    }
+
+    @media (max-width: 380px) {
+      .crest { width: 46px; }
+      .seal  { width: 44px; top: 6px; right: 8px; }
+      .title { font-size: 1.05rem; }
+      .enter-btn { padding: 10px 22px; font-size: 0.78rem; }
+      .footer-name { font-size: 0.55rem; letter-spacing: 0.08em; }
+    }
+
+    /* Landscape mobile */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .center { padding-top: 60px; padding-bottom: 60px; gap: 10px; }
+      .title { font-size: clamp(1rem, 3.5vh, 1.5rem); }
+      .crest, .seal { width: clamp(40px, 8vh, 70px); }
     }
   </style>
 </head>
@@ -224,7 +240,7 @@
     <div class="bg"></div>
 
     <!-- TOP LEFT: Order Crest — links to thecastlekeep.org -->
-    <a href="https://thecastlekeep.org" target="_blank" rel="noopener noreferrer" style="position:absolute;top:18px;left:22px;z-index:10;display:block;">
+    <a href="https://thecastlekeep.org" target="_blank" rel="noopener noreferrer" style="position:absolute;top:clamp(8px,1.5vh,18px);left:clamp(10px,1.8vw,22px);z-index:10;display:block;">
       <img class="crest" src="/images/order-crest.png" alt="Order Crest" style="position:static;top:auto;left:auto;">
     </a>
 

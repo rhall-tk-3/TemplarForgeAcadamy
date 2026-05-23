@@ -1,0 +1,311 @@
+{
+  "slug": "knight-aspirant",
+  "title": "Knight Aspirant School Program",
+  "description": "Knight preparation program. The vocation, ceremony, Beatitudes, just war, contemplative-active integration, and the oath.",
+  "weeks": [
+    {
+      "week": 1,
+      "title": "The Meaning and Obligation of Knighthood",
+      "objectives": [
+        "Define knighthood as a vocation, not merely a rank",
+        "Understand the historical obligations of the medieval knight",
+        "Articulate a personal vision of what knighthood demands from you"
+      ],
+      "lesson": "The word 'knight' comes from the Old English 'cniht,' originally meaning servant or retainer. Before knighthood was a title of honor, it was a description of function: one who served. The medieval transformation of the knight from hired warrior to man of virtue was one of the great cultural achievements of Christian civilization. By the 12th century, the ideal knight was not the strongest fighter \u2014 he was the most virtuous servant. The Templar knight was the apex of this ideal: monk, warrior, and servant simultaneously. To aspire to knighthood in the KTKC is to aspire to this complete vocation \u2014 not the title, not the ceremony, not the regalia, but the whole way of life. A Knight Aspirant must begin this program by asking a hard question: Why do I want to be a knight? If the answer is primarily about prestige, ceremony, or standing among peers, the formation has not yet begun. The only worthy answer is: because I want to serve more completely and live more excellently.",
+      "keyTerms": [
+        {
+          "term": "Vocation",
+          "definition": "A calling to a specific way of life; deeper than a career or hobby, involving the whole person"
+        },
+        {
+          "term": "Cniht",
+          "definition": "Old English origin of 'knight' \u2014 meaning servant or retainer; the foundation of knightly identity"
+        },
+        {
+          "term": "Aspiration",
+          "definition": "The desire to grow toward a worthy ideal; the starting point of knightly formation"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What is the original meaning of the word 'knight' and how did it evolve?",
+          "type": "short"
+        },
+        {
+          "question": "Why is the desire for prestige an insufficient motivation for seeking knighthood?",
+          "type": "short"
+        },
+        {
+          "question": "Write your honest answer to: Why do I want to be a knight? Be specific and sincere.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "title": "The Knighting Ceremony: History and Meaning",
+      "objectives": [
+        "Understand the history of the dubbing ceremony",
+        "Identify each element of the knighting ritual and its symbolism",
+        "Prepare yourself spiritually and personally for the ceremony ahead"
+      ],
+      "lesson": "The knighting ceremony \u2014 the dubbing \u2014 was one of the most significant rituals of medieval Christian culture. Its elements were deeply symbolic. The night vigil before knighting required the candidate to spend the entire night alone in the chapel, in prayer and meditation, surrendering personal ambition and asking God for the strength to serve. The bath symbolized purification. The white garment symbolized purity of intention. The red robe symbolized willingness to shed blood. The black robe, sometimes worn at the end, symbolized readiness to die in the service of the Faith. The accolade \u2014 the blow on the shoulder, or the touch of the sword \u2014 was the physical transfer of authority and identity. The spurs represented the duty of swift and tireless service. Every element of the ceremony was a lesson in what the knight was committing to. A Knight Aspirant who understands these symbols will enter the knighting ceremony with their heart prepared \u2014 not merely their appearance.",
+      "keyTerms": [
+        {
+          "term": "Dubbing",
+          "definition": "The ritual act of conferring knighthood; the physical touch that transfers knightly identity"
+        },
+        {
+          "term": "Night Vigil",
+          "definition": "The pre-knighting period of prayer and meditation in which the candidate surrenders personal ambition"
+        },
+        {
+          "term": "Accolade",
+          "definition": "The touch of the sword or blow on the shoulder that formally confers knighthood"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Name three elements of the knighting ceremony and explain the symbolism of each.",
+          "type": "short"
+        },
+        {
+          "question": "What was the purpose of the night vigil before the ceremony?",
+          "type": "short"
+        },
+        {
+          "question": "Write a personal reflection on what you will be committing to at your knighting ceremony.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "title": "The Beatitudes and Knightly Virtue",
+      "objectives": [
+        "Study the Beatitudes of Matthew 5 as a framework for knightly character",
+        "Connect each Beatitude to a specific knightly virtue or practice",
+        "Identify the Beatitude most challenging for you personally"
+      ],
+      "lesson": "The Sermon on the Mount, and especially the Beatitudes (Matthew 5:3-12), was read in the Templar tradition as a map of the interior life of the knight. 'Blessed are the poor in spirit' \u2014 the knight who has stripped himself of pride can be filled with God's wisdom. 'Blessed are the meek' \u2014 meekness is not weakness; it is strength under control, precisely the quality required in a man who carries a weapon. 'Blessed are the peacemakers' \u2014 the knight who seeks peace rather than conflict demonstrates greater courage than the one who fights at the first insult. 'Blessed are the pure in heart' \u2014 the knight whose motivation is unmixed with self-interest is the most dangerous kind: he cannot be bought. Each Beatitude is a description of the interior landscape of a person who has allowed God to transform them. The Knight Aspirant who meditates on these texts will find them more challenging than any tactical manual \u2014 and more transforming.",
+      "keyTerms": [
+        {
+          "term": "Beatitudes",
+          "definition": "The eight blessings pronounced by Jesus in Matthew 5:3-12; a map of the transformed interior life"
+        },
+        {
+          "term": "Meekness",
+          "definition": "Strength under control; the discipline of not exercising power merely because one can"
+        },
+        {
+          "term": "Pure in Heart",
+          "definition": "Singleness of motivation; acting from unmixed desire to serve God and neighbor without self-interest"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What does 'blessed are the meek' mean for a person who carries authority?",
+          "type": "short"
+        },
+        {
+          "question": "How does 'blessed are the pure in heart' describe a leader who cannot be corrupted?",
+          "type": "short"
+        },
+        {
+          "question": "Choose two Beatitudes and write a paragraph on what each one demands of you personally.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "title": "Templar Combat Ethics and the Just War Tradition",
+      "objectives": [
+        "Understand the Christian Just War tradition as it applies to Templar service",
+        "Identify the criteria for a just conflict",
+        "Apply just war principles to modern situations of conflict"
+      ],
+      "lesson": "The Templar knight was not a mercenary \u2014 he was a warrior under ethical constraint. The Christian Just War tradition, developed from Augustine through Aquinas, held that violence could only be justified under strict conditions: (1) Just cause \u2014 the conflict must be in defense of genuine good against genuine evil; (2) Right intention \u2014 the goal must be peace and justice, not conquest or revenge; (3) Proper authority \u2014 war must be declared by legitimate authority; (4) Last resort \u2014 all peaceful alternatives must have been exhausted; (5) Probability of success \u2014 fighting a lost cause costs lives without benefit; (6) Proportionality \u2014 the harm caused must not exceed the good achieved. The Templars operated under these constraints \u2014 they were forbidden to flee in battle under most circumstances, but also forbidden to initiate aggression or violate the terms of surrender. In the modern Order, 'just conflict' applies not to warfare but to every situation where a member must take a stand: confronting injustice, defending a brother, challenging a decision. The same criteria apply.",
+      "keyTerms": [
+        {
+          "term": "Just War Tradition",
+          "definition": "The Christian ethical framework governing when and how violence may be used"
+        },
+        {
+          "term": "Proportionality",
+          "definition": "The requirement that harm caused must not exceed the good achieved"
+        },
+        {
+          "term": "Last Resort",
+          "definition": "The criterion requiring that all peaceful alternatives be exhausted before force is employed"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "List and briefly explain the six criteria of the Just War tradition.",
+          "type": "short"
+        },
+        {
+          "question": "How do Just War criteria apply to non-military conflict within the Order?",
+          "type": "short"
+        },
+        {
+          "question": "Describe a conflict situation and analyze it using the six criteria. What does the analysis suggest?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "title": "Contemplation and Action: The Dual Life of the Templar Knight",
+      "objectives": [
+        "Understand the tension between contemplative and active life",
+        "Learn how the Templars integrated both in their Rule",
+        "Develop a personal rhythm of prayer, study, and action"
+      ],
+      "lesson": "Western spirituality has long recognized a tension between the contemplative life (monastic, withdrawn, prayerful) and the active life (engaged, serving, building). The genius of the Templar Rule was that it refused to choose between them. The knight prayed like a monk and fought like a soldier. He studied Scripture and maintained his horse. He fasted and marched. This integration is not natural \u2014 it requires deliberate design. A Knight Aspirant must develop their own rhythm: when will they pray? When will they study? When will they serve? When will they rest? Without this rhythm, one dimension will crowd out the others. The active member who never prays becomes a bureaucrat. The prayerful member who never acts becomes a recluse. The knight who integrates both becomes a person through whom God can act in the world. This week, design a simple weekly rhythm that includes time for prayer, study, service, and rest. Share it with your mentor.",
+      "keyTerms": [
+        {
+          "term": "Contemplative Life",
+          "definition": "The interior life of prayer, study, and solitude; one half of the Templar integration"
+        },
+        {
+          "term": "Active Life",
+          "definition": "The exterior life of service, leadership, and engagement; the other half of the Templar integration"
+        },
+        {
+          "term": "Rhythm",
+          "definition": "A deliberate, repeating pattern of prayer, study, service, and rest that sustains long-term formation"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What was distinctive about how the Templars resolved the tension between contemplation and action?",
+          "type": "short"
+        },
+        {
+          "question": "What happens to a leader who acts without prayer? What happens to one who prays without acting?",
+          "type": "short"
+        },
+        {
+          "question": "Design your personal weekly rhythm. Include prayer, study, service, and rest. Submit it to your mentor.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "title": "The Knight's Oath: Understanding What You Are Committing To",
+      "objectives": [
+        "Study the structure and content of the knightly oath",
+        "Understand the gravity of oath-taking in the Templar tradition",
+        "Prepare to take the oath with full knowledge and sincere intent"
+      ],
+      "lesson": "The oath sworn by a Templar knight at their dubbing ceremony was not a formality \u2014 it was a covenant made before God and witnessed by the assembled Order. Oaths in the medieval tradition were considered among the most serious acts a person could perform. To swear falsely or to break an oath was not merely embarrassing \u2014 it was a sin against God. The structure of the Templar oath included: fidelity to God and the Church; obedience to the Grand Master and the Rule; defense of the Christian Faith; protection of the poor and the pilgrim; personal poverty; and chastity (understood in the Order as the proper ordering of one's relationships and desires, not necessarily celibacy for all). A Knight Aspirant approaching their ceremony must read these obligations not as historical artifacts but as living commitments. Each element of the oath must be understood clearly before it is spoken. The knight who does not understand what they are swearing will find the oath meaningless. The one who understands fully will find it transforming.",
+      "keyTerms": [
+        {
+          "term": "Oath",
+          "definition": "A solemn promise made before God and witnesses; treated as a covenant in the Templar tradition"
+        },
+        {
+          "term": "Fidelity",
+          "definition": "Faithfulness to a commitment; the active maintenance of loyalty over time"
+        },
+        {
+          "term": "Covenant Obligation",
+          "definition": "The specific duties that arise from having taken an oath; they bind the whole person"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Why were oaths treated with such gravity in the Templar tradition?",
+          "type": "short"
+        },
+        {
+          "question": "List and briefly explain four specific commitments included in the Templar knight's oath.",
+          "type": "short"
+        },
+        {
+          "question": "Write a personal reflection on what each element of the oath will mean for your life after knighting.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 7,
+      "title": "Serving the Vulnerable: The Knight's Primary Duty",
+      "objectives": [
+        "Understand the Templars' historic commitment to the poor and helpless",
+        "Identify specific vulnerable populations the Order can serve today",
+        "Commit to a sustained service relationship with one such group"
+      ],
+      "lesson": "Before the Templar was a warrior, he was a protector of pilgrims \u2014 the elderly, the sick, the poor, the women and children who undertook the dangerous journey to Jerusalem with no means of self-defense. This was the founding mission of the Order, and it remains the deepest expression of knightly identity. The knight who is not protecting the vulnerable is not fulfilling the vocation. Protection today takes many forms: visiting the homebound, supporting single-parent families, mentoring young men without fathers, advocating for those who cannot advocate for themselves, providing resources for the poor. The Knight Aspirant who has not identified at least one sustained service relationship \u2014 not a one-time charitable act but a committed ongoing relationship with a person or group in need \u2014 is not yet ready to be knighted. The question is not 'What have you given?' but 'Who are you responsible for?'",
+      "keyTerms": [
+        {
+          "term": "Vulnerable Population",
+          "definition": "A group of people who lack the resources, power, or capacity to protect their own interests"
+        },
+        {
+          "term": "Sustained Service",
+          "definition": "An ongoing commitment to a specific person or group over time; distinct from one-time charity"
+        },
+        {
+          "term": "Responsibility",
+          "definition": "The acceptance of ongoing obligation for the welfare of another person or group"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Who were the Templars protecting in their original founding mission?",
+          "type": "short"
+        },
+        {
+          "question": "What is the difference between 'giving to charity' and 'sustained service'?",
+          "type": "short"
+        },
+        {
+          "question": "Identify the person or group you are committed to serving as a knight. Describe your plan.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 8,
+      "title": "Knight Aspirant Final Review and Ceremony Preparation",
+      "objectives": [
+        "Review all major topics from the Knight Aspirant program",
+        "Prepare personally and spiritually for the knighting ceremony",
+        "Write a final statement of readiness and intent"
+      ],
+      "lesson": "You are approaching the end of the Knight Aspirant program and the threshold of one of the most significant moments of your life in the Order. The eight weeks of this program have addressed the meaning of knighthood, the ceremony that confers it, the Beatitudes, just war ethics, the contemplative-active integration, the oath, and the duty to serve the vulnerable. Before your advancement review and ceremony preparation, the Schoolmaster will ask you to demonstrate not just knowledge but readiness. Readiness means: you have established a rhythm of prayer and study; you are actively serving at least one vulnerable person or group; you have a mentor with whom you speak regularly; you understand every element of the oath you are about to take; and you have identified at least one Levie or Corporal you are currently forming. The night before your knighting ceremony, observe the vigil \u2014 even if informally. Spend an hour alone in prayer. Lay down what you are going in with. Rise ready to serve.",
+      "keyTerms": [
+        {
+          "term": "Readiness",
+          "definition": "The combination of knowledge, spiritual preparation, active service, and formed character required for knighting"
+        },
+        {
+          "term": "Vigil",
+          "definition": "The night of prayer before the knighting ceremony; the spiritual preparation for the oath"
+        },
+        {
+          "term": "Threshold",
+          "definition": "The point of no return; the moment of commitment from which the knightly vocation formally begins"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What does 'readiness' for knighting require, according to this lesson?",
+          "type": "short"
+        },
+        {
+          "question": "What is the purpose of the vigil the night before knighting?",
+          "type": "short"
+        },
+        {
+          "question": "Write your final statement of readiness and intent for your knighting ceremony.",
+          "type": "essay"
+        }
+      ]
+    }
+  ]
+}

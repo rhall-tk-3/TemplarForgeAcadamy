@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KTKC — Weekly Lesson</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background: #0a0a0f;
+      background-image:
+        radial-gradient(ellipse at 20% 20%, rgba(180,140,60,0.06) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 80%, rgba(120,80,20,0.08) 0%, transparent 55%);
+      color: #e8d5a0;
+      font-family: 'Crimson Text', serif;
+      font-size: 1.05rem;
+    }
+
+    /* ── Top Nav Bar ── */
+    .top-bar {
+      background: rgba(10,8,4,0.92);
+      border-bottom: 1px solid rgba(180,140,60,0.3);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .top-bar-left { display: flex; align-items: center; gap: 14px; }
+    .back-link {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      color: #b8960c;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      padding: 6px 14px;
+      border: 1px solid rgba(184,150,12,0.4);
+      border-radius: 4px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .back-link:hover { background: rgba(184,150,12,0.15); color: #e8c040; }
+    .top-bar-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      color: #c8a840;
+      letter-spacing: 0.08em;
+    }
+    .top-bar-week {
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      color: #8a7040;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    /* KTKC motto — reuse shared classes but scoped here */
+    .top-bar-motto {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      padding: 0 10px;
+      pointer-events: none;
+    }
+    .top-bar-motto .topbar-motto-word  { display: inline-flex; align-items: baseline; white-space: nowrap; }
+    .top-bar-motto .topbar-motto-sep   { font-family:'Cinzel',serif; font-size:0.95rem; color:#4a3810; padding:0 7px; align-self:center; }
+    .top-bar-motto .topbar-motto-cap   { font-family:'Cinzel',serif; font-size:1.25rem; font-weight:700; text-shadow:0 0 10px currentColor,0 2px 4px rgba(0,0,0,0.8); }
+    .top-bar-motto .topbar-motto-rest  { font-family:'Cinzel',serif; font-size:1.0rem; color:#7a6030; letter-spacing:0.05em; }
+    .top-bar-motto .k1 { color:#e8c040; }
+    .top-bar-motto .t  { color:#e89020; }
+    .top-bar-motto .k2 { color:#d4a832; }
+    .top-bar-motto .c  { color:#e86818; }
+    @media (max-width: 860px) { .top-bar-motto .topbar-motto-rest { display:none; } }
+    @media (max-width: 540px) { .top-bar-motto { display:none; } }
+
+    /* ── Paused Banner ── */
+    .paused-banner {
+      display: none;
+      align-items: flex-start;
+      gap: 14px;
+      background: rgba(180,100,0,0.12);
+      border: 1px solid rgba(220,140,0,0.35);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 24px auto;
+      max-width: 860px;
+    }
+    .paused-banner.show { display: flex; }
+    .paused-banner-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .paused-banner h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #e8b040;
+      margin-bottom: 4px;
+    }
+    .paused-banner p { font-size: 0.9rem; color: #c8a050; line-height: 1.5; }
+
+    /* ── Main Container ── */
+    .lesson-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 32px 20px 80px;
+    }
+
+    /* ── Lesson Header ── */
+    .lesson-header {
+      border-bottom: 1px solid rgba(180,140,60,0.25);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+    .lesson-program-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #8a7040;
+      margin-bottom: 8px;
+    }
+    .lesson-week-num {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      color: #b8960c;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+    .lesson-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: #e8c850;
+      line-height: 1.2;
+    }
+
+    /* ── Section Blocks ── */
+    .lesson-section {
+      margin-bottom: 36px;
+    }
+    .section-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #c8a840;
+      border-bottom: 1px solid rgba(180,140,60,0.2);
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+    }
+
+    /* Objectives */
+    .objectives-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .objectives-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 1rem;
+      color: #d4bc88;
+      line-height: 1.5;
+    }
+    .obj-bullet {
+      color: #b8960c;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    /* Lesson Body */
+    .lesson-body {
+      font-size: 1.08rem;
+      line-height: 1.78;
+      color: #d8c898;
+      white-space: pre-wrap;
+    }
+
+    /* Key Terms */
+    .key-terms-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .key-term-item {
+      background: rgba(180,140,60,0.06);
+      border: 1px solid rgba(180,140,60,0.18);
+      border-radius: 6px;
+      padding: 14px 16px;
+    }
+    .key-term-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #e8c040;
+      margin-bottom: 6px;
+    }
+    .key-term-def {
+      font-size: 0.97rem;
+      color: #c8b078;
+      line-height: 1.55;
+    }
+
+    /* ── Exam Form ── */
+    .exam-section {
+      background: rgba(10,8,4,0.6);
+      border: 1px solid rgba(180,140,60,0.3);
+      border-radius: 10px;
+      padding: 28px 28px 32px;
+      margin-top: 8px;
+    }
+    .exam-intro {
+      font-size: 0.95rem;
+      color: #b8a070;
+      margin-bottom: 24px;
+      line-height: 1.55;
+    }
+    .exam-question-block {
+      margin-bottom: 28px;
+    }
+    .exam-q-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      color: #c8a840;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .exam-q-text {
+      font-size: 1rem;
+      color: #e0cc98;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    .exam-q-type {
+      font-size: 0.78rem;
+      color: #7a6030;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+    .exam-textarea {
+      width: 100%;
+      background: rgba(20,16,8,0.8);
+      border: 1px solid rgba(180,140,60,0.3);
+      border-radius: 6px;
+      color: #e0cc98;
+      font-family: 'Crimson Text', serif;
+      font-size: 1rem;
+      line-height: 1.6;
+      padding: 10px 14px;
+      resize: vertical;
+      min-height: 90px;
+      transition: border-color 0.2s;
+    }
+    .exam-textarea:focus {
+      outline: none;
+      border-color: rgba(200,168,64,0.6);
+      background: rgba(30,24,12,0.9);
+    }
+    .exam-textarea[rows="6"] { min-height: 140px; }
+
+    .submit-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .btn-submit {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #0a0804;
+      background: linear-gradient(135deg, #c8a020, #a07818);
+      border: none;
+      border-radius: 6px;
+      padding: 12px 30px;
+      cursor: pointer;
+      transition: filter 0.2s, transform 0.15s;
+    }
+    .btn-submit:hover { filter: brightness(1.15); transform: translateY(-1px); }
+    .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    .exam-msg {
+      font-size: 0.92rem;
+      display: none;
+    }
+    .exam-msg.ok    { color: #68c868; display: block; }
+    .exam-msg.error { color: #e85050; display: block; }
+
+    /* ── Loader / Error States ── */
+    .state-msg {
+      text-align: center;
+      padding: 80px 20px;
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      color: #8a7040;
+      letter-spacing: 0.06em;
+    }
+    .state-msg .cross { font-size: 2rem; display: block; margin-bottom: 16px; }
+
+    /* ── Already-submitted notice ── */
+    .already-submitted {
+      display: none;
+      background: rgba(80,140,80,0.1);
+      border: 1px solid rgba(80,180,80,0.3);
+      border-radius: 8px;
+      padding: 16px 20px;
+      color: #88c888;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .already-submitted.show { display: block; }
+  </style>
+</head>
+<body>
+
+<!-- Top Navigation Bar -->
+<div class="top-bar">
+  <div class="top-bar-left">
+    <a class="back-link" href="/member">← Dashboard</a>
+    <span class="top-bar-title" id="nav-program-title">Loading…</span>
+  </div>
+  <!-- KTKC Motto -->
+  <div class="top-bar-motto">
+    <span class="topbar-motto-word"><span class="topbar-motto-cap k1">K</span><span class="topbar-motto-rest">nowledge</span></span>
+    <span class="topbar-motto-sep">·</span>
+    <span class="topbar-motto-word"><span class="topbar-motto-cap t">T</span><span class="topbar-motto-rest">raining</span></span>
+    <span class="topbar-motto-sep">·</span>
+    <span class="topbar-motto-word"><span class="topbar-motto-cap k2">K</span><span class="topbar-motto-rest">nightliness</span></span>
+    <span class="topbar-motto-sep">·</span>
+    <span class="topbar-motto-word"><span class="topbar-motto-cap c">C</span><span class="topbar-motto-rest">ourage</span></span>
+  </div>
+  <span class="top-bar-week" id="nav-week-label"></span>
+</div>
+
+<!-- Paused Program Banner -->
+<div class="paused-banner" id="paused-banner">
+  <div class="paused-banner-icon">⏸</div>
+  <div>
+    <h3>Program Paused</h3>
+    <p id="paused-msg">Your training program has been paused by the Schoolmaster. You may review lesson material but exam submission is disabled. Contact your ranking officer for further instruction.</p>
+  </div>
+</div>
+
+<!-- Main Lesson Content -->
+<div class="lesson-wrap" id="lesson-wrap">
+  <div class="state-msg" id="loading-msg">
+    <span class="cross">✠</span>
+    Loading your lesson…
+  </div>
+</div>
+
+<script>
+(async function () {
+  'use strict';
+
+  const wrap     = document.getElementById('lesson-wrap');
+  const loadMsg  = document.getElementById('loading-msg');
+  const navTitle = document.getElementById('nav-program-title');
+  const navWeek  = document.getElementById('nav-week-label');
+
+  // ── 1. Fetch lesson data ──────────────────────────────
+  let data;
+  try {
+    const resp = await fetch('/api/progression/me/lesson');
+    if (resp.status === 401) { window.location.href = '/login'; return; }
+    if (resp.status === 404) {
+      loadMsg.innerHTML = '<span class="cross">✠</span>No program is currently assigned to your account. Return to your dashboard.';
+      return;
+    }
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    data = await resp.json();
+  } catch (err) {
+    loadMsg.innerHTML = `<span class="cross">✠</span>Could not load lesson. Please refresh or return to your <a href="/member" style="color:#b8960c">dashboard</a>.`;
+    return;
+  }
+
+  const { lesson, programSlug, week, programStatus, statusNote } = data;
+  const paused = (programStatus === 'paused');
+
+  // ── 2. Update nav bar ────────────────────────────────
+  navTitle.textContent = lesson.title || programSlug;
+  navWeek.textContent  = `Week ${week}`;
+
+  // ── 3. Show paused banner if needed ─────────────────
+  if (paused) {
+    const banner  = document.getElementById('paused-banner');
+    const msgEl   = document.getElementById('paused-msg');
+    banner.classList.add('show');
+    if (statusNote) {
+      msgEl.textContent = `Your training program has been paused by the Schoolmaster: "${statusNote}" — You may review lesson material but exam submission is disabled. Contact your ranking officer for further instruction.`;
+    }
+  }
+
+  // ── 4. Check if exam for this week already submitted ─
+  let alreadySubmitted = false;
+  try {
+    const progResp = await fetch('/api/progression/me');
+    if (progResp.ok) {
+      const prog = await progResp.json();
+      alreadySubmitted = (prog.examSubmissions || []).some(
+        s => s.programSlug === programSlug && Number(s.week) === Number(week)
+      );
+    }
+  } catch (_) { /* non-critical */ }
+
+  // ── 5. Build program title for the header ───────────
+  const programTitleMap = {
+    'squire':         'Squire School Program',
+    'levie':          'Levie School Program',
+    'corporal':       'Corporal School Program',
+    'sergeant':       'Sergeant School Program',
+    'sfc':            'Sergeant First Class School Program',
+    'knight-aspirant':'Knight Aspirant School Program',
+    'knight':         'Knight School Program',
+    'lieutenant':     'Lieutenant School Program',
+    'captain':        'Captain School Program',
+    'major':          'Major School Program',
+    'commander':      'Commander School Program'
+  };
+  const programDisplayTitle = programTitleMap[programSlug] || programSlug;
+
+  // ── 6. Render full lesson ────────────────────────────
+  loadMsg.style.display = 'none';
+
+  // Objectives HTML
+  const objHTML = (lesson.objectives || []).map(obj =>
+    `<li><span class="obj-bullet">✦</span><span>${escHtml(obj)}</span></li>`
+  ).join('');
+
+  // Key Terms HTML
+  const termsHTML = (lesson.keyTerms || []).map(kt =>
+    `<div class="key-term-item">
+       <div class="key-term-name">${escHtml(kt.term)}</div>
+       <div class="key-term-def">${escHtml(kt.definition)}</div>
+     </div>`
+  ).join('');
+
+  // Exam Questions HTML
+  const questionsHTML = (lesson.examQuestions || []).map((q, i) => {
+    const isEssay = (q.type === 'essay');
+    return `
+      <div class="exam-question-block">
+        <span class="exam-q-label">Question ${i + 1}</span>
+        <div class="exam-q-text">${escHtml(q.question)}</div>
+        <div class="exam-q-type">${isEssay ? 'Essay response' : 'Short answer'}</div>
+        <textarea class="exam-textarea" data-idx="${i}"
+          rows="${isEssay ? 6 : 3}"
+          placeholder="${isEssay ? 'Write your essay response here…' : 'Write your answer here…'}"
+          ${paused ? 'disabled title="Exam submission is disabled while your program is paused."' : ''}
+        ></textarea>
+      </div>`;
+  }).join('');
+
+  wrap.innerHTML = `
+    <!-- Lesson Header -->
+    <div class="lesson-header">
+      <div class="lesson-program-label">✠ ${escHtml(programDisplayTitle)}</div>
+      <div class="lesson-week-num">Week ${week}</div>
+      <h1 class="lesson-title">${escHtml(lesson.title)}</h1>
+    </div>
+
+    <!-- Objectives -->
+    <div class="lesson-section">
+      <div class="section-heading">Learning Objectives</div>
+      <ul class="objectives-list">${objHTML}</ul>
+    </div>
+
+    <!-- Lesson Body -->
+    <div class="lesson-section">
+      <div class="section-heading">This Week's Lesson</div>
+      <div class="lesson-body">${escHtml(lesson.lesson)}</div>
+    </div>
+
+    <!-- Key Terms -->
+    ${termsHTML ? `
+    <div class="lesson-section">
+      <div class="section-heading">Key Terms &amp; Definitions</div>
+      <div class="key-terms-grid">${termsHTML}</div>
+    </div>` : ''}
+
+    <!-- Exam -->
+    <div class="lesson-section">
+      <div class="section-heading">Week ${week} Examination</div>
+      <div class="exam-section">
+        <div class="exam-intro">
+          Answer each question below thoroughly and honestly. Your responses will be
+          reviewed by the Schoolmaster. Submit only when you are satisfied with your work.
+        </div>
+
+        <div class="already-submitted${alreadySubmitted ? ' show' : ''}">
+          ✔ You have already submitted your exam for this week. It is awaiting Schoolmaster review.
+          You may continue to review the lesson material above.
+        </div>
+
+        ${alreadySubmitted ? '' : questionsHTML}
+
+        ${alreadySubmitted ? '' : `
+        <div class="submit-row">
+          <button class="btn-submit" id="exam-submit-btn"${paused ? ' disabled title="Exam submission is disabled while your program is paused."' : ''}>
+            ✠ Submit Examination
+          </button>
+          <span class="exam-msg" id="exam-msg"></span>
+        </div>`}
+      </div>
+    </div>`;
+
+  // ── 7. Exam submission handler ───────────────────────
+  if (!paused && !alreadySubmitted) {
+    const submitBtn = document.getElementById('exam-submit-btn');
+    const examMsg   = document.getElementById('exam-msg');
+
+    submitBtn.addEventListener('click', async () => {
+      const textareas = wrap.querySelectorAll('.exam-textarea');
+      const answers = [];
+
+      for (let i = 0; i < textareas.length; i++) {
+        const val = textareas[i].value.trim();
+        if (!val) {
+          examMsg.className = 'exam-msg error';
+          examMsg.textContent = `Please answer Question ${i + 1} before submitting.`;
+          textareas[i].focus();
+          return;
+        }
+        answers.push({
+          question: (lesson.examQuestions[i] || {}).question || `Question ${i + 1}`,
+          answer:   val
+        });
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+      examMsg.className = 'exam-msg';
+      examMsg.textContent = '';
+
+      try {
+        const resp = await fetch('/api/progression/me/exam', {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify({ programSlug, week, answers })
+        });
+        const result = await resp.json();
+
+        if (resp.ok && result.ok) {
+          examMsg.className = 'exam-msg ok';
+          examMsg.textContent = '✔ Exam submitted. Awaiting Schoolmaster review.';
+          submitBtn.textContent = '✔ Submitted';
+          // Disable all textareas after successful submit
+          textareas.forEach(t => { t.disabled = true; });
+        } else {
+          throw new Error(result.error || 'Submission failed.');
+        }
+      } catch (err) {
+        examMsg.className = 'exam-msg error';
+        examMsg.textContent = `Error: ${err.message}`;
+        submitBtn.disabled = false;
+        submitBtn.textContent = '✠ Submit Examination';
+      }
+    });
+  }
+
+  // ── Utility ─────────────────────────────────────────
+  function escHtml(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+})();
+</script>
+</body>
+</html>
