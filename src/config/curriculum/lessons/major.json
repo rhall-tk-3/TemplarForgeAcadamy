@@ -1,0 +1,463 @@
+{
+  "slug": "major",
+  "title": "Major School Program",
+  "description": "Officer Formation Level III. Governance, covenant theology, inter-Order relations, financial oversight, and long-range vision.",
+  "weeks": [
+    {
+      "week": 1,
+      "title": "Governance and the Constitutional Order",
+      "objectives": [
+        "Understand the constitutional framework governing the KTKC",
+        "Study the key concepts: Constitutional Governance, Member Rights, Moral Authority",
+        "Apply the lesson to a current situation in your service"
+      ],
+      "lesson": "A Major operates at the level where governance decisions are made \u2014 not just programs administered. Constitutional governance is the framework of rules, rights, and processes that defines how the Order makes decisions, holds officers accountable, and resolves disputes. Every member has constitutional rights within the Order: the right to be heard, the right to know the charges against them, the right of appeal. The Major must know and uphold these rights even \u2014 especially \u2014 when it is inconvenient. The Templar Order's governance at its best combined clear hierarchy with meaningful accountability: the Grand Master held supreme authority, but the chapter council could challenge decisions, and the Pope was the ultimate arbiter. When constitutional governance breaks down \u2014 when rules are applied selectively, when rights are ignored, when the powerful are exempted from accountability \u2014 the organization loses its moral authority. A Major who upholds constitutional governance even against institutional pressure is protecting the Order's soul.",
+      "keyTerms": [
+        {
+          "term": "Constitutional Governance",
+          "definition": "The framework of rules, rights, and processes that defines how the Order makes decisions and resolves disputes"
+        },
+        {
+          "term": "Member Rights",
+          "definition": "The protections owed to every member: to be heard, to know charges, to appeal decisions"
+        },
+        {
+          "term": "Moral Authority",
+          "definition": "The legitimacy that comes from consistently applying the same standard to every member including officers"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the key concept introduced in Week 1: Constitutional Governance.",
+          "type": "short"
+        },
+        {
+          "question": "What is the main practical obligation this week's lesson places on a Major?",
+          "type": "short"
+        },
+        {
+          "question": "Write a reflection connecting this week's topic to a specific aspect of your own service as an officer.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "title": "Theology of Covenant: The Order as Sacred Community",
+      "objectives": [
+        "Understand the Order as a covenantal community with theological foundations",
+        "Study the key concepts: Covenantal Community, Theological Identity, Sacred Obligation",
+        "Apply the lesson to a current situation in your service"
+      ],
+      "lesson": "The Order is not merely a fraternal association \u2014 it is, in the Templar tradition, a covenantal community. A covenant is a sacred agreement that binds the parties to one another before God. The oaths sworn by members, the prayers that open and close each assembly, the symbols that surround every ceremony \u2014 these are not decorative. They declare that this community is held together not by affinity or convenience but by sacred obligation. A Major must understand and communicate this theological dimension of the Order's identity \u2014 not just to devout members but to all members. Even those who do not share strong personal faith participate in a community whose values and practices are rooted in theological commitments. The Major's responsibility is to protect the Order's theological identity while making it accessible and compelling to members at every stage of their own faith journey.",
+      "keyTerms": [
+        {
+          "term": "Covenantal Community",
+          "definition": "A community bound together by sacred mutual obligation before God, not merely by shared interest"
+        },
+        {
+          "term": "Theological Identity",
+          "definition": "The specifically religious and spiritual commitments that define the Order's character and purpose"
+        },
+        {
+          "term": "Sacred Obligation",
+          "definition": "The duty arising from having sworn an oath before God; stronger and more enduring than a contractual duty"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the key concept introduced in Week 2: Covenantal Community.",
+          "type": "short"
+        },
+        {
+          "question": "What is the main practical obligation this week's lesson places on a Major?",
+          "type": "short"
+        },
+        {
+          "question": "Write a reflection connecting this week's topic to a specific aspect of your own service as an officer.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "title": "Inter-Order Relations and Diplomacy",
+      "objectives": [
+        "Understand the Major's role in representing the Order to other organizations",
+        "Study the key concepts: Inter-Order Diplomacy, Organizational Identity, Long-term Relationship Building",
+        "Apply the lesson to a current situation in your service"
+      ],
+      "lesson": "The medieval Templars existed in a complex web of relationships with other orders \u2014 the Hospitallers, the Teutonic Knights, the secular military orders. These relationships ranged from close cooperation to intense rivalry, and the management of those relationships was a critical function of senior leadership. A Major in the KTKC represents the Order in its relationships with other Templar orders, fraternal organizations, and religious bodies. The principles of inter-Order diplomacy are: (1) Represent accurately \u2014 describe the Order truthfully, including its limitations. (2) Seek understanding before seeking agreement \u2014 understand the other organization's identity and priorities before proposing cooperation. (3) Protect the Order's identity \u2014 no partnership or alliance should require the Order to compromise its doctrinal commitments. (4) Build for the long term \u2014 relationships between organizations are built over years, not meetings. A Major who manages external relationships with patience, honesty, and clarity will expand the Order's influence and service capacity.",
+      "keyTerms": [
+        {
+          "term": "Inter-Order Diplomacy",
+          "definition": "The art of representing the Order's identity and interests in relationship with other organizations"
+        },
+        {
+          "term": "Organizational Identity",
+          "definition": "The specific commitments, practices, and character that distinguish one order from another"
+        },
+        {
+          "term": "Long-term Relationship Building",
+          "definition": "The practice of investing in organizational relationships over years rather than pursuing short-term agreements"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the key concept introduced in Week 3: Inter-Order Diplomacy.",
+          "type": "short"
+        },
+        {
+          "question": "What is the main practical obligation this week's lesson places on a Major?",
+          "type": "short"
+        },
+        {
+          "question": "Write a reflection connecting this week's topic to a specific aspect of your own service as an officer.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "title": "Financial Oversight at Scale",
+      "objectives": [
+        "Understand the Major's responsibility for organizational financial health",
+        "Study the key concepts: Financial Governance, Auditing, Reserve Policy",
+        "Apply the lesson to a current situation in your service"
+      ],
+      "lesson": "At the Major level, financial oversight is not bookkeeping \u2014 it is governance. The Major is responsible for understanding the overall financial health of the Order's operations in their jurisdiction and for ensuring that financial practices align with the Order's values. Financial governance at scale requires: (1) Auditing \u2014 regular independent review of all financial accounts. (2) Budgeting discipline \u2014 the budget reflects strategic priorities, not historical habits. (3) Reserve policy \u2014 the Order maintains adequate reserves for at least six months of operation without income. (4) Transparency standards \u2014 financial reports are available to all officers at a regular cadence. (5) Succession in financial roles \u2014 no single person should be the only one with access to or knowledge of financial systems. The Templars' enormous wealth was both their greatest asset and, ultimately, their greatest vulnerability. The Major who builds strong financial governance is protecting the Order from one of the most common causes of institutional failure.",
+      "keyTerms": [
+        {
+          "term": "Financial Governance",
+          "definition": "The oversight of financial practices to ensure alignment with the Order's values and legal obligations"
+        },
+        {
+          "term": "Auditing",
+          "definition": "Independent review of financial accounts to verify accuracy and detect irregularities"
+        },
+        {
+          "term": "Reserve Policy",
+          "definition": "The requirement to maintain funds adequate for several months of operation without income"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the key concept introduced in Week 4: Financial Governance.",
+          "type": "short"
+        },
+        {
+          "question": "What is the main practical obligation this week's lesson places on a Major?",
+          "type": "short"
+        },
+        {
+          "question": "Write a reflection connecting this week's topic to a specific aspect of your own service as an officer.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "title": "Advanced Conflict Resolution: Systemic Disputes",
+      "objectives": [
+        "Understand how to resolve conflicts that involve systems, not just individuals",
+        "Study the key concepts: Systemic Conflict, Pastoral Intervention, Structural Analysis",
+        "Apply the lesson to a current situation in your service"
+      ],
+      "lesson": "Some conflicts in the Order are not between individuals but between systems \u2014 between the way things have always been done and the way they need to be done, between different understandings of the Order's identity, between competing visions of mission. A Major must be able to diagnose whether a conflict is personal (between specific individuals) or systemic (arising from structural tensions in the Order's design). Personal conflicts require pastoral intervention. Systemic conflicts require structural analysis and reform. The most common error is treating a systemic conflict as if it were personal \u2014 identifying a scapegoat and removing them, only to find the same conflict arising with different people in the same roles. A Major who can accurately diagnose the level of a conflict will apply the right solution and actually resolve it rather than merely displace it.",
+      "keyTerms": [
+        {
+          "term": "Systemic Conflict",
+          "definition": "A conflict arising from structural tensions in the Order's design, not primarily from individual behavior"
+        },
+        {
+          "term": "Pastoral Intervention",
+          "definition": "The personal, relational approach appropriate for resolving conflicts between specific individuals"
+        },
+        {
+          "term": "Structural Analysis",
+          "definition": "The examination of an organization's systems and structures to identify sources of recurring conflict"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the key concept introduced in Week 5: Systemic Conflict.",
+          "type": "short"
+        },
+        {
+          "question": "What is the main practical obligation this week's lesson places on a Major?",
+          "type": "short"
+        },
+        {
+          "question": "Write a reflection connecting this week's topic to a specific aspect of your own service as an officer.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "title": "Preaching, Teaching, and the Major's Communication Mandate",
+      "objectives": [
+        "Understand the Major's responsibility to teach and articulate the Order's identity",
+        "Study the key concepts: Teaching, Formation Teaching, Effective Illustration",
+        "Apply the lesson to a current situation in your service"
+      ],
+      "lesson": "A Major in the Order is expected to be able to teach \u2014 not only to manage, direct, and govern, but to communicate the Order's identity and values in ways that form members and inspire commitment. Teaching is not the same as reporting or instructing. Teaching communicates not just information but meaning \u2014 it answers the question 'Why does this matter?' The Major who can teach well \u2014 whether in a formal assembly address, an officer training session, or a one-on-one conversation \u2014 multiplies their effectiveness beyond any administrative function. The principles of effective teaching are: (1) Know your material thoroughly before you teach it. (2) Connect the content to the listener's actual life and challenges. (3) Use concrete examples and stories, not abstractions alone. (4) Invite response \u2014 teaching that allows no questions or pushback is instruction, not formation. (5) Follow up \u2014 the best teaching is reinforced by subsequent conversation and application.",
+      "keyTerms": [
+        {
+          "term": "Teaching",
+          "definition": "Communication that conveys not just information but meaning; forming both the mind and the will"
+        },
+        {
+          "term": "Formation Teaching",
+          "definition": "Teaching specifically designed to shape character and commitment, not merely to convey information"
+        },
+        {
+          "term": "Effective Illustration",
+          "definition": "The use of concrete stories, examples, and analogies to make abstract principles vivid and memorable"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the key concept introduced in Week 6: Teaching.",
+          "type": "short"
+        },
+        {
+          "question": "What is the main practical obligation this week's lesson places on a Major?",
+          "type": "short"
+        },
+        {
+          "question": "Write a reflection connecting this week's topic to a specific aspect of your own service as an officer.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 7,
+      "title": "The Major and Succession: Building an Organization That Outlasts You",
+      "objectives": [
+        "Understand the Major's responsibility to build for the next generation",
+        "Study the key concepts: Organizational Succession, Documented Identity, Formal Transition",
+        "Apply the lesson to a current situation in your service"
+      ],
+      "lesson": "The greatest contribution a Major can make is not the programs they run or the crises they resolve \u2014 it is the organization they build that continues after them. Succession at the Major level requires: (1) A clear succession plan for every significant office \u2014 who is being prepared, what they still need, when they will be ready. (2) A documented institutional identity \u2014 the Order's mission, values, and practices must be captured in writing that survives individual memory. (3) A culture of development \u2014 every officer in the jurisdiction should be actively forming their successors as a non-negotiable expectation. (4) A formal transition process \u2014 when a Major transitions out of their role, there should be a structured handover that preserves institutional memory and relationships. The Templars built systems and processes that allowed the Order to function for nearly two centuries across a continent. The systems \u2014 not the individuals \u2014 are what made that possible.",
+      "keyTerms": [
+        {
+          "term": "Organizational Succession",
+          "definition": "The deliberate building of leadership capacity across all levels to ensure continuity beyond any individual"
+        },
+        {
+          "term": "Documented Identity",
+          "definition": "The written record of the Order's mission, values, and practices that preserves institutional memory"
+        },
+        {
+          "term": "Formal Transition",
+          "definition": "A structured handover process when a leader transitions out of a role"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the key concept introduced in Week 7: Organizational Succession.",
+          "type": "short"
+        },
+        {
+          "question": "What is the main practical obligation this week's lesson places on a Major?",
+          "type": "short"
+        },
+        {
+          "question": "Write a reflection connecting this week's topic to a specific aspect of your own service as an officer.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 8,
+      "title": "Ethics at Scale: Navigating Power Responsibly",
+      "objectives": [
+        "Understand how the ethical stakes increase with organizational power",
+        "Study the key concepts: Ethics at Scale, Deliberate Slowness, Mandatory Consultation",
+        "Apply the lesson to a current situation in your service"
+      ],
+      "lesson": "The more authority an officer has, the more serious the ethical stakes of their decisions. A Lieutenant's poor ethical decision affects a handful of members. A Major's poor ethical decision can affect an entire jurisdiction or shape the Order's public reputation for years. The ethics of power at scale require additional disciplines: (1) Deliberate slowness \u2014 the more consequential the decision, the more time should be taken. No Major should make major decisions under pressure without delay. (2) Mandatory consultation \u2014 decisions affecting significant numbers of people should be made only after consulting those affected. (3) Transparency of process \u2014 the basis for significant decisions should be documentable and defensible. (4) Willingness to reverse \u2014 no officer should be so committed to a decision that they cannot reverse it in the face of clear evidence it was wrong. (5) Accountability structures \u2014 the Major should actively maintain accountability relationships, not merely submit to them when required.",
+      "keyTerms": [
+        {
+          "term": "Ethics at Scale",
+          "definition": "The heightened ethical responsibilities that accompany significant organizational authority"
+        },
+        {
+          "term": "Deliberate Slowness",
+          "definition": "The discipline of slowing decision-making in proportion to decision significance"
+        },
+        {
+          "term": "Mandatory Consultation",
+          "definition": "The practice of seeking input from those affected by significant decisions before making them"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the key concept introduced in Week 8: Ethics at Scale.",
+          "type": "short"
+        },
+        {
+          "question": "What is the main practical obligation this week's lesson places on a Major?",
+          "type": "short"
+        },
+        {
+          "question": "Write a reflection connecting this week's topic to a specific aspect of your own service as an officer.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 9,
+      "title": "Long-Range Vision: Shaping the Order Across Decades",
+      "objectives": [
+        "Understand the Major's responsibility for long-range organizational vision",
+        "Study the key concepts: Long-Range Vision, Preferred Future, Multi-Year Roadmap",
+        "Apply the lesson to a current situation in your service"
+      ],
+      "lesson": "Most officers plan one year ahead. A Major thinks ten years ahead. What kind of Order should the KTKC be in ten years? What will it take to get there? What must be built now \u2014 in people, systems, relationships, and resources \u2014 that will not bear fruit for five or ten years? This is the essential contribution of Major-level leadership. The medieval Templars did not build Templar castles, establish banking networks, or train military forces in a single season. These were multi-decade projects that required sustained vision across changes in individual leadership. Long-range vision requires: (1) A clear picture of the preferred future \u2014 specific, not vague. (2) An honest assessment of the gap between current state and preferred future. (3) A multi-year roadmap of what needs to change and when. (4) Delegation of the roadmap to officers at each level who own specific portions of it. (5) Annual review of progress and adjustment of the roadmap in response to what is learned.",
+      "keyTerms": [
+        {
+          "term": "Long-Range Vision",
+          "definition": "The capacity to see clearly what the Order should become over a decade and to work systematically toward it"
+        },
+        {
+          "term": "Preferred Future",
+          "definition": "A specific, concrete description of the Order's ideal state in ten years"
+        },
+        {
+          "term": "Multi-Year Roadmap",
+          "definition": "A planned sequence of changes and developments that leads from current state to preferred future"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the key concept introduced in Week 9: Long-Range Vision.",
+          "type": "short"
+        },
+        {
+          "question": "What is the main practical obligation this week's lesson places on a Major?",
+          "type": "short"
+        },
+        {
+          "question": "Write a reflection connecting this week's topic to a specific aspect of your own service as an officer.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 10,
+      "title": "The Major's Spiritual Formation: Depth for the Long Haul",
+      "objectives": [
+        "Understand why the deepest spiritual formation is required at the highest levels of authority",
+        "Study the key concepts: Spiritual Director, Contemplative Prayer, Annual Retreat",
+        "Apply the lesson to a current situation in your service"
+      ],
+      "lesson": "The officer who has been in formation for years, who has accumulated significant authority, who is well-respected in the Order, faces the most subtle spiritual danger of all: the assumption that formation is behind them rather than ahead. Pride dresses itself in confidence. Self-sufficiency dresses itself in competence. Control dresses itself in responsibility. The spiritual formation required at the Major level is not more of the same practices \u2014 it is deeper engagement with the same foundations. The Major should maintain: (1) A regular relationship with a spiritual director or confessor, not just a peer accountability partner. (2) A practice of contemplative prayer \u2014 not just petition and intercession but the discipline of silence before God. (3) Regular reading of the Church Fathers and Templar spiritual texts as formative reading, not research. (4) Annual retreat \u2014 at least two days of silence and prayer, away from all organizational responsibility. These practices will seem like luxuries to a busy Major. They are actually the source of everything the Major has to give.",
+      "keyTerms": [
+        {
+          "term": "Spiritual Director",
+          "definition": "A person experienced in Christian formation who guides another person's interior life over time"
+        },
+        {
+          "term": "Contemplative Prayer",
+          "definition": "Prayer characterized by silence, receptivity, and waiting on God rather than petition alone"
+        },
+        {
+          "term": "Annual Retreat",
+          "definition": "Intentional withdrawal from organizational activity for prayer and spiritual renewal; the Major's non-negotiable"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the key concept introduced in Week 10: Spiritual Director.",
+          "type": "short"
+        },
+        {
+          "question": "What is the main practical obligation this week's lesson places on a Major?",
+          "type": "short"
+        },
+        {
+          "question": "Write a reflection connecting this week's topic to a specific aspect of your own service as an officer.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 11,
+      "title": "Preparing the Commander: The Final Transition",
+      "objectives": [
+        "Understand the scope and nature of Commander-level responsibility",
+        "Study the key concepts: Commander, Organizational Culture, Culture Formation",
+        "Apply the lesson to a current situation in your service"
+      ],
+      "lesson": "The Commander is the highest officer rank in the KTKC \u2014 responsible for the entire Order's operations in their jurisdiction. The transition from Major to Commander is the most significant in the officer track. A Commander does not manage programs, functional areas, or even regions \u2014 a Commander shapes culture. Culture is the set of beliefs, values, and practices that members hold so deeply they are no longer consciously aware of them. Culture determines what the Order does automatically \u2014 how members treat each other, how decisions are made without being made explicitly, what is celebrated and what is tolerated. Building a healthy organizational culture is the Commander's primary work. It requires everything that has been developed across the previous ranks: personal virtue, institutional systems, theological clarity, succession planning, governance discipline, and the spiritual depth to maintain long-range vision across years of resistance, setback, and success.",
+      "keyTerms": [
+        {
+          "term": "Commander",
+          "definition": "The highest officer rank in the KTKC; responsible for shaping the culture of the entire Order in their jurisdiction"
+        },
+        {
+          "term": "Organizational Culture",
+          "definition": "The set of beliefs, values, and practices held so deeply by members that they operate automatically"
+        },
+        {
+          "term": "Culture Formation",
+          "definition": "The deliberate shaping of organizational culture through consistent conduct, clear values, and celebrated examples"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the key concept introduced in Week 11: Commander.",
+          "type": "short"
+        },
+        {
+          "question": "What is the main practical obligation this week's lesson places on a Major?",
+          "type": "short"
+        },
+        {
+          "question": "Write a reflection connecting this week's topic to a specific aspect of your own service as an officer.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 12,
+      "title": "Major Review and Commander Program Preparation",
+      "objectives": [
+        "Review all twelve weeks of the Major program",
+        "Study the key concepts: Major Officer Portfolio, Ten-Year Vision, Governance Audit",
+        "Apply the lesson to a current situation in your service"
+      ],
+      "lesson": "You have completed the Major program. Governance, covenant theology, inter-Order relations, financial oversight, systemic conflict, teaching, succession, ethics at scale, long-range vision, spiritual depth, and Commander preparation. Before your advancement review, prepare a major officer portfolio containing: (1) A ten-year vision document for the Order in your jurisdiction. (2) A succession plan identifying successors for every major office. (3) A governance audit \u2014 a review of the Order's constitutional practices and any gaps identified. (4) A written reflection on the theological foundations of your leadership \u2014 how your understanding of God, covenant, and vocation shapes how you exercise authority. (5) A personal statement of readiness for the Commander role. The Commander program will complete your formation in the most demanding and most rewarding area of service the Order offers.",
+      "keyTerms": [
+        {
+          "term": "Major Officer Portfolio",
+          "definition": "The comprehensive documentation of Major-level governance, succession, vision, and theological formation"
+        },
+        {
+          "term": "Ten-Year Vision",
+          "definition": "A specific document describing the Major's preferred future for the Order in their jurisdiction"
+        },
+        {
+          "term": "Governance Audit",
+          "definition": "A systematic review of the Order's constitutional practices and identification of gaps"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the key concept introduced in Week 12: Major Officer Portfolio.",
+          "type": "short"
+        },
+        {
+          "question": "What is the main practical obligation this week's lesson places on a Major?",
+          "type": "short"
+        },
+        {
+          "question": "Write a reflection connecting this week's topic to a specific aspect of your own service as an officer.",
+          "type": "essay"
+        }
+      ]
+    }
+  ]
+}

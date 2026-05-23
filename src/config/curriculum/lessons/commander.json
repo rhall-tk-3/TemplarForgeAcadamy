@@ -1,0 +1,463 @@
+{
+  "slug": "commander",
+  "title": "Commander School Program",
+  "description": "Officer Formation Level IV. Culture design, constitutional governance, theological vision, succession, and completion of formation.",
+  "weeks": [
+    {
+      "week": 1,
+      "title": "The Commander's Charge: Leading the Whole Organization",
+      "objectives": [
+        "Accept the full scope of Commander-level responsibility",
+        "Study the core concepts: Commander's Charge, Character Amplification, Examination of Character",
+        "Apply the principles to a current challenge in your service as Commander"
+      ],
+      "lesson": "The Commander is accountable for everything \u2014 not because they do everything but because their character, vision, and standards set the ceiling for the entire Order. A Commander who is dishonest will eventually lead a dishonest organization. One who is generous will lead a generous one. One who is careless in prayer will lead a prayerless organization. The Commander's inner life is an organizational matter. This is not unfair \u2014 it is the inevitable reality of senior leadership. The Templar Grand Master understood this: the Rule required him to be more observant, more prayerful, and more available than any other member. Not because he was the most virtuous \u2014 he was the most visible, and visibility amplifies character in both directions. A Commander's first act upon assuming the role should be a serious examination of their own character and the identification of any area that, if amplified across the organization, would produce harm.",
+      "keyTerms": [
+        {
+          "term": "Commander's Charge",
+          "definition": "The full scope of organizational responsibility assumed at the highest officer level"
+        },
+        {
+          "term": "Character Amplification",
+          "definition": "The principle that the Commander's character shapes the organization's character through visibility and influence"
+        },
+        {
+          "term": "Examination of Character",
+          "definition": "The deliberate assessment of the Commander's inner life as an organizational responsibility"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the key concept introduced in Week 1: Commander's Charge.",
+          "type": "short"
+        },
+        {
+          "question": "What practical obligation does this week's lesson place on a Commander?",
+          "type": "short"
+        },
+        {
+          "question": "Write a substantive reflection connecting this week's content to the actual exercise of Commander-level authority.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "title": "Culture Design: Shaping What the Organization Does Automatically",
+      "objectives": [
+        "Understand how organizational culture is deliberately formed",
+        "Study the core concepts: Culture Diagnosis, Culture Levers, Symbolic Action",
+        "Apply the principles to a current challenge in your service as Commander"
+      ],
+      "lesson": "Culture is not what an organization says it values \u2014 it is what the organization does consistently when no one is watching. A Commander who wants to shape culture must first diagnose the current culture accurately: What does the assembly actually celebrate? What behavior is actually tolerated? What do new members learn in their first six months that was never explicitly taught? Culture is shaped by: (1) What the Commander pays attention to \u2014 members will focus on what the leader consistently notices. (2) What the Commander celebrates \u2014 what is praised publicly defines the standard more powerfully than any written statement. (3) How the Commander responds to crises \u2014 the organization's true values are revealed in how it responds to failure and threat. (4) Who the Commander promotes \u2014 the characteristics of the people who advance define what the organization actually rewards. (5) What the Commander models \u2014 the behavior of the senior officer is the most powerful teacher in any organization.",
+      "keyTerms": [
+        {
+          "term": "Culture Diagnosis",
+          "definition": "The accurate assessment of what an organization actually values based on its behavior"
+        },
+        {
+          "term": "Culture Levers",
+          "definition": "The specific mechanisms through which a Commander shapes organizational culture"
+        },
+        {
+          "term": "Symbolic Action",
+          "definition": "Visible, intentional acts by the Commander that communicate cultural priorities more powerfully than words"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the key concept introduced in Week 2: Culture Diagnosis.",
+          "type": "short"
+        },
+        {
+          "question": "What practical obligation does this week's lesson place on a Commander?",
+          "type": "short"
+        },
+        {
+          "question": "Write a substantive reflection connecting this week's content to the actual exercise of Commander-level authority.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "title": "Constitutional Reform: When the Governing Documents Need to Change",
+      "objectives": [
+        "Understand when and how the Order's governing documents may be legitimately revised",
+        "Study the core concepts: Constitutional Reform, Member Input, Protecting Core Values",
+        "Apply the principles to a current challenge in your service as Commander"
+      ],
+      "lesson": "Every organization's governing documents eventually need revision \u2014 not because the founding values were wrong but because circumstances change and the documents that served one generation may not serve the next. Constitutional reform is among the most significant things a Commander can undertake. The principles governing legitimate constitutional reform are: (1) The revision must serve the Order's mission, not the convenience of current leadership. (2) The process must be fully transparent and subject to member input. (3) The revision must be approved by the appropriate authority \u2014 not imposed unilaterally. (4) The changes must be clearly explained \u2014 members must understand what is changing and why. (5) Core doctrine and founding values must be explicitly protected \u2014 constitutional reform is about forms and processes, never about undermining the Order's theological identity. A Commander who undergoes constitutional reform correctly will strengthen the Order's confidence in its governance. One who does it incorrectly will damage trust for years.",
+      "keyTerms": [
+        {
+          "term": "Constitutional Reform",
+          "definition": "The formal revision of the Order's governing documents through a legitimate, transparent process"
+        },
+        {
+          "term": "Member Input",
+          "definition": "The requirement that those affected by constitutional changes have genuine opportunity to respond"
+        },
+        {
+          "term": "Protecting Core Values",
+          "definition": "The requirement that constitutional reform never undermines the Order's theological identity or founding commitments"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the key concept introduced in Week 3: Constitutional Reform.",
+          "type": "short"
+        },
+        {
+          "question": "What practical obligation does this week's lesson place on a Commander?",
+          "type": "short"
+        },
+        {
+          "question": "Write a substantive reflection connecting this week's content to the actual exercise of Commander-level authority.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "title": "Financial Stewardship at the Commander Level",
+      "objectives": [
+        "Understand the Commander's final responsibility for the Order's financial integrity",
+        "Study the core concepts: Annual Audit, Signed Financial Statements, Zero Tolerance",
+        "Apply the principles to a current challenge in your service as Commander"
+      ],
+      "lesson": "At the Commander level, financial stewardship is a governance function, not an administrative one. The Commander does not manage the books \u2014 they set the standards, oversee the processes, and bear final accountability for the financial health of the entire Order in their jurisdiction. This requires: (1) Annual independent audit \u2014 not optional, not occasional, but required every year. (2) Signed financial statements \u2014 the Commander and Treasurer should both sign the annual financial report, accepting joint responsibility for its accuracy. (3) Zero tolerance for misappropriation \u2014 financial misconduct at any level must be addressed immediately, fully, and publicly when appropriate. (4) Generosity as a leadership practice \u2014 the Commander should model proportional giving to the Order's mission, not merely require it of others. (5) Long-term financial vision \u2014 what financial capacity does the Order need in ten years, and what must be built today to achieve it?",
+      "keyTerms": [
+        {
+          "term": "Annual Audit",
+          "definition": "The required independent review of all financial accounts at the end of each fiscal year"
+        },
+        {
+          "term": "Signed Financial Statements",
+          "definition": "The joint acceptance of accountability by Commander and Treasurer for the accuracy of financial reports"
+        },
+        {
+          "term": "Zero Tolerance",
+          "definition": "The policy of addressing financial misconduct immediately and fully, regardless of who is involved"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the key concept introduced in Week 4: Annual Audit.",
+          "type": "short"
+        },
+        {
+          "question": "What practical obligation does this week's lesson place on a Commander?",
+          "type": "short"
+        },
+        {
+          "question": "Write a substantive reflection connecting this week's content to the actual exercise of Commander-level authority.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "title": "Building the Next Commander: The Commander's Ultimate Obligation",
+      "objectives": [
+        "Understand succession as the Commander's most important long-term work",
+        "Study the core concepts: Successor Formation, Institutional Wisdom, Transmission",
+        "Apply the principles to a current challenge in your service as Commander"
+      ],
+      "lesson": "A Commander who has not identified and formed their successor has not completed the work. Period. The Order's survival does not depend on any individual Commander \u2014 it depends on the system that produces Commanders consistently. The Commander's final and most important work is the formation of the officer who will occupy the role next. This is not a task for the last year of the Commander's tenure \u2014 it is the work of the entire tenure. From the first day in the role, the Commander should be asking: Who is observing how I make decisions? Who is sitting with me when I address difficult situations? Who is being exposed to the full complexity of this role so that they are not surprised by it when they assume it? The transmission of institutional wisdom from Commander to Commander \u2014 across generations of leadership \u2014 is what determines whether an Order endures or declines.",
+      "keyTerms": [
+        {
+          "term": "Successor Formation",
+          "definition": "The deliberate preparation of the person who will assume the Commander's responsibilities"
+        },
+        {
+          "term": "Institutional Wisdom",
+          "definition": "The accumulated knowledge of how to lead the organization well; transmitted person to person, not through documents alone"
+        },
+        {
+          "term": "Transmission",
+          "definition": "The personal conveyance of institutional wisdom from one generation of leadership to the next"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the key concept introduced in Week 5: Successor Formation.",
+          "type": "short"
+        },
+        {
+          "question": "What practical obligation does this week's lesson place on a Commander?",
+          "type": "short"
+        },
+        {
+          "question": "Write a substantive reflection connecting this week's content to the actual exercise of Commander-level authority.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "title": "Inter-Jurisdictional Relations: The Commander as Ambassador",
+      "objectives": [
+        "Understand the Commander's role in relationships between jurisdictions",
+        "Study the core concepts: Inter-Jurisdictional Relations, Ambassador, Jurisdictional Advantage",
+        "Apply the principles to a current challenge in your service as Commander"
+      ],
+      "lesson": "A Commander represents not just their local assembly but the entire Order in their jurisdiction. This means: relationships with Commanders of other jurisdictions, with the Grand Lodge or national body, and with other Christian fraternal orders and organizations. The Commander who is known for honesty, generosity, and principled disagreement will represent the Order well. The one who is known for defensiveness, territorial thinking, or political maneuvering will diminish the Order's standing in every relationship they enter. The principles of inter-jurisdictional representation are: (1) Speak well of other jurisdictions in public, even when privately disagreeing. (2) Raise concerns about other jurisdictions through proper channels, never publicly. (3) Honor agreements between jurisdictions absolutely. (4) Seek to expand cooperation, not to maximize jurisdictional advantage. (5) Represent your jurisdiction's members faithfully \u2014 their interests and concerns are the Commander's primary mandate in external relations.",
+      "keyTerms": [
+        {
+          "term": "Inter-Jurisdictional Relations",
+          "definition": "The relationships between different geographic or organizational units of the Order"
+        },
+        {
+          "term": "Ambassador",
+          "definition": "The role of the Commander as representative of their jurisdiction's identity and interests"
+        },
+        {
+          "term": "Jurisdictional Advantage",
+          "definition": "The temptation to maximize one's own jurisdiction's position at the expense of the broader Order"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the key concept introduced in Week 6: Inter-Jurisdictional Relations.",
+          "type": "short"
+        },
+        {
+          "question": "What practical obligation does this week's lesson place on a Commander?",
+          "type": "short"
+        },
+        {
+          "question": "Write a substantive reflection connecting this week's content to the actual exercise of Commander-level authority.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 7,
+      "title": "The Commander and the Grand Lodge: Authority and Submission",
+      "objectives": [
+        "Understand the Commander's relationship to national and international Order authority",
+        "Study the core concepts: Grand Lodge Authority, Delegated Authority, Submission",
+        "Apply the principles to a current challenge in your service as Commander"
+      ],
+      "lesson": "The Commander holds the highest authority in their jurisdiction \u2014 but they are not the highest authority in the Order. The Grand Lodge, the Supreme Grand Commander, and ultimately the traditions of the Order itself stand above any individual Commander. The Commander who understands this will exercise their authority with confidence and humility simultaneously: confidence because the authority is real and must be exercised fully; humility because the authority is delegated, not owned. Submission to higher authority is not weakness \u2014 it is the practice of placing the Order's unity above personal prerogative. The Templar Rule required obedience to the Grand Master absolutely in most matters, with specific exceptions for matters of conscience. A Commander who submits to legitimate higher authority even when disagreeing with specific decisions models the virtue that holds the entire Order together.",
+      "keyTerms": [
+        {
+          "term": "Grand Lodge Authority",
+          "definition": "The authority of the national or international Order body over individual jurisdictions and Commanders"
+        },
+        {
+          "term": "Delegated Authority",
+          "definition": "Authority that comes from a higher source and can be recalled; not owned by the holder"
+        },
+        {
+          "term": "Submission",
+          "definition": "The practice of placing the Order's unity and the higher authority's legitimate direction above personal preference"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the key concept introduced in Week 7: Grand Lodge Authority.",
+          "type": "short"
+        },
+        {
+          "question": "What practical obligation does this week's lesson place on a Commander?",
+          "type": "short"
+        },
+        {
+          "question": "Write a substantive reflection connecting this week's content to the actual exercise of Commander-level authority.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 8,
+      "title": "The Theological Vision of the Commander",
+      "objectives": [
+        "Articulate a complete theological vision for the Order's purpose and identity",
+        "Study the core concepts: Theological Vision, Kingdom Orientation, Contemporary Mission",
+        "Apply the principles to a current challenge in your service as Commander"
+      ],
+      "lesson": "A Commander must be able to articulate, clearly and compellingly, why this Order exists and what God is calling it to do in this generation. This is not a political or marketing question \u2014 it is a theological one. The answer must be rooted in the Order's founding tradition, responsive to the present moment, and oriented toward God's kingdom rather than organizational self-perpetuation. The theological vision of the Order should address: (1) What is the Order's understanding of its relationship to God? (2) What is the Order called to do for those outside it \u2014 the vulnerable, the community, the world? (3) What virtues is the Order committed to forming in its members, and why? (4) What is the Order's relationship to the wider Church? (5) How does the Order's Templar heritage shape its contemporary mission? A Commander who cannot answer these questions clearly has not completed their theological formation. A Commander who answers them with conviction and clarity will inspire the Order for a generation.",
+      "keyTerms": [
+        {
+          "term": "Theological Vision",
+          "definition": "A clear, compelling articulation of why the Order exists and what God is calling it to do"
+        },
+        {
+          "term": "Kingdom Orientation",
+          "definition": "The commitment to measure the Order's success by its contribution to God's purposes, not organizational metrics"
+        },
+        {
+          "term": "Contemporary Mission",
+          "definition": "The specific expression of the Order's timeless calling in the context of the present generation"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the key concept introduced in Week 8: Theological Vision.",
+          "type": "short"
+        },
+        {
+          "question": "What practical obligation does this week's lesson place on a Commander?",
+          "type": "short"
+        },
+        {
+          "question": "Write a substantive reflection connecting this week's content to the actual exercise of Commander-level authority.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 9,
+      "title": "Crisis of Institutional Faith: When the Order Fails Its Own Values",
+      "objectives": [
+        "Understand how to lead through institutional failure and betrayal of values",
+        "Study the core concepts: Institutional Failure, Full Acknowledgment, Institutional Integrity",
+        "Apply the principles to a current challenge in your service as Commander"
+      ],
+      "lesson": "Every institution eventually fails its own stated values in some significant way. A Commander who has been in the role long enough will face a moment when the Order \u2014 or senior members of it \u2014 act in direct contradiction to everything the Order claims to stand for. How the Commander responds to this moment will define their leadership more than any other single decision. The temptation is to minimize, excuse, or conceal the failure. The right response is the opposite: acknowledge it fully, accept whatever accountability is appropriate, institute the changes that will prevent recurrence, and communicate honestly with the entire Order. This is not weakness \u2014 it is the most powerful expression of institutional integrity available. An organization that cannot acknowledge and correct its failures will repeat them. One that can will emerge from them with greater credibility than it had before.",
+      "keyTerms": [
+        {
+          "term": "Institutional Failure",
+          "definition": "The moment when an organization acts in significant contradiction to its stated values"
+        },
+        {
+          "term": "Full Acknowledgment",
+          "definition": "The complete, unminimized recognition of what went wrong and who was responsible"
+        },
+        {
+          "term": "Institutional Integrity",
+          "definition": "The credibility that comes from consistently living stated values, including through honest acknowledgment of failure"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the key concept introduced in Week 9: Institutional Failure.",
+          "type": "short"
+        },
+        {
+          "question": "What practical obligation does this week's lesson place on a Commander?",
+          "type": "short"
+        },
+        {
+          "question": "Write a substantive reflection connecting this week's content to the actual exercise of Commander-level authority.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 10,
+      "title": "The Commander's Personal Life and the Order's Community",
+      "objectives": [
+        "Understand the connection between the Commander's personal flourishing and the Order's health",
+        "Study the core concepts: Commander Flourishing, Restorative Practice, Priority of Relationship",
+        "Apply the principles to a current challenge in your service as Commander"
+      ],
+      "lesson": "A Commander who is personally depleted, relationally isolated, or spiritually empty will lead a depleted, isolated, and empty organization. The organization reflects its leader \u2014 not because of formal authority but because of the invisible influence of the senior person's inner state on every room they enter. A Commander must take their own flourishing seriously \u2014 not as self-indulgence but as organizational stewardship. This means: (1) Maintaining a marriage or primary relationship as a first priority, not an afterthought. (2) Maintaining friendships outside the Order \u2014 peers who know the Commander as a person, not as an officer. (3) Engaging in activities that restore energy and creativity \u2014 not all time outside assembly should be spent on Order business. (4) Maintaining regular medical and mental health attention. (5) Saying no to organizational demands that threaten any of the above. A Commander who cannot say no to the Order's demands will eventually have nothing left to give.",
+      "keyTerms": [
+        {
+          "term": "Commander Flourishing",
+          "definition": "The Commander's responsibility to maintain their own health, relationships, and spiritual vitality"
+        },
+        {
+          "term": "Restorative Practice",
+          "definition": "Activities that renew the Commander's energy and creativity rather than consuming it"
+        },
+        {
+          "term": "Priority of Relationship",
+          "definition": "The requirement that the Commander's primary personal relationships take precedence over organizational demands"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the key concept introduced in Week 10: Commander Flourishing.",
+          "type": "short"
+        },
+        {
+          "question": "What practical obligation does this week's lesson place on a Commander?",
+          "type": "short"
+        },
+        {
+          "question": "Write a substantive reflection connecting this week's content to the actual exercise of Commander-level authority.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 11,
+      "title": "The Commander's Final Formation: Integration and Completion",
+      "objectives": [
+        "Achieve integration of all prior formation at the Commander level",
+        "Study the core concepts: Integration, Mature Formation, Personal Theology of Leadership",
+        "Apply the principles to a current challenge in your service as Commander"
+      ],
+      "lesson": "You are approaching the completion of the entire KTKC School Program \u2014 the longest and most demanding formation journey in the Order. The Commander program has covered culture formation, constitutional governance, financial stewardship, successor development, inter-jurisdictional relations, theological vision, crisis response, and personal flourishing. But these twelve weeks are not the completion of formation \u2014 they are the beginning of its most mature phase. Formation does not end with rank. The Commander who believes their formation is complete has already begun to decline. The most formed leaders are the most teachable \u2014 they have learned enough to know how much they do not know. Before your final review, prepare: (1) A personal theology of leadership in 500 words. (2) A ten-year vision document for the Order. (3) A named successor and their development plan. (4) A personal flourishing plan \u2014 what specific practices will sustain your health, relationships, and spiritual life in the Commander role?",
+      "keyTerms": [
+        {
+          "term": "Integration",
+          "definition": "The state of having unified all prior formation into a coherent, practiced way of leading"
+        },
+        {
+          "term": "Mature Formation",
+          "definition": "The ongoing growth of the most experienced leaders; the recognition that formation never ends"
+        },
+        {
+          "term": "Personal Theology of Leadership",
+          "definition": "A written statement of how one's understanding of God, faith, and vocation shapes how one leads"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the key concept introduced in Week 11: Integration.",
+          "type": "short"
+        },
+        {
+          "question": "What practical obligation does this week's lesson place on a Commander?",
+          "type": "short"
+        },
+        {
+          "question": "Write a substantive reflection connecting this week's content to the actual exercise of Commander-level authority.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 12,
+      "title": "Commander Final Review",
+      "objectives": [
+        "Complete the full Commander program and present for final review",
+        "Study the core concepts: Final Review, Formation Journey, Non nobis, Domine",
+        "Apply the principles to a current challenge in your service as Commander"
+      ],
+      "lesson": "You have completed the Commander School Program and the entire KTKC formation curriculum. From Levie through Commander, you have studied the history, the virtues, the Rule, the faith, the service, the symbols, the brotherhood, the leadership, the governance, and the theological foundations of the Order. This is not the end of your formation \u2014 it is the moment when you become a primary agent of the Order's formation of others. The Commander's final review requires: (1) A personal theology of leadership \u2014 500 words minimum. (2) A ten-year vision document for the Order in your jurisdiction. (3) A documented succession plan naming a specific successor with a specific development plan. (4) A personal flourishing plan. (5) A reflection on the most significant moment of growth in your entire formation journey \u2014 what changed you most, and why? The Order depends on leaders who can answer that last question honestly. You are that leader. Non nobis, Domine.",
+      "keyTerms": [
+        {
+          "term": "Final Review",
+          "definition": "The comprehensive assessment of the Commander candidate's formation, vision, succession, and spiritual readiness"
+        },
+        {
+          "term": "Formation Journey",
+          "definition": "The complete arc from Levie through Commander; not a curriculum but a transformation"
+        },
+        {
+          "term": "Non nobis, Domine",
+          "definition": "The Templar motto that frames all leadership: Not unto us, Lord, but to Your Name give glory"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the key concept introduced in Week 12: Final Review.",
+          "type": "short"
+        },
+        {
+          "question": "What practical obligation does this week's lesson place on a Commander?",
+          "type": "short"
+        },
+        {
+          "question": "Write a substantive reflection connecting this week's content to the actual exercise of Commander-level authority.",
+          "type": "essay"
+        }
+      ]
+    }
+  ]
+}

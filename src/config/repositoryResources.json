@@ -1,61 +1,87 @@
 {
   "title": "KTKC Repository Resource Library",
-  "sections": [
-    {
-      "key": "core-documents",
-      "title": "Core Program Documents",
-      "description": "Primary handbook and assessment documents used to orient the KTKC school programs.",
-      "items": [
-        {
-          "slug": "curriculum-handbook",
-          "title": "Curriculum Handbook",
-          "type": "pdf",
-          "path": "/resources/core-documents/18-Curriculum-Handbook.pdf"
-        },
-        {
-          "slug": "weekly-lesson-plan-packet",
-          "title": "Weekly Lesson Plan Packet",
-          "type": "pdf",
-          "path": "/resources/core-documents/19-Weekly-Lesson-Plan-Packet.pdf"
-        },
-        {
-          "slug": "promotion-and-assessment-guide",
-          "title": "Promotion and Assessment Guide",
-          "type": "pdf",
-          "path": "/resources/core-documents/20-Promotion-and-Assessment-Guide.pdf"
-        }
-      ]
+
+  "programOrder": [
+    "squire", "levie", "corporal", "sergeant", "sfc",
+    "knight-aspirant", "knight", "lieutenant", "captain", "major", "commander"
+  ],
+
+  "programDocuments": {
+    "squire": {
+      "handbookTitle": "Squire Curriculum Handbook",
+      "handbookPath":  "/documents/handbooks/squire.docx",
+      "outlineTitle":  "Squire School — Weekly Lesson Outline",
+      "outlinePath":   "/documents/outlines/squire.html"
     },
-    {
-      "key": "schoolmaster-forms",
-      "title": "Fillable Schoolmaster Forms",
-      "description": "Operational forms for attendance, oral review, advancement, and final evaluations.",
-      "items": [
-        {
-          "slug": "attendance-sheets",
-          "title": "Fillable Attendance Sheets",
-          "type": "pdf",
-          "path": "/resources/schoolmaster-forms/26-Fillable-Attendance-Sheets.pdf"
-        },
-        {
-          "slug": "oral-review-rubrics",
-          "title": "Fillable Oral Review Rubrics",
-          "type": "pdf",
-          "path": "/resources/schoolmaster-forms/27-Fillable-Oral-Review-Rubrics.pdf"
-        },
-        {
-          "slug": "advancement-checklists",
-          "title": "Fillable Advancement Checklists",
-          "type": "pdf",
-          "path": "/resources/schoolmaster-forms/28-Fillable-Advancement-Checklists.pdf"
-        },
-        {
-          "slug": "final-evaluation-forms",
-          "title": "Fillable Final Evaluation Forms",
-          "type": "pdf",
-          "path": "/resources/schoolmaster-forms/29-Fillable-Final-Evaluation-Forms.pdf"
-        }
-      ]
+    "levie": {
+      "handbookTitle": "Levie Curriculum Handbook",
+      "handbookPath":  "/documents/handbooks/levie.docx",
+      "outlineTitle":  "Levie School — Weekly Lesson Outline",
+      "outlinePath":   "/documents/outlines/levie.html"
+    },
+    "corporal": {
+      "handbookTitle": "Corporal Curriculum Handbook",
+      "handbookPath":  "/documents/handbooks/corporal.docx",
+      "outlineTitle":  "Corporal School — Weekly Lesson Outline",
+      "outlinePath":   "/documents/outlines/corporal.html"
+    },
+    "sergeant": {
+      "handbookTitle": "Sergeant Curriculum Handbook",
+      "handbookPath":  "/documents/handbooks/sergeant.docx",
+      "outlineTitle":  "Sergeant School — Weekly Lesson Outline",
+      "outlinePath":   "/documents/outlines/sergeant.html"
+    },
+    "sfc": {
+      "handbookTitle": "Sergeant First Class Curriculum Handbook",
+      "handbookPath":  "/documents/handbooks/sfc.docx",
+      "outlineTitle":  "SFC School — Weekly Lesson Outline",
+      "outlinePath":   "/documents/outlines/sfc.html"
+    },
+    "knight-aspirant": {
+      "handbookTitle": "Knight Aspirant Curriculum Handbook",
+      "handbookPath":  "/documents/handbooks/knight-aspirant.docx",
+      "outlineTitle":  "Knight Aspirant School — Weekly Lesson Outline",
+      "outlinePath":   "/documents/outlines/knight-aspirant.html"
+    },
+    "knight": {
+      "handbookTitle": "Knight Curriculum Handbook",
+      "handbookPath":  "/documents/handbooks/knight.docx",
+      "outlineTitle":  "Knight School — Weekly Lesson Outline",
+      "outlinePath":   "/documents/outlines/knight.html"
+    },
+    "lieutenant": {
+      "handbookTitle": "Knight Lieutenant Curriculum Handbook",
+      "handbookPath":  "/documents/handbooks/lieutenant.docx",
+      "outlineTitle":  "Knight Lieutenant School — Weekly Lesson Outline",
+      "outlinePath":   "/documents/outlines/lieutenant.html"
+    },
+    "captain": {
+      "handbookTitle": "Knight Captain Curriculum Handbook",
+      "handbookPath":  "/documents/handbooks/captain.docx",
+      "outlineTitle":  "Knight Captain School — Weekly Lesson Outline",
+      "outlinePath":   "/documents/outlines/captain.html"
+    },
+    "major": {
+      "handbookTitle": "Knight Major Curriculum Handbook",
+      "handbookPath":  "/documents/handbooks/major.docx",
+      "outlineTitle":  "Knight Major School — Weekly Lesson Outline",
+      "outlinePath":   "/documents/outlines/major.html"
+    },
+    "commander": {
+      "handbookTitle": "Knight Commander Curriculum Handbook",
+      "handbookPath":  "/documents/handbooks/commander.docx",
+      "outlineTitle":  "Knight Commander School — Weekly Lesson Outline",
+      "outlinePath":   "/documents/outlines/commander.html"
     }
-  ]
+  },
+
+  "permanentDocuments": {
+    "promotionManual": {
+      "title": "KTKC Promotion Manual & By-Laws",
+      "path":  "/documents/handbooks/promotion-manual.docx",
+      "note":  "Available at every level of progression"
+    }
+  },
+
+  "sections": []
 }

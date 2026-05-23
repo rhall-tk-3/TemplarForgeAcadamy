@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Profile — Templar Forge Academy</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/shared.css">
+  <style>
+    /* ── HALL BACKGROUND — same as member dashboard ── */
+    html {
+      background-color: #080504;
+      background-image: url('/images/member-hall-bg.jpg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+    body { background: transparent !important; }
+
+    .page-wrap { position: relative; }
+    .page-wrap::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(4,2,1,0.85) 0%,
+        rgba(6,3,1,0.58) 18%,
+        rgba(4,2,1,0.50) 50%,
+        rgba(4,2,1,0.65) 80%,
+        rgba(2,1,0,0.85) 100%
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+    .page-wrap > * { position: relative; z-index: 1; }
+
+    @media (max-width: 640px) { html { background-attachment: scroll; } }
+
+    /* ── LAYOUT ── */
+    .main-content {
+      flex: 1;
+      max-width: 680px;
+      width: 100%;
+      margin: 0 auto;
+      padding: clamp(20px, 5vw, 48px) clamp(16px, 4vw, 28px);
+    }
+
+    /* ── NEW MEMBER WELCOME BANNER ── */
+    .welcome-new {
+      background: linear-gradient(135deg, rgba(20,10,2,0.92), rgba(30,18,4,0.92));
+      border: 1px solid #8b6510;
+      border-left: 4px solid #c9a227;
+      border-radius: 14px;
+      padding: clamp(16px, 4vw, 24px) clamp(18px, 5vw, 28px);
+      margin-bottom: 24px;
+      backdrop-filter: blur(8px);
+      display: none; /* shown by JS when ?new=1 */
+    }
+    .welcome-new-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      font-weight: 700;
+      color: #e8c96a;
+      margin-bottom: 8px;
+    }
+    .welcome-new p {
+      font-family: 'Crimson Text', serif;
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+      color: #b8984a;
+      line-height: 1.6;
+    }
+
+    /* ── PROFILE LOCKED BANNER ── */
+    .profile-locked-banner {
+      background: linear-gradient(135deg, rgba(80,0,0,0.25), rgba(50,0,0,0.30));
+      border: 1px solid #8b0000;
+      border-left: 4px solid #c92727;
+      border-radius: 14px;
+      padding: clamp(14px, 3vw, 20px) clamp(16px, 4vw, 24px);
+      margin-bottom: 24px;
+      backdrop-filter: blur(8px);
+      display: none; /* shown by JS when profile is incomplete */
+    }
+    .profile-locked-banner-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.82rem, 2.5vw, 0.96rem);
+      font-weight: 700;
+      color: #c92727;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .profile-locked-banner p {
+      font-family: 'Crimson Text', serif;
+      font-size: clamp(0.86rem, 2.5vw, 0.96rem);
+      color: #8b3030;
+      line-height: 1.6;
+    }
+    .incomplete-fields {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .incomplete-tag {
+      font-family: 'Cinzel', serif;
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(139,0,0,0.2);
+      border: 1px solid #6a0000;
+      color: #c92727;
+    }
+
+    /* ── UNLOCK SUCCESS BANNER ── */
+    .unlock-banner {
+      background: linear-gradient(135deg, rgba(0,60,20,0.3), rgba(0,40,10,0.35));
+      border: 1px solid #2a6020;
+      border-left: 4px solid #4a9030;
+      border-radius: 14px;
+      padding: clamp(14px, 3vw, 20px) clamp(16px, 4vw, 24px);
+      margin-bottom: 24px;
+      backdrop-filter: blur(8px);
+      display: none;
+    }
+    .unlock-banner-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.82rem, 2.5vw, 0.96rem);
+      font-weight: 700;
+      color: #90e090;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .unlock-banner p {
+      font-family: 'Crimson Text', serif;
+      font-size: clamp(0.86rem, 2.5vw, 0.96rem);
+      color: #6ab060;
+      line-height: 1.6;
+    }
+
+    /* ── PROFILE HEADER ── */
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: linear-gradient(135deg, rgba(30,18,8,0.85), rgba(22,13,4,0.90));
+      border: 1px solid #4a3010;
+      border-radius: 16px;
+      padding: clamp(18px, 4vw, 28px) clamp(20px, 5vw, 32px);
+      margin-bottom: 28px;
+      backdrop-filter: blur(8px);
+    }
+
+    /* ── AVATAR ── */
+    .avatar-wrap {
+      flex-shrink: 0;
+      position: relative;
+      width: clamp(80px, 18vw, 120px);
+      height: clamp(80px, 18vw, 120px);
+    }
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #8b6510;
+      background: #0a0600;
+      display: block;
+    }
+    .avatar-placeholder {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1e1208, #0a0600);
+      border: 3px solid #4a3010;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(28px, 7vw, 44px);
+      color: #4a3010;
+    }
+    .avatar-upload-btn {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #c9a227, #8b6510);
+      border: 2px solid #1a0e02;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 14px;
+      transition: transform 0.15s;
+      z-index: 2;
+    }
+    .avatar-upload-btn:hover { transform: scale(1.12); }
+    #photo-input { display: none; }
+
+    .profile-header-info { flex: 1; min-width: 0; }
+    .profile-header-name {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.1rem, 3.5vw, 1.6rem);
+      font-weight: 700;
+      color: #e8c96a;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+      line-height: 1.2;
+    }
+    .profile-header-sub {
+      font-family: 'Crimson Text', serif;
+      font-size: clamp(0.82rem, 2.2vw, 0.96rem);
+      color: #8b7040;
+      margin-top: 4px;
+    }
+    .profile-header-temple {
+      display: inline-block;
+      margin-top: 8px;
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.72rem, 1.8vw, 0.82rem);
+      color: #c9a84c;
+      background: rgba(201,162,39,0.1);
+      border: 1px solid rgba(201,162,39,0.25);
+      border-radius: 20px;
+      padding: 3px 12px;
+      letter-spacing: 0.08em;
+    }
+    .photo-status {
+      font-family: 'Crimson Text', serif;
+      font-size: 0.86rem;
+      color: #6a9060;
+      margin-top: 6px;
+      min-height: 18px;
+      display: none;
+    }
+    .photo-status.visible { display: block; }
+    .photo-status.error { color: #c93030; }
+
+    /* ── RANK BADGE ── */
+    .rank-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 8px;
+      padding: 3px 12px;
+      border-radius: 999px;
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.68rem, 1.8vw, 0.78rem);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #d08080;
+      background: rgba(139,0,60,0.12);
+      border: 1px solid rgba(139,0,60,0.35);
+    }
+
+    /* ── PAUSED STATUS BANNER ── */
+    .paused-banner {
+      background: linear-gradient(135deg, rgba(80,50,0,0.30), rgba(60,40,0,0.35));
+      border: 1px solid #8b6000;
+      border-left: 4px solid #e8b040;
+      border-radius: 14px;
+      padding: clamp(14px,3vw,20px) clamp(16px,4vw,24px);
+      margin-bottom: 24px;
+      backdrop-filter: blur(8px);
+      display: none;
+    }
+    .paused-banner-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.82rem,2.5vw,0.96rem);
+      font-weight: 700;
+      color: #e8b040;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .paused-banner p {
+      font-family: 'Crimson Text', serif;
+      font-size: clamp(0.86rem,2.5vw,0.96rem);
+      color: #c8a050;
+      line-height: 1.6;
+    }
+
+    /* ── FORM CARD ── */
+    .profile-card {
+      background: linear-gradient(160deg, rgba(20,12,4,0.88), rgba(12,7,2,0.92));
+      border: 1px solid #3a2408;
+      border-radius: 16px;
+      padding: clamp(20px, 5vw, 36px);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.7);
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.82rem, 2.5vw, 0.96rem);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #8b6510;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #2a1808;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ── REQUIRED INDICATOR ── */
+    .req {
+      color: #c92727;
+      font-size: 0.8em;
+      margin-left: 2px;
+    }
+
+    .field-stack { display: flex; flex-direction: column; gap: 20px; }
+    .field-group { display: flex; flex-direction: column; gap: 6px; }
+    .field-group label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #b8984a;
+    }
+    .field-hint {
+      font-family: 'Crimson Text', serif;
+      font-size: 0.80rem;
+      color: #5a4020;
+      margin-top: 2px;
+    }
+    .field-group input,
+    .field-group select {
+      background-color: rgba(8,5,2,0.8);
+      border: 1px solid #3a2408;
+      border-radius: 8px;
+      padding: 13px 16px;
+      font-family: 'Crimson Text', serif;
+      font-size: 1.05rem;
+      color: #e8d9b8;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+      appearance: none;
+    }
+    .field-group input::placeholder { color: #4a3020; }
+    .field-group input:focus,
+    .field-group select:focus {
+      border-color: #c9a227;
+      box-shadow: 0 0 0 3px rgba(201,162,39,0.15);
+    }
+    /* Date input colour fix */
+    .field-group input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(0.6) sepia(1) saturate(2) hue-rotate(5deg);
+      cursor: pointer;
+    }
+    .field-group select option { background: #1a0e04; }
+    .select-wrap { position: relative; }
+    .select-wrap::after {
+      content: '▾';
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #8b6510;
+      pointer-events: none;
+      font-size: 0.9rem;
+    }
+
+    /* ── SAVE BUTTON ── */
+    .btn-save {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.82rem, 2.5vw, 0.95rem);
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #1a0800;
+      background: linear-gradient(135deg, #e8c84a 0%, #b8860b 50%, #e8c84a 100%);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,240,160,0.3);
+      transition: all 0.2s;
+      margin-top: 28px;
+    }
+    .btn-save:hover:not(:disabled) {
+      background: linear-gradient(135deg, #ffd84a 0%, #c8960b 50%, #ffd84a 100%);
+      box-shadow: 0 6px 28px rgba(0,0,0,0.6), 0 0 20px rgba(201,162,39,0.3);
+      transform: translateY(-1px);
+    }
+    .btn-save:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .save-status {
+      text-align: center;
+      font-family: 'Crimson Text', serif;
+      font-size: 0.92rem;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 14px;
+      display: none;
+    }
+    .save-status.success { display:block; background:rgba(60,100,40,0.3); border:1px solid #3a6020; color:#8fcf60; }
+    .save-status.error   { display:block; background:rgba(100,20,20,0.3); border:1px solid #6a1010; color:#cf6060; }
+
+    /* ── BACK LINK ── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.80rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #8b7040;
+      text-decoration: none;
+      padding: 8px 0;
+      margin-bottom: 20px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #c9a84c; }
+
+    @media (max-width: 480px) {
+      .profile-header { flex-direction: column; text-align: center; }
+      .avatar-wrap { margin: 0 auto; }
+      .profile-header-temple { margin: 4px auto 0; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- TOP BAR -->
+  <nav class="topbar">
+    <a class="topbar-brand" href="/">
+      <img src="/images/order-crest.png" alt="Crest">
+      <div>
+        <div class="topbar-brand-text">Templar Forge Academy</div>
+        <div class="topbar-brand-sub">Member Portal</div>
+      </div>
+    </a>
+    <!-- KTKC Motto -->
+    <div class="topbar-motto">
+      <span class="topbar-motto-word"><span class="topbar-motto-cap k1">K</span><span class="topbar-motto-rest">nowledge</span></span>
+      <span class="topbar-motto-sep">·</span>
+      <span class="topbar-motto-word"><span class="topbar-motto-cap t">T</span><span class="topbar-motto-rest">raining</span></span>
+      <span class="topbar-motto-sep">·</span>
+      <span class="topbar-motto-word"><span class="topbar-motto-cap k2">K</span><span class="topbar-motto-rest">nightliness</span></span>
+      <span class="topbar-motto-sep">·</span>
+      <span class="topbar-motto-word"><span class="topbar-motto-cap c">C</span><span class="topbar-motto-rest">ourage</span></span>
+    </div>
+    <div class="topbar-nav">
+      <a href="/member">⚔ Dashboard</a>
+      <a href="/auth/logout" class="btn-nav">Sign Out</a>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <a class="back-link" href="/member" id="back-link">← Return to Dashboard</a>
+
+    <!-- New-member welcome (shown when ?new=1) -->
+    <div class="welcome-new" id="welcome-new-banner">
+      <div class="welcome-new-title">✠ Welcome to the Order — Complete Your Profile</div>
+      <p>
+        Before you can access your training programs, you must complete your member profile.
+        Fill in all required fields below and click <strong>Save Profile</strong>.
+        Your program access will unlock automatically based on your age.
+      </p>
+    </div>
+
+    <!-- Paused program banner -->
+    <div class="paused-banner" id="paused-banner">
+      <div class="paused-banner-title">⏸ Training Program Paused</div>
+      <p id="paused-banner-msg">Your training program has been paused by the Schoolmaster. Contact your ranking officer for further instruction.</p>
+    </div>
+
+    <!-- Programs locked banner (shown when profile is incomplete) -->
+    <div class="profile-locked-banner" id="locked-banner">
+      <div class="profile-locked-banner-title">⛨ Programs Locked — Profile Incomplete</div>
+      <p>
+        All training programs are locked until your profile is complete.
+        Fill in the required fields to unlock access.
+      </p>
+      <div class="incomplete-fields" id="incomplete-fields-list"></div>
+    </div>
+
+    <!-- Unlock success banner (shown after a complete save) -->
+    <div class="unlock-banner" id="unlock-banner">
+      <div class="unlock-banner-title">✔ Programs Unlocked</div>
+      <p id="unlock-banner-msg">Your training program has been unlocked. Return to your dashboard to begin.</p>
+    </div>
+
+    <!-- Profile header: avatar + name -->
+    <div class="profile-header">
+      <div class="avatar-wrap">
+        <img id="avatar-img" class="avatar-img" src="" alt="Profile Photo" style="display:none;">
+        <div id="avatar-placeholder" class="avatar-placeholder">🛡</div>
+        <label class="avatar-upload-btn" for="photo-input" title="Upload profile photo">📷</label>
+        <input type="file" id="photo-input" accept="image/*" onchange="uploadPhoto(this)">
+      </div>
+      <div class="profile-header-info">
+        <div class="profile-header-name" id="profile-name">—</div>
+        <div class="profile-header-sub" id="profile-sub">Member</div>
+        <div class="profile-header-temple" id="profile-temple-badge" style="display:none;">✠ Temple of —</div>
+        <div id="profile-rank-badge" class="rank-badge" style="display:none;">⚜ —</div>
+        <div class="photo-status" id="photo-status"></div>
+      </div>
+    </div>
+
+    <!-- Information form -->
+    <div class="profile-card">
+      <div class="section-title">✠ Personal Information</div>
+
+      <div class="field-stack">
+
+        <!-- Birthday — required, drives age-based unlock -->
+        <div class="field-group">
+          <label for="f-birthday">Date of Birth <span class="req">*</span></label>
+          <input
+            type="date"
+            id="f-birthday"
+            name="birthday"
+            max=""
+          >
+          <div class="field-hint">
+            Required. Used to automatically unlock your training program.
+            Ages 5–17 begin with the Squire School; ages 18+ begin with the Levie School.
+            Both foundational programs are available to all members.
+          </div>
+        </div>
+
+        <!-- Temple of State — required -->
+        <div class="field-group">
+          <label for="f-temple">Temple of State <span class="req">*</span></label>
+          <div class="select-wrap">
+            <select id="f-temple" name="temple">
+              <option value="">— Select Your State Temple —</option>
+              <option value="Alabama">Temple of Alabama</option>
+              <option value="Alaska">Temple of Alaska</option>
+              <option value="Arizona">Temple of Arizona</option>
+              <option value="Arkansas">Temple of Arkansas</option>
+              <option value="California">Temple of California</option>
+              <option value="Colorado">Temple of Colorado</option>
+              <option value="Connecticut">Temple of Connecticut</option>
+              <option value="Delaware">Temple of Delaware</option>
+              <option value="Florida">Temple of Florida</option>
+              <option value="Georgia">Temple of Georgia</option>
+              <option value="Hawaii">Temple of Hawaii</option>
+              <option value="Idaho">Temple of Idaho</option>
+              <option value="Illinois">Temple of Illinois</option>
+              <option value="Indiana">Temple of Indiana</option>
+              <option value="Iowa">Temple of Iowa</option>
+              <option value="Kansas">Temple of Kansas</option>
+              <option value="Kentucky">Temple of Kentucky</option>
+              <option value="Louisiana">Temple of Louisiana</option>
+              <option value="Maine">Temple of Maine</option>
+              <option value="Maryland">Temple of Maryland</option>
+              <option value="Massachusetts">Temple of Massachusetts</option>
+              <option value="Michigan">Temple of Michigan</option>
+              <option value="Minnesota">Temple of Minnesota</option>
+              <option value="Mississippi">Temple of Mississippi</option>
+              <option value="Missouri">Temple of Missouri</option>
+              <option value="Montana">Temple of Montana</option>
+              <option value="Nebraska">Temple of Nebraska</option>
+              <option value="Nevada">Temple of Nevada</option>
+              <option value="New Hampshire">Temple of New Hampshire</option>
+              <option value="New Jersey">Temple of New Jersey</option>
+              <option value="New Mexico">Temple of New Mexico</option>
+              <option value="New York">Temple of New York</option>
+              <option value="North Carolina">Temple of North Carolina</option>
+              <option value="North Dakota">Temple of North Dakota</option>
+              <option value="Ohio">Temple of Ohio</option>
+              <option value="Oklahoma">Temple of Oklahoma</option>
+              <option value="Oregon">Temple of Oregon</option>
+              <option value="Pennsylvania">Temple of Pennsylvania</option>
+              <option value="Rhode Island">Temple of Rhode Island</option>
+              <option value="South Carolina">Temple of South Carolina</option>
+              <option value="South Dakota">Temple of South Dakota</option>
+              <option value="Tennessee">Temple of Tennessee</option>
+              <option value="Texas">Temple of Texas</option>
+              <option value="Utah">Temple of Utah</option>
+              <option value="Vermont">Temple of Vermont</option>
+              <option value="Virginia">Temple of Virginia</option>
+              <option value="Washington">Temple of Washington</option>
+              <option value="West Virginia">Temple of West Virginia</option>
+              <option value="Wisconsin">Temple of Wisconsin</option>
+              <option value="Wyoming">Temple of Wyoming</option>
+              <option value="Washington D.C.">Temple of Washington D.C.</option>
+              <option value="Puerto Rico">Temple of Puerto Rico</option>
+              <option value="International">International Chapter</option>
+            </select>
+          </div>
+          <div class="field-hint">The state temple you are affiliated with. Used by the Schoolmaster to track member progression by chapter.</div>
+        </div>
+
+        <!-- Email — required -->
+        <div class="field-group">
+          <label for="f-email">Email Address <span class="req">*</span></label>
+          <input
+            type="email"
+            id="f-email"
+            name="email"
+            placeholder="your@email.com"
+            autocomplete="email"
+          >
+          <div class="field-hint">Certificates of completion are sent here. The Schoolmaster may also use this for program correspondence.</div>
+        </div>
+
+        <!-- Phone — required -->
+        <div class="field-group">
+          <label for="f-phone">Phone Number <span class="req">*</span></label>
+          <input
+            type="tel"
+            id="f-phone"
+            name="phone"
+            placeholder="(555) 000-0000"
+            autocomplete="tel"
+          >
+          <div class="field-hint">For direct contact by the Schoolmaster regarding your training or program status.</div>
+        </div>
+
+      </div><!-- /field-stack -->
+
+      <button class="btn-save" id="save-btn" onclick="saveProfile()">
+        ✠ &nbsp; Save Profile
+      </button>
+      <div class="save-status" id="save-status"></div>
+    </div>
+
+    <!-- Photo card -->
+    <div class="profile-card" style="margin-bottom:40px;">
+      <div class="section-title">📷 Profile Photo <span style="font-size:0.7em;color:#5a4020;font-weight:400;">(optional)</span></div>
+      <p style="font-family:'Crimson Text',serif;font-size:0.95rem;color:#8b7040;line-height:1.6;margin-bottom:16px;">
+        Your profile photo is visible to the Schoolmaster on your member record.
+        Click the camera icon above your avatar to upload. JPG, PNG, GIF, WebP — max 5 MB.
+        <em style="color:#5a4020;">Photo is not required to unlock programs.</em>
+      </p>
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+        <label for="photo-input"
+          style="display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+            font-family:'Cinzel',serif;font-size:0.82rem;font-weight:600;
+            letter-spacing:0.12em;text-transform:uppercase;color:#c9a84c;
+            background:rgba(201,162,39,0.08);border:1px solid #4a3010;
+            border-radius:8px;padding:10px 20px;transition:all 0.2s;"
+          onmouseover="this.style.borderColor='#c9a227'"
+          onmouseout="this.style.borderColor='#4a3010'"
+        >📷 &nbsp; Choose Photo</label>
+        <button id="remove-photo-btn" onclick="removePhoto()"
+          style="display:none;font-family:'Cinzel',serif;font-size:0.80rem;font-weight:600;
+            letter-spacing:0.12em;text-transform:uppercase;color:#8b3030;
+            background:transparent;border:1px solid #4a1010;border-radius:8px;
+            padding:10px 20px;cursor:pointer;transition:all 0.2s;"
+          onmouseover="this.style.borderColor='#8b3030'"
+          onmouseout="this.style.borderColor='#4a1010'"
+        >✕ Remove Photo</button>
+      </div>
+      <div class="photo-status" id="photo-status-2" style="margin-top:10px;"></div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+// ── State ──
+let currentUser    = null;
+let currentProfile = null;
+const isNewMember  = new URLSearchParams(window.location.search).get('new') === '1';
+
+// Set date max to today so future dates can't be picked
+document.getElementById('f-birthday').max = new Date().toISOString().split('T')[0];
+
+// ── Boot ──
+Promise.all([
+  fetch('/auth/me').then(r => r.ok ? r.json() : Promise.reject()),
+  fetch('/api/profile/me').then(r => r.ok ? r.json() : null).catch(() => null)
+])
+  .then(([user, profile]) => {
+    currentUser    = user;
+    currentProfile = profile;
+
+    const name = `${user.salutation ? user.salutation + ' ' : ''}${user.username}`;
+    document.getElementById('profile-name').textContent = name;
+    document.getElementById('profile-sub').textContent =
+      `Member since ${new Date(user.createdAt).toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' })}`;
+
+    if (profile) populateForm(profile);
+    renderStatusBanners(profile);
+    renderRankBadge(profile);
+    renderPausedBanner(profile);
+
+    // Show new-member welcome
+    if (isNewMember) {
+      document.getElementById('welcome-new-banner').style.display = 'block';
+      document.getElementById('back-link').style.display = 'none';
+    }
+  })
+  .catch(() => { window.location.href = '/login'; });
+
+// ── Populate form from existing profile data ──
+function populateForm(data) {
+  if (data.birthday) document.getElementById('f-birthday').value = data.birthday;
+  if (data.temple)   document.getElementById('f-temple').value   = data.temple;
+  if (data.email)    document.getElementById('f-email').value    = data.email;
+  if (data.phone)    document.getElementById('f-phone').value    = data.phone;
+
+  // Temple badge
+  if (data.temple) {
+    const badge = document.getElementById('profile-temple-badge');
+    badge.textContent = `✠ Temple of ${data.temple}`;
+    badge.style.display = 'inline-block';
+  }
+
+  // Rank badge
+  renderRankBadge(data);
+
+  // Paused banner
+  renderPausedBanner(data);
+
+  // Photo
+  if (data.photoPath) showAvatar('/uploads/' + data.photoPath.split('/').pop());
+}
+
+// ── Rank badge ──
+function renderRankBadge(profile) {
+  const el = document.getElementById('profile-rank-badge');
+  if (!el) return;
+  if (profile && profile.rank) {
+    const label = profile.rankName ? profile.rankName : profile.rank;
+    el.textContent = `⚜ ${label}`;
+    el.style.display = 'inline-flex';
+  } else {
+    el.style.display = 'none';
+  }
+}
+
+// ── Paused status banner ──
+function renderPausedBanner(profile) {
+  const el = document.getElementById('paused-banner');
+  if (!el) return;
+  if (profile && profile.programStatus === 'paused') {
+    const msgEl = document.getElementById('paused-banner-msg');
+    if (profile.statusNote) {
+      msgEl.textContent = `Your training program has been paused by the Schoolmaster: "${profile.statusNote}" — Contact your ranking officer for further instruction.`;
+    } else {
+      msgEl.textContent = 'Your training program has been paused by the Schoolmaster. Contact your ranking officer for further instruction.';
+    }
+    el.style.display = 'block';
+  } else {
+    el.style.display = 'none';
+  }
+}
+
+// ── Render locked / unlock banners based on profile completeness ──
+function renderStatusBanners(profile) {
+  const lockedBanner  = document.getElementById('locked-banner');
+  const unlockBanner  = document.getElementById('unlock-banner');
+  const incompleteEl  = document.getElementById('incomplete-fields-list');
+
+  if (!profile || !profile.profileComplete) {
+    // Build list of what's missing
+    const missing = [];
+    if (!profile?.birthday) missing.push('Date of Birth');
+    if (!profile?.temple)   missing.push('Temple of State');
+    if (!profile?.email)    missing.push('Email Address');
+    if (!profile?.phone)    missing.push('Phone Number');
+
+    incompleteEl.innerHTML = missing.map(f =>
+      `<span class="incomplete-tag">${f}</span>`
+    ).join('');
+
+    lockedBanner.style.display = 'block';
+    unlockBanner.style.display = 'none';
+  } else {
+    // Profile complete — show what was unlocked
+    lockedBanner.style.display = 'none';
+    const msg = document.getElementById('unlock-banner-msg');
+    if (profile.age !== null) {
+      if (profile.age >= 5 && profile.age <= 17) {
+        msg.textContent = `Age ${profile.age} — Squire School Program unlocked as your primary training. Levie School is also available as an extra course. Return to your dashboard to begin.`;
+      } else if (profile.age >= 18) {
+        msg.textContent = `Age ${profile.age} — Levie School Program unlocked as your primary training. Squire School is also available as an extra course. Return to your dashboard to begin.`;
+      }
+    }
+    unlockBanner.style.display = 'block';
+  }
+}
+
+// ── Photo helpers ──
+function showAvatar(src) {
+  const img = document.getElementById('avatar-img');
+  const placeholder = document.getElementById('avatar-placeholder');
+  img.onload = () => {
+    placeholder.style.display = 'none';
+    img.style.display = 'block';
+    document.getElementById('remove-photo-btn').style.display = 'inline-flex';
+  };
+  img.onerror = () => {
+    placeholder.style.display = 'flex';
+    img.style.display = 'none';
+  };
+  img.src = src;
+}
+function hideAvatar() {
+  const img = document.getElementById('avatar-img');
+  const placeholder = document.getElementById('avatar-placeholder');
+  img.style.display = 'none';
+  img.src = '';
+  placeholder.style.display = 'flex';
+  document.getElementById('remove-photo-btn').style.display = 'none';
+}
+
+// ── Upload photo ──
+function uploadPhoto(input) {
+  if (!input.files || !input.files[0]) return;
+  const file = input.files[0];
+  if (file.size > 5 * 1024 * 1024) {
+    setPhotoStatus('Photo must be under 5 MB.', true);
+    input.value = '';
+    return;
+  }
+  setPhotoStatus('Uploading…', false);
+  const form = new FormData();
+  form.append('photo', file);
+  fetch('/api/profile/me/photo', { method: 'POST', body: form })
+    .then(r => r.json())
+    .then(data => {
+      if (data.photoPath) {
+        showAvatar('/uploads/' + data.photoPath.split('/').pop());
+        setPhotoStatus('Photo uploaded!', false);
+        setTimeout(clearPhotoStatus, 3000);
+      } else {
+        setPhotoStatus(data.error || 'Upload failed.', true);
+      }
+    })
+    .catch(() => setPhotoStatus('Upload failed — please try again.', true));
+  input.value = '';
+}
+
+// ── Remove photo ──
+function removePhoto() {
+  if (!confirm('Remove your profile photo?')) return;
+  setPhotoStatus('Removing…', false);
+  fetch('/api/profile/me/photo', { method: 'DELETE' })
+    .then(r => r.json())
+    .then(() => {
+      hideAvatar();
+      setPhotoStatus('Photo removed.', false);
+      setTimeout(clearPhotoStatus, 3000);
+    })
+    .catch(() => setPhotoStatus('Could not remove photo.', true));
+}
+
+function setPhotoStatus(msg, isError) {
+  ['photo-status', 'photo-status-2'].forEach(id => {
+    const el = document.getElementById(id);
+    el.textContent = msg;
+    el.className = 'photo-status visible' + (isError ? ' error' : '');
+  });
+}
+function clearPhotoStatus() {
+  ['photo-status', 'photo-status-2'].forEach(id => {
+    const el = document.getElementById(id);
+    el.textContent = '';
+    el.className = 'photo-status';
+  });
+}
+
+// ── Save profile ──
+function saveProfile() {
+  const birthday = document.getElementById('f-birthday').value.trim();
+  const temple   = document.getElementById('f-temple').value.trim();
+  const email    = document.getElementById('f-email').value.trim();
+  const phone    = document.getElementById('f-phone').value.trim();
+
+  // Client-side completeness check
+  const missing = [];
+  if (!birthday) missing.push('Date of Birth');
+  if (!temple)   missing.push('Temple of State');
+  if (!email)    missing.push('Email Address');
+  if (!phone)    missing.push('Phone Number');
+
+  if (missing.length) {
+    showSaveStatus(`Please fill in: ${missing.join(', ')}.`, true);
+    return;
+  }
+
+  // Email format
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    showSaveStatus('Please enter a valid email address.', true);
+    return;
+  }
+
+  // Age floor check client-side
+  const bDate = new Date(birthday);
+  const today = new Date();
+  let age = today.getFullYear() - bDate.getFullYear();
+  const mDiff = today.getMonth() - bDate.getMonth();
+  if (mDiff < 0 || (mDiff === 0 && today.getDate() < bDate.getDate())) age--;
+  if (age < 5) {
+    showSaveStatus('Members must be at least 5 years old.', true);
+    return;
+  }
+
+  const btn = document.getElementById('save-btn');
+  btn.disabled = true;
+  btn.textContent = '✠   Saving…';
+
+  fetch('/api/profile/me', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ birthday, temple, email, phone })
+  })
+    .then(r => r.json())
+    .then(data => {
+      if (data.error) {
+        showSaveStatus(data.error, true);
+        return;
+      }
+
+      currentProfile = data.profile;
+
+      // Update temple badge
+      const badge = document.getElementById('profile-temple-badge');
+      if (temple) {
+        badge.textContent = `✠ Temple of ${temple}`;
+        badge.style.display = 'inline-block';
+      }
+
+      // Re-render status banners with fresh profile
+      renderStatusBanners(data.profile);
+      renderRankBadge(data.profile);
+      renderPausedBanner(data.profile);
+
+      // Hide new-member welcome after first successful save
+      document.getElementById('welcome-new-banner').style.display = 'none';
+
+      showSaveStatus('Profile saved — programs unlocked!', false);
+    })
+    .catch(() => showSaveStatus('Could not save profile — please try again.', true))
+    .finally(() => {
+      btn.disabled = false;
+      btn.textContent = '✠   Save Profile';
+    });
+}
+
+function showSaveStatus(msg, isError) {
+  const el = document.getElementById('save-status');
+  el.textContent = msg;
+  el.className = 'save-status ' + (isError ? 'error' : 'success');
+  if (!isError) setTimeout(() => { el.className = 'save-status'; }, 5000);
+}
+</script>
+</body>
+</html>

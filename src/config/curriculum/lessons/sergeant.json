@@ -1,0 +1,311 @@
+{
+  "slug": "sergeant",
+  "title": "Sergeant School Program",
+  "description": "Leadership formation program. Command authority, mentorship, assembly management, community engagement, and discipline.",
+  "weeks": [
+    {
+      "week": 1,
+      "title": "Command Authority and the Duty to Lead",
+      "objectives": [
+        "Define command authority in the context of the Order",
+        "Understand the difference between authority given and authority earned",
+        "Identify the responsibilities that accompany a leadership role"
+      ],
+      "lesson": "A Sergeant in the Order has crossed an important threshold: they are now expected not merely to follow but to lead. Command authority is the power given to an individual by virtue of their rank or office to direct the actions of others. But authority given and authority earned are two different things. A Sergeant who demands obedience without earning respect will find that their commands are followed reluctantly, if at all. Authority is earned through demonstrated competence, consistent virtue, and evident care for those under one's charge. The Templars understood this well. The Rule gave the Marshal authority to command in battle \u2014 but it was the Marshal who had trained, who had prayed, who had served, who earned the respect that made his command effective in the heat of combat. A Sergeant who steps into leadership and immediately begins exercising authority without first listening, learning the needs of subordinates, and earning trust will exhaust their authority quickly. Leadership is not a position \u2014 it is a relationship maintained by continuous investment.",
+      "keyTerms": [
+        {
+          "term": "Command Authority",
+          "definition": "The power to direct others granted by rank or office; distinct from authority earned through trust"
+        },
+        {
+          "term": "Competence",
+          "definition": "The demonstrated ability to do what is required; a prerequisite for earned authority"
+        },
+        {
+          "term": "Servant Leadership",
+          "definition": "The model of leadership in which the leader's primary role is to serve and develop those in their charge"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What is the difference between 'authority given' and 'authority earned'?",
+          "type": "short"
+        },
+        {
+          "question": "How did the Templars understand the relationship between rank and respect?",
+          "type": "short"
+        },
+        {
+          "question": "Describe a leader you have known who led by earning authority. What made them effective?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "title": "Mentorship and the Formation of Younger Members",
+      "objectives": [
+        "Understand the Sergeant's obligation to mentor Levies and Corporals",
+        "Learn effective practices for one-on-one mentorship",
+        "Reflect on who has mentored you and what that has meant"
+      ],
+      "lesson": "The formation of new members is one of the most important functions of any rank holder above Levie. A Sergeant who is not actively mentoring is not fully occupying their rank. The medieval Templars assigned squires to experienced knights precisely because book learning \u2014 even a good Rule \u2014 cannot substitute for the formation that comes from watching someone live the values. Mentorship in the Order begins with availability: being present, greeting newer members, noticing when someone is struggling. It continues with investment: spending time with the person, asking about their family and their challenges, pointing them toward the right resources. It deepens through honest guidance: telling the person what they are doing well and what they need to improve \u2014 with equal willingness to do both. The most damaging thing a mentor can do is tell a younger member only what they want to hear. The most dangerous thing is to ignore them entirely. A Sergeant should identify at least one Levie or Corporal this week and begin intentional mentorship.",
+      "keyTerms": [
+        {
+          "term": "Mentorship",
+          "definition": "The intentional relationship through which an experienced member forms a less experienced one"
+        },
+        {
+          "term": "Availability",
+          "definition": "The first requirement of mentorship: being present and accessible to those you are forming"
+        },
+        {
+          "term": "Honest Guidance",
+          "definition": "Telling the mentee what they are doing well and what needs improvement with equal willingness"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Why can no written rule fully substitute for mentorship from an experienced member?",
+          "type": "short"
+        },
+        {
+          "question": "What is the most damaging thing a mentor can do, according to this lesson?",
+          "type": "short"
+        },
+        {
+          "question": "Identify one person you are currently mentoring or could begin mentoring. What is your plan?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "title": "Assembly Management and Formal Procedure",
+      "objectives": [
+        "Understand the proper structure of a formal assembly",
+        "Learn the Sergeant's role in maintaining order during assembly",
+        "Identify common procedural errors and how to prevent them"
+      ],
+      "lesson": "Every assembly of the Order should reflect the Order's values through its conduct. A disorganized, undisciplined, or disrespectful assembly demoralizes members and erodes the Order's identity. The Sergeant is often the person responsible for ensuring that assembly proceeds with proper dignity. This begins before the assembly opens: the room should be prepared, regalia properly displayed, agenda confirmed with the commanding officer. When the assembly opens, the Sergeant ensures that members are properly attired, that the opening prayer is conducted with reverence, and that the business of the assembly is conducted in proper order. During deliberations, the Sergeant may be called upon to maintain speaking order, record minutes, or manage visitors. After the assembly, the Sergeant ensures proper closure \u2014 dismissal only after the closing prayer, regalia properly stored, no discussions that should have happened inside being conducted in the parking lot afterward. These are not bureaucratic niceties. They are the expression of the Order's values in its most public and corporate form.",
+      "keyTerms": [
+        {
+          "term": "Assembly",
+          "definition": "The formal gathering of Order members for prayer, business, ceremony, and fraternal interaction"
+        },
+        {
+          "term": "Agenda",
+          "definition": "The ordered list of business to be conducted at an assembly, prepared in advance by the commanding officer"
+        },
+        {
+          "term": "Proper Closure",
+          "definition": "The formal dismissal of an assembly after closing prayer; the boundary between sacred and casual space"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Name three things a Sergeant should ensure before an assembly opens.",
+          "type": "short"
+        },
+        {
+          "question": "Why is the practice of speaking order in assembly important to the Order's values?",
+          "type": "short"
+        },
+        {
+          "question": "Describe the most poorly conducted assembly you have attended. What should have been done differently?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "title": "Templar Spirituality: Interior Conversion and Outward Conduct",
+      "objectives": [
+        "Understand the distinction between interior and exterior religion",
+        "Study the Templar tradition of spiritual formation beyond the Rule",
+        "Develop a personal practice of interior formation"
+      ],
+      "lesson": "The Templars who merely complied with the Rule but did not seek interior conversion were, in the words of St. Bernard, 'whited sepulchers' \u2014 clean on the outside, hollow within. The Templar tradition at its best was never satisfied with external compliance. The goal was not to produce soldiers who prayed on schedule but to produce men whose prayer and conduct arose from genuine love of God and love of brother. Interior conversion \u2014 the ongoing transformation of heart, mind, and will \u2014 is what St. Bernard meant by conversatio morum. It cannot be measured by attendance records or examination scores. It shows itself in how a man speaks about those who have wronged him, how he treats the weakest member of the assembly, and how he behaves when no one of rank is watching. A Sergeant who has not pursued interior conversion will find that the external practices of the Order feel increasingly hollow and that members sense the emptiness of their leadership. This week, adopt one practice of interior formation: daily Scripture reading, a prayer journal, or a regular examination of conscience.",
+      "keyTerms": [
+        {
+          "term": "Interior Conversion",
+          "definition": "The ongoing transformation of heart, mind, and will; the deepest goal of Templar spiritual formation"
+        },
+        {
+          "term": "Examination of Conscience",
+          "definition": "A daily practice of reviewing one's conduct against the standard of the Order's values"
+        },
+        {
+          "term": "Whited Sepulcher",
+          "definition": "St. Bernard's image for outward religious compliance without interior transformation"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What is the difference between exterior religious compliance and interior conversion?",
+          "type": "short"
+        },
+        {
+          "question": "What practice did St. Bernard intend by conversatio morum?",
+          "type": "short"
+        },
+        {
+          "question": "Describe one practice of interior formation you will adopt this week. What do you hope it will produce?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "title": "Community Engagement and the Order's Public Mission",
+      "objectives": [
+        "Understand the Order's obligations to the surrounding community",
+        "Identify specific community service opportunities",
+        "Plan and commit to a specific service project"
+      ],
+      "lesson": "The Knights Templar did not exist in isolation from the world. They were embedded in communities \u2014 defending roads, operating hospitals, managing properties, adjudicating disputes. The modern Order cannot retreat into a private club of internal ritual while the community around it has needs. A Sergeant must model the outward-facing dimension of membership. Community engagement is not optional charity; it is a fundamental expression of the Order's reason for existence. What does your local community need? An Order that responds to that need \u2014 organizing food drives, supporting veterans, visiting the sick, mentoring youth \u2014 builds credibility and goodwill that no advertising can purchase. It also fulfills the Templar tradition directly. The Sergeant should take initiative this week to identify one specific community need that the local assembly is positioned to address, develop a simple plan for engagement, and present it to the commanding officer for consideration. Leadership requires initiative. The Sergeant who waits to be told what to do is practicing fellowship, not leadership.",
+      "keyTerms": [
+        {
+          "term": "Community Engagement",
+          "definition": "Organized service by Order members to address specific needs in the surrounding community"
+        },
+        {
+          "term": "Initiative",
+          "definition": "The willingness to identify what needs to be done and take action without waiting to be directed"
+        },
+        {
+          "term": "Credibility",
+          "definition": "The trust the community places in the Order based on consistent, selfless service over time"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Why is community engagement described as a fundamental expression of the Order's purpose?",
+          "type": "short"
+        },
+        {
+          "question": "What is the difference between initiative and insubordination?",
+          "type": "short"
+        },
+        {
+          "question": "Identify one community need and write a brief plan for how the local assembly could address it.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "title": "Discipline Without Harshness: Correcting Members Effectively",
+      "objectives": [
+        "Understand the Sergeant's role in member discipline",
+        "Learn the distinction between correction and condemnation",
+        "Practice giving correction that is clear, kind, and effective"
+      ],
+      "lesson": "A Sergeant will inevitably need to address member conduct that falls short of the Order's standard. This is one of the most difficult and most important things a leader does. Done well, correction builds the member up and strengthens the Order. Done poorly, it damages relationships and drives members away. The key distinctions are: (1) Correct behavior, not character \u2014 tell someone what they did wrong, not that they are a bad person. (2) Correct privately \u2014 public humiliation solves nothing and creates resentment. (3) Be specific \u2014 vague criticism is useless. (4) Invite the member to identify the solution rather than dictating it. (5) Follow up \u2014 check on the member afterward to confirm the issue is resolved and the relationship is intact. The Templar Rule gave chapter meetings a specific role in this process: matters of conduct were brought before the brothers, not handled by individual senior members unilaterally. A Sergeant who corrects a member privately, honestly, and kindly will rarely need to bring matters to chapter. One who avoids correction entirely will always find themselves in chapter \u2014 dealing with a problem that should have been addressed six months earlier.",
+      "keyTerms": [
+        {
+          "term": "Correction",
+          "definition": "The act of addressing a member's conduct failure in order to restore right behavior and relationship"
+        },
+        {
+          "term": "Private Counsel",
+          "definition": "The practice of addressing member issues one-on-one before involving the chapter"
+        },
+        {
+          "term": "Follow-Through",
+          "definition": "The obligation to check in after correction to confirm the issue is resolved and the relationship intact"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "List the five principles of effective correction outlined in this lesson.",
+          "type": "short"
+        },
+        {
+          "question": "Why is public correction almost always counterproductive?",
+          "type": "short"
+        },
+        {
+          "question": "Describe a situation where you gave or received correction. What made it effective or ineffective?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 7,
+      "title": "Strategic Thinking and the Art of Forward Planning",
+      "objectives": [
+        "Understand why strategic thinking is a Sergeant's responsibility",
+        "Learn the three horizons of planning: immediate, seasonal, and long-range",
+        "Apply strategic thinking to one aspect of Order or personal life"
+      ],
+      "lesson": "The Templar Order was one of the most strategically sophisticated organizations of the medieval world. It maintained supply lines across thousands of miles, coordinated military operations across multiple theaters, managed financial networks spanning Europe and the Near East, and planned for succession in leadership. Strategy is the habit of thinking several moves ahead \u2014 understanding not just what needs to be done today but what pattern of decisions today will shape the options available in the future. A Sergeant must begin cultivating strategic thinking because the higher ranks demand it. The three horizons of planning are: (1) Immediate (this week, this assembly) \u2014 focused execution of clear tasks; (2) Seasonal (this quarter, this year) \u2014 building programs, maintaining relationships, developing members; (3) Long-range (five years, the next generation) \u2014 what kind of Order are we building, and what infrastructure does that require? A Sergeant who only thinks in the immediate horizon will always be reactive, always behind, always managing crises instead of preventing them.",
+      "keyTerms": [
+        {
+          "term": "Strategy",
+          "definition": "The art of arranging actions across time to achieve goals that cannot be reached by immediate effort alone"
+        },
+        {
+          "term": "Three Horizons",
+          "definition": "The planning framework: Immediate (this week), Seasonal (this year), Long-range (the next generation)"
+        },
+        {
+          "term": "Proactive",
+          "definition": "Acting in anticipation of future needs rather than reacting to current crises"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define 'strategic thinking' in your own words.",
+          "type": "short"
+        },
+        {
+          "question": "What are the three horizons of planning? Give an example of each.",
+          "type": "short"
+        },
+        {
+          "question": "Apply the three horizons framework to one aspect of the Order or your personal life. What do you see?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 8,
+      "title": "Sergeant Advancement Review Preparation",
+      "objectives": [
+        "Review the full scope of the Sergeant program",
+        "Prepare to articulate the Sergeant's unique contribution",
+        "Set specific goals for the Sergeant First Class program"
+      ],
+      "lesson": "You have completed the Sergeant School Program. You have studied command authority, mentorship, assembly management, interior conversion, community engagement, discipline, and strategic planning. These are not academic topics \u2014 they are the practical equipment of a leader. A Sergeant who has internalized these lessons is ready for the next level of responsibility. Before your advancement review, prepare to address these four questions: (1) Who have you mentored in the past eight weeks, and what has changed in their formation? (2) What community service have you organized or contributed to this year? (3) How has your own interior formation changed in this program? (4) What is the most important thing you have learned about leading others? The Sergeant First Class program will challenge you to go further: developing the systems and standards that make an organization excellent rather than merely functional. Come prepared.",
+      "keyTerms": [
+        {
+          "term": "Sergeant",
+          "definition": "The third rank in the KTKC; the first rank of intentional leadership formation"
+        },
+        {
+          "term": "Leadership Inventory",
+          "definition": "A personal accounting of what leadership skills have been developed and what gaps remain"
+        },
+        {
+          "term": "Excellence",
+          "definition": "The standard beyond mere functionality; the goal of all Templar formation"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What four questions should a Sergeant be prepared to answer at their advancement review?",
+          "type": "short"
+        },
+        {
+          "question": "What distinguishes 'excellent' leadership from merely 'functional' leadership?",
+          "type": "short"
+        },
+        {
+          "question": "Write your Sergeant advancement statement covering all four required questions.",
+          "type": "essay"
+        }
+      ]
+    }
+  ]
+}

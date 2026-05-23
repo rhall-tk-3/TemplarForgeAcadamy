@@ -1,0 +1,311 @@
+{
+  "slug": "corporal",
+  "title": "Corporal School Program",
+  "description": "First rank-advancement program. Deep Templar history, leadership principles, finance, monastic influence, and conflict resolution.",
+  "weeks": [
+    {
+      "week": 1,
+      "title": "The Crusades: Context, Cause, and Consequence",
+      "objectives": [
+        "Understand the historical conditions that produced the Crusades",
+        "Identify the major Crusades and their outcomes",
+        "Assess the Templar role in the Crusader states"
+      ],
+      "lesson": "The Crusades were a series of religious wars sanctioned by the Latin Church, conducted from 1095 to 1291, aimed at recovering Jerusalem and supporting the Christian communities of the Holy Land. Pope Urban II's call at Clermont in 1095 launched the First Crusade, which succeeded in capturing Jerusalem in 1099. The Templar Order was formed in the aftermath of this conquest to protect the flow of pilgrims. The Crusades brought both triumph and catastrophe. The fall of Jerusalem to Saladin in 1187 was the Order's greatest test. The Third Crusade, led by Richard I of England, managed to negotiate limited access to Jerusalem but never retook it. The final loss of Acre in 1291 effectively ended the Crusader presence in the Holy Land and left the Templars without their original geographic mission \u2014 a crisis that contributed to their eventual suppression in 1307. A Corporal must understand this history not as a collection of battles but as a study in how great institutions rise, adapt, and sometimes fall.",
+      "keyTerms": [
+        {
+          "term": "Council of Clermont",
+          "definition": "Pope Urban II's 1095 assembly at which the First Crusade was proclaimed"
+        },
+        {
+          "term": "Battle of Hattin (1187)",
+          "definition": "Decisive Crusader defeat that led to Saladin's capture of Jerusalem"
+        },
+        {
+          "term": "Fall of Acre (1291)",
+          "definition": "The final loss of the Crusader city that ended the Templar presence in the Holy Land"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What event launched the First Crusade and when did it occur?",
+          "type": "short"
+        },
+        {
+          "question": "What was the strategic significance of the Battle of Hattin for the Templar Order?",
+          "type": "short"
+        },
+        {
+          "question": "How did the loss of the Holy Land change the mission and identity of the Templars?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "title": "The Grand Masters and Leadership of the Order",
+      "objectives": [
+        "Identify key Grand Masters of the Templar Order",
+        "Analyze the leadership qualities that made or broke their tenure",
+        "Apply lessons of Templar leadership to modern organizational life"
+      ],
+      "lesson": "The Grand Master was the supreme authority of the Templar Order, elected by a council of senior knights and serving for life. The first Grand Master, Hugues de Payens, established the Order's identity through austerity and mission clarity. Jacques de Molay, the last Grand Master, was arrested on Friday 13 October 1307 by order of King Philip IV of France and Pope Clement V. He was eventually burned at the stake in 1314, reportedly cursing both the King and the Pope before he died \u2014 both died within the year. Between these two men, Grand Masters navigated the complexity of military command, papal politics, royal favoritism, and internal discipline. Robert de Sabl\u00e9 negotiated directly with Saladin. Hermann von Salza managed the Order's transition to European operations after the Crusades. A Corporal \u2014 now taking on more responsibility within the Order \u2014 must study these men not as legends but as leaders: flawed, pressured, and consequential. Leadership in the Order is not a title; it is a responsibility.",
+      "keyTerms": [
+        {
+          "term": "Jacques de Molay",
+          "definition": "Last Grand Master of the Templars, executed 1314; symbol of the Order's suppression"
+        },
+        {
+          "term": "Robert de Sabl\u00e9",
+          "definition": "Grand Master during the Third Crusade who negotiated with Saladin"
+        },
+        {
+          "term": "Hermann von Salza",
+          "definition": "Grand Master who successfully transitioned the Teutonic Order; studied by Templar historians for adaptation strategy"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Who was Jacques de Molay and what was his significance?",
+          "type": "short"
+        },
+        {
+          "question": "What made the position of Grand Master difficult during the Crusader period?",
+          "type": "short"
+        },
+        {
+          "question": "What leadership lesson from a Templar Grand Master is most applicable to your life? Explain.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "title": "Templar Finance, Banking, and the Letters of Credit",
+      "objectives": [
+        "Understand the Templars' role in medieval banking",
+        "Explain how the letters of credit system worked",
+        "Connect Templar financial innovation to modern fiduciary responsibility"
+      ],
+      "lesson": "One of the most significant and often overlooked contributions of the Templar Order was the invention of a proto-banking system. Pilgrims traveling to the Holy Land faced a serious problem: carrying gold was dangerous. The Templars solved it. A pilgrim could deposit money at a Templar house in France and receive a coded letter of credit redeemable at Templar houses in the Holy Land. This was one of the earliest known implementations of the letter of credit \u2014 a form of financial instrument that is the direct ancestor of modern banking. The Templars also managed the financial affairs of European monarchs, collected papal taxes, and served as trustworthy intermediaries in complex transactions. Their vow of poverty as individuals did not prevent the Order as an institution from becoming enormously wealthy \u2014 wealth that was always supposed to serve the mission. This contradiction \u2014 individual poverty, institutional wealth \u2014 contributed to resentment and ultimately to the charges brought against them in 1307. A Corporal must understand that fiduciary responsibility \u2014 the proper stewardship of resources entrusted to you \u2014 is a Templar value.",
+      "keyTerms": [
+        {
+          "term": "Letter of Credit",
+          "definition": "A financial instrument invented/formalized by the Templars allowing deposits in one location to be withdrawn in another"
+        },
+        {
+          "term": "Fiduciary",
+          "definition": "One who holds resources in trust for others; obligated to use them for the intended purpose"
+        },
+        {
+          "term": "Suppression of 1307",
+          "definition": "The arrest of all Templars in France on 13 October 1307, ordered by Philip IV, leading to the Order's dissolution"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "How did the Templar letter of credit system work in practical terms?",
+          "type": "short"
+        },
+        {
+          "question": "What tension existed between individual Templar vows and the Order's institutional wealth?",
+          "type": "short"
+        },
+        {
+          "question": "How does fiduciary responsibility apply to your role as a Corporal in the modern Order?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "title": "The Rule of Benedict and the Monastic Influence on the Templars",
+      "objectives": [
+        "Understand the Rule of St. Benedict and its influence on Templar practice",
+        "Identify how monastic discipline shaped the Templar character",
+        "Distinguish between monastic vows and Templar vows"
+      ],
+      "lesson": "The Knights Templar were unusual in medieval Europe because they combined two roles that were normally kept separate: the monk and the soldier. Their Rule, heavily influenced by the Rule of St. Benedict written around 530 AD, structured their daily life with similar discipline. The Rule of Benedict is built on three principles: stability (commitment to a community over a lifetime), conversion of manners (ongoing moral transformation), and obedience (submission to the abbot/leader). These three principles appear directly in the Templar life: stability expressed as loyalty to the Order; conversion of manners expressed as commitment to virtue through training; obedience expressed as submission to the Grand Master and the Rule. The genius of the Templar Rule was that it did not try to make soldiers into passive monks \u2014 it took the energy and discipline of the warrior and directed it through a spiritual framework. A Corporal is not a monk. But a Corporal who lacks the monk's discipline of prayer, study, and obedience will never become a knight.",
+      "keyTerms": [
+        {
+          "term": "Rule of St. Benedict",
+          "definition": "The 6th-century monastic rule that structured communal religious life and influenced the Templar Rule"
+        },
+        {
+          "term": "Stability",
+          "definition": "The Benedictine vow to remain committed to a single community for life"
+        },
+        {
+          "term": "Conversatio Morum",
+          "definition": "Benedictine 'conversion of manners' \u2014 ongoing moral and spiritual transformation"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Name the three founding principles of the Rule of St. Benedict.",
+          "type": "short"
+        },
+        {
+          "question": "How did the Templar Rule adapt monastic discipline for soldiers?",
+          "type": "short"
+        },
+        {
+          "question": "Which of the three Benedictine principles do you find most challenging to apply? Explain.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "title": "Leadership, Delegation, and the Marshal System",
+      "objectives": [
+        "Understand the Templar military command structure",
+        "Identify the role of the Marshal and Seneschal",
+        "Apply principles of delegation and accountability to modern leadership"
+      ],
+      "lesson": "The Templar Order was not commanded by a single man alone. Beneath the Grand Master, the Order maintained a sophisticated command structure. The Seneschal was the second in command, managing the Grand Master's affairs and standing in his place when needed. The Marshal commanded all military operations \u2014 a position demanding tactical skill, physical courage, and the ability to inspire men under fire. The Draper managed regalia and supplies. The Commander of the Kingdom of Jerusalem managed finances and logistics. Each role had clear authority and clear accountability. This structure allowed the Order to function effectively across vast distances \u2014 from England to Armenia \u2014 without the Grand Master needing to be everywhere at once. Delegation is not weakness; it is the multiplication of leadership capacity. A Corporal who can only work when directly supervised is not ready for greater responsibility. This week, identify one task in your life or in the Order where you are being asked to lead, and apply the principle: clear authority, clear accountability, clear communication.",
+      "keyTerms": [
+        {
+          "term": "Seneschal",
+          "definition": "Second-in-command of the Templar Order, managing the Grand Master's affairs"
+        },
+        {
+          "term": "Marshal",
+          "definition": "The Templar officer commanding all military operations"
+        },
+        {
+          "term": "Delegation",
+          "definition": "The assignment of authority and responsibility to another person; multiplication of leadership capacity"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Name three major offices in the Templar command structure and describe each briefly.",
+          "type": "short"
+        },
+        {
+          "question": "Why is delegation not a sign of weakness in a leader?",
+          "type": "short"
+        },
+        {
+          "question": "Describe a situation where you delegated effectively \u2014 or failed to. What did you learn?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "title": "The Fall of the Templars: Betrayal, Trial, and Legacy",
+      "objectives": [
+        "Understand the political circumstances of the Templar suppression",
+        "Evaluate the charges brought against the Order",
+        "Reflect on the legacy of the Templars and what it means for modern orders"
+      ],
+      "lesson": "On Friday, 13 October 1307, King Philip IV of France ordered the simultaneous arrest of all Templars in France. The charges were extraordinary: heresy, blasphemy, sodomy, idol worship (of the mysterious 'Baphomet'), and financial corruption. Most historians today consider these charges fabricated \u2014 Philip IV owed the Templars enormous sums of money and wished to seize their wealth. Under torture, many Templars confessed to various charges, then recanted when they could. Jacques de Molay publicly recanted his confession at his execution in 1314. Pope Clement V, dependent on French political support, abolished the Order formally at the Council of Vienne in 1312. The Templars had no advocate powerful enough to save them. Their fall is a lesson in institutional vulnerability: even the most powerful organization cannot survive when its protector turns against it and its enemies control the courts. The legacy of the Templars is one of courage, innovation, and ultimately martyrdom. Modern orders carry the obligation to preserve that legacy in living conduct \u2014 not just ceremony.",
+      "keyTerms": [
+        {
+          "term": "Philip IV of France",
+          "definition": "King who orchestrated the arrest and suppression of the Templars, motivated by debt and avarice"
+        },
+        {
+          "term": "Council of Vienne (1312)",
+          "definition": "Church council at which Pope Clement V formally abolished the Templar Order"
+        },
+        {
+          "term": "Baphomet",
+          "definition": "The alleged idol worshipped by Templars according to fabricated charges; widely believed to be a false accusation"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Why do most historians believe the charges against the Templars were fabricated?",
+          "type": "short"
+        },
+        {
+          "question": "What made the Templar Order institutionally vulnerable to the suppression of 1307?",
+          "type": "short"
+        },
+        {
+          "question": "What obligation does the legacy of the Templars place on members of a modern Templar Order?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 7,
+      "title": "Conflict Resolution and the Templar Standard of Justice",
+      "objectives": [
+        "Understand how the medieval Templars handled internal discipline",
+        "Apply principles of just conflict resolution to the modern Order",
+        "Practice the skill of delivering and receiving correction with grace"
+      ],
+      "lesson": "The Templar Rule had detailed provisions for handling conflict within the Order. Minor infractions \u2014 failure to attend prayer, unauthorized speech \u2014 were handled by the chapter privately. Serious violations \u2014 cowardice in battle, revealing Order secrets, striking a brother \u2014 could result in loss of the mantle (the knight's most precious possession). The most severe penalty was expulsion. What distinguished Templar discipline from mere punishment was its consistent emphasis on correction rather than humiliation. The goal was always to restore the offending brother to right conduct \u2014 not to destroy him. When conflict arose between brothers, the Rule required that it be brought to the chapter rather than handled privately through anger or revenge. In the modern Order, conflict will arise \u2014 between members, between personalities, between interpretations of the Rule. A Corporal must be able to address conflict directly, honestly, and charitably. The person who avoids necessary conflict is not keeping the peace \u2014 they are allowing a wound to fester.",
+      "keyTerms": [
+        {
+          "term": "Chapter",
+          "definition": "The formal assembly of Templar members at which discipline, decisions, and prayer were conducted"
+        },
+        {
+          "term": "Loss of the Mantle",
+          "definition": "The Templar penalty of stripping a knight of their white mantle \u2014 the most serious sanction short of expulsion"
+        },
+        {
+          "term": "Correction",
+          "definition": "The act of addressing a member's violation with the goal of restoration rather than punishment"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "How did the Templar Rule handle minor versus serious infractions differently?",
+          "type": "short"
+        },
+        {
+          "question": "What is the difference between avoiding conflict and keeping peace?",
+          "type": "short"
+        },
+        {
+          "question": "Describe a conflict situation in your life or the Order. How should it be handled according to Templar principles?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 8,
+      "title": "Corporal Advancement Review Preparation",
+      "objectives": [
+        "Review all major topics from the Corporal program",
+        "Prepare to articulate the Corporal's role within the Order",
+        "Identify one area of leadership growth to pursue in the Sergeant program"
+      ],
+      "lesson": "You have now completed the Corporal School Program. You have deepened your understanding of Templar history, studied key leaders, explored the financial and monastic dimensions of the Order, and begun to think seriously about leadership and conflict resolution. A Corporal in the Order occupies an important transitional position: no longer the newest member, not yet a sergeant. The Corporal is the person newer members look to for guidance before they dare approach the ranking officers. How you conduct yourself in this role will define your reputation for years to come. Before your advancement review, prepare to answer the following: (1) What historical figure from the Corporal curriculum has most influenced your thinking about leadership? (2) What specific conflict or challenge have you faced in the Order and how did you address it? (3) What leadership skill will you focus on developing in the Sergeant program? The Schoolmaster is not looking for perfection \u2014 they are looking for self-awareness and commitment to growth.",
+      "keyTerms": [
+        {
+          "term": "Corporal",
+          "definition": "The first rank-advancement above Levie; the beginning of leadership formation in the Order"
+        },
+        {
+          "term": "Self-awareness",
+          "definition": "The capacity to see one's own conduct, strengths, and weaknesses clearly and honestly"
+        },
+        {
+          "term": "Advancement Path",
+          "definition": "The deliberate progression from rank to rank through study, service, and proven conduct"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What is the unique role of the Corporal in relation to newer members of the Order?",
+          "type": "short"
+        },
+        {
+          "question": "Why is self-awareness described as essential for leadership advancement?",
+          "type": "short"
+        },
+        {
+          "question": "Write your advancement statement: what you have learned, how you have grown, and where you are headed.",
+          "type": "essay"
+        }
+      ]
+    }
+  ]
+}

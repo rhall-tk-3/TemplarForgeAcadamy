@@ -1,0 +1,311 @@
+{
+  "slug": "levie",
+  "title": "Levie School Program",
+  "description": "The foundational adult entry program. Covers Templar history, virtue, the Rule, faith, service, and brotherhood.",
+  "weeks": [
+    {
+      "week": 1,
+      "title": "Origins and Mission of the Order",
+      "objectives": [
+        "Explain the historical founding of the Knights Templar",
+        "Understand the KTKC's connection to that heritage",
+        "State the mission of the modern Order in your own words"
+      ],
+      "lesson": "The Knights Templar were founded approximately 1118 AD by Hugues de Payens and eight companions in Jerusalem. Their mission was to protect Christian pilgrims traveling to the Holy Land. They were granted quarters on the Temple Mount by King Baldwin II and grew rapidly under the patronage of St. Bernard of Clairvaux, who authored their Rule. Pope Innocent II's Bull of 1139 exempted them from local authority, placing them under papal protection alone. The modern order of Knights Templar, of which the KTKC is a part, traces its heritage to this tradition of Christian service, discipline, and honor. As a Levie \u2014 one who has just entered the Order \u2014 your first obligation is to understand why this heritage matters and what it demands of you personally. The Order does not exist for ceremony alone; it exists to carry forward a living tradition of virtue, brotherhood, and service in the modern world.",
+      "keyTerms": [
+        {
+          "term": "Hugues de Payens",
+          "definition": "Co-founder and first Grand Master of the Knights Templar, c.1118 AD"
+        },
+        {
+          "term": "Levie",
+          "definition": "The entry rank and foundational school program for adult members of the KTKC"
+        },
+        {
+          "term": "Rule",
+          "definition": "The written code of conduct governing the daily life and conduct of Templar members"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "State the founding date and the founding mission of the Knights Templar.",
+          "type": "short"
+        },
+        {
+          "question": "What is a Levie and what does entering this program signify?",
+          "type": "short"
+        },
+        {
+          "question": "In your own words, why does the heritage of the Knights Templar still matter today?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "title": "The Seven Virtues and Daily Conduct",
+      "objectives": [
+        "Identify and define the seven knightly virtues",
+        "Relate each virtue to a concrete behavior in daily life",
+        "Evaluate your own areas of strength and growth"
+      ],
+      "lesson": "Chivalry is not a relic of the Middle Ages \u2014 it is a timeless framework for excellent human conduct. The seven knightly virtues are: (1) Courage \u2014 acting rightly despite fear or opposition; (2) Justice \u2014 treating every person fairly regardless of status; (3) Mercy \u2014 showing compassion to those who are weak or defeated; (4) Generosity \u2014 giving time, resources, and attention freely; (5) Faith \u2014 maintaining loyalty to God and to the Order even when it costs you; (6) Nobility \u2014 conducting yourself with dignity and restraint in all circumstances; (7) Hope \u2014 maintaining confidence in good outcomes and in the redemptive power of right action. A new member of the Order \u2014 a Levie \u2014 must begin by honest self-assessment. Which of these virtues comes naturally? Which requires deliberate cultivation? A knight who is courageous but lacks mercy becomes a bully. One who is generous but lacks justice becomes a patron of wrongdoing. All seven virtues must grow together. This week, practice one virtue deliberately each day.",
+      "keyTerms": [
+        {
+          "term": "Virtue",
+          "definition": "A moral quality considered excellent and worthy of cultivation in a person"
+        },
+        {
+          "term": "Chivalry",
+          "definition": "The medieval code of conduct combining Christian faith, martial discipline, and noble courtesy"
+        },
+        {
+          "term": "Self-assessment",
+          "definition": "Honest, clear-eyed examination of one's strengths and areas for growth"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "List the seven knightly virtues and define each briefly.",
+          "type": "short"
+        },
+        {
+          "question": "Why must all seven virtues grow together rather than one at a time?",
+          "type": "short"
+        },
+        {
+          "question": "Which virtue do you find most challenging? Write about why and how you plan to strengthen it.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "title": "The Rule of the Order and Obligations of Membership",
+      "objectives": [
+        "Understand what the Rule of the Templars required",
+        "Identify the ongoing obligations of KTKC membership",
+        "Distinguish between rules as restrictions and rules as framework for excellence"
+      ],
+      "lesson": "The Rule of the Templars, formalized by St. Bernard of Clairvaux and approved at the Council of Troyes in 1129, governed every aspect of Templar life \u2014 from how they slept and ate, to how they fought, prayed, and disciplined one another. The Rule was not meant to restrict freedom; it was meant to create excellence by removing uncertainty about how to act. A member who knows the Rule does not have to decide each morning whether to pray or whether to be honest. The decision has already been made. This is what discipline truly is \u2014 the freedom that comes from settled commitment. The KTKC has its own set of membership obligations: regular attendance at assembly, progression through the School Program, support of fellow members, and conduct consistent with the Order's values inside and outside assembly. These are not optional extras. They are the minimum expression of what membership means. A member who meets only minimums is not yet living the Rule \u2014 they are merely complying with it.",
+      "keyTerms": [
+        {
+          "term": "Rule",
+          "definition": "The formal code of conduct governing Templar life and behavior, authored by St. Bernard"
+        },
+        {
+          "term": "Discipline",
+          "definition": "Freedom through settled commitment; not restriction but the removal of unnecessary indecision"
+        },
+        {
+          "term": "Obligation",
+          "definition": "A duty that binds a member to the Order; not optional, but the foundation of membership"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What was the Council of Troyes and what did it accomplish for the Templars?",
+          "type": "short"
+        },
+        {
+          "question": "Explain the difference between 'living the Rule' and merely 'complying with it.'",
+          "type": "short"
+        },
+        {
+          "question": "List two specific membership obligations and explain why they matter to the Order's health.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "title": "Prayer, Scripture, and the Templar Liturgy",
+      "objectives": [
+        "Understand the role of daily prayer in Templar formation",
+        "Learn key Scriptures referenced in the Order's tradition",
+        "Reflect on the spiritual dimension of membership"
+      ],
+      "lesson": "The Knights Templar were first and foremost a religious order. Before they were warriors, they were monks. Their daily schedule was structured around the canonical hours of prayer: Matins, Lauds, Prime, Terce, Sext, None, Vespers, and Compline. This discipline of regular prayer was not separate from their military and administrative work \u2014 it was the source of their strength and clarity. The Psalms were the backbone of Templar devotion. Psalm 24 declares that the earth and all it contains belong to the Lord. Psalm 91 promises divine protection to those who dwell in God's shelter \u2014 'A thousand may fall at your side, ten thousand at your right hand, but it will not come near you.' These are not magic words; they are declarations of trust. In the KTKC, every assembly opens and closes with prayer. This is not formality \u2014 it is the acknowledgment that the Order's work is spiritual before it is organizational. A Levie who does not understand the spiritual dimension of membership will find the outward forms of the Order hollow.",
+      "keyTerms": [
+        {
+          "term": "Canonical Hours",
+          "definition": "The daily cycle of prayer observed by Templars from Matins (pre-dawn) to Compline (night)"
+        },
+        {
+          "term": "Psalm 91",
+          "definition": "A psalm of divine protection, central to Templar devotion and spiritual formation"
+        },
+        {
+          "term": "Liturgy",
+          "definition": "The formal, ordered structure of worship and prayer used in religious ceremony"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Name three canonical hours of prayer and their approximate times of day.",
+          "type": "short"
+        },
+        {
+          "question": "Why is the opening prayer of an assembly more than mere formality?",
+          "type": "short"
+        },
+        {
+          "question": "Write a brief reflection on Psalm 91 and what it means for a member of a modern Templar Order.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "title": "Service and the Obligation to Community",
+      "objectives": [
+        "Define service as the primary reason the Order exists",
+        "Identify specific service opportunities within and outside the Order",
+        "Understand how personal service builds the Order's reputation"
+      ],
+      "lesson": "The Knights Templar operated one of the medieval world's most sophisticated charitable systems. They established hospitals for pilgrims, provided banking services to travelers, and maintained supply networks across Europe and the Holy Land. Their wealth was always intended as a tool for mission \u2014 not a sign of prestige. The Order's motto, 'Non nobis, Domine, non nobis, sed nomini tuo da gloriam' \u2014 Not unto us, Lord, not unto us, but to Your Name give glory \u2014 captures this perfectly. Service is not what members do after they have achieved rank; service is how rank is earned in the first place. A Levie who is not serving is not progressing. Service takes many forms: showing up consistently to assembly, mentoring newer members, supporting community projects, visiting sick brethren, or simply being reliable when the Order needs help. The reputation of the entire Order in the surrounding community rests on the conduct of each individual member. When you wear the mantle in public, you represent every member who has ever worn it.",
+      "keyTerms": [
+        {
+          "term": "Non nobis, Domine",
+          "definition": "Templar motto: 'Not unto us, Lord' \u2014 expressing service without personal glory"
+        },
+        {
+          "term": "Mission",
+          "definition": "The defining purpose for which the Order exists; service to God, brethren, and community"
+        },
+        {
+          "term": "Reputation",
+          "definition": "The perception of the Order held by the surrounding community; built by every member's conduct"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What charitable work did the medieval Templars do beyond military service?",
+          "type": "short"
+        },
+        {
+          "question": "How does a Levie's service contribute to the Order's reputation?",
+          "type": "short"
+        },
+        {
+          "question": "Describe one specific service you will render this week and what it represents to you.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "title": "Symbols, Ceremony, and the Meaning of Regalia",
+      "objectives": [
+        "Identify key symbols of the Templar Order and their meanings",
+        "Understand the purpose of formal ceremony in the Order's life",
+        "Explain why regalia is treated with reverence"
+      ],
+      "lesson": "The red cross on the white mantle. The Agnus Dei. The two knights sharing a horse. The skull and crossbones. Every symbol in the Templar tradition carries theology and history in compact form. The red cross signifies willingness to shed blood in defense of faith \u2014 it is the crimson mark of sacrifice. The Agnus Dei, the Lamb of God, represents Christ's atoning sacrifice that the Order's members invoke in their service. The seal of two knights on one horse proclaims the vow of poverty and the bond of brotherhood \u2014 two share what one might claim alone. Ceremony is the language through which symbols speak to an assembled body. When the Order processes in regalia, opens with formal charge, and closes with benediction, these are not theatrical affectations. They are physical declarations of spiritual realities. A member who participates in ceremony halfheartedly is not saving time \u2014 they are communicating to their brothers that the shared commitments do not matter. Ceremony should be performed as if each element were the most important thing happening on earth at that moment.",
+      "keyTerms": [
+        {
+          "term": "Agnus Dei",
+          "definition": "'Lamb of God' \u2014 a Templar symbol representing Christ's sacrifice, invoked in the Order's devotions"
+        },
+        {
+          "term": "Regalia",
+          "definition": "The formal dress, insignia, and ceremonial items that identify a member's rank and allegiance"
+        },
+        {
+          "term": "Ceremony",
+          "definition": "Ordered, formal ritual that makes invisible commitments visible to an assembled community"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Describe the meaning of the two-knights-on-one-horse seal of the Templars.",
+          "type": "short"
+        },
+        {
+          "question": "Why is careless participation in ceremony a problem for the whole Order?",
+          "type": "short"
+        },
+        {
+          "question": "Write about one symbol of the Order that has become personally meaningful to you and explain why.",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 7,
+      "title": "Brotherhood, Accountability, and the Chain of Authority",
+      "objectives": [
+        "Understand brotherhood as covenant rather than casual friendship",
+        "Explain the chain of authority from Levie to Grand Master",
+        "Describe the practice of fraternal accountability"
+      ],
+      "lesson": "Brotherhood in the Order is not casual. It is covenant \u2014 a word that means a binding agreement involving the whole person. When you swear the oath of the Order, you do not merely join an organization. You bind yourself to every other member \u2014 to their welfare, their reputation, and their spiritual health. The chain of authority in the Order runs from the Levie through each rank to the Schoolmaster, Commander, and ultimately the Grand Master. This is not bureaucracy \u2014 it is the structure that allows trust to function at scale. A Levie who refuses to take direction from their superior, or who gossips about fellow members, does not just harm themselves \u2014 they compromise the chain. Accountability is the practice of holding one another to the standards of the Order in a spirit of love rather than condemnation. When a member falls into difficulty, the response of the Order is not judgment but help. When a member violates the Rule, the response is correction \u2014 swift, clear, and proportionate. A Levie must be willing to be accountable and to hold others accountable with equal willingness.",
+      "keyTerms": [
+        {
+          "term": "Covenant",
+          "definition": "A solemn, binding agreement involving the whole person; stronger than a contract"
+        },
+        {
+          "term": "Chain of Authority",
+          "definition": "The ordered structure of rank and office through which decisions and accountability flow"
+        },
+        {
+          "term": "Accountability",
+          "definition": "The practice of holding oneself and others to the standards of the Order in a spirit of brotherhood"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Define the difference between a 'covenant' and a 'contract.'",
+          "type": "short"
+        },
+        {
+          "question": "How does gossip or insubordination harm the entire Order?",
+          "type": "short"
+        },
+        {
+          "question": "Describe a situation where fraternal accountability would be difficult. How should it be handled?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 8,
+      "title": "Final Review and Advancement Preparation",
+      "objectives": [
+        "Review all core topics from the Levie program",
+        "Prepare a brief personal statement of commitment",
+        "Identify the next program in your advancement path"
+      ],
+      "lesson": "The Levie program has laid the foundation. You have studied the history, the virtues, the Rule, the faith, the service, the symbols, the brotherhood, and the structure of authority. These eight weeks are not a checklist \u2014 they are an introduction to a lifetime of formation. Before you present yourself for advancement review, the Schoolmaster will want to know not merely that you can recite facts but that you have begun to integrate these lessons into who you are. Prepare a brief personal statement \u2014 no more than one page, no less than one paragraph \u2014 in which you state: (1) why you joined the Order, (2) what has been most challenging, (3) what virtue you are most committed to developing, and (4) what program you intend to complete next. The Corporal School Program awaits those who complete the Levie with distinction. The path forward demands more \u2014 deeper study, greater service, and the willingness to lead those who come after you. Non nobis, Domine.",
+      "keyTerms": [
+        {
+          "term": "Advancement Review",
+          "definition": "The formal evaluation by the Schoolmaster assessing readiness for progression to the next rank"
+        },
+        {
+          "term": "Personal Statement",
+          "definition": "A brief written declaration of purpose, growth, and commitment prepared for advancement"
+        },
+        {
+          "term": "Foundation",
+          "definition": "The knowledge, virtues, and habits built in the Levie program upon which all future advancement rests"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Name three topics from the Levie program and explain why each is foundational.",
+          "type": "short"
+        },
+        {
+          "question": "What will a Schoolmaster be looking for in an advancement review beyond factual recall?",
+          "type": "short"
+        },
+        {
+          "question": "Write your personal statement of commitment for advancement. Include all four required elements.",
+          "type": "essay"
+        }
+      ]
+    }
+  ]
+}

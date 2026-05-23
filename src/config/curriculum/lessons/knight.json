@@ -1,0 +1,159 @@
+{
+  "slug": "knight",
+  "title": "Knight School Program",
+  "description": "Knight formation program. Obligations, institutional integrity, family integration, and legacy. Four intensive weeks.",
+  "weeks": [
+    {
+      "week": 1,
+      "title": "The Newly Knighted: Obligations and First Acts",
+      "objectives": [
+        "Understand the immediate obligations that follow knighting",
+        "Identify the first actions a newly knighted member should take",
+        "Begin intentionally living the knightly vocation from day one"
+      ],
+      "lesson": "The moment the accolade is given, the knight assumes a new identity. This is not metaphor \u2014 it is a real change of status within the Order and before God. The newly knighted member of the Order has three immediate obligations: (1) Identify a vulnerable person or group and commit to their ongoing protection and service. (2) Identify a member less advanced in the Order and begin intentional formation of that person. (3) Establish a daily rhythm of prayer and Scripture that will sustain the knightly life. These are not things to get around to eventually. They are first acts. The Templars understood that the newly invested knight who did not immediately take up the work of knighthood was at risk of letting the ceremony become the destination rather than the beginning. Ceremony is the gate, not the house. The knight who steps through the gate and stands on the threshold indefinitely is wasting the gift.",
+      "keyTerms": [
+        {
+          "term": "Accolade",
+          "definition": "The conferral of knighthood; the moment of identity change"
+        },
+        {
+          "term": "First Acts",
+          "definition": "The immediate, specific obligations undertaken by a newly knighted member"
+        },
+        {
+          "term": "Gate vs. House",
+          "definition": "The ceremony as beginning (gate) versus the ongoing life of service (house); the ceremony has no value without the life that follows"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Name the three immediate obligations of a newly knighted member.",
+          "type": "short"
+        },
+        {
+          "question": "Why is it dangerous to treat the knighting ceremony as a destination rather than a beginning?",
+          "type": "short"
+        },
+        {
+          "question": "Describe your first act of service as a knight. Who will benefit, and when will you begin?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "title": "The Knight and the Order: Protecting the Institution",
+      "objectives": [
+        "Understand the knight's obligation to the institutional health of the Order",
+        "Identify threats to the Order's integrity and how to address them",
+        "Practice speaking truth to authority with humility and courage"
+      ],
+      "lesson": "A knight is not only responsible for their own conduct \u2014 they are responsible for the health of the entire Order. This means speaking up when something is wrong, even when it is uncomfortable. The Templar tradition included a mechanism called the chapter of faults \u2014 a regular meeting at which members could raise concerns about the conduct of the Order, including the conduct of superiors. This was not license for disrespect or rebellion; it was a structured opportunity for honest accountability. A knight who sees the Order drifting from its values and says nothing has failed in their obligation. But a knight who raises concerns recklessly, publicly, or in anger has also failed. The standard is: raise concerns privately first, then through the proper channel, then publicly if necessary \u2014 always with the goal of restoring right conduct, never with the goal of winning an argument or humiliating a superior. This requires both courage and humility \u2014 the combination that defines knightly character.",
+      "keyTerms": [
+        {
+          "term": "Chapter of Faults",
+          "definition": "The Templar assembly mechanism for raising concerns about the Order's conduct"
+        },
+        {
+          "term": "Institutional Integrity",
+          "definition": "The alignment of the Order's actual conduct with its stated values"
+        },
+        {
+          "term": "Principled Dissent",
+          "definition": "Raising concerns about the Order's direction through proper channels with the goal of restoration"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What was the 'chapter of faults' and what purpose did it serve?",
+          "type": "short"
+        },
+        {
+          "question": "What is the standard for raising concerns about the Order's conduct?",
+          "type": "short"
+        },
+        {
+          "question": "Describe a situation where you raised \u2014 or should have raised \u2014 a concern about the Order or another institution. How did you handle it?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "title": "The Knight's Family and the Order's Community",
+      "objectives": [
+        "Understand the relationship between the knight's family obligations and Order service",
+        "Identify how to serve the Order without neglecting family",
+        "Practice the skill of integration rather than compartmentalization"
+      ],
+      "lesson": "The medieval Templar's vow of celibacy prevented marriage \u2014 but modern knights in the KTKC have families, and those families are themselves part of the Order's community. A knight who serves the Order brilliantly while neglecting their family has not achieved the integration the vocation demands \u2014 they have simply moved the failure from one arena to another. The standard for a knight with family is this: the Order should make you a better spouse, parent, and sibling \u2014 not a competitor to those relationships. If attendance at assembly is causing serious damage to your family relationships, something must be addressed \u2014 either the frequency of assembly, the nature of family involvement, or the knight's own priorities. The Order should know and care for its knights' families. When a family is struggling, the Order should respond. When a family has a new child or a death or a medical crisis, the Order notices and acts. Brotherhood is not just between knights \u2014 it extends to the families they bring into the community.",
+      "keyTerms": [
+        {
+          "term": "Family Obligation",
+          "definition": "The knight's primary responsibility to spouse, children, and extended family; not subordinate to the Order but integrated with it"
+        },
+        {
+          "term": "Integration",
+          "definition": "The art of fulfilling all obligations simultaneously through deliberate priority and rhythm"
+        },
+        {
+          "term": "Brotherhood Extended",
+          "definition": "The Order's care for the families of its members; the community beyond the assembly room"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "How should Order service relate to family obligations for a married knight?",
+          "type": "short"
+        },
+        {
+          "question": "What is the difference between 'prioritizing' and 'compartmentalizing'?",
+          "type": "short"
+        },
+        {
+          "question": "Describe how you currently balance Order service and family life. What would you like to improve?",
+          "type": "essay"
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "title": "The Knight's Legacy: Formation for the Next Generation",
+      "objectives": [
+        "Understand the knight's responsibility to form the next generation",
+        "Identify specific ways to invest in youth and younger members",
+        "Write a personal legacy statement"
+      ],
+      "lesson": "A knight who has not invested in the next generation has served only their own generation. The Order's survival across centuries depends not on institutional structures alone but on the transmission of living values from person to person. The medieval Templars trained squires \u2014 boys who served the knights directly, learned by proximity, and were formed in ways that no classroom could replicate. The KTKC's Squire program exists for exactly this purpose. A knight in the Order should be known by at least one young person \u2014 whether a squire in the program or a youth in the community \u2014 as someone who invested in them consistently and without expectation of return. The knight's legacy is not the rank on their mantle. It is the person they helped form, the assembly they helped build, the family they served faithfully, and the God they sought honestly. Before the end of this program, write your legacy statement: not what you have already done, but what you intend your life to have meant.",
+      "keyTerms": [
+        {
+          "term": "Legacy",
+          "definition": "What a knight's life will be remembered for; not rank or ceremony but formation, service, and faithfulness"
+        },
+        {
+          "term": "Formation by Proximity",
+          "definition": "The learning that happens through sustained personal relationship with an experienced member"
+        },
+        {
+          "term": "Legacy Statement",
+          "definition": "A written declaration of what a knight intends their life to mean \u2014 a commitment to the future, not a review of the past"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Why is formation of the next generation described as a knight's obligation?",
+          "type": "short"
+        },
+        {
+          "question": "What is 'formation by proximity' and why is it irreplaceable?",
+          "type": "short"
+        },
+        {
+          "question": "Write your personal legacy statement. Be honest about what you hope will be said of you.",
+          "type": "essay"
+        }
+      ]
+    }
+  ]
+}
