@@ -6,7 +6,7 @@
   <title>Templar Forge Academy — Welcome</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&display=swap');
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -56,9 +56,9 @@
       left: 22px;
       z-index: 10;
       width: clamp(100px, 12vw, 170px);
-      filter: drop-shadow(0 4px 18px rgba(0,0,0,0.75));
-      /* strips any white/checker background */
-      mix-blend-mode: normal;
+      mix-blend-mode: multiply;
+      filter: drop-shadow(0 4px 18px rgba(0,0,0,0.85)) brightness(1.05);
+      background: transparent;
     }
 
     /* ── TOP-RIGHT SEAL ── */
@@ -68,7 +68,9 @@
       right: 20px;
       z-index: 10;
       width: clamp(95px, 11vw, 155px);
-      filter: drop-shadow(0 4px 18px rgba(0,0,0,0.75));
+      mix-blend-mode: multiply;
+      filter: drop-shadow(0 4px 18px rgba(0,0,0,0.85)) brightness(1.05);
+      background: transparent;
     }
 
     /* ── CENTER CONTENT ── */
@@ -93,20 +95,20 @@
 
     /* ── MAIN TITLE ── */
     .title {
-      /* Algerian is a Windows/system font — we cascade to similar serifs */
-      font-family: 'Algerian', 'MedievalSharp', 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
-      font-size: clamp(2rem, 5.5vw, 5.2rem);
+      font-family: 'Cinzel', 'Trajan Pro', 'Palatino Linotype', 'Times New Roman', serif;
+      font-size: clamp(1.9rem, 5vw, 4.8rem);
       font-weight: 900;
-      letter-spacing: 0.06em;
-      line-height: 1.15;
-      color: #f5d97e;
-      text-shadow:
-        0 0 18px rgba(197, 150, 20, 0.9),
-        0 0 40px rgba(180, 100, 0, 0.6),
-        3px 4px 0px rgba(0,0,0,0.85),
-        0 2px 8px rgba(0,0,0,0.9);
+      letter-spacing: 0.1em;
+      line-height: 1.2;
+      color: #e8c96a;
       text-transform: uppercase;
-      max-width: 880px;
+      max-width: 900px;
+      text-shadow:
+        0 2px 0   rgba(0,0,0,0.95),
+        0 4px 0   rgba(0,0,0,0.75),
+        0 6px 0   rgba(0,0,0,0.50),
+        0 8px 12px rgba(0,0,0,0.70),
+        0 0 28px  rgba(210,160,30,0.35);
     }
 
     /* Gold divider cross */
@@ -219,7 +221,7 @@
 
       <div class="divider">✦ ✠ ✦</div>
 
-      <a class="enter-btn" href="/dashboard">Enter the Repository</a>
+      <a class="enter-btn" href="/dashboard">Enter the Forge</a>
 
       <div class="rule"></div>
     </div>
