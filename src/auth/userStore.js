@@ -164,9 +164,12 @@ function getMemberUsers() {
 // re-hashing. The caller is responsible for deduplication checks.
 function addRawUser(userObj) {
   const users = readAll();
-  users.push(userObj);
+  // Tag every SM-approved member so the volume-seed migration can distinguish
+  // runtime-registered users from old pre-seeded records.
+  const tagged = { ...userObj, source: 'registered' };
+  users.push(tagged);
   writeAll(users);
-  return userObj;
+  return tagged;
 }
 
 module.exports = {

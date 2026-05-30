@@ -1085,23 +1085,44 @@ app.use((req, res) => {
 // ── VOLUME SEED ──
 // On Railway (or any deployment with RAILWAY_VOLUME_MOUNT_PATH set), the
 // persistent Volume starts empty.  On first boot we copy the committed
-// data/users.json from the repo into the Volume so all seeded members survive
-// redeploys.  On subsequent boots the Volume file already exists, so we skip
-// the copy and never overwrite data the server has written at runtime.
+// data/users.json from the repo into the Volume so the admin account exists.
+//
+// MIGRATION (v2): The old data model had pre-seeded members in users.json.
+// We now use a clean-slate model: members self-register and SM approves.
+// On boot we purge any volume users that are NOT admin and NOT tagged
+// source:'registered' (i.e. SM-approved via the new flow).  This removes
+// the old pre-seeded accounts (unknown passwords) without touching any member
+// who has already registered + been approved on Railway.
 function seedVolumeIfNeeded() {
   const { USERS_FILE, DATA_DIR, PRIVATE_DIR } = require('./src/config/dataPaths');
   const VOLUME = process.env.RAILWAY_VOLUME_MOUNT_PATH || null;
   if (!VOLUME) return; // local dev — files are already in the repo dirs
 
   const fsSync = require('fs');
-
-  // ── Seed users.json ──
   const REPO_USERS = path.join(__dirname, 'data', 'users.json');
+
+  // ── Seed users.json (first boot — file missing or empty) ──
   if (!fsSync.existsSync(USERS_FILE) || fsSync.readFileSync(USERS_FILE, 'utf8').trim() === '[]') {
     if (fsSync.existsSync(REPO_USERS)) {
       fsSync.mkdirSync(DATA_DIR, { recursive: true });
       fsSync.copyFileSync(REPO_USERS, USERS_FILE);
       console.log(`✠ Volume seed: copied repo data/users.json → ${USERS_FILE}`);
+    }
+  } else {
+    // ── Migration: remove old pre-seeded members from the volume ──
+    // Keep: role==='admin'  OR  source==='registered'  (SM-approved new members).
+    // Purge: any member record without source:'registered' — those are the old
+    //        pre-seeded entries with unknown/lost passwords that block login.
+    try {
+      const volumeUsers = JSON.parse(fsSync.readFileSync(USERS_FILE, 'utf8'));
+      const cleaned = volumeUsers.filter(u => u.role === 'admin' || u.source === 'registered');
+      if (cleaned.length !== volumeUsers.length) {
+        const removed = volumeUsers.length - cleaned.length;
+        fsSync.writeFileSync(USERS_FILE, JSON.stringify(cleaned, null, 2), 'utf8');
+        console.log(`✠ Volume migration: purged ${removed} old pre-seeded member(s) from userStore. Kept ${cleaned.length} (admin + registered).`);
+      }
+    } catch (e) {
+      console.error('✠ Volume migration error (users.json):', e.message);
     }
   }
 

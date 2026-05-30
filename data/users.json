@@ -7,13 +7,5 @@
     "password": "$2b$12$kq.5SOuuNUBVRtVQZkzV8OSqqtx6dTr/nvk.stj92FjMoRVS.ERD2",
     "createdAt": "2026-05-23T08:49:48.964Z",
     "memberId": "KTKC-0000"
-  },
-  {
-    "id": "1780159153803",
-    "username": "Sir Templar Knight",
-    "password": "$2b$12$24yrdlZD4BAAse3RqhSuBu3pKJKVaGQACJ3RHTe1FHDTyMKmxptfi",
-    "role": "member",
-    "memberId": "KTKC-7777",
-    "email": "knight@ktkc.org"
   }
 ]
