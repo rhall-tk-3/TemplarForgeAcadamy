@@ -23,8 +23,8 @@ app.set('trust proxy', 1);
 const IS_PROD = process.env.NODE_ENV === 'production';
 const COOKIE_SECURE = IS_PROD ? '; Secure' : '';
 const SESSION_COOKIE = (token) =>
-  `academy_session=${token}; HttpOnly; Path=/; SameSite=Strict; Max-Age=28800${COOKIE_SECURE}`;
-const CLEAR_COOKIE = `academy_session=; HttpOnly; Path=/; SameSite=Strict; Max-Age=0${COOKIE_SECURE}`;
+  `academy_session=${token}; HttpOnly; Path=/; SameSite=Lax; Max-Age=28800${COOKIE_SECURE}`;
+const CLEAR_COOKIE = `academy_session=; HttpOnly; Path=/; SameSite=Lax; Max-Age=0${COOKIE_SECURE}`;
 
 // ── MIDDLEWARE ──
 app.use(express.json());
@@ -35,7 +35,7 @@ app.use(session({
   cookie: {
     maxAge:   8 * 60 * 60 * 1000, // 8 hours
     secure:   IS_PROD,             // HTTPS only in production
-    sameSite: 'strict',
+    sameSite: 'lax',
     httpOnly: true
   }
 }));
@@ -378,8 +378,16 @@ app.use('/auth', authRouter);
       }
     }
 
-    if (accounts.some(a => a.memberId === normalizedId)) {
-      return res.status(409).json({ error: 'An account already exists for this Member ID.' });
+    // Block duplicate pending requests, but allow re-registration after rejection
+    // or to reset a password on an already-approved account (seeded members).
+    const existingAcct = accounts.find(a => a.memberId === normalizedId);
+    if (existingAcct) {
+      if (existingAcct.approvalStatus === 'pending') {
+        return res.status(409).json({ error: 'A registration request is already pending for this Member ID. Please wait for Schoolmaster approval.' });
+      }
+      // Rejected or already approved — allow re-registration (overwrites old record)
+      const acctIdx = accounts.indexOf(existingAcct);
+      accounts.splice(acctIdx, 1);
     }
 
     const passwordHash = await bcrypt.hash(password, 12);
@@ -467,7 +475,15 @@ app.use('/auth', authRouter);
       const alreadyInStore = allUsers.find(
         u => u.memberId && u.memberId.trim().toUpperCase() === normalizedId
       );
-      if (!alreadyInStore) {
+      if (alreadyInStore) {
+        // Seeded member re-registering via the portal — update their password
+        // and email so they can log in with their new credentials.
+        const { updateUser } = require('./src/auth/userStore');
+        const updates = { password: acct.passwordHash };
+        if (acct.email) updates.email = acct.email;
+        updateUser(alreadyInStore.id, updates);
+        console.log(`✠ Approved member ${normalizedId} (${acct.fullName}) — password updated in userStore (seeded member re-registration).`);
+      } else {
         addRawUser({
           id:              Date.now().toString(),
           username:        acct.fullName,
