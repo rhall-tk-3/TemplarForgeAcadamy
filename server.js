@@ -11,6 +11,7 @@ const profileRouter             = require('./src/auth/profileRouter');
 const { getAllUsers, seedSchoolmaster } = require('./src/auth/userStore');
 const assessmentService = require('./src/services/assessmentService');
 const assessmentController  = require('./src/controllers/assessmentController');
+const { verifyJwtCookie, hydrateSessionFromJwt } = require('./src/config/jwtSession');
 
 const app  = express();
 const PORT = process.env.PORT || 3000;
@@ -43,47 +44,9 @@ app.use(session({
 const jwt = require('jsonwebtoken');
 const JWT_SECRET = process.env.JWT_SECRET || 'templar-jwt-secret-2026';
 
-function verifyJwtCookie(req) {
-  // Parse the raw Cookie header manually — express-session doesn't parse our JWT cookie
-  const raw = req.headers.cookie || '';
-  const match = raw.match(/(?:^|;\s*)academy_session=([^;]+)/);
-  if (!match) return null;
-  try {
-    return jwt.verify(match[1], JWT_SECRET);
-  } catch (_) {
-    return null;
-  }
-}
-
-// Hydrate req.session from a valid JWT payload when Express session is absent.
-// This happens when members log in via the registry path (JWT-only) and then
-// hit a session-gated route such as /api/doc-render or /api/programs/:slug/lessons.
-function hydrateSessionFromJwt(req) {
-  if (req.session.userId) return true;          // session already populated
-  const payload = verifyJwtCookie(req);
-  if (!payload) return false;
-  // Resolve the internal user id from the JWT payload (fullName or memberId)
-  const allUsers = getAllUsers ? getAllUsers() : [];
-  let user = null;
-  if (payload.fullName) {
-    user = allUsers.find(u => u.username && u.username.trim().toUpperCase() === payload.fullName.trim().toUpperCase());
-  }
-  if (!user && payload.memberId) {
-    user = allUsers.find(u => u.memberId && u.memberId.trim().toUpperCase() === payload.memberId.trim().toUpperCase());
-  }
-  if (!user) {
-    // JWT is valid but user not in userStore (e.g. registry-only accounts that haven't been
-    // promoted yet) — grant a temporary session from JWT claims so pages load
-    req.session.userId   = payload.memberId || payload.fullName || 'jwt-user';
-    req.session.role     = payload.role || 'member';
-    req.session.username = payload.fullName || '';
-    return true;
-  }
-  req.session.userId   = user.id;
-  req.session.role     = user.role;
-  req.session.username = user.username;
-  return true;
-}
+// verifyJwtCookie and hydrateSessionFromJwt are imported from src/config/jwtSession.js
+// and shared by all routers (authRouter, progressionRouter, profileRouter).
+// Do not duplicate them here.
 
 // ── AUTH GUARDS ──
 // API routes (path starts with /api/ or is called by fetch) must receive a
@@ -1029,8 +992,54 @@ app.use((req, res) => {
   res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
 });
 
+// ── VOLUME SEED ──
+// On Railway (or any deployment with RAILWAY_VOLUME_MOUNT_PATH set), the
+// persistent Volume starts empty.  On first boot we copy the committed
+// data/users.json from the repo into the Volume so all seeded members survive
+// redeploys.  On subsequent boots the Volume file already exists, so we skip
+// the copy and never overwrite data the server has written at runtime.
+function seedVolumeIfNeeded() {
+  const { USERS_FILE, DATA_DIR, PRIVATE_DIR } = require('./src/config/dataPaths');
+  const VOLUME = process.env.RAILWAY_VOLUME_MOUNT_PATH || null;
+  if (!VOLUME) return; // local dev — files are already in the repo dirs
+
+  const fsSync = require('fs');
+
+  // ── Seed users.json ──
+  const REPO_USERS = path.join(__dirname, 'data', 'users.json');
+  if (!fsSync.existsSync(USERS_FILE) || fsSync.readFileSync(USERS_FILE, 'utf8').trim() === '[]') {
+    if (fsSync.existsSync(REPO_USERS)) {
+      fsSync.mkdirSync(DATA_DIR, { recursive: true });
+      fsSync.copyFileSync(REPO_USERS, USERS_FILE);
+      console.log(`✠ Volume seed: copied repo data/users.json → ${USERS_FILE}`);
+    }
+  }
+
+  // ── Seed curriculum-submissions.json (empty array if missing) ──
+  const { SUBMISSIONS_FILE } = require('./src/config/dataPaths');
+  if (!fsSync.existsSync(SUBMISSIONS_FILE)) {
+    fsSync.writeFileSync(SUBMISSIONS_FILE, '[]', 'utf8');
+    console.log(`✠ Volume seed: created empty submissions file at ${SUBMISSIONS_FILE}`);
+  }
+
+  // ── Ensure private/ dir + empty JSON files exist ──
+  const { ACCOUNTS_FILE, REGISTRY_FILE } = require('./src/config/dataPaths');
+  fsSync.mkdirSync(PRIVATE_DIR, { recursive: true });
+  if (!fsSync.existsSync(ACCOUNTS_FILE)) {
+    fsSync.writeFileSync(ACCOUNTS_FILE, '[]', 'utf8');
+    console.log(`✠ Volume seed: created empty accounts file at ${ACCOUNTS_FILE}`);
+  }
+  if (!fsSync.existsSync(REGISTRY_FILE)) {
+    fsSync.writeFileSync(REGISTRY_FILE, '[]', 'utf8');
+    console.log(`✠ Volume seed: created empty registry file at ${REGISTRY_FILE}`);
+  }
+}
+
 // ── BOOT ──
 async function start() {
+  // Seed volume data files before anything else touches them
+  seedVolumeIfNeeded();
+
   // Seed / sync the one Schoolmaster account
   await seedSchoolmaster();
   console.log(`✠ Schoolmaster account ready: ${process.env.SM_USERNAME || 'Schoolmaster26'}`);

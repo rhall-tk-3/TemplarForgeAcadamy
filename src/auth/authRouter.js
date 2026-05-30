@@ -10,7 +10,8 @@ const {
   updateUser,
   RESERVED_NAMES
 } = require('./userStore');
-const { RESET_LOG_FILE } = require('../config/dataPaths');
+const { RESET_LOG_FILE }          = require('../config/dataPaths');
+const { hydrateSessionFromJwt }   = require('../config/jwtSession');
 
 const router = express.Router();
 
@@ -136,16 +137,35 @@ router.get('/logout', (req, res) => {
 });
 
 // ── CURRENT USER ──
+// Used by member-dashboard.html on every load to fetch the session user.
+// Must hydrate from JWT first — Railway restarts wipe the express-session store,
+// so req.session may be empty even though the JWT cookie is still valid.
 router.get('/me', (req, res) => {
+  // Hydrate from JWT if express-session is cold (e.g. after Railway restart)
+  hydrateSessionFromJwt(req);
+
   if (!req.session.userId) {
     return res.status(401).json({ error: 'Not signed in.' });
   }
+
+  // For userStore members, look up the full record
   const user = findById(req.session.userId);
-  if (!user) {
-    return res.status(401).json({ error: 'Session expired.' });
+  if (user) {
+    const { password, ...safe } = user;
+    return res.json(safe);
   }
-  const { password, ...safe } = user;
-  return res.json(safe);
+
+  // Registry-only accounts (accounts.json) — not in userStore.
+  // Build a minimal safe object from session data so the dashboard renders.
+  if (req.session.username) {
+    return res.json({
+      id:       req.session.userId,
+      username: req.session.username,
+      role:     req.session.role || 'member',
+    });
+  }
+
+  return res.status(401).json({ error: 'Session expired.' });
 });
 
 // ── RESET PASSCODE  (admin only) ──
@@ -154,7 +174,8 @@ router.get('/me', (req, res) => {
 // sends a notification email to the address on the member's profile,
 // and logs the action to data/reset-log.json.
 router.post('/reset-password/:id', async (req, res) => {
-  // Guard: must be signed in as admin
+  // Guard: must be signed in as admin — hydrate JWT first
+  hydrateSessionFromJwt(req);
   if (!req.session.userId || req.session.role !== 'admin') {
     return res.status(403).json({ error: 'Schoolmaster access required.' });
   }

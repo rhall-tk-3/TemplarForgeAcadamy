@@ -22,6 +22,7 @@ const path    = require('path');
 const fs      = require('fs');
 const { findById, updateUser } = require('./userStore');
 const { getCurriculumIndex }   = require('../services/curriculumService');
+const { hydrateSessionFromJwt } = require('../config/jwtSession');
 
 const router = express.Router();
 
@@ -49,11 +50,15 @@ const upload = multer({
 });
 
 // ── Guards ──
+// Hydrate from JWT first so Railway restarts (which wipe the in-memory
+// express-session store) don't break authenticated profile requests.
 function requireMember(req, res, next) {
+  hydrateSessionFromJwt(req);
   if (!req.session.userId) return res.status(401).json({ error: 'Not signed in.' });
   next();
 }
 function requireAdmin(req, res, next) {
+  hydrateSessionFromJwt(req);
   if (!req.session.userId) return res.status(401).json({ error: 'Not signed in.' });
   if (req.session.role !== 'admin') return res.status(403).json({ error: 'Schoolmaster access required.' });
   next();

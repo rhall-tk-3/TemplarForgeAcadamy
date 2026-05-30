@@ -28,17 +28,23 @@ const { getCurriculumIndex } = require('../services/curriculumService');
 const { getLessonForWeek }   = require('../services/lessonService');
 const { readStore, studentKey } = require('../services/submissionStoreService');
 
+const { hydrateSessionFromJwt } = require('../config/jwtSession');
+
 const router = express.Router();
 
 // ── Overdue threshold: more than 2 weeks (in ms) on a single week ──
 const OVERDUE_MS = 14 * 24 * 60 * 60 * 1000; // 14 days
 
 // ── Guards ──
+// Both guards hydrate from JWT first so Railway restarts (which wipe the
+// in-memory express-session store) don't break authenticated requests.
 function requireMember(req, res, next) {
+  hydrateSessionFromJwt(req);
   if (!req.session.userId) return res.status(401).json({ error: 'Not signed in.' });
   next();
 }
 function requireAdmin(req, res, next) {
+  hydrateSessionFromJwt(req);
   if (!req.session.userId) return res.status(401).json({ error: 'Not signed in.' });
   if (req.session.role !== 'admin') return res.status(403).json({ error: 'Schoolmaster access required.' });
   next();
