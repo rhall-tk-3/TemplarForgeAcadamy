@@ -764,6 +764,7 @@ app.get('/viewer/index.html', (_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'viewer', 'index.html'));
 });
 app.get('/login', (_req, res) => {
+  res.setHeader('Cache-Control', 'no-store');
   res.sendFile(path.join(__dirname, 'public', 'login-portal.html'));
 });
 app.get('/register', (_req, res) => {
