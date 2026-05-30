@@ -12,13 +12,13 @@
     if (!data.authenticated) throw new Error("No session");
 
     if (role === "schoolmaster" && data.user.role !== "schoolmaster") {
-      window.location.href = "/account/?denied=role";
+      window.location.href = "/login?denied=role";
       return;
     }
 
     document.documentElement.setAttribute("data-auth-ready", "true");
   } catch {
     const next = encodeURIComponent(window.location.pathname + window.location.search);
-    window.location.href = `/account/?next=${next}`;
+    window.location.href = `/login?next=${next}`;
   }
 })();
