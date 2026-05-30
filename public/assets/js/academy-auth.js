@@ -18,16 +18,13 @@ function showMsg(el, text, type) {
   el.className = `msg show ${type}`;
 }
 
-function normalizeMemberId(v) {
-  return String(v || "").trim().toUpperCase();
-}
-
 document.addEventListener("DOMContentLoaded", () => {
-  const loginForm = document.getElementById("login-form");
+  const loginForm    = document.getElementById("login-form");
   const registerForm = document.getElementById("register-form");
-  const loginMsg = document.getElementById("login-msg");
-  const registerMsg = document.getElementById("register-msg");
+  const loginMsg     = document.getElementById("login-msg");
+  const registerMsg  = document.getElementById("register-msg");
 
+  // ── SIGN IN ──
   loginForm?.addEventListener("submit", async (e) => {
     e.preventDefault();
     const form = new FormData(loginForm);
@@ -35,24 +32,22 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const data = await sendJson("/api/auth/login", {
         fullName: form.get("fullName"),
-        memberId: normalizeMemberId(form.get("memberId")),
         password: form.get("password")
       });
 
       showMsg(loginMsg, "Sign-in successful. Redirecting...", "success");
-      // Write a short-lived flag so academy-guard.js knows login just succeeded
-      // and doesn't immediately bounce back while the cookie propagates
-      try { sessionStorage.setItem('tfa_just_logged_in', Date.now()); } catch (_) {}
+      try { sessionStorage.setItem("tfa_just_logged_in", Date.now()); } catch (_) {}
       window.location.href = data.redirect || "/member/";
     } catch (err) {
       showMsg(loginMsg, err.message, "error");
     }
   });
 
+  // ── CREATE ACCOUNT ──
   registerForm?.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const form = new FormData(registerForm);
-    const password = String(form.get("password") || "");
+    const form            = new FormData(registerForm);
+    const password        = String(form.get("password") || "");
     const confirmPassword = String(form.get("confirmPassword") || "");
 
     if (password !== confirmPassword) {
@@ -63,8 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       await sendJson("/api/auth/register", {
         fullName: form.get("fullName"),
-        memberId: normalizeMemberId(form.get("memberId")),
-        email: form.get("email"),
+        email:    form.get("email"),
         password
       });
 

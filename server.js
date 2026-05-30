@@ -167,36 +167,27 @@ app.use('/auth', authRouter);
     return JSON.parse(fsSync.readFileSync(REGISTRY_PATH, 'utf8'));
   }
 
-  // ── POST /api/auth/login  { fullName, memberId, password } ──
-  // Member login: validates against private/accounts.json using memberId + fullName + password.
-  // Issues a signed JWT stored in the HttpOnly 'academy_session' cookie (8 h, no server-side session).
-  // Schoolmaster admin login continues to use req.session via the existing /auth/login route.
+  // ── POST /api/auth/login  { fullName, password } ──
+  // Sign in by full name + password only — no Member ID required.
+  // Schoolmaster is matched by username. Members matched by username in userStore.
   app.post('/api/auth/login', async (req, res) => {
-    const { fullName, memberId, password } = req.body || {};
+    const { fullName, password } = req.body || {};
 
     if (!fullName || !password) {
       return res.status(400).json({ error: 'Full name and password are required.' });
     }
 
-    // ── Schoolmaster fast-path ──
-    // memberId KTKC-0000 (or no memberId supplied) + name matches SM → use userStore.
-    const normalizedId   = String(memberId || '').trim().toUpperCase();
     const normalizedName = String(fullName).trim().toUpperCase();
-    const { findByUsername, findById } = require('./src/auth/userStore');
-    const smCandidate = (normalizedId === 'KTKC-0000' || !normalizedId)
-      ? findByUsername(fullName.trim())
-      : null;
+    const { findByUsername, findById, getAllUsers } = require('./src/auth/userStore');
 
+    // ── Schoolmaster fast-path ──
+    const smCandidate = findByUsername(fullName.trim());
     if (smCandidate && smCandidate.role === 'admin') {
       const match = await bcrypt.compare(password, smCandidate.password);
-      if (!match) {
-        return res.status(401).json({ error: 'Incorrect password.' });
-      }
-      // Set express-session
+      if (!match) return res.status(401).json({ error: 'Incorrect password.' });
       req.session.userId   = smCandidate.id;
       req.session.role     = smCandidate.role;
       req.session.username = smCandidate.username;
-      // Also issue JWT cookie so JWT-gated routes work
       const jwt = require('jsonwebtoken');
       const token = jwt.sign(
         { memberId: smCandidate.memberId || 'KTKC-0000', fullName: smCandidate.username, role: 'schoolmaster' },
@@ -207,75 +198,24 @@ app.use('/auth', authRouter);
       return res.json({ ok: true, redirect: '/schoolmaster' });
     }
 
-    // ── userStore member path ──
-    // Existing members registered through the original system live in data/users.json.
-    // Two sub-cases:
-    //   A) SM has assigned a memberId — match on memberId + name + password.
-    //   B) SM has NOT yet assigned a memberId (null) — match on name + password only,
-    //      allowing the member to enter any memberId (or none) to sign in.
-    //      Once the SM assigns an ID, case A takes over automatically.
-    const { findById: _findById, getAllUsers, findByUsername: _findByUsername } = require('./src/auth/userStore');
+    // ── Member path — name lookup in userStore ──
     const allUsers = getAllUsers ? getAllUsers() : [];
-
-    // Case A: memberId provided and matches a stored member record
-    const existingMember = normalizedId
-      ? allUsers.find(u =>
-          u.role === 'member' &&
-          u.memberId &&
-          u.memberId.trim().toUpperCase() === normalizedId
-        )
-      : null;
-
-    if (existingMember) {
-      const rawMember = _findById(existingMember.id);
-      if (!rawMember) return res.status(403).json({ error: 'Member account not found.' });
-      if (rawMember.username.trim().toUpperCase() !== normalizedName) {
-        return res.status(401).json({ error: 'Full name does not match this Member ID.' });
-      }
-      const match = await bcrypt.compare(password, rawMember.password);
-      if (!match) return res.status(401).json({ error: 'Incorrect password.' });
-      req.session.userId   = rawMember.id;
-      req.session.role     = rawMember.role;
-      req.session.username = rawMember.username;
-      const jwt = require('jsonwebtoken');
-      const token = jwt.sign(
-        { memberId: rawMember.memberId, fullName: rawMember.username, role: 'member' },
-        process.env.JWT_SECRET || 'templar-jwt-secret-2026',
-        { expiresIn: '8h' }
-      );
-      res.setHeader('Set-Cookie', SESSION_COOKIE(token));
-      return res.json({ ok: true, redirect: '/member' });
-    }
-
-    // Case B: name-based lookup — member exists in userStore but has no memberId yet
-    // (SM hasn't assigned one, or member is signing in before ID assignment).
-    // Also catches the case where SM assigned an ID but member entered a wrong/different one.
-    const nameMatchMember = allUsers.find(u =>
+    const match = allUsers.find(u =>
       u.role === 'member' &&
       u.username.trim().toUpperCase() === normalizedName
     );
-    if (nameMatchMember) {
-      // If this member already has an ID assigned and it doesn't match what was entered → reject
-      if (nameMatchMember.memberId &&
-          nameMatchMember.memberId.trim().toUpperCase() !== normalizedId) {
-        return res.status(401).json({ error: 'Member ID does not match your account.' });
-      }
-      const rawMember = _findById(nameMatchMember.id);
+
+    if (match) {
+      const rawMember = findById(match.id);
       if (!rawMember) return res.status(403).json({ error: 'Member account not found.' });
-      const match = await bcrypt.compare(password, rawMember.password);
-      if (!match) return res.status(401).json({ error: 'Incorrect password.' });
-      // If a memberId was provided but none was stored, save it now
-      if (normalizedId && !rawMember.memberId) {
-        const { updateUser: _updateUser } = require('./src/auth/userStore');
-        _updateUser(rawMember.id, { memberId: normalizedId });
-        rawMember.memberId = normalizedId;
-      }
+      const pwMatch = await bcrypt.compare(password, rawMember.password);
+      if (!pwMatch) return res.status(401).json({ error: 'Incorrect password.' });
       req.session.userId   = rawMember.id;
       req.session.role     = rawMember.role;
       req.session.username = rawMember.username;
       const jwt = require('jsonwebtoken');
       const token = jwt.sign(
-        { memberId: rawMember.memberId || normalizedId || null, fullName: rawMember.username, role: 'member' },
+        { memberId: rawMember.memberId || null, fullName: rawMember.username, role: 'member' },
         process.env.JWT_SECRET || 'templar-jwt-secret-2026',
         { expiresIn: '8h' }
       );
@@ -283,69 +223,50 @@ app.use('/auth', authRouter);
       return res.json({ ok: true, redirect: '/member' });
     }
 
-    // ── No userStore match — check accounts.json for pending/rejected status ──
-    // Members must register via the login page and wait for SM approval.
-    // Once approved, addRawUser() promotes them to userStore — at that point
-    // Case A above handles their login. We never grant dashboard access from
-    // accounts.json alone; the userStore is the single source of truth for auth.
-    if (!normalizedId) {
-      return res.status(400).json({ error: 'Member ID is required.' });
-    }
-
+    // ── Not in userStore — check if they have a pending/rejected registration ──
     const accounts = readAccounts();
-    const account  = accounts.find(a => a.memberId === normalizedId);
-
-    if (!account) {
-      // Not in userStore, not in pending accounts — completely unknown
-      return res.status(401).json({ error: 'Member ID not found. Please register at the login page.' });
-    }
-
-    if (account.approvalStatus === 'pending') {
+    const acct = accounts.find(
+      a => a.fullName.trim().toUpperCase() === normalizedName
+    );
+    if (acct && acct.approvalStatus === 'pending') {
       return res.status(403).json({ error: 'Your account is still pending Schoolmaster approval.' });
     }
-
-    if (account.approvalStatus === 'rejected') {
+    if (acct && acct.approvalStatus === 'rejected') {
       return res.status(403).json({ error: 'Your registration was not approved. Please contact the Schoolmaster.' });
     }
 
-    // account.approvalStatus === 'approved' but NOT in userStore — this should
-    // not happen in normal operation (approve endpoint calls addRawUser), but
-    // guard against it explicitly rather than letting the request fall through.
-    return res.status(500).json({ error: 'Account state error. Please contact the Schoolmaster.' });
+    // Completely unknown name
+    return res.status(401).json({ error: 'Name not found. Please check your spelling or create an account.' });
   });
 
-  // ── POST /api/auth/register  { fullName, memberId, email, password } ──
-  // Open self-registration. Any member can submit a request using their
-  // KTKC ID, full name, email and a chosen password.
+  // ── POST /api/auth/register  { fullName, email, password } ──
+  // Open self-registration — no Member ID required.
+  // SM assigns the Member ID later via the member's profile in the SM dashboard.
   // Request lands in private/accounts.json with approvalStatus: "pending".
-  // SM reviews in the Pending Approvals panel → approve promotes to userStore.
-  // No session is created — Schoolmaster must approve before the member can log in.
   app.post('/api/auth/register', async (req, res) => {
-    const { fullName, memberId, email, password } = req.body || {};
+    const { fullName, email, password } = req.body || {};
 
-    if (!fullName || !memberId || !email || !password) {
-      return res.status(400).json({ error: 'Full name, Member ID, email, and password are required.' });
+    if (!fullName || !email || !password) {
+      return res.status(400).json({ error: 'Full name, email, and password are required.' });
     }
 
-    const accounts      = readAccounts();
-    const normalizedId  = String(memberId).trim().toUpperCase();
+    const accounts       = readAccounts();
     const normalizedName = String(fullName).trim();
 
-    // Block duplicate pending requests, but allow re-registration after rejection
-    // or to reset a password on an already-approved account (seeded members).
-    const existingAcct = accounts.find(a => a.memberId === normalizedId);
+    // Block duplicate pending requests by name
+    const existingAcct = accounts.find(
+      a => a.fullName.trim().toUpperCase() === normalizedName.toUpperCase()
+    );
     if (existingAcct) {
       if (existingAcct.approvalStatus === 'pending') {
-        return res.status(409).json({ error: 'A registration request is already pending for this Member ID. Please wait for Schoolmaster approval.' });
+        return res.status(409).json({ error: 'A registration request is already pending for this name. Please wait for Schoolmaster approval.' });
       }
-      // Rejected or already approved — allow re-registration (overwrites old record)
-      const acctIdx = accounts.indexOf(existingAcct);
-      accounts.splice(acctIdx, 1);
+      // Rejected or already approved — allow re-registration
+      accounts.splice(accounts.indexOf(existingAcct), 1);
     }
 
     const passwordHash = await bcrypt.hash(password, 12);
     accounts.push({
-      memberId:       normalizedId,
       fullName:       normalizedName,
       email:          String(email).trim().toLowerCase(),
       passwordHash,
@@ -379,9 +300,8 @@ app.use('/auth', authRouter);
     return res.json({ items });
   });
 
-  // ── POST /api/auth/approve  { memberId, action: "approve" | "reject" }  — Schoolmaster only ──
+  // ── POST /api/auth/approve  { fullName, action: "approve" | "reject" }  — Schoolmaster only ──
   // Auth: academy_session JWT cookie, role must be 'schoolmaster'.
-  // Sets approvalStatus, approvedAt, and approvedBy (SM's memberId from JWT payload).
   app.post('/api/auth/approve', (req, res) => {
     const jwt = require('jsonwebtoken');
     let smMemberId = null;
@@ -399,14 +319,15 @@ app.use('/auth', authRouter);
       return res.status(401).json({ error: 'Unauthorized.' });
     }
 
-    const { memberId, action } = req.body || {};
-    if (!memberId || !action) {
-      return res.status(400).json({ error: 'memberId and action are required.' });
+    const { fullName, action } = req.body || {};
+    if (!fullName || !action) {
+      return res.status(400).json({ error: 'fullName and action are required.' });
     }
 
-    const accounts  = readAccounts();
-    const normalizedId = String(memberId).trim().toUpperCase();
-    const idx = accounts.findIndex(a => a.memberId === normalizedId);
+    const accounts = readAccounts();
+    const idx = accounts.findIndex(
+      a => a.fullName.trim().toUpperCase() === String(fullName).trim().toUpperCase()
+    );
     if (idx === -1) {
       return res.status(404).json({ error: 'Account not found.' });
     }
@@ -416,37 +337,30 @@ app.use('/auth', authRouter);
     accounts[idx].approvedBy     = smMemberId;
     writeAccounts(accounts);
 
-    // ── On APPROVE: promote to userStore so the member appears in the roster ──
-    // The member roster (/api/progression/members) reads from userStore (users.json).
-    // Registry-only accounts never appear there. When the SM approves, we create a
-    // full userStore record so the member shows up in the roster immediately and the
-    // SM can assign them a class.
+    // ── On APPROVE: promote to userStore so member appears in roster immediately ──
     if (action === 'approve') {
-      const { getAllUsers, addRawUser } = require('./src/auth/userStore');
+      const { getAllUsers, addRawUser, updateUser } = require('./src/auth/userStore');
       const acct = accounts[idx];
       const allUsers = getAllUsers();
+      // Check if a userStore entry already exists for this name
       const alreadyInStore = allUsers.find(
-        u => u.memberId && u.memberId.trim().toUpperCase() === normalizedId
+        u => u.username.trim().toUpperCase() === acct.fullName.trim().toUpperCase()
       );
       if (alreadyInStore) {
-        // Seeded member re-registering via the portal — update their password
-        // and email so they can log in with their new credentials.
-        const { updateUser } = require('./src/auth/userStore');
         const updates = { password: acct.passwordHash };
         if (acct.email) updates.email = acct.email;
         updateUser(alreadyInStore.id, updates);
-        console.log(`✠ Approved member ${normalizedId} (${acct.fullName}) — password updated in userStore (seeded member re-registration).`);
+        console.log(`✠ Approved ${acct.fullName} — password updated in userStore.`);
       } else {
         addRawUser({
           id:              Date.now().toString(),
           username:        acct.fullName,
           salutation:      null,
           role:            'member',
-          memberId:        normalizedId,
-          password:        acct.passwordHash,   // reuse the bcrypt hash
+          memberId:        null,          // SM assigns Member ID later via profile
+          password:        acct.passwordHash,
           email:           acct.email || null,
           createdAt:       acct.createdAt || new Date().toISOString(),
-          // Progression defaults
           assignedProgram: null,
           programHistory:  [],
           currentWeek:     null,
@@ -466,7 +380,7 @@ app.use('/auth', authRouter);
           photoPath:       null,
           birthday:        null,
         });
-        console.log(`✠ Approved member ${normalizedId} (${acct.fullName}) promoted to userStore.`);
+        console.log(`✠ Approved ${acct.fullName} — promoted to userStore.`);
       }
     }
 

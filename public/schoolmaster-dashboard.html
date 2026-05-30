@@ -1230,25 +1230,23 @@ function renderPendingList(items) {
       <div>
         <span style="color:#e8d8d0;font-weight:600;">${a.fullName}</span>
         <span style="color:#5a4a32;margin:0 6px;">·</span>
-        <span style="color:#c9a227;">${a.memberId}</span>
-        <span style="color:#5a4a32;margin:0 6px;">·</span>
         <span style="color:#7a6a4e;font-size:.82rem;">${a.email || ''}</span>
         <span style="color:#5a4a32;margin:0 6px;">·</span>
         <span style="color:#6a5a3e;font-size:.78rem;">Requested ${new Date(a.createdAt).toLocaleDateString()}</span>
       </div>
       <div>
-        <button onclick="approveAccount('${a.memberId}')" style="font-size:.75rem;padding:4px 12px;background:rgba(20,60,20,.8);border:1px solid #3a7a3a;color:#90e090;border-radius:3px;cursor:pointer;margin-right:6px;">✔ Approve</button>
-        <button onclick="rejectAccount('${a.memberId}')" style="font-size:.75rem;padding:4px 12px;background:rgba(60,10,10,.8);border:1px solid #7a2020;color:#e08080;border-radius:3px;cursor:pointer;">✕ Reject</button>
+        <button onclick="approveAccount('${a.fullName.replace(/'/g,&quot;\\&apos;&quot;)}')" style="font-size:.75rem;padding:4px 12px;background:rgba(20,60,20,.8);border:1px solid #3a7a3a;color:#90e090;border-radius:3px;cursor:pointer;margin-right:6px;">✔ Approve</button>
+        <button onclick="rejectAccount('${a.fullName.replace(/'/g,&quot;\\&apos;&quot;)}')" style="font-size:.75rem;padding:4px 12px;background:rgba(60,10,10,.8);border:1px solid #7a2020;color:#e08080;border-radius:3px;cursor:pointer;">✕ Reject</button>
       </div>
     </div>`).join('');
 }
 
-async function approveAccount(memberId) {
+async function approveAccount(fullName) {
   try {
     const res  = await fetch('/api/auth/approve', {
       method: 'POST', credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ memberId, action: 'approve' })
+      body: JSON.stringify({ fullName, action: 'approve' })
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'Failed.');
@@ -1257,13 +1255,13 @@ async function approveAccount(memberId) {
   } catch(e) { alert('Error approving: ' + e.message); }
 }
 
-async function rejectAccount(memberId) {
-  if (!confirm(`Reject account for ${memberId}?`)) return;
+async function rejectAccount(fullName) {
+  if (!confirm(`Reject account for ${fullName}?`)) return;
   try {
     const res  = await fetch('/api/auth/approve', {
       method: 'POST', credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ memberId, action: 'reject' })
+      body: JSON.stringify({ fullName, action: 'reject' })
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'Failed.');
