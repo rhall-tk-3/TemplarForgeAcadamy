@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-width=1.0" />
+    <title>Squire Reading Stack 1: Order Structure</title>
+    <style>
+      body {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 32px 80px;
+        position: relative;
+        box-sizing: border-box;
+        font-family: 'Times New Roman', Times, serif;
+        color: #000000;
+        background-color: #ffffff;
+        line-height: 1.6;
+        text-align: justify;
+        font-size: 12pt;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #000000;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+      }
+      h1 {
+        font-size: 24pt;
+        text-align: center;
+        border-bottom: 2px solid #000000;
+        padding-bottom: 10px;
+        margin-bottom: 5px;
+      }
+      .subtitle {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14pt;
+        font-weight: normal;
+        margin-top: 0;
+        margin-bottom: 30px;
+      }
+      .instruction-box {
+        border: 1px solid #000000;
+        padding: 15px 20px;
+        margin: 20px 0;
+        background-color: #fdfdfd;
+      }
+      .instruction-box strong {
+        font-family: Arial, Helvetica, sans-serif;
+        display: block;
+        margin-bottom: 5px;
+      }
+      p {
+        margin-bottom: 1em;
+        text-indent: 0;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-family: 'Times New Roman', Times, serif;
+      }
+      th,
+      td {
+        border: 1px solid #000000;
+        padding: 10px 15px;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        background-color: #eeeeee;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+      }
+      ul {
+        margin-left: 20px;
+        margin-bottom: 1em;
+      }
+      li {
+        margin-bottom: 0.5em;
+      }
+      hr {
+        border: none;
+        border-top: 1px solid #000000;
+        margin: 30px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Squire Reading Stack 1: Order Structure</h1>
+    <div class="subtitle">A Student Reading Handout for Squire School</div>
+
+    <div class="instruction-box">
+      <strong>How to Use This Reading</strong>
+      <p>
+        This handout is designed for Squires to learn the foundational history and moral structure of the Order. Please
+        read this document carefully. You will use this information to participate in moderated discussions, complete
+        your reading log, and prepare for your oral review and written assessments.
+      </p>
+    </div>
+
+    <h2>What Is the Order?</h2>
+    <p>
+      The Order is an organization that was built upon the virtues of honesty, courage, obedience, charity, and
+      reverence. Throughout its history, it was guided by a desire to protect the vulnerable and serve others. As a
+      Squire today, learning about the Order means understanding how proper discipline, good character, and truthful
+      history shape a person into a responsible and helpful leader.
+    </p>
+
+    <h2>Why Was the Order Formed?</h2>
+    <p>
+      Following the First Crusade (1095–1099), many Christian pilgrims wished to travel to the Holy Land, especially to
+      the city of Jerusalem, for religious devotion. However, the roads were long and incredibly dangerous. Because the
+      local Crusader states were fragile, these travelers often faced great threats and lacked protection.
+    </p>
+    <p>
+      To solve this problem, the Order was founded around the year 1119 or 1120 by a man named Hugh de Payns and his
+      first companions. Their original mission was simple and focused on service: to protect Christian pilgrims
+      traveling on the dangerous roads to Jerusalem. They did not form the Order to seek wealth or power, but to provide
+      safety and charity to those who were weak.
+    </p>
+
+    <h2>A Religious Order, Not an Ordinary Army</h2>
+    <p>
+      It is very important to understand the difference between a religious order and an ordinary army. An ordinary army
+      exists to fight battles, conquer territory, or seek military glory. A religious order, however, is centered on
+      spiritual life, discipline, and regular worship.
+    </p>
+    <p>
+      Historically, the Order’s daily routine was filled with prayer, charity, and almsgiving. Their purpose was moral
+      and protective. Today, the Squire School is educational and charitable. It is not a military or paramilitary
+      program. Squires are expected to practice respect, helpfulness, and discipline, rather than imitating or
+      glorifying war.
+    </p>
+
+    <h2>Classes in the Order</h2>
+    <p>
+      In the historical Order, not everyone performed the exact same function. Having different roles helped the
+      organization serve more effectively. There were three major classes:
+    </p>
+    <table>
+      <tr>
+        <th style="width: 25%">Class</th>
+        <th>Historical Role and Description</th>
+      </tr>
+      <tr>
+        <td><strong>Knight</strong></td>
+        <td>The historical mounted noble class, often holding primary leadership and protective duties.</td>
+      </tr>
+      <tr>
+        <td><strong>Sergeant</strong></td>
+        <td>Members who provided vital supporting and serving roles below the knightly class.</td>
+      </tr>
+      <tr>
+        <td><strong>Chaplain</strong></td>
+        <td>
+          Members responsible for priestly duties, leading worship, and guiding the religious ministry of the Order.
+        </td>
+      </tr>
+    </table>
+
+    <h2>Offices in the Order</h2>
+    <p>
+      Beyond the different classes, the Order also relied on specific administrative and leadership roles called
+      offices. These offices ensured that the Order functioned in an orderly and disciplined way.
+    </p>
+    <table>
+      <tr>
+        <th style="width: 25%">Office</th>
+        <th>Leadership Duty</th>
+      </tr>
+      <tr>
+        <td><strong>Grand Master</strong></td>
+        <td>The chief leader and head officer of the entire Order.</td>
+      </tr>
+      <tr>
+        <td><strong>Seneschal</strong></td>
+        <td>A high-ranking administrative officer who supported the leadership and managed key operations.</td>
+      </tr>
+      <tr>
+        <td><strong>Marshal</strong></td>
+        <td>An officer primarily responsible for specific organizational and logistical duties.</td>
+      </tr>
+      <tr>
+        <td><strong>Preceptor</strong></td>
+        <td>A leader or teacher placed in charge of a specific local house, area, or group of members.</td>
+      </tr>
+    </table>
+
+    <h2>Clothing, Symbols, and Discipline</h2>
+    <p>
+      Historically, members of the Order wore specific clothing, such as a mantle (a type of cloak), and used distinct
+      symbols. These symbols were meant to remind them of their identity and their duty to God and to the pilgrims they
+      protected.
+    </p>
+    <p>
+      However, it is dangerous to focus on outward appearances without inner character. Discipline is always more
+      important than display. Wearing a symbol means nothing if a person is proud, disobedient, or unkind. For a Squire,
+      personal discipline, humility, and respectful behavior at home, at school, and in the chapter are the true marks
+      of readiness.
+    </p>
+
+    <h2>Service Before Self</h2>
+    <p>
+      The principle of "service before self" means putting your duty and the care of others ahead of your own pride,
+      comfort, or desire for attention. The early Order lived this out by guarding dusty roads so that travelers could
+      walk safely. For Squires today, service before self means dependable, quiet charity. Whether it is a formal
+      service project or simply helping someone in need, real character is proven by reliable, humble helpfulness.
+    </p>
+
+    <h2>Truth Before Legend</h2>
+    <p>
+      Because the history of the Order is so old and fascinating, people have invented many legends, myths, and exciting
+      stories about it over the centuries. As a Squire, you are called to value "truth before legend." History must be
+      based on evidence and real sources. Repeating stories without proof replaces truth with myth.
+    </p>
+    <p>
+      Honesty is a core virtue of the Order. This means studying events accurately, distinguishing historical facts from
+      legends, and having the courage to say "I do not know" when you lack evidence. Protecting the truth is just as
+      important as protecting travelers.
+    </p>
+
+    <hr />
+
+    <h2>Words to Remember</h2>
+    <ul>
+      <li><strong>Pilgrim:</strong> A person who travels a long distance for a religious purpose.</li>
+      <li><strong>Mantle:</strong> A cloak or outer garment worn historically to show identity and duty.</li>
+      <li><strong>Legend:</strong> A story repeated over time that is not supported by historical evidence.</li>
+      <li><strong>Charity:</strong> Care, mercy, and practical helpfulness toward others.</li>
+      <li><strong>Reverence:</strong> A deeply respectful attitude in worship, speech, and conduct.</li>
+      <li><strong>Discipline:</strong> Orderly conduct, self-control, and obedience to rightful guidance.</li>
+    </ul>
+
+    <h2>Short Reading Review</h2>
+    <p>
+      Use these points to check your understanding of the reading. You should be able to explain these to your
+      Schoolmaster:
+    </p>
+    <ul>
+      <li>
+        The First Crusade created a situation where pilgrims traveled to Jerusalem but faced great danger on the roads.
+      </li>
+      <li>Hugh de Payns and his first companions formed the Order to protect those traveling pilgrims.</li>
+      <li>
+        The Order was a religious community based on prayer and discipline, not just an ordinary army seeking glory.
+      </li>
+      <li>The three main classes of the historical Order were Knight, Sergeant, and Chaplain.</li>
+      <li>Key leadership offices included the Grand Master, Seneschal, Marshal, and Preceptor.</li>
+      <li>Inner discipline, character, and proper conduct are far more important than outward clothing or symbols.</li>
+      <li>"Service before self" means prioritizing charity and the needs of others over personal pride.</li>
+      <li>
+        Squires must practice "truth before legend" by relying on historical evidence rather than repeating unsupported
+        myths.
+      </li>
+    </ul>
+  </body>
+</html>

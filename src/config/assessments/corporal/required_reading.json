@@ -1,0 +1,296 @@
+{
+  "program_slug": "corporal",
+  "program_title": "Corporal School Program",
+  "program_phase": "Rank advancement",
+  "source_required_reading_file": "public/programs/corporal/resources/corporal-required-reading-list.html",
+  "weeks": [
+    {
+      "week_number": 1,
+      "week_title": "Week 1: Why the Order Was Founded / Mission and Historical Need",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Corporal School — 8 Week Lesson Plan Program",
+          "url": "https://www.genspark.ai/api/files/s/kublncti"
+        },
+        {
+          "title": "Britannica: Templars",
+          "url": "https://www.britannica.com/topic/Templars"
+        },
+        {
+          "title": "Weekly Lesson-Plan Packet",
+          "url": "https://www.genspark.ai/api/files/s/6g3tE2FN"
+        },
+        {
+          "title": "Curriculum Handbook",
+          "url": "https://www.genspark.ai/api/files/s/KCiRchxo"
+        }
+      ],
+      "key_terms": [
+        "First Crusade",
+        "Pilgrimage",
+        "Jerusalem",
+        "Protection",
+        "Mission"
+      ],
+      "memory_targets": [
+        "The First Crusade took place from 1095 to 1099.",
+        "Pilgrims traveling to Jerusalem faced serious danger.",
+        "The earliest Templar mission centered on protection and religious purpose."
+      ],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 2,
+      "week_title": "Week 2: Founders, Early Support, and Legitimacy",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Corporal School — 8 Week Lesson Plan Program",
+          "url": "https://www.genspark.ai/api/files/s/kublncti"
+        },
+        {
+          "title": "Britannica: Templars",
+          "url": "https://www.britannica.com/topic/Templars"
+        },
+        {
+          "title": "Curriculum Handbook",
+          "url": "https://www.genspark.ai/api/files/s/KCiRchxo"
+        },
+        {
+          "title": "Promotion & Assessment Guide",
+          "url": "https://www.genspark.ai/api/files/s/Mqc7iL2l"
+        }
+      ],
+      "key_terms": [
+        "Hugh de Payns",
+        "Baldwin II",
+        "Temple Mount",
+        "Council of Troyes",
+        "Bernard of Clairvaux"
+      ],
+      "memory_targets": [
+        "Hugh de Payns is the founder most closely linked to the order.",
+        "Baldwin II granted the Templars quarters near the Temple Mount.",
+        "Formal recognition at Troyes and later privileges increased legitimacy and growth."
+      ],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 3,
+      "week_title": "Week 3: Growth, Expansion, and Public Trust",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Corporal School — 8 Week Lesson Plan Program",
+          "url": "https://www.genspark.ai/api/files/s/kublncti"
+        },
+        {
+          "title": "Britannica: Templars",
+          "url": "https://www.britannica.com/topic/Templars"
+        },
+        {
+          "title": "KTKC Rules and Statutes",
+          "url": "https://www.genspark.ai/api/files/s/xHK8Sw25"
+        },
+        {
+          "title": "Promotion Manual and By-Laws",
+          "url": "https://www.genspark.ai/api/files/s/rJ4ZJBEe"
+        }
+      ],
+      "key_terms": [
+        "Public Trust",
+        "Infrastructure",
+        "Stewardship",
+        "Integrity",
+        "Mission"
+      ],
+      "memory_targets": [
+        "The Templars gained support through service, discipline, and reliability.",
+        "Roads, strongholds, and logistics helped support pilgrim protection and wider operations.",
+        "Growth required integrity, not merely efficiency."
+      ],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 4,
+      "week_title": "Week 4: Structure, Offices, and Daily Life",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Corporal School — 8 Week Lesson Plan Program",
+          "url": "https://www.genspark.ai/api/files/s/kublncti"
+        },
+        {
+          "title": "Weekly Lesson-Plan Packet",
+          "url": "https://www.genspark.ai/api/files/s/6g3tE2FN"
+        },
+        {
+          "title": "Curriculum Handbook",
+          "url": "https://www.genspark.ai/api/files/s/KCiRchxo"
+        },
+        {
+          "title": "KTKC Rules and Statutes",
+          "url": "https://www.genspark.ai/api/files/s/xHK8Sw25"
+        }
+      ],
+      "key_terms": [
+        "Grand Master",
+        "Seneschal",
+        "Marshal",
+        "Preceptor",
+        "Discipline"
+      ],
+      "memory_targets": [
+        "The order included knights, sergeants, and chaplains.",
+        "The Grand Master, Seneschal, Marshal, and Preceptor held important leadership roles.",
+        "Templar life combined prayer, obedience, discipline, and service."
+      ],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 5,
+      "week_title": "Week 5: Spiritual Discipline, Service, and the Corporal Rank",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Corporal School — 8 Week Lesson Plan Program",
+          "url": "https://www.genspark.ai/api/files/s/kublncti"
+        },
+        {
+          "title": "KTKC Rules and Statutes",
+          "url": "https://www.genspark.ai/api/files/s/xHK8Sw25"
+        },
+        {
+          "title": "Promotion Manual and By-Laws",
+          "url": "https://www.genspark.ai/api/files/s/rJ4ZJBEe"
+        },
+        {
+          "title": "Promotion & Assessment Guide",
+          "url": "https://www.genspark.ai/api/files/s/Mqc7iL2l"
+        }
+      ],
+      "key_terms": [
+        "Virtue",
+        "Fellowship",
+        "Accountability",
+        "Service",
+        "Corporal Rank"
+      ],
+      "memory_targets": [
+        "A Corporal must remain current with classwork and attend meetings, Bible studies, and Round Tables.",
+        "Ranks exist for service and responsibility, not self-exaltation.",
+        "Christian knighthood requires integrity, humility, and faithful participation."
+      ],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 6,
+      "week_title": "Week 6: Wealth, Power, Risks, and Mission Drift",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Corporal School — 8 Week Lesson Plan Program",
+          "url": "https://www.genspark.ai/api/files/s/kublncti"
+        },
+        {
+          "title": "Britannica: Templars",
+          "url": "https://www.britannica.com/topic/Templars"
+        },
+        {
+          "title": "KTKC Rules and Statutes",
+          "url": "https://www.genspark.ai/api/files/s/xHK8Sw25"
+        },
+        {
+          "title": "Promotion Manual and By-Laws",
+          "url": "https://www.genspark.ai/api/files/s/rJ4ZJBEe"
+        }
+      ],
+      "key_terms": [
+        "Commandery",
+        "Stewardship",
+        "Banking",
+        "Acre",
+        "Mission Drift"
+      ],
+      "memory_targets": [
+        "The Templars became important as logisticians, administrators, and financial custodians.",
+        "Wealth and reputation increased both influence and danger.",
+        "The fall of Acre in 1291 weakened the order’s original military purpose."
+      ],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 7,
+      "week_title": "Week 7: Crisis, Friday the 13th, and Suppression",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Corporal School — 8 Week Lesson Plan Program",
+          "url": "https://www.genspark.ai/api/files/s/kublncti"
+        },
+        {
+          "title": "Britannica: Templars",
+          "url": "https://www.britannica.com/topic/Templars"
+        },
+        {
+          "title": "Britannica: Clement V",
+          "url": "https://www.britannica.com/biography/Clement-V"
+        },
+        {
+          "title": "HISTORY: Friday the 13th and the Knights Templar",
+          "url": "https://www.history.com/articles/why-friday-the-13th-spelled-doom-for-the-knights-templar"
+        }
+      ],
+      "key_terms": [
+        "Philip IV",
+        "Clement V",
+        "1307 Arrests",
+        "Suppression",
+        "Justice"
+      ],
+      "memory_targets": [
+        "The arrests in France took place on Friday, October 13, 1307.",
+        "Pope Clement V suppressed the order in 1312 under strong pressure.",
+        "The charges and confessions must be taught with attention to coercion and political context."
+      ],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 8,
+      "week_title": "Week 8: Jacques de Molay, Fall of the Order, Historical Importance",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Corporal School — 8 Week Lesson Plan Program",
+          "url": "https://www.genspark.ai/api/files/s/kublncti"
+        },
+        {
+          "title": "Britannica: Templars",
+          "url": "https://www.britannica.com/topic/Templars"
+        },
+        {
+          "title": "National Geographic: Friday the 13th and Templar Myth",
+          "url": "https://www.nationalgeographic.com/culture/article/160512-friday-13-knights-templar-superstition"
+        },
+        {
+          "title": "HISTORY: Friday the 13th and the Knights Templar",
+          "url": "https://www.history.com/articles/why-friday-the-13th-spelled-doom-for-the-knights-templar"
+        }
+      ],
+      "key_terms": [
+        "Jacques de Molay",
+        "Friday the 13th",
+        "Myth vs History",
+        "Legacy",
+        "Readiness"
+      ],
+      "memory_targets": [
+        "Jacques de Molay is remembered as the last grand master of the order.",
+        "Friday, October 13, 1307 is a real historical date in the Templar story.",
+        "The later superstition of Friday the 13th should be taught cautiously, not as certain origin fact."
+      ],
+      "verified_public_domain_links": []
+    }
+  ]
+}

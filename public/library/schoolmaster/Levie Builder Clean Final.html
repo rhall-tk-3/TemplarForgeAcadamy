@@ -1,0 +1,810 @@
+<style>
+  .ktkc-levie-page,
+  .ktkc-levie-page * {
+    box-sizing: border-box;
+  }
+
+  .ktkc-levie-page {
+    max-width: 1180px;
+    width: 94%;
+    margin: 0 auto;
+    color: #1f2937;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.65;
+  }
+
+  .ktkc-levie-page a {
+    color: #6b3f22;
+    text-decoration: none;
+  }
+
+  .ktkc-levie-page a:hover {
+    text-decoration: underline;
+  }
+
+  .ktkc-levie-topbar {
+    background: #24170f;
+    color: #f8f2e9;
+    padding: 10px 16px;
+    font-size: 14px;
+    border-radius: 12px 12px 0 0;
+    margin-top: 18px;
+  }
+
+  .ktkc-levie-shell {
+    background: #f8f4ed;
+    border: 1px solid #d9cdbd;
+    border-top: 0;
+    padding: 0 0 28px 0;
+  }
+
+  .ktkc-levie-nav {
+    background: #ffffff;
+    border-bottom: 1px solid #e5dccf;
+    padding: 18px 24px;
+  }
+
+  .ktkc-levie-brand {
+    margin-bottom: 12px;
+  }
+
+  .ktkc-levie-brand-title {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    color: #6b3f22;
+    margin-bottom: 2px;
+  }
+
+  .ktkc-levie-brand-subtitle {
+    display: block;
+    font-size: 14px;
+    color: #5f6773;
+  }
+
+  .ktkc-levie-nav-links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .ktkc-levie-nav-links li {
+    display: inline-block;
+    margin: 0 8px 8px 0;
+  }
+
+  .ktkc-levie-nav-links a {
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid #ddd1be;
+    border-radius: 999px;
+    background: #faf7f2;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2937;
+  }
+
+  .ktkc-levie-section {
+    padding: 28px 24px 0 24px;
+  }
+
+  .ktkc-levie-hero {
+    background: #fffaf3;
+    border: 1px solid #e5dccf;
+    border-radius: 18px;
+    padding: 28px;
+  }
+
+  .ktkc-levie-eyebrow {
+    display: inline-block;
+    padding: 6px 12px;
+    background: #efe5d6;
+    color: #6b3f22;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 12px;
+  }
+
+  .ktkc-levie-page h1 {
+    margin: 0 0 12px 0;
+    font-size: 40px;
+    line-height: 1.15;
+    color: #1f2937;
+  }
+
+  .ktkc-levie-page h2 {
+    margin: 0 0 12px 0;
+    font-size: 30px;
+    line-height: 1.2;
+    color: #1f2937;
+  }
+
+  .ktkc-levie-page h3 {
+    margin: 0 0 10px 0;
+    font-size: 22px;
+    line-height: 1.25;
+    color: #1f2937;
+  }
+
+  .ktkc-levie-page h4 {
+    margin: 0 0 8px 0;
+    font-size: 17px;
+    line-height: 1.3;
+    color: #6b3f22;
+  }
+
+  .ktkc-levie-page p {
+    margin: 0 0 14px 0;
+    color: #3f4752;
+  }
+
+  .ktkc-levie-actions {
+    margin-top: 18px;
+  }
+
+  .ktkc-levie-button {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: 1px solid #ddd1be;
+    background: #ffffff;
+    color: #6b3f22;
+    font-weight: 700;
+    margin: 0 10px 10px 0;
+  }
+
+  .ktkc-levie-button-primary {
+    background: #6b3f22;
+    color: #ffffff !important;
+    border-color: #6b3f22;
+  }
+
+  .ktkc-levie-grid-2,
+  .ktkc-levie-grid-3,
+  .ktkc-levie-grid-4 {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  .ktkc-levie-col-2,
+  .ktkc-levie-col-3,
+  .ktkc-levie-col-4 {
+    float: left;
+    padding: 0 10px;
+    margin-bottom: 20px;
+  }
+
+  .ktkc-levie-col-2 { width: 50%; }
+  .ktkc-levie-col-3 { width: 33.3333%; }
+  .ktkc-levie-col-4 { width: 25%; }
+
+  .ktkc-levie-grid-2:after,
+  .ktkc-levie-grid-3:after,
+  .ktkc-levie-grid-4:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .ktkc-levie-card {
+    background: #ffffff;
+    border: 1px solid #ddd1be;
+    border-radius: 18px;
+    padding: 20px;
+    height: 100%;
+  }
+
+  .ktkc-levie-kicker {
+    color: #9a6a40;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .ktkc-levie-list {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  .ktkc-levie-list li {
+    margin-bottom: 8px;
+  }
+
+  .ktkc-levie-badge {
+    display: inline-block;
+    background: #efe7db;
+    color: #6b3f22;
+    border-radius: 999px;
+    padding: 6px 11px;
+    font-size: 13px;
+    margin: 0 8px 8px 0;
+  }
+
+  .ktkc-levie-week {
+    background: #ffffff;
+    border: 1px solid #ddd1be;
+    border-radius: 18px;
+    padding: 22px;
+    margin-bottom: 18px;
+  }
+
+  .ktkc-levie-note {
+    background: #fffaf3;
+    border: 1px solid #e5dccf;
+    border-left: 4px solid #6b3f22;
+    border-radius: 14px;
+    padding: 16px;
+  }
+
+  .ktkc-levie-table-wrap {
+    overflow-x: auto;
+    background: #ffffff;
+    border: 1px solid #ddd1be;
+    border-radius: 18px;
+  }
+
+  .ktkc-levie-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 860px;
+  }
+
+  .ktkc-levie-table th,
+  .ktkc-levie-table td {
+    text-align: left;
+    vertical-align: top;
+    padding: 14px;
+    border-bottom: 1px solid #ece3d6;
+  }
+
+  .ktkc-levie-table th {
+    background: #f4ecdf;
+    color: #6b3f22;
+    font-size: 14px;
+  }
+
+  .ktkc-levie-footer {
+    padding: 30px 24px 0 24px;
+  }
+
+  .ktkc-levie-footer-box {
+    background: #20150f;
+    color: #f2ede6;
+    border-radius: 18px;
+    padding: 22px;
+  }
+
+  .ktkc-levie-footer-box a {
+    color: #f7d6b2;
+  }
+
+  .ktkc-levie-small {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 900px) {
+    .ktkc-levie-col-2,
+    .ktkc-levie-col-3,
+    .ktkc-levie-col-4 {
+      width: 100%;
+      float: none;
+    }
+
+    .ktkc-levie-page h1 {
+      font-size: 30px;
+    }
+
+    .ktkc-levie-page h2 {
+      font-size: 24px;
+    }
+
+    .ktkc-levie-nav {
+      padding: 16px 18px;
+    }
+
+    .ktkc-levie-section,
+    .ktkc-levie-footer {
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+
+    .ktkc-levie-hero {
+      padding: 22px;
+    }
+  }
+</style>
+
+<div class="ktkc-levie-page">
+  <div class="ktkc-levie-topbar">Levie School • 8-Week Program • Clean Builder Version</div>
+  <div class="ktkc-levie-shell">
+    <div class="ktkc-levie-nav">
+      <div class="ktkc-levie-brand">
+        <span class="ktkc-levie-brand-title">Levie School Program</span>
+        <span class="ktkc-levie-brand-subtitle">Knights Templar of the Kingdom of Christ</span>
+      </div>
+      <ul class="ktkc-levie-nav-links">
+        <li><a href="#levie-overview">Overview</a></li>
+        <li><a href="#levie-weeks">Weeks 1–8</a></li>
+        <li><a href="#levie-reading">Required Reading</a></li>
+        <li><a href="#levie-reading-log">Reading Log</a></li>
+        <li><a href="#levie-parent">Parent Section</a></li>
+        <li><a href="#levie-schoolmaster">Schoolmaster</a></li>
+      </ul>
+    </div>
+
+    <div class="ktkc-levie-section" id="levie-overview">
+      <div class="ktkc-levie-hero">
+        <span class="ktkc-levie-eyebrow">Final Builder-Safe Version</span>
+        <h1>Levie School Website Section</h1>
+        <p>This cleaned version is designed specifically for direct use inside the Genspark AI website builder. It is a single self-contained page with simple CSS, a unique wrapper class to reduce style conflicts, no JavaScript, no folder dependencies, and only direct document links.</p>
+        <div class="ktkc-levie-actions">
+          <a class="ktkc-levie-button ktkc-levie-button-primary" href="#levie-weeks">Open Weekly Program</a>
+          <a class="ktkc-levie-button" href="#levie-reading">Open Reading Section</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ktkc-levie-section">
+      <div class="ktkc-levie-grid-4">
+        <div class="ktkc-levie-col-4">
+          <div class="ktkc-levie-card">
+            <div class="ktkc-levie-kicker">Program Length</div>
+            <h3>8 Weeks</h3>
+            <p>A full 60-day probationary program for the Levie rank.</p>
+          </div>
+        </div>
+        <div class="ktkc-levie-col-4">
+          <div class="ktkc-levie-card">
+            <div class="ktkc-levie-kicker">Reading Base</div>
+            <h3>Updated</h3>
+            <p>Built from your edited Levie Required Reading List.</p>
+          </div>
+        </div>
+        <div class="ktkc-levie-col-4">
+          <div class="ktkc-levie-card">
+            <div class="ktkc-levie-kicker">Student Tool</div>
+            <h3>Reading Log</h3>
+            <p>Uses the updated student reading log for weekly tracking.</p>
+          </div>
+        </div>
+        <div class="ktkc-levie-col-4">
+          <div class="ktkc-levie-card">
+            <div class="ktkc-levie-kicker">Builder Fit</div>
+            <h3>Single Page</h3>
+            <p>No separate stylesheet, no subpages, no local paths.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ktkc-levie-section">
+      <div class="ktkc-levie-grid-2">
+        <div class="ktkc-levie-col-2">
+          <div class="ktkc-levie-card">
+            <h2>Program Purpose</h2>
+            <p>The Levie School provides foundational entry-level formation for new members of the Knights Templar of the Kingdom of Christ. The first four weeks focus on rules, conduct, standards, duties, and Order identity. The final four weeks focus only on early history leading up to the beginning of the Templars, without moving into later-rank historical material. [Source](/documents/levie/levie-lesson-plan.docx)</p>
+          </div>
+        </div>
+        <div class="ktkc-levie-col-2">
+          <div class="ktkc-levie-card">
+            <h2>Primary Levie Documents</h2>
+            <ul class="ktkc-levie-list">
+              <li><a href="/documents/levie/levie-required-reading-list.docx">Updated Levie Required Reading List</a></li>
+              <li><a href="/documents/levie/levie-student-reading-log.docx">Levie Student Reading Log</a></li>
+              <li><a href="/documents/levie/levie-lesson-plan.docx">Levie School — 8 Week Lesson Plan Program</a></li>
+              <li><a href="/documents/shared/ktkc-rules-and-statutes.docx">KTKC Rules and Statutes</a></li>
+              <li><a href="/documents/shared/promotion-manual.docx">KTKC Promotion Manual and By-Laws</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ktkc-levie-section" id="levie-weeks">
+      <h2>Weeks 1–8</h2>
+      <p>Each weekly section below is aligned to the updated reading list and the Levie lesson-plan program.</p>
+
+      <div class="ktkc-levie-week">
+        <div class="ktkc-levie-kicker">Week 1</div>
+        <h3>Identity, Purpose, and Consecration</h3>
+        <p>Week 1 establishes the Christian identity of the Order, its consecration to Jesus Christ, its mission of truthful Christian service, and the probationary standards that shape the Levie class period. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+        <div class="ktkc-levie-grid-2">
+          <div class="ktkc-levie-col-2">
+            <h4>Lesson Focus Areas</h4>
+            <ul class="ktkc-levie-list">
+              <li>Name and Consecration of the Order</li>
+              <li>Christian Nature of the Order</li>
+              <li>Purpose and Mission</li>
+              <li>General Principles of Promotion and Timelines</li>
+            </ul>
+          </div>
+          <div class="ktkc-levie-col-2">
+            <h4>Reading and Review</h4>
+            <p><strong>Guided focus:</strong> the Christian nature of the Order, its consecration to Jesus Christ, and the foundational mission of honoring God through true virtues of Christian knighthood. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+            <p><strong>Key terms:</strong><br><span class="ktkc-levie-badge">KTKC</span><span class="ktkc-levie-badge">Holy Trinity</span><span class="ktkc-levie-badge">Ecumenical Fellowship</span></p>
+            <p><strong>Memory targets:</strong> The Order is consecrated to Jesus Christ; its purpose is truthful, nonviolent Christian witness and service; the Levie class period is 8 weeks or 60 days. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ktkc-levie-week">
+        <div class="ktkc-levie-kicker">Week 2</div>
+        <h3>Standards, Duties, and Equality</h3>
+        <p>Week 2 develops the Levie’s understanding of duties, financial integrity, equality among members, and the standards of attendance and probationary participation. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+        <div class="ktkc-levie-grid-2">
+          <div class="ktkc-levie-col-2">
+            <h4>Lesson Focus Areas</h4>
+            <ul class="ktkc-levie-list">
+              <li>Ecumenical Fellowship</li>
+              <li>Rejection of False Worship and Corrupt Practice</li>
+              <li>Liberty of Conscience and Moral Obedience</li>
+              <li>Oaths, Vows, and Solemn Promises</li>
+            </ul>
+          </div>
+          <div class="ktkc-levie-col-2">
+            <h4>Reading and Review</h4>
+            <p><strong>Guided focus:</strong> duties of members, financial integrity, equality among members, and mandatory attendance expectations for promotion. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+            <p><strong>Key terms:</strong><br><span class="ktkc-levie-badge">Equality and Fairness</span><span class="ktkc-levie-badge">Round Tables</span><span class="ktkc-levie-badge">Probationary Period</span></p>
+            <p><strong>Memory targets:</strong> Ranks cannot be bought or sold; promotion requires successful completion of the 8-week class instruction and regular attendance. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ktkc-levie-week">
+        <div class="ktkc-levie-kicker">Week 3</div>
+        <h3>Conduct, Leadership, and Accountability</h3>
+        <p>Week 3 examines standards of leadership, liberty of conscience, open vows rather than secret oaths, and complaint and redress without fear of retaliation. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+        <div class="ktkc-levie-grid-2">
+          <div class="ktkc-levie-col-2">
+            <h4>Lesson Focus Areas</h4>
+            <ul class="ktkc-levie-list">
+              <li>Offices, Titles, and Rank</li>
+              <li>Financial Integrity and the Rejection of Buying Rank</li>
+              <li>Equality of Persons and Mutual Respect</li>
+              <li>Daily Duties, Conduct, and Recordkeeping</li>
+            </ul>
+          </div>
+          <div class="ktkc-levie-col-2">
+            <h4>Reading and Review</h4>
+            <p><strong>Guided focus:</strong> standards of leadership, the nature of vows, complaint and redress, and accountability under Christian truth. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+            <p><strong>Key terms:</strong><br><span class="ktkc-levie-badge">Liberty of Conscience</span><span class="ktkc-levie-badge">Discipline and Redress</span><span class="ktkc-levie-badge">Standard of Leadership</span></p>
+            <p><strong>Memory targets:</strong> No superior can command what violates Scripture or civil law; leaders are held to a higher standard of visible virtue and humility. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ktkc-levie-week">
+        <div class="ktkc-levie-kicker">Week 4</div>
+        <h3>The Five Governing Pillars</h3>
+        <p>Week 4 centers on the Order’s Five Governing Pillars and introduces spiritual warfare as spiritual witness, together with sacrificial brotherhood and sisterhood. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+        <div class="ktkc-levie-grid-2">
+          <div class="ktkc-levie-col-2">
+            <h4>Lesson Focus Areas</h4>
+            <ul class="ktkc-levie-list">
+              <li>Brotherhood and Sisterhood in Charity</li>
+              <li>Spiritual Warfare and Public Witness</li>
+              <li>The Five Governing Pillars of KTKC</li>
+              <li>Promotion Readiness and Probationary Review</li>
+            </ul>
+          </div>
+          <div class="ktkc-levie-col-2">
+            <h4>Reading and Review</h4>
+            <p><strong>Guided focus:</strong> Service, Prayer, Discipline, Witness, and Charity, as well as the concept of spiritual warfare. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+            <p><strong>Key terms:</strong><br><span class="ktkc-levie-badge">Five Governing Pillars</span><span class="ktkc-levie-badge">Spiritual Warfare</span><span class="ktkc-levie-badge">Sacrificial Love</span></p>
+            <p><strong>Memory targets:</strong> Service to Christ, Prayer and Holy Meditation, Discipline and Virtue, Courageous Christian Witness, Brotherhood and Sisterhood in Charity. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ktkc-levie-week">
+        <div class="ktkc-levie-kicker">Week 5</div>
+        <h3>The Need for Protection (Early Pre-Templar History)</h3>
+        <p>Week 5 begins the historical section by introducing the Holy Land, Christian pilgrimage, the First Crusade context, and the dangers faced by travelers on the roads to Jerusalem. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+        <div class="ktkc-levie-grid-2">
+          <div class="ktkc-levie-col-2">
+            <h4>Lesson Focus Areas</h4>
+            <ul class="ktkc-levie-list">
+              <li>Why the Holy Land Mattered to Medieval Christians</li>
+              <li>Pilgrimage and the Roads to Jerusalem</li>
+              <li>First Crusade Context (1095–1099)</li>
+              <li>Why Protection Was Needed</li>
+            </ul>
+          </div>
+          <div class="ktkc-levie-col-2">
+            <h4>Reading and Review</h4>
+            <p><strong>Guided focus:</strong> why the Holy Land mattered to medieval Christians and the dangers faced by travelers and pilgrims. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+            <p><strong>Key terms:</strong><br><span class="ktkc-levie-badge">Christian Pilgrims</span><span class="ktkc-levie-badge">First Crusade (1095–1099)</span><span class="ktkc-levie-badge">Jerusalem</span></p>
+            <p><strong>Memory targets:</strong> The First Crusade established fragile Crusader states; travelers to Jerusalem faced constant threats, creating a need for protection. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ktkc-levie-week">
+        <div class="ktkc-levie-kicker">Week 6</div>
+        <h3>Founding People and Places</h3>
+        <p>Week 6 introduces the founders most closely associated with the beginning of the Order and the significance of the early headquarters. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+        <div class="ktkc-levie-grid-2">
+          <div class="ktkc-levie-col-2">
+            <h4>Lesson Focus Areas</h4>
+            <ul class="ktkc-levie-list">
+              <li>Hugh de Payns and the First Companions</li>
+              <li>King Baldwin II and the Kingdom of Jerusalem</li>
+              <li>The Temple Mount and the Early Headquarters</li>
+              <li>Founding Purpose: Protecting Pilgrims</li>
+            </ul>
+          </div>
+          <div class="ktkc-levie-col-2">
+            <h4>Reading and Review</h4>
+            <p><strong>Guided focus:</strong> the actual founders of the Order, their original protective purpose, and the significance of their first headquarters. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+            <p><strong>Key terms:</strong><br><span class="ktkc-levie-badge">Hugh de Payns</span><span class="ktkc-levie-badge">King Baldwin II</span><span class="ktkc-levie-badge">Temple Mount</span></p>
+            <p><strong>Memory targets:</strong> Hugh de Payns is most closely linked with the Order; King Baldwin II provided early headquarters on the Temple Mount. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ktkc-levie-week">
+        <div class="ktkc-levie-kicker">Week 7</div>
+        <h3>Official Approval and Early Support</h3>
+        <p>Week 7 covers how the early Order gained official church recognition and the support of influential leaders such as Bernard of Clairvaux. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+        <div class="ktkc-levie-grid-2">
+          <div class="ktkc-levie-col-2">
+            <h4>Lesson Focus Areas</h4>
+            <ul class="ktkc-levie-list">
+              <li>The Council of Troyes</li>
+              <li>Bernard of Clairvaux and Spiritual Support</li>
+              <li>Formal Approval and Legitimacy</li>
+              <li>Early Mission and Public Trust</li>
+            </ul>
+          </div>
+          <div class="ktkc-levie-col-2">
+            <h4>Reading and Review</h4>
+            <p><strong>Guided focus:</strong> how the early Order gained official recognition, legitimacy, and spiritual backing. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+            <p><strong>Key terms:</strong><br><span class="ktkc-levie-badge">Council of Troyes (1128/1129)</span><span class="ktkc-levie-badge">Bernard of Clairvaux</span></p>
+            <p><strong>Memory targets:</strong> The Council of Troyes gave formal approval; Bernard of Clairvaux was an important supporter, not the founder. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ktkc-levie-week">
+        <div class="ktkc-levie-kicker">Week 8</div>
+        <h3>Religious-Order Identity and Early Timeline Review</h3>
+        <p>Week 8 completes the Levie historical introduction by reviewing the early timeline and clarifying what separated the early Templars from an ordinary medieval army: prayer, discipline, and service. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+        <div class="ktkc-levie-grid-2">
+          <div class="ktkc-levie-col-2">
+            <h4>Lesson Focus Areas</h4>
+            <ul class="ktkc-levie-list">
+              <li>What Makes a Religious Order Different from an Ordinary Army</li>
+              <li>Prayer, Discipline, and Service</li>
+              <li>Early Timeline Review: 1095 to 1129</li>
+              <li>Board and Quiz Preparation for Levies</li>
+            </ul>
+          </div>
+          <div class="ktkc-levie-col-2">
+            <h4>Reading and Review</h4>
+            <p><strong>Guided focus:</strong> what separated the early Templars from an ordinary army—specifically daily discipline, prayer, and service. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+            <p><strong>Key terms:</strong><br><span class="ktkc-levie-badge">Religious Order Identity</span><span class="ktkc-levie-badge">Service Before Self</span></p>
+            <p><strong>Memory targets:</strong> Review the timeline from 1095 through the Council of Troyes (1128/1129); understand that the Order required prayer and discipline. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ktkc-levie-section" id="levie-reading">
+      <h2>Required Reading</h2>
+      <div class="ktkc-levie-grid-2">
+        <div class="ktkc-levie-col-2">
+          <div class="ktkc-levie-card">
+            <h3>Main Reading Documents</h3>
+            <ul class="ktkc-levie-list">
+              <li><a href="/documents/levie/levie-required-reading-list.docx">Updated Levie Required Reading List</a></li>
+              <li><a href="/documents/levie/levie-lesson-plan.docx">Levie School — 8 Week Lesson Plan Program</a></li>
+              <li><a href="/documents/shared/ktkc-rules-and-statutes.docx">KTKC Rules and Statutes</a></li>
+              <li><a href="/documents/shared/promotion-manual.docx">KTKC Promotion Manual and By-Laws</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="ktkc-levie-col-2">
+          <div class="ktkc-levie-card">
+            <h3>How Reading Works</h3>
+            <p>The updated Levie reading list divides the program into two halves: Weeks 1–4 for rules, standards, conduct, and identity; Weeks 5–8 for early pre-Templar and beginning-of-Templar history only. Reading should be completed weekly and recorded in the student reading log. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ktkc-levie-table-wrap" style="margin-top:20px;">
+        <table class="ktkc-levie-table">
+          <thead>
+            <tr>
+              <th>Week</th>
+              <th>Reading Focus</th>
+              <th>Key Terms / Figures</th>
+              <th>Memory Targets</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Week 1</td>
+              <td>Identity, consecration, Christian purpose, and mission</td>
+              <td>KTKC, Holy Trinity, Ecumenical Fellowship</td>
+              <td>Consecrated to Jesus Christ; truthful Christian witness; 8-week probationary structure</td>
+            </tr>
+            <tr>
+              <td>Week 2</td>
+              <td>Standards, duties, equality, financial integrity, attendance</td>
+              <td>Equality and Fairness, Round Tables, Probationary Period</td>
+              <td>Ranks not bought or sold; class completion and regular attendance required</td>
+            </tr>
+            <tr>
+              <td>Week 3</td>
+              <td>Leadership, conscience, accountability, correction, duties</td>
+              <td>Liberty of Conscience, Discipline and Redress, Standard of Leadership</td>
+              <td>No unlawful or unscriptural commands; leaders held to higher virtue</td>
+            </tr>
+            <tr>
+              <td>Week 4</td>
+              <td>Five Governing Pillars and spiritual witness</td>
+              <td>Five Governing Pillars, Spiritual Warfare, Sacrificial Love</td>
+              <td>Service, Prayer, Discipline, Witness, Charity</td>
+            </tr>
+            <tr>
+              <td>Week 5</td>
+              <td>Need for protection and First Crusade context</td>
+              <td>Christian Pilgrims, First Crusade, Jerusalem</td>
+              <td>1095–1099 context; danger on roads; need for protection</td>
+            </tr>
+            <tr>
+              <td>Week 6</td>
+              <td>Founding people and places</td>
+              <td>Hugh de Payns, Baldwin II, Temple Mount</td>
+              <td>1119/1120 founding context; Temple Mount headquarters</td>
+            </tr>
+            <tr>
+              <td>Week 7</td>
+              <td>Formal approval and support</td>
+              <td>Council of Troyes, Bernard of Clairvaux</td>
+              <td>Formal approval around 1128/1129; Bernard supported but did not found</td>
+            </tr>
+            <tr>
+              <td>Week 8</td>
+              <td>Religious-order identity and early timeline review</td>
+              <td>Religious Order Identity, Service Before Self</td>
+              <td>1095 to 1129 review; prayer and discipline distinguished the Order</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="ktkc-levie-section" id="levie-reading-log">
+      <div class="ktkc-levie-grid-2">
+        <div class="ktkc-levie-col-2">
+          <div class="ktkc-levie-card">
+            <h2>Student Reading Log</h2>
+            <p>The Levie student reading log includes weekly checkbox tracking, instructor initials, notes and reflection areas, and a final completion summary so it can be used as a regular review tool throughout the probationary period. [Source](/documents/levie/levie-student-reading-log.docx)</p>
+            <p><a class="ktkc-levie-button ktkc-levie-button-primary" href="/documents/levie/levie-student-reading-log.docx">Open Student Reading Log</a></p>
+          </div>
+        </div>
+        <div class="ktkc-levie-col-2">
+          <div class="ktkc-levie-card">
+            <h2>How to Use It</h2>
+            <ul class="ktkc-levie-list">
+              <li>Complete reading before the weekly lesson discussion.</li>
+              <li>Review the weekly memory targets.</li>
+              <li>Record notes, reflections, or questions.</li>
+              <li>Have the Schoolmaster initial after review.</li>
+              <li>Finish the final summary at the end of Week 8.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ktkc-levie-section" id="levie-parent">
+      <div class="ktkc-levie-grid-2">
+        <div class="ktkc-levie-col-2">
+          <div class="ktkc-levie-card">
+            <h2>Parent Section</h2>
+            <p>Parents can help by reviewing the weekly reading focus, helping students keep a steady reading rhythm, supporting note completion in the reading log, and encouraging honest and calm discussion rather than rushed memorization. [Source](/documents/levie/levie-required-reading-list.docx)</p>
+          </div>
+        </div>
+        <div class="ktkc-levie-col-2">
+          <div class="ktkc-levie-card">
+            <h2>Parent Support Priorities</h2>
+            <ul class="ktkc-levie-list">
+              <li>Review one weekly section at a time.</li>
+              <li>Help students connect reading to conduct and discipline.</li>
+              <li>Keep the historical section limited to the early background stage.</li>
+              <li>Use the reading log as the main weekly checkpoint.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ktkc-levie-section" id="levie-schoolmaster">
+      <h2>Schoolmaster Resources</h2>
+      <div class="ktkc-levie-grid-3">
+        <div class="ktkc-levie-col-3">
+          <div class="ktkc-levie-card">
+            <div class="ktkc-levie-kicker">Curriculum</div>
+            <h3><a href="/documents/levie/levie-lesson-plan.docx">Levie Lesson Plan Program</a></h3>
+            <p>The primary 8-week program document for lesson structure and question flow.</p>
+          </div>
+        </div>
+        <div class="ktkc-levie-col-3">
+          <div class="ktkc-levie-card">
+            <div class="ktkc-levie-kicker">Reading</div>
+            <h3><a href="/documents/levie/levie-required-reading-list.docx">Updated Reading List</a></h3>
+            <p>The edited authoritative weekly reading structure for the Levie section.</p>
+          </div>
+        </div>
+        <div class="ktkc-levie-col-3">
+          <div class="ktkc-levie-card">
+            <div class="ktkc-levie-kicker">Tracking</div>
+            <h3><a href="/documents/levie/levie-student-reading-log.docx">Student Reading Log</a></h3>
+            <p>The weekly reading verification and note-taking form for students.</p>
+          </div>
+        </div>
+        <div class="ktkc-levie-col-3">
+          <div class="ktkc-levie-card">
+            <div class="ktkc-levie-kicker">Statutes</div>
+            <h3><a href="/documents/shared/ktkc-rules-and-statutes.docx">Rules and Statutes</a></h3>
+            <p>Primary basis for the rules, identity, and conduct portions of the Levie program.</p>
+          </div>
+        </div>
+        <div class="ktkc-levie-col-3">
+          <div class="ktkc-levie-card">
+            <div class="ktkc-levie-kicker">Promotion</div>
+            <h3><a href="/documents/shared/promotion-manual.docx">Promotion Manual and By-Laws</a></h3>
+            <p>Provides standards, timelines, attendance expectations, and review framework.</p>
+          </div>
+        </div>
+        <div class="ktkc-levie-col-3">
+          <div class="ktkc-levie-card">
+            <div class="ktkc-levie-kicker">Education</div>
+            <h3><a href="/documents/squire/squire-curriculum-handbook.docx">Curriculum Handbook</a></h3>
+            <p>Useful for the educational framing of the historical weeks and overall program tone.</p>
+          </div>
+        </div>
+      </div>
+      <div class="ktkc-levie-note" style="margin-top: 18px;">
+        <strong>Implementation note:</strong> This final cleaned version is intentionally simpler than the earlier multi-file site package. It avoids JavaScript, external CSS files, local paths, sticky positioning, CSS variables, and other advanced effects that are more likely to cause issues in a website builder.
+      </div>
+    </div>
+
+    <div class="ktkc-levie-footer">
+      <div class="ktkc-levie-footer-box">
+        <div class="ktkc-levie-grid-3">
+          <div class="ktkc-levie-col-3">
+            <h3 style="color:#f2ede6;">Levie School Builder Page</h3>
+            <p class="ktkc-levie-small" style="color:#f2ede6;">Single-file HTML designed for separate school-program input into the website builder.</p>
+          </div>
+          <div class="ktkc-levie-col-3">
+            <h3 style="color:#f2ede6;">Primary Links</h3>
+            <ul class="ktkc-levie-list ktkc-levie-small" style="color:#f2ede6;">
+              <li><a href="/documents/levie/levie-required-reading-list.docx">Updated Reading List</a></li>
+              <li><a href="/documents/levie/levie-student-reading-log.docx">Student Reading Log</a></li>
+              <li><a href="/documents/levie/levie-lesson-plan.docx">Levie Lesson Plan</a></li>
+            </ul>
+          </div>
+          <div class="ktkc-levie-col-3">
+            <h3 style="color:#f2ede6;">Source Documents</h3>
+            <ul class="ktkc-levie-list ktkc-levie-small" style="color:#f2ede6;">
+              <li><a href="/documents/shared/ktkc-rules-and-statutes.docx">Rules and Statutes</a></li>
+              <li><a href="/documents/shared/promotion-manual.docx">Promotion Manual and By-Laws</a></li>
+              <li><a href="/documents/squire/squire-curriculum-handbook.docx">Curriculum Handbook</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+
+<script src="/assets/document-link-enhancer.js"></script>
+
+<script src="/assets/curriculum-portal.js"></script>

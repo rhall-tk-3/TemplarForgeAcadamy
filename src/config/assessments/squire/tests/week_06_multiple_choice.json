@@ -1,0 +1,127 @@
+{
+  "program_title": "Squire School Program",
+  "week_number": 6,
+  "week_title": "Week 6: Power and Crisis",
+  "multiple_choice_questions": [
+    {
+      "question": "What is the primary focus of Week 6: Power and Crisis?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Required Reading: Historical Timeline (Acre and later crisis) and Short Excerpts and Guided Readings (mission drift section)."
+        },
+        {
+          "option": "B",
+          "text": "Required Reading: Short Excerpts and Guided Readings (Week 1 section) and Historical Timeline (First Crusade background)."
+        },
+        {
+          "option": "C",
+          "text": "Required Reading: Simple Biographies (Hugh de Payns and Baldwin II), Short Excerpts and Guided Readings (fact versus legend), and Historical Timeline (founding setting)."
+        },
+        {
+          "option": "D",
+          "text": "Required Reading: Historical Timeline (1095-1139), Simple Biographies (Bernard of Clairvaux and Innocent II), and Order Structure (religious order identity)."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Required Reading: Historical Timeline (Acre and later crisis) and Short Excerpts and Guided Readings (mission drift section).",
+      "rationale": "The week summary states that Required Reading: Historical Timeline (Acre and later crisis) and Short Excerpts and Guided Readings (mission drift section)."
+    },
+    {
+      "question": "Which reading is explicitly assigned for Week 6: Power and Crisis?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Program lesson plan and reading list"
+        },
+        {
+          "option": "B",
+          "text": "Week 1: Origins and Virtues"
+        },
+        {
+          "option": "C",
+          "text": "Week 2: Founding People and Places"
+        },
+        {
+          "option": "D",
+          "text": "Week 3: Approval and Mission"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Program lesson plan and reading list",
+      "rationale": "Program lesson plan and reading list appears in the required reading list for this week."
+    },
+    {
+      "question": "Which concept is most directly associated with Week 6: Power and Crisis?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Power and Crisis"
+        },
+        {
+          "option": "B",
+          "text": "Week 1: Origins and Virtues"
+        },
+        {
+          "option": "C",
+          "text": "Week 2: Founding People and Places"
+        },
+        {
+          "option": "D",
+          "text": "Week 3: Approval and Mission"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Power and Crisis",
+      "rationale": "The week is organized around the concept of Power and Crisis."
+    },
+    {
+      "question": "Which statement best reflects the expected learning outcome for Week 6: Power and Crisis?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Required Reading: Historical Timeline (Acre and later crisis) and Short Excerpts and Guided Readings (mission drift section)."
+        },
+        {
+          "option": "B",
+          "text": "Required Reading: Short Excerpts and Guided Readings (Week 1 section) and Historical Timeline (First Crusade background)."
+        },
+        {
+          "option": "C",
+          "text": "Required Reading: Simple Biographies (Hugh de Payns and Baldwin II), Short Excerpts and Guided Readings (fact versus legend), and Historical Timeline (founding setting)."
+        },
+        {
+          "option": "D",
+          "text": "Required Reading: Historical Timeline (1095-1139), Simple Biographies (Bernard of Clairvaux and Innocent II), and Order Structure (religious order identity)."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Required Reading: Historical Timeline (Acre and later crisis) and Short Excerpts and Guided Readings (mission drift section).",
+      "rationale": "This statement matches the stated memory target or focus for the week: Required Reading: Historical Timeline (Acre and later crisis) and Short Excerpts and Guided Readings (mission drift section)."
+    },
+    {
+      "question": "Which response best applies the lesson of Week 6: Power and Crisis?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Apply the lesson of Power and Crisis through disciplined conduct, truthful understanding, and practical service."
+        },
+        {
+          "option": "B",
+          "text": "Treat Power and Crisis mainly as ceremonial prestige without practical duty."
+        },
+        {
+          "option": "C",
+          "text": "Ignore assigned readings and rely on legend or speculation about Power and Crisis."
+        },
+        {
+          "option": "D",
+          "text": "Approach Power and Crisis as private opinion rather than accountable formation."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Apply the lesson of Power and Crisis through disciplined conduct, truthful understanding, and practical service.",
+      "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+    }
+  ]
+}

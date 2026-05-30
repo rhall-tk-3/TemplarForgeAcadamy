@@ -13,8 +13,10 @@
  *   POST /api/progression/member/:id/exam/:examIdx/review — grade an exam submission
  *   POST /api/progression/member/:id/note    — add a schoolmaster note
  *   POST /api/progression/member/:id/complete — mark program complete, optionally assign next
- *   POST /api/progression/member/:id/unlock  — grant access to a program
- *   POST /api/progression/member/:id/lock    — revoke access to a program
+ *   POST /api/progression/member/:id/unlock      — grant access to a program
+ *   POST /api/progression/member/:id/lock        — revoke access to a program
+ *   POST /api/progression/member/:id/unlock-all  — grant access to all programs
+ *   POST /api/progression/member/:id/lock-all    — clear all program overrides
  *   POST /api/progression/member/:id/rank    — assign formal rank + optional display name
  *   POST /api/progression/member/:id/status  — set programStatus: active | paused
  *   DELETE /api/progression/member/:id       — permanently delete member account
@@ -24,6 +26,7 @@ const express  = require('express');
 const { findById, updateUser, deleteUser, getMemberUsers, safeUser } = require('./userStore');
 const { getCurriculumIndex } = require('../services/curriculumService');
 const { getLessonForWeek }   = require('../services/lessonService');
+const { readStore, studentKey } = require('../services/submissionStoreService');
 
 const router = express.Router();
 
@@ -76,6 +79,58 @@ router.post('/me/exam', requireMember, (req, res) => {
   updateUser(user.id, { examSubmissions: submissions });
 
   res.json({ ok: true, message: 'Exam submitted. Awaiting Schoolmaster review.' });
+});
+
+// ─────────────────────────────────────────
+//  READING LOG ROUTES
+// ─────────────────────────────────────────
+
+// GET /api/progression/me/reading-log
+// Returns all reading log entries for the signed-in member.
+router.get('/me/reading-log', requireMember, (req, res) => {
+  const user = findById(req.session.userId);
+  if (!user) return res.status(401).json({ error: 'Session expired.' });
+  res.json({ entries: user.readingLog || [] });
+});
+
+// POST /api/progression/me/reading-log
+// Add a new reading log entry.
+// Body: { week, title, author, pages, notes }
+router.post('/me/reading-log', requireMember, (req, res) => {
+  const user = findById(req.session.userId);
+  if (!user) return res.status(401).json({ error: 'Session expired.' });
+
+  const { week, title, author, pages, notes } = req.body;
+  if (!title || !title.trim()) {
+    return res.status(400).json({ error: 'Reading title is required.' });
+  }
+
+  const entry = {
+    id:          Date.now(),
+    week:        week ? Number(week) : (user.currentWeek || null),
+    programSlug: user.assignedProgram || null,
+    title:       title.trim(),
+    author:      (author || '').trim(),
+    pages:       (pages || '').trim(),
+    notes:       (notes || '').trim(),
+    loggedAt:    new Date().toISOString()
+  };
+
+  const log = [...(user.readingLog || []), entry];
+  updateUser(user.id, { readingLog: log });
+  res.json({ ok: true, entry });
+});
+
+// DELETE /api/progression/me/reading-log/:id
+// Remove a reading log entry by its id.
+router.delete('/me/reading-log/:id', requireMember, (req, res) => {
+  const user = findById(req.session.userId);
+  if (!user) return res.status(401).json({ error: 'Session expired.' });
+
+  const entryId = Number(req.params.id);
+  const log = (user.readingLog || []).filter(e => e.id !== entryId);
+  updateUser(user.id, { readingLog: log });
+  res.json({ ok: true });
 });
 
 // ─────────────────────────────────────────
@@ -231,6 +286,26 @@ router.post('/member/:id/lock', requireAdmin, (req, res) => {
   const programs = getCurriculumIndex();
   const program  = programs.find(p => p.slug === programSlug);
   res.json({ ok: true, message: `${program ? program.title : programSlug} locked for ${user.username}.` });
+});
+
+// POST /api/progression/member/:id/unlock-all  — grant access to every program at once
+router.post('/member/:id/unlock-all', requireAdmin, (req, res) => {
+  const user = findById(req.params.id);
+  if (!user || user.role === 'admin') return res.status(404).json({ error: 'Member not found.' });
+
+  const programs = getCurriculumIndex();
+  const allSlugs = programs.map(p => p.slug);
+  updateUser(user.id, { unlockedSlugs: allSlugs });
+  res.json({ ok: true, message: `All ${allSlugs.length} programs unlocked for ${user.username}.`, unlockedSlugs: allSlugs });
+});
+
+// POST /api/progression/member/:id/lock-all  — revoke all explicit unlocks at once
+router.post('/member/:id/lock-all', requireAdmin, (req, res) => {
+  const user = findById(req.params.id);
+  if (!user || user.role === 'admin') return res.status(404).json({ error: 'Member not found.' });
+
+  updateUser(user.id, { unlockedSlugs: [] });
+  res.json({ ok: true, message: `All program overrides cleared for ${user.username}.` });
 });
 
 // POST /api/progression/member/:id/advance  { week? }  — set week manually
@@ -412,6 +487,68 @@ router.post('/member/:id/status', requireAdmin, (req, res) => {
 });
 
 // ─────────────────────────────────────────
+//  BULK OPERATIONS  (admin only)
+//  POST /api/progression/bulk-advance    { memberIds[], action: 'advance'|'lock' }
+//    advance  → each member's currentWeek += 1  (capped at durationWeeks)
+//    lock     → each member's programStatus set to 'paused'
+//  POST /api/progression/bulk-retest     { memberId, examIdx }
+//    → approve an inline retest for a single member exam row
+// ─────────────────────────────────────────
+
+router.post('/bulk-advance', requireAdmin, (req, res) => {
+  const { memberIds, action } = req.body;
+  if (!Array.isArray(memberIds) || !memberIds.length) {
+    return res.status(400).json({ error: 'memberIds array is required.' });
+  }
+  if (!['advance', 'lock'].includes(action)) {
+    return res.status(400).json({ error: 'action must be "advance" or "lock".' });
+  }
+
+  const programs = getCurriculumIndex();
+  const results  = [];
+  const errors   = [];
+
+  for (const id of memberIds) {
+    const user = findById(id);
+    if (!user || user.role === 'admin') { errors.push(id); continue; }
+
+    if (action === 'advance') {
+      if (!user.assignedProgram) { errors.push(id); continue; }
+      const prog   = programs.find(p => p.slug === user.assignedProgram);
+      const maxW   = prog ? prog.durationWeeks : 99;
+      const newW   = Math.min((user.currentWeek || 1) + 1, maxW);
+      updateUser(id, { currentWeek: newW, weekSetAt: new Date().toISOString() });
+      results.push({ id, username: user.username, week: newW });
+    } else {
+      // lock = pause progression
+      updateUser(id, { programStatus: 'paused', statusNote: 'Locked by Schoolmaster (bulk action)', statusChangedAt: new Date().toISOString() });
+      results.push({ id, username: user.username, status: 'paused' });
+    }
+  }
+
+  res.json({ ok: true, processed: results, failed: errors,
+    message: `Bulk ${action}: ${results.length} updated, ${errors.length} failed.` });
+});
+
+router.post('/bulk-retest', requireAdmin, (req, res) => {
+  const { memberId, examIdx } = req.body;
+  if (!memberId || examIdx === undefined) {
+    return res.status(400).json({ error: 'memberId and examIdx required.' });
+  }
+  const user = findById(memberId);
+  if (!user || user.role === 'admin') return res.status(404).json({ error: 'Member not found.' });
+
+  const idx  = Number(examIdx);
+  const subs = [...(user.examSubmissions || [])];
+  if (!subs[idx]) return res.status(404).json({ error: 'Exam submission not found.' });
+
+  // Mark this submission as approved for retest (sets grade to 'Retest Approved')
+  subs[idx] = { ...subs[idx], retestApproved: true, retestApprovedAt: new Date().toISOString(), reviewedAt: subs[idx].reviewedAt || new Date().toISOString(), grade: subs[idx].grade || 'Retest Approved' };
+  updateUser(user.id, { examSubmissions: subs });
+  res.json({ ok: true, message: `Retest approved for ${user.username} exam ${idx + 1}.` });
+});
+
+// ─────────────────────────────────────────
 //  DELETE MEMBER
 //  DELETE /api/progression/member/:id
 // ─────────────────────────────────────────
@@ -452,6 +589,58 @@ function buildProgressView(user, programs) {
     ? programs.find(p => p.slug === user.assignedProgram) || null
     : null;
 
+  // ── Pull curriculum-submissions for this member ──
+  // The new assessment system (program-hub.html → /api/assessment/:slug/submit)
+  // writes to curriculum-submissions.json, keyed by studentId = email.
+  // We surface these as curriculumExams so both the SM dashboard and member
+  // profile pages can display accurate exam status without depending on the
+  // legacy users.json.examSubmissions array.
+  let curriculumExams = [];
+  let pendingCurriculumCount = 0;
+  try {
+    const store = readStore();
+    const studentId = studentKey(user.username, user.email);
+    // Collect all submissions across all programs for this student
+    curriculumExams = store.submissions
+      .filter(s => s.studentId === studentId)
+      .sort((a, b) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime())
+      .map(s => ({
+        id:            s.id,
+        studentId:     s.studentId,     // ← needed so SM dashboard can approve without email
+        studentName:   s.studentName,
+        studentEmail:  s.studentEmail,
+        programSlug:   s.slug,
+        weekNumber:    s.weekNumber,
+        weekTitle:     s.weekTitle || `Week ${s.weekNumber}`,
+        submittedAt:   s.submittedAt,
+        score:         s.score,
+        correctCount:  s.correctCount,
+        totalQuestions:s.totalQuestions,
+        passed:        s.passed,
+        passingScore:  s.passingScore,
+        review:        s.review || [],
+        // Legacy-compat fields expected by SM dashboard renderExams()
+        answers:       (s.review || []).map(r => ({ question: r.prompt, answer: `${r.submittedAnswer} — ${r.submittedText}` })),
+        reviewedAt:    s.passed ? s.submittedAt : null,  // auto-graded; treat as "reviewed"
+        grade:         s.passed ? `Pass (${s.score}%)` : `Fail (${s.score}%)`
+      }));
+    // Pending = failed submissions without a retest approval yet
+    const unlockApprovals = store.unlockApprovals || [];
+    const retestApprovals  = store.retestApprovals || [];
+    if (assigned) {
+      // Count weeks where the student has failed and has no active retest or pass
+      const studentSubs = store.submissions.filter(s => s.studentId === studentId && s.slug === user.assignedProgram);
+      const weekNums = [...new Set(studentSubs.map(s => s.weekNumber))];
+      for (const wn of weekNums) {
+        const weekSubs = studentSubs.filter(s => s.weekNumber === wn).sort((a, b) => new Date(a.submittedAt) - new Date(b.submittedAt));
+        const latestSub = weekSubs[weekSubs.length - 1];
+        if (latestSub && !latestSub.passed) {
+          pendingCurriculumCount += 1;
+        }
+      }
+    }
+  } catch (_e) { /* curriculum store read errors are non-fatal */ }
+
   const pendingExams = (user.examSubmissions || [])
     .map((s, i) => ({ ...s, index: i }))
     .filter(s => !s.reviewedAt);
@@ -488,8 +677,13 @@ function buildProgressView(user, programs) {
     weekSetAt:        user.weekSetAt   || null,
     overdue:          overdue,
     programHistory:   user.programHistory || [],
+    // Legacy exam submissions (old /api/progression/me/exam system)
     examSubmissions:  user.examSubmissions || [],
-    pendingExamCount: pendingExams.length,
+    pendingExamCount: pendingExams.length + pendingCurriculumCount,
+    // Total exams taken = all curriculum submissions + all legacy submissions
+    totalExamCount:   curriculumExams.length + (user.examSubmissions || []).length,
+    // New curriculum-based exam submissions (program-hub.html → /api/assessment/:slug/submit)
+    curriculumExams,
     progressNotes:    user.progressNotes || []
   };
 }

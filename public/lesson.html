@@ -8,12 +8,24 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* ── Program Hub Background ── */
+    #page-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      /* default fallback until slug is known */
+      background-color: #0a0a0f;
+      background-image: radial-gradient(ellipse at 20% 20%, rgba(180,140,60,0.06) 0%, transparent 55%),
+                        radial-gradient(ellipse at 80% 80%, rgba(120,80,20,0.08) 0%, transparent 55%);
+    }
+
     body {
       min-height: 100vh;
-      background: #0a0a0f;
-      background-image:
-        radial-gradient(ellipse at 20% 20%, rgba(180,140,60,0.06) 0%, transparent 55%),
-        radial-gradient(ellipse at 80% 80%, rgba(120,80,20,0.08) 0%, transparent 55%);
+      background: transparent;
       color: #e8d5a0;
       font-family: 'Crimson Text', serif;
       font-size: 1.05rem;
@@ -321,14 +333,52 @@
       margin-bottom: 20px;
     }
     .already-submitted.show { display: block; }
+
+  /* ── Continue Button (fixed bottom-right) ── */
+  .continue-fab {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 26px;
+    background: linear-gradient(135deg, #c8a020, #a07818);
+    color: #0a0804;
+    font-family: 'Cinzel', serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.5), 0 0 12px rgba(184,150,12,0.2);
+    transition: filter 0.2s, transform 0.15s, box-shadow 0.2s;
+    z-index: 200;
+  }
+  .continue-fab:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.6), 0 0 18px rgba(200,168,32,0.3);
+  }
+  @media (max-width: 540px) {
+    .continue-fab { bottom: 16px; right: 16px; padding: 10px 18px; font-size: 0.75rem; }
+  }
   </style>
 </head>
 <body>
+  <script src="/assets/js/academy-guard.js" data-protect="member" defer></script>
+
+
+<!-- Program hub background (set dynamically by JS once slug is known) -->
+<div id="page-bg"></div>
 
 <!-- Top Navigation Bar -->
 <div class="top-bar">
   <div class="top-bar-left">
     <a class="back-link" href="/member">← Dashboard</a>
+    <a class="back-link" href="/reading-log" id="topbar-reading-log-link" style="margin-left:4px;">📖 Reading Log</a>
     <span class="top-bar-title" id="nav-program-title">Loading…</span>
   </div>
   <!-- KTKC Motto -->
@@ -352,6 +402,11 @@
     <p id="paused-msg">Your training program has been paused by the Schoolmaster. You may review lesson material but exam submission is disabled. Contact your ranking officer for further instruction.</p>
   </div>
 </div>
+
+<!-- Continue to Hub button (fixed bottom-right, href set dynamically by JS) -->
+<a class="continue-fab" href="/programs/levie/hub" id="continue-hub-btn">
+  ← Back to Your Forge
+</a>
 
 <!-- Main Lesson Content -->
 <div class="lesson-wrap" id="lesson-wrap">
@@ -388,6 +443,36 @@
 
   const { lesson, programSlug, week, programStatus, statusNote } = data;
   const paused = (programStatus === 'paused');
+
+  // ── 1b. Apply program hub background ────────────────
+  const HUB_BG_MAP = {
+    'squire':          '/images/hub-bg/squire.jpg',
+    'levie':           '/images/hub-bg/levie.jpg',
+    'corporal':        '/images/hub-bg/corporal.jpg',
+    'sergeant':        '/images/hub-bg/sergeant.jpg',
+    'sfc':             '/images/hub-bg/sfc.jpg',
+    'knight-aspirant': '/images/hub-bg/knight-aspirant.jpg',
+    'knight':          '/images/hub-bg/knight.jpg',
+    'lieutenant':      '/images/hub-bg/lieutenant.jpg',
+    'captain':         '/images/hub-bg/captain.jpg',
+    'major':           '/images/hub-bg/major.jpg',
+    'commander':       '/images/hub-bg/commander.jpg'
+  };
+  const pageBgEl = document.getElementById('page-bg');
+  const bgPath   = programSlug ? HUB_BG_MAP[programSlug] : null;
+  if (pageBgEl && bgPath) {
+    pageBgEl.style.backgroundImage =
+      `linear-gradient(180deg, rgba(6,3,1,.72) 0%, rgba(6,3,1,.58) 50%, rgba(6,3,1,.72) 100%), url('${bgPath}')`;
+  }
+
+  // Update reading-log link with ?from= param
+  if (programSlug) {
+    const rlLink = document.getElementById('topbar-reading-log-link');
+    if (rlLink) rlLink.href = `/reading-log?from=${programSlug}`;
+    // Set continue-to-hub button href to the correct program
+    const continueBtn = document.getElementById('continue-hub-btn');
+    if (continueBtn) continueBtn.href = `/programs/${programSlug}/hub`;
+  }
 
   // ── 2. Update nav bar ────────────────────────────────
   navTitle.textContent = lesson.title || programSlug;
@@ -490,12 +575,12 @@
       <div class="key-terms-grid">${termsHTML}</div>
     </div>` : ''}
 
-    <!-- Exam -->
+    <!-- Discussion Questions -->
     <div class="lesson-section">
-      <div class="section-heading">Week ${week} Examination</div>
+      <div class="section-heading">Week ${week} Discussion Questions</div>
       <div class="exam-section">
         <div class="exam-intro">
-          Answer each question below thoroughly and honestly. Your responses will be
+          Answer each discussion question below thoughtfully and honestly. Your responses will be
           reviewed by the Schoolmaster. Submit only when you are satisfied with your work.
         </div>
 
@@ -509,7 +594,7 @@
         ${alreadySubmitted ? '' : `
         <div class="submit-row">
           <button class="btn-submit" id="exam-submit-btn"${paused ? ' disabled title="Exam submission is disabled while your program is paused."' : ''}>
-            ✠ Submit Examination
+            ✠ Submit Discussion
           </button>
           <span class="exam-msg" id="exam-msg"></span>
         </div>`}
@@ -565,7 +650,7 @@
         examMsg.className = 'exam-msg error';
         examMsg.textContent = `Error: ${err.message}`;
         submitBtn.disabled = false;
-        submitBtn.textContent = '✠ Submit Examination';
+        submitBtn.textContent = '✠ Submit Discussion';
       }
     });
   }

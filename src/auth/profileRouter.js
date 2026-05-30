@@ -71,7 +71,7 @@ router.post('/me', requireMember, (req, res) => {
   const user = findById(req.session.userId);
   if (!user) return res.status(401).json({ error: 'Session expired.' });
 
-  const { temple, email, phone, birthday } = req.body;
+  const { temple, email, phone, birthday, memberId } = req.body;
 
   // Validate email
   if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -101,6 +101,7 @@ router.post('/me', requireMember, (req, res) => {
   if (email    !== undefined) updates.email    = email    ? email.trim().slice(0, 120)   : null;
   if (phone    !== undefined) updates.phone    = phone    ? phone.trim().slice(0, 30)    : null;
   if (birthday !== undefined) updates.birthday = birthday ? birthday.trim().slice(0, 10) : null;
+  if (memberId !== undefined) updates.memberId = memberId ? memberId.trim().toUpperCase().slice(0, 40) : null;
 
   // Apply field updates first so completeness check sees the new values
   let updated = updateUser(user.id, updates);
@@ -150,6 +151,52 @@ router.get('/:id', requireAdmin, (req, res) => {
   const user = findById(req.params.id);
   if (!user || user.role === 'admin') return res.status(404).json({ error: 'Member not found.' });
   res.json(profileView(user));
+});
+
+// ── PUT /api/profile/:id  (schoolmaster only — edit any member's core fields) ──
+// Editable: username (full name), birthday, memberId, phone, email
+// Age is computed from birthday — never stored directly.
+router.put('/:id', requireAdmin, (req, res) => {
+  const user = findById(req.params.id);
+  if (!user || user.role === 'admin') return res.status(404).json({ error: 'Member not found.' });
+
+  const { username, birthday, memberId, phone, email } = req.body;
+
+  // Validate email
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return res.status(400).json({ error: 'Invalid email address.' });
+  }
+  // Validate phone
+  if (phone && !/^[\d\s\-\+\(\)\.]{7,20}$/.test(phone)) {
+    return res.status(400).json({ error: 'Invalid phone number.' });
+  }
+  // Validate birthday
+  if (birthday !== undefined && birthday) {
+    const bDate = new Date(birthday);
+    if (isNaN(bDate.getTime())) {
+      return res.status(400).json({ error: 'Invalid birthday date.' });
+    }
+    if (bDate > new Date()) {
+      return res.status(400).json({ error: 'Birthday cannot be in the future.' });
+    }
+    const ageYears = calcAge(birthday);
+    if (ageYears < 5) {
+      return res.status(400).json({ error: 'Members must be at least 5 years old.' });
+    }
+  }
+
+  const updates = {};
+  if (username !== undefined) updates.username = username ? username.trim().slice(0, 80)             : user.username;
+  if (birthday !== undefined) updates.birthday = birthday ? birthday.trim().slice(0, 10)             : null;
+  if (memberId !== undefined) updates.memberId = memberId ? memberId.trim().toUpperCase().slice(0, 40) : null;
+  if (phone    !== undefined) updates.phone    = phone    ? phone.trim().slice(0, 30)                : null;
+  if (email    !== undefined) updates.email    = email    ? email.trim().slice(0, 120)               : null;
+
+  let updated = updateUser(user.id, updates);
+  // Re-run age-based auto-unlocks in case birthday changed
+  updated = applyAgeUnlocks(updated);
+
+  res.json({ ok: true, profile: profileView(updated) });
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -231,6 +278,8 @@ function profileView(u) {
     rank:            safe.rank            || null,
     rankName:        safe.rankName        || null,
     rankAssignedAt:  safe.rankAssignedAt  || null,
+    // ── Member ID ──
+    memberId:        safe.memberId        || null,
     // ── Member status ──
     programStatus:   safe.programStatus   || 'active',
     statusNote:      safe.statusNote      || null

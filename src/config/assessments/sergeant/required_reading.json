@@ -1,0 +1,296 @@
+{
+  "program_slug": "sergeant",
+  "program_title": "Sergeant School Program",
+  "program_phase": "Rank advancement",
+  "source_required_reading_file": "public/programs/sergeant/resources/sergeant-required-reading-list.html",
+  "weeks": [
+    {
+      "week_number": 1,
+      "week_title": "Week 1: From Corporal to Sergeant — Historical Review, Scope, and Source-Based Method",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Sergeant School — 8 Week Lesson Plan Program",
+          "url": "https://www.genspark.ai/api/files/s/UDYCGe9g"
+        },
+        {
+          "title": "Corporal School — 8 Week Lesson Plan Program",
+          "url": "https://www.genspark.ai/api/files/s/kublncti"
+        },
+        {
+          "title": "Britannica: Templars",
+          "url": "https://www.britannica.com/topic/Templars"
+        },
+        {
+          "title": "Curriculum Handbook",
+          "url": "https://www.genspark.ai/api/files/s/KCiRchxo"
+        }
+      ],
+      "key_terms": [
+        "Documented History",
+        "Myth vs Fact",
+        "Accountability",
+        "1119/1120",
+        "1307"
+      ],
+      "memory_targets": [
+        "Sergeant study deepens the Corporal historical foundation through source-based method.",
+        "Truthful history requires evidence, chronology, and disciplined judgment.",
+        "Friday the 13th, Grail legends, and conspiracies must be taught carefully and critically."
+      ],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 2,
+      "week_title": "Week 2: Expansion, Patronage, and Legitimacy in Europe",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Sergeant School — 8 Week Lesson Plan Program",
+          "url": "https://www.genspark.ai/api/files/s/UDYCGe9g"
+        },
+        {
+          "title": "Britannica: Templars",
+          "url": "https://www.britannica.com/topic/Templars"
+        },
+        {
+          "title": "KTKC Rules and Statutes",
+          "url": "https://www.genspark.ai/api/files/s/xHK8Sw25"
+        },
+        {
+          "title": "Promotion & Assessment Guide",
+          "url": "https://www.genspark.ai/api/files/s/Mqc7iL2l"
+        }
+      ],
+      "key_terms": [
+        "Hugh de Payns",
+        "Omne Datum Optimum",
+        "Patronage",
+        "Legitimacy",
+        "1139"
+      ],
+      "memory_targets": [
+        "Hugh de Payns’ European tour helped secure broad support for the order.",
+        "Omne Datum Optimum in 1139 strengthened Templar autonomy and legitimacy.",
+        "Growth in influence always requires humility, accountability, and stewardship."
+      ],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 3,
+      "week_title": "Week 3: Organization, Offices, Provinces, and Internal Classes",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Sergeant School — 8 Week Lesson Plan Program",
+          "url": "https://www.genspark.ai/api/files/s/UDYCGe9g"
+        },
+        {
+          "title": "Britannica: Templars",
+          "url": "https://www.britannica.com/topic/Templars"
+        },
+        {
+          "title": "Weekly Lesson-Plan Packet",
+          "url": "https://www.genspark.ai/api/files/s/6g3tE2FN"
+        },
+        {
+          "title": "KTKC Rules and Statutes",
+          "url": "https://www.genspark.ai/api/files/s/xHK8Sw25"
+        }
+      ],
+      "key_terms": [
+        "Grand Master",
+        "Preceptory",
+        "Sergeants",
+        "Chaplains",
+        "Discipline"
+      ],
+      "memory_targets": [
+        "The order was governed through a structured hierarchy and provincial network.",
+        "Historical sergeants were essential to manpower, logistics, and disciplined support.",
+        "Rank exists for responsibility and service rather than social privilege."
+      ],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 4,
+      "week_title": "Week 4: Military Operations, Logistics, Command, and Disciplined Service",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Sergeant School — 8 Week Lesson Plan Program",
+          "url": "https://www.genspark.ai/api/files/s/UDYCGe9g"
+        },
+        {
+          "title": "Britannica: Templars",
+          "url": "https://www.britannica.com/topic/Templars"
+        },
+        {
+          "title": "Britannica: Crusades",
+          "url": "https://www.britannica.com/event/Crusades"
+        },
+        {
+          "title": "KTKC Rules and Statutes",
+          "url": "https://www.genspark.ai/api/files/s/xHK8Sw25"
+        }
+      ],
+      "key_terms": [
+        "Crusader States",
+        "Logistics",
+        "Latin Rule",
+        "Marshal",
+        "Courage"
+      ],
+      "memory_targets": [
+        "Military effectiveness depended on disciplined organization and logistics.",
+        "The Latin Rule helped shape obedience, sobriety, and service.",
+        "Spiritual warfare in KTKC is tied to prayer, witness, and disciplined Christian conduct."
+      ],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 5,
+      "week_title": "Week 5: Finance, Stewardship, Administration, and Public Trust",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Sergeant School — 8 Week Lesson Plan Program",
+          "url": "https://www.genspark.ai/api/files/s/UDYCGe9g"
+        },
+        {
+          "title": "Britannica: Templars",
+          "url": "https://www.britannica.com/topic/Templars"
+        },
+        {
+          "title": "KTKC Rules and Statutes",
+          "url": "https://www.genspark.ai/api/files/s/xHK8Sw25"
+        },
+        {
+          "title": "Promotion Manual and By-Laws",
+          "url": "https://www.genspark.ai/api/files/s/rJ4ZJBEe"
+        }
+      ],
+      "key_terms": [
+        "Stewardship",
+        "Letters of Credit",
+        "Public Trust",
+        "Integrity",
+        "Mission Drift"
+      ],
+      "memory_targets": [
+        "The Templars developed trusted systems for transport, storage, and credit.",
+        "Public trust was one of the order’s greatest strengths and greatest vulnerabilities.",
+        "Christian leadership requires integrity in all matters involving money and responsibility."
+      ],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 6,
+      "week_title": "Week 6: Strategic Strain, Acre, and the Crisis of Purpose",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Sergeant School — 8 Week Lesson Plan Program",
+          "url": "https://www.genspark.ai/api/files/s/UDYCGe9g"
+        },
+        {
+          "title": "Britannica: Crusades",
+          "url": "https://www.britannica.com/event/Crusades"
+        },
+        {
+          "title": "Britannica: Templars",
+          "url": "https://www.britannica.com/topic/Templars"
+        },
+        {
+          "title": "Curriculum Handbook",
+          "url": "https://www.genspark.ai/api/files/s/KCiRchxo"
+        }
+      ],
+      "key_terms": [
+        "Acre",
+        "1291",
+        "Strategic Decline",
+        "Purpose",
+        "Vulnerability"
+      ],
+      "memory_targets": [
+        "The fall of Acre in 1291 marked a decisive blow to the Crusader position in the East.",
+        "As conditions changed, the Templars’ original role became more difficult to justify publicly.",
+        "Mission drift and loss of clarity can weaken even disciplined institutions."
+      ],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 7,
+      "week_title": "Week 7: Philip IV, Clement V, Accusations, Torture, and Suppression",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Sergeant School — 8 Week Lesson Plan Program",
+          "url": "https://www.genspark.ai/api/files/s/UDYCGe9g"
+        },
+        {
+          "title": "Britannica: Clement V",
+          "url": "https://www.britannica.com/biography/Clement-V"
+        },
+        {
+          "title": "HISTORY: Friday the 13th and the Knights Templar",
+          "url": "https://www.history.com/articles/why-friday-the-13th-spelled-doom-for-the-knights-templar"
+        },
+        {
+          "title": "National Geographic: Friday the 13th and Templar Myth",
+          "url": "https://www.nationalgeographic.com/culture/article/160512-friday-13-knights-templar-superstition"
+        }
+      ],
+      "key_terms": [
+        "Philip IV",
+        "Clement V",
+        "1307",
+        "1312",
+        "Justice"
+      ],
+      "memory_targets": [
+        "Mass arrests in France occurred on Friday, October 13, 1307.",
+        "Clement V suppressed the order in 1312 under heavy pressure from Philip IV.",
+        "Confessions obtained under torture must be treated with moral caution and historical care."
+      ],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 8,
+      "week_title": "Week 8: Jacques de Molay, Hospitallers, Legacy, Myth versus History, and Sergeant Readiness",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Sergeant School — 8 Week Lesson Plan Program",
+          "url": "https://www.genspark.ai/api/files/s/UDYCGe9g"
+        },
+        {
+          "title": "Britannica: Templars",
+          "url": "https://www.britannica.com/topic/Templars"
+        },
+        {
+          "title": "Britannica: Hospitallers",
+          "url": "https://www.britannica.com/topic/Hospitallers"
+        },
+        {
+          "title": "National Geographic: Friday the 13th and Templar Myth",
+          "url": "https://www.nationalgeographic.com/culture/article/160512-friday-13-knights-templar-superstition"
+        }
+      ],
+      "key_terms": [
+        "Jacques de Molay",
+        "Hospitallers",
+        "Legacy",
+        "Myth vs History",
+        "1314"
+      ],
+      "memory_targets": [
+        "Jacques de Molay is remembered as the final Grand Master of the order.",
+        "Much Templar property passed to the Hospitallers after suppression, though outcomes varied by ruler and region.",
+        "Friday the 13th mythology should not be taught as a proven historical origin story."
+      ],
+      "verified_public_domain_links": []
+    }
+  ]
+}

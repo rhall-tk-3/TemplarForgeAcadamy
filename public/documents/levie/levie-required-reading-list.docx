@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head><meta charset="utf-8">
+    
+    <title>Levie Required Reading List</title>
+    
+    <style>
+      body {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 32px 80px;
+        position: relative;
+        box-sizing: border-box;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000000;
+        background-color: #ffffff;
+        text-align: justify;
+      }
+      h1 {
+        font-size: 20pt;
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-top: 0;
+        margin-bottom: 24pt;
+        color: #000000;
+      }
+      h2 {
+        font-size: 16pt;
+        font-weight: bold;
+        margin-top: 24pt;
+        margin-bottom: 12pt;
+        border-bottom: 1px solid #000000;
+        padding-bottom: 2px;
+        color: #000000;
+      }
+      h3 {
+        font-size: 14pt;
+        font-weight: bold;
+        margin-top: 18pt;
+        margin-bottom: 8pt;
+        color: #000000;
+      }
+      p {
+        margin-bottom: 12pt;
+        text-indent: 0;
+      }
+      ul {
+        list-style-type: disc;
+        padding-left: 40px;
+        margin-bottom: 12pt;
+      }
+      li {
+        margin-bottom: 6pt;
+      }
+      strong {
+        font-weight: bold;
+      }
+      .week-section {
+        margin-bottom: 24pt;
+      }
+      .closing-note {
+        margin-top: 32pt;
+        border-top: 1px solid #000000;
+        padding-top: 12pt;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body style="">
+    <h1>Levie Required Reading List</h1>
+
+    <p>
+      Welcome to the entry-level formation for the Knights Templar of the Kingdom of Christ (KTKC). This document
+      outlines the required reading and study expectations for the rank of Levie. The following reading list is designed
+      to support your 60-day (8-week) probationary class period, ensuring you understand the fundamental rules,
+      regulations, operating procedures, and early history of the Order.
+    </p>
+
+    <h2>How Levie Reading List Works</h2>
+    <p>
+      As a Levie serving your initial probationary period, your reading assignments are structured to support the
+      official 8-week class instruction. The first four weeks are dedicated entirely to the Order’s Rules, Statutes,
+      By-Laws, conduct, and operating procedures. The final four weeks are dedicated exclusively to the early history
+      leading up to the formation of the historical Knights Templar. You are expected to read the assigned texts
+      carefully prior to each week's instruction and be prepared to participate in class discussions and written
+      quizzes.
+    </p>
+
+    <h2>Reading Log Requirement</h2>
+    <p>
+      Consistent participation and coursework completion are primary metrics for determining readiness for advancement.
+      Every Levie must maintain an official Reading Log. This log serves as proof of your coursework completion and
+      active participation. Failure to complete the required readings and log them during the 60-day probationary period
+      constitutes a deficiency, which will be noted by the Board of Promotion Review and may delay your advancement.
+    </p>
+
+    <h2>Schoolmaster Guidance</h2>
+    <p>This curriculum must be overseen with care. Schoolmasters should verify the
+      Levie Reading Log weekly and ensure attendance is accurately recorded. Parents and instructors must facilitate
+      age-appropriate, moderated discussions regarding the rules, Christian virtues, and historical facts. The goal is
+      to build a foundation of honesty, spiritual identity, and historical truth without glorifying violence or
+      encouraging the spread of unverified legends.
+    </p>
+
+    <h2>Week 1: Identity, Purpose, and Consecration</h2>
+    <div class="week-section">
+      <ul>
+        <li><strong>Required Reading:</strong> KTKC Rules and Statutes, Articles I, II, III, and IV.</li>
+        <li>
+          <strong>Guided Reading Focus:</strong> Focus on the Christian nature of the Order, its consecration to Jesus
+          Christ, and the foundational mission of honoring God through true virtues of Christian knighthood.
+        </li>
+        <li>
+          <strong>Key Terms or Figures:</strong> KTKC (Knights Templar of the Kingdom of Christ), The Holy Trinity,
+          Ecumenical Fellowship.
+        </li>
+        <li>
+          <strong>Memory Targets:</strong> The Order is forever consecrated to Jesus Christ; its purpose is to defend
+          the faith through truthful, nonviolent witness.
+        </li>
+        <li>
+          <strong>Readiness Goals:</strong> Demonstrate an understanding of the Order's Christian identity and its
+          rejection of false worship.
+        </li>
+      </ul>
+    </div>
+
+    <h2>Week 2: Standards, Duties, and Equality</h2>
+    <div class="week-section">
+      <ul>
+        <li>
+          <strong>Required Reading:</strong> KTKC Rules and Statutes, Articles IX, X, XI, and XII; Promotion Manual
+          By-Laws, Articles I, II, and III.
+        </li>
+        <li>
+          <strong>Guided Reading Focus:</strong> Understand the duties of members, financial integrity, equality among
+          members regardless of social status, and the mandatory attendance expectations for promotion.
+        </li>
+        <li>
+          <strong>Key Terms or Figures:</strong> Equality and Fairness, Round Tables (General Order Meetings),
+          Probationary Period.
+        </li>
+        <li>
+          <strong>Memory Targets:</strong> Ranks cannot be bought or sold; promotion requires successful completion of
+          the 8-week class instruction and regular attendance at Bible studies and meetings.
+        </li>
+        <li>
+          <strong>Readiness Goals:</strong> Accept the personal responsibility of attending required meetings and
+          submitting to the Order's standard of financial and moral integrity.
+        </li>
+      </ul>
+    </div>
+
+    <h2>Week 3: Conduct, Leadership, and Accountability</h2>
+    <div class="week-section">
+      <ul>
+        <li><strong>Required Reading:</strong> KTKC Rules and Statutes, Articles VI, VII, VIII, XIII, and XIV.</li>
+        <li>
+          <strong>Guided Reading Focus:</strong> Examine the standards of leadership, liberty of conscience, the nature
+          of open vows versus secret oaths, and the procedures for complaint and redress without fear of retaliation.
+        </li>
+        <li>
+          <strong>Key Terms or Figures:</strong> Liberty of Conscience, Discipline and Redress, Standard of Leadership.
+        </li>
+        <li>
+          <strong>Memory Targets:</strong> No superior can command an act violating Scripture or civil law; leaders are
+          held to a higher standard of visible virtue and humility.
+        </li>
+        <li>
+          <strong>Readiness Goals:</strong> Understand how accountability functions within the Order and recognize that
+          no rank shields a member from correction.
+        </li>
+      </ul>
+    </div>
+
+    <h2>Week 4: The Five Governing Pillars</h2>
+    <div class="week-section">
+      <ul>
+        <li><strong>Required Reading:</strong> KTKC Rules and Statutes, Articles XV, XVI, and XVII.</li>
+        <li>
+          <strong>Guided Reading Focus:</strong> Reflect on the five pillars of the Order: Service, Prayer, Discipline,
+          Witness, and Charity. Understand the concept of spiritual warfare and the practice of sacrificial brotherhood
+          and sisterhood.
+        </li>
+        <li><strong>Key Terms or Figures:</strong> The Five Governing Pillars, Spiritual Warfare, Sacrificial Love.</li>
+        <li>
+          <strong>Memory Targets:</strong> Memorize the Five Pillars: Service to Christ, Prayer and Holy Meditation,
+          Discipline and Virtue, Courageous Christian Witness, and Brotherhood/Sisterhood in Charity.
+        </li>
+        <li>
+          <strong>Readiness Goals:</strong> Internalize the core values required to transition from a probationary Levie
+          to an active contributing member of the fellowship.
+        </li>
+      </ul>
+    </div>
+
+    <h2>Week 5: The Need for Protection (Early Pre-Templar History)</h2>
+    <div class="week-section">
+      <ul>
+        <li>
+          <strong>Required Reading:</strong> Levie History Handout 1 (Christian Pilgrimage and The First Crusade
+          Context).
+        </li>
+        <li>
+          <strong>Guided Reading Focus:</strong> Learn why the Holy Land mattered to medieval Christians and understand
+          the real dangers faced by travelers and pilgrims on the roads to Jerusalem.
+        </li>
+        <li><strong>Key Terms or Figures:</strong> Christian Pilgrims, The First Crusade (1095–1099), Jerusalem.</li>
+        <li>
+          <strong>Memory Targets:</strong> The First Crusade established fragile Crusader states; travelers to Jerusalem
+          faced constant threats, creating a dire need for organized protection.
+        </li>
+        <li>
+          <strong>Readiness Goals:</strong> Accurately explain the historical conditions and context that existed
+          immediately before the Templar Order was formed.
+        </li>
+      </ul>
+    </div>
+
+    <h2>Week 6: Founding People and Places</h2>
+    <div class="week-section">
+      <ul>
+        <li>
+          <strong>Required Reading:</strong> Levie History Handout 2 (Hugh de Payns and the Early Headquarters); Simple
+          Biographies.
+        </li>
+        <li>
+          <strong>Guided Reading Focus:</strong> Discover the actual founders of the Order, their original protective
+          purpose, and the significance of their first headquarters.
+        </li>
+        <li><strong>Key Terms or Figures:</strong> Hugh de Payns, King Baldwin II, The Temple Mount.</li>
+        <li>
+          <strong>Memory Targets:</strong> Hugh de Payns is the founder most closely linked with the Order (circa
+          1119/1120); King Baldwin II provided their early headquarters on the Temple Mount.
+        </li>
+        <li>
+          <strong>Readiness Goals:</strong> Identify the key founding figures and correctly state the founding purpose:
+          to protect pilgrims, rather than to seek wealth or glory.
+        </li>
+      </ul>
+    </div>
+
+    <h2>Week 7: Official Approval and Early Support</h2>
+    <div class="week-section">
+      <ul>
+        <li>
+          <strong>Required Reading:</strong> Levie History Handout 3 (The Council of Troyes and Bernard of Clairvaux).
+        </li>
+        <li>
+          <strong>Guided Reading Focus:</strong> Study how the early Order gained official church recognition,
+          legitimacy, and the spiritual backing of influential contemporary leaders.
+        </li>
+        <li><strong>Key Terms or Figures:</strong> The Council of Troyes (1128/1129), Bernard of Clairvaux.</li>
+        <li>
+          <strong>Memory Targets:</strong> The Council of Troyes provided formal approval for the Order; Bernard of
+          Clairvaux was a key spiritual supporter, not a founder.
+        </li>
+        <li>
+          <strong>Readiness Goals:</strong> Differentiate between the informal founding of the Order and its formal,
+          official recognition by the wider church.
+        </li>
+      </ul>
+    </div>
+
+    <h2>Week 8: Religious-Order Identity and Early Timeline Review</h2>
+    <div class="week-section">
+      <ul>
+        <li>
+          <strong>Required Reading:</strong> Levie History Handout 4 (Religious Order Identity and Early Timeline
+          Review).
+        </li>
+        <li>
+          <strong>Guided Reading Focus:</strong> Understand what separated the early Templars from an ordinary medieval
+          army—specifically their daily discipline, prayer, and service. Review the early timeline facts.
+        </li>
+        <li><strong>Key Terms or Figures:</strong> Religious Order Identity, Service Before Self.</li>
+        <li>
+          <strong>Memory Targets:</strong> Recall the timeline from 1095 (First Crusade context) to the Council of
+          Troyes (1128/1129); understand that the Order was a religious body requiring prayer and discipline.
+        </li>
+        <li>
+          <strong>Readiness Goals:</strong> Complete the historical timeline review and demonstrate preparedness for the
+          final probationary written quiz and oral evaluation.
+        </li>
+      </ul>
+    </div>
+
+    <div class="closing-note">
+      <p>
+        <strong>Note on Promotion Readiness:</strong> Completion of this 8-week reading curriculum is a strict
+        requirement for advancement, but it does not guarantee automatic promotion. The Board of Promotion Review will
+        evaluate each Levie based upon coursework completion, logged attendance, active participation, and a
+        demonstrated conduct becoming of a member of the Knights Templar of the Kingdom of Christ. Continue to study
+        diligently and apply these principles to your daily walk.
+      </p>
+    </div>
+  
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

@@ -411,6 +411,47 @@
     .save-status.success { display:block; background:rgba(60,100,40,0.3); border:1px solid #3a6020; color:#8fcf60; }
     .save-status.error   { display:block; background:rgba(100,20,20,0.3); border:1px solid #6a1010; color:#cf6060; }
 
+    /* ── PROFILE SUMMARY DISPLAY CARD ── */
+    .profile-summary-card {
+      background: linear-gradient(135deg, rgba(18,8,2,0.88), rgba(12,5,1,0.88));
+      border: 1px solid rgba(90,50,10,0.5);
+      border-radius: 14px;
+      padding: clamp(16px,4vw,22px) clamp(18px,5vw,26px);
+      margin-bottom: 24px;
+      backdrop-filter: blur(8px);
+    }
+    .profile-summary-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.7rem,2vw,0.8rem);
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #7a5020;
+      margin-bottom: 14px;
+    }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 20px;
+    }
+    @media(max-width:480px){ .summary-grid { grid-template-columns: 1fr; } }
+    .summary-row { display:flex; flex-direction:column; gap:2px; }
+    .summary-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.63rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #6a4010;
+    }
+    .summary-value {
+      font-family: 'Crimson Text', serif;
+      font-size: 0.95rem;
+      color: #c8a870;
+      word-break: break-word;
+    }
+    .summary-value.empty { color: #3a2010; font-style: italic; }
+
     /* ── BACK LINK ── */
     .back-link {
       display: inline-flex;
@@ -437,17 +478,19 @@
   </style>
 </head>
 <body>
+  <script src="/assets/js/academy-guard.js" data-protect="member" defer></script>
+
 <div class="page-wrap">
 
   <!-- TOP BAR -->
   <nav class="topbar">
-    <a class="topbar-brand" href="/">
+    <span class="topbar-brand">
       <img src="/images/order-crest.png" alt="Crest">
       <div>
         <div class="topbar-brand-text">Templar Forge Academy</div>
         <div class="topbar-brand-sub">Member Portal</div>
       </div>
-    </a>
+    </span>
     <!-- KTKC Motto -->
     <div class="topbar-motto">
       <span class="topbar-motto-word"><span class="topbar-motto-cap k1">K</span><span class="topbar-motto-rest">nowledge</span></span>
@@ -460,7 +503,6 @@
     </div>
     <div class="topbar-nav">
       <a href="/member">⚔ Dashboard</a>
-      <a href="/auth/logout" class="btn-nav">Sign Out</a>
     </div>
   </nav>
 
@@ -515,6 +557,37 @@
         <div class="profile-header-temple" id="profile-temple-badge" style="display:none;">✠ Temple of —</div>
         <div id="profile-rank-badge" class="rank-badge" style="display:none;">⚜ —</div>
         <div class="photo-status" id="photo-status"></div>
+      </div>
+    </div>
+
+    <!-- Profile Summary Display Card -->
+    <div class="profile-summary-card" id="profile-summary-card">
+      <div class="profile-summary-title">✠ Your Profile</div>
+      <div class="summary-grid">
+        <div class="summary-row">
+          <span class="summary-label">Full Name</span>
+          <span class="summary-value" id="ps-name"><em class="empty">—</em></span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">Member ID</span>
+          <span class="summary-value" id="ps-member-id"><em class="empty">Not assigned</em></span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">Date of Birth</span>
+          <span class="summary-value" id="ps-birthday"><em class="empty">Not set</em></span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">Age</span>
+          <span class="summary-value" id="ps-age"><em class="empty">—</em></span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">Email</span>
+          <span class="summary-value" id="ps-email"><em class="empty">Not provided</em></span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">Phone</span>
+          <span class="summary-value" id="ps-phone"><em class="empty">Not provided</em></span>
+        </div>
       </div>
     </div>
 
@@ -695,6 +768,7 @@ Promise.all([
       `Member since ${new Date(user.createdAt).toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' })}`;
 
     if (profile) populateForm(profile);
+    renderSummaryCard(user, profile);
     renderStatusBanners(profile);
     renderRankBadge(profile);
     renderPausedBanner(profile);
@@ -706,6 +780,73 @@ Promise.all([
     }
   })
   .catch(() => { window.location.href = '/login'; });
+
+// ── Render read-only profile summary card ──
+function renderSummaryCard(user, profile) {
+  // Name
+  const nameEl = document.getElementById('ps-name');
+  if (nameEl) {
+    const fullName = `${user.salutation ? user.salutation + ' ' : ''}${user.username}`;
+    nameEl.textContent = fullName;
+    nameEl.className = 'summary-value';
+  }
+  // Member ID
+  const midEl = document.getElementById('ps-member-id');
+  if (midEl) {
+    if (profile && profile.memberId) {
+      midEl.textContent = profile.memberId;
+      midEl.className = 'summary-value';
+    } else {
+      midEl.innerHTML = '<em class="empty">Not assigned</em>';
+      midEl.className = 'summary-value';
+    }
+  }
+  // Birthday
+  const bdEl = document.getElementById('ps-birthday');
+  if (bdEl) {
+    if (profile && profile.birthday) {
+      const [y, m, d] = profile.birthday.split('-');
+      bdEl.textContent = new Date(+y, +m - 1, +d).toLocaleDateString(undefined, { year:'numeric', month:'long', day:'numeric' });
+      bdEl.className = 'summary-value';
+    } else {
+      bdEl.innerHTML = '<em class="empty">Not set</em>';
+      bdEl.className = 'summary-value';
+    }
+  }
+  // Age
+  const ageEl = document.getElementById('ps-age');
+  if (ageEl) {
+    if (profile && profile.age !== null && profile.age !== undefined) {
+      ageEl.textContent = `${profile.age} years old`;
+      ageEl.className = 'summary-value';
+    } else {
+      ageEl.innerHTML = '<em class="empty">—</em>';
+      ageEl.className = 'summary-value';
+    }
+  }
+  // Email
+  const emailEl = document.getElementById('ps-email');
+  if (emailEl) {
+    if (profile && profile.email) {
+      emailEl.innerHTML = `<a href="mailto:${profile.email}" style="color:#c8a870;">${profile.email}</a>`;
+      emailEl.className = 'summary-value';
+    } else {
+      emailEl.innerHTML = '<em class="empty">Not provided</em>';
+      emailEl.className = 'summary-value';
+    }
+  }
+  // Phone
+  const phoneEl = document.getElementById('ps-phone');
+  if (phoneEl) {
+    if (profile && profile.phone) {
+      phoneEl.innerHTML = `<a href="tel:${profile.phone.replace(/\D/g,'')}" style="color:#c8a870;">${profile.phone}</a>`;
+      phoneEl.className = 'summary-value';
+    } else {
+      phoneEl.innerHTML = '<em class="empty">Not provided</em>';
+      phoneEl.className = 'summary-value';
+    }
+  }
+}
 
 // ── Populate form from existing profile data ──
 function populateForm(data) {
@@ -937,7 +1078,8 @@ function saveProfile() {
         badge.style.display = 'inline-block';
       }
 
-      // Re-render status banners with fresh profile
+      // Re-render summary card and status banners with fresh profile
+      renderSummaryCard(currentUser, data.profile);
       renderStatusBanners(data.profile);
       renderRankBadge(data.profile);
       renderPausedBanner(data.profile);

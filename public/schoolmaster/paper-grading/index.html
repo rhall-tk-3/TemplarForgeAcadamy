@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Schoolmaster | Paper Grading Hub</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --line: rgba(148,163,184,.22);
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --gold: #d4af37;
+      --accent: #7dd3fc;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, sans-serif;
+      background: linear-gradient(180deg,#08101f 0%, #0f172a 100%);
+      color: var(--text);
+    }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 28px 20px 72px; }
+    .hero, .grading-card {
+      background: linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+    }
+    .hero { padding: 28px; margin-bottom: 20px; }
+    .grading-card { padding: 20px; margin-bottom: 18px; }
+    h1,h2,h3 { margin: 0 0 10px; }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .download-btn, button {
+      display: inline-block;
+      appearance: none;
+      border: 0;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      background: var(--gold);
+      color: #111827;
+      text-decoration: none;
+    }
+    .grade-form {
+      margin-top: 16px;
+      display: grid;
+      gap: 10px;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #0b1220;
+      color: var(--text);
+      font: inherit;
+    }
+    .member-id { color: var(--muted); }
+    .save-msg { margin-top: 4px; font-size: .92rem; }
+    .save-msg.success { color: #86efac; }
+    .save-msg.error { color: #fca5a5; }
+  </style>
+</head>
+<body>
+  <script src="/assets/js/academy-guard.js" data-protect="schoolmaster" defer></script>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Schoolmaster Paper Grading Hub</h1>
+      <p>Review uploaded student papers, download files, and record grade / feedback / revision status.</p>
+    </section>
+
+    <div id="grading-board"></div>
+  </main>
+
+  <script src="/assets/js/academy-paper-grading.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+{
+  "program_slug": "squire",
+  "program_title": "Squire School Program",
+  "program_phase": "Foundational rank",
+  "source_required_reading_file": "public/programs/squire/resources/Squire_Required_Reading_List.html",
+  "weeks": [
+    {
+      "week_number": 1,
+      "week_title": "Week 1: Origins and Virtues",
+      "focus": "Required Reading: Short Excerpts and Guided Readings (Week 1 section) and Historical Timeline (First Crusade background).",
+      "required_reading": [],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 2,
+      "week_title": "Week 2: Founding People and Places",
+      "focus": "Required Reading: Simple Biographies (Hugh de Payns and Baldwin II), Short Excerpts and Guided Readings (fact versus legend), and Historical Timeline (founding setting).",
+      "required_reading": [],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 3,
+      "week_title": "Week 3: Approval and Mission",
+      "focus": "Required Reading: Historical Timeline (1095-1139), Simple Biographies (Bernard of Clairvaux and Innocent II), and Order Structure (religious order identity).",
+      "required_reading": [],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 4,
+      "week_title": "Week 4: Structure and Daily Life",
+      "focus": "Required Reading: Order Structure and Short Excerpts and Guided Readings (service and discipline sections).",
+      "required_reading": [],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 5,
+      "week_title": "Week 5: Life of the Order",
+      "focus": "Required Reading: Short Excerpts and Guided Readings (Week 5 section) and Order Structure (service before self review).",
+      "required_reading": [],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 6,
+      "week_title": "Week 6: Power and Crisis",
+      "focus": "Required Reading: Historical Timeline (Acre and later crisis) and Short Excerpts and Guided Readings (mission drift section).",
+      "required_reading": [],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 7,
+      "week_title": "Week 7: Suppression and Courage",
+      "focus": "Required Reading: Historical Timeline (1307-1314), Simple Biographies (Philip IV, Clement V, and Jacques de Molay), and Short Excerpts and Guided Readings (justice and courage section).",
+      "required_reading": [],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 8,
+      "week_title": "Week 8: Review and Board Preparation",
+      "focus": "Required Reading: Review all four official reading-stack documents: Order Structure , Historical Timeline , Simple Biographies , and Short Excerpts and Guided Readings .",
+      "required_reading": [],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    }
+  ]
+}

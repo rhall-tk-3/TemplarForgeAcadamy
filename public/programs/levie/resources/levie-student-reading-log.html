@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Levie Student Reading Log</title>
+  <style>
+    :root {
+      --ink: #1f2937;
+      --muted: #5b6470;
+      --line: #c8ced8;
+      --accent: #4b2e1f;
+      --bg: #f8f6f2;
+      --panel: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Times New Roman", Times, serif;
+      line-height: 1.5;
+    }
+    .page {
+      max-width: 980px;
+      margin: 28px auto;
+      background: var(--panel);
+      padding: 40px 42px 56px;
+      border: 1px solid #ddd;
+      box-shadow: 0 10px 28px rgba(0,0,0,.06);
+    }
+    h1 {
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 24pt;
+      margin: 0 0 8px;
+      letter-spacing: .02em;
+    }
+    .subtitle {
+      text-align: center;
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 11.5pt;
+    }
+    h2 {
+      font-size: 16pt;
+      margin: 26px 0 12px;
+      border-bottom: 1px solid #000;
+      padding-bottom: 3px;
+    }
+    h3 {
+      font-size: 13.5pt;
+      margin: 0 0 8px;
+    }
+    p { margin: 0 0 12px; }
+    .top-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px 24px;
+      margin-bottom: 18px;
+    }
+    .field label,
+    .line-label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .field input[type="text"],
+    .field input[type="date"],
+    .field textarea,
+    .week-box textarea,
+    .summary textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      font: inherit;
+      background: #fff;
+    }
+    .field textarea,
+    .week-box textarea,
+    .summary textarea {
+      resize: vertical;
+      min-height: 92px;
+    }
+    .week-box {
+      border: 1px solid var(--line);
+      padding: 18px 18px 16px;
+      margin-bottom: 18px;
+      page-break-inside: avoid;
+      background: #fff;
+    }
+    .focus {
+      font-size: 11.2pt;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 18px;
+      margin: 12px 0 14px;
+    }
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5pt;
+    }
+    .check-item input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--accent);
+    }
+    .meta-list {
+      margin: 10px 0 14px;
+      padding-left: 18px;
+    }
+    .meta-list li { margin-bottom: 6px; }
+    .initials-row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 12px;
+      align-items: center;
+      margin: 10px 0 14px;
+    }
+    .short-line {
+      border: 0;
+      border-bottom: 1px solid #000;
+      height: 32px;
+      width: 100%;
+      font: inherit;
+      padding: 4px 0;
+    }
+    .summary {
+      border: 1px solid var(--line);
+      padding: 18px;
+      margin-top: 20px;
+    }
+    .signature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 24px;
+      margin-top: 16px;
+    }
+    .small-note {
+      color: var(--muted);
+      font-size: 10.8pt;
+    }
+    .source-box {
+      margin-top: 24px;
+      padding-top: 12px;
+      border-top: 1px solid #000;
+      font-size: 10.8pt;
+    }
+    a { color: var(--accent); }
+    @media print {
+      body { background: #fff; }
+      .page { margin: 0; box-shadow: none; border: none; max-width: none; }
+    }
+    @media (max-width: 720px) {
+      .page { padding: 22px 18px 36px; }
+      .top-grid, .signature-grid, .check-grid, .initials-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>Levie Student Reading Log</h1>
+    <p class="subtitle">Knights Templar of the Kingdom of Christ • 8-Week Entry Reading Record</p>
+
+    <p>This reading log is designed to match the updated <strong>Levie Required Reading List</strong>. Students should complete it weekly as part of their probationary reading, discussion, memory review, and note-taking. Schoolmasters may initial each week after review.</p>
+
+    <div class="top-grid">
+      <div class="field">
+        <label for="studentName">Student Name</label>
+        <input id="studentName" type="text" />
+      </div>
+      <div class="field">
+        <label for="chapter">Chapter</label>
+        <input id="chapter" type="text" />
+      </div>
+      <div class="field">
+        <label for="schoolmaster">Instructor / Schoolmaster</label>
+        <input id="schoolmaster" type="text" />
+      </div>
+      <div class="field">
+        <label for="rank">Rank</label>
+        <input id="rank" type="text" value="Levie" />
+      </div>
+      <div class="field">
+        <label for="termStart">Term Start Date</label>
+        <input id="termStart" type="date" />
+      </div>
+      <div class="field">
+        <label for="termEnd">Term End Date</label>
+        <input id="termEnd" type="date" />
+      </div>
+    </div>
+
+    <h2>Weekly Reading Record</h2>
+    <p class="small-note">Use the checkboxes for completion tracking. Use the notes box for summary, questions, personal reflections, or Schoolmaster comments.</p>
+
+    <div class="week-box">
+      <h3>Week 1 — Identity, Purpose, and Consecration</h3>
+      <p class="focus">Reading focus: the Christian nature of the Order, its consecration to Jesus Christ, and the foundational mission of honoring God through true virtues of Christian knighthood.</p>
+      <ul class="meta-list">
+        <li><strong>Key terms:</strong> KTKC, Holy Trinity, Ecumenical Fellowship</li>
+        <li><strong>Memory targets:</strong> The Order is consecrated to Jesus Christ; its purpose is truthful, nonviolent witness and Christian service.</li>
+      </ul>
+      <div class="check-grid">
+        <label class="check-item"><input type="checkbox" /> Reading assigned completed</label>
+        <label class="check-item"><input type="checkbox" /> Guided reading discussed</label>
+        <label class="check-item"><input type="checkbox" /> Memory targets reviewed</label>
+        <label class="check-item"><input type="checkbox" /> Notes or reflection completed</label>
+      </div>
+      <div class="initials-row">
+        <label class="line-label" for="w1init">Instructor initials</label>
+        <input id="w1init" class="short-line" type="text" />
+      </div>
+      <label class="line-label" for="w1notes">Week 1 notes / reflection</label>
+      <textarea id="w1notes"></textarea>
+    </div>
+
+    <div class="week-box">
+      <h3>Week 2 — Standards, Duties, and Equality</h3>
+      <p class="focus">Reading focus: duties of members, financial integrity, equality among members, probationary expectations, and attendance requirements for promotion.</p>
+      <ul class="meta-list">
+        <li><strong>Key terms:</strong> Equality and Fairness, Round Tables, Probationary Period</li>
+        <li><strong>Memory targets:</strong> Ranks cannot be bought or sold; promotion requires successful completion of the 8-week class and regular attendance.</li>
+      </ul>
+      <div class="check-grid">
+        <label class="check-item"><input type="checkbox" /> Reading assigned completed</label>
+        <label class="check-item"><input type="checkbox" /> Guided reading discussed</label>
+        <label class="check-item"><input type="checkbox" /> Memory targets reviewed</label>
+        <label class="check-item"><input type="checkbox" /> Notes or reflection completed</label>
+      </div>
+      <div class="initials-row">
+        <label class="line-label" for="w2init">Instructor initials</label>
+        <input id="w2init" class="short-line" type="text" />
+      </div>
+      <label class="line-label" for="w2notes">Week 2 notes / reflection</label>
+      <textarea id="w2notes"></textarea>
+    </div>
+
+    <div class="week-box">
+      <h3>Week 3 — Conduct, Leadership, and Accountability</h3>
+      <p class="focus">Reading focus: leadership standards, liberty of conscience, open vows rather than secret oaths, and complaint and redress without retaliation.</p>
+      <ul class="meta-list">
+        <li><strong>Key terms:</strong> Liberty of Conscience, Discipline and Redress, Standard of Leadership</li>
+        <li><strong>Memory targets:</strong> No superior can command an act violating Scripture or civil law; leaders are held to a higher standard of virtue and humility.</li>
+      </ul>
+      <div class="check-grid">
+        <label class="check-item"><input type="checkbox" /> Reading assigned completed</label>
+        <label class="check-item"><input type="checkbox" /> Guided reading discussed</label>
+        <label class="check-item"><input type="checkbox" /> Memory targets reviewed</label>
+        <label class="check-item"><input type="checkbox" /> Notes or reflection completed</label>
+      </div>
+      <div class="initials-row">
+        <label class="line-label" for="w3init">Instructor initials</label>
+        <input id="w3init" class="short-line" type="text" />
+      </div>
+      <label class="line-label" for="w3notes">Week 3 notes / reflection</label>
+      <textarea id="w3notes"></textarea>
+    </div>
+
+    <div class="week-box">
+      <h3>Week 4 — The Five Governing Pillars</h3>
+      <p class="focus">Reading focus: Service, Prayer, Discipline, Witness, and Charity, together with spiritual warfare understood as spiritual witness and sacrificial brotherhood/sisterhood.</p>
+      <ul class="meta-list">
+        <li><strong>Key terms:</strong> Five Governing Pillars, Spiritual Warfare, Sacrificial Love</li>
+        <li><strong>Memory targets:</strong> Service to Christ, Prayer and Holy Meditation, Discipline and Virtue, Courageous Christian Witness, Brotherhood/Sisterhood in Charity.</li>
+      </ul>
+      <div class="check-grid">
+        <label class="check-item"><input type="checkbox" /> Reading assigned completed</label>
+        <label class="check-item"><input type="checkbox" /> Guided reading discussed</label>
+        <label class="check-item"><input type="checkbox" /> Memory targets reviewed</label>
+        <label class="check-item"><input type="checkbox" /> Notes or reflection completed</label>
+      </div>
+      <div class="initials-row">
+        <label class="line-label" for="w4init">Instructor initials</label>
+        <input id="w4init" class="short-line" type="text" />
+      </div>
+      <label class="line-label" for="w4notes">Week 4 notes / reflection</label>
+      <textarea id="w4notes"></textarea>
+    </div>
+
+    <div class="week-box">
+      <h3>Week 5 — The Need for Protection (Early Pre-Templar History)</h3>
+      <p class="focus">Reading focus: why the Holy Land mattered to medieval Christians and the dangers faced by travelers and pilgrims on the road to Jerusalem.</p>
+      <ul class="meta-list">
+        <li><strong>Key terms:</strong> Christian Pilgrims, First Crusade (1095–1099), Jerusalem</li>
+        <li><strong>Memory targets:</strong> The First Crusade established fragile Crusader states; travelers to Jerusalem faced constant threats and needed protection.</li>
+      </ul>
+      <div class="check-grid">
+        <label class="check-item"><input type="checkbox" /> Reading assigned completed</label>
+        <label class="check-item"><input type="checkbox" /> Guided reading discussed</label>
+        <label class="check-item"><input type="checkbox" /> Memory targets reviewed</label>
+        <label class="check-item"><input type="checkbox" /> Notes or reflection completed</label>
+      </div>
+      <div class="initials-row">
+        <label class="line-label" for="w5init">Instructor initials</label>
+        <input id="w5init" class="short-line" type="text" />
+      </div>
+      <label class="line-label" for="w5notes">Week 5 notes / reflection</label>
+      <textarea id="w5notes"></textarea>
+    </div>
+
+    <div class="week-box">
+      <h3>Week 6 — Founding People and Places</h3>
+      <p class="focus">Reading focus: the founders of the Order, their protective purpose, and the significance of the early headquarters.</p>
+      <ul class="meta-list">
+        <li><strong>Key terms:</strong> Hugh de Payns, King Baldwin II, Temple Mount</li>
+        <li><strong>Memory targets:</strong> Hugh de Payns is most closely linked with the founding; Baldwin II provided early headquarters on the Temple Mount.</li>
+      </ul>
+      <div class="check-grid">
+        <label class="check-item"><input type="checkbox" /> Reading assigned completed</label>
+        <label class="check-item"><input type="checkbox" /> Guided reading discussed</label>
+        <label class="check-item"><input type="checkbox" /> Memory targets reviewed</label>
+        <label class="check-item"><input type="checkbox" /> Notes or reflection completed</label>
+      </div>
+      <div class="initials-row">
+        <label class="line-label" for="w6init">Instructor initials</label>
+        <input id="w6init" class="short-line" type="text" />
+      </div>
+      <label class="line-label" for="w6notes">Week 6 notes / reflection</label>
+      <textarea id="w6notes"></textarea>
+    </div>
+
+    <div class="week-box">
+      <h3>Week 7 — Official Approval and Early Support</h3>
+      <p class="focus">Reading focus: how the early Order gained official church recognition, legitimacy, and support from influential early leaders.</p>
+      <ul class="meta-list">
+        <li><strong>Key terms:</strong> Council of Troyes (1128/1129), Bernard of Clairvaux</li>
+        <li><strong>Memory targets:</strong> The Council of Troyes provided formal approval; Bernard of Clairvaux was an important supporter, not the founder.</li>
+      </ul>
+      <div class="check-grid">
+        <label class="check-item"><input type="checkbox" /> Reading assigned completed</label>
+        <label class="check-item"><input type="checkbox" /> Guided reading discussed</label>
+        <label class="check-item"><input type="checkbox" /> Memory targets reviewed</label>
+        <label class="check-item"><input type="checkbox" /> Notes or reflection completed</label>
+      </div>
+      <div class="initials-row">
+        <label class="line-label" for="w7init">Instructor initials</label>
+        <input id="w7init" class="short-line" type="text" />
+      </div>
+      <label class="line-label" for="w7notes">Week 7 notes / reflection</label>
+      <textarea id="w7notes"></textarea>
+    </div>
+
+    <div class="week-box">
+      <h3>Week 8 — Religious-Order Identity and Early Timeline Review</h3>
+      <p class="focus">Reading focus: what made the early Templars a religious order rather than an ordinary army, together with early timeline review.</p>
+      <ul class="meta-list">
+        <li><strong>Key terms:</strong> Religious Order Identity, Service Before Self</li>
+        <li><strong>Memory targets:</strong> Review the timeline from 1095 through the Council of Troyes (1128/1129); remember that the Order required prayer and discipline.</li>
+      </ul>
+      <div class="check-grid">
+        <label class="check-item"><input type="checkbox" /> Reading assigned completed</label>
+        <label class="check-item"><input type="checkbox" /> Guided reading discussed</label>
+        <label class="check-item"><input type="checkbox" /> Memory targets reviewed</label>
+        <label class="check-item"><input type="checkbox" /> Notes or reflection completed</label>
+      </div>
+      <div class="initials-row">
+        <label class="line-label" for="w8init">Instructor initials</label>
+        <input id="w8init" class="short-line" type="text" />
+      </div>
+      <label class="line-label" for="w8notes">Week 8 notes / reflection</label>
+      <textarea id="w8notes"></textarea>
+    </div>
+
+    <h2>Final Completion Summary</h2>
+    <div class="summary">
+      <div class="top-grid">
+        <div class="field">
+          <label for="weeksCompleted">Total Weeks Completed</label>
+          <input id="weeksCompleted" type="text" />
+        </div>
+        <div class="field">
+          <label for="readingComplete">Reading Log Completed</label>
+          <input id="readingComplete" type="text" placeholder="Yes / No" />
+        </div>
+      </div>
+      <label class="line-label" for="summaryNotes">Schoolmaster comments / final notes</label>
+      <textarea id="summaryNotes"></textarea>
+      <div class="signature-grid">
+        <div class="field">
+          <label for="studentSignature">Student Signature</label>
+          <input id="studentSignature" type="text" />
+        </div>
+        <div class="field">
+          <label for="studentDate">Date</label>
+          <input id="studentDate" type="date" />
+        </div>
+        <div class="field">
+          <label for="schoolmasterSignature">Schoolmaster Signature</label>
+          <input id="schoolmasterSignature" type="text" />
+        </div>
+        <div class="field">
+          <label for="schoolmasterDate">Date</label>
+          <input id="schoolmasterDate" type="date" />
+        </div>
+      </div>
+    </div>
+
+    <div class="source-box">
+      <p><strong>Source alignment:</strong> This log is based on the updated <a href="/documents/levie/levie-required-reading-list.docx">Levie Required Reading List</a> and aligned to the <a href="/documents/levie/levie-lesson-plan.docx">Levie School — 8 Week Lesson Plan Program</a>.</p>
+    </div>
+  </div>
+
+<script src="/assets/document-link-enhancer.js"></script>
+<script src="/assets/curriculum-portal.js"></script>
+</body>
+</html>

@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Major Program - Required Reading Hub | Officer Formation Level III</title>
+  <meta
+    name="description"
+    content="Templar Forge Academy Major Program required reading hub with the Major School Syllabus, lesson-by-lesson reading links, assignments, and oversight outcomes."
+  />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --panel-2: #1f2937;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --gold: #d4af37;
+      --gold-soft: rgba(212, 175, 55, 0.12);
+      --line: rgba(148, 163, 184, 0.22);
+      --accent: #7dd3fc;
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --max: 1220px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(212, 175, 55, 0.08), transparent 25%),
+        radial-gradient(circle at top left, rgba(125, 211, 252, 0.08), transparent 20%),
+        linear-gradient(180deg, #08101f 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover, a:focus { text-decoration: underline; }
+
+    /* ── Sticky nav ── */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 18, 32, 0.96);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .sticky-nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .sticky-nav-inner::-webkit-scrollbar { display: none; }
+
+    .sticky-nav-brand {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #f8e7a6;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      padding: 14px 16px 14px 0;
+      border-right: 1px solid rgba(212, 175, 55, 0.22);
+      margin-right: 4px;
+      flex-shrink: 0;
+    }
+
+    .sticky-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      padding: 8px 4px;
+      flex-shrink: 0;
+    }
+
+    .sticky-nav-links a {
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #cbd5e1;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+    }
+    .sticky-nav-links a:hover {
+      background: rgba(212, 175, 55, 0.12);
+      color: #f8e7a6;
+      text-decoration: none;
+    }
+    .sticky-nav-links a.active {
+      background: rgba(212, 175, 55, 0.18);
+      color: #f8e7a6;
+    }
+
+    .shell {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 20px 80px;
+    }
+
+    .hero, .panel, .week-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 36px 28px;
+      margin-bottom: 24px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+        linear-gradient(135deg, rgba(212,175,55,0.10), rgba(125,211,252,0.05));
+    }
+
+    .panel, .week-card { padding: 22px 24px; margin-bottom: 22px; }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--gold-soft);
+      color: #f8e7a6;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1, h2, h3, h4 { margin: 0 0 12px; line-height: 1.2; }
+    h1 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.02em; }
+    h2 { font-size: 1.5rem; margin-bottom: 14px; }
+    h3 { font-size: 1.15rem; color: #fff; }
+    p { margin: 0 0 1rem; }
+
+    .hero p { max-width: 960px; color: #dbe4f0; font-size: 1.02rem; }
+    .muted { color: var(--muted); }
+    .small { font-size: 0.95rem; }
+
+    .quick-nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .quick-nav a {
+      display: block;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: rgba(15, 23, 42, 0.65);
+      color: var(--text);
+      font-weight: 600;
+    }
+    .quick-nav a:hover { border-color: rgba(212, 175, 55, 0.45); text-decoration: none; }
+
+    .docs-grid, .summary-grid, .footer-links { display: grid; gap: 16px; }
+    .docs-grid, .summary-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+
+    .doc-card, .summary-card {
+      padding: 18px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: rgba(15, 23, 42, 0.72);
+    }
+    .doc-card strong, .summary-card strong { display: block; margin-bottom: 8px; color: #fff; }
+
+    .overview-table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 980px;
+      background: rgba(15, 23, 42, 0.55);
+    }
+    th, td { padding: 14px 16px; border-bottom: 1px solid var(--line); vertical-align: top; text-align: left; }
+    th { background: rgba(212, 175, 55, 0.08); color: #f8e7a6; font-size: 0.9rem; letter-spacing: 0.03em; }
+    tr:last-child td { border-bottom: none; }
+
+    .week-card { scroll-margin-top: 24px; }
+
+    .week-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      font-size: 0.85rem;
+      border-radius: 999px;
+      background: rgba(125, 211, 252, 0.08);
+      border: 1px solid rgba(125, 211, 252, 0.18);
+      color: #d7f3ff;
+    }
+
+    .field {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: var(--radius-sm);
+      background: rgba(2, 8, 23, 0.46);
+      border: 1px solid var(--line);
+    }
+    .field-label {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: #f8e7a6;
+      font-size: 0.86rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    ul, ol { margin: 0.4rem 0 0 1.2rem; padding: 0; }
+    li + li { margin-top: 0.45rem; }
+    .reading-list li a { font-weight: 600; }
+
+    .footer-links {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-top: 16px;
+    }
+    .footer-links a {
+      display: block;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: rgba(15, 23, 42, 0.72);
+      color: var(--text);
+      font-weight: 600;
+    }
+    .footer-links a:hover { text-decoration: none; border-color: rgba(212, 175, 55, 0.45); }
+
+    @media (max-width: 760px) {
+      .hero, .panel, .week-card { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="sticky-nav" aria-label="Major School Program navigation">
+    <div class="sticky-nav-inner">
+      <span class="sticky-nav-brand">✠ Major School Program</span>
+      <div class="sticky-nav-links">
+        <a href="/programs/major/site/lesson-plan/index.html">Lesson Plan</a>
+        <a href="/programs/major/site/weeks/index.html">Weeks</a>
+        <a href="/programs/major/site/downloads/Major_Required_Reading_List.html">Reading List</a>
+        <a href="/documents/view/major-required-reading-hub.html" class="active">Reading Hub</a>
+        <a href="/programs/major/site/downloads/Major_Reading_Log.html">Reading Log</a>
+        <a href="/programs/major/site/materials/index.html">Materials</a>
+        <a href="/programs/major/site/schoolmaster/index.html">Schoolmaster</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">Templar Forge Academy</div>
+      <h1>Major Program - Required Reading Hub</h1>
+      <p>
+        This static lesson hub places the <strong>Major School Syllabus</strong> directly into the required-reading flow
+        for Officer Formation Level III. It preserves the academy hub structure while making the syllabus visible as a
+        program document, a lesson-by-lesson reading requirement, and a course-summary reference for assignments,
+        leadership outcomes, regional practicum preparation, and final board review.
+      </p>
+
+      <nav class="quick-nav" aria-label="Quick navigation">
+        <a href="#program-documents">Program Documents</a>
+        <a href="#syllabus-summary">Syllabus Summary</a>
+        <a href="#weekly-overview">Weekly Overview</a>
+        <a href="#lesson-1">Lesson 1</a>
+        <a href="#lesson-6">Lesson 6</a>
+        <a href="#lesson-12">Lesson 12</a>
+        <a href="#evaluation">Evaluation</a>
+      </nav>
+    </section>
+
+    <section id="program-documents" class="panel">
+      <h2>Program Documents</h2>
+      <div class="docs-grid">
+        <article class="doc-card">
+          <strong>Major School Syllabus PDF</strong>
+          <p class="muted small">Primary Officer Formation Level III syllabus for all 12 lessons.</p>
+          <a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Open syllabus PDF</a>
+        </article>
+
+        <article class="doc-card">
+          <strong>Major School Lesson Plan</strong>
+          <p class="muted small">Static lesson-plan document included in the Major site package.</p>
+          <a href="/programs/major/site/downloads/Major_School_Lesson_Plan.html" target="_blank" rel="noopener">Open lesson plan</a>
+        </article>
+
+        <article class="doc-card">
+          <strong>Major Reading Log</strong>
+          <p class="muted small">Reading and formation log for the Major phase.</p>
+          <a href="/programs/major/site/downloads/Major_Reading_Log.html" target="_blank" rel="noopener">Open reading log</a>
+        </article>
+
+        <article class="doc-card">
+          <strong>Knights Templar Overview</strong>
+          <p class="muted small">Foundational background for Major identity and historical continuity.</p>
+          <a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Open overview</a>
+        </article>
+
+        <article class="doc-card">
+          <strong>Templars Hierarchy and Duties</strong>
+          <p class="muted small">Used for provinces, provincial masters, structure, and wider oversight.</p>
+          <a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Open hierarchy source</a>
+        </article>
+
+        <article class="doc-card">
+          <strong>Primitive Rule of the Templars</strong>
+          <p class="muted small">Used for discipline, speech, correction, restraint, and lawful intervention.</p>
+          <a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Open Rule source</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="syllabus-summary" class="panel">
+      <h2>Syllabus Summary</h2>
+      <p>
+        Major School is described as the transition from local commander to regional steward: a man who can strengthen
+        multiple bodies, inspect standards, develop captains, align operations across a broader structure, and preserve
+        the health of the Order beyond one local command. The historical model named in the syllabus is the
+        <strong>Provincial Master / Grand Prior</strong>, presented as the clearest model for wider oversight, stronger systems,
+        and development across multiple commands.
+      </p>
+
+      <div class="summary-grid">
+        <article class="summary-card">
+          <strong>Regional Stewardship</strong>
+          <p class="muted small">Responsibility for multiple bodies, shared standards, and wider health.</p>
+        </article>
+        <article class="summary-card">
+          <strong>Leadership Under Authority</strong>
+          <p class="muted small">Oversee captains and local bodies in alignment with mission and higher authority.</p>
+        </article>
+        <article class="summary-card">
+          <strong>Leader Development</strong>
+          <p class="muted small">Evaluate, coach, and strengthen captains and future officers through structured support.</p>
+        </article>
+        <article class="summary-card">
+          <strong>Promotion Readiness</strong>
+          <p class="muted small">Show readiness for senior command through oversight, planning, and leader development.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="weekly-overview" class="panel">
+      <h2>Weekly Overview</h2>
+      <div class="overview-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Lesson</th>
+              <th>Title</th>
+              <th>Assignment</th>
+              <th>Required Reading</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1</strong></td>
+              <td>The Burden of Wider Oversight</td>
+              <td>1–2 page reflection on responsibility for multiple bodies</td>
+              <td>
+                <a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Syllabus PDF</a>,
+                <a href="/programs/major/site/downloads/Major_School_Lesson_Plan.html" target="_blank" rel="noopener">Lesson Plan</a>,
+                <a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Knights Templar</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>2</strong></td>
+              <td>The Provincial Structure of the Templars</td>
+              <td>Short presentation or visual summary on Templar provincial structure</td>
+              <td>
+                <a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Syllabus PDF</a>,
+                <a href="/programs/major/site/downloads/Major_School_Lesson_Plan.html" target="_blank" rel="noopener">Lesson Plan</a>,
+                <a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Hierarchy &amp; Duties</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>3</strong></td>
+              <td>The Office of Provincial Master / Grand Prior</td>
+              <td>2-page comparison paper</td>
+              <td>
+                <a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Syllabus PDF</a>,
+                <a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Hierarchy &amp; Duties</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>4</strong></td>
+              <td>Mission Alignment Across Multiple Bodies</td>
+              <td>Regional alignment statement</td>
+              <td>
+                <a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Syllabus PDF</a>,
+                <a href="/programs/major/site/downloads/Major_School_Lesson_Plan.html" target="_blank" rel="noopener">Lesson Plan</a>,
+                <a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>5</strong></td>
+              <td>Inspection, Accountability, and Standards</td>
+              <td>Local-body assessment template</td>
+              <td>
+                <a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Syllabus PDF</a>,
+                <a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>6</strong></td>
+              <td>Recruitment, Growth, and Officer Pipeline</td>
+              <td>6-month regional growth and officer-development plan</td>
+              <td>
+                <a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Syllabus PDF</a>,
+                <a href="/programs/major/site/downloads/Major_School_Lesson_Plan.html" target="_blank" rel="noopener">Lesson Plan</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>7</strong></td>
+              <td>Resource Stewardship and Regional Planning</td>
+              <td>Regional support and priority map</td>
+              <td>
+                <a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Syllabus PDF</a>,
+                <a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Knights Templar</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>8</strong></td>
+              <td>Training Captains and Strengthening Local Command</td>
+              <td>Structured Captain leadership review</td>
+              <td>
+                <a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Syllabus PDF</a>,
+                <a href="/programs/major/site/downloads/Major_School_Lesson_Plan.html" target="_blank" rel="noopener">Lesson Plan</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>9</strong></td>
+              <td>Communication, Coordination, and Order</td>
+              <td>Regional communication protocol</td>
+              <td>
+                <a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Syllabus PDF</a>,
+                <a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>10</strong></td>
+              <td>Correction, Intervention, and Restoration at the Regional Level</td>
+              <td>Regional oversight case studies</td>
+              <td>
+                <a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Syllabus PDF</a>,
+                <a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>11</strong></td>
+              <td>Regional Oversight Practicum</td>
+              <td>Approved regional assessment or support project and AAR</td>
+              <td>
+                <a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Syllabus PDF</a>,
+                <a href="/programs/major/site/downloads/Major_School_Lesson_Plan.html" target="_blank" rel="noopener">Lesson Plan</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>12</strong></td>
+              <td>Capstone Preparation and Major's Board Review</td>
+              <td>Final portfolio submission</td>
+              <td>
+                <a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Syllabus PDF</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="lesson-1" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 1</span>
+        <span class="tag">The Burden of Wider Oversight</span>
+      </div>
+      <h2>Lesson 1 - The Burden of Wider Oversight</h2>
+      <div class="field">
+        <span class="field-label">Primary Focus</span>
+        <p>The Major leads by oversight, evaluation, support, and strategic alignment across multiple bodies rather than direct command of only one.</p>
+      </div>
+      <div class="field">
+        <span class="field-label">Leadership Emphasis</span>
+        <p>A Major is accountable not merely for one command's performance, but for whether strength, discipline, and health are being multiplied across the region.</p>
+      </div>
+      <div class="field">
+        <span class="field-label">Assignment</span>
+        <p>1–2 page reflection on responsibility for multiple bodies.</p>
+      </div>
+      <div class="field">
+        <span class="field-label">Leadership Outcome</span>
+        <p>Begins to think like a steward of systems, leaders, and regional mission.</p>
+      </div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Major School Syllabus PDF</a></li>
+          <li><a href="/programs/major/site/downloads/Major_School_Lesson_Plan.html" target="_blank" rel="noopener">Major School Lesson Plan</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Knights Templar</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-2" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 2</span>
+        <span class="tag">Provincial Structure</span>
+      </div>
+      <h2>Lesson 2 - The Provincial Structure of the Templars</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Provinces within the Templar Order connected local houses to the larger authority of the Order and preserved coherence across different locations.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Growth without structure weakens an order; provincial leadership binds expansion to mission.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Presentation or visual summary on Templar provincial structure.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Understands the historical model of district oversight.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Major School Syllabus PDF</a></li>
+          <li><a href="/programs/major/site/downloads/Major_School_Lesson_Plan.html" target="_blank" rel="noopener">Major School Lesson Plan</a></li>
+          <li><a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Templars Hierarchy and Duties</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-3" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 3</span>
+        <span class="tag">Provincial Master / Grand Prior</span>
+      </div>
+      <h2>Lesson 3 - The Office of Provincial Master / Grand Prior</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>The Provincial Master as the historical model for Major, governing districts, recruiting, and managing resources while standing over subordinate local commanders.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Major-level leadership is not simply "more Captaincy"; it is a different kind of office requiring broader judgment and indirect influence.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Comparison paper between the Templar Provincial Master and your Major rank.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Sees Major as a true oversight office, not simply a senior local officer.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Major School Syllabus PDF</a></li>
+          <li><a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Templars Hierarchy and Duties</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-4" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 4</span>
+        <span class="tag">Mission Alignment</span>
+      </div>
+      <h2>Lesson 4 - Mission Alignment Across Multiple Bodies</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Keeping several local bodies faithful to one mission while retaining practical effectiveness in different circumstances.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Unity is not sameness, but shared direction under one mission and one rule of life.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Regional alignment statement on mission, standards, and common expectations.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Understands how to unify multiple commands without flattening them.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Major School Syllabus PDF</a></li>
+          <li><a href="/programs/major/site/downloads/Major_School_Lesson_Plan.html" target="_blank" rel="noopener">Major School Lesson Plan</a></li>
+          <li><a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule of the Templars</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-5" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 5</span>
+        <span class="tag">Inspection and Standards</span>
+      </div>
+      <h2>Lesson 5 - Inspection, Accountability, and Standards</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Oversight, inspections, reviews, and corrective support that preserve health without becoming punitive or bureaucratic.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Inspection exists to preserve mission and strengthen bodies, not merely to find faults.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Local-body assessment template.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Grows in objective evaluation and disciplined accountability.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Major School Syllabus PDF</a></li>
+          <li><a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule of the Templars</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-6" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 6</span>
+        <span class="tag">Recruitment and Pipeline</span>
+      </div>
+      <h2>Lesson 6 - Recruitment, Growth, and Officer Pipeline</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Building future strength through recruitment, officer development, and long-range pipeline planning.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>The regional officer must build tomorrow's strength, not merely manage today's activity.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>6-month regional growth and officer-development plan.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Thinks beyond maintenance and begins leading for future strength.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Major School Syllabus PDF</a></li>
+          <li><a href="/programs/major/site/downloads/Major_School_Lesson_Plan.html" target="_blank" rel="noopener">Major School Lesson Plan</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-7" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 7</span>
+        <span class="tag">Resource Stewardship</span>
+      </div>
+      <h2>Lesson 7 - Resource Stewardship and Regional Planning</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Managing priorities, support, and resource alignment across multiple bodies.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Stewardship at this level requires discernment, not merely distribution.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Regional support and priority map.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Grows in strategic stewardship and prudent planning.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Major School Syllabus PDF</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Knights Templar</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-8" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 8</span>
+        <span class="tag">Training Captains</span>
+      </div>
+      <h2>Lesson 8 - Training Captains and Strengthening Local Command</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Developing captains through support, evaluation, and coaching without micromanagement.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>The Major's success is visible in stronger captains, not in tighter personal control.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Structured leadership review with findings and recommendations.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Becomes a builder of stronger local commanders.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Major School Syllabus PDF</a></li>
+          <li><a href="/programs/major/site/downloads/Major_School_Lesson_Plan.html" target="_blank" rel="noopener">Major School Lesson Plan</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-9" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 9</span>
+        <span class="tag">Communication and Order</span>
+      </div>
+      <h2>Lesson 9 - Communication, Coordination, and Order</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Disciplined speech, restraint, and clear communication across multiple levels of leadership.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>The Major's words should create clarity, calm, and order across the region.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Regional communication protocol.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Develops calm, clear, and orderly oversight communication.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Major School Syllabus PDF</a></li>
+          <li><a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule of the Templars</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-10" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 10</span>
+        <span class="tag">Intervention and Restoration</span>
+      </div>
+      <h2>Lesson 10 - Correction, Intervention, and Restoration at the Regional Level</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Responding to drift, weak leadership, slipping standards, or growing conflict in a lawful and constructive way.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Intervention should be lawful, proportionate, and ordered toward restoration whenever possible.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Regional oversight case studies.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Learns to intervene lawfully, firmly, and constructively.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Major School Syllabus PDF</a></li>
+          <li><a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule of the Templars</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-11" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 11</span>
+        <span class="tag">Regional Oversight Practicum</span>
+      </div>
+      <h2>Lesson 11 - Regional Oversight Practicum</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Demonstrating assessment, support, coordination, and strengthening of more than one body through a real or simulated assignment.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Oversight must be demonstrated through action, judgment, and measurable strengthening of the bodies involved.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Approved regional assessment or support project with after-action review.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Proves he can operate as a real oversight officer.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Major School Syllabus PDF</a></li>
+          <li><a href="/programs/major/site/downloads/Major_School_Lesson_Plan.html" target="_blank" rel="noopener">Major School Lesson Plan</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-12" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 12</span>
+        <span class="tag">Major's Board Review</span>
+      </div>
+      <h2>Lesson 12 - Capstone Preparation and Major's Board Review</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Integrating course learning for final portfolio and oral board focused on regional stewardship and future senior leadership.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Readiness for Major must be visible in judgment, systems thinking, character, and leader development.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Final portfolio submission.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Demonstrates readiness for high-level oversight and preparation for senior command.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Major School Syllabus PDF</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="evaluation" class="panel">
+      <h2>Evaluation and Board Review</h2>
+      <p>
+        The syllabus evaluates attendance and participation, written assignments, planning and assessment tools,
+        leader-development work, the regional oversight practicum, senior observation, final portfolio, and the oral
+        board. It also requires one approved practicum such as conducting a structured review of local bodies,
+        coordinating a regional officer-development effort, building a district growth and mentoring plan, leading a
+        support initiative for a struggling command, or designing a regional accountability or communication system.
+      </p>
+
+      <div class="summary-grid">
+        <article class="summary-card">
+          <strong>Attendance and Participation</strong>
+          <p class="muted small">10% — presence, preparedness, engagement, contribution to discussion.</p>
+        </article>
+        <article class="summary-card">
+          <strong>Written Assignments</strong>
+          <p class="muted small">20% — historical understanding, reflection quality, strategic application.</p>
+        </article>
+        <article class="summary-card">
+          <strong>Regional Oversight Practicum</strong>
+          <p class="muted small">20% — judgment, coordination, evaluation, communication, follow-through.</p>
+        </article>
+        <article class="summary-card">
+          <strong>Oral Board / Final Review</strong>
+          <p class="muted small">10% — officer presence, judgment, historical grounding, readiness for Major-level office.</p>
+        </article>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Sample Oral Board Questions</span>
+        <ul>
+          <li>Why were Provincial Masters essential to the historical Templar Order?</li>
+          <li>What distinguishes a Major from a Captain in your Order?</li>
+          <li>Why is the Provincial Master / Grand Prior the right model for Major School?</li>
+          <li>What must a Major protect across multiple bodies besides outward activity?</li>
+          <li>How do you inspect and correct without becoming merely punitive or bureaucratic?</li>
+          <li>How do you know whether a Captain is healthy, stagnant, or failing?</li>
+          <li>What kind of speech most harms a region, and how should a Major prevent it?</li>
+          <li>How do you decide where limited time and support should be concentrated?</li>
+          <li>Where is your greatest weakness as a future Major, and how are you addressing it?</li>
+          <li>Why are you ready—or not yet ready—for wider oversight?</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Core Links</h2>
+      <div class="footer-links">
+        <a href="/programs/major/site/downloads/Major_School_Syllabus.pdf" target="_blank" rel="noopener">Major School Syllabus PDF</a>
+        <a href="/programs/major/site/downloads/Major_School_Lesson_Plan.html" target="_blank" rel="noopener">Major School Lesson Plan</a>
+        <a href="/programs/major/site/downloads/Major_Reading_Log.html" target="_blank" rel="noopener">Major Reading Log</a>
+        <a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Knights Templar Overview</a>
+        <a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Templars Hierarchy and Duties</a>
+        <a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule of the Templars</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

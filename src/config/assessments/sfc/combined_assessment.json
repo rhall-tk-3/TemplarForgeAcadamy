@@ -1,0 +1,1136 @@
+{
+  "program_title": "Sergeant First Class School Program",
+  "program_phase": "Rank advancement",
+  "assessment_type": "multiple_choice_and_discussion",
+  "generated_note": "Original assessment materials generated from the uploaded KTKC program files and website repository structure.",
+  "weeks": [
+    {
+      "week_number": 1,
+      "week_title": "Week 1 From Sergeant to SFC",
+      "focus": "",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 1 From Sergeant to SFC?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on from sergeant to sfc."
+            },
+            {
+              "option": "B",
+              "text": "Week 2 Suppression, legacy, and historical boundary"
+            },
+            {
+              "option": "C",
+              "text": "Week 3 Modern Templar revivals"
+            },
+            {
+              "option": "D",
+              "text": "Week 4 True Templar virtues vs. Masonic Templar orders"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on from sergeant to sfc.",
+          "rationale": "The week summary states that This week centers on from sergeant to sfc."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 1 From Sergeant to SFC?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "SFC Lesson Plan"
+            },
+            {
+              "option": "B",
+              "text": "Britannica: Templars"
+            },
+            {
+              "option": "C",
+              "text": "KTKC Rules and Statutes"
+            },
+            {
+              "option": "D",
+              "text": "Britannica: Clement V"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "SFC Lesson Plan",
+          "rationale": "SFC Lesson Plan appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 1 From Sergeant to SFC?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Review the true historical Templars"
+            },
+            {
+              "option": "B",
+              "text": "the transition into SFC rank"
+            },
+            {
+              "option": "C",
+              "text": "and the Christian virtue standard for visible leadership."
+            },
+            {
+              "option": "D",
+              "text": "Study the end of the medieval order and learn where documented history stops and later legend begins."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Review the true historical Templars",
+          "rationale": "The week is organized around the concept of Review the true historical Templars."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 1 From Sergeant to SFC?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on from sergeant to sfc."
+            },
+            {
+              "option": "B",
+              "text": "Week 2 Suppression, legacy, and historical boundary"
+            },
+            {
+              "option": "C",
+              "text": "Week 3 Modern Templar revivals"
+            },
+            {
+              "option": "D",
+              "text": "Week 4 True Templar virtues vs. Masonic Templar orders"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on from sergeant to sfc.",
+          "rationale": "This statement matches the stated memory target or focus for the week: This week centers on from sergeant to sfc."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 1 From Sergeant to SFC?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of From Sergeant to SFC through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat From Sergeant to SFC mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about From Sergeant to SFC."
+            },
+            {
+              "option": "D",
+              "text": "Approach From Sergeant to SFC as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of From Sergeant to SFC through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 1 From Sergeant to SFC shape the expectations placed on a member in the Sergeant First Class School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 1 From Sergeant to SFC seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 1 From Sergeant to SFC in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 2,
+      "week_title": "Week 2 Suppression, legacy, and historical boundary",
+      "focus": "",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 2 Suppression, legacy, and historical boundary?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on suppression, legacy, and historical boundary."
+            },
+            {
+              "option": "B",
+              "text": "Week 1 From Sergeant to SFC"
+            },
+            {
+              "option": "C",
+              "text": "Week 3 Modern Templar revivals"
+            },
+            {
+              "option": "D",
+              "text": "Week 4 True Templar virtues vs. Masonic Templar orders"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on suppression, legacy, and historical boundary.",
+          "rationale": "The week summary states that This week centers on suppression, legacy, and historical boundary."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 2 Suppression, legacy, and historical boundary?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Britannica: Clement V"
+            },
+            {
+              "option": "B",
+              "text": "SFC Lesson Plan"
+            },
+            {
+              "option": "C",
+              "text": "Britannica: Templars"
+            },
+            {
+              "option": "D",
+              "text": "KTKC Rules and Statutes"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Britannica: Clement V",
+          "rationale": "Britannica: Clement V appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 2 Suppression, legacy, and historical boundary?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Study the end of the medieval order and learn where documented history stops and later legend begins."
+            },
+            {
+              "option": "B",
+              "text": "Review the true historical Templars"
+            },
+            {
+              "option": "C",
+              "text": "the transition into SFC rank"
+            },
+            {
+              "option": "D",
+              "text": "and the Christian virtue standard for visible leadership."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Study the end of the medieval order and learn where documented history stops and later legend begins.",
+          "rationale": "The week is organized around the concept of Study the end of the medieval order and learn where documented history stops and later legend begins.."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 2 Suppression, legacy, and historical boundary?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on suppression, legacy, and historical boundary."
+            },
+            {
+              "option": "B",
+              "text": "Week 1 From Sergeant to SFC"
+            },
+            {
+              "option": "C",
+              "text": "Week 3 Modern Templar revivals"
+            },
+            {
+              "option": "D",
+              "text": "Week 4 True Templar virtues vs. Masonic Templar orders"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on suppression, legacy, and historical boundary.",
+          "rationale": "This statement matches the stated memory target or focus for the week: This week centers on suppression, legacy, and historical boundary."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 2 Suppression, legacy, and historical boundary?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Suppression, legacy, and historical boundary through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Suppression, legacy, and historical boundary mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Suppression, legacy, and historical boundary."
+            },
+            {
+              "option": "D",
+              "text": "Approach Suppression, legacy, and historical boundary as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Suppression, legacy, and historical boundary through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 2 Suppression, legacy, and historical boundary shape the expectations placed on a member in the Sergeant First Class School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 2 Suppression, legacy, and historical boundary seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 2 Suppression, legacy, and historical boundary in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 3,
+      "week_title": "Week 3 Modern Templar revivals",
+      "focus": "",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 3 Modern Templar revivals?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on modern templar revivals."
+            },
+            {
+              "option": "B",
+              "text": "Week 1 From Sergeant to SFC"
+            },
+            {
+              "option": "C",
+              "text": "Week 2 Suppression, legacy, and historical boundary"
+            },
+            {
+              "option": "D",
+              "text": "Week 4 True Templar virtues vs. Masonic Templar orders"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on modern templar revivals.",
+          "rationale": "The week summary states that This week centers on modern templar revivals."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 3 Modern Templar revivals?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "OSMTH: Modern Order History"
+            },
+            {
+              "option": "B",
+              "text": "SFC Lesson Plan"
+            },
+            {
+              "option": "C",
+              "text": "Britannica: Templars"
+            },
+            {
+              "option": "D",
+              "text": "KTKC Rules and Statutes"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "OSMTH: Modern Order History",
+          "rationale": "OSMTH: Modern Order History appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 3 Modern Templar revivals?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Trace how modern groups adopted Templar language"
+            },
+            {
+              "option": "B",
+              "text": "Review the true historical Templars"
+            },
+            {
+              "option": "C",
+              "text": "the transition into SFC rank"
+            },
+            {
+              "option": "D",
+              "text": "and the Christian virtue standard for visible leadership."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Trace how modern groups adopted Templar language",
+          "rationale": "The week is organized around the concept of Trace how modern groups adopted Templar language."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 3 Modern Templar revivals?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on modern templar revivals."
+            },
+            {
+              "option": "B",
+              "text": "Week 1 From Sergeant to SFC"
+            },
+            {
+              "option": "C",
+              "text": "Week 2 Suppression, legacy, and historical boundary"
+            },
+            {
+              "option": "D",
+              "text": "Week 4 True Templar virtues vs. Masonic Templar orders"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on modern templar revivals.",
+          "rationale": "This statement matches the stated memory target or focus for the week: This week centers on modern templar revivals."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 3 Modern Templar revivals?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Modern Templar revivals through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Modern Templar revivals mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Modern Templar revivals."
+            },
+            {
+              "option": "D",
+              "text": "Approach Modern Templar revivals as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Modern Templar revivals through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 3 Modern Templar revivals shape the expectations placed on a member in the Sergeant First Class School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 3 Modern Templar revivals seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 3 Modern Templar revivals in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 4,
+      "week_title": "Week 4 True Templar virtues vs. Masonic Templar orders",
+      "focus": "",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 4 True Templar virtues vs. Masonic Templar orders?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on true templar virtues vs. masonic templar orders."
+            },
+            {
+              "option": "B",
+              "text": "Week 1 From Sergeant to SFC"
+            },
+            {
+              "option": "C",
+              "text": "Week 2 Suppression, legacy, and historical boundary"
+            },
+            {
+              "option": "D",
+              "text": "Week 3 Modern Templar revivals"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on true templar virtues vs. masonic templar orders.",
+          "rationale": "The week summary states that This week centers on true templar virtues vs. masonic templar orders."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 4 True Templar virtues vs. Masonic Templar orders?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Britannica: Freemasonry Facts"
+            },
+            {
+              "option": "B",
+              "text": "SFC Lesson Plan"
+            },
+            {
+              "option": "C",
+              "text": "Britannica: Templars"
+            },
+            {
+              "option": "D",
+              "text": "KTKC Rules and Statutes"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Britannica: Freemasonry Facts",
+          "rationale": "Britannica: Freemasonry Facts appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 4 True Templar virtues vs. Masonic Templar orders?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Understand the difference between Christian virtue-centered Templar formation and the Masonic York Rite structure"
+            },
+            {
+              "option": "B",
+              "text": "Review the true historical Templars"
+            },
+            {
+              "option": "C",
+              "text": "the transition into SFC rank"
+            },
+            {
+              "option": "D",
+              "text": "and the Christian virtue standard for visible leadership."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Understand the difference between Christian virtue-centered Templar formation and the Masonic York Rite structure",
+          "rationale": "The week is organized around the concept of Understand the difference between Christian virtue-centered Templar formation and the Masonic York Rite structure."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 4 True Templar virtues vs. Masonic Templar orders?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on true templar virtues vs. masonic templar orders."
+            },
+            {
+              "option": "B",
+              "text": "Week 1 From Sergeant to SFC"
+            },
+            {
+              "option": "C",
+              "text": "Week 2 Suppression, legacy, and historical boundary"
+            },
+            {
+              "option": "D",
+              "text": "Week 3 Modern Templar revivals"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on true templar virtues vs. masonic templar orders.",
+          "rationale": "This statement matches the stated memory target or focus for the week: This week centers on true templar virtues vs. masonic templar orders."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 4 True Templar virtues vs. Masonic Templar orders?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of True Templar virtues vs. Masonic Templar orders through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat True Templar virtues vs. Masonic Templar orders mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about True Templar virtues vs. Masonic Templar orders."
+            },
+            {
+              "option": "D",
+              "text": "Approach True Templar virtues vs. Masonic Templar orders as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of True Templar virtues vs. Masonic Templar orders through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 4 True Templar virtues vs. Masonic Templar orders shape the expectations placed on a member in the Sergeant First Class School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 4 True Templar virtues vs. Masonic Templar orders seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 4 True Templar virtues vs. Masonic Templar orders in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 5,
+      "week_title": "Week 5 SFC rank, duty, and leadership",
+      "focus": "",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 5 SFC rank, duty, and leadership?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on sfc rank, duty, and leadership."
+            },
+            {
+              "option": "B",
+              "text": "Week 1 From Sergeant to SFC"
+            },
+            {
+              "option": "C",
+              "text": "Week 2 Suppression, legacy, and historical boundary"
+            },
+            {
+              "option": "D",
+              "text": "Week 3 Modern Templar revivals"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on sfc rank, duty, and leadership.",
+          "rationale": "The week summary states that This week centers on sfc rank, duty, and leadership."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 5 SFC rank, duty, and leadership?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "KTKC Rules and Statutes"
+            },
+            {
+              "option": "B",
+              "text": "SFC Lesson Plan"
+            },
+            {
+              "option": "C",
+              "text": "Britannica: Templars"
+            },
+            {
+              "option": "D",
+              "text": "Britannica: Clement V"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "KTKC Rules and Statutes",
+          "rationale": "KTKC Rules and Statutes appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 5 SFC rank, duty, and leadership?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus on SFC responsibilities: discipline"
+            },
+            {
+              "option": "B",
+              "text": "Review the true historical Templars"
+            },
+            {
+              "option": "C",
+              "text": "the transition into SFC rank"
+            },
+            {
+              "option": "D",
+              "text": "and the Christian virtue standard for visible leadership."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus on SFC responsibilities: discipline",
+          "rationale": "The week is organized around the concept of Focus on SFC responsibilities: discipline."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 5 SFC rank, duty, and leadership?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on sfc rank, duty, and leadership."
+            },
+            {
+              "option": "B",
+              "text": "Week 1 From Sergeant to SFC"
+            },
+            {
+              "option": "C",
+              "text": "Week 2 Suppression, legacy, and historical boundary"
+            },
+            {
+              "option": "D",
+              "text": "Week 3 Modern Templar revivals"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on sfc rank, duty, and leadership.",
+          "rationale": "This statement matches the stated memory target or focus for the week: This week centers on sfc rank, duty, and leadership."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 5 SFC rank, duty, and leadership?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of SFC rank, duty, and leadership through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat SFC rank, duty, and leadership mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about SFC rank, duty, and leadership."
+            },
+            {
+              "option": "D",
+              "text": "Approach SFC rank, duty, and leadership as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of SFC rank, duty, and leadership through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 5 SFC rank, duty, and leadership shape the expectations placed on a member in the Sergeant First Class School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 5 SFC rank, duty, and leadership seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 5 SFC rank, duty, and leadership in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 6,
+      "week_title": "Week 6 Battles, courage, and the power of faith",
+      "focus": "",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 6 Battles, courage, and the power of faith?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on battles, courage, and the power of faith."
+            },
+            {
+              "option": "B",
+              "text": "Week 1 From Sergeant to SFC"
+            },
+            {
+              "option": "C",
+              "text": "Week 2 Suppression, legacy, and historical boundary"
+            },
+            {
+              "option": "D",
+              "text": "Week 3 Modern Templar revivals"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on battles, courage, and the power of faith.",
+          "rationale": "The week summary states that This week centers on battles, courage, and the power of faith."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 6 Battles, courage, and the power of faith?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "ThoughtCo: Battle of Montgisard"
+            },
+            {
+              "option": "B",
+              "text": "SFC Lesson Plan"
+            },
+            {
+              "option": "C",
+              "text": "Britannica: Templars"
+            },
+            {
+              "option": "D",
+              "text": "KTKC Rules and Statutes"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "ThoughtCo: Battle of Montgisard",
+          "rationale": "ThoughtCo: Battle of Montgisard appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 6 Battles, courage, and the power of faith?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Use Montgisard and Hattin as case studies in morale"
+            },
+            {
+              "option": "B",
+              "text": "Review the true historical Templars"
+            },
+            {
+              "option": "C",
+              "text": "the transition into SFC rank"
+            },
+            {
+              "option": "D",
+              "text": "and the Christian virtue standard for visible leadership."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Use Montgisard and Hattin as case studies in morale",
+          "rationale": "The week is organized around the concept of Use Montgisard and Hattin as case studies in morale."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 6 Battles, courage, and the power of faith?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on battles, courage, and the power of faith."
+            },
+            {
+              "option": "B",
+              "text": "Week 1 From Sergeant to SFC"
+            },
+            {
+              "option": "C",
+              "text": "Week 2 Suppression, legacy, and historical boundary"
+            },
+            {
+              "option": "D",
+              "text": "Week 3 Modern Templar revivals"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on battles, courage, and the power of faith.",
+          "rationale": "This statement matches the stated memory target or focus for the week: This week centers on battles, courage, and the power of faith."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 6 Battles, courage, and the power of faith?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Battles, courage, and the power of faith through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Battles, courage, and the power of faith mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Battles, courage, and the power of faith."
+            },
+            {
+              "option": "D",
+              "text": "Approach Battles, courage, and the power of faith as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Battles, courage, and the power of faith through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 6 Battles, courage, and the power of faith shape the expectations placed on a member in the Sergeant First Class School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 6 Battles, courage, and the power of faith seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 6 Battles, courage, and the power of faith in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 7,
+      "week_title": "Week 7 Modern Christian witness and public service",
+      "focus": "",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 7 Modern Christian witness and public service?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on modern christian witness and public service."
+            },
+            {
+              "option": "B",
+              "text": "Week 1 From Sergeant to SFC"
+            },
+            {
+              "option": "C",
+              "text": "Week 2 Suppression, legacy, and historical boundary"
+            },
+            {
+              "option": "D",
+              "text": "Week 3 Modern Templar revivals"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on modern christian witness and public service.",
+          "rationale": "The week summary states that This week centers on modern christian witness and public service."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 7 Modern Christian witness and public service?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "KTKC Rules and Statutes"
+            },
+            {
+              "option": "B",
+              "text": "SFC Lesson Plan"
+            },
+            {
+              "option": "C",
+              "text": "Britannica: Templars"
+            },
+            {
+              "option": "D",
+              "text": "Britannica: Clement V"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "KTKC Rules and Statutes",
+          "rationale": "KTKC Rules and Statutes appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 7 Modern Christian witness and public service?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Connect Templar identity to charity"
+            },
+            {
+              "option": "B",
+              "text": "Review the true historical Templars"
+            },
+            {
+              "option": "C",
+              "text": "the transition into SFC rank"
+            },
+            {
+              "option": "D",
+              "text": "and the Christian virtue standard for visible leadership."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Connect Templar identity to charity",
+          "rationale": "The week is organized around the concept of Connect Templar identity to charity."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 7 Modern Christian witness and public service?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on modern christian witness and public service."
+            },
+            {
+              "option": "B",
+              "text": "Week 1 From Sergeant to SFC"
+            },
+            {
+              "option": "C",
+              "text": "Week 2 Suppression, legacy, and historical boundary"
+            },
+            {
+              "option": "D",
+              "text": "Week 3 Modern Templar revivals"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on modern christian witness and public service.",
+          "rationale": "This statement matches the stated memory target or focus for the week: This week centers on modern christian witness and public service."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 7 Modern Christian witness and public service?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Modern Christian witness and public service through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Modern Christian witness and public service mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Modern Christian witness and public service."
+            },
+            {
+              "option": "D",
+              "text": "Approach Modern Christian witness and public service as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Modern Christian witness and public service through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 7 Modern Christian witness and public service shape the expectations placed on a member in the Sergeant First Class School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 7 Modern Christian witness and public service seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 7 Modern Christian witness and public service in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 8,
+      "week_title": "Week 8 Knight Aspirant readiness and essay preparation",
+      "focus": "",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 8 Knight Aspirant readiness and essay preparation?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on knight aspirant readiness and essay preparation."
+            },
+            {
+              "option": "B",
+              "text": "Week 1 From Sergeant to SFC"
+            },
+            {
+              "option": "C",
+              "text": "Week 2 Suppression, legacy, and historical boundary"
+            },
+            {
+              "option": "D",
+              "text": "Week 3 Modern Templar revivals"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on knight aspirant readiness and essay preparation.",
+          "rationale": "The week summary states that This week centers on knight aspirant readiness and essay preparation."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 8 Knight Aspirant readiness and essay preparation?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Promotion Manual and By-Laws"
+            },
+            {
+              "option": "B",
+              "text": "SFC Lesson Plan"
+            },
+            {
+              "option": "C",
+              "text": "Britannica: Templars"
+            },
+            {
+              "option": "D",
+              "text": "KTKC Rules and Statutes"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Promotion Manual and By-Laws",
+          "rationale": "Promotion Manual and By-Laws appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 8 Knight Aspirant readiness and essay preparation?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Prepare for Knight Aspirant by reviewing monk-like discipline"
+            },
+            {
+              "option": "B",
+              "text": "Review the true historical Templars"
+            },
+            {
+              "option": "C",
+              "text": "the transition into SFC rank"
+            },
+            {
+              "option": "D",
+              "text": "and the Christian virtue standard for visible leadership."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Prepare for Knight Aspirant by reviewing monk-like discipline",
+          "rationale": "The week is organized around the concept of Prepare for Knight Aspirant by reviewing monk-like discipline."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 8 Knight Aspirant readiness and essay preparation?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on knight aspirant readiness and essay preparation."
+            },
+            {
+              "option": "B",
+              "text": "Week 1 From Sergeant to SFC"
+            },
+            {
+              "option": "C",
+              "text": "Week 2 Suppression, legacy, and historical boundary"
+            },
+            {
+              "option": "D",
+              "text": "Week 3 Modern Templar revivals"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on knight aspirant readiness and essay preparation.",
+          "rationale": "This statement matches the stated memory target or focus for the week: This week centers on knight aspirant readiness and essay preparation."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 8 Knight Aspirant readiness and essay preparation?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Knight Aspirant readiness and essay preparation through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Knight Aspirant readiness and essay preparation mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Knight Aspirant readiness and essay preparation."
+            },
+            {
+              "option": "D",
+              "text": "Approach Knight Aspirant readiness and essay preparation as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Knight Aspirant readiness and essay preparation through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 8 Knight Aspirant readiness and essay preparation shape the expectations placed on a member in the Sergeant First Class School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 8 Knight Aspirant readiness and essay preparation seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 8 Knight Aspirant readiness and essay preparation in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    }
+  ]
+}

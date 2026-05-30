@@ -1,0 +1,228 @@
+{
+  "program_slug": "captain",
+  "program_title": "Captain School Program",
+  "program_phase": "Officer Formation Level II",
+  "source_required_reading_file": "public/programs/captain/site/downloads/Captain_Required_Reading_List.html",
+  "weeks": [
+    {
+      "week_number": 1,
+      "week_title": "Week 1 — The Burden of Local Command",
+      "focus": "shift from task leadership to stewardship of a local body.",
+      "required_reading": [
+        {
+          "title": "Captain School Syllabus PDF",
+          "url": "https://www.genspark.ai/api/files/s/reHgosXo"
+        },
+        {
+          "title": "Captain School Lesson Plan",
+          "url": "https://www.genspark.ai/api/files/s/KBdHqPGG"
+        },
+        {
+          "title": "Wikipedia: Knights Templar",
+          "url": "https://en.wikipedia.org/wiki/Knights_Templar"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 2,
+      "week_title": "Week 2 — The Medieval Commandery",
+      "focus": "understand the commandery as a local center of mission, discipline, and logistics.",
+      "required_reading": [
+        {
+          "title": "Captain School Lesson Plan",
+          "url": "https://www.genspark.ai/api/files/s/KBdHqPGG"
+        },
+        {
+          "title": "Medieval Warfare: Templars Hierarchy and Duties",
+          "url": "https://www.medievalwarfare.info/templars.htm"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 3,
+      "week_title": "Week 3 — The Office of Commander / Preceptor",
+      "focus": "connect the historical commander role to the modern Captain rank.",
+      "required_reading": [
+        {
+          "title": "Captain School Syllabus PDF",
+          "url": "https://www.genspark.ai/api/files/s/reHgosXo"
+        },
+        {
+          "title": "Medieval Warfare: Templars Hierarchy and Duties",
+          "url": "https://www.medievalwarfare.info/templars.htm"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 4,
+      "week_title": "Week 4 — Mission, Standards, and Local Identity",
+      "focus": "align local culture with the wider Order.",
+      "required_reading": [
+        {
+          "title": "Captain School Lesson Plan",
+          "url": "https://www.genspark.ai/api/files/s/KBdHqPGG"
+        },
+        {
+          "title": "Wikipedia: Knights Templar",
+          "url": "https://en.wikipedia.org/wiki/Knights_Templar"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 5,
+      "week_title": "Week 5 — Administration and Provisions",
+      "focus": "calendars, records, logistics, and practical support.",
+      "required_reading": [
+        {
+          "title": "Captain School Lesson Plan",
+          "url": "https://www.genspark.ai/api/files/s/KBdHqPGG"
+        },
+        {
+          "title": "Medieval Warfare: Templars Hierarchy and Duties",
+          "url": "https://www.medievalwarfare.info/templars.htm"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 6,
+      "week_title": "Week 6 — Authority, Delegation, and Accountability",
+      "focus": "govern through lieutenants with clarity and review.",
+      "required_reading": [
+        {
+          "title": "Captain School Syllabus PDF",
+          "url": "https://www.genspark.ai/api/files/s/reHgosXo"
+        },
+        {
+          "title": "Medieval Warfare: Primitive Rule of the Templars",
+          "url": "https://www.medievalwarfare.info/rule.htm"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 7,
+      "week_title": "Week 7 — The Rule: Humility, Speech, and Order",
+      "focus": "disciplined speech, humility, and rejection of disorder.",
+      "required_reading": [
+        {
+          "title": "Captain School Lesson Plan",
+          "url": "https://www.genspark.ai/api/files/s/KBdHqPGG"
+        },
+        {
+          "title": "Medieval Warfare: Primitive Rule of the Templars",
+          "url": "https://www.medievalwarfare.info/rule.htm"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 8,
+      "week_title": "Week 8 — Care of Brothers and Pastoral Stewardship",
+      "focus": "support weak or struggling brothers with wisdom and charity.",
+      "required_reading": [
+        {
+          "title": "Captain School Lesson Plan",
+          "url": "https://www.genspark.ai/api/files/s/KBdHqPGG"
+        },
+        {
+          "title": "Medieval Warfare: Primitive Rule of the Templars",
+          "url": "https://www.medievalwarfare.info/rule.htm"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 9,
+      "week_title": "Week 9 — Training Lieutenants and Building Future Officers",
+      "focus": "mentoring, multiplying leadership, and preparing successors.",
+      "required_reading": [
+        {
+          "title": "Captain School Syllabus PDF",
+          "url": "https://www.genspark.ai/api/files/s/reHgosXo"
+        },
+        {
+          "title": "Captain School Lesson Plan",
+          "url": "https://www.genspark.ai/api/files/s/KBdHqPGG"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 10,
+      "week_title": "Week 10 — Conflict, Discipline, and Restoration",
+      "focus": "address disorder with justice, restraint, and restoration.",
+      "required_reading": [
+        {
+          "title": "Captain School Lesson Plan",
+          "url": "https://www.genspark.ai/api/files/s/KBdHqPGG"
+        },
+        {
+          "title": "Medieval Warfare: Primitive Rule of the Templars",
+          "url": "https://www.medievalwarfare.info/rule.htm"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 11,
+      "week_title": "Week 11 — Local Command Practicum",
+      "focus": "plan and lead a real initiative from preparation to execution.",
+      "required_reading": [
+        {
+          "title": "Captain School Syllabus PDF",
+          "url": "https://www.genspark.ai/api/files/s/reHgosXo"
+        },
+        {
+          "title": "Captain School Lesson Plan",
+          "url": "https://www.genspark.ai/api/files/s/KBdHqPGG"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 12,
+      "week_title": "Week 12 — Capstone Preparation and Captain’s Board Review",
+      "focus": "integrate the course into a final portfolio and readiness review.",
+      "required_reading": [
+        {
+          "title": "Captain School Syllabus PDF",
+          "url": "https://www.genspark.ai/api/files/s/reHgosXo"
+        },
+        {
+          "title": "Captain School Lesson Plan",
+          "url": "https://www.genspark.ai/api/files/s/KBdHqPGG"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    }
+  ]
+}

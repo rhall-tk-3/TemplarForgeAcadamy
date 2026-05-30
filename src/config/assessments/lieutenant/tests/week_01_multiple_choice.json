@@ -1,0 +1,127 @@
+{
+  "program_title": "Lieutenant School Program",
+  "week_number": 1,
+  "week_title": "Week 1: The Call to Office",
+  "multiple_choice_questions": [
+    {
+      "question": "What is the primary focus of Week 1: The Call to Office?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Office as service, not status."
+        },
+        {
+          "option": "B",
+          "text": "Founding story and mission."
+        },
+        {
+          "option": "C",
+          "text": "Hierarchy and Unity of Command."
+        },
+        {
+          "option": "D",
+          "text": "The Under Marshal as the clearest Templar parallel to a Junior Operational Officer."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Office as service, not status.",
+      "rationale": "The week summary states that Office as service, not status."
+    },
+    {
+      "question": "Which reading is explicitly assigned for Week 1: The Call to Office?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Lieutenant School Syllabus PDF (Lesson 1)"
+        },
+        {
+          "option": "B",
+          "text": "Primitive Rule of the Templars (Sections on obedience and humble service)"
+        },
+        {
+          "option": "C",
+          "text": "Lieutenant School Syllabus PDF (Lesson 2)"
+        },
+        {
+          "option": "D",
+          "text": "Knights Templar - Wikipedia (History & Origins)"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Lieutenant School Syllabus PDF (Lesson 1)",
+      "rationale": "Lieutenant School Syllabus PDF (Lesson 1) appears in the required reading list for this week."
+    },
+    {
+      "question": "Which concept is most directly associated with Week 1: The Call to Office?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "The Call to Office"
+        },
+        {
+          "option": "B",
+          "text": "Week 2: Origins of the Knights Templar"
+        },
+        {
+          "option": "C",
+          "text": "Week 3: The Templar Chain of Command"
+        },
+        {
+          "option": "D",
+          "text": "Week 4: The Under Marshal and the Lieutenant Model"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "The Call to Office",
+      "rationale": "The week is organized around the concept of The Call to Office."
+    },
+    {
+      "question": "Which statement best reflects the expected learning outcome for Week 1: The Call to Office?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Office as service, not status."
+        },
+        {
+          "option": "B",
+          "text": "Founding story and mission."
+        },
+        {
+          "option": "C",
+          "text": "Hierarchy and Unity of Command."
+        },
+        {
+          "option": "D",
+          "text": "The Under Marshal as the clearest Templar parallel to a Junior Operational Officer."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Office as service, not status.",
+      "rationale": "This statement matches the stated memory target or focus for the week: Office as service, not status."
+    },
+    {
+      "question": "Which response best applies the lesson of Week 1: The Call to Office?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Apply the lesson of The Call to Office through disciplined conduct, truthful understanding, and practical service."
+        },
+        {
+          "option": "B",
+          "text": "Treat The Call to Office mainly as ceremonial prestige without practical duty."
+        },
+        {
+          "option": "C",
+          "text": "Ignore assigned readings and rely on legend or speculation about The Call to Office."
+        },
+        {
+          "option": "D",
+          "text": "Approach The Call to Office as private opinion rather than accountable formation."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Apply the lesson of The Call to Office through disciplined conduct, truthful understanding, and practical service.",
+      "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+    }
+  ]
+}

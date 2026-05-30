@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Squire Reading Stack 2: Historical Timeline</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+    <style>
+      body {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 32px 80px;
+        position: relative;
+        box-sizing: border-box;
+        font-family: 'Times New Roman', Times, serif;
+        color: #000000;
+        background-color: #ffffff;
+        line-height: 1.6;
+        font-size: 12pt;
+      }
+      h1 {
+        font-size: 24pt;
+        text-align: center;
+        margin-bottom: 24px;
+        font-weight: bold;
+        color: #000000;
+        border-bottom: 1px solid #000000;
+        padding-bottom: 10px;
+      }
+      h2 {
+        font-size: 16pt;
+        margin-top: 24px;
+        margin-bottom: 12px;
+        font-weight: bold;
+        color: #000000;
+      }
+      h3 {
+        font-size: 14pt;
+        margin-top: 20px;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #000000;
+      }
+      p {
+        margin-bottom: 16px;
+        text-align: justify;
+      }
+      .timeline-item {
+        margin-bottom: 24px;
+      }
+      .timeline-date {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+      .why-it-matters {
+        font-style: italic;
+        margin-top: 4px;
+        display: block;
+      }
+      .study-box {
+        border: 2px solid #000000;
+        padding: 20px;
+        margin: 32px 0;
+        background-color: #fcfcfc;
+      }
+      .study-box h3 {
+        margin-top: 0;
+        text-align: center;
+      }
+      ul.checklist {
+        list-style-type: none;
+        padding-left: 0;
+      }
+      ul.checklist li {
+        margin-bottom: 8px;
+      }
+      ul.checklist li::before {
+        content: '[ ] ';
+        font-family: monospace;
+        margin-right: 8px;
+      }
+      ul.standard-list {
+        padding-left: 40px;
+        margin-bottom: 16px;
+      }
+      ul.standard-list li {
+        margin-bottom: 8px;
+      }
+      hr {
+        border: 0;
+        border-top: 1px solid #000000;
+        margin: 32px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Squire Reading Stack 2: Historical Timeline</h1>
+
+    <p>
+      Welcome, Squires. This handout teaches the main historical timeline that you are expected to know for your
+      advancement. Understanding these events in order will help you see how the order began, how it served the
+      vulnerable, and how its original mission eventually ended. Please read these facts carefully, as they separate
+      true history from simple legend.
+    </p>
+
+    <hr />
+
+    <h2>The Historical Timeline</h2>
+
+    <div class="timeline-item">
+      <h3><span class="timeline-date">1095 - 1099:</span> The First Crusade</h3>
+      <p>
+        The First Crusade was a major event that happened before the order was formed. It was a journey by European
+        Christians to secure the Holy Land, especially the city of Jerusalem. The region was very important to medieval
+        Christians because of its holy sites.
+      </p>
+      <span class="why-it-matters"
+        ><strong>Why this date matters:</strong> It created the setting in which Christian pilgrims began traveling to
+        Jerusalem in large numbers, facing great danger along the way.</span
+      >
+    </div>
+
+    <div class="timeline-item">
+      <h3><span class="timeline-date">After 1099:</span> Danger to Pilgrims</h3>
+      <p>
+        Even after the First Crusade ended and the Crusader states were established, the region remained very fragile.
+        Travel on the roads was highly dangerous. Christian pilgrims traveling to Jerusalem were frequently robbed or
+        attacked.
+      </p>
+      <span class="why-it-matters"
+        ><strong>Why this date matters:</strong> It created the specific need for a dedicated order to protect these
+        vulnerable travelers.</span
+      >
+    </div>
+
+    <div class="timeline-item">
+      <h3><span class="timeline-date">Around 1119 or 1120:</span> The Founding</h3>
+      <p>
+        A knight named Hugh de Payns and his first companions formed a new group to protect the pilgrims. They
+        established their early headquarters on the Temple Mount in Jerusalem, which gave the Templars their name.
+      </p>
+      <span class="why-it-matters"
+        ><strong>Why this date matters:</strong> This marks the founding of the order, proving that it began with a
+        mission of service and protection rather than a desire for power.</span
+      >
+    </div>
+
+    <div class="timeline-item">
+      <h3><span class="timeline-date">Around 1128 or 1129:</span> The Council of Troyes</h3>
+      <p>
+        A formal church gathering called the Council of Troyes met to review the new group. At this council, the order
+        received official church approval and formal support, establishing them as a recognized religious order, not
+        just an ordinary army.
+      </p>
+      <span class="why-it-matters"
+        ><strong>Why this date matters:</strong> It gave the order official legitimacy and structure.</span
+      >
+    </div>
+
+    <div class="timeline-item">
+      <h3><span class="timeline-date">1139:</span> Papal Privileges</h3>
+      <p>
+        Pope Innocent II granted major privileges to the order. This gave the order strong official support from the
+        church and showed that it had become an important part of the historical story.
+      </p>
+      <span class="why-it-matters"
+        ><strong>Why this date matters:</strong> It strengthened the order greatly and recognized their importance to
+        the Christian world.</span
+      >
+    </div>
+
+    <div class="timeline-item">
+      <h3><span class="timeline-date">1291:</span> The Fall of Acre</h3>
+      <p>
+        The city of Acre fell, which was a major crisis for the Crusader states. This event weakened the order's
+        original military purpose and marked an important turning point in its history.
+      </p>
+      <span class="why-it-matters"
+        ><strong>Why this date matters:</strong> It weakened the order's original military purpose and created a severe
+        strategic crisis.</span
+      >
+    </div>
+
+    <div class="timeline-item">
+      <h3><span class="timeline-date">1307:</span> Arrests in France</h3>
+      <p>
+        The ruler of France, King Philip IV, ordered the arrest of the Templars in his country. By this time the order
+        had become powerful, and power and influence can create enemies. This event began the final crisis of the
+        order.
+      </p>
+      <span class="why-it-matters"
+        ><strong>Why this date matters:</strong> This event shows how influence can create enemies and marks the
+        beginning of the order's destruction.</span
+      >
+    </div>
+
+    <div class="timeline-item">
+      <h3><span class="timeline-date">1312:</span> Suppression of the Order</h3>
+      <p>
+        Pope Clement V officially suppressed, or ended, the order in 1312. This was the formal church action that
+        brought the historical order to its official end.
+      </p>
+      <span class="why-it-matters"
+        ><strong>Why this date matters:</strong> This marks the formal and official end of the historical order.</span
+      >
+    </div>
+
+    <div class="timeline-item">
+      <h3><span class="timeline-date">1314:</span> Execution of Jacques de Molay</h3>
+      <p>
+        Jacques de Molay was the last Grand Master of the order. His execution in 1314 is the final major event in the
+        main Squire timeline.
+      </p>
+      <span class="why-it-matters"
+        ><strong>Why this date matters:</strong> It is the final major event in the historical timeline of the original
+        order, representing a tragic but courageous end.</span
+      >
+    </div>
+
+    <hr />
+
+    <div class="study-box">
+      <h3>How to Study This Timeline</h3>
+      <p>Squires are expected to know these facts clearly for their advancement boards. Use these simple study tips:</p>
+      <ul class="standard-list">
+        <li>
+          <strong>Learn the order of events:</strong> Do not just memorize random dates. Understand the story from the
+          First Crusade to the final suppression.
+        </li>
+        <li>
+          <strong>Connect names to actions:</strong> Know exactly what Hugh de Payns, Innocent II, Philip IV, and
+          Clement V did.
+        </li>
+        <li>
+          <strong>Separate history from legend:</strong> Stick only to the facts presented here. Do not add unproven
+          stories.
+        </li>
+        <li>
+          <strong>Practice out loud:</strong> Try explaining <em>why</em> each date matters to a parent, mentor, or
+          fellow Squire.
+        </li>
+      </ul>
+    </div>
+
+    <h2>Core Facts to Remember</h2>
+    <p>Use this checklist to test your memory before your oral review:</p>
+    <ul class="checklist">
+      <li>1095-1099: The First Crusade</li>
+      <li>Hugh de Payns: The Founder of the Order</li>
+      <li>Temple Mount, Jerusalem: The Early Headquarters</li>
+      <li>Council of Troyes (1128/1129): Official Church Approval</li>
+      <li>Innocent II: The Pope who granted major privileges in 1139</li>
+      <li>Acre: The city whose fall in 1291 weakened the original mission</li>
+      <li>Philip IV: The King who ordered the arrests in France in 1307</li>
+      <li>Clement V: The Pope who suppressed the order in 1312</li>
+      <li>Jacques de Molay: The last Grand Master, executed in 1314</li>
+    </ul>
+  </body>
+</html>

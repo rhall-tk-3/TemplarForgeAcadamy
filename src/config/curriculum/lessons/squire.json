@@ -1,166 +1,427 @@
 {
   "slug": "squire",
   "title": "Squire School Program",
-  "description": "The foundational program for youth members entering the Order. Covers basic history, honor, duty, and service.",
+  "description": "The foundational program for youth members entering the Order. Covers the origins and purpose of the Templars, founding figures and places, the order's structure and daily life, the suppression, and the virtues of service, courage, and honest conduct.",
   "weeks": [
     {
       "week": 1,
-      "title": "The History of the Knights Templar",
+      "title": "Origins and Virtues",
       "objectives": [
-        "Understand the founding of the Knights Templar in 1118 AD",
-        "Identify the nine founding knights and their mission",
-        "Explain the original purpose of protecting Christian pilgrims"
+        "Understand the First Crusade in simple, age-appropriate terms",
+        "Explain why pilgrims traveled to Jerusalem and the dangers they faced",
+        "State why an order was formed to protect them",
+        "Name and define the five core virtues: honesty, courage, obedience, charity, and reverence"
       ],
-      "lesson": "The Knights Templar were founded around 1118 AD by Hugues de Payens and eight companion knights. They approached King Baldwin II of Jerusalem for permission to establish their order. Their original purpose was to protect Christian pilgrims traveling to the Holy Land. Baldwin II granted them quarters in the Temple Mount, giving them their name — the Poor Fellow-Soldiers of Christ and of the Temple of Solomon. The Order grew rapidly, earning support from St. Bernard of Clairvaux, who wrote the Rule of the Templars outlining their conduct, dress, and discipline. The Templars wore the distinctive white mantle bearing a red cross, symbolizing their purity and willingness to shed blood in service to Christ. By 1139, Pope Innocent II issued the Papal Bull Omne Datum Optimum, granting the Templars extraordinary privileges — exempt from local laws and answering only to the Pope.",
+      "lesson": "Week 1 opens with the beginning of the story \u2014 the reason the Order was ever formed. Around the year 1095, Pope Urban II called for a great military expedition to protect Christian pilgrims traveling to Jerusalem, the holy city where Jesus Christ lived, died, and rose again. This expedition is known as the First Crusade, and it ran from 1095 to 1099. When it ended, Christian forces held Jerusalem \u2014 but the roads leading to the city were still extremely dangerous. Robbers, bandits, and hostile forces preyed on travelers. Pilgrims \u2014 ordinary Christians who made long, difficult journeys to pray at holy sites \u2014 were robbed, attacked, and killed in large numbers. The problem was not just military. It was moral: the Church and the Christian kingdoms of the East had a duty to protect innocent travelers. This duty is the reason an order was eventually formed to provide protection. A Squire does not need to master every detail of this history in Week 1. The goal is to understand the founding problem: pilgrims needed protection, and faithful people took that responsibility seriously. This is the spirit of service the Order carries forward today. The five core virtues every Squire is expected to practice from day one are: Honesty \u2014 speaking truthfully, even when it is difficult; Courage \u2014 doing what is right even when you are afraid; Obedience \u2014 following lawful direction from those responsible for your formation; Charity \u2014 giving your time, attention, and care to others; Reverence \u2014 treating God, people, and sacred things with deep respect.",
       "keyTerms": [
-        {"term": "Hugues de Payens", "definition": "Co-founder and first Grand Master of the Knights Templar"},
-        {"term": "Temple Mount", "definition": "Site on which the Templars established their headquarters in Jerusalem"},
-        {"term": "Omne Datum Optimum", "definition": "Papal Bull of 1139 granting the Templars special privileges and papal protection"}
+        {
+          "term": "First Crusade (1095\u20131099)",
+          "definition": "The military expedition called by Pope Urban II that resulted in Christian forces capturing Jerusalem in 1099"
+        },
+        {
+          "term": "Pilgrim",
+          "definition": "A person who makes a journey to a holy place as an act of religious devotion; medieval pilgrims traveling to Jerusalem faced extreme danger"
+        },
+        {
+          "term": "Reverence",
+          "definition": "Deep respect for God, for sacred things, and for persons in authority; one of the five core Squire virtues"
+        }
       ],
       "examQuestions": [
-        {"question": "In what year were the Knights Templar founded, and by whom?", "type": "short"},
-        {"question": "What was the original stated mission of the Knights Templar?", "type": "short"},
-        {"question": "What did Pope Innocent II's Bull of 1139 grant to the Templars?", "type": "short"}
+        {
+          "question": "What years did the First Crusade run, and what did it accomplish?",
+          "type": "short"
+        },
+        {
+          "question": "Why were pilgrims in danger on the roads to Jerusalem even after the First Crusade succeeded?",
+          "type": "short"
+        },
+        {
+          "question": "List the five Squire virtues and give one example of how you can practice each one this week.",
+          "type": "essay"
+        }
+      ],
+      "required_reading": [
+        {
+          "title": "Squire Reading Stack 2: Historical Timeline",
+          "url": "/documents/squire/squire-reading-stack-2-historical-timeline.docx"
+        },
+        {
+          "title": "Squire Reading Stack 4: Short Excerpts and Guided Readings",
+          "url": "/documents/squire/squire-reading-stack-4-short-excerpts.docx"
+        },
+        {
+          "title": "Squire Required Reading List",
+          "url": "/documents/squire/squire-required-reading-list.docx"
+        }
       ]
     },
     {
       "week": 2,
-      "title": "The Code of Honor and Chivalry",
+      "title": "Founding People and Places",
       "objectives": [
-        "Define chivalry and its key virtues",
-        "Identify the seven knightly virtues",
-        "Apply principles of chivalry to daily conduct"
+        "Identify Hugh de Payns as the founder most closely linked to the Order",
+        "Explain the role of King Baldwin II of Jerusalem",
+        "Locate the Temple Mount as the Order's early headquarters",
+        "Understand the difference between historical fact and legend"
       ],
-      "lesson": "Chivalry is the code of conduct historically associated with knighthood. It combines Christian piety, martial skill, and noble courtesy into a way of life. The seven knightly virtues are: Courage — facing danger without faltering; Justice — treating all people fairly; Mercy — showing compassion to those who are defeated; Generosity — giving freely of time and resources; Faith — holding firm to one's beliefs; Nobility — behaving with grace and dignity; Hope — maintaining confidence in good outcomes. A squire's first duty is to master these virtues in daily life before any sword is placed in their hand. Chivalry is not merely ceremony — it is the living practice of excellence. A true member of the Order does not seek honor for themselves; honor is bestowed by others who witness virtuous action. The squire must internalize these virtues and be able to identify them in both historical figures and in contemporary life.",
+      "lesson": "Week 2 introduces the people and places most closely connected to the beginning of the Order. The founder most closely linked with the Knights Templar is Hugh de Payns. Around 1119 or 1120 \u2014 roughly twenty years after the First Crusade ended \u2014 Hugh de Payns gathered a small group of knights and approached King Baldwin II, the Christian king ruling Jerusalem at that time. Hugh proposed forming a dedicated force specifically to protect pilgrims on the roads. King Baldwin II agreed and granted the group quarters on the Temple Mount in Jerusalem \u2014 the site of the ancient Temple of Solomon. Because they lived and operated from the Temple Mount, they became known as the Poor Fellow-Soldiers of Christ and of the Temple of Solomon, or simply the Templars. This week introduces an important principle: the difference between fact and legend. Many dramatic stories surround the Templars \u2014 buried treasure, secret knowledge, mysterious ceremonies. A Squire is expected to learn history honestly: stick to what is known from reliable sources and be careful about repeating stories that cannot be proven. The historical record tells us clearly who founded the Order, where they were based, and why they began. That is enough, and it is true.",
       "keyTerms": [
-        {"term": "Chivalry", "definition": "The code of conduct combining piety, martial skill, and noble courtesy expected of knights"},
-        {"term": "Virtue", "definition": "A moral quality considered excellent in a person; a standard of conduct"},
-        {"term": "Fortitude", "definition": "Mental and emotional strength in the face of adversity; moral courage"}
+        {
+          "term": "Hugh de Payns",
+          "definition": "The founder most closely linked with the Knights Templar; gathered the first companions and proposed the Order to King Baldwin II around 1119\u20131120"
+        },
+        {
+          "term": "Baldwin II",
+          "definition": "The King of Jerusalem who received Hugh de Payns and granted the early Order quarters on the Temple Mount"
+        },
+        {
+          "term": "Temple Mount",
+          "definition": "The site in Jerusalem of the ancient Temple of Solomon; the early headquarters of the Templars, from which they took their name"
+        }
       ],
       "examQuestions": [
-        {"question": "Name four of the seven knightly virtues and briefly explain each.", "type": "short"},
-        {"question": "Why is chivalry described as a 'living practice' rather than just ceremony?", "type": "short"},
-        {"question": "Describe a real-world situation where a squire could demonstrate the virtue of mercy.", "type": "essay"}
+        {
+          "question": "Who is the founder most closely linked with the Order, and approximately when did the founding occur?",
+          "type": "short"
+        },
+        {
+          "question": "What was the Temple Mount, and why was it significant as the Order's early headquarters?",
+          "type": "short"
+        },
+        {
+          "question": "Why does the difference between fact and legend matter for a Squire studying history? Give an example.",
+          "type": "essay"
+        }
+      ],
+      "required_reading": [
+        {
+          "title": "Squire Reading Stack 1: Order Structure",
+          "url": "/documents/squire/squire-reading-stack-1-order-structure.docx"
+        },
+        {
+          "title": "Squire Reading Stack 2: Historical Timeline",
+          "url": "/documents/squire/squire-reading-stack-2-historical-timeline.docx"
+        },
+        {
+          "title": "Squire Reading Stack 3: Simple Biographies",
+          "url": "/documents/squire/squire-reading-stack-3-simple-biographies.docx"
+        },
+        {
+          "title": "Squire Reading Stack 4: Short Excerpts and Guided Readings",
+          "url": "/documents/squire/squire-reading-stack-4-short-excerpts.docx"
+        }
       ]
     },
     {
       "week": 3,
-      "title": "The Structure of the Order",
+      "title": "Approval and Mission",
       "objectives": [
-        "Understand the rank structure of the KTKC",
-        "Identify the role of each rank from Levie through Commander",
-        "Explain the purpose of the Schoolmaster and program progression"
+        "Explain the significance of the Council of Troyes",
+        "Describe Bernard of Clairvaux's role as a supporter of the Order",
+        "Identify Pope Innocent II's grant of privileges in 1139",
+        "State what makes a religious order different from an ordinary army",
+        "Retell the early timeline from 1095 to 1139 in correct sequence"
       ],
-      "lesson": "The Knights Templar of the Keeping of the Castle (KTKC) is organized in a clear hierarchy of ranks and offices. The progression of ranks begins with the Levie (adult foundational entry), with the Squire program serving youth members. From there, members advance through Corporal, Sergeant, Sergeant First Class, Knight Aspirant, Knight, and into the officer ranks: Lieutenant, Captain, Major, and Commander. Each rank represents earned achievement through the School Program — knowledge tested, virtue demonstrated, and service rendered. The Schoolmaster oversees the training and certification of all members, maintaining the standards of the Order's school programs. Offices such as Chaplain, Standard Bearer, and Chancellor are positions of responsibility assigned by the commanding officer — they are separate from earned rank. A member must always remember that rank is earned through the School, while office is given through trust. Both carry obligations of service to the Order and to the Craft.",
+      "lesson": "Week 3 covers how the early Order moved from an informal group to a formally recognized institution. For about a decade after their founding, the knights operated without official church recognition. In 1128 or 1129, the Council of Troyes \u2014 a church council held in France \u2014 gave the Order formal recognition and provided it with an official rule of life. This was a turning point. The Council of Troyes meant the Order now had the Church's blessing to recruit, hold property, and operate across Christendom. Bernard of Clairvaux was one of the most powerful churchmen of the era. He was a strong supporter of the Templars and helped establish their public reputation. He wrote encouragingly about their mission and encouraged donations on their behalf. He was not the founder \u2014 that was Hugh de Payns \u2014 but his support was enormously valuable to the young Order. In 1139, Pope Innocent II issued a major document granting the Templars extraordinary privileges: they answered to no king or local bishop but directly to the Pope himself. This gave them the independence to operate across all of Europe and the Holy Land. A religious order is different from an ordinary army in one essential way: an ordinary army serves a king or a government, disbands when the campaign ends, and fights for earthly goals. A religious order serves God, operates under a permanent rule of life, and exists to fulfill a spiritual mission. The Templars were a military force, yes \u2014 but their foundation was prayer, discipline, and religious vows. Every Squire should be able to retell the early timeline in order: 1095\u20131099 (First Crusade), 1119 or 1120 (founding by Hugh de Payns), 1128 or 1129 (Council of Troyes), 1139 (Innocent II's grant of privileges).",
       "keyTerms": [
-        {"term": "Levie", "definition": "The foundational rank program for adult members entering the Order"},
-        {"term": "Schoolmaster", "definition": "The officer responsible for overseeing all school programs and member training progression"},
-        {"term": "Office", "definition": "An appointed position of responsibility, separate from earned rank"}
+        {
+          "term": "Bernard of Clairvaux",
+          "definition": "A powerful churchman who strongly supported the early Templars and helped build their public legitimacy; a supporter, not a founder"
+        },
+        {
+          "term": "Innocent II",
+          "definition": "The Pope who in 1139 granted the Templars major privileges, making them answerable to no authority but the Pope"
+        },
+        {
+          "term": "Council of Troyes",
+          "definition": "The church council of 1128 or 1129 that gave the Knights Templar formal recognition and an official rule of life"
+        }
       ],
       "examQuestions": [
-        {"question": "What is the difference between a 'rank' and an 'office' in the KTKC?", "type": "short"},
-        {"question": "List the rank progression from Levie through Commander in correct order.", "type": "short"},
-        {"question": "What is the role of the Schoolmaster in the Order?", "type": "short"}
+        {
+          "question": "What did the Council of Troyes accomplish for the Knights Templar?",
+          "type": "short"
+        },
+        {
+          "question": "What privilege did Pope Innocent II grant the Templars in 1139?",
+          "type": "short"
+        },
+        {
+          "question": "Explain in your own words what makes a religious order different from an ordinary army. Why does that distinction matter for the Squire program?",
+          "type": "essay"
+        }
+      ],
+      "required_reading": [
+        {
+          "title": "Squire Reading Stack 1: Order Structure",
+          "url": "/documents/squire/squire-reading-stack-1-order-structure.docx"
+        },
+        {
+          "title": "Squire Reading Stack 2: Historical Timeline",
+          "url": "/documents/squire/squire-reading-stack-2-historical-timeline.docx"
+        },
+        {
+          "title": "Squire Reading Stack 3: Simple Biographies",
+          "url": "/documents/squire/squire-reading-stack-3-simple-biographies.docx"
+        }
       ]
     },
     {
       "week": 4,
-      "title": "Prayer, Scripture, and the Templar Faith",
+      "title": "Structure and Daily Life",
       "objectives": [
-        "Understand the role of faith in the Templar tradition",
-        "Learn the Order's opening and closing prayers",
-        "Reflect on Scripture passages used in Templar ceremony"
+        "Name the three classes within the Order: Knight, Sergeant, and Chaplain",
+        "Identify the four major offices: Grand Master, Seneschal, Marshal, and Preceptor",
+        "Understand the meaning of the Order's clothing and symbols",
+        "Apply the principle of service before self"
       ],
-      "lesson": "The Knights Templar were above all a religious military order. Their daily life was structured around the canonical hours of prayer — rising before dawn for Matins and continuing through the day to Compline before sleep. The Rule of the Templars required members to hear Mass when possible, to confess regularly, and to maintain personal piety. The Psalms were central to Templar devotion — particularly Psalm 24 ('The earth is the Lord's') and Psalm 91 ('He who dwells in the shelter of the Most High'). Modern orders rooted in Templar tradition continue this emphasis on faith as foundational to all action. Members of the KTKC open and close every assembly with prayer, acknowledging that all rank, honor, and achievement flows from God rather than from personal merit. A squire must learn the opening and closing prayers of the Order by memory and understand their meaning — not as ritual recitation but as sincere acknowledgment of divine authority.",
+      "lesson": "Week 4 moves inside the Order to examine how it was organized and how members lived day to day. The medieval Templars were organized into three classes: Knights were the noble warriors, trained for mounted combat and bearing the white mantle with the red cross; Sergeants were non-noble members who served in combat support, logistics, and administration; Chaplains were priests who served the spiritual needs of the community, celebrated Mass, and administered the sacraments. The major offices of the Order were: the Grand Master, who held supreme authority over the entire Order worldwide; the Seneschal, who served as the Grand Master's deputy; the Marshal, who commanded the military operations; and the Preceptor, who oversaw administration and resources in a region. Clothing and symbols communicated rank, class, and commitment. The white mantle worn by Knights signified purity and consecration. The red cross marked the willingness to shed blood in service to Christ. The plain dress of Sergeants reflected their vow of humility. These were not decorations \u2014 they were declarations. The principle that unifies all of this is service before self. The structure existed to support the mission, not to elevate individuals. A Squire who wants to be honored before they have served has not yet understood what the Order is for.",
       "keyTerms": [
-        {"term": "Canonical Hours", "definition": "The seven periods of prayer observed daily in the Templar Rule, from Matins to Compline"},
-        {"term": "Psalm 91", "definition": "A psalm of protection used in Templar tradition, affirming God as refuge and shield"},
-        {"term": "Piety", "definition": "Reverence and devotion to God expressed through prayer, conduct, and service"}
+        {
+          "term": "Grand Master",
+          "definition": "The supreme authority of the Knights Templar worldwide; the highest office in the Order"
+        },
+        {
+          "term": "Seneschal",
+          "definition": "The deputy to the Grand Master; responsible for administration and acting in the Grand Master's absence"
+        },
+        {
+          "term": "Marshal",
+          "definition": "The officer responsible for military command and the conduct of the Order's forces in the field"
+        }
       ],
       "examQuestions": [
-        {"question": "Why was prayer so central to daily Templar life according to the Rule?", "type": "short"},
-        {"question": "What is the significance of Psalm 91 in Templar tradition?", "type": "short"},
-        {"question": "Write in your own words why faith must come before rank or honor in the Order.", "type": "essay"}
+        {
+          "question": "Name the three classes within the Order and briefly describe each.",
+          "type": "short"
+        },
+        {
+          "question": "List the four major offices and state what each was responsible for.",
+          "type": "short"
+        },
+        {
+          "question": "What does 'service before self' mean to you personally? Describe one specific way you will practice it this week.",
+          "type": "essay"
+        }
+      ],
+      "required_reading": [
+        {
+          "title": "Squire Reading Stack 1: Order Structure",
+          "url": "/documents/squire/squire-reading-stack-1-order-structure.docx"
+        },
+        {
+          "title": "Squire Reading Stack 4: Short Excerpts and Guided Readings",
+          "url": "/documents/squire/squire-reading-stack-4-short-excerpts.docx"
+        }
       ]
     },
     {
       "week": 5,
-      "title": "Service, Duty, and the Squire's Pledge",
+      "title": "Life of the Order",
       "objectives": [
-        "Define service as a core obligation of membership",
-        "Understand what is meant by 'duty before self'",
-        "Prepare to articulate the Squire's Pledge with sincerity"
+        "Describe the role of castles and roads in the Order's protective mission",
+        "Explain the place of prayer, worship, and routine in Templar daily life",
+        "Understand the practice of charity and almsgiving",
+        "Begin building a personal rule of conduct"
       ],
-      "lesson": "Service is not optional in the Order — it is the reason the Order exists. The Templars did not build wealth and power for themselves; they built it in service to the poor, the pilgrim, and the Church. A squire's highest ambition is not to wear the mantle but to serve those who cannot serve themselves. Duty means fulfilling obligations even when it is difficult, unpopular, or costly. The phrase 'Non nobis, Domine, non nobis, sed nomini tuo da gloriam' — Not unto us, Lord, not unto us, but to Your Name give glory — was the motto of the Templars. It captures the spirit of service: action without seeking personal credit. The Squire's Pledge is the commitment made before the Order at the time of enrollment. It covers obedience to the Rule, diligence in study, respect for superiors, and service to the community. A squire who masters service first will find that all other virtues follow.",
+      "lesson": "Week 5 looks at how the Templars actually lived and served day to day. Protecting pilgrims meant more than fighting. The Templars maintained castles and fortified waypoints along the major pilgrimage routes, providing safe places for travelers to rest, receive medical care, and continue their journey. They patrolled roads, escorted vulnerable travelers, and used their network of properties to support pilgrims across a vast territory. Daily prayer was not optional for members of a religious order. The Templars followed a strict rhythm of worship: rising for early morning prayer, gathering for Mass, working, training, and returning to prayer throughout the day. This cycle of prayer and work was the framework that kept the Order's mission focused on God rather than on military glory or personal wealth. Charity and almsgiving \u2014 giving to the poor \u2014 was a core obligation of the Order's life. Members were not permitted to accumulate personal wealth. Resources flowed toward the mission: supplying the military, supporting the sick and poor, and maintaining the Order's properties. A personal rule of conduct is a set of personal commitments about how you will live: how you will speak, how you will treat others, how you will spend your time. A Squire who finishes this week should be able to write at least five personal commitments that reflect the virtues of the Order.",
       "keyTerms": [
-        {"term": "Non nobis, Domine", "definition": "Templar motto — 'Not unto us, Lord' — expressing service without self-seeking"},
-        {"term": "Squire's Pledge", "definition": "The formal commitment made by a squire upon entering the Order's school program"},
-        {"term": "Duty", "definition": "An obligation required by one's position; acting correctly regardless of personal cost"}
+        {
+          "term": "Almsgiving",
+          "definition": "The practice of giving money, food, or assistance to the poor as an act of religious charity"
+        },
+        {
+          "term": "Rule of Conduct",
+          "definition": "A personal set of commitments governing how one will live, speak, and act; a practical expression of the Order's virtues"
+        },
+        {
+          "term": "Routine",
+          "definition": "The regular, ordered pattern of prayer, work, and service that kept the Order's mission focused on God"
+        }
       ],
       "examQuestions": [
-        {"question": "Translate and explain the Templar motto 'Non nobis, Domine'.", "type": "short"},
-        {"question": "What does 'duty before self' mean in practical terms for a squire?", "type": "short"},
-        {"question": "Describe one specific way you can demonstrate service this week in your community or family.", "type": "essay"}
+        {
+          "question": "How did the Templars use castles and roads to protect pilgrims?",
+          "type": "short"
+        },
+        {
+          "question": "Why was daily prayer important to the Order's mission \u2014 not just to individual members' spiritual lives?",
+          "type": "short"
+        },
+        {
+          "question": "Write your own personal rule of conduct: at least five commitments that reflect the virtues of honesty, courage, obedience, charity, and reverence.",
+          "type": "essay"
+        }
+      ],
+      "required_reading": [
+        {
+          "title": "Squire Reading Stack 1: Order Structure",
+          "url": "/documents/squire/squire-reading-stack-1-order-structure.docx"
+        },
+        {
+          "title": "Squire Reading Stack 4: Short Excerpts and Guided Readings",
+          "url": "/documents/squire/squire-reading-stack-4-short-excerpts.docx"
+        },
+        {
+          "title": "Squire Required Reading List",
+          "url": "/documents/squire/squire-required-reading-list.docx"
+        }
       ]
     },
     {
       "week": 6,
-      "title": "Symbols, Regalia, and Ceremony",
+      "title": "Power and Crisis",
       "objectives": [
-        "Identify the key symbols used by the Templar Order",
-        "Understand the meaning of the cross, the mantle, and the seal",
-        "Explain the purpose and reverence of formal ceremony"
+        "Explain why the Templars became powerful and how that created enemies",
+        "State what happened at Acre in 1291 and why it mattered",
+        "Define mission drift and explain why it is dangerous",
+        "Connect responsibility to influence"
       ],
-      "lesson": "Every symbol in the Order carries meaning. The red cross on the white mantle represents the blood of Christ shed for humanity — willingness to die rather than renounce the Faith. The crossed keys represent access to sacred knowledge protected by the Order. The two knights on one horse (the famous Templar seal 'Sigillum Militum Xpisti') represents brotherly unity and poverty — two knights sharing a single mount. The skull and crossbones ('La Tête de Mort') used in some Templar traditions represents mortality — the reminder that all earthly power is temporary and that the knight serves eternal rather than temporal ends. Ceremony is the visible expression of invisible commitments. When a member wears regalia, stands at attention, or speaks the formal opening — they are not performing theater. They are making a public declaration of their allegiance to the values the symbols represent. Ceremony should never be rushed or treated casually.",
+      "lesson": "Week 6 moves into a more difficult part of the story \u2014 the problems that came with the Order's success. The Templars became extremely powerful. They accumulated vast wealth through donations, banking operations, and property holdings across Europe and the Holy Land. Their financial network was so sophisticated that they effectively operated like an early banking system, holding deposits and transferring funds across great distances. Power and influence, without strong discipline and humility, attract enemies and create corruption. As the Templars became wealthier and more politically involved, some people began to resent or envy them. A major turning point came in 1291 when the city of Acre fell to Muslim forces. Acre was the last major Crusader stronghold in the Holy Land. When it fell, the military purpose that had justified the Templars' existence was gone. The Order no longer had a front line to defend or pilgrims to protect in the Holy Land. This raised a painful question: what is the Order for now? Mission drift means losing sight of the original purpose that gave an organization its identity and moral authority. When an organization begins to serve its own interests \u2014 accumulating wealth, seeking influence, protecting its reputation \u2014 rather than the mission it was founded to fulfill, it has drifted. For a Squire, the lesson is personal: stay close to the reason you are here. Service, virtue, and honest conduct. Not status. Not appearance.",
       "keyTerms": [
-        {"term": "Sigillum Militum Xpisti", "definition": "The official seal of the Knights Templar depicting two knights on one horse, symbolizing poverty and brotherhood"},
-        {"term": "La Tête de Mort", "definition": "The skull-and-crossbones symbol used to represent mortality and the transience of earthly power"},
-        {"term": "Regalia", "definition": "The formal dress, insignia, and ceremonial items worn or carried by members of the Order"}
+        {
+          "term": "Acre",
+          "definition": "The last major Crusader stronghold in the Holy Land; its fall in 1291 marked the end of the Crusader presence and removed the Templars' primary military purpose"
+        },
+        {
+          "term": "Mission Drift",
+          "definition": "The gradual process by which an organization loses sight of its original purpose and begins serving its own interests instead"
+        },
+        {
+          "term": "Banking",
+          "definition": "The Templars developed sophisticated financial services \u2014 holding deposits, transferring funds \u2014 that made them politically powerful across Europe"
+        }
       ],
       "examQuestions": [
-        {"question": "What does the image of two knights sharing one horse represent on the Templar seal?", "type": "short"},
-        {"question": "Why should ceremony never be treated casually according to this lesson?", "type": "short"},
-        {"question": "Choose one Templar symbol and write a paragraph explaining its meaning and why it matters today.", "type": "essay"}
+        {
+          "question": "What happened at Acre in 1291, and why did it matter to the Templars' future?",
+          "type": "short"
+        },
+        {
+          "question": "What does mission drift mean, and how did the Templars show signs of it?",
+          "type": "short"
+        },
+        {
+          "question": "Why is it dangerous for any organization \u2014 or any person \u2014 to become more focused on status and wealth than on their original purpose? Connect this to your own life.",
+          "type": "essay"
+        }
+      ],
+      "required_reading": [
+        {
+          "title": "Squire Reading Stack 2: Historical Timeline",
+          "url": "/documents/squire/squire-reading-stack-2-historical-timeline.docx"
+        },
+        {
+          "title": "Squire Reading Stack 4: Short Excerpts and Guided Readings",
+          "url": "/documents/squire/squire-reading-stack-4-short-excerpts.docx"
+        }
       ]
     },
     {
       "week": 7,
-      "title": "Brotherhood, Loyalty, and the Bond of the Order",
+      "title": "Suppression and Courage",
       "objectives": [
-        "Define brotherhood as it applies to the Order",
-        "Understand the obligations members have to one another",
-        "Identify conduct that strengthens or weakens the bonds of brotherhood"
+        "Describe the arrests ordered by Philip IV in 1307",
+        "Explain Clement V's role in the formal suppression of the Order in 1312",
+        "State the significance of Jacques de Molay in 1314",
+        "Reflect honestly on the themes of justice, false accusation, courage, and endurance"
       ],
-      "lesson": "Brotherhood in the Order is not sentiment — it is covenant. When a member takes their oath, they bind themselves to every other member. The strength of the Order depends entirely on whether its members can be trusted absolutely by one another. The Templars of the medieval period understood that a single disloyal knight could betray an entire column in the field. In the modern Order, a single member who speaks ill of brethren, reveals private information, or acts dishonorably outside the assembly dishonors every person who wears the mantle. Brotherhood requires active maintenance — greeting brothers, supporting their families, attending assemblies, interceding when a member falls into difficulty, and speaking truth with kindness when correction is needed. Loyalty does not mean blind agreement — it means unwavering commitment to the person's good even when that requires difficult honesty. A squire should be able to name the members of their local assembly, know something about each one, and be ready to serve them.",
+      "lesson": "Week 7 addresses the end of the medieval Order \u2014 and demands the most careful, honest thinking of the entire program. In 1307, King Philip IV of France ordered the mass arrest of Templars throughout France on a single day \u2014 Friday, October 13th. The charges included heresy, blasphemy, and other serious crimes. Historians have long debated these charges. Many of the confessions were obtained under torture and later retracted. The evidence of widespread genuine guilt has never been established to most historians' satisfaction. Philip IV was deeply in debt to the Templars and stood to gain financially from their destruction. His motives were political as much as religious. Pope Clement V, under political pressure from Philip, eventually agreed to suppress the Order. At the Council of Vienne in 1312, the Knights Templar were formally dissolved. Jacques de Molay was the last Grand Master of the Templars. He had confessed under torture and then recanted his confession publicly in 1314. He was burned at the stake in Paris for his recantation. He died maintaining his innocence. The themes of this week are serious: justice \u2014 treating people fairly and following evidence rather than political pressure; false accusation \u2014 the harm done when charges are made for political rather than truthful reasons; courage \u2014 maintaining what is true even when it costs everything; endurance \u2014 holding to one's convictions through suffering. A Squire who can discuss these themes honestly and calmly has taken an important step toward maturity.",
       "keyTerms": [
-        {"term": "Covenant", "definition": "A solemn, binding agreement; stronger than a contract because it involves the whole person"},
-        {"term": "Loyalty", "definition": "Steadfast fidelity to a person, cause, or institution; not blind agreement but faithful commitment"},
-        {"term": "Brotherhood", "definition": "The bond of mutual obligation, trust, and care shared by members of the Order"}
+        {
+          "term": "Philip IV",
+          "definition": "The King of France who ordered the arrest of the Templars in 1307; heavily in debt to the Order and politically motivated"
+        },
+        {
+          "term": "Clement V",
+          "definition": "The Pope who formally suppressed the Knights Templar at the Council of Vienne in 1312 under pressure from Philip IV"
+        },
+        {
+          "term": "Jacques de Molay",
+          "definition": "The last Grand Master of the Knights Templar; executed in Paris in 1314 after publicly recanting a confession made under torture"
+        }
       ],
       "examQuestions": [
-        {"question": "Why is brotherhood described as 'covenant' rather than just friendship?", "type": "short"},
-        {"question": "Name two specific actions that strengthen the bonds of brotherhood.", "type": "short"},
-        {"question": "Write about a time when loyalty required you to do something difficult. What did you learn?", "type": "essay"}
+        {
+          "question": "In what year were the Templars arrested in France, and who ordered it?",
+          "type": "short"
+        },
+        {
+          "question": "Place these three events in correct order with dates: suppression of the Order, arrests in France, execution of Jacques de Molay.",
+          "type": "short"
+        },
+        {
+          "question": "What does the story of Jacques de Molay teach about courage and false accusation? What would it mean for you to show that kind of courage in your own life?",
+          "type": "essay"
+        }
+      ],
+      "required_reading": [
+        {
+          "title": "Squire Reading Stack 2: Historical Timeline",
+          "url": "/documents/squire/squire-reading-stack-2-historical-timeline.docx"
+        },
+        {
+          "title": "Squire Reading Stack 3: Simple Biographies",
+          "url": "/documents/squire/squire-reading-stack-3-simple-biographies.docx"
+        },
+        {
+          "title": "Squire Reading Stack 4: Short Excerpts and Guided Readings",
+          "url": "/documents/squire/squire-reading-stack-4-short-excerpts.docx"
+        }
       ]
     },
     {
       "week": 8,
-      "title": "Advancement, Examination, and the Path Forward",
+      "title": "Review and Board Preparation",
       "objectives": [
-        "Review all major topics covered in the Squire program",
-        "Demonstrate readiness for formal advancement review",
-        "Articulate personal goals for continued growth in the Order"
+        "Recite the full timeline from 1095 to 1314 in correct sequence",
+        "Identify all key figures studied across the 8 weeks",
+        "Prepare and present a service project reflection",
+        "Demonstrate readiness for written quiz and oral review"
       ],
-      "lesson": "The Squire program has covered the foundations upon which all further advancement in the Order is built. History, honor, prayer, service, symbols, brotherhood — these are not academic subjects to be memorized and forgotten. They are the living framework of your life in the Order. At the end of this program, the Schoolmaster will conduct a formal review of your progress. This is not a test to be passed by reciting correct answers — it is a conversation about who you are becoming. Before your advancement review, reflect on the following: What virtue has challenged you most this year? What service have you rendered that you are most proud of? What do you believe the Order is called to accomplish? What rank do you aspire to, and why? The path forward leads to the Levie program if you have not yet entered it, or to continued study and service within the squire rank. Every step forward in the Order is earned — not given.",
+      "lesson": "Week 8 brings everything together. The full program has covered eight weeks of history, character, structure, daily life, and moral reflection. This final week is not a week to learn new facts \u2014 it is a week to prove that what you have studied has actually become part of how you think. The full timeline every Squire must know: 1095\u20131099 \u2014 First Crusade; 1119 or 1120 \u2014 Hugh de Payns founds the Order; 1128 or 1129 \u2014 Council of Troyes grants formal recognition; 1139 \u2014 Innocent II grants major privileges; 1291 \u2014 Fall of Acre; 1307 \u2014 Arrests in France under Philip IV; 1312 \u2014 Formal suppression under Clement V; 1314 \u2014 Death of Jacques de Molay. All key figures: Hugh de Payns (founder), Baldwin II (supporting king), Bernard of Clairvaux (church supporter), Innocent II (granted privileges), Philip IV (ordered arrests), Clement V (suppressed the Order), Jacques de Molay (last Grand Master). The service project reflection is not optional. A Squire must be able to speak clearly and honestly about service they rendered during the program \u2014 what they did, who it served, and what they learned from it. The promotion board will want to hear this. Readiness for the board is not just about memorized dates. It includes calm honest discussion, evidence of service, and a personal commitment to continued formation. A Squire who is ready for advancement will be able to show, not just tell, that they have grown.",
       "keyTerms": [
-        {"term": "Advancement Review", "definition": "The formal evaluation conducted by the Schoolmaster to assess readiness for rank progression"},
-        {"term": "Reflection", "definition": "Honest examination of one's own conduct, growth, and areas needing improvement"},
-        {"term": "Aspiration", "definition": "The desire for growth toward a worthy goal; the motivation to serve at higher levels"}
+        {
+          "term": "Full Timeline",
+          "definition": "The sequence of key dates every Squire must know: 1095\u20131099, 1119/1120, 1128/1129, 1139, 1291, 1307, 1312, 1314"
+        },
+        {
+          "term": "Service Reflection",
+          "definition": "A spoken or written account of service rendered during the program \u2014 what was done, who was served, and what was learned"
+        },
+        {
+          "term": "Promotion Board",
+          "definition": "The formal oral and written review conducted by the Schoolmaster to assess readiness for advancement"
+        }
       ],
       "examQuestions": [
-        {"question": "What is the difference between 'passing a test' and being ready for an advancement review?", "type": "short"},
-        {"question": "Which of the topics in the Squire program was most meaningful to you, and why?", "type": "essay"},
-        {"question": "What is one virtue you intend to develop more fully in the coming year? How will you do it?", "type": "essay"}
+        {
+          "question": "Recite the full Squire timeline from 1095 to 1314 with all key dates and what each represents.",
+          "type": "short"
+        },
+        {
+          "question": "Name all seven key figures from the Squire program and state each person's significance in one sentence.",
+          "type": "short"
+        },
+        {
+          "question": "Write your service reflection: describe a specific act of service you performed during this program, who it helped, and what you learned about yourself and the Order's values.",
+          "type": "essay"
+        }
+      ],
+      "required_reading": [
+        {
+          "title": "Squire Reading Stack 2: Historical Timeline",
+          "url": "/documents/squire/squire-reading-stack-2-historical-timeline.docx"
+        },
+        {
+          "title": "Squire Reading Stack 3: Simple Biographies",
+          "url": "/documents/squire/squire-reading-stack-3-simple-biographies.docx"
+        },
+        {
+          "title": "Squire Required Reading List",
+          "url": "/documents/squire/squire-required-reading-list.docx"
+        }
       ]
     }
   ]

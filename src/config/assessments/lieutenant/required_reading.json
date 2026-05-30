@@ -1,0 +1,220 @@
+{
+  "program_slug": "lieutenant",
+  "program_title": "Lieutenant School Program",
+  "program_phase": "Officer Formation Level I",
+  "source_required_reading_file": "public/programs/lieutenant/site/downloads/Lieutenant_Required_Reading_List.html",
+  "weeks": [
+    {
+      "week_number": 1,
+      "week_title": "Week 1: The Call to Office",
+      "focus": "Office as service, not status.",
+      "required_reading": [
+        {
+          "title": "Lieutenant School Syllabus PDF (Lesson 1)",
+          "url": "https://www.genspark.ai/api/files/s/wRsOSCxn"
+        },
+        {
+          "title": "Primitive Rule of the Templars (Sections on obedience and humble service)",
+          "url": "https://sourcebooks.web.fordham.edu/source/templars-primitiverule.asp"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 2,
+      "week_title": "Week 2: Origins of the Knights Templar",
+      "focus": "Founding story and mission.",
+      "required_reading": [
+        {
+          "title": "Lieutenant School Syllabus PDF (Lesson 2)",
+          "url": "https://www.genspark.ai/api/files/s/wRsOSCxn"
+        },
+        {
+          "title": "Knights Templar - Wikipedia (History & Origins)",
+          "url": "https://en.wikipedia.org/wiki/Knights_Templar"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 3,
+      "week_title": "Week 3: The Templar Chain of Command",
+      "focus": "Hierarchy and Unity of Command.",
+      "required_reading": [
+        {
+          "title": "Lieutenant School Syllabus PDF (Lesson 3)",
+          "url": "https://www.genspark.ai/api/files/s/wRsOSCxn"
+        },
+        {
+          "title": "Monastic Orders: Knights Templar (Hierarchy & Organization)",
+          "url": "https://www.medievalwarfare.info/templars.htm"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 4,
+      "week_title": "Week 4: The Under Marshal and the Lieutenant Model",
+      "focus": "The Under Marshal as the clearest Templar parallel to a Junior Operational Officer.",
+      "required_reading": [
+        {
+          "title": "Lieutenant School Syllabus PDF (Lesson 4)",
+          "url": "https://www.genspark.ai/api/files/s/wRsOSCxn"
+        },
+        {
+          "title": "Monastic Orders: Knights Templar (Duties of the Under Marshal)",
+          "url": "https://www.medievalwarfare.info/templars.htm"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 5,
+      "week_title": "Week 5: The Rule: Obedience and Mission",
+      "focus": "Obedience as a core virtue and submission to lawful authority.",
+      "required_reading": [
+        {
+          "title": "Lieutenant School Syllabus PDF (Lesson 5)",
+          "url": "https://www.genspark.ai/api/files/s/wRsOSCxn"
+        },
+        {
+          "title": "Primitive Rule of the Templars (Regulations on obedience)",
+          "url": "https://sourcebooks.web.fordham.edu/source/templars-primitiverule.asp"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 6,
+      "week_title": "Week 6: The Rule: Humility, Speech, and Bearing",
+      "focus": "Self-command, humility, restraint, and disciplined speech.",
+      "required_reading": [
+        {
+          "title": "Lieutenant School Syllabus PDF (Lesson 6)",
+          "url": "https://www.genspark.ai/api/files/s/wRsOSCxn"
+        },
+        {
+          "title": "Primitive Rule of the Templars (Regulations on conduct, speech, and bearing)",
+          "url": "https://sourcebooks.web.fordham.edu/source/templars-primitiverule.asp"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 7,
+      "week_title": "Week 7: Care of Brothers and Fraternal Responsibility",
+      "focus": "Moral responsibility for people and caring for the weak.",
+      "required_reading": [
+        {
+          "title": "Lieutenant School Syllabus PDF (Lesson 7)",
+          "url": "https://www.genspark.ai/api/files/s/wRsOSCxn"
+        },
+        {
+          "title": "Primitive Rule of the Templars (Care for the sick and aged)",
+          "url": "https://sourcebooks.web.fordham.edu/source/templars-primitiverule.asp"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 8,
+      "week_title": "Week 8: Readiness, Stewardship, and Reliability",
+      "focus": "Operational preparedness and maintaining readiness.",
+      "required_reading": [
+        {
+          "title": "Lieutenant School Syllabus PDF (Lesson 8)",
+          "url": "https://www.genspark.ai/api/files/s/wRsOSCxn"
+        },
+        {
+          "title": "Knights Templar - Wikipedia (Daily Life and Military Operations)",
+          "url": "https://en.wikipedia.org/wiki/Knights_Templar"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 9,
+      "week_title": "Week 9: Leading a Small Team",
+      "focus": "Briefing, assigning, supervising, and accountability.",
+      "required_reading": [
+        {
+          "title": "Lieutenant School Syllabus PDF (Lesson 9)",
+          "url": "https://www.genspark.ai/api/files/s/wRsOSCxn"
+        },
+        {
+          "title": "Monastic Orders: Knights Templar (Squadron deployment & duties)",
+          "url": "https://www.medievalwarfare.info/templars.htm"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 10,
+      "week_title": "Week 10: Correction, Conflict, and Discipline",
+      "focus": "Mature problem solving and handling issues directly.",
+      "required_reading": [
+        {
+          "title": "Lieutenant School Syllabus PDF (Lesson 10)",
+          "url": "https://www.genspark.ai/api/files/s/wRsOSCxn"
+        },
+        {
+          "title": "Primitive Rule of the Templars (Discipline and Penances)",
+          "url": "https://sourcebooks.web.fordham.edu/source/templars-primitiverule.asp"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 11,
+      "week_title": "Week 11: Lieutenant as Mentor and Example",
+      "focus": "Junior officers shape culture by example and multiplication.",
+      "required_reading": [
+        {
+          "title": "Lieutenant School Syllabus PDF (Lesson 11)",
+          "url": "https://www.genspark.ai/api/files/s/wRsOSCxn"
+        },
+        {
+          "title": "Knights Templar - Wikipedia (Legacy & Organizational Culture)",
+          "url": "https://en.wikipedia.org/wiki/Knights_Templar"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 12,
+      "week_title": "Week 12: Capstone Preparation and Officer Review",
+      "focus": "Integration of learning and final portfolio submission.",
+      "required_reading": [
+        {
+          "title": "Lieutenant School Syllabus PDF (Lesson 12 & Final Review Requirements)",
+          "url": "https://www.genspark.ai/api/files/s/wRsOSCxn"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    }
+  ]
+}

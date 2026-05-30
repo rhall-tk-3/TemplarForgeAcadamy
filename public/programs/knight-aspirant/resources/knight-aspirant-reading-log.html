@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Knight Aspirant Reading Log</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #0a0804;
+  color: #e0cc98;
+  font-family: 'Crimson Text', serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  padding: 40px 24px 80px;
+}
+.wrap { max-width: 900px; margin: 0 auto; }
+/* ── Back button ── */
+.back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Cinzel', serif; font-size: 0.78rem;
+  color: #b8960c; text-decoration: none;
+  border: 1px solid rgba(184,150,12,0.4);
+  border-radius: 4px; padding: 6px 14px;
+  margin-bottom: 32px; letter-spacing: 0.05em;
+  transition: background 0.18s, color 0.18s;
+}
+.back:hover { background: rgba(184,150,12,0.12); color: #e8c040; }
+/* ── Header ── */
+.doc-header {
+  border-bottom: 1px solid rgba(180,140,60,0.3);
+  padding-bottom: 22px; margin-bottom: 36px;
+}
+.doc-kicker {
+  font-family: 'Cinzel', serif; font-size: 0.68rem;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: #6a5020; margin-bottom: 10px;
+}
+.doc-title {
+  font-family: 'Cinzel', serif; font-size: 1.65rem;
+  font-weight: 700; color: #e8c850; line-height: 1.25; margin-bottom: 4px;
+}
+.doc-sub {
+  font-size: 0.88rem; color: #8a7040; font-style: italic;
+}
+/* ── Section headings ── */
+h2.section-h {
+  font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 700;
+  color: #c8a020; letter-spacing: 0.06em; margin: 36px 0 14px;
+  padding-bottom: 6px; border-bottom: 1px solid rgba(200,160,32,0.2);
+}
+/* ── Callout ── */
+.callout {
+  background: rgba(180,140,60,0.08);
+  border-left: 3px solid rgba(200,160,32,0.5);
+  padding: 14px 18px; margin-bottom: 24px;
+  color: #c8b880; font-size: 0.97rem; line-height: 1.7;
+  border-radius: 0 3px 3px 0;
+}
+/* ── Info grid ── */
+.info-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  margin-bottom: 28px;
+}
+@media (max-width: 600px) { .info-grid { grid-template-columns: 1fr; } }
+.info-card {
+  padding: 18px 20px;
+  border: 1px solid rgba(180,140,60,0.22);
+  border-radius: 4px; background: rgba(255,255,255,0.02);
+}
+.info-card h3 {
+  font-family: 'Cinzel', serif; font-size: 0.82rem; font-weight: 600;
+  color: #c8a020; letter-spacing: 0.05em; margin-bottom: 12px;
+}
+.info-card p {
+  color: #c8b880; font-size: 0.97rem; line-height: 2.1;
+  border-bottom: 1px solid rgba(180,140,60,0.15);
+  padding-bottom: 2px; margin-bottom: 6px;
+}
+.info-card p:last-child { border-bottom: none; margin-bottom: 0; }
+/* ── Log table ── */
+.table-wrap { overflow-x: auto; margin-bottom: 36px; }
+table.log-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 0.93rem; min-width: 780px;
+}
+table.log-table th {
+  font-family: 'Cinzel', serif; font-size: 0.72rem;
+  letter-spacing: 0.07em; color: #c8a020; font-weight: 600;
+  background: rgba(180,140,60,0.10);
+  padding: 10px 12px; text-align: left;
+  border: 1px solid rgba(180,140,60,0.22);
+}
+table.log-table td {
+  padding: 10px 12px; vertical-align: top;
+  border: 1px solid rgba(180,140,60,0.18);
+  color: #c8b880; line-height: 1.55;
+}
+table.log-table tbody tr:nth-child(even) td {
+  background: rgba(255,255,255,0.02);
+}
+table.log-table td strong {
+  font-family: 'Cinzel', serif; font-size: 0.78rem;
+  color: #e8c850; font-weight: 600;
+}
+table.log-table td .phase {
+  display: block; font-size: 0.72rem; color: #6a5020;
+  letter-spacing: 0.06em; text-transform: uppercase; margin-top: 2px;
+}
+/* Phase badge colours */
+table.log-table td .phase-class { color: #7a8a60; }
+table.log-table td .phase-essay { color: #8a6040; }
+/* ── Checkbox ── */
+.checkbox {
+  display: inline-block; width: 16px; height: 16px;
+  border: 1px solid rgba(180,140,60,0.4); border-radius: 2px;
+  background: rgba(255,255,255,0.01);
+}
+/* ── Review grid ── */
+.review-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  margin-bottom: 28px;
+}
+@media (max-width: 600px) { .review-grid { grid-template-columns: 1fr; } }
+.review-card {
+  padding: 18px 20px;
+  border: 1px solid rgba(180,140,60,0.22);
+  border-radius: 4px; background: rgba(255,255,255,0.02);
+}
+.review-card h3 {
+  font-family: 'Cinzel', serif; font-size: 0.82rem; font-weight: 600;
+  color: #c8a020; letter-spacing: 0.05em; margin-bottom: 12px;
+}
+.review-card p {
+  color: #8a7040; font-size: 0.93rem; margin-bottom: 4px;
+}
+.review-card .lines {
+  border-bottom: 1px solid rgba(180,140,60,0.18);
+  min-height: 100px; margin-bottom: 16px;
+}
+/* ── Footer ── */
+.hub-footer {
+  margin-top: 48px; padding-top: 18px;
+  border-top: 1px solid rgba(180,140,60,0.18);
+  font-size: 0.88rem; color: #6a5020; line-height: 1.9;
+}
+.hub-footer a { color: #8a6820; text-decoration: underline; text-underline-offset: 2px; }
+.hub-footer a:hover { color: #c8a020; }
+/* ── Print ── */
+@media print {
+  body { background: #fff; color: #111; padding: 16px; }
+  .back { display: none; }
+  .doc-title { color: #111; }
+  .doc-kicker, .doc-sub { color: #666; }
+  h2.section-h { color: #333; border-color: #ccc; }
+  .callout { background: #f5f5f0; border-color: #999; color: #333; }
+  .info-card, .review-card { border-color: #ccc; background: #fafafa; }
+  .info-card h3, .review-card h3 { color: #333; }
+  .info-card p, .review-card p { color: #444; border-color: #ddd; }
+  table.log-table th { background: #eee; color: #333; border-color: #ccc; }
+  table.log-table td { color: #333; border-color: #ccc; }
+  table.log-table td strong { color: #111; }
+  table.log-table td .phase { color: #888; }
+  .checkbox { border-color: #999; }
+  .hub-footer { color: #888; border-color: #ddd; }
+}
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="#">&#8592; Back</a>
+
+  <div class="doc-header">
+    <div class="doc-kicker">&#10013; Knights Templar of the Kingdom of Christ &middot; Templar Forge Academy</div>
+    <div class="doc-title">Knight Aspirant Reading Log</div>
+    <div class="doc-sub">Templar Forge Academy &mdash; Knight Aspirant Program</div>
+  </div>
+
+  <p style="color:#d0bc88; margin-bottom:22px; line-height:1.8;">Track reading, preparation, attendance, essay milestones, and Schoolmaster review across the full 8-week Knight Aspirant program.</p>
+
+  <div class="callout">
+    Program structure: <strong>4 weeks of classes</strong> followed by <strong>4 weeks of essay work</strong>. Required essay title: <strong>&ldquo;What Does a Templar Knight Mean to You?&rdquo;</strong>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>Member Information</h3>
+      <p>Name: ________________________________</p>
+      <p>Chapter: ______________________________</p>
+      <p>Schoolmaster: _________________________</p>
+      <p>Program Dates: ________________________</p>
+    </div>
+    <div class="info-card">
+      <h3>Essay Specifications</h3>
+      <p>Standard college format</p>
+      <p>Cover page with paper title required</p>
+      <p>Single-spaced</p>
+      <p>One full page front and back, or two full typed pages in Word</p>
+      <p>Submit during Week 8 review</p>
+    </div>
+  </div>
+
+  <h2 class="section-h">Weekly Reading &amp; Attendance Record</h2>
+
+  <div class="table-wrap">
+    <table class="log-table">
+      <thead>
+        <tr>
+          <th>Week</th>
+          <th>Topic</th>
+          <th>Reading<br>Complete</th>
+          <th>Prepared</th>
+          <th>Attended</th>
+          <th>Fellowship</th>
+          <th style="min-width:200px;">Reflection / Notes</th>
+          <th style="min-width:160px;">Schoolmaster Review / Signature</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Week 1</strong><span class="phase phase-class">Class Phase</span></td>
+          <td>The Calling of a Knight Aspirant</td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><strong>Week 2</strong><span class="phase phase-class">Class Phase</span></td>
+          <td>Prayer, Scripture, and Rule of Life</td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><strong>Week 3</strong><span class="phase phase-class">Class Phase</span></td>
+          <td>Virtue, Charity, and Self-Mastery</td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><strong>Week 4</strong><span class="phase phase-class">Class Phase</span></td>
+          <td>Spiritual Warfare, Brotherhood, and Knight Readiness</td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><strong>Week 5</strong><span class="phase phase-essay">Essay Phase</span></td>
+          <td>Essay Week I &mdash; Theme, Thesis, and Evidence</td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><strong>Week 6</strong><span class="phase phase-essay">Essay Phase</span></td>
+          <td>Essay Week II &mdash; Outline and First Draft</td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><strong>Week 7</strong><span class="phase phase-essay">Essay Phase</span></td>
+          <td>Essay Week III &mdash; Revision, Clarity, and Submission Readiness</td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><strong>Week 8</strong><span class="phase phase-essay">Essay Phase</span></td>
+          <td>Essay Week IV &mdash; Final Submission and Knight Review</td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="section-h">Final Review</h2>
+
+  <div class="review-grid">
+    <div class="review-card">
+      <h3>Schoolmaster Assessment</h3>
+      <p>Strengths observed:</p>
+      <div class="lines"></div>
+      <p>Areas for growth before Knight promotion:</p>
+      <div class="lines"></div>
+    </div>
+    <div class="review-card">
+      <h3>Essay &amp; Readiness Notes</h3>
+      <p>Essay preparation / submission notes:</p>
+      <div class="lines"></div>
+      <p>Knight readiness recommendation:</p>
+      <div class="lines"></div>
+    </div>
+  </div>
+
+  <div class="callout">Optional women-in-Templar reading may be noted for personal enrichment, but it is informational only and not tested.</div>
+
+  <div class="hub-footer">
+    Knight Aspirant resources:
+    <a href="/documents/view/knight-aspirant-handbook.html">Program Handbook</a> &middot;
+    <a href="/documents/view/knight-aspirant-required-reading-list.html">Required Reading List</a> &middot;
+    <a href="/documents/view/knight-aspirant-required-reading-hub.html">Required Reading Hub</a> &middot;
+    <a href="/documents/view/promotion-manual.html">Promotion Manual &amp; By-Laws</a> &middot;
+    <a href="/documents/view/ktkc-rules-and-statutes.html">KTKC Rules &amp; Statutes</a>
+  </div>
+
+</div>
+<script>
+(function(){
+  var back = document.querySelector('.back');
+  if(back){
+    back.addEventListener('click', function(e){
+      e.preventDefault();
+      if(window.opener && !window.opener.closed){ window.close(); return; }
+      var r = sessionStorage.getItem('lessonHubReturn');
+      if(r){ window.location = r; return; }
+      history.back();
+    });
+  }
+})();
+</script>
+</body>
+</html>

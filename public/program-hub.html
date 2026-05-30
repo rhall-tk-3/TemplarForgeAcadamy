@@ -1,0 +1,1937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Program Hub — Knights Templar KC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:       #e8c040;
+      --gold-mid:   #c9a84c;
+      --gold-deep:  #b8960c;
+      --gold-dim:   #8a6e22;
+      --bg:         #0a0804;
+      --bg2:        #0f0c06;
+      --bg3:        #140f07;
+      --bg4:        #1a1208;
+      --bg5:        #201508;
+      --border:     #2a1f08;
+      --border-hi:  #3a2c0a;
+      --text:       #d4c5a0;
+      --text-dim:   #8a7a58;
+      --text-bright:#ede0b8;
+      --red-dim:    #5a1a0a;
+      --green-dim:  #0a3a1a;
+      --green-bright:#4caf78;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* ── FULL-PAGE PROGRAM BACKGROUND ── */
+    #page-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      /* Dark cinematic vignette overlay — keeps all content readable */
+      background-color: var(--bg);
+      transition: background-image 0.4s ease;
+    }
+    /* Everything above the bg layer */
+    .topbar,
+    #loading-wrap,
+    #main-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: linear-gradient(90deg, #0a0602, #130d03, #0a0602);
+      border-bottom: 1px solid var(--border-hi);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .topbar-left { display: flex; align-items: center; gap: 12px; }
+    .topbar-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+    .topbar-sep { color: var(--gold-dim); font-size: 0.85rem; }
+    #topbar-program-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      color: var(--text-dim);
+    }
+    .topbar-right { display: flex; align-items: center; gap: 10px; }
+    .btn-sm {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 14px;
+      border: 1px solid var(--border-hi);
+      background: transparent;
+      color: var(--text-dim);
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-radius: 2px;
+    }
+    .btn-sm:hover { border-color: var(--gold-mid); color: var(--gold); }
+    .btn-sm.gold { border-color: var(--gold-deep); color: var(--gold); }
+    .btn-sm.gold:hover { background: rgba(184,150,12,0.1); }
+
+    /* ── MODE BADGE ── */
+    .mode-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 2px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+    }
+    .mode-badge.active  { background: rgba(184,150,12,0.12); border: 1px solid var(--gold-deep); color: var(--gold); }
+    .mode-badge.review  { background: rgba(80,120,180,0.10); border: 1px solid #3a5888; color: #8ab0e0; }
+
+    /* ── HERO HEADER ── */
+    .hero {
+      background: linear-gradient(180deg, rgba(10,8,4,0.55) 0%, rgba(10,8,4,0.30) 60%, rgba(10,8,4,0.60) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 32px 36px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Rank insignia — left and right flanking the title, vertically centred */
+    .hero-insignia {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 90px;         /* equal width on both sides */
+      height: auto;
+      opacity: 0.92;
+      pointer-events: none;
+      display: none;       /* hidden until JS sets the src */
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.7));
+    }
+    .hero-insignia.left  { left: clamp(12px, 3.5vw, 48px); }
+    .hero-insignia.right { right: clamp(12px, 3.5vw, 48px); }
+    .hero-insignia.visible { display: block; }
+    .hero::before {
+      content: '✠';
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 120px;
+      color: rgba(184,150,12,0.04);
+      pointer-events: none;
+    }
+    .hero-phase {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      font-weight: 900;
+      color: var(--gold);
+      text-shadow: 0 0 40px rgba(184,150,12,0.25);
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+    }
+    .hero-meta {
+      color: var(--text-dim);
+      font-size: 0.92rem;
+      margin-bottom: 20px;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 22px;
+      border: 1px solid;
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-radius: 2px;
+      background: transparent;
+    }
+    .btn-hero.primary { border-color: var(--gold-deep); color: var(--gold); }
+    .btn-hero.primary:hover { background: rgba(184,150,12,0.12); }
+    .btn-hero.secondary { border-color: #2a3a5a; color: #7090c0; }
+    .btn-hero.secondary:hover { background: rgba(60,90,140,0.1); border-color: #4a6a9a; color: #90b8e8; }
+
+    /* ── PROGRAM NAV BAR ── */
+    #prog-nav {
+      background: linear-gradient(90deg, rgba(12,6,2,.98), rgba(18,10,3,.95), rgba(12,6,2,.98));
+      border-bottom: 1px solid var(--border-hi);
+      padding: 0 24px;
+      display: none;          /* hidden until JS populates with ≥2 programs */
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    #prog-nav::-webkit-scrollbar { display: none; }
+    #prog-nav.visible { display: flex; }
+    .prog-nav-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      white-space: nowrap;
+      padding: 11px 16px 11px 0;
+      border-right: 1px solid var(--border);
+      margin-right: 4px;
+      flex-shrink: 0;
+    }
+    .prog-nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 11px 14px;
+      border-right: 1px solid var(--border);
+      color: var(--text-dim);
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.07em;
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.15s, background 0.15s;
+      white-space: nowrap;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .prog-nav-pill:hover {
+      color: var(--gold);
+      background: rgba(184,150,12,0.05);
+    }
+    .prog-nav-pill.current {
+      color: var(--gold);
+      background: rgba(184,150,12,0.08);
+    }
+    .prog-nav-pill.current::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gold-mid);
+    }
+    .prog-nav-pill.locked {
+      color: var(--text-dim);
+      opacity: 0.35;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+    .prog-nav-dot {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: 0.45;
+      flex-shrink: 0;
+    }
+    .prog-nav-dot.active { background: var(--gold); opacity: 0.9; }
+    .prog-nav-dot.locked { background: var(--red-dim); }
+
+    /* ── WEEK NAV BAR ── */
+    .week-nav {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      overflow-x: auto;
+    }
+    .week-nav-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-right: 6px;
+      white-space: nowrap;
+    }
+    .week-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 12px;
+      border: 1px solid var(--border-hi);
+      background: transparent;
+      color: var(--text-dim);
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-radius: 2px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .week-pill:hover, .week-pill.active {
+      border-color: var(--gold-mid);
+      color: var(--gold);
+      background: rgba(184,150,12,0.06);
+    }
+
+    /* ── MAIN LAYOUT ── */
+    .main-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+
+    /* ── PART DIVIDER ── */
+    .part-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 36px 0 20px;
+    }
+    .part-divider::before, .part-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-hi), transparent);
+    }
+    .part-divider-text {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* ── WEEK CARD ── */
+    .week-card {
+      border: 1px solid var(--border);
+      background: var(--bg2);
+      margin-bottom: 12px;
+      transition: border-color 0.2s;
+      scroll-margin-top: 120px;
+    }
+    .week-card:hover { border-color: var(--border-hi); }
+    .week-card.open  { border-color: var(--gold-deep); }
+
+    .week-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      cursor: pointer;
+      user-select: none;
+      gap: 12px;
+    }
+    .week-header:hover .week-number { color: var(--gold); }
+
+    .week-header-left { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0; }
+    .week-number {
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gold-dim);
+      min-width: 28px;
+      transition: color 0.2s;
+    }
+    .week-title-text {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-bright);
+    }
+    .week-header-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .week-chevron {
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      transition: transform 0.25s;
+    }
+    .week-card.open .week-chevron { transform: rotate(180deg); }
+
+    /* ── WEEK LOCK ── */
+    /* Locked card: muted border, dimmed header, no hover highlight */
+    .week-card.locked { border-color: var(--border); opacity: 0.72; }
+    .week-card.locked:hover { border-color: var(--border); }
+    .week-card.locked .week-header { cursor: not-allowed; }
+    .week-card.locked .week-header:hover .week-number { color: var(--gold-dim); }
+
+    /* Guard overlay — sits above the card body, pointer-events:none so it
+       doesn't block the header click handler's "locked" message flash */
+    .week-guard-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .guard-letter {
+      font-family: 'Cinzel', serif;
+      font-size: 7rem;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.06);
+      letter-spacing: 0.05em;
+      user-select: none;
+      line-height: 1;
+    }
+    /* The card itself needs position:relative so the overlay anchors to it */
+    .week-card.locked { position: relative; }
+
+    /* Lock badge in the week header */
+    .week-lock-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      border: 1px solid var(--border);
+      padding: 3px 8px;
+      text-transform: uppercase;
+    }
+    .week-lock-badge svg { flex-shrink: 0; }
+
+    /* Flash message shown when student tries to open a locked week */
+    .week-lock-flash {
+      font-size: 0.82rem;
+      color: var(--gold-dim);
+      padding: 10px 20px;
+      border-top: 1px solid var(--border);
+      display: none;
+    }
+    .week-card.locked.flash-active .week-lock-flash { display: block; }
+
+    /* (quick-btn / week-quick removed — Take Test button removed from header)
+
+    /* ── WEEK BODY ── */
+    .week-body {
+      display: none;
+      border-top: 1px solid var(--border);
+      padding: 0;
+    }
+    .week-card.open .week-body { display: block; }
+
+    /* Tabs inside week body */
+    .week-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg3);
+    }
+    .week-tab {
+      padding: 10px 20px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.18s;
+      user-select: none;
+    }
+    .week-tab:hover { color: var(--gold); }
+    .week-tab.active { color: var(--gold); border-bottom-color: var(--gold-deep); }
+
+    .week-tab-panel { display: none; padding: 22px 24px; }
+    .week-tab-panel.active { display: block; }
+
+    /* Lesson content */
+    .lesson-text {
+      color: var(--text);
+      font-size: 1.05rem;
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+
+    /* Objectives */
+    .objectives-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 0;
+    }
+    .objectives-list li {
+      display: flex;
+      gap: 10px;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(42,31,8,0.5);
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .objectives-list li:last-child { border-bottom: none; }
+    .obj-bullet {
+      color: var(--gold-deep);
+      font-size: 0.85rem;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    /* Key terms */
+    .keyterms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+    }
+    .keyterm-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 14px 16px;
+    }
+    .keyterm-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 5px;
+    }
+    .keyterm-def {
+      font-size: 0.92rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* Exam questions */
+    .examq-list { list-style: none; padding: 0; }
+    .examq-item {
+      display: flex;
+      gap: 12px;
+      padding: 12px 14px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      margin-bottom: 8px;
+    }
+    .examq-num {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      color: var(--gold-dim);
+      min-width: 24px;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+    .examq-content { flex: 1; }
+    .examq-text { color: var(--text); font-size: 1rem; line-height: 1.55; }
+    .examq-type {
+      display: inline-block;
+      margin-top: 5px;
+      padding: 2px 8px;
+      border: 1px solid;
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 1px;
+    }
+    .examq-type.short { border-color: #2a3a6a; color: #6a8aca; }
+    .examq-type.essay { border-color: #3a1a4a; color: #9a6aca; }
+
+    /* Test panel inside week body */
+    .week-test-panel {
+      padding: 22px 24px;
+    }
+    .test-cta {
+      text-align: center;
+      padding: 28px;
+      background: var(--bg3);
+      border: 1px solid var(--border-hi);
+    }
+    .test-cta-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .test-cta-sub {
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      margin-bottom: 18px;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 28px;
+      border: 1px solid var(--gold-deep);
+      background: rgba(184,150,12,0.08);
+      color: var(--gold);
+      font-family: 'Cinzel', serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-radius: 2px;
+    }
+    .btn-primary:hover { background: rgba(184,150,12,0.18); }
+
+    /* Reading focus panel */
+    .focus-box {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 16px 18px;
+      margin-bottom: 16px;
+    }
+    .focus-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+    .focus-text { color: var(--text); font-size: 0.96rem; font-style: italic; }
+
+    /* ── SIDE PANEL — QUICK JUMP ── */
+    .layout-with-sidebar {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 24px;
+      padding-top: 24px;
+    }
+    @media (max-width: 800px) {
+      .layout-with-sidebar { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+    }
+    .sidebar {
+      position: sticky;
+      top: 120px;
+      align-self: start;
+    }
+    .sidebar-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      padding: 16px;
+    }
+    .sidebar-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .sidebar-week-link {
+      display: block;
+      padding: 5px 8px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      transition: all 0.18s;
+      cursor: pointer;
+    }
+    .sidebar-week-link:hover { color: var(--gold); border-left-color: var(--gold-deep); }
+    .sidebar-week-link.active { color: var(--gold); border-left-color: var(--gold); }
+
+    .sidebar-actions { margin-top: 16px; }
+    .sidebar-action-btn {
+      display: block;
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid var(--border-hi);
+      background: transparent;
+      color: var(--text-dim);
+      font-family: 'Cinzel', serif;
+      font-size: 0.67rem;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-bottom: 6px;
+      border-radius: 2px;
+    }
+    .sidebar-action-btn:hover { border-color: var(--gold-mid); color: var(--gold); }
+    .sidebar-action-btn.gold { border-color: var(--gold-deep); color: var(--gold); }
+    .sidebar-action-btn.gold:hover { background: rgba(184,150,12,0.1); }
+
+    /* ── LOADING / ERROR ── */
+    .loading-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      gap: 16px;
+    }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 2px solid var(--border-hi);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-text {
+      font-family: 'Cinzel', serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
+      color: var(--text-dim);
+    }
+    .error-box {
+      background: rgba(90,26,10,0.2);
+      border: 1px solid #5a1a0a;
+      padding: 20px 24px;
+      text-align: center;
+      max-width: 480px;
+      margin: 40px auto;
+    }
+    .error-box h3 { font-family: 'Cinzel', serif; color: #c04040; margin-bottom: 8px; }
+    .error-box p { color: var(--text-dim); font-size: 0.92rem; }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    /* ── LESSON TWO-COLUMN LAYOUT ── */
+    .lesson-top-row {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 24px;
+      align-items: start;
+    }
+    @media (max-width: 700px) {
+      .lesson-top-row { grid-template-columns: 1fr; }
+    }
+    .lesson-main { min-width: 0; }
+
+    /* Required reading side panel */
+    .lesson-reading-panel {
+      background: var(--bg3);
+      border: 1px solid var(--border-hi);
+      padding: 16px 18px;
+      border-radius: 2px;
+    }
+    .lesson-reading-panel h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .lesson-reading-panel ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .lesson-reading-panel ul li {
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(42,31,8,0.4);
+      font-size: 0.88rem;
+    }
+    .lesson-reading-panel ul li:last-child { border-bottom: none; }
+    .lesson-reading-panel ul li a {
+      color: var(--gold-mid);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .lesson-reading-panel ul li a:hover { color: var(--gold); text-decoration: underline; }
+
+
+
+    /* ── EXAM FORM (live MC) ── */
+    .exam-form { margin: 0; padding: 0; }
+
+    .exam-mc-question {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 16px 18px;
+      margin-bottom: 12px;
+      border-radius: 2px;
+    }
+    .exam-mc-question .q-num {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      color: var(--gold-deep);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .exam-mc-question .q-prompt {
+      color: var(--text-bright);
+      font-size: 1rem;
+      line-height: 1.55;
+      margin-bottom: 12px;
+    }
+
+    .choice {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      margin-bottom: 6px;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+    .choice:hover { border-color: var(--gold-deep); background: rgba(184,150,12,0.04); }
+    .choice input[type="radio"] {
+      margin-top: 3px;
+      flex-shrink: 0;
+      accent-color: var(--gold);
+    }
+
+    .exam-submit-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .btn-exam-submit {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 26px;
+      border: 1px solid var(--gold-deep);
+      background: rgba(184,150,12,0.1);
+      color: var(--gold);
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-radius: 2px;
+    }
+    .btn-exam-submit:hover:not(:disabled) { background: rgba(184,150,12,0.2); }
+    .btn-exam-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* Result banners */
+    .exam-result-banner {
+      padding: 14px 18px;
+      border-radius: 2px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .exam-result-banner.passed {
+      background: rgba(10,58,26,0.5);
+      border: 1px solid #1a6a30;
+      color: var(--green-bright);
+    }
+    .exam-result-banner.failed {
+      background: rgba(90,26,10,0.3);
+      border: 1px solid #7a2a0a;
+      color: #e08060;
+    }
+
+    /* One-time profile setup prompt (only shown if localStorage has no profile) */
+    .exam-profile-prompt {
+      display: flex;
+      gap: 10px;
+      align-items: flex-end;
+      background: rgba(40,28,8,0.55);
+      border: 1px solid #8a6a2a;
+      border-radius: 3px;
+      padding: 12px 14px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .exam-profile-prompt .id-field {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 130px;
+    }
+    .exam-profile-prompt label {
+      font-size: 0.72rem;
+      color: var(--gold-deep);
+      letter-spacing: 0.07em;
+      font-family: 'Cinzel', serif;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .exam-profile-prompt input {
+      background: rgba(0,0,0,0.35);
+      border: 1px solid #5a4a20;
+      border-radius: 2px;
+      color: #e8d9b0;
+      font-size: 0.86rem;
+      padding: 6px 9px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .exam-profile-prompt input:focus { border-color: var(--gold); }
+    .exam-profile-prompt input.id-error { border-color: #c0392b; }
+    .exam-profile-prompt .prompt-note {
+      width: 100%;
+      font-size: 0.78rem;
+      color: #c8b07a;
+      margin-bottom: 6px;
+    }
+
+    /* Answer review */
+    .exam-answer-review { margin-top: 12px; }
+    .review-item {
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      border-radius: 2px;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+    .review-item.correct {
+      background: rgba(10,58,26,0.25);
+      border: 1px solid #1a5022;
+      color: var(--text);
+    }
+    .review-item.wrong {
+      background: rgba(90,26,10,0.2);
+      border: 1px solid #5a1a0a;
+      color: var(--text);
+    }
+    .review-item .expl {
+      margin-top: 6px;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      font-style: italic;
+    }
+
+    /* responsive */
+    @media (max-width: 600px) {
+      .hero { padding: 32px 16px 24px; }
+      .week-tabs { overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+  <script src="/assets/js/academy-guard.js" data-protect="member" defer></script>
+
+
+<!-- FULL-PAGE PROGRAM BACKGROUND -->
+<div id="page-bg"></div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="/member" class="topbar-logo">✠ KTKC</a>
+    <span class="topbar-sep">›</span>
+    <span id="topbar-program-name">Loading…</span>
+  </div>
+  <div class="topbar-right">
+    <span id="mode-badge" class="mode-badge active">▶ Active</span>
+    <a href="/member" class="btn-sm">⌂ Dashboard</a>
+  </div>
+</div>
+
+<!-- LOADING STATE -->
+<div id="loading-wrap" class="loading-wrap">
+  <div class="spinner"></div>
+  <div class="loading-text">Loading Program…</div>
+</div>
+
+<!-- MAIN CONTENT (hidden until loaded) -->
+<div id="main-content" style="display:none;">
+
+  <!-- PROGRAM NAV BAR — full learning hub navigation -->
+  <div id="prog-nav">
+    <span class="prog-nav-label">✠ Programs</span>
+    <div id="prog-nav-pills" style="display:contents;"></div>
+  </div>
+
+  <!-- HERO HEADER -->
+  <div class="hero">
+    <img id="hero-insignia-left"  class="hero-insignia left"  src="" alt="Rank Insignia" />
+    <img id="hero-insignia-right" class="hero-insignia right" src="" alt="Rank Insignia" />
+    <div class="hero-phase" id="hero-phase">Phase</div>
+    <div class="hero-title" id="hero-title">Program Title</div>
+    <div class="hero-meta" id="hero-meta">— weeks —</div>
+    <div class="hero-actions">
+    </div>
+  </div>
+
+  <!-- WEEK NAVIGATION BAR -->
+  <div class="week-nav">
+    <span class="week-nav-label">Jump:</span>
+    <div id="week-nav-pills"></div>
+  </div>
+
+  <!-- MAIN LAYOUT -->
+  <div class="main-wrap">
+    <div class="layout-with-sidebar">
+
+      <!-- WEEKS COLUMN -->
+      <div id="weeks-column"></div>
+
+      <!-- SIDEBAR -->
+      <div class="sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-title">Quick Jump</div>
+          <div id="sidebar-links"></div>
+
+          <div class="sidebar-actions">
+            <a href="/member" class="sidebar-action-btn">⌂ Dashboard</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /main-content -->
+
+<script>
+// ── SLUG FROM URL ──
+// URL pattern: /programs/:slug/hub
+const pathParts = window.location.pathname.split('/');
+const SLUG = pathParts[2] || '';
+
+// Set to true only when this is the member's currently assigned program.
+// Review-mode visits (completed, unlocked, past-order) leave this false
+// so all weeks are visible without assessment-progress gating.
+let HUB_IS_ACTIVE  = false;
+// When active, this is the member's current week (SM-set). All weeks up to
+// and including this number are unlocked; weeks beyond it are guarded.
+let HUB_CURRENT_WEEK = 0;
+
+// ── AUTH CHECK ──
+(async function authCheck() {
+  try {
+    const r = await fetch('/auth/me', { credentials: 'include' });
+    if (!r.ok) { window.location.href = '/login'; return; }
+    const u = await r.json();
+    if (!u || (!u.id && !u.username)) { window.location.href = '/login'; return; }
+
+    // Fetch progression + full curriculum in parallel — needed for mode badge AND program nav
+    const [progRes, currRes] = await Promise.all([
+      fetch('/api/progression/me',  { credentials: 'include' }),
+      fetch('/api/curriculum',      { credentials: 'include' })
+    ]);
+
+    if (progRes.ok && currRes.ok) {
+      const prog     = await progRes.json();
+      const currData = await currRes.json();
+      const allProgs = currData.programs || [];
+
+      const assigned  = prog?.assignedProgram?.slug;
+      const completed = new Set((prog?.programHistory || []).filter(h => h.completedAt).map(h => h.slug));
+      const unlocked  = new Set(prog?.unlockedSlugs  || []);
+
+      // Mode badge — also sets HUB_IS_ACTIVE / HUB_CURRENT_WEEK for week-lock logic
+      const badge = document.getElementById('mode-badge');
+      if (assigned === SLUG) {
+        HUB_IS_ACTIVE    = true;
+        HUB_CURRENT_WEEK = prog.currentWeek || 1;
+        badge.textContent = '▶ Active Program';
+        badge.className = 'mode-badge active';
+      } else {
+        HUB_IS_ACTIVE    = false;
+        HUB_CURRENT_WEEK = 0;
+        badge.textContent = '⟳ Review Mode';
+        badge.className = 'mode-badge review';
+      }
+
+      // ── PROGRAM NAV BAR ──
+      // A program is accessible if: current, completed, explicitly unlocked, or earlier in order
+      const assignedIdx = allProgs.findIndex(p => p.slug === assigned);
+      const accessible  = allProgs.filter((p, idx) => {
+        return p.slug === assigned
+          || completed.has(p.slug)
+          || unlocked.has(p.slug)
+          || (assignedIdx > -1 && idx < assignedIdx);
+      });
+
+      if (accessible.length >= 2) {
+        const navEl   = document.getElementById('prog-nav');
+        const pillsEl = document.getElementById('prog-nav-pills');
+        pillsEl.innerHTML = allProgs.map(p => {
+          const isAccessible = accessible.some(a => a.slug === p.slug);
+          const isCurrent    = p.slug === SLUG;
+          if (!isAccessible) {
+            // Locked — still show but greyed out (no link)
+            return `<span class="prog-nav-pill locked" title="${p.title} — Locked">
+              <span class="prog-nav-dot locked"></span>${p.title.replace(/ School Program$/i,'').replace(/ Program$/i,'')}
+            </span>`;
+          }
+          return `<a class="prog-nav-pill${isCurrent ? ' current' : ''}"
+                    href="/programs/${p.slug}/hub"
+                    title="${p.title}">
+            <span class="prog-nav-dot${isCurrent ? ' active' : ''}"></span>${p.title.replace(/ School Program$/i,'').replace(/ Program$/i,'')}
+          </a>`;
+        }).join('');
+        navEl.classList.add('visible');
+      }
+    }
+
+    initHub();
+  } catch (e) {
+    window.location.href = '/login';
+  }
+})();
+
+async function initHub() {
+  if (!SLUG) {
+    showError('No program specified.', 'Return to your dashboard to select a program.');
+    return;
+  }
+
+  try {
+    // Fetch curriculum lesson data and student progress in parallel
+    const [currRes, progressRes] = await Promise.all([
+      fetch(`/api/programs/${SLUG}/lessons`, { credentials: 'include', headers: { 'Accept': 'application/json' } }),
+      fetch(`/api/assessment/${SLUG}/progress`, { credentials: 'include', headers: { 'Accept': 'application/json' } })
+    ]);
+
+    // If the session expired, the server now returns 401 JSON (not a redirect).
+    // Guard against both the 401 JSON case and any unexpected redirect/HTML response.
+    if (currRes.status === 401 || currRes.redirected) {
+      window.location.replace('/login');
+      return;
+    }
+
+    if (!currRes.ok) {
+      showError('Program not found.', `The program "${SLUG}" could not be loaded.`);
+      return;
+    }
+
+    const currData = await currRes.json();
+    const progressData = (progressRes.ok && !progressRes.redirected) ? await progressRes.json() : null;
+
+    renderHub(currData, null);
+
+    // Restore exam result banners for weeks already submitted
+    if (progressData && progressData.weeks) {
+      restoreExamState(progressData.weeks);
+    }
+  } catch (e) {
+    showError('Failed to load program.', e.message);
+  }
+}
+
+// ── Restore exam result banners on page load ──
+// Called after renderHub() so the DOM week cards exist.
+// Reads the server-side progress record and shows pass/fail banners
+// for weeks the member has already submitted, without requiring a re-submit.
+// ── Active countdown timers: weekNumber → intervalId ──
+const _retestTimers = {};
+
+function restoreExamState(progressWeeks) {
+  for (const pw of progressWeeks) {
+    const wn = pw.weekNumber;
+    const stateDiv = document.getElementById(`exam-state-${wn}`);
+    if (!stateDiv) continue;
+
+    // Skip if exam was just submitted this session (banner already rendered)
+    if (stateDiv.querySelector('.exam-result-banner')) continue;
+
+    const sub = pw.latestSubmission;
+    if (!sub) continue;
+
+    const passed = sub.passed;
+    const score  = sub.score;
+    const passingScore = pw.passingScore || 70;
+
+    // Build question review HTML
+    const reviewHtml = (sub.review || []).map(item => `
+      <div class="review-item ${item.isCorrect ? 'correct' : 'wrong'}">
+        <strong>Q${item.questionNumber}:</strong> ${item.prompt}<br>
+        Your answer: <strong>${item.submittedAnswer}</strong> — ${item.submittedText}<br>
+        ${!item.isCorrect ? `Correct: <strong>${item.correctAnswer}</strong> — ${item.correctText}<br>` : ''}
+        <div class="expl">${item.explanation}</div>
+      </div>`).join('');
+
+    if (passed) {
+      let statusMsg = '';
+      if (pw.status === 'pending_unlock') {
+        statusMsg = `✠ Passed — ${score}%. Your work is submitted and awaiting Schoolmaster review before the next week unlocks.`;
+      } else if (pw.status === 'passed') {
+        statusMsg = `✠ Passed — ${score}%. The Schoolmaster has approved your progression to the next week.`;
+      } else {
+        statusMsg = `✠ Passed — ${score}%.`;
+      }
+      stateDiv.innerHTML = `
+        <div class="exam-result-banner passed">${statusMsg}</div>
+        <div class="exam-answer-review">${reviewHtml}</div>
+      `;
+
+    } else if (pw.status === 'retest_cooldown') {
+      // 24-hour cooldown in effect — show locked banner with live countdown
+      const availableAt = new Date(pw.retestAvailableAt).getTime();
+      const countdownId = `retest-countdown-${wn}`;
+      stateDiv.innerHTML = `
+        <div class="exam-result-banner failed">
+          ✗ Failed — ${score}%. You need ${passingScore}% to pass.<br>
+          <strong>✠ Retest available in: <span id="${countdownId}">calculating…</span></strong><br>
+          <span style="font-size:.82rem;opacity:.8;">Review your answers below, then return when the timer reaches zero to retry automatically.</span>
+        </div>
+        <div class="exam-answer-review">${reviewHtml}</div>
+      `;
+      // Start live countdown — when it hits zero, replace banner with exam form
+      _retestTimers[wn] && clearInterval(_retestTimers[wn]);
+      _retestTimers[wn] = setInterval(() => {
+        const remaining = availableAt - Date.now();
+        const el = document.getElementById(countdownId);
+        if (remaining <= 0) {
+          clearInterval(_retestTimers[wn]);
+          // Cooldown expired — swap banner for the live exam form
+          _unlockRetestForm(wn, passingScore, stateDiv);
+        } else {
+          const h = Math.floor(remaining / 3600000);
+          const m = Math.floor((remaining % 3600000) / 60000);
+          const s = Math.floor((remaining % 60000) / 1000);
+          if (el) el.textContent = `${h}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
+        }
+      }, 1000);
+
+    } else if (pw.status === 'retest_ready') {
+      // 24 hours have passed — show banner + live exam form immediately
+      stateDiv.innerHTML = `
+        <div class="exam-result-banner failed" style="margin-bottom:12px;">
+          ✗ Failed — ${score}%. You need ${passingScore}% to pass.<br>
+          <strong>✠ 24-hour review period complete — your retest is ready below.</strong>
+        </div>
+        <div class="exam-answer-review" style="margin-bottom:16px;">${reviewHtml}</div>
+      `;
+      _unlockRetestForm(wn, passingScore, stateDiv);
+    }
+  }
+}
+
+// Inject a fresh exam form after the existing banner (retest unlock)
+function _unlockRetestForm(wn, passingScore, stateDiv) {
+  // Don't inject if form already present
+  if (stateDiv.querySelector('.exam-form')) return;
+
+  const origForm = document.getElementById(`exam-form-${wn}`);
+  if (!origForm) return;  // week not rendered (shouldn't happen)
+
+  // Clone the original form and swap IDs so the new one is active
+  const clone = origForm.cloneNode(true);
+  clone.id = `exam-form-${wn}-retest`;
+  // Remove any disabled state from radio inputs
+  clone.querySelectorAll('input').forEach(i => i.disabled = false);
+  clone.querySelectorAll('input[type=radio]').forEach(i => i.checked = false);
+  // Re-wire onsubmit (cloneNode preserves attribute, but we need fresh handler)
+  clone.onsubmit = (e) => submitExam(e, wn, passingScore);
+  // Hide the original (already replaced by banner)
+  origForm.style.display = 'none';
+  stateDiv.appendChild(clone);
+}
+
+function renderHub(curr, readData) {
+  const weeks = curr.weeks || [];
+  const title = curr.title || SLUG;
+  const phase = curr.phase || '';
+  const durationWeeks = weeks.length;
+
+  // Build reading focus map: weekNum → focus text
+  const focusMap = {};
+  if (readData && readData.weeks) {
+    readData.weeks.forEach(w => {
+      focusMap[w.week_number] = w.focus || '';
+    });
+  }
+
+  // Topbar
+  document.getElementById('topbar-program-name').textContent = title;
+  document.title = `${title} — KTKC`;
+
+  // Hero
+  document.getElementById('hero-phase').textContent = phase ? `✠ ${phase.toUpperCase()} ✠` : '✠ KTKC SCHOOL ✠';
+  document.getElementById('hero-title').textContent = title;
+  document.getElementById('hero-meta').textContent = `${durationWeeks}-week program`;
+
+  // Rank insignia — map each program slug to its patch image path
+  const INSIGNIA_MAP = {
+    // Lower enlisted tier (original patches)
+    levie:              '/images/insignia/levie.png',
+    corporal:           '/images/insignia/corporal.png',
+    sergeant:           '/images/insignia/sergeant.png',
+    sfc:                '/images/insignia/sfc.png',
+    // Knight tier — cropped from rank chart (transparent background)
+    'knight-aspirant':  '/images/insignia/knight-lieutenant.png',  // aspirant wears lieutenant insignia
+    knight:             '/images/insignia/knight.png',
+    lieutenant:         '/images/insignia/knight-lieutenant.png',
+    captain:            '/images/insignia/knight-captain.png',
+    major:              '/images/insignia/knight-major.png',
+    commander:          '/images/insignia/knight-commander.png',
+  };
+  const insigniaPath = INSIGNIA_MAP[SLUG] || null;
+  const insLeft  = document.getElementById('hero-insignia-left');
+  const insRight = document.getElementById('hero-insignia-right');
+  if (insigniaPath && insLeft && insRight) {
+    insLeft.src  = insigniaPath;
+    insRight.src = insigniaPath;
+    insLeft.classList.add('visible');
+    insRight.classList.add('visible');
+  } else if (insLeft && insRight) {
+    insLeft.classList.remove('visible');
+    insRight.classList.remove('visible');
+  }
+
+  // Hub background images — full-page behind all content, one per program
+  const HUB_BG_MAP = {
+    squire:            '/images/hub-bg/squire.jpg',
+    levie:             '/images/hub-bg/levie.jpg',
+    corporal:          '/images/hub-bg/corporal.jpg',
+    sergeant:          '/images/hub-bg/sergeant.jpg',
+    sfc:               '/images/hub-bg/sfc.jpg',
+    'knight-aspirant': '/images/hub-bg/knight-aspirant.jpg',
+    knight:            '/images/hub-bg/knight.jpg',
+    lieutenant:        '/images/hub-bg/lieutenant.jpg',
+    captain:           '/images/hub-bg/captain.jpg',
+    major:             '/images/hub-bg/major.jpg',
+    commander:         '/images/hub-bg/commander.jpg',
+  };
+  const bgPath = HUB_BG_MAP[SLUG];
+  const pageBgEl = document.getElementById('page-bg');
+  if (pageBgEl && bgPath) {
+    // Cinematic dark overlay + program image — visible but content stays legible
+    pageBgEl.style.backgroundImage =
+      `linear-gradient(180deg, rgba(6,3,1,.72) 0%, rgba(6,3,1,.58) 50%, rgba(6,3,1,.72) 100%), url('${bgPath}')`;    
+  }
+
+  // Week nav pills
+  const navContainer = document.getElementById('week-nav-pills');
+  navContainer.innerHTML = weeks.map(w =>
+    `<a class="week-pill" href="#week-${w.week}" onclick="openWeek(${w.week})">W${w.week}</a>`
+  ).join('');
+
+  // Sidebar links
+  const sidebarLinks = document.getElementById('sidebar-links');
+  sidebarLinks.innerHTML = weeks.map(w =>
+    `<a class="sidebar-week-link" href="#week-${w.week}" onclick="openWeek(${w.week})" id="sb-link-${w.week}">
+      Week ${w.week}: ${w.title}
+    </a>`
+  ).join('');
+
+  // Weeks column
+  const col = document.getElementById('weeks-column');
+  const midPoint = Math.ceil(durationWeeks / 2);
+
+  let html = '';
+  weeks.forEach((w, idx) => {
+    const weekNum = w.week;
+
+    // Part divider
+    if (weekNum === 1) {
+      html += `<div class="part-divider"><span class="part-divider-text">✠ Part I — Foundation ✠</span></div>`;
+    } else if (weekNum === midPoint + 1) {
+      html += `<div class="part-divider"><span class="part-divider-text">✠ Part II — Advancement ✠</span></div>`;
+    }
+
+    const focus = focusMap[weekNum] || '';
+    const keyTerms = w.keyTerms || [];
+    const objectives = w.objectives || [];
+    const requiredReading = w.required_reading || [];
+    const quizQuestions = w.quiz_questions || [];
+    const passingScore = w.passing_score || 70;
+
+    // Determine lock state using the SM-set currentWeek from the progression API.
+    // Active program: weeks up to and including currentWeek are open; beyond it are guarded.
+    // Review / completed / SM-unlocked programs: all weeks are open (HUB_IS_ACTIVE = false).
+    const isLocked = HUB_IS_ACTIVE && weekNum > HUB_CURRENT_WEEK;
+
+    // Build required reading links
+    const readingLinks = requiredReading.length
+      ? requiredReading.map(doc => `<li><a href="/viewer/index.html?url=${encodeURIComponent(doc.url)}&title=${encodeURIComponent(doc.title)}" target="_blank">${escHtml(doc.title)}</a></li>`).join('')
+      : '<li><em style="color:var(--text-dim);font-size:0.82rem;">See Materials Vault</em></li>';
+
+    // Build MC quiz questions for exam form
+    const mcQuestions = quizQuestions.map((q, qi) => `
+      <div class="exam-mc-question" data-qi="${qi}">
+        <div class="q-num" style="font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.1em;color:var(--gold-deep);margin-bottom:6px;">Question ${qi + 1}</div>
+        <div class="q-prompt">${escHtml(q.prompt)}</div>
+        ${(q.choices || []).map(c => `
+          <label class="choice">
+            <input type="radio" name="q${weekNum}_${qi}" value="${escHtml(c.option)}" required />
+            <span><strong>${escHtml(c.option)}.</strong> ${escHtml(c.text)}</span>
+          </label>`).join('')}
+      </div>`).join('');
+
+    html += `
+<div class="week-card ${isLocked ? 'locked' : ''}" id="week-${weekNum}" data-week="${weekNum}">
+  ${isLocked ? `<div class="week-guard-overlay"><span class="guard-letter">G</span></div>` : ''}
+  <div class="week-header" onclick="toggleWeek(${weekNum})">
+    <div class="week-header-left">
+      <span class="week-number">W${weekNum}</span>
+      <span class="week-title-text">${escHtml(w.title)}</span>
+    </div>
+    <div class="week-header-right">
+      ${isLocked ? `
+      <span class="week-lock-badge">
+        <svg width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="5.5" width="9" height="7" rx="1" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M3 5.5V3.5a2.5 2.5 0 0 1 5 0v2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        Guarded
+      </span>` : ''}
+      <span class="week-chevron">${isLocked ? '' : '▼'}</span>
+    </div>
+  </div>
+  ${isLocked ? `<div class="week-lock-flash">✠ This week is guarded. The Schoolmaster must approve your progress before it unlocks.</div>` : ''}
+
+  <div class="week-body">
+    <div class="week-tabs">
+      <div class="week-tab active" onclick="switchTab(this, 'lesson-${weekNum}')">Lesson</div>
+      <div class="week-tab" onclick="switchTab(this, 'objectives-${weekNum}')">Objectives</div>
+      <div class="week-tab" onclick="switchTab(this, 'terms-${weekNum}')">Key Terms</div>
+      <div class="week-tab" onclick="switchTab(this, 'exam-${weekNum}')">Exam Questions</div>
+      <div class="week-tab" onclick="switchTab(this, 'upload-${weekNum}'); loadWeekUploadPanel(${weekNum})">Paper Upload</div>
+    </div>
+
+    <!-- LESSON TAB -->
+    <div class="week-tab-panel active" id="lesson-${weekNum}">
+      <div class="lesson-top-row">
+        <div class="lesson-main">
+          ${focus ? `
+          <div class="focus-box">
+            <div class="focus-label">This Week's Reading Focus</div>
+            <div class="focus-text">${escHtml(focus)}</div>
+          </div>` : ''}
+          <div class="lesson-text">${escHtml(w.lesson || '')}</div>
+        </div>
+        <div class="lesson-reading-panel">
+          <h4>Required Reading</h4>
+          <ul>${readingLinks}</ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- OBJECTIVES TAB -->
+    <div class="week-tab-panel" id="objectives-${weekNum}">
+      <div class="section-label">Learning Objectives — Week ${weekNum}</div>
+      <ul class="objectives-list">
+        ${objectives.map(obj => `
+        <li>
+          <span class="obj-bullet">◆</span>
+          <span>${escHtml(obj)}</span>
+        </li>`).join('')}
+      </ul>
+    </div>
+
+    <!-- KEY TERMS TAB -->
+    <div class="week-tab-panel" id="terms-${weekNum}">
+      <div class="section-label">Key Terms — Week ${weekNum}</div>
+      <div class="keyterms-grid">
+        ${keyTerms.map(t => `
+        <div class="keyterm-card">
+          <div class="keyterm-name">✠ ${escHtml(t.term)}</div>
+          <div class="keyterm-def">${escHtml(t.definition)}</div>
+        </div>`).join('')}
+      </div>
+    </div>
+
+    <!-- PAPER UPLOAD TAB -->
+    <div class="week-tab-panel" id="upload-${weekNum}">
+      <div id="upload-panel-${weekNum}"><p style="color:var(--text-dim);font-size:0.88rem;">Loading…</p></div>
+    </div>
+
+    <!-- EXAM QUESTIONS TAB (live submittable MC form) -->
+    <div class="week-tab-panel" id="exam-${weekNum}">
+      <div class="section-label">Week ${weekNum} Examination</div>
+      <p style="color:var(--text-dim);font-size:0.88rem;margin:8px 0 16px 0;">Answer all questions. Pass at ${passingScore}% or higher. If you fail, you may automatically retest after a 24-hour review period — no Schoolmaster approval required to retry.</p>
+      <div id="exam-state-${weekNum}">
+        ${mcQuestions ? `
+        <form class="exam-form" id="exam-form-${weekNum}" onsubmit="submitExam(event, ${weekNum}, ${passingScore})">
+          ${mcQuestions}
+          <div class="exam-submit-row">
+            <button class="btn-exam-submit" type="submit">Submit Exam</button>
+            <span style="font-size:0.82rem;color:var(--text-dim);">Passing score: ${passingScore}%</span>
+          </div>
+        </form>` : '<p style="color:var(--text-dim);">Exam questions not yet available. Open the Assessment Center.</p>'}
+      </div>
+    </div>
+  </div>
+</div>`;
+  });
+
+  col.innerHTML = html;
+
+  // Show content
+  document.getElementById('loading-wrap').style.display = 'none';
+  document.getElementById('main-content').style.display = 'block';
+
+  // Scroll spy for sidebar
+  setupScrollSpy(weeks.map(w => w.week));
+
+  // Open first week by default
+  if (weeks.length) openWeek(weeks[0].week);
+}
+
+// ── TOGGLE / OPEN WEEK ──
+function toggleWeek(weekNum) {
+  const card = document.getElementById(`week-${weekNum}`);
+  if (!card) return;
+
+  // Locked card: show a brief flash message instead of opening
+  if (card.classList.contains('locked')) {
+    card.classList.add('flash-active');
+    clearTimeout(card._lockFlashTimer);
+    card._lockFlashTimer = setTimeout(() => card.classList.remove('flash-active'), 2800);
+    return;
+  }
+
+  card.classList.toggle('open');
+  updateSidebarActive(weekNum);
+}
+function openWeek(weekNum) {
+  const card = document.getElementById(`week-${weekNum}`);
+  if (!card) return;
+  // Never auto-open a locked card
+  if (card.classList.contains('locked')) return;
+  if (!card.classList.contains('open')) card.classList.add('open');
+  updateSidebarActive(weekNum);
+  // Scroll into view with a slight delay
+  setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+}
+
+// ── SWITCH TAB ──
+function switchTab(tabEl, panelId) {
+  const weekBody = tabEl.closest('.week-body');
+  weekBody.querySelectorAll('.week-tab').forEach(t => t.classList.remove('active'));
+  weekBody.querySelectorAll('.week-tab-panel').forEach(p => p.classList.remove('active'));
+  tabEl.classList.add('active');
+  const panel = document.getElementById(panelId);
+  if (panel) panel.classList.add('active');
+}
+
+// ── SUBMIT EXAM (from Exam Questions tab) ──
+async function submitExam(event, weekNum, passingScore) {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const submitBtn = form.querySelector('.btn-exam-submit');
+
+  // Hard client-side guard: locked weeks must never be submitted,
+  // even if someone bypasses the UI and triggers the form directly.
+  const card = document.getElementById(`week-${weekNum}`);
+  if (card && card.classList.contains('locked')) {
+    const stateDiv = document.getElementById(`exam-state-${weekNum}`);
+    if (stateDiv && !stateDiv.querySelector('.exam-locked-msg')) {
+      stateDiv.insertAdjacentHTML('afterbegin', `
+        <div class="exam-result-banner failed exam-locked-msg">
+          ✠ Week ${weekNum} is guarded. The Schoolmaster must approve your progression before you may submit this exam.
+        </div>`);
+    }
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Submitting…';
+
+  // Collect answers from radio buttons
+  const stateDiv = document.getElementById(`exam-state-${weekNum}`);
+  const questions = form.querySelectorAll('.exam-mc-question');
+  const answers = [];
+  let allAnswered = true;
+  questions.forEach((qDiv, qi) => {
+    const checked = qDiv.querySelector(`input[name="q${weekNum}_${qi}"]:checked`);
+    if (checked) {
+      answers.push(checked.value);
+    } else {
+      allAnswered = false;
+    }
+  });
+
+  if (!allAnswered) {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Submit Exam';
+    alert('Please answer all questions before submitting.');
+    return;
+  }
+
+  // Silently read profile from localStorage — set when user completed the Assessment Center
+  let profile = {};
+  try { profile = JSON.parse(localStorage.getItem('ktkcCurriculumProfileV1') || '{}'); } catch(_e) {}
+  const studentName  = (profile.studentName  || '').trim();
+  const studentEmail = (profile.studentEmail || '').trim().toLowerCase();
+
+  if (!studentName || !studentEmail) {
+    // Profile missing — show a one-time inline prompt, preserve all answers
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Submit Exam';
+    if (!stateDiv.querySelector('.exam-profile-prompt')) {
+      stateDiv.insertAdjacentHTML('afterbegin', `
+        <div class="exam-profile-prompt" id="prompt-${weekNum}">
+          <p class="prompt-note">✠ Enter your name and email once to submit — saved for all future exams.</p>
+          <div class="id-field">
+            <label for="prompt-name-${weekNum}">Full Name</label>
+            <input type="text" id="prompt-name-${weekNum}" placeholder="e.g. John Smith" autocomplete="name" />
+          </div>
+          <div class="id-field">
+            <label for="prompt-email-${weekNum}">Email Address</label>
+            <input type="email" id="prompt-email-${weekNum}" placeholder="e.g. john@example.com" autocomplete="email" />
+          </div>
+          <button type="button" class="btn-exam-submit" style="align-self:flex-end;"
+            onclick="saveProfileFromPrompt(${weekNum}, ${passingScore})">Save &amp; Submit</button>
+        </div>`);
+      document.getElementById(`prompt-name-${weekNum}`)?.focus();
+    }
+    return;
+  }
+
+  // Build discussion answers (empty — exam tab doesn't have discussion fields)
+  const discussionAnswers = [];
+
+  try {
+    const res = await fetch(`/api/assessment/${SLUG}/submit`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({
+        studentName,
+        studentEmail,
+        weekNumber: weekNum,
+        answers,
+        discussionAnswers
+      })
+    });
+
+    // Guard: if the server returned a redirect or an HTML page (e.g. session
+    // expired → 302 → /login HTML), catch it before calling .json() which would
+    // throw "Unexpected token '<'" and obscure the real cause.
+    const contentType = res.headers.get('content-type') || '';
+    if (!contentType.includes('application/json')) {
+      if (res.status === 401 || res.redirected) {
+        // Session expired — reload to login page
+        window.location.replace('/login');
+        return;
+      }
+      throw new Error(`Server error (${res.status}). Please try again or reload the page.`);
+    }
+
+    const data = await res.json();
+    if (!res.ok) {
+      // 401 with JSON body from our updated requireMember guard
+      if (res.status === 401) { window.location.replace('/login'); return; }
+      throw new Error(data.error || 'Submission failed');
+    }
+
+    const submission = data.submission;
+    const passed = submission.passed;
+    const score = submission.score;
+
+    // Build review HTML
+    const reviewHtml = (submission.review || []).map((item) => `
+      <div class="review-item ${item.isCorrect ? 'correct' : 'wrong'}">
+        <strong>Q${item.questionNumber}:</strong> ${item.prompt}<br>
+        Your answer: <strong>${item.submittedAnswer}</strong> — ${item.submittedText}<br>
+        ${!item.isCorrect ? `Correct: <strong>${item.correctAnswer}</strong> — ${item.correctText}<br>` : ''}
+        <div class="expl">${item.explanation}</div>
+      </div>`).join('');
+
+    if (passed) {
+      stateDiv.innerHTML = `
+        <div class="exam-result-banner passed">
+          ✠ Passed — ${score}%. Your work is submitted and awaiting Schoolmaster review before the next week unlocks.
+        </div>
+        <div class="exam-answer-review">${reviewHtml}</div>
+      `;
+    } else {
+      // Failed — start the 24-hour auto-retest cooldown
+      const retestAt = new Date(Date.now() + 24 * 60 * 60 * 1000);
+      const countdownId = `retest-countdown-${weekNum}`;
+      stateDiv.innerHTML = `
+        <div class="exam-result-banner failed">
+          ✗ Failed — ${score}%. You need ${passingScore}% to pass.<br>
+          <strong>✠ Retest available in: <span id="${countdownId}">24h 00m 00s</span></strong><br>
+          <span style="font-size:.82rem;opacity:.8;">Review your answers below. Your retest unlocks automatically in 24 hours — no Schoolmaster approval needed.</span>
+        </div>
+        <div class="exam-answer-review">${reviewHtml}</div>
+      `;
+      // Live countdown
+      _retestTimers[weekNum] && clearInterval(_retestTimers[weekNum]);
+      const availableAt = retestAt.getTime();
+      _retestTimers[weekNum] = setInterval(() => {
+        const remaining = availableAt - Date.now();
+        const el = document.getElementById(countdownId);
+        if (remaining <= 0) {
+          clearInterval(_retestTimers[weekNum]);
+          _unlockRetestForm(weekNum, passingScore, stateDiv);
+        } else {
+          const h = Math.floor(remaining / 3600000);
+          const m = Math.floor((remaining % 3600000) / 60000);
+          const s = Math.floor((remaining % 60000) / 1000);
+          if (el) el.textContent = `${h}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
+        }
+      }, 1000);
+    }
+  } catch (err) {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Submit Exam';
+    stateDiv.insertAdjacentHTML('beforeend', `<div class="exam-result-banner failed">⚠ ${err.message}</div>`);
+  }
+}
+
+// ── IDENTITY HELPERS ──
+// saveProfileFromPrompt: used only on first-time submission when no profile
+// exists in localStorage.  Validates inputs, saves to localStorage, then
+// re-triggers the normal exam submission flow.
+async function saveProfileFromPrompt(weekNum, passingScore) {
+  const nameEl  = document.getElementById(`prompt-name-${weekNum}`);
+  const emailEl = document.getElementById(`prompt-email-${weekNum}`);
+  const name  = (nameEl  ? nameEl.value.trim()  : '');
+  const email = (emailEl ? emailEl.value.trim().toLowerCase() : '');
+
+  if (!name) {
+    if (nameEl) { nameEl.classList.add('id-error'); nameEl.focus(); }
+    return;
+  }
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (emailEl) { emailEl.classList.add('id-error'); emailEl.focus(); }
+    return;
+  }
+
+  // Persist — from here on every page load will find the profile silently
+  try { localStorage.setItem('ktkcCurriculumProfileV1', JSON.stringify({ studentName: name, studentEmail: email })); } catch(_e) {}
+
+  // Remove the prompt so the normal flow takes over
+  const prompt = document.getElementById(`prompt-${weekNum}`);
+  if (prompt) prompt.remove();
+
+  // Re-trigger submit on the exam form — profile is now in localStorage
+  const form = document.getElementById(`exam-form-${weekNum}`);
+  if (form) form.requestSubmit();
+}
+
+// ── SIDEBAR ACTIVE ──
+function updateSidebarActive(weekNum) {
+  document.querySelectorAll('.sidebar-week-link').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.week-pill').forEach(el => el.classList.remove('active'));
+  const sbl = document.getElementById(`sb-link-${weekNum}`);
+  if (sbl) sbl.classList.add('active');
+}
+
+// ── SCROLL SPY ──
+function setupScrollSpy(weekNums) {
+  if (!window.IntersectionObserver) return;
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const wn = parseInt(e.target.dataset.week, 10);
+        if (wn) updateSidebarActive(wn);
+      }
+    });
+  }, { rootMargin: '-120px 0px -60% 0px', threshold: 0 });
+  weekNums.forEach(wn => {
+    const el = document.getElementById(`week-${wn}`);
+    if (el) obs.observe(el);
+  });
+}
+
+// ── ERROR ──
+function showError(title, msg) {
+  document.getElementById('loading-wrap').style.display = 'none';
+  document.getElementById('main-content').style.display = 'block';
+  document.getElementById('weeks-column').innerHTML = `
+    <div class="error-box">
+      <h3>✠ ${escHtml(title)}</h3>
+      <p>${escHtml(msg)}</p>
+      <br><a href="/member" class="btn-primary">Return to Dashboard</a>
+    </div>`;
+}
+
+// ── PAPER UPLOAD PANEL (per-week) ──
+async function loadWeekUploadPanel(weekNum) {
+  const panel = document.getElementById('upload-panel-' + weekNum);
+  if (!panel || panel.dataset.loaded) return;
+  panel.dataset.loaded = 'true';
+
+  // Look up the assignment config for this program + week
+  const cfg    = window.ACADEMY_ASSIGNMENT_CONFIG || {};
+  const prog   = cfg[SLUG];
+  const lesson = prog && prog.lessons
+    ? prog.lessons.find(function(l) { return Number(l.lessonNumber) === Number(weekNum); })
+    : null;
+
+  function renderPanel(subs) {
+    const hasAssignment = lesson && lesson.paperRequired;
+    const assignTitle   = hasAssignment ? escHtml(lesson.assignmentTitle) : '';
+    const lessonTitle   = hasAssignment ? escHtml(lesson.lessonTitle)     : '';
+
+    const submissionsHtml = subs.length
+      ? subs.map(function(s) {
+          const statusColor = { submitted: '#fbbf24', graded: '#86efac', 'revision-requested': '#fca5a5' }[s.status] || '#94a3b8';
+          return `<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--border);">
+            <div>
+              <strong style="color:var(--text-bright);">${escHtml(s.originalFileName)}</strong>
+              <div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:8px;font-size:0.85rem;color:var(--text-dim);">
+                <span style="padding:2px 8px;border-radius:999px;background:${statusColor};color:#111;font-weight:700;font-size:0.75rem;text-transform:uppercase;">${escHtml(s.status)}</span>
+                <span>Uploaded ${new Date(s.uploadedAt).toLocaleString()}</span>
+                ${s.grade ? `<span>Grade: ${escHtml(s.grade)}</span>` : ''}
+              </div>
+              ${s.feedback ? `<div style="margin-top:8px;padding:8px 12px;background:rgba(125,211,252,0.08);border-radius:4px;font-size:0.88rem;"><strong>SM Feedback:</strong> ${escHtml(s.feedback)}</div>` : ''}
+            </div>
+            <a href="/api/papers/download?submissionId=${encodeURIComponent(s.submissionId)}" target="_blank" rel="noopener"
+               style="color:#7dd3fc;font-weight:700;font-size:0.85rem;white-space:nowrap;flex-shrink:0;">Download</a>
+          </div>`;
+        }).join('')
+      : `<p style="color:var(--text-dim);font-size:0.88rem;margin:0;">No papers submitted yet for this week.</p>`;
+
+    panel.innerHTML = `
+      <div style="max-width:680px;">
+        <div class="section-label">Week ${weekNum} — Paper Submission</div>
+        ${hasAssignment ? `
+        <p style="color:var(--text-dim);font-size:0.88rem;margin:6px 0 18px 0;">
+          ${lessonTitle ? `<strong style="color:var(--text);">${lessonTitle}</strong> — ` : ''}${assignTitle || 'Upload your written assignment for this week.'}
+        </p>` : `
+        <p style="color:var(--text-dim);font-size:0.88rem;margin:6px 0 18px 0;">
+          Upload a written document for this week's lesson.
+        </p>`}
+
+        <form id="hub-upload-form-${weekNum}"
+              style="background:var(--bg3);border:1px solid var(--border-hi);padding:18px 20px;margin-bottom:20px;">
+          <label style="display:block;font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.12em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:8px;">
+            Choose file (.pdf or .docx)
+          </label>
+          <input type="file" name="paper" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                 required
+                 style="display:block;width:100%;color:var(--text);margin-bottom:12px;" />
+          <button type="submit" class="btn-primary" style="border-radius:2px;">
+            ✠ Submit Paper
+          </button>
+          <span id="hub-upload-msg-${weekNum}" style="margin-left:14px;font-size:0.88rem;"></span>
+        </form>
+
+        <div style="background:var(--bg2);border:1px solid var(--border);padding:16px 18px;">
+          <div class="section-label" style="margin-bottom:10px;">Previously Submitted</div>
+          <div id="hub-sub-list-${weekNum}">${submissionsHtml}</div>
+        </div>
+      </div>
+    `;
+
+    // Bind the upload form
+    const form = document.getElementById('hub-upload-form-' + weekNum);
+    const msg  = document.getElementById('hub-upload-msg-' + weekNum);
+    if (!form) return;
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const fileInput = form.querySelector('input[type="file"]');
+      if (!fileInput || !fileInput.files.length) {
+        msg.textContent = 'Please choose a file.';
+        msg.style.color = '#fca5a5';
+        return;
+      }
+      const btn = form.querySelector('button[type="submit"]');
+      try {
+        msg.textContent = 'Uploading\u2026';
+        msg.style.color = 'var(--text-dim)';
+        if (btn) btn.disabled = true;
+        const fd = new FormData();
+        fd.append('paper', fileInput.files[0]);
+        fd.append('programSlug', SLUG);
+        fd.append('lessonNumber', weekNum);
+        fd.append('lessonTitle',       lesson ? (lesson.lessonTitle       || '') : 'Week ' + weekNum);
+        fd.append('assignmentTitle',   lesson ? (lesson.assignmentTitle   || '') : '');
+        const res  = await fetch('/api/papers/upload', { method: 'POST', body: fd, credentials: 'include' });
+        const data = await res.json().catch(function() { return {}; });
+        if (!res.ok) throw new Error(data.error || 'Upload failed.');
+        msg.textContent = '\u2713 Uploaded successfully.';
+        msg.style.color = '#86efac';
+        fileInput.value = '';
+        // Reload submissions list
+        panel.dataset.loaded = '';
+        await loadWeekUploadPanel(weekNum);
+      } catch (err) {
+        msg.textContent = err.message || 'Upload failed.';
+        msg.style.color = '#fca5a5';
+        if (btn) btn.disabled = false;
+      }
+    });
+  }
+
+  // Fetch existing submissions for this program+week
+  try {
+    const data = await fetch('/api/papers/my-submissions', { credentials: 'include' })
+      .then(function(r) { return r.json(); })
+      .catch(function() { return { items: [] }; });
+    const allSubs = data.items || data.submissions || [];
+    const weekSubs = allSubs.filter(function(s) {
+      return s.programSlug === SLUG && Number(s.lessonNumber) === Number(weekNum);
+    });
+    renderPanel(weekSubs);
+  } catch (err) {
+    panel.innerHTML = `<p style="color:#fca5a5;font-size:0.88rem;">Could not load submissions: ${escHtml(err.message)}</p>`;
+  }
+}
+
+// ── LOGOUT ──
+async function doLogout() {
+  // POST to /api/auth/logout to clear the JWT cookie, then fall back to
+  // the legacy GET /auth/logout (which destroys the express-session for SM).
+  try {
+    await fetch('/api/auth/logout', { method: 'POST', credentials: 'include' });
+  } catch (_) {}
+  window.location.href = '/login';
+}
+
+// ── HELPERS ──
+function escHtml(s) {
+  if (!s) return '';
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+</script>
+
+<script src="/assets/js/assignment-upload-config.js"></script>
+<script src="/assets/document-link-enhancer.js"></script>
+</body>
+</html>

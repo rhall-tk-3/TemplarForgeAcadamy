@@ -1,0 +1,1700 @@
+{
+  "program_title": "Captain School Program",
+  "program_phase": "Officer Formation Level II",
+  "assessment_type": "multiple_choice_and_discussion",
+  "generated_note": "Original assessment materials generated from the uploaded KTKC program files and website repository structure.",
+  "weeks": [
+    {
+      "week_number": 1,
+      "week_title": "Week 1 — The Burden of Local Command",
+      "focus": "shift from task leadership to stewardship of a local body.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 1 — The Burden of Local Command?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "shift from task leadership to stewardship of a local body."
+            },
+            {
+              "option": "B",
+              "text": "understand the commandery as a local center of mission, discipline, and logistics."
+            },
+            {
+              "option": "C",
+              "text": "connect the historical commander role to the modern Captain rank."
+            },
+            {
+              "option": "D",
+              "text": "align local culture with the wider Order."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "shift from task leadership to stewardship of a local body.",
+          "rationale": "The week summary states that shift from task leadership to stewardship of a local body."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 1 — The Burden of Local Command?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Captain School Syllabus PDF"
+            },
+            {
+              "option": "B",
+              "text": "Captain School Lesson Plan"
+            },
+            {
+              "option": "C",
+              "text": "Wikipedia: Knights Templar"
+            },
+            {
+              "option": "D",
+              "text": "Week 2 — The Medieval Commandery"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Captain School Syllabus PDF",
+          "rationale": "Captain School Syllabus PDF appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 1 — The Burden of Local Command?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "The Burden of Local Command"
+            },
+            {
+              "option": "B",
+              "text": "Week 2 — The Medieval Commandery"
+            },
+            {
+              "option": "C",
+              "text": "Week 3 — The Office of Commander / Preceptor"
+            },
+            {
+              "option": "D",
+              "text": "Week 4 — Mission, Standards, and Local Identity"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "The Burden of Local Command",
+          "rationale": "The week is organized around the concept of The Burden of Local Command."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 1 — The Burden of Local Command?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "shift from task leadership to stewardship of a local body."
+            },
+            {
+              "option": "B",
+              "text": "understand the commandery as a local center of mission, discipline, and logistics."
+            },
+            {
+              "option": "C",
+              "text": "connect the historical commander role to the modern Captain rank."
+            },
+            {
+              "option": "D",
+              "text": "align local culture with the wider Order."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "shift from task leadership to stewardship of a local body.",
+          "rationale": "This statement matches the stated memory target or focus for the week: shift from task leadership to stewardship of a local body."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 1 — The Burden of Local Command?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of The Burden of Local Command through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat The Burden of Local Command mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about The Burden of Local Command."
+            },
+            {
+              "option": "D",
+              "text": "Approach The Burden of Local Command as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of The Burden of Local Command through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 1 — The Burden of Local Command shape the expectations placed on a member in the Captain School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 1 — The Burden of Local Command seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 1 — The Burden of Local Command in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 2,
+      "week_title": "Week 2 — The Medieval Commandery",
+      "focus": "understand the commandery as a local center of mission, discipline, and logistics.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 2 — The Medieval Commandery?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "understand the commandery as a local center of mission, discipline, and logistics."
+            },
+            {
+              "option": "B",
+              "text": "shift from task leadership to stewardship of a local body."
+            },
+            {
+              "option": "C",
+              "text": "connect the historical commander role to the modern Captain rank."
+            },
+            {
+              "option": "D",
+              "text": "align local culture with the wider Order."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "understand the commandery as a local center of mission, discipline, and logistics.",
+          "rationale": "The week summary states that understand the commandery as a local center of mission, discipline, and logistics."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 2 — The Medieval Commandery?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Captain School Lesson Plan"
+            },
+            {
+              "option": "B",
+              "text": "Captain School Syllabus PDF"
+            },
+            {
+              "option": "C",
+              "text": "Wikipedia: Knights Templar"
+            },
+            {
+              "option": "D",
+              "text": "Medieval Warfare: Templars Hierarchy and Duties"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Captain School Lesson Plan",
+          "rationale": "Captain School Lesson Plan appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 2 — The Medieval Commandery?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "The Medieval Commandery"
+            },
+            {
+              "option": "B",
+              "text": "Week 1 — The Burden of Local Command"
+            },
+            {
+              "option": "C",
+              "text": "Week 3 — The Office of Commander / Preceptor"
+            },
+            {
+              "option": "D",
+              "text": "Week 4 — Mission, Standards, and Local Identity"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "The Medieval Commandery",
+          "rationale": "The week is organized around the concept of The Medieval Commandery."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 2 — The Medieval Commandery?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "understand the commandery as a local center of mission, discipline, and logistics."
+            },
+            {
+              "option": "B",
+              "text": "shift from task leadership to stewardship of a local body."
+            },
+            {
+              "option": "C",
+              "text": "connect the historical commander role to the modern Captain rank."
+            },
+            {
+              "option": "D",
+              "text": "align local culture with the wider Order."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "understand the commandery as a local center of mission, discipline, and logistics.",
+          "rationale": "This statement matches the stated memory target or focus for the week: understand the commandery as a local center of mission, discipline, and logistics."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 2 — The Medieval Commandery?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of The Medieval Commandery through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat The Medieval Commandery mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about The Medieval Commandery."
+            },
+            {
+              "option": "D",
+              "text": "Approach The Medieval Commandery as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of The Medieval Commandery through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 2 — The Medieval Commandery shape the expectations placed on a member in the Captain School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 2 — The Medieval Commandery seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 2 — The Medieval Commandery in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 3,
+      "week_title": "Week 3 — The Office of Commander / Preceptor",
+      "focus": "connect the historical commander role to the modern Captain rank.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 3 — The Office of Commander / Preceptor?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "connect the historical commander role to the modern Captain rank."
+            },
+            {
+              "option": "B",
+              "text": "shift from task leadership to stewardship of a local body."
+            },
+            {
+              "option": "C",
+              "text": "understand the commandery as a local center of mission, discipline, and logistics."
+            },
+            {
+              "option": "D",
+              "text": "align local culture with the wider Order."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "connect the historical commander role to the modern Captain rank.",
+          "rationale": "The week summary states that connect the historical commander role to the modern Captain rank."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 3 — The Office of Commander / Preceptor?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Captain School Syllabus PDF"
+            },
+            {
+              "option": "B",
+              "text": "Captain School Lesson Plan"
+            },
+            {
+              "option": "C",
+              "text": "Wikipedia: Knights Templar"
+            },
+            {
+              "option": "D",
+              "text": "Week 1 — The Burden of Local Command"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Captain School Syllabus PDF",
+          "rationale": "Captain School Syllabus PDF appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 3 — The Office of Commander / Preceptor?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "The Office of Commander"
+            },
+            {
+              "option": "B",
+              "text": "Week 1 — The Burden of Local Command"
+            },
+            {
+              "option": "C",
+              "text": "Week 2 — The Medieval Commandery"
+            },
+            {
+              "option": "D",
+              "text": "Week 4 — Mission, Standards, and Local Identity"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "The Office of Commander",
+          "rationale": "The week is organized around the concept of The Office of Commander."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 3 — The Office of Commander / Preceptor?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "connect the historical commander role to the modern Captain rank."
+            },
+            {
+              "option": "B",
+              "text": "shift from task leadership to stewardship of a local body."
+            },
+            {
+              "option": "C",
+              "text": "understand the commandery as a local center of mission, discipline, and logistics."
+            },
+            {
+              "option": "D",
+              "text": "align local culture with the wider Order."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "connect the historical commander role to the modern Captain rank.",
+          "rationale": "This statement matches the stated memory target or focus for the week: connect the historical commander role to the modern Captain rank."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 3 — The Office of Commander / Preceptor?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of The Office of Commander through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat The Office of Commander mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about The Office of Commander."
+            },
+            {
+              "option": "D",
+              "text": "Approach The Office of Commander as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of The Office of Commander through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 3 — The Office of Commander / Preceptor shape the expectations placed on a member in the Captain School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 3 — The Office of Commander / Preceptor seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 3 — The Office of Commander / Preceptor in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 4,
+      "week_title": "Week 4 — Mission, Standards, and Local Identity",
+      "focus": "align local culture with the wider Order.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 4 — Mission, Standards, and Local Identity?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "align local culture with the wider Order."
+            },
+            {
+              "option": "B",
+              "text": "shift from task leadership to stewardship of a local body."
+            },
+            {
+              "option": "C",
+              "text": "understand the commandery as a local center of mission, discipline, and logistics."
+            },
+            {
+              "option": "D",
+              "text": "connect the historical commander role to the modern Captain rank."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "align local culture with the wider Order.",
+          "rationale": "The week summary states that align local culture with the wider Order."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 4 — Mission, Standards, and Local Identity?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Captain School Lesson Plan"
+            },
+            {
+              "option": "B",
+              "text": "Captain School Syllabus PDF"
+            },
+            {
+              "option": "C",
+              "text": "Wikipedia: Knights Templar"
+            },
+            {
+              "option": "D",
+              "text": "Medieval Warfare: Templars Hierarchy and Duties"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Captain School Lesson Plan",
+          "rationale": "Captain School Lesson Plan appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 4 — Mission, Standards, and Local Identity?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Mission, Standards, and Local Identity"
+            },
+            {
+              "option": "B",
+              "text": "Week 1 — The Burden of Local Command"
+            },
+            {
+              "option": "C",
+              "text": "Week 2 — The Medieval Commandery"
+            },
+            {
+              "option": "D",
+              "text": "Week 3 — The Office of Commander / Preceptor"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Mission, Standards, and Local Identity",
+          "rationale": "The week is organized around the concept of Mission, Standards, and Local Identity."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 4 — Mission, Standards, and Local Identity?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "align local culture with the wider Order."
+            },
+            {
+              "option": "B",
+              "text": "shift from task leadership to stewardship of a local body."
+            },
+            {
+              "option": "C",
+              "text": "understand the commandery as a local center of mission, discipline, and logistics."
+            },
+            {
+              "option": "D",
+              "text": "connect the historical commander role to the modern Captain rank."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "align local culture with the wider Order.",
+          "rationale": "This statement matches the stated memory target or focus for the week: align local culture with the wider Order."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 4 — Mission, Standards, and Local Identity?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Mission, Standards, and Local Identity through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Mission, Standards, and Local Identity mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Mission, Standards, and Local Identity."
+            },
+            {
+              "option": "D",
+              "text": "Approach Mission, Standards, and Local Identity as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Mission, Standards, and Local Identity through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 4 — Mission, Standards, and Local Identity shape the expectations placed on a member in the Captain School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 4 — Mission, Standards, and Local Identity seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 4 — Mission, Standards, and Local Identity in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 5,
+      "week_title": "Week 5 — Administration and Provisions",
+      "focus": "calendars, records, logistics, and practical support.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 5 — Administration and Provisions?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "calendars, records, logistics, and practical support."
+            },
+            {
+              "option": "B",
+              "text": "shift from task leadership to stewardship of a local body."
+            },
+            {
+              "option": "C",
+              "text": "understand the commandery as a local center of mission, discipline, and logistics."
+            },
+            {
+              "option": "D",
+              "text": "connect the historical commander role to the modern Captain rank."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "calendars, records, logistics, and practical support.",
+          "rationale": "The week summary states that calendars, records, logistics, and practical support."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 5 — Administration and Provisions?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Captain School Lesson Plan"
+            },
+            {
+              "option": "B",
+              "text": "Captain School Syllabus PDF"
+            },
+            {
+              "option": "C",
+              "text": "Wikipedia: Knights Templar"
+            },
+            {
+              "option": "D",
+              "text": "Medieval Warfare: Templars Hierarchy and Duties"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Captain School Lesson Plan",
+          "rationale": "Captain School Lesson Plan appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 5 — Administration and Provisions?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Administration and Provisions"
+            },
+            {
+              "option": "B",
+              "text": "Week 1 — The Burden of Local Command"
+            },
+            {
+              "option": "C",
+              "text": "Week 2 — The Medieval Commandery"
+            },
+            {
+              "option": "D",
+              "text": "Week 3 — The Office of Commander / Preceptor"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Administration and Provisions",
+          "rationale": "The week is organized around the concept of Administration and Provisions."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 5 — Administration and Provisions?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "calendars, records, logistics, and practical support."
+            },
+            {
+              "option": "B",
+              "text": "shift from task leadership to stewardship of a local body."
+            },
+            {
+              "option": "C",
+              "text": "understand the commandery as a local center of mission, discipline, and logistics."
+            },
+            {
+              "option": "D",
+              "text": "connect the historical commander role to the modern Captain rank."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "calendars, records, logistics, and practical support.",
+          "rationale": "This statement matches the stated memory target or focus for the week: calendars, records, logistics, and practical support."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 5 — Administration and Provisions?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Administration and Provisions through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Administration and Provisions mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Administration and Provisions."
+            },
+            {
+              "option": "D",
+              "text": "Approach Administration and Provisions as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Administration and Provisions through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 5 — Administration and Provisions shape the expectations placed on a member in the Captain School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 5 — Administration and Provisions seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 5 — Administration and Provisions in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 6,
+      "week_title": "Week 6 — Authority, Delegation, and Accountability",
+      "focus": "govern through lieutenants with clarity and review.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 6 — Authority, Delegation, and Accountability?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "govern through lieutenants with clarity and review."
+            },
+            {
+              "option": "B",
+              "text": "shift from task leadership to stewardship of a local body."
+            },
+            {
+              "option": "C",
+              "text": "understand the commandery as a local center of mission, discipline, and logistics."
+            },
+            {
+              "option": "D",
+              "text": "connect the historical commander role to the modern Captain rank."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "govern through lieutenants with clarity and review.",
+          "rationale": "The week summary states that govern through lieutenants with clarity and review."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 6 — Authority, Delegation, and Accountability?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Captain School Syllabus PDF"
+            },
+            {
+              "option": "B",
+              "text": "Captain School Lesson Plan"
+            },
+            {
+              "option": "C",
+              "text": "Wikipedia: Knights Templar"
+            },
+            {
+              "option": "D",
+              "text": "Week 1 — The Burden of Local Command"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Captain School Syllabus PDF",
+          "rationale": "Captain School Syllabus PDF appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 6 — Authority, Delegation, and Accountability?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Authority, Delegation, and Accountability"
+            },
+            {
+              "option": "B",
+              "text": "Week 1 — The Burden of Local Command"
+            },
+            {
+              "option": "C",
+              "text": "Week 2 — The Medieval Commandery"
+            },
+            {
+              "option": "D",
+              "text": "Week 3 — The Office of Commander / Preceptor"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Authority, Delegation, and Accountability",
+          "rationale": "The week is organized around the concept of Authority, Delegation, and Accountability."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 6 — Authority, Delegation, and Accountability?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "govern through lieutenants with clarity and review."
+            },
+            {
+              "option": "B",
+              "text": "shift from task leadership to stewardship of a local body."
+            },
+            {
+              "option": "C",
+              "text": "understand the commandery as a local center of mission, discipline, and logistics."
+            },
+            {
+              "option": "D",
+              "text": "connect the historical commander role to the modern Captain rank."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "govern through lieutenants with clarity and review.",
+          "rationale": "This statement matches the stated memory target or focus for the week: govern through lieutenants with clarity and review."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 6 — Authority, Delegation, and Accountability?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Authority, Delegation, and Accountability through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Authority, Delegation, and Accountability mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Authority, Delegation, and Accountability."
+            },
+            {
+              "option": "D",
+              "text": "Approach Authority, Delegation, and Accountability as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Authority, Delegation, and Accountability through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 6 — Authority, Delegation, and Accountability shape the expectations placed on a member in the Captain School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 6 — Authority, Delegation, and Accountability seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 6 — Authority, Delegation, and Accountability in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 7,
+      "week_title": "Week 7 — The Rule: Humility, Speech, and Order",
+      "focus": "disciplined speech, humility, and rejection of disorder.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 7 — The Rule: Humility, Speech, and Order?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "disciplined speech, humility, and rejection of disorder."
+            },
+            {
+              "option": "B",
+              "text": "shift from task leadership to stewardship of a local body."
+            },
+            {
+              "option": "C",
+              "text": "understand the commandery as a local center of mission, discipline, and logistics."
+            },
+            {
+              "option": "D",
+              "text": "connect the historical commander role to the modern Captain rank."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "disciplined speech, humility, and rejection of disorder.",
+          "rationale": "The week summary states that disciplined speech, humility, and rejection of disorder."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 7 — The Rule: Humility, Speech, and Order?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Captain School Lesson Plan"
+            },
+            {
+              "option": "B",
+              "text": "Captain School Syllabus PDF"
+            },
+            {
+              "option": "C",
+              "text": "Wikipedia: Knights Templar"
+            },
+            {
+              "option": "D",
+              "text": "Medieval Warfare: Templars Hierarchy and Duties"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Captain School Lesson Plan",
+          "rationale": "Captain School Lesson Plan appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 7 — The Rule: Humility, Speech, and Order?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "The Rule"
+            },
+            {
+              "option": "B",
+              "text": "Week 1 — The Burden of Local Command"
+            },
+            {
+              "option": "C",
+              "text": "Week 2 — The Medieval Commandery"
+            },
+            {
+              "option": "D",
+              "text": "Week 3 — The Office of Commander / Preceptor"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "The Rule",
+          "rationale": "The week is organized around the concept of The Rule."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 7 — The Rule: Humility, Speech, and Order?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "disciplined speech, humility, and rejection of disorder."
+            },
+            {
+              "option": "B",
+              "text": "shift from task leadership to stewardship of a local body."
+            },
+            {
+              "option": "C",
+              "text": "understand the commandery as a local center of mission, discipline, and logistics."
+            },
+            {
+              "option": "D",
+              "text": "connect the historical commander role to the modern Captain rank."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "disciplined speech, humility, and rejection of disorder.",
+          "rationale": "This statement matches the stated memory target or focus for the week: disciplined speech, humility, and rejection of disorder."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 7 — The Rule: Humility, Speech, and Order?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of The Rule through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat The Rule mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about The Rule."
+            },
+            {
+              "option": "D",
+              "text": "Approach The Rule as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of The Rule through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 7 — The Rule: Humility, Speech, and Order shape the expectations placed on a member in the Captain School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 7 — The Rule: Humility, Speech, and Order seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 7 — The Rule: Humility, Speech, and Order in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 8,
+      "week_title": "Week 8 — Care of Brothers and Pastoral Stewardship",
+      "focus": "support weak or struggling brothers with wisdom and charity.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 8 — Care of Brothers and Pastoral Stewardship?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "support weak or struggling brothers with wisdom and charity."
+            },
+            {
+              "option": "B",
+              "text": "shift from task leadership to stewardship of a local body."
+            },
+            {
+              "option": "C",
+              "text": "understand the commandery as a local center of mission, discipline, and logistics."
+            },
+            {
+              "option": "D",
+              "text": "connect the historical commander role to the modern Captain rank."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "support weak or struggling brothers with wisdom and charity.",
+          "rationale": "The week summary states that support weak or struggling brothers with wisdom and charity."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 8 — Care of Brothers and Pastoral Stewardship?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Captain School Lesson Plan"
+            },
+            {
+              "option": "B",
+              "text": "Captain School Syllabus PDF"
+            },
+            {
+              "option": "C",
+              "text": "Wikipedia: Knights Templar"
+            },
+            {
+              "option": "D",
+              "text": "Medieval Warfare: Templars Hierarchy and Duties"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Captain School Lesson Plan",
+          "rationale": "Captain School Lesson Plan appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 8 — Care of Brothers and Pastoral Stewardship?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Care of Brothers and Pastoral Stewardship"
+            },
+            {
+              "option": "B",
+              "text": "Week 1 — The Burden of Local Command"
+            },
+            {
+              "option": "C",
+              "text": "Week 2 — The Medieval Commandery"
+            },
+            {
+              "option": "D",
+              "text": "Week 3 — The Office of Commander / Preceptor"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Care of Brothers and Pastoral Stewardship",
+          "rationale": "The week is organized around the concept of Care of Brothers and Pastoral Stewardship."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 8 — Care of Brothers and Pastoral Stewardship?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "support weak or struggling brothers with wisdom and charity."
+            },
+            {
+              "option": "B",
+              "text": "shift from task leadership to stewardship of a local body."
+            },
+            {
+              "option": "C",
+              "text": "understand the commandery as a local center of mission, discipline, and logistics."
+            },
+            {
+              "option": "D",
+              "text": "connect the historical commander role to the modern Captain rank."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "support weak or struggling brothers with wisdom and charity.",
+          "rationale": "This statement matches the stated memory target or focus for the week: support weak or struggling brothers with wisdom and charity."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 8 — Care of Brothers and Pastoral Stewardship?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Care of Brothers and Pastoral Stewardship through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Care of Brothers and Pastoral Stewardship mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Care of Brothers and Pastoral Stewardship."
+            },
+            {
+              "option": "D",
+              "text": "Approach Care of Brothers and Pastoral Stewardship as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Care of Brothers and Pastoral Stewardship through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 8 — Care of Brothers and Pastoral Stewardship shape the expectations placed on a member in the Captain School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 8 — Care of Brothers and Pastoral Stewardship seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 8 — Care of Brothers and Pastoral Stewardship in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 9,
+      "week_title": "Week 9 — Training Lieutenants and Building Future Officers",
+      "focus": "mentoring, multiplying leadership, and preparing successors.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 9 — Training Lieutenants and Building Future Officers?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "mentoring, multiplying leadership, and preparing successors."
+            },
+            {
+              "option": "B",
+              "text": "shift from task leadership to stewardship of a local body."
+            },
+            {
+              "option": "C",
+              "text": "understand the commandery as a local center of mission, discipline, and logistics."
+            },
+            {
+              "option": "D",
+              "text": "connect the historical commander role to the modern Captain rank."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "mentoring, multiplying leadership, and preparing successors.",
+          "rationale": "The week summary states that mentoring, multiplying leadership, and preparing successors."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 9 — Training Lieutenants and Building Future Officers?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Captain School Syllabus PDF"
+            },
+            {
+              "option": "B",
+              "text": "Captain School Lesson Plan"
+            },
+            {
+              "option": "C",
+              "text": "Wikipedia: Knights Templar"
+            },
+            {
+              "option": "D",
+              "text": "Week 1 — The Burden of Local Command"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Captain School Syllabus PDF",
+          "rationale": "Captain School Syllabus PDF appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 9 — Training Lieutenants and Building Future Officers?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Training Lieutenants and Building Future Officers"
+            },
+            {
+              "option": "B",
+              "text": "Week 1 — The Burden of Local Command"
+            },
+            {
+              "option": "C",
+              "text": "Week 2 — The Medieval Commandery"
+            },
+            {
+              "option": "D",
+              "text": "Week 3 — The Office of Commander / Preceptor"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Training Lieutenants and Building Future Officers",
+          "rationale": "The week is organized around the concept of Training Lieutenants and Building Future Officers."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 9 — Training Lieutenants and Building Future Officers?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "mentoring, multiplying leadership, and preparing successors."
+            },
+            {
+              "option": "B",
+              "text": "shift from task leadership to stewardship of a local body."
+            },
+            {
+              "option": "C",
+              "text": "understand the commandery as a local center of mission, discipline, and logistics."
+            },
+            {
+              "option": "D",
+              "text": "connect the historical commander role to the modern Captain rank."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "mentoring, multiplying leadership, and preparing successors.",
+          "rationale": "This statement matches the stated memory target or focus for the week: mentoring, multiplying leadership, and preparing successors."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 9 — Training Lieutenants and Building Future Officers?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Training Lieutenants and Building Future Officers through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Training Lieutenants and Building Future Officers mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Training Lieutenants and Building Future Officers."
+            },
+            {
+              "option": "D",
+              "text": "Approach Training Lieutenants and Building Future Officers as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Training Lieutenants and Building Future Officers through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 9 — Training Lieutenants and Building Future Officers shape the expectations placed on a member in the Captain School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 9 — Training Lieutenants and Building Future Officers seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 9 — Training Lieutenants and Building Future Officers in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 10,
+      "week_title": "Week 10 — Conflict, Discipline, and Restoration",
+      "focus": "address disorder with justice, restraint, and restoration.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 10 — Conflict, Discipline, and Restoration?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "address disorder with justice, restraint, and restoration."
+            },
+            {
+              "option": "B",
+              "text": "shift from task leadership to stewardship of a local body."
+            },
+            {
+              "option": "C",
+              "text": "understand the commandery as a local center of mission, discipline, and logistics."
+            },
+            {
+              "option": "D",
+              "text": "connect the historical commander role to the modern Captain rank."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "address disorder with justice, restraint, and restoration.",
+          "rationale": "The week summary states that address disorder with justice, restraint, and restoration."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 10 — Conflict, Discipline, and Restoration?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Captain School Lesson Plan"
+            },
+            {
+              "option": "B",
+              "text": "Captain School Syllabus PDF"
+            },
+            {
+              "option": "C",
+              "text": "Wikipedia: Knights Templar"
+            },
+            {
+              "option": "D",
+              "text": "Medieval Warfare: Templars Hierarchy and Duties"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Captain School Lesson Plan",
+          "rationale": "Captain School Lesson Plan appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 10 — Conflict, Discipline, and Restoration?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Conflict, Discipline, and Restoration"
+            },
+            {
+              "option": "B",
+              "text": "Week 1 — The Burden of Local Command"
+            },
+            {
+              "option": "C",
+              "text": "Week 2 — The Medieval Commandery"
+            },
+            {
+              "option": "D",
+              "text": "Week 3 — The Office of Commander / Preceptor"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Conflict, Discipline, and Restoration",
+          "rationale": "The week is organized around the concept of Conflict, Discipline, and Restoration."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 10 — Conflict, Discipline, and Restoration?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "address disorder with justice, restraint, and restoration."
+            },
+            {
+              "option": "B",
+              "text": "shift from task leadership to stewardship of a local body."
+            },
+            {
+              "option": "C",
+              "text": "understand the commandery as a local center of mission, discipline, and logistics."
+            },
+            {
+              "option": "D",
+              "text": "connect the historical commander role to the modern Captain rank."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "address disorder with justice, restraint, and restoration.",
+          "rationale": "This statement matches the stated memory target or focus for the week: address disorder with justice, restraint, and restoration."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 10 — Conflict, Discipline, and Restoration?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Conflict, Discipline, and Restoration through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Conflict, Discipline, and Restoration mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Conflict, Discipline, and Restoration."
+            },
+            {
+              "option": "D",
+              "text": "Approach Conflict, Discipline, and Restoration as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Conflict, Discipline, and Restoration through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 10 — Conflict, Discipline, and Restoration shape the expectations placed on a member in the Captain School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 10 — Conflict, Discipline, and Restoration seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 10 — Conflict, Discipline, and Restoration in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 11,
+      "week_title": "Week 11 — Local Command Practicum",
+      "focus": "plan and lead a real initiative from preparation to execution.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 11 — Local Command Practicum?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "plan and lead a real initiative from preparation to execution."
+            },
+            {
+              "option": "B",
+              "text": "shift from task leadership to stewardship of a local body."
+            },
+            {
+              "option": "C",
+              "text": "understand the commandery as a local center of mission, discipline, and logistics."
+            },
+            {
+              "option": "D",
+              "text": "connect the historical commander role to the modern Captain rank."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "plan and lead a real initiative from preparation to execution.",
+          "rationale": "The week summary states that plan and lead a real initiative from preparation to execution."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 11 — Local Command Practicum?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Captain School Syllabus PDF"
+            },
+            {
+              "option": "B",
+              "text": "Captain School Lesson Plan"
+            },
+            {
+              "option": "C",
+              "text": "Wikipedia: Knights Templar"
+            },
+            {
+              "option": "D",
+              "text": "Week 1 — The Burden of Local Command"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Captain School Syllabus PDF",
+          "rationale": "Captain School Syllabus PDF appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 11 — Local Command Practicum?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Local Command Practicum"
+            },
+            {
+              "option": "B",
+              "text": "Week 1 — The Burden of Local Command"
+            },
+            {
+              "option": "C",
+              "text": "Week 2 — The Medieval Commandery"
+            },
+            {
+              "option": "D",
+              "text": "Week 3 — The Office of Commander / Preceptor"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Local Command Practicum",
+          "rationale": "The week is organized around the concept of Local Command Practicum."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 11 — Local Command Practicum?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "plan and lead a real initiative from preparation to execution."
+            },
+            {
+              "option": "B",
+              "text": "shift from task leadership to stewardship of a local body."
+            },
+            {
+              "option": "C",
+              "text": "understand the commandery as a local center of mission, discipline, and logistics."
+            },
+            {
+              "option": "D",
+              "text": "connect the historical commander role to the modern Captain rank."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "plan and lead a real initiative from preparation to execution.",
+          "rationale": "This statement matches the stated memory target or focus for the week: plan and lead a real initiative from preparation to execution."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 11 — Local Command Practicum?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Local Command Practicum through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Local Command Practicum mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Local Command Practicum."
+            },
+            {
+              "option": "D",
+              "text": "Approach Local Command Practicum as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Local Command Practicum through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 11 — Local Command Practicum shape the expectations placed on a member in the Captain School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 11 — Local Command Practicum seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 11 — Local Command Practicum in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 12,
+      "week_title": "Week 12 — Capstone Preparation and Captain’s Board Review",
+      "focus": "integrate the course into a final portfolio and readiness review.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 12 — Capstone Preparation and Captain’s Board Review?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "integrate the course into a final portfolio and readiness review."
+            },
+            {
+              "option": "B",
+              "text": "shift from task leadership to stewardship of a local body."
+            },
+            {
+              "option": "C",
+              "text": "understand the commandery as a local center of mission, discipline, and logistics."
+            },
+            {
+              "option": "D",
+              "text": "connect the historical commander role to the modern Captain rank."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "integrate the course into a final portfolio and readiness review.",
+          "rationale": "The week summary states that integrate the course into a final portfolio and readiness review."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 12 — Capstone Preparation and Captain’s Board Review?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Captain School Syllabus PDF"
+            },
+            {
+              "option": "B",
+              "text": "Captain School Lesson Plan"
+            },
+            {
+              "option": "C",
+              "text": "Wikipedia: Knights Templar"
+            },
+            {
+              "option": "D",
+              "text": "Week 1 — The Burden of Local Command"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Captain School Syllabus PDF",
+          "rationale": "Captain School Syllabus PDF appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 12 — Capstone Preparation and Captain’s Board Review?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Capstone Preparation and Captain’s Board Review"
+            },
+            {
+              "option": "B",
+              "text": "Week 1 — The Burden of Local Command"
+            },
+            {
+              "option": "C",
+              "text": "Week 2 — The Medieval Commandery"
+            },
+            {
+              "option": "D",
+              "text": "Week 3 — The Office of Commander / Preceptor"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Capstone Preparation and Captain’s Board Review",
+          "rationale": "The week is organized around the concept of Capstone Preparation and Captain’s Board Review."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 12 — Capstone Preparation and Captain’s Board Review?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "integrate the course into a final portfolio and readiness review."
+            },
+            {
+              "option": "B",
+              "text": "shift from task leadership to stewardship of a local body."
+            },
+            {
+              "option": "C",
+              "text": "understand the commandery as a local center of mission, discipline, and logistics."
+            },
+            {
+              "option": "D",
+              "text": "connect the historical commander role to the modern Captain rank."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "integrate the course into a final portfolio and readiness review.",
+          "rationale": "This statement matches the stated memory target or focus for the week: integrate the course into a final portfolio and readiness review."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 12 — Capstone Preparation and Captain’s Board Review?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Capstone Preparation and Captain’s Board Review through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Capstone Preparation and Captain’s Board Review mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Capstone Preparation and Captain’s Board Review."
+            },
+            {
+              "option": "D",
+              "text": "Approach Capstone Preparation and Captain’s Board Review as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Capstone Preparation and Captain’s Board Review through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 12 — Capstone Preparation and Captain’s Board Review shape the expectations placed on a member in the Captain School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 12 — Capstone Preparation and Captain’s Board Review seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 12 — Capstone Preparation and Captain’s Board Review in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    }
+  ]
+}

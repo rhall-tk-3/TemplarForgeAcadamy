@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chaplain Corps Program — Required Reading Hub | Specialist Corps Certification</title>
+  <meta name="description" content="Templar Forge Academy Chaplain Corps School Program required reading hub with weekly lesson links, reflection prompts, and program documents." />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --panel-2: #1f2937;
+      --panel-3: #0b1220;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --gold: #d4af37;
+      --gold-soft: rgba(212, 175, 55, 0.14);
+      --line: rgba(148, 163, 184, 0.22);
+      --accent: #7dd3fc;
+      --success: #86efac;
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(212, 175, 55, 0.08), transparent 25%),
+        radial-gradient(circle at top left, rgba(125, 211, 252, 0.08), transparent 20%),
+        linear-gradient(180deg, #08101f 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover, a:focus { text-decoration: underline; }
+
+    /* ── Nav ── */
+    .site-nav {
+      background: rgba(8, 16, 31, 0.92);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+      padding: 0 20px;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .site-nav-inner {
+      max-width: var(--max); margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; flex-wrap: wrap; padding: 10px 0;
+    }
+    .site-nav-brand { font-weight: 700; color: #f8e7a6; font-size: 0.92rem; letter-spacing: 0.04em; }
+    .site-nav-brand span { color: var(--gold); }
+    .site-nav-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .site-nav-links a {
+      font-size: 0.82rem; color: var(--muted); letter-spacing: 0.03em;
+      transition: color 0.15s;
+    }
+    .site-nav-links a:hover { color: var(--gold); text-decoration: none; }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #0c1420 0%, #0f1f2d 50%, #0a1218 100%);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+      padding: 64px 24px 52px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block; padding: 5px 16px;
+      border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 99px;
+      font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800; letter-spacing: -0.02em; line-height: 1.15;
+      color: #f8f8f2; margin-bottom: 14px;
+    }
+    .hero h1 em { font-style: normal; color: var(--gold); }
+    .hero p {
+      max-width: 620px; margin: 0 auto; font-size: 1.05rem;
+      color: var(--muted); line-height: 1.7;
+    }
+    .hero-meta {
+      display: flex; justify-content: center; gap: 28px; flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    .hero-meta-item {
+      display: flex; flex-direction: column; align-items: center; gap: 2px;
+    }
+    .hero-meta-label {
+      font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: #4a6080;
+    }
+    .hero-meta-val { font-size: 0.92rem; color: var(--gold); font-weight: 600; }
+
+    /* ── Main ── */
+    .main { max-width: var(--max); margin: 0 auto; padding: 52px 24px 80px; }
+
+    /* ── Section headers ── */
+    .sect-header {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 24px;
+    }
+    .sect-header h2 {
+      font-size: 1.05rem; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .sect-header-line { flex: 1; height: 1px; background: var(--line); }
+
+    /* ── Week cards ── */
+    .weeks-grid { display: grid; gap: 24px; margin-bottom: 52px; }
+    .week-card {
+      background: var(--panel);
+      border: 1px solid var(--line); border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow);
+      transition: border-color 0.2s;
+    }
+    .week-card:hover { border-color: rgba(212, 175, 55, 0.35); }
+    .week-card-header {
+      background: linear-gradient(90deg, rgba(212,175,55,0.1), rgba(212,175,55,0.04));
+      border-bottom: 1px solid var(--line);
+      padding: 18px 24px;
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+    }
+    .week-num-badge {
+      background: rgba(212,175,55,0.15); border: 1px solid rgba(212,175,55,0.35);
+      border-radius: 6px; padding: 3px 10px;
+      font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); white-space: nowrap;
+    }
+    .week-card-title { font-size: 1.05rem; font-weight: 700; color: #f0e8c8; line-height: 1.3; }
+    .week-card-body { padding: 20px 24px; }
+    .week-focus {
+      font-size: 0.88rem; color: var(--muted); font-style: italic;
+      margin-bottom: 16px; padding-left: 12px;
+      border-left: 2px solid rgba(212,175,55,0.3);
+      line-height: 1.55;
+    }
+    .reading-list { list-style: none; padding: 0; margin: 0 0 16px; }
+    .reading-list li {
+      display: flex; align-items: center; gap: 10px;
+      padding: 9px 0; border-bottom: 1px solid rgba(148,163,184,0.1);
+      font-size: 0.88rem;
+    }
+    .reading-list li:last-child { border-bottom: none; }
+    .reading-list li::before {
+      content: "✠";
+      font-size: 0.7rem; color: rgba(212,175,55,0.5); flex-shrink: 0;
+    }
+    .week-prompt {
+      background: rgba(125,211,252,0.06); border: 1px solid rgba(125,211,252,0.14);
+      border-radius: 8px; padding: 12px 16px; font-size: 0.85rem; color: #b0d0e8;
+    }
+    .week-prompt strong { color: #7dd3fc; }
+
+    /* ── Document cards ── */
+    .docs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px; margin-bottom: 52px;
+    }
+    .doc-card {
+      background: var(--panel-2); border: 1px solid var(--line); border-radius: var(--radius-sm);
+      padding: 18px 20px; display: flex; align-items: flex-start; gap: 14px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .doc-card:hover { border-color: rgba(212,175,55,0.4); background: rgba(31,41,55,0.8); }
+    .doc-icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      background: rgba(212,175,55,0.12); border: 1px solid rgba(212,175,55,0.28);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .doc-card-content { flex: 1; min-width: 0; }
+    .doc-card-title { font-size: 0.88rem; font-weight: 600; color: #d4c88a; margin-bottom: 3px; }
+    .doc-card-type { font-size: 0.72rem; color: #4a6080; letter-spacing: 0.06em; text-transform: uppercase; }
+    .doc-card-link {
+      display: inline-block; margin-top: 8px; font-size: 0.78rem;
+      color: var(--gold); border: 1px solid rgba(212,175,55,0.35);
+      border-radius: 4px; padding: 3px 10px; transition: background 0.15s;
+    }
+    .doc-card-link:hover { background: rgba(212,175,55,0.12); text-decoration: none; }
+
+    /* ── Reflection section ── */
+    .reflection-card {
+      background: var(--panel-3); border: 1px solid rgba(212,175,55,0.18);
+      border-radius: var(--radius); padding: 32px 36px; margin-bottom: 52px;
+    }
+    .reflection-card h2 {
+      font-size: 1.1rem; font-weight: 700; color: var(--gold);
+      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 16px;
+    }
+    .reflection-list { list-style: none; padding: 0; display: grid; gap: 12px; }
+    .reflection-list li {
+      padding: 14px 18px;
+      background: rgba(212,175,55,0.05); border: 1px solid rgba(212,175,55,0.12);
+      border-radius: 8px; font-size: 0.92rem; color: #c8b87a; line-height: 1.6;
+    }
+    .reflection-list li strong { display: block; color: var(--gold); margin-bottom: 4px; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; }
+
+    /* ── Legacy quote ── */
+    .legacy-quote {
+      text-align: center; max-width: 640px; margin: 0 auto 52px;
+      padding: 32px 24px;
+    }
+    .legacy-quote blockquote {
+      font-size: 1.1rem; font-style: italic; color: #c8b87a; line-height: 1.75;
+      margin-bottom: 12px;
+    }
+    .legacy-quote cite {
+      font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: #4a6080;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      border-top: 1px solid var(--line); padding: 28px 24px; text-align: center;
+      font-size: 0.78rem; color: #3a5070; letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 44px 20px 36px; }
+      .main { padding: 36px 16px 60px; }
+      .week-card-body { padding: 16px 18px; }
+      .reflection-card { padding: 22px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <div class="site-nav-brand">Templar Forge Academy <span>✠</span></div>
+    <div class="site-nav-links">
+      <a href="/member">Member Portal</a>
+      <a href="/programs/chaplain/hub">Chaplain Hub</a>
+      <a href="/documents/view/chaplain-handbook.html">Program Handbook</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-badge">✠ Specialist Corps Certification</div>
+  <h1>Chaplain Corps<br/><em>Required Reading Hub</em></h1>
+  <p>A 6-week certification course grounded in the historic Templar chaplaincy. Study the history, the calling, and the living standards of spiritual leadership within the Order.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Duration</span>
+      <span class="hero-meta-val">6 Weeks</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Type</span>
+      <span class="hero-meta-val">Specialist Certification</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Passing Score</span>
+      <span class="hero-meta-val">70%</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Root Document</span>
+      <span class="hero-meta-val">Rule of the Temple, 1129</span>
+    </div>
+  </div>
+</section>
+
+<main class="main">
+
+  <!-- Weekly Reading -->
+  <div class="sect-header">
+    <h2>Weekly Reading Schedule</h2>
+    <div class="sect-header-line"></div>
+  </div>
+
+  <div class="weeks-grid">
+
+    <!-- Week 1 -->
+    <div class="week-card">
+      <div class="week-card-header">
+        <div>
+          <div class="week-num-badge">Week 1</div>
+          <div class="week-card-title" style="margin-top:8px;">The Calling: Identity, Authority, and the Templar Chaplain</div>
+        </div>
+      </div>
+      <div class="week-card-body">
+        <div class="week-focus">The history and identity of the Templar chaplain from 1129 to today; the KTKC Chaplain Corps mission; offices of Master and Assistant Chaplain; certification vs. ordination.</div>
+        <ul class="reading-list">
+          <li><a href="/viewer/index.html?url=/documents/view/chaplain-handbook.html">Chaplain Program Handbook — Week 1</a></li>
+          <li><a href="/viewer/index.html?url=/documents/chaplain/KTKC_Chaplain_Core_Manual.pdf">KTKC Chaplain Core Manual (Articles I–II)</a></li>
+          <li><a href="/viewer/index.html?url=/documents/chaplain/KTKC_Chaplain_Corps_Certification_Syllabus.pdf">Chaplain Certification Syllabus — Unit 1</a></li>
+        </ul>
+        <div class="week-prompt"><strong>Reflection Prompt:</strong> Why is it significant that the original Knights Templar included chaplains as a formal class — not just an optional addition? What would the Order have lost without them?</div>
+      </div>
+    </div>
+
+    <!-- Week 2 -->
+    <div class="week-card">
+      <div class="week-card-header">
+        <div>
+          <div class="week-num-badge">Week 2</div>
+          <div class="week-card-title" style="margin-top:8px;">The Foundation: Christian Identity, Chivalric Conduct, and Templar Spiritual Standards</div>
+        </div>
+      </div>
+      <div class="week-card-body">
+        <div class="week-focus">The explicitly Christian foundation of KTKC chaplaincy; the five core standards (Reverence, Charity, Confidentiality, Discipline of Speech, Christian Example); the historic-to-modern correlation standard.</div>
+        <ul class="reading-list">
+          <li><a href="/viewer/index.html?url=/documents/view/chaplain-handbook.html">Chaplain Program Handbook — Week 2</a></li>
+          <li><a href="/viewer/index.html?url=/documents/chaplain/KTKC_Chaplain_Core_Manual.pdf">KTKC Chaplain Core Manual (Articles III, V)</a></li>
+          <li><a href="/viewer/index.html?url=/documents/chaplain/KTKC_Chaplain_Corps_Instructor_Edition.pdf">Chaplain Instructor Edition — Units 2 &amp; 3</a></li>
+        </ul>
+        <div class="week-prompt"><strong>Reflection Prompt:</strong> How does the Templar practice of structured daily prayer — Matins, canonical hours, Mass — shape the modern chaplain's understanding of prayer as a duty, not merely a personal devotion?</div>
+      </div>
+    </div>
+
+    <!-- Week 3 -->
+    <div class="week-card">
+      <div class="week-card-header">
+        <div>
+          <div class="week-num-badge">Week 3</div>
+          <div class="week-card-title" style="margin-top:8px;">The Voice: Public Prayer, Scripture Ministry, and Devotional Leadership</div>
+        </div>
+      </div>
+      <div class="week-card-body">
+        <div class="week-focus">The five elements of formal prayer; leading invocations and benedictions; reading Scripture with authority and reverence; preparing and delivering a brief devotional.</div>
+        <ul class="reading-list">
+          <li><a href="/viewer/index.html?url=/documents/view/chaplain-handbook.html">Chaplain Program Handbook — Week 3</a></li>
+          <li><a href="/viewer/index.html?url=/documents/chaplain/KTKC_Chaplain_Core_Manual.pdf">KTKC Chaplain Core Manual (Articles IV, VI)</a></li>
+          <li><a href="/viewer/index.html?url=/documents/chaplain/KTKC_Chaplain_Corps_Certification_Syllabus.pdf">Chaplain Certification Syllabus — Units 4 &amp; 5</a></li>
+        </ul>
+        <div class="week-prompt"><strong>Reflection Prompt:</strong> The historic Templar chaplain was the Order's voice before God in community. Every conclave that opens with prayer today is performing the same act. What does it mean to carry that responsibility?</div>
+      </div>
+    </div>
+
+    <!-- Week 4 -->
+    <div class="week-card">
+      <div class="week-card-header">
+        <div>
+          <div class="week-num-badge">Week 4</div>
+          <div class="week-card-title" style="margin-top:8px;">The Shepherd: Pastoral Care, Visitation, and Ministry of Presence</div>
+        </div>
+      </div>
+      <div class="week-card-body">
+        <div class="week-focus">Ministry of presence as the foundation of pastoral care; historic Templar hospitals and care for the dying; visitation SOPs 2–4; escalation thresholds and non-negotiable reporting obligations.</div>
+        <ul class="reading-list">
+          <li><a href="/viewer/index.html?url=/documents/view/chaplain-handbook.html">Chaplain Program Handbook — Week 4</a></li>
+          <li><a href="/viewer/index.html?url=/documents/chaplain/KTKC_Chaplain_Core_Manual.pdf">KTKC Chaplain Core Manual (Articles IV, VII, XII SOPs 2–4)</a></li>
+          <li><a href="/viewer/index.html?url=/documents/chaplain/KTKC_Chaplain_Corps_Student_Handbook.pdf">Chaplain Student Handbook — Weeks 7 &amp; 8</a></li>
+        </ul>
+        <div class="week-prompt"><strong>Reflection Prompt:</strong> The medieval Templar Order maintained hospitals and infirmaries because spiritual care in suffering is as important as spiritual care in celebration. How does this historic commitment shape the modern chaplain's approach to visitation?</div>
+      </div>
+    </div>
+
+    <!-- Week 5 -->
+    <div class="week-card">
+      <div class="week-card-header">
+        <div>
+          <div class="week-num-badge">Week 5</div>
+          <div class="week-card-title" style="margin-top:8px;">The Conscience: Ethics, Confidentiality, Boundaries, and Reporting</div>
+        </div>
+      </div>
+      <div class="week-card-body">
+        <div class="week-focus">Chaplain confidentiality and its defined limits; defining and identifying spiritual abuse; pastoral boundaries; writing factual, non-speculative incident reports; non-interference after escalation.</div>
+        <ul class="reading-list">
+          <li><a href="/viewer/index.html?url=/documents/view/chaplain-handbook.html">Chaplain Program Handbook — Week 5</a></li>
+          <li><a href="/viewer/index.html?url=/documents/chaplain/KTKC_Chaplain_Core_Manual.pdf">KTKC Chaplain Core Manual (Articles VII, XIII)</a></li>
+          <li><a href="/viewer/index.html?url=/documents/chaplain/KTKC_Chaplain_Corps_Certification_Syllabus.pdf">Chaplain Certification Syllabus — Units 9 &amp; 10</a></li>
+          <li><a href="/viewer/index.html?url=/documents/chaplain/KTKC_Chaplain_Corps_Exam_Packet.pdf">Chaplain Exam Packet — Ethics Questions</a></li>
+        </ul>
+        <div class="week-prompt"><strong>Reflection Prompt:</strong> Why is it essential that confidentiality be a core chaplain standard — and why is it equally essential that it has defined limits? What would happen to the Order if those limits were ignored in either direction?</div>
+      </div>
+    </div>
+
+    <!-- Week 6 -->
+    <div class="week-card">
+      <div class="week-card-header">
+        <div>
+          <div class="week-num-badge">Week 6</div>
+          <div class="week-card-title" style="margin-top:8px;">The Commission: Ceremony, Observances, and Chaplain Readiness</div>
+        </div>
+      </div>
+      <div class="week-card-body">
+        <div class="week-focus">The chaplain's role in KTKC ceremony; planning an order of service; capstone integration across all five core standards; the living legacy of the Templar chaplaincy; commissioning readiness and final assessment.</div>
+        <ul class="reading-list">
+          <li><a href="/viewer/index.html?url=/documents/view/chaplain-handbook.html">Chaplain Program Handbook — Week 6</a></li>
+          <li><a href="/viewer/index.html?url=/documents/chaplain/KTKC_Chaplain_Core_Manual.pdf">KTKC Chaplain Core Manual (Articles XI, XIV — The Model Charge)</a></li>
+          <li><a href="/viewer/index.html?url=/documents/chaplain/KTKC_Chaplain_Corps_Certification_Syllabus.pdf">Chaplain Certification Syllabus — Units 11 &amp; 12</a></li>
+          <li><a href="/viewer/index.html?url=/documents/chaplain/KTKC_Chaplain_Corps_Exam_Packet.pdf">Chaplain Exam Packet — Full Certification Exam</a></li>
+        </ul>
+        <div class="week-prompt"><strong>Capstone Reflection Prompt:</strong> Looking back over six weeks — how has studying the history of the Templar chaplain shaped how you understand your own calling? What will you do differently as a KTKC chaplain because of what you have learned?</div>
+      </div>
+    </div>
+
+  </div><!-- /weeks-grid -->
+
+  <!-- Program Documents -->
+  <div class="sect-header">
+    <h2>Program Documents</h2>
+    <div class="sect-header-line"></div>
+  </div>
+
+  <div class="docs-grid">
+    <div class="doc-card">
+      <div class="doc-icon">📖</div>
+      <div class="doc-card-content">
+        <div class="doc-card-title">Chaplain Program Handbook</div>
+        <div class="doc-card-type">HTML · All 6 Weeks</div>
+        <a class="doc-card-link" href="/viewer/index.html?url=/documents/view/chaplain-handbook.html">Open</a>
+      </div>
+    </div>
+    <div class="doc-card">
+      <div class="doc-icon">⚜️</div>
+      <div class="doc-card-content">
+        <div class="doc-card-title">KTKC Chaplain Core Manual</div>
+        <div class="doc-card-type">PDF · Official Authority Document</div>
+        <a class="doc-card-link" href="/viewer/index.html?url=/documents/chaplain/KTKC_Chaplain_Core_Manual.pdf">Open</a>
+      </div>
+    </div>
+    <div class="doc-card">
+      <div class="doc-icon">📋</div>
+      <div class="doc-card-content">
+        <div class="doc-card-title">Chaplain Certification Syllabus</div>
+        <div class="doc-card-type">PDF · 12-Unit Standards</div>
+        <a class="doc-card-link" href="/viewer/index.html?url=/documents/chaplain/KTKC_Chaplain_Corps_Certification_Syllabus.pdf">Open</a>
+      </div>
+    </div>
+    <div class="doc-card">
+      <div class="doc-icon">📚</div>
+      <div class="doc-card-content">
+        <div class="doc-card-title">Chaplain Student Handbook</div>
+        <div class="doc-card-type">PDF · Weekly Reading Schedule</div>
+        <a class="doc-card-link" href="/viewer/index.html?url=/documents/chaplain/KTKC_Chaplain_Corps_Student_Handbook.pdf">Open</a>
+      </div>
+    </div>
+    <div class="doc-card">
+      <div class="doc-icon">📝</div>
+      <div class="doc-card-content">
+        <div class="doc-card-title">Chaplain Exam Packet</div>
+        <div class="doc-card-type">PDF · Certification Examination</div>
+        <a class="doc-card-link" href="/viewer/index.html?url=/documents/chaplain/KTKC_Chaplain_Corps_Exam_Packet.pdf">Open</a>
+      </div>
+    </div>
+    <div class="doc-card">
+      <div class="doc-icon">🎓</div>
+      <div class="doc-card-content">
+        <div class="doc-card-title">Chaplain Instructor Edition</div>
+        <div class="doc-card-type">PDF · Teaching Notes &amp; Rubrics</div>
+        <a class="doc-card-link" href="/viewer/index.html?url=/documents/chaplain/KTKC_Chaplain_Corps_Instructor_Edition.pdf">Open</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reflection Topics -->
+  <div class="reflection-card">
+    <h2>✠ Key Discussion Topics — All Weeks</h2>
+    <ul class="reflection-list">
+      <li>
+        <strong>Week 1 · Identity</strong>
+        Why is it significant that the original 1129 Rule of the Temple formally recognized chaplains as one of the three classes? What does this say about the spiritual foundation the Order was built on?
+      </li>
+      <li>
+        <strong>Week 2 · Foundation</strong>
+        How did the historic Templars' daily rhythm of prayer — Matins, canonical hours, Mass — reflect the belief that an order of knights must first be an order of prayer? How does this apply to the KTKC today?
+      </li>
+      <li>
+        <strong>Week 3 · Prayer Ministry</strong>
+        What is the difference between a prayer that opens a ceremony and one that transforms it? What qualities does the chaplain bring to formal prayer that no one else in the Order can?
+      </li>
+      <li>
+        <strong>Week 4 · Pastoral Care</strong>
+        The Templar chaplain sat with the dying. The modern KTKC chaplain visits the hospitalized, the bereaved, and the inactive. What spiritual continuity runs through both of these ministries across nine centuries?
+      </li>
+      <li>
+        <strong>Week 5 · Ethics</strong>
+        Spiritual abuse damages the most vulnerable members of a community. How does the chaplain's unique position — as the trusted spiritual officer — both make this harm possible and make the chaplain responsible to prevent it?
+      </li>
+      <li>
+        <strong>Week 6 · Commission</strong>
+        What does it mean to carry the unbroken line of Templar chaplaincy from 1129 into the KTKC today? What have you committed to by completing this program?
+      </li>
+    </ul>
+  </div>
+
+  <!-- Legacy Quote -->
+  <div class="legacy-quote">
+    <blockquote>
+      "Without the chaplain, the Templar Order was just a fighting force with an impressive uniform. With the chaplain, it was something more: a community of men under God, committed to prayer, care, service, and holy conduct."
+    </blockquote>
+    <cite>— KTKC Chaplain Corps School Program · Week 6</cite>
+  </div>
+
+</main>
+
+<footer class="footer">
+  KTKC Chaplain Corps School Program &nbsp;✠&nbsp; Templar Forge Academy &nbsp;✠&nbsp; Knights Templar of the Kingdom of Christ
+</footer>
+
+</body>
+</html>

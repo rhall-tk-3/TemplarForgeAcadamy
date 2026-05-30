@@ -1,0 +1,127 @@
+{
+  "program_title": "Lieutenant School Program",
+  "week_number": 11,
+  "week_title": "Week 11: Lieutenant as Mentor and Example",
+  "multiple_choice_questions": [
+    {
+      "question": "What is the primary focus of Week 11: Lieutenant as Mentor and Example?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Junior officers shape culture by example and multiplication."
+        },
+        {
+          "option": "B",
+          "text": "Office as service, not status."
+        },
+        {
+          "option": "C",
+          "text": "Founding story and mission."
+        },
+        {
+          "option": "D",
+          "text": "Hierarchy and Unity of Command."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Junior officers shape culture by example and multiplication.",
+      "rationale": "The week summary states that Junior officers shape culture by example and multiplication."
+    },
+    {
+      "question": "Which reading is explicitly assigned for Week 11: Lieutenant as Mentor and Example?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Lieutenant School Syllabus PDF (Lesson 11)"
+        },
+        {
+          "option": "B",
+          "text": "Lieutenant School Syllabus PDF (Lesson 1)"
+        },
+        {
+          "option": "C",
+          "text": "Primitive Rule of the Templars (Sections on obedience and humble service)"
+        },
+        {
+          "option": "D",
+          "text": "Lieutenant School Syllabus PDF (Lesson 2)"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Lieutenant School Syllabus PDF (Lesson 11)",
+      "rationale": "Lieutenant School Syllabus PDF (Lesson 11) appears in the required reading list for this week."
+    },
+    {
+      "question": "Which concept is most directly associated with Week 11: Lieutenant as Mentor and Example?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Lieutenant as Mentor and Example"
+        },
+        {
+          "option": "B",
+          "text": "Week 1: The Call to Office"
+        },
+        {
+          "option": "C",
+          "text": "Week 2: Origins of the Knights Templar"
+        },
+        {
+          "option": "D",
+          "text": "Week 3: The Templar Chain of Command"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Lieutenant as Mentor and Example",
+      "rationale": "The week is organized around the concept of Lieutenant as Mentor and Example."
+    },
+    {
+      "question": "Which statement best reflects the expected learning outcome for Week 11: Lieutenant as Mentor and Example?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Junior officers shape culture by example and multiplication."
+        },
+        {
+          "option": "B",
+          "text": "Office as service, not status."
+        },
+        {
+          "option": "C",
+          "text": "Founding story and mission."
+        },
+        {
+          "option": "D",
+          "text": "Hierarchy and Unity of Command."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Junior officers shape culture by example and multiplication.",
+      "rationale": "This statement matches the stated memory target or focus for the week: Junior officers shape culture by example and multiplication."
+    },
+    {
+      "question": "Which response best applies the lesson of Week 11: Lieutenant as Mentor and Example?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Apply the lesson of Lieutenant as Mentor and Example through disciplined conduct, truthful understanding, and practical service."
+        },
+        {
+          "option": "B",
+          "text": "Treat Lieutenant as Mentor and Example mainly as ceremonial prestige without practical duty."
+        },
+        {
+          "option": "C",
+          "text": "Ignore assigned readings and rely on legend or speculation about Lieutenant as Mentor and Example."
+        },
+        {
+          "option": "D",
+          "text": "Approach Lieutenant as Mentor and Example as private opinion rather than accountable formation."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Apply the lesson of Lieutenant as Mentor and Example through disciplined conduct, truthful understanding, and practical service.",
+      "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+    }
+  ]
+}

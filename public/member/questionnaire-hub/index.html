@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Templar Forge Academy | Questionnaire & Paper Upload Hub</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --line: rgba(148,163,184,.22);
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --gold: #d4af37;
+      --accent: #7dd3fc;
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, sans-serif;
+      background: linear-gradient(180deg,#08101f 0%, #0f172a 100%);
+      color: var(--text);
+    }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 28px 20px 72px; }
+    .hero, .program-block, .lesson-card {
+      background: linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+    }
+    .hero { padding: 30px; margin-bottom: 22px; }
+    .program-block { padding: 22px; margin-bottom: 20px; }
+    .lesson-card {
+      padding: 18px;
+      margin-top: 16px;
+      border-radius: 16px;
+      background: rgba(15,23,42,.65);
+    }
+    h1,h2,h3,h4 { margin: 0 0 10px; }
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(212,175,55,.12);
+      color: #f8e7a6;
+      font-weight: 700;
+      font-size: .8rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .lesson-title { color: #fff; margin: 0; }
+    .assignment-title { color: var(--muted); margin-top: 4px; }
+    .upload-form {
+      margin-top: 14px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(2,8,23,.4);
+    }
+    .file-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    input[type="file"] {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+    button {
+      appearance: none;
+      border: 0;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      background: var(--gold);
+      color: #111827;
+    }
+    .submission-list {
+      margin-top: 14px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(2,8,23,.25);
+    }
+    .submission-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(148,163,184,.14);
+    }
+    .submission-row:last-child { border-bottom: 0; }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: .9rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    .feedback {
+      margin-top: 8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(125,211,252,.08);
+    }
+    .submission-actions a {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .empty { color: var(--muted); }
+    .form-msg { margin-top: 10px; font-size: .92rem; }
+    .form-msg.success { color: #86efac; }
+    .form-msg.error { color: #fca5a5; }
+  </style>
+</head>
+<body>
+  <script src="/assets/js/academy-guard.js" data-protect="member" defer></script>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Templar Forge Academy</div>
+      <h1>Questionnaire & Paper Upload Hub</h1>
+      <p>
+        Upload written assignments for the lesson-plan papers that require grading. Accepted file types are
+        <strong>.docx</strong> and <strong>.pdf</strong>. Each uploaded paper is filed into your member record and made available to the Schoolmaster for grading.
+      </p>
+    </section>
+
+    <div id="paper-upload-root"></div>
+  </main>
+
+  <script src="/assets/js/assignment-upload-config.js" defer></script>
+  <script src="/assets/js/academy-paper-upload.js" defer></script>
+</body>
+</html>

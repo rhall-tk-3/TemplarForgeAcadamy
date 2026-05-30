@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Captain Program - Required Reading Hub | Officer Formation Level II</title>
+  <meta
+    name="description"
+    content="Templar Forge Academy Captain Program required reading hub with the Captain School Syllabus, lesson-by-lesson reading links, assignments, and leadership outcomes."
+  />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --panel-2: #1f2937;
+      --panel-3: #0b1220;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --gold: #d4af37;
+      --gold-soft: rgba(212, 175, 55, 0.12);
+      --line: rgba(148, 163, 184, 0.22);
+      --accent: #7dd3fc;
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --max: 1220px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(212, 175, 55, 0.08), transparent 25%),
+        radial-gradient(circle at top left, rgba(125, 211, 252, 0.08), transparent 20%),
+        linear-gradient(180deg, #08101f 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: underline;
+    }
+
+    /* ── Sticky nav ── */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 18, 32, 0.96);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .sticky-nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .sticky-nav-inner::-webkit-scrollbar { display: none; }
+
+    .sticky-nav-brand {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #f8e7a6;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      padding: 14px 16px 14px 0;
+      border-right: 1px solid rgba(212, 175, 55, 0.22);
+      margin-right: 4px;
+      flex-shrink: 0;
+    }
+
+    .sticky-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      padding: 8px 4px;
+      flex-shrink: 0;
+    }
+
+    .sticky-nav-links a {
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #cbd5e1;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .sticky-nav-links a:hover {
+      background: rgba(212, 175, 55, 0.12);
+      color: #f8e7a6;
+      text-decoration: none;
+    }
+
+    .sticky-nav-links a.active {
+      background: rgba(212, 175, 55, 0.18);
+      color: #f8e7a6;
+    }
+
+    .shell {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 20px 80px;
+    }
+
+    .hero,
+    .panel,
+    .week-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 36px 28px;
+      margin-bottom: 24px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+        linear-gradient(135deg, rgba(212,175,55,0.10), rgba(125,211,252,0.05));
+    }
+
+    .panel,
+    .week-card {
+      padding: 22px 24px;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--gold-soft);
+      color: #f8e7a6;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1, h2, h3, h4 {
+      margin: 0 0 12px;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      color: #fff;
+    }
+
+    p {
+      margin: 0 0 1rem;
+    }
+
+    .hero p {
+      max-width: 950px;
+      color: #dbe4f0;
+      font-size: 1.02rem;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .small {
+      font-size: 0.95rem;
+    }
+
+    .quick-nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .quick-nav a {
+      display: block;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: rgba(15, 23, 42, 0.65);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .quick-nav a:hover {
+      border-color: rgba(212, 175, 55, 0.45);
+      text-decoration: none;
+    }
+
+    .docs-grid,
+    .summary-grid,
+    .footer-links {
+      display: grid;
+      gap: 16px;
+    }
+
+    .docs-grid,
+    .summary-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .doc-card,
+    .summary-card {
+      padding: 18px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: rgba(15, 23, 42, 0.72);
+    }
+
+    .doc-card strong,
+    .summary-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .overview-table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 980px;
+      background: rgba(15, 23, 42, 0.55);
+    }
+
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: rgba(212, 175, 55, 0.08);
+      color: #f8e7a6;
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .week-card {
+      scroll-margin-top: 24px;
+    }
+
+    .week-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      font-size: 0.85rem;
+      border-radius: 999px;
+      background: rgba(125, 211, 252, 0.08);
+      border: 1px solid rgba(125, 211, 252, 0.18);
+      color: #d7f3ff;
+    }
+
+    .field {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: var(--radius-sm);
+      background: rgba(2, 8, 23, 0.46);
+      border: 1px solid var(--line);
+    }
+
+    .field-label {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: #f8e7a6;
+      font-size: 0.86rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    ul, ol {
+      margin: 0.4rem 0 0 1.2rem;
+      padding: 0;
+    }
+
+    li + li {
+      margin-top: 0.45rem;
+    }
+
+    .reading-list li a {
+      font-weight: 600;
+    }
+
+    .footer-links {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-top: 16px;
+    }
+
+    .footer-links a {
+      display: block;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: rgba(15, 23, 42, 0.72);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .footer-links a:hover {
+      text-decoration: none;
+      border-color: rgba(212, 175, 55, 0.45);
+    }
+
+    @media (max-width: 760px) {
+      .hero,
+      .panel,
+      .week-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="sticky-nav" aria-label="Captain School Program navigation">
+    <div class="sticky-nav-inner">
+      <span class="sticky-nav-brand">✠ Captain School Program</span>
+      <div class="sticky-nav-links">
+        <a href="/programs/captain/site/lesson-plan/index.html">Lesson Plan</a>
+        <a href="/programs/captain/site/weeks/index.html">Weeks</a>
+        <a href="/programs/captain/site/downloads/Captain_Required_Reading_List.html">Reading List</a>
+        <a href="/documents/view/captain-required-reading-hub.html" class="active">Reading Hub</a>
+        <a href="/programs/captain/site/downloads/Captain_Reading_Log.html">Reading Log</a>
+        <a href="/programs/captain/site/materials/index.html">Materials</a>
+        <a href="/programs/captain/site/schoolmaster/index.html">Schoolmaster</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">Templar Forge Academy</div>
+      <h1>Captain Program - Required Reading Hub</h1>
+      <p>
+        This static lesson hub places the <strong>Captain School Syllabus</strong> directly into the required-reading flow
+        for Officer Formation Level II. It preserves the academy hub structure while making the syllabus visible as a
+        program document, a lesson-by-lesson reading requirement, and a course-summary reference for assignments,
+        leadership outcomes, local-command practicum preparation, and final board review.
+      </p>
+
+      <nav class="quick-nav" aria-label="Quick navigation">
+        <a href="#program-documents">Program Documents</a>
+        <a href="#syllabus-summary">Syllabus Summary</a>
+        <a href="#weekly-overview">Weekly Overview</a>
+        <a href="#lesson-1">Lesson 1</a>
+        <a href="#lesson-6">Lesson 6</a>
+        <a href="#lesson-12">Lesson 12</a>
+        <a href="#evaluation">Evaluation</a>
+      </nav>
+    </section>
+
+    <section id="program-documents" class="panel">
+      <h2>Program Documents</h2>
+      <div class="docs-grid">
+        <article class="doc-card">
+          <strong>Captain School Lesson Plan</strong>
+          <p class="muted small">Existing Captain lesson-plan document from the current site package.</p>
+          <a href="https://www.genspark.ai/api/files/s/KBdHqPGG" target="_blank" rel="noopener">Open lesson plan</a>
+        </article>
+
+        <article class="doc-card">
+          <strong>Knights Templar Overview</strong>
+          <p class="muted small">Foundational background for Captain identity and historical continuity.</p>
+          <a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Open overview</a>
+        </article>
+
+        <article class="doc-card">
+          <strong>Templars Hierarchy and Duties</strong>
+          <p class="muted small">Used for commanderies, commanders, structure, and delegated leadership.</p>
+          <a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Open hierarchy source</a>
+        </article>
+
+        <article class="doc-card">
+          <strong>Primitive Rule of the Templars</strong>
+          <p class="muted small">Used for lessons on humility, speech, order, correction, and disciplined leadership.</p>
+          <a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Open Rule source</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="syllabus-summary" class="panel">
+      <h2>Syllabus Summary</h2>
+      <p>
+        Captain School is described as the transition from dependable junior officer to responsible steward of a local
+        body: a man who can organize operations, preserve standards, mentor lieutenants, coordinate resources, care for
+        the brothers under his charge, and sustain the life of the Order at the local level. The historical model named
+        in the syllabus is the <strong>Commander / Preceptor</strong>, presented as the clearest model for local-command leadership.
+      </p>
+
+      <div class="summary-grid">
+        <article class="summary-card">
+          <strong>Local Command Stewardship</strong>
+          <p class="muted small">Responsibility for operations, standards, people, and resources.</p>
+        </article>
+        <article class="summary-card">
+          <strong>Leadership Under Authority</strong>
+          <p class="muted small">Govern a local body in alignment with mission and higher authority.</p>
+        </article>
+        <article class="summary-card">
+          <strong>Leader Development</strong>
+          <p class="muted small">Mentor lieutenants and form future officers intentionally.</p>
+        </article>
+        <article class="summary-card">
+          <strong>Promotion Readiness</strong>
+          <p class="muted small">Show readiness for wider oversight through tested local-command leadership.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="weekly-overview" class="panel">
+      <h2>Weekly Overview</h2>
+      <div class="overview-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Lesson</th>
+              <th>Title</th>
+              <th>Assignment</th>
+              <th>Required Reading</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1</strong></td>
+              <td>The Burden of Local Command</td>
+              <td>1–2 page reflection on responsibility for a body instead of a task</td>
+              <td>
+                <a href="https://www.genspark.ai/api/files/s/KBdHqPGG" target="_blank" rel="noopener">Lesson Plan</a>,
+                <a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Knights Templar</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>2</strong></td>
+              <td>The Medieval Commandery</td>
+              <td>Short presentation or visual summary on the Templar commandery</td>
+              <td>
+                <a href="https://www.genspark.ai/api/files/s/KBdHqPGG" target="_blank" rel="noopener">Lesson Plan</a>,
+                <a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Hierarchy &amp; Duties</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>3</strong></td>
+              <td>The Office of Commander / Preceptor</td>
+              <td>2-page comparison paper</td>
+              <td>
+                <a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Hierarchy &amp; Duties</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>4</strong></td>
+              <td>Mission, Standards, and Local Identity</td>
+              <td>One-page local mission and standards statement</td>
+              <td>
+                <a href="https://www.genspark.ai/api/files/s/KBdHqPGG" target="_blank" rel="noopener">Lesson Plan</a>,
+                <a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Knights Templar</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>5</strong></td>
+              <td>Administration and Provisions</td>
+              <td>One-month local operations plan</td>
+              <td>
+                <a href="https://www.genspark.ai/api/files/s/KBdHqPGG" target="_blank" rel="noopener">Lesson Plan</a>,
+                <a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Hierarchy &amp; Duties</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>6</strong></td>
+              <td>Authority, Delegation, and Accountability</td>
+              <td>Delegation map for a local team or officer corps</td>
+              <td>
+                <a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Hierarchy &amp; Duties</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>7</strong></td>
+              <td>The Rule: Humility, Speech, and Order</td>
+              <td>7-day command-presence log</td>
+              <td>
+                <a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>8</strong></td>
+              <td>Care of Brothers and Pastoral Stewardship</td>
+              <td>Two pastoral check-ins with reflection</td>
+              <td>
+                <a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>9</strong></td>
+              <td>Training Lieutenants and Building Future Officers</td>
+              <td>4-week mentoring outline</td>
+              <td>
+                <a href="https://www.genspark.ai/api/files/s/KBdHqPGG" target="_blank" rel="noopener">Lesson Plan</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>10</strong></td>
+              <td>Conflict, Discipline, and Restoration</td>
+              <td>Case-study responses to conflict scenarios</td>
+              <td>
+                <a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>11</strong></td>
+              <td>Local Command Practicum</td>
+              <td>Approved local-command project and after-action review</td>
+              <td>
+                <a href="https://www.genspark.ai/api/files/s/KBdHqPGG" target="_blank" rel="noopener">Lesson Plan</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>12</strong></td>
+              <td>Capstone Preparation and Captain's Board Review</td>
+              <td>Final portfolio submission</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="lesson-1" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 1</span>
+        <span class="tag">The Burden of Local Command</span>
+      </div>
+      <h2>Lesson 1 - The Burden of Local Command</h2>
+      <div class="field">
+        <span class="field-label">Primary Focus</span>
+        <p>The Captain is no longer just a reliable officer under supervision, but a steward responsible for the health of a local body.</p>
+      </div>
+      <div class="field">
+        <span class="field-label">Leadership Emphasis</span>
+        <p>The Captain is accountable not only for what happens, but for what becomes normal under his influence.</p>
+      </div>
+      <div class="field">
+        <span class="field-label">Assignment</span>
+        <p>1–2 page reflection on responsibility for a body rather than a task.</p>
+      </div>
+      <div class="field">
+        <span class="field-label">Leadership Outcome</span>
+        <p>Begins to think like a steward of people, culture, and order.</p>
+      </div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://www.genspark.ai/api/files/s/KBdHqPGG" target="_blank" rel="noopener">Captain School Lesson Plan</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Knights Templar</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-2" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 2</span>
+        <span class="tag">The Medieval Commandery</span>
+      </div>
+      <h2>Lesson 2 - The Medieval Commandery</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>The commandery as a functioning local center of mission, discipline, logistics, and communal life.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>A commandery was not just a place; it was an organized expression of mission.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Short presentation or visual summary on the Templar commandery.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Understands the local-command model historically.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://www.genspark.ai/api/files/s/KBdHqPGG" target="_blank" rel="noopener">Captain School Lesson Plan</a></li>
+          <li><a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Templars Hierarchy and Duties</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-3" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 3</span>
+        <span class="tag">Commander / Preceptor</span>
+      </div>
+      <h2>Lesson 3 - The Office of Commander / Preceptor</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>The preceptor/commander as the historical model for Captaincy, linking administration and provisions with local governance.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Command is not merely giving orders; it is sustaining the conditions for mission to succeed.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Comparison paper between the Templar commander and your Captain rank.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Sees Captaincy as active stewardship, not status.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Templars Hierarchy and Duties</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-4" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 4</span>
+        <span class="tag">Mission, Standards, and Local Identity</span>
+      </div>
+      <h2>Lesson 4 - Mission, Standards, and Local Identity</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>How a local body reflects the wider Order without becoming chaotic or rigid.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Every local body teaches the Order's identity by what it tolerates and what it models.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>One-page local mission and standards statement.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Understands how to preserve identity without rigidity.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://www.genspark.ai/api/files/s/KBdHqPGG" target="_blank" rel="noopener">Captain School Lesson Plan</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Knights Templar</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-5" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 5</span>
+        <span class="tag">Administration and Provisions</span>
+      </div>
+      <h2>Lesson 5 - Administration and Provisions</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Calendars, communications, training rhythm, event support, logistics, and practical order.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Administrative order is not secondary to leadership; it makes leadership possible.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>One-month local operations plan.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Grows in organized, sustainable leadership.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://www.genspark.ai/api/files/s/KBdHqPGG" target="_blank" rel="noopener">Captain School Lesson Plan</a></li>
+          <li><a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Templars Hierarchy and Duties</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-6" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 6</span>
+        <span class="tag">Delegation and Accountability</span>
+      </div>
+      <h2>Lesson 6 - Authority, Delegation, and Accountability</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Governing through lieutenants instead of trying to do everything personally.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>A Captain who cannot delegate will either burn out or stunt the growth of others.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Delegation map for a local team or officer corps.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Can govern through other leaders instead of over-controlling them.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Templars Hierarchy and Duties</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-7" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 7</span>
+        <span class="tag">Humility, Speech, and Order</span>
+      </div>
+      <h2>Lesson 7 - The Rule: Humility, Speech, and Order</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Humility, restraint, disciplined speech, and the rejection of rumor, spite, and disorderly conduct.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>The Captain's speech becomes the climate of the command.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>7-day command-presence log focused on speech, correction, listening, and tone.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Develops mature command presence and verbal discipline.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule of the Templars</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-8" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 8</span>
+        <span class="tag">Pastoral Stewardship</span>
+      </div>
+      <h2>Lesson 8 - Care of Brothers and Pastoral Stewardship</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Attentive care for the weak, newer, or struggling members of the brotherhood.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Leadership is not only structural; it is also pastoral.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Two pastoral check-ins with written reflection.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Grows in relational stewardship and responsibility.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule of the Templars</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-9" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 9</span>
+        <span class="tag">Training Lieutenants</span>
+      </div>
+      <h2>Lesson 9 - Training Lieutenants and Building Future Officers</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Multiplying strength by forming junior officers through mentoring, correction, and delegated responsibility.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>The Captain's legacy is visible in the officers he forms.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>4-week mentoring outline for a Lieutenant or candidate.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Becomes a developer of leaders, not just a manager of duties.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://www.genspark.ai/api/files/s/KBdHqPGG" target="_blank" rel="noopener">Captain School Lesson Plan</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-10" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 10</span>
+        <span class="tag">Conflict and Restoration</span>
+      </div>
+      <h2>Lesson 10 - Conflict, Discipline, and Restoration</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Addressing disorder, weak performance, and interpersonal conflict with justice, restraint, and a commitment to restoration.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Correction should protect the brotherhood, not poison it.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Case-study responses to local conflict scenarios.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Learns to preserve both discipline and fraternity.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule of the Templars</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-11" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 11</span>
+        <span class="tag">Local Command Practicum</span>
+      </div>
+      <h2>Lesson 11 - Local Command Practicum</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Leading a real initiative from planning to execution while organizing people, communicating clearly, and adapting as needed.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Command must be demonstrated, not merely described.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Approved local-command project with after-action review.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Proves he can sustain order in practice.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://www.genspark.ai/api/files/s/KBdHqPGG" target="_blank" rel="noopener">Captain School Lesson Plan</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-12" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 12</span>
+        <span class="tag">Captain's Board Review</span>
+      </div>
+      <h2>Lesson 12 - Capstone Preparation and Captain's Board Review</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Integrating course learning for final portfolio and oral board evaluation.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Readiness for Captaincy must be visible in both conduct and command.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Final portfolio submission.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Demonstrates readiness for second-level officer stewardship.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li>Review all prior lesson materials and assignments in preparation for oral board.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="evaluation" class="panel">
+      <h2>Evaluation and Board Review</h2>
+      <p>
+        The syllabus evaluates attendance and participation, written assignments, operations planning, delegation and
+        mentoring work, the local-command practicum, senior observation, final portfolio, and the oral board. It also
+        requires one approved practicum such as planning and leading a monthly command cycle, organizing a service project,
+        coordinating a local officer team for an event or ceremony, establishing a training rhythm for lieutenants, or
+        leading a membership-development effort.
+      </p>
+
+      <div class="summary-grid">
+        <article class="summary-card">
+          <strong>Attendance and Participation</strong>
+          <p class="muted small">10% — presence, preparedness, engagement, contribution to discussion.</p>
+        </article>
+        <article class="summary-card">
+          <strong>Written Assignments</strong>
+          <p class="muted small">20% — historical understanding, reflection quality, practical application.</p>
+        </article>
+        <article class="summary-card">
+          <strong>Local-Command Practicum</strong>
+          <p class="muted small">20% — execution, communication, adaptability, and follow-through.</p>
+        </article>
+        <article class="summary-card">
+          <strong>Oral Board / Final Review</strong>
+          <p class="muted small">10% — officer presence, judgment, historical grounding, readiness for Captaincy.</p>
+        </article>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Sample Oral Board Questions</span>
+        <ul>
+          <li>Why were commanderies essential to the historical Templar Order?</li>
+          <li>What distinguishes a Captain from a Lieutenant in your Order?</li>
+          <li>Why is the Commander / Preceptor the right model for Captain School?</li>
+          <li>What must a Captain protect in a local body besides outward efficiency?</li>
+          <li>How do you know whether you are truly delegating rather than merely assigning tasks?</li>
+          <li>What does care of brothers look like at the local-command level?</li>
+          <li>How should a Captain respond when standards are slipping without becoming harsh or reactive?</li>
+          <li>How will you know whether your lieutenants are actually growing?</li>
+          <li>Where is your greatest weakness as a future Captain, and how are you addressing it?</li>
+          <li>Why are you ready—or not yet ready—for local command?</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Core Links</h2>
+      <div class="footer-links">
+        <a href="https://www.genspark.ai/api/files/s/KBdHqPGG" target="_blank" rel="noopener">Captain School Lesson Plan</a>
+        <a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Knights Templar Overview</a>
+        <a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Templars Hierarchy and Duties</a>
+        <a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule of the Templars</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

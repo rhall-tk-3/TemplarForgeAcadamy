@@ -1,0 +1,127 @@
+{
+  "program_title": "Captain School Program",
+  "week_number": 7,
+  "week_title": "Week 7 — The Rule: Humility, Speech, and Order",
+  "multiple_choice_questions": [
+    {
+      "question": "What is the primary focus of Week 7 — The Rule: Humility, Speech, and Order?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "disciplined speech, humility, and rejection of disorder."
+        },
+        {
+          "option": "B",
+          "text": "shift from task leadership to stewardship of a local body."
+        },
+        {
+          "option": "C",
+          "text": "understand the commandery as a local center of mission, discipline, and logistics."
+        },
+        {
+          "option": "D",
+          "text": "connect the historical commander role to the modern Captain rank."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "disciplined speech, humility, and rejection of disorder.",
+      "rationale": "The week summary states that disciplined speech, humility, and rejection of disorder."
+    },
+    {
+      "question": "Which reading is explicitly assigned for Week 7 — The Rule: Humility, Speech, and Order?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Captain School Lesson Plan"
+        },
+        {
+          "option": "B",
+          "text": "Captain School Syllabus PDF"
+        },
+        {
+          "option": "C",
+          "text": "Wikipedia: Knights Templar"
+        },
+        {
+          "option": "D",
+          "text": "Medieval Warfare: Templars Hierarchy and Duties"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Captain School Lesson Plan",
+      "rationale": "Captain School Lesson Plan appears in the required reading list for this week."
+    },
+    {
+      "question": "Which concept is most directly associated with Week 7 — The Rule: Humility, Speech, and Order?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "The Rule"
+        },
+        {
+          "option": "B",
+          "text": "Week 1 — The Burden of Local Command"
+        },
+        {
+          "option": "C",
+          "text": "Week 2 — The Medieval Commandery"
+        },
+        {
+          "option": "D",
+          "text": "Week 3 — The Office of Commander / Preceptor"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "The Rule",
+      "rationale": "The week is organized around the concept of The Rule."
+    },
+    {
+      "question": "Which statement best reflects the expected learning outcome for Week 7 — The Rule: Humility, Speech, and Order?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "disciplined speech, humility, and rejection of disorder."
+        },
+        {
+          "option": "B",
+          "text": "shift from task leadership to stewardship of a local body."
+        },
+        {
+          "option": "C",
+          "text": "understand the commandery as a local center of mission, discipline, and logistics."
+        },
+        {
+          "option": "D",
+          "text": "connect the historical commander role to the modern Captain rank."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "disciplined speech, humility, and rejection of disorder.",
+      "rationale": "This statement matches the stated memory target or focus for the week: disciplined speech, humility, and rejection of disorder."
+    },
+    {
+      "question": "Which response best applies the lesson of Week 7 — The Rule: Humility, Speech, and Order?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Apply the lesson of The Rule through disciplined conduct, truthful understanding, and practical service."
+        },
+        {
+          "option": "B",
+          "text": "Treat The Rule mainly as ceremonial prestige without practical duty."
+        },
+        {
+          "option": "C",
+          "text": "Ignore assigned readings and rely on legend or speculation about The Rule."
+        },
+        {
+          "option": "D",
+          "text": "Approach The Rule as private opinion rather than accountable formation."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Apply the lesson of The Rule through disciplined conduct, truthful understanding, and practical service.",
+      "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+    }
+  ]
+}

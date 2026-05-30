@@ -2,39 +2,63 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- viewport-fit=cover fills iPhone notch / Dynamic Island safely -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#060203">
   <title>Templar Forge Academy — Welcome</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&display=swap');
 
+  <!-- Preconnect so Google Fonts doesn't block first paint -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- font-display=swap keeps text visible while font loads -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
+
+  <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     html, body {
       width: 100%;
       height: 100%;
+      /* Fallback background color shown instantly before image loads */
+      background-color: #060203;
       /* Allow scroll on very small screens so nothing is ever clipped */
       overflow: auto;
     }
 
-    /* ── FULL-SCREEN BACKGROUND ── */
+    /* ── FULL-SCREEN PAGE ── */
     .page {
       position: relative;
       width: 100%;
+      /* dvh = dynamic viewport height — correct on iOS Safari (excludes browser chrome).
+         Falls back to 100vh on browsers that don't support dvh. */
       min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      /* Safe area insets for notched phones (iPhone X+) */
+      padding-left:  env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
     }
 
-    /* Castle background image */
+    /* ── BACKGROUND IMAGE ── */
     .bg {
       position: absolute;
       inset: 0;
-      background:
-        url('/images/castle-bg.png') center center / cover no-repeat;
       z-index: 0;
+      overflow: hidden;
+      /* Solid fallback while image loads */
+      background-color: #0a0400;
+    }
+    .bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      image-rendering: auto;
     }
 
     /* Dark dramatic overlay so text pops */
@@ -44,43 +68,76 @@
       inset: 0;
       background: linear-gradient(
         180deg,
-        rgba(10, 5, 0, 0.52) 0%,
-        rgba(20, 8, 2, 0.38) 40%,
-        rgba(10, 5, 0, 0.72) 100%
+        rgba(8, 4, 0, 0.48) 0%,
+        rgba(15, 6, 0, 0.28) 40%,
+        rgba(8, 4, 0, 0.68) 100%
       );
     }
 
-    /* ── TOP-LEFT CREST ── */
+    /* ── TOP-LEFT CREST ANCHOR ── */
+    .crest-link {
+      position: absolute;
+      top:  clamp(8px, 1.5vh, 18px);
+      left: clamp(10px, 1.8vw, 22px);
+      z-index: 10;
+      display: block;
+      /* Minimum 44×44px tap target (Apple HIG / Google Material) */
+      min-width:  44px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      -webkit-tap-highlight-color: transparent;
+    }
     .crest {
-      width: clamp(60px, 10vw, 150px);
+      width: clamp(52px, 10vw, 150px);
       mix-blend-mode: normal;
       filter:
-        drop-shadow(0 2px 0px rgba(0,0,0,0.9))
-        drop-shadow(0 4px 6px rgba(0,0,0,0.85))
+        drop-shadow(0 2px 0px  rgba(0,0,0,0.9))
+        drop-shadow(0 4px 6px  rgba(0,0,0,0.85))
         drop-shadow(0 8px 24px rgba(0,0,0,0.70));
       cursor: pointer;
       transition: filter 0.2s ease, transform 0.2s ease;
-    }
-    .crest:hover {
-      filter:
-        drop-shadow(0 2px 0px rgba(0,0,0,0.9))
-        drop-shadow(0 4px 10px rgba(0,0,0,0.9))
-        drop-shadow(0 10px 30px rgba(201,162,39,0.5));
-      transform: scale(1.04);
+      display: block;
     }
 
-    /* ── TOP-RIGHT SEAL ── */
-    .seal {
+    /* ── TOP-RIGHT SEAL ANCHOR ── */
+    .seal-link {
       position: absolute;
-      top: clamp(10px, 2vh, 18px);
-      right: clamp(10px, 2vw, 22px);
+      top:   clamp(8px, 1.5vh, 18px);
+      right: clamp(10px, 1.8vw, 22px);
       z-index: 10;
-      width: clamp(60px, 10vw, 150px);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      /* Minimum 44×44px tap target */
+      min-width:  44px;
+      min-height: 44px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .seal {
+      width: clamp(52px, 10vw, 150px);
       mix-blend-mode: normal;
       filter:
-        drop-shadow(0 2px 0px rgba(0,0,0,0.9))
-        drop-shadow(0 4px 6px rgba(0,0,0,0.85))
+        drop-shadow(0 2px 0px  rgba(0,0,0,0.9))
+        drop-shadow(0 4px 6px  rgba(0,0,0,0.85))
         drop-shadow(0 8px 24px rgba(0,0,0,0.70));
+      cursor: pointer;
+      transition: filter 0.2s ease, transform 0.2s ease;
+      display: block;
+    }
+
+    /* Hover effects only on devices that actually have a hover pointer
+       (prevents sticky-hover bug on iOS/Android after tap) */
+    @media (hover: hover) and (pointer: fine) {
+      .crest:hover,
+      .seal:hover {
+        filter:
+          drop-shadow(0 2px 0px  rgba(0,0,0,0.9))
+          drop-shadow(0 4px 10px rgba(0,0,0,0.9))
+          drop-shadow(0 10px 30px rgba(201,162,39,0.5));
+        transform: scale(1.04);
+      }
     }
 
     /* ── CENTER CONTENT ── */
@@ -92,14 +149,18 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: clamp(80px, 14vh, 140px) clamp(16px, 5vw, 48px) clamp(80px, 12vh, 120px);
-      gap: clamp(14px, 3vh, 28px);
+      /* Top/bottom padding keeps content clear of crest/seal and footer */
+      padding: clamp(90px, 14vh, 140px) clamp(16px, 5vw, 48px) clamp(80px, 12vh, 120px);
+      gap: clamp(12px, 3vh, 28px);
       width: 100%;
+      /* Prevent content touching notch edges */
+      padding-left:  max(clamp(16px, 5vw, 48px), env(safe-area-inset-left));
+      padding-right: max(clamp(16px, 5vw, 48px), env(safe-area-inset-right));
     }
 
-    /* Decorative top rule */
+    /* Decorative rule line */
     .rule {
-      width: clamp(180px, 38vw, 560px);
+      width: clamp(160px, 38vw, 560px);
       height: 2px;
       background: linear-gradient(90deg, transparent, #c9a227, #8b0000, #c9a227, transparent);
     }
@@ -107,37 +168,41 @@
     /* ── MAIN TITLE ── */
     .title {
       font-family: 'Cinzel', 'Trajan Pro', 'Palatino Linotype', 'Times New Roman', serif;
-      font-size: clamp(1.35rem, 5.5vw, 4.8rem);
+      font-size: clamp(1.3rem, 5.5vw, 4.8rem);
       font-weight: 900;
       letter-spacing: 0.08em;
       line-height: 1.2;
       color: #e8c96a;
       text-transform: uppercase;
       max-width: min(900px, 90vw);
+      /* Prevent overflow on narrow screens */
       word-break: break-word;
+      overflow-wrap: break-word;
       text-shadow:
-        0 2px 0   rgba(0,0,0,0.95),
-        0 4px 0   rgba(0,0,0,0.75),
-        0 6px 0   rgba(0,0,0,0.50),
+        0 2px 0    rgba(0,0,0,0.95),
+        0 4px 0    rgba(0,0,0,0.75),
+        0 6px 0    rgba(0,0,0,0.50),
         0 8px 12px rgba(0,0,0,0.70),
-        0 0 28px  rgba(210,160,30,0.35);
+        0 0  28px  rgba(210,160,30,0.35);
     }
 
-    /* Gold divider cross */
+    /* Gold divider with cross */
     .divider {
       font-size: clamp(1rem, 3vw, 1.6rem);
       color: #c9a227;
       text-shadow: 0 0 12px rgba(201,162,39,0.8);
       letter-spacing: 0.4em;
+      /* Prevent emoji/symbol rendering as plain text on some Android */
+      font-variant-emoji: text;
     }
 
     /* ── ENTER BUTTON ── */
     .enter-btn {
       display: inline-block;
       margin-top: 4px;
-      padding: clamp(10px, 2vh, 14px) clamp(24px, 6vw, 48px);
-      font-family: 'Palatino Linotype', 'Palatino', serif;
-      font-size: clamp(0.82rem, 2.2vw, 1.05rem);
+      padding: clamp(11px, 2vh, 14px) clamp(28px, 6vw, 48px);
+      font-family: 'Palatino Linotype', 'Palatino', Georgia, serif;
+      font-size: clamp(0.85rem, 2.2vw, 1.05rem);
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -152,100 +217,144 @@
         inset 0 1px 0 rgba(255,255,180,0.35);
       transition: all 0.25s ease;
       cursor: pointer;
-      /* Tap-friendly on touch screens */
+      /* Touch-friendly: no callout, no tap flash, easy to tap */
       -webkit-tap-highlight-color: transparent;
       touch-action: manipulation;
+      -webkit-touch-callout: none;
+      /* Minimum tap target height */
+      min-height: 44px;
+      /* Prevent text from wrapping awkwardly */
+      white-space: nowrap;
     }
-    .enter-btn:hover {
-      background: linear-gradient(135deg, #ffd84a 0%, #c8960b 45%, #ffd84a 100%);
+
+    @media (hover: hover) and (pointer: fine) {
+      .enter-btn:hover {
+        background: linear-gradient(135deg, #ffd84a 0%, #c8960b 45%, #ffd84a 100%);
+        box-shadow:
+          0 0 0 2px rgba(201,162,39,0.7),
+          0 8px 36px rgba(0,0,0,0.75),
+          0 0 30px rgba(197,150,20,0.4);
+        transform: translateY(-2px);
+      }
+    }
+
+    /* Pressed state for touch devices */
+    .enter-btn:active {
+      transform: translateY(1px);
       box-shadow:
-        0 0 0 2px rgba(201,162,39,0.7),
-        0 8px 36px rgba(0,0,0,0.75),
-        0 0 30px rgba(197,150,20,0.4);
-      transform: translateY(-2px);
+        0 0 0 1px rgba(201,162,39,0.5),
+        0 3px 14px rgba(0,0,0,0.65);
     }
 
     /* ── BOTTOM FOOTER ── */
     .footer {
       position: absolute;
       bottom: 0;
-      left: 0;
+      left:  0;
       right: 0;
       z-index: 10;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 4px;
-      padding: clamp(12px, 2.5vh, 18px) clamp(12px, 3vw, 24px) clamp(14px, 2.5vh, 20px);
+      padding: clamp(10px, 2.5vh, 18px) clamp(12px, 3vw, 24px) clamp(12px, 2.5vh, 20px);
+      /* Push text above home-bar on iPhones */
+      padding-bottom: max(clamp(12px, 2.5vh, 20px), env(safe-area-inset-bottom));
       background: linear-gradient(0deg, rgba(0,0,0,0.82) 0%, transparent 100%);
     }
 
     .footer-line {
-      width: clamp(120px, 30vw, 440px);
+      width: clamp(100px, 30vw, 440px);
       height: 1px;
       background: linear-gradient(90deg, transparent, #c9a227, transparent);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .footer-name {
-      font-family: 'Algerian', 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
-      font-size: clamp(0.6rem, 1.8vw, 1.05rem);
+      font-family: 'Algerian', 'Palatino Linotype', 'Palatino', 'Book Antiqua', Georgia, serif;
+      font-size: clamp(0.58rem, 1.8vw, 1.05rem);
       font-weight: 700;
-      letter-spacing: clamp(0.1em, 0.26em, 0.26em);
+      letter-spacing: clamp(0.08em, 0.22em, 0.26em);
       text-transform: uppercase;
       color: #e8d08a;
       text-shadow: 0 2px 10px rgba(0,0,0,0.9), 0 0 14px rgba(197,150,20,0.5);
       text-align: center;
       word-break: break-word;
+      overflow-wrap: break-word;
     }
 
     .footer-trademark {
-      font-family: 'Palatino Linotype', 'Palatino', serif;
-      font-size: clamp(0.62rem, 1.1vw, 0.82rem);
+      font-family: 'Palatino Linotype', 'Palatino', Georgia, serif;
+      font-size: clamp(0.6rem, 1.1vw, 0.82rem);
       letter-spacing: 0.14em;
       color: #b8984a;
       text-shadow: 0 1px 6px rgba(0,0,0,0.8);
       margin-top: 3px;
     }
 
-    /* ── RESPONSIVE ── */
+    /* ── SMALL PHONES (≤ 640px) ── */
     @media (max-width: 640px) {
-      .crest { width: clamp(50px, 13vw, 76px); }
-      .seal  { width: clamp(50px, 13vw, 72px); }
-      .title { font-size: clamp(1.15rem, 5.5vw, 1.8rem); letter-spacing: 0.06em; }
-      .enter-btn { padding: 11px 28px; font-size: 0.85rem; letter-spacing: 0.14em; }
-      .rule { width: clamp(120px, 70vw, 320px); }
+      .crest { width: clamp(44px, 12vw, 72px); }
+      .seal  { width: clamp(44px, 12vw, 68px); }
+      .title { font-size: clamp(1.15rem, 5.5vw, 1.75rem); letter-spacing: 0.05em; }
+      .enter-btn { padding: 12px 28px; font-size: 0.85rem; letter-spacing: 0.12em; }
+      .rule  { width: clamp(100px, 68vw, 300px); }
+      .center { gap: 10px; }
     }
 
+    /* ── VERY SMALL PHONES (≤ 380px — iPhone SE, Galaxy A series) ── */
     @media (max-width: 380px) {
-      .crest { width: 46px; }
-      .seal  { width: 44px; top: 6px; right: 8px; }
-      .title { font-size: 1.05rem; }
-      .enter-btn { padding: 10px 22px; font-size: 0.78rem; }
-      .footer-name { font-size: 0.55rem; letter-spacing: 0.08em; }
+      .crest { width: 42px; }
+      .seal  { width: 40px; }
+      .title { font-size: 1rem; letter-spacing: 0.04em; }
+      .enter-btn { padding: 11px 20px; font-size: 0.8rem; letter-spacing: 0.1em; }
+      .footer-name { font-size: 0.52rem; letter-spacing: 0.06em; }
+      .divider { letter-spacing: 0.2em; }
     }
 
-    /* Landscape mobile */
+    /* ── LANDSCAPE MOBILE (short screens — iPhone landscape, etc.) ── */
     @media (max-height: 500px) and (orientation: landscape) {
-      .center { padding-top: 60px; padding-bottom: 60px; gap: 10px; }
-      .title { font-size: clamp(1rem, 3.5vh, 1.5rem); }
-      .crest, .seal { width: clamp(40px, 8vh, 70px); }
+      .center {
+        padding-top:    clamp(50px, 10vh, 80px);
+        padding-bottom: clamp(50px, 10vh, 80px);
+        gap: 8px;
+      }
+      .title { font-size: clamp(0.95rem, 3.5vh, 1.4rem); }
+      .crest { width: clamp(36px, 7vh, 60px); }
+      .seal  { width: clamp(36px, 7vh, 60px); }
+      .rule  { display: none; }
+    }
+
+    /* ── LARGE SCREENS / TABLETS ── */
+    @media (min-width: 1024px) {
+      .title { font-size: clamp(2.8rem, 4.5vw, 4.8rem); }
+    }
+
+    /* ── PRINT — hide decorative elements ── */
+    @media print {
+      .bg, .crest-link, .seal-link, .footer { display: none; }
+      .center { padding: 20px; }
+      .title { color: #000; text-shadow: none; }
     }
   </style>
 </head>
 <body>
   <div class="page">
 
-    <!-- Background castle image -->
-    <div class="bg"></div>
+    <!-- Background castle image — low priority since content is above the fold -->
+    <div class="bg">
+      <img src="/images/castle-bg-new.jpg" alt="" aria-hidden="true" fetchpriority="high" decoding="async" loading="eager">
+    </div>
 
     <!-- TOP LEFT: Order Crest — links to thecastlekeep.org -->
-    <a href="https://thecastlekeep.org" target="_blank" rel="noopener noreferrer" style="position:absolute;top:clamp(8px,1.5vh,18px);left:clamp(10px,1.8vw,22px);z-index:10;display:block;">
-      <img class="crest" src="/images/order-crest.png" alt="Order Crest" style="position:static;top:auto;left:auto;">
+    <a class="crest-link" href="https://thecastlekeep.org" target="_blank" rel="noopener noreferrer" aria-label="Visit The Castle Keep">
+      <img class="crest" src="/images/order-crest.png" alt="Order Crest">
     </a>
 
-    <!-- TOP RIGHT: Order Seal (no background) -->
-    <img class="seal" src="/images/order-seal.png" alt="Order Seal">
+    <!-- TOP RIGHT: Order Seal — links to tkkc.info -->
+    <a class="seal-link" href="https://tkkc.info" target="_blank" rel="noopener noreferrer" aria-label="Visit TKKC">
+      <img class="seal" src="/images/order-seal.png" alt="Order Seal">
+    </a>
 
     <!-- CENTER: Main welcome content -->
     <div class="center">
@@ -253,7 +362,7 @@
 
       <h1 class="title">Welcome to<br>Templar Forge Academy</h1>
 
-      <div class="divider">✦ ✠ ✦</div>
+      <div class="divider" aria-hidden="true">✦ ✠ ✦</div>
 
       <a class="enter-btn" href="/login">Enter the Forge</a>
 
@@ -268,5 +377,6 @@
     </footer>
 
   </div>
+
 </body>
 </html>

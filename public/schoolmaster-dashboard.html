@@ -264,6 +264,9 @@
     .unlock-btn.do-unlock:hover { background:linear-gradient(135deg,#3a8030,#2a5020); }
     .unlock-btn.do-lock   { background:rgba(80,0,0,.3); border:1px solid #4a0010; color:#c96060; }
     .unlock-btn.do-lock:hover { background:rgba(110,0,0,.4); border-color:#8b0000; }
+    .unlock-btn.do-reset  { background:linear-gradient(135deg,#4a2e00,#2a1800); border:1px solid #b07a10; color:#e8c040; }
+    .unlock-btn.do-reset:hover { background:linear-gradient(135deg,#6a4200,#3a2200); border-color:#e8c040; }
+    .unlock-btn.do-reset:disabled { opacity:.4; cursor:not-allowed; }
 
     /* ── Profile section in detail panel ── */
     .profile-section {
@@ -373,26 +376,177 @@
     }
     .status-note-input:focus { outline:none; border-color:#8b0000; }
 
+    /* ── Bulk action toolbar ── */
+    .bulk-toolbar {
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+      padding:10px 14px;
+      background:linear-gradient(135deg,rgba(22,0,14,.92),rgba(12,0,7,.92));
+      border:1px solid rgba(90,0,32,.55); border-bottom:none;
+      border-radius:14px 14px 0 0;
+      min-height:50px;
+    }
+    .bulk-select-all {
+      display:flex; align-items:center; gap:7px;
+      font-family:'Cinzel',serif; font-size:.72rem; color:#8b3030;
+      letter-spacing:.08em; text-transform:uppercase; cursor:pointer;
+      user-select:none; white-space:nowrap;
+    }
+    .bulk-select-all input[type="checkbox"] {
+      accent-color:#8b0000; width:15px; height:15px; cursor:pointer;
+    }
+    .bulk-count {
+      font-family:'Cinzel',serif; font-size:.72rem; color:#6a2020;
+      letter-spacing:.06em; white-space:nowrap;
+      padding:3px 10px; border-radius:999px;
+      background:rgba(139,0,0,.12); border:1px solid #3a0010;
+      transition:all .2s;
+    }
+    .bulk-count.has-selection { color:#e8c96a; border-color:#8b6000; background:rgba(139,96,0,.15); }
+    .bulk-divider { width:1px; height:20px; background:#3a0010; flex-shrink:0; }
+    .bulk-btn {
+      display:inline-flex; align-items:center; gap:5px;
+      font-family:'Cinzel',serif; font-size:.68rem; font-weight:700;
+      letter-spacing:.09em; text-transform:uppercase; white-space:nowrap;
+      padding:6px 13px; border-radius:7px; border:none; cursor:pointer;
+      transition:all .2s; opacity:.45; pointer-events:none;
+    }
+    .bulk-btn.enabled { opacity:1; pointer-events:auto; }
+    .bulk-btn.advance-btn {
+      background:linear-gradient(135deg,#2a6020,#1a4010); color:#90e090;
+    }
+    .bulk-btn.advance-btn.enabled:hover { background:linear-gradient(135deg,#3a8030,#2a5020); }
+    .bulk-btn.lock-btn {
+      background:rgba(80,0,0,.35); border:1px solid #4a0010; color:#c96060;
+    }
+    .bulk-btn.lock-btn.enabled:hover { background:rgba(110,0,0,.5); border-color:#8b0000; }
+    .bulk-btn.unlock-btn {
+      background:linear-gradient(135deg,#1a4060,#0e2840); color:#90c8e0;
+      border:1px solid #1a4060;
+    }
+    .bulk-btn.unlock-btn.enabled:hover { background:linear-gradient(135deg,#2a5880,#183850); }
+
+    /* ── Row checkbox ── */
+    .row-cb { accent-color:#8b0000; width:14px; height:14px; cursor:pointer; display:block; }
+    .member-table td.cb-cell, .member-table th.cb-cell { width:28px; padding:11px 8px 11px 14px; }
+    .member-table tr.selected td { background:rgba(139,0,0,.14); }
+
+    /* ── Pass / Fail badge ── */
+    .pf-pass {
+      display:inline-flex; align-items:center; justify-content:center;
+      min-width:22px; height:22px; padding:0 6px; border-radius:5px;
+      background:rgba(0,80,0,.25); border:1px solid #2a6020;
+      font-family:'Cinzel',serif; font-size:.7rem; font-weight:900;
+      color:#90e090; letter-spacing:.04em;
+    }
+    .pf-fail {
+      display:inline-flex; align-items:center; justify-content:center;
+      min-width:22px; height:22px; padding:0 6px; border-radius:5px;
+      background:rgba(139,0,0,.25); border:1px solid #8b0000;
+      font-family:'Cinzel',serif; font-size:.7rem; font-weight:900;
+      color:#ff9090; letter-spacing:.04em;
+    }
+    .pf-none { color:#2a1010; font-size:.76rem; }
+
+    /* ── Retest cooldown info badge (curriculum exams auto-retest, no SM approval needed) ── */
+    .retest-cooldown-badge {
+      display:inline-flex; align-items:center; gap:4px;
+      font-family:'Cinzel',serif; font-size:.62rem; font-weight:700;
+      letter-spacing:.07em; padding:3px 9px; border-radius:5px;
+      background:rgba(80,50,0,.25); border:1px solid #8b6000; color:#e8b040;
+      white-space:nowrap;
+    }
+    /* ── Inline retest button (legacy manual exams only) ── */
+    .retest-btn {
+      display:inline-flex; align-items:center; gap:4px;
+      font-family:'Cinzel',serif; font-size:.62rem; font-weight:700;
+      letter-spacing:.07em; text-transform:uppercase;
+      padding:3px 9px; border-radius:5px; border:none; cursor:pointer;
+      background:linear-gradient(135deg,#5a3800,#3a2200); color:#e8b040;
+      border:1px solid #8b6000; transition:all .2s; white-space:nowrap;
+    }
+    .retest-btn:hover { background:linear-gradient(135deg,#7a5000,#4a3000); }
+    .retest-btn.approved {
+      background:rgba(0,60,0,.2); border-color:#2a6020; color:#90e090; pointer-events:none;
+    }
+
     @media (max-width:640px) {
-      .member-table th:nth-child(4),
-      .member-table td:nth-child(4) { display:none; }
+      .member-table th:nth-child(5),
+      .member-table td:nth-child(5) { display:none; }
+      .member-table th:nth-child(8),
+      .member-table td:nth-child(8) { display:none; }
+      .member-table th:nth-child(9),
+      .member-table td:nth-child(9) { display:none; }
       .detail-panel { padding:16px; }
       .stat-box .num { font-size:1.5rem; }
     }
+
+    /* ── Profile Edit Panel ── */
+    .profile-edit-panel {
+      display:none;
+      margin-top:14px;
+      background:rgba(10,0,6,.6);
+      border:1px solid #3a0018;
+      border-radius:10px;
+      padding:14px 16px;
+    }
+    .profile-edit-panel.open { display:block; }
+    .profile-edit-title {
+      font-family:'Cinzel',serif; font-size:.7rem; font-weight:700;
+      letter-spacing:.15em; text-transform:uppercase; color:#8b3040;
+      margin-bottom:12px;
+    }
+    .profile-edit-grid {
+      display:grid; grid-template-columns:1fr 1fr; gap:10px;
+    }
+    @media(max-width:520px){ .profile-edit-grid { grid-template-columns:1fr; } }
+    .profile-edit-field { display:flex; flex-direction:column; gap:4px; }
+    .profile-edit-field label {
+      font-family:'Cinzel',serif; font-size:.63rem; font-weight:700;
+      letter-spacing:.12em; text-transform:uppercase; color:#6a2030;
+    }
+    .profile-edit-field input {
+      background:#080004; border:1px solid #3a0010; border-radius:6px;
+      padding:7px 10px; color:#e8d9b8; font-family:'Crimson Text',serif;
+      font-size:.95rem; width:100%; box-sizing:border-box;
+    }
+    .profile-edit-field input:focus { outline:none; border-color:#8b0030; }
+    .profile-edit-field .field-note {
+      font-family:'Crimson Text',serif; font-size:.72rem; color:#4a1020;
+    }
+    .profile-edit-actions {
+      display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; align-items:center;
+    }
+    .profile-edit-status {
+      font-family:'Crimson Text',serif; font-size:.85rem;
+      padding:6px 12px; border-radius:6px; display:none;
+    }
+    .profile-edit-status.ok    { display:inline-block; background:rgba(40,80,20,.3); border:1px solid #3a6020; color:#90e090; }
+    .profile-edit-status.err   { display:inline-block; background:rgba(80,20,20,.3); border:1px solid #6a1010; color:#e09090; }
+    .btn-edit-toggle {
+      margin-top:10px;
+      font-family:'Cinzel',serif; font-size:.7rem; font-weight:700;
+      letter-spacing:.12em; text-transform:uppercase;
+      padding:7px 16px; border-radius:7px; cursor:pointer;
+      background:rgba(60,0,24,.4); border:1px solid #5a0020; color:#c8608a;
+      transition:all .2s;
+    }
+    .btn-edit-toggle:hover { border-color:#8b0030; color:#e8809a; }
   </style>
 </head>
 <body>
+  <script src="/assets/js/academy-guard.js" data-protect="schoolmaster" defer></script>
+
 <div class="page-wrap">
 
   <!-- TOP BAR -->
   <nav class="topbar">
-    <a class="topbar-brand" href="/">
+    <span class="topbar-brand">
       <img src="/images/order-seal.png" alt="Seal" style="height:46px;">
       <div>
         <div class="topbar-brand-text">Schoolmaster Command</div>
         <div class="topbar-brand-sub">Knowledge Oversight — Templar Forge Academy</div>
       </div>
-    </a>
+    </span>
     <!-- KTKC Motto -->
     <div class="topbar-motto">
       <span class="topbar-motto-word"><span class="topbar-motto-cap k1">K</span><span class="topbar-motto-rest">nowledge</span></span>
@@ -405,7 +559,7 @@
     </div>
     <div class="topbar-nav">
       <span id="nav-greeting" style="font-family:'Cinzel',serif;font-size:.8rem;color:#8b3030;"></span>
-      <a href="/auth/logout" class="btn-nav">Sign Out</a>
+      <a href="/auth/logout" class="btn-nav">✠ Retire Training Session</a>
     </div>
   </nav>
 
@@ -447,26 +601,176 @@
 
     <div class="gold-rule-red"></div>
 
+    <!-- ── Member Access Registry ── -->
+    <div class="sm-card" id="registry-panel" style="margin-bottom:18px;">
+      <div class="section-title" style="margin-bottom:14px;">
+        🗝 Member Access Registry — Portal Login Eligibility
+      </div>
+      <p style="font-family:'Crimson Text',serif;font-size:.9rem;color:#a08080;margin:0 0 14px;">
+        Members must be listed here before they can create a portal account.
+        Add a KTKC ID + name to grant registration access. Leave name blank to allow any name on that ID.
+      </p>
+
+      <!-- Add form -->
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
+        <input type="text" id="reg-id-input" placeholder="KTKC-0004" maxlength="20"
+          style="background:rgba(20,8,12,.7);border:1px solid #5a2030;border-radius:5px;color:#e8d8d0;
+                 font-family:'Crimson Text',serif;font-size:.92rem;padding:6px 10px;width:130px;outline:none;">
+        <input type="text" id="reg-name-input" placeholder="Full name (optional)" maxlength="80"
+          style="background:rgba(20,8,12,.7);border:1px solid #5a2030;border-radius:5px;color:#e8d8d0;
+                 font-family:'Crimson Text',serif;font-size:.92rem;padding:6px 10px;width:220px;outline:none;">
+        <button class="sm-btn" onclick="registryAdd()"
+          style="background:rgba(50,20,10,.8);border-color:#8a5030;">+ Add to Registry</button>
+        <span id="registry-msg" style="font-family:'Crimson Text',serif;font-size:.87rem;color:#c8a070;"></span>
+      </div>
+
+      <!-- Registry list -->
+      <div id="registry-list" style="font-family:'Crimson Text',serif;font-size:.9rem;color:#c8a8a8;">
+        <em style="color:#5a3030;">Loading registry…</em>
+      </div>
+
+      <!-- Pending approvals -->
+      <div style="margin-top:18px;">
+        <div class="section-title" style="font-size:.79rem;margin-bottom:10px;">⏳ Pending Account Approvals</div>
+        <div id="pending-list" style="font-family:'Crimson Text',serif;font-size:.9rem;color:#c8a8a8;">
+          <em style="color:#5a3030;">Loading…</em>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Find Member by ID ── -->
+    <div class="sm-card" id="seek-member-panel" style="margin-bottom:18px;padding:16px 20px;">
+      <div class="section-title" style="margin-bottom:12px;font-size:.82rem;">
+        ⚷ Find Member by KTKC ID
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <input
+          type="text"
+          id="seek-member-id-input"
+          placeholder="e.g. KTKC-0001"
+          maxlength="40"
+          style="
+            background:rgba(20,8,12,.7);
+            border:1px solid #5a2030;
+            border-radius:7px;
+            color:#e8d8d0;
+            font-family:'Crimson Text',serif;
+            font-size:.95rem;
+            padding:7px 12px;
+            width:180px;
+            outline:none;
+          "
+          onkeydown="if(event.key==='Enter')seekMemberById()"
+        >
+        <button
+          class="sm-btn"
+          onclick="seekMemberById()"
+          style="background:rgba(80,20,30,.8);border-color:#8a3040;"
+        >⚷ Seek</button>
+        <span id="seek-member-status" style="font-family:'Crimson Text',serif;font-size:.88rem;color:#c87070;"></span>
+      </div>
+    </div>
+
     <!-- Member Roster -->
     <div style="margin-bottom:24px;">
-      <div class="section-title">✠ Member Roster — Click a Member to Manage</div>
-      <div class="sm-card" style="padding:0;overflow:hidden;">
+      <div class="section-title">✠ Member Roster — Click Row to Manage · Check to Bulk Edit</div>
+
+      <!-- Bulk action toolbar -->
+      <div class="bulk-toolbar">
+        <label class="bulk-select-all">
+          <input type="checkbox" id="cb-select-all" onchange="toggleSelectAll(this.checked)">
+          Select All
+        </label>
+        <div class="bulk-count" id="bulk-count">0 selected</div>
+        <div class="bulk-divider"></div>
+        <button class="bulk-btn advance-btn" id="bulk-advance-btn"
+          onclick="bulkAction('advance')"
+          title="Advance each selected member to their next week lesson">
+          ▶ Unlock Next Week
+        </button>
+        <button class="bulk-btn lock-btn" id="bulk-lock-btn"
+          onclick="bulkAction('lock')"
+          title="Pause/lock progression for all selected members">
+          ⛨ Lock Progression
+        </button>
+        <div class="bulk-divider"></div>
+        <span style="font-family:'Cinzel',serif;font-size:.66rem;color:#3a1020;letter-spacing:.06em;">
+          Select members above to enable bulk actions
+        </span>
+      </div>
+
+      <div class="sm-card" style="padding:0;overflow:hidden;border-radius:0 0 14px 14px;">
         <table class="member-table">
           <thead>
             <tr>
+              <th class="cb-cell"></th>
               <th>#</th>
               <th>Member</th>
               <th>Rank</th>
               <th>Assigned Program</th>
               <th>Week</th>
               <th>Status</th>
-              <th>Exams</th>
+              <th title="Total exams taken (pending failures shown in orange)">Exams Taken</th>
+              <th style="text-align:center;">Last Result</th>
+              <th style="text-align:center;">Retest Status</th>
             </tr>
           </thead>
           <tbody id="member-tbody">
-            <tr><td colspan="7" style="color:#4a1020;text-align:center;padding:20px;">Loading roster…</td></tr>
+            <tr><td colspan="10" style="color:#4a1020;text-align:center;padding:20px;">Loading roster…</td></tr>
           </tbody>
         </table>
+      </div>
+    </div>
+
+    <div class="gold-rule-red"></div>
+
+    <!-- ── Quick-Access Tools ── -->
+    <div style="margin-bottom:24px;">
+      <div class="section-title">⚔ Schoolmaster Tools</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;">
+
+        <!-- Reading Log Dashboard -->
+        <a href="/schoolmaster/reading-log/" style="text-decoration:none;">
+          <div class="sm-card" style="
+            display:flex;align-items:center;gap:18px;
+            padding:20px 22px;
+            border:1px solid rgba(90,0,32,.7);
+            transition:border-color .2s,background .2s;
+            cursor:pointer;
+          "
+          onmouseover="this.style.borderColor='#8b0000';this.style.background='linear-gradient(160deg,rgba(34,0,20,.9),rgba(20,0,12,.9))'"
+          onmouseout="this.style.borderColor='rgba(90,0,32,.7)';this.style.background=''"
+          >
+            <div style="font-size:2rem;flex-shrink:0;">📖</div>
+            <div>
+              <div style="font-family:'Cinzel',serif;font-size:.92rem;font-weight:700;color:#ff9090;margin-bottom:4px;">Reading Log Dashboard</div>
+              <div style="font-family:'Crimson Text',serif;font-size:.85rem;color:#8a5050;line-height:1.4;">Review and manage member reading logs across all programs</div>
+            </div>
+            <div style="margin-left:auto;font-family:'Cinzel',serif;font-size:1rem;color:#5a1a1a;flex-shrink:0;">→</div>
+          </div>
+        </a>
+
+        <!-- Paper Grading Hub -->
+        <a href="/schoolmaster/paper-grading/" style="text-decoration:none;">
+          <div class="sm-card" style="
+            display:flex;align-items:center;gap:18px;
+            padding:20px 22px;
+            border:1px solid rgba(90,0,32,.7);
+            transition:border-color .2s,background .2s;
+            cursor:pointer;
+          "
+          onmouseover="this.style.borderColor='#8b0000';this.style.background='linear-gradient(160deg,rgba(34,0,20,.9),rgba(20,0,12,.9))'"
+          onmouseout="this.style.borderColor='rgba(90,0,32,.7)';this.style.background=''"
+          >
+            <div style="font-size:2rem;flex-shrink:0;">📝</div>
+            <div>
+              <div style="font-family:'Cinzel',serif;font-size:.92rem;font-weight:700;color:#ff9090;margin-bottom:4px;">Paper Grading Hub</div>
+              <div style="font-family:'Crimson Text',serif;font-size:.85rem;color:#8a5050;line-height:1.4;">Grade submitted papers and assign scores for member assessments</div>
+            </div>
+            <div style="margin-left:auto;font-family:'Cinzel',serif;font-size:1rem;color:#5a1a1a;flex-shrink:0;">→</div>
+          </div>
+        </a>
+
       </div>
     </div>
 
@@ -522,7 +826,65 @@
             <span class="profile-info-label">Age</span>
             <span class="profile-info-value" id="d-profile-age"><em style="color:#3a1020;">—</em></span>
           </div>
+          <div class="profile-info-row">
+            <span class="profile-info-label">Birthday</span>
+            <span class="profile-info-value" id="d-profile-birthday"><em style="color:#3a1020;">Not provided</em></span>
+          </div>
+          <div class="profile-info-row">
+            <span class="profile-info-label">Member ID</span>
+            <span class="profile-info-value" id="d-profile-member-id"><em style="color:#3a1020;">Not set</em></span>
+          </div>
         </div>
+      </div>
+      <!-- Edit Profile toggle -->  
+      <button class="btn-edit-toggle" id="btn-edit-profile" onclick="toggleProfileEdit()">✎ Edit Profile</button>
+
+      <!-- Edit Profile panel -->
+      <div class="profile-edit-panel" id="profile-edit-panel">
+        <div class="profile-edit-title">✎ Edit Member Profile</div>
+        <div class="profile-edit-grid">
+          <div class="profile-edit-field">
+            <label for="ep-name">Full Name</label>
+            <input type="text" id="ep-name" placeholder="Full name" maxlength="80">
+          </div>
+          <div class="profile-edit-field">
+            <label for="ep-member-id">Member ID</label>
+            <input type="text" id="ep-member-id" placeholder="e.g. KTKC-0001" maxlength="40">
+          </div>
+          <div class="profile-edit-field">
+            <label for="ep-birthday">Date of Birth</label>
+            <input type="date" id="ep-birthday" max="">
+          </div>
+          <div class="profile-edit-field">
+            <label for="ep-age">Age <span style="font-size:.6rem;color:#3a1020;">(auto-computed)</span></label>
+            <input type="text" id="ep-age" placeholder="Calculated from DOB" disabled
+              style="opacity:.5;cursor:not-allowed;">
+          </div>
+          <div class="profile-edit-field">
+            <label for="ep-email">Email Address</label>
+            <input type="email" id="ep-email" placeholder="member@email.com" maxlength="120">
+          </div>
+          <div class="profile-edit-field">
+            <label for="ep-phone">Phone Number</label>
+            <input type="tel" id="ep-phone" placeholder="(555) 000-0000" maxlength="30">
+          </div>
+        </div>
+        <div class="profile-edit-actions">
+          <button class="sm-btn green" onclick="saveProfileEdit()">✔ Save Profile</button>
+          <button class="sm-btn" onclick="toggleProfileEdit()" style="background:rgba(30,0,15,.5);">✕ Cancel</button>
+          <span class="profile-edit-status" id="profile-edit-status"></span>
+        </div>
+      </div>
+
+      <!-- Reset Passcode action -->
+      <div style="margin-top:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <button id="d-reset-passcode-btn"
+                class="unlock-btn do-reset"
+                onclick="resetPasscode()"
+                title="Reset passcode to 'ktkcuser' and email the member">
+          ⚷ Reset Passcode
+        </button>
+        <span id="d-reset-passcode-note" style="font-family:'Crimson Text',serif;font-size:.8rem;color:#6a3030;"></span>
       </div>
     </div>
 
@@ -646,6 +1008,13 @@
         All programs are <strong style="color:#c92727;">GUARDED</strong> until unlocked here.
         Unlock after the member is formally advanced in rank by the Grandmaster.
       </div>
+      <!-- Master unlock / lock-all controls -->
+      <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;">
+        <button class="unlock-btn do-unlock" style="font-size:.72rem;padding:6px 14px;letter-spacing:.06em;"
+                onclick="unlockAllPrograms()">⚔ Unlock All Programs</button>
+        <button class="unlock-btn do-lock"   style="font-size:.72rem;padding:6px 14px;letter-spacing:.06em;"
+                onclick="lockAllPrograms()">⛨ Clear All Overrides</button>
+      </div>
       <div id="d-unlock-list" style="display:flex;flex-direction:column;gap:6px;"></div>
     </div>
 
@@ -673,6 +1042,7 @@
 let allPrograms    = [];
 let allMembers     = [];
 let selectedMember = null;
+let selectedIds    = new Set();   // members checked in the bulk toolbar
 
 // ── Auth guard ──
 fetch('/auth/me')
@@ -699,6 +1069,7 @@ async function loadData() {
   populateStats();
   populateAssignSelect();
   populateRankSelect();
+  loadRegistry();
 }
 
 function populateStats() {
@@ -716,11 +1087,13 @@ function populateStats() {
 function populateRoster() {
   const tbody = document.getElementById('member-tbody');
   if (!allMembers.length) {
-    tbody.innerHTML = '<tr><td colspan="7" style="color:#4a1020;text-align:center;padding:20px;">No members enrolled yet.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="10" style="color:#4a1020;text-align:center;padding:20px;">No members enrolled yet.</td></tr>';
+    updateBulkToolbar();
     return;
   }
   tbody.innerHTML = allMembers.map((m, i) => {
     const prog = m.assignedProgram;
+    const checked = selectedIds.has(m.id) ? 'checked' : '';
 
     // Status pill
     let statusCell;
@@ -738,8 +1111,12 @@ function populateRoster() {
     const weekCell = prog && m.currentWeek
       ? `<span class="week-badge">Wk ${m.currentWeek}</span>`
       : '—';
-    const examCell = m.pendingExamCount
-      ? `<span class="pending-badge">${m.pendingExamCount}</span>`
+    const totalExams   = (m.totalExamCount != null) ? m.totalExamCount
+                         : ((m.curriculumExams||[]).length + (m.examSubmissions||[]).length);
+    const pendingCount = m.pendingExamCount || 0;
+    const examCell = totalExams
+      ? `<span style="font-family:'Cinzel',serif;font-size:.82rem;color:#e8c8a8;font-weight:700;">${totalExams}</span>`
+        + (pendingCount ? `<span class="pending-badge" style="margin-left:5px;font-size:.68rem;" title="${pendingCount} pending">${pendingCount} pend</span>` : '')
       : '<span style="color:#3a0010;">—</span>';
 
     // Rank display (abbreviated)
@@ -747,16 +1124,74 @@ function populateRoster() {
       ? `<span class="rank-badge">⚜ ${m.rankName || m.rank}</span>`
       : '<span style="color:#2a1010;font-size:.76rem;">—</span>';
 
-    return `<tr data-id="${m.id}" onclick="selectMember('${m.id}')">
-      <td style="color:#4a1020;">${i+1}</td>
-      <td style="color:#e8c8a8;font-family:'Cinzel',serif;">${m.salutation ? m.salutation+' ' : ''}${m.username}</td>
-      <td>${rankCell}</td>
-      <td>${progCell}</td>
-      <td>${weekCell}</td>
-      <td>${statusCell}</td>
-      <td style="text-align:center;">${examCell}</td>
+    // ── Last exam result: check BOTH curriculum-based exams AND legacy exams ──
+    const currExams = m.curriculumExams || [];
+    const legacySubs = m.examSubmissions || [];
+    let lastResultCell = `<span class="pf-none">—</span>`;
+    let retestCell     = `<span class="pf-none">—</span>`;
+
+    if (currExams.length) {
+      // Curriculum exams are auto-graded — most recent is first (sorted desc)
+      const last = currExams[0];
+      if (last.passed) {
+        lastResultCell = `<span class="pf-pass" title="Passed ${last.programSlug} Week ${last.weekNumber} — ${last.score}%">P</span>`;
+        retestCell = `<span class="pf-none">—</span>`;
+      } else {
+        lastResultCell = `<span class="pf-fail" title="Failed ${last.programSlug} Week ${last.weekNumber} — ${last.score}%">F</span>`;
+        // Auto-retest: SM does NOT approve retests for curriculum exams — 24hr cooldown is automatic.
+        retestCell = `<span class="retest-cooldown-badge" title="Auto-retest: student waits 24hr after failure — no SM approval needed">⏳ 24hr Auto</span>`;
+      }
+    } else {
+      // Fall back to legacy examSubmissions
+      const reviewed = legacySubs.filter(s => s.reviewedAt);
+      if (reviewed.length) {
+        const last     = reviewed[reviewed.length - 1];
+        const gradeRaw = (last.grade || '').toLowerCase();
+        const isPassed = gradeRaw.includes('pass') || gradeRaw === 'p';
+        const isFailed = gradeRaw.includes('fail') || gradeRaw === 'f';
+        if (isPassed) {
+          lastResultCell = `<span class="pf-pass" title="Passed — ${last.grade}">P</span>`;
+          retestCell     = `<span class="pf-none" title="No retest needed">—</span>`;
+        } else if (isFailed) {
+          const examIdx  = legacySubs.lastIndexOf(last);
+          const alreadyApproved = last.retestApproved;
+          lastResultCell = `<span class="pf-fail" title="Failed — ${last.grade}">F</span>`;
+          retestCell = alreadyApproved
+            ? `<span class="retest-btn approved" title="Retest already approved">✔ Approved</span>`
+            : `<button class="retest-btn" title="Approve retest for this member"
+                 onclick="event.stopPropagation();inlineRetest('${m.id}',${examIdx})">
+                 ↺ Retest
+               </button>`;
+        } else {
+          lastResultCell = `<span style="font-family:'Cinzel',serif;font-size:.66rem;color:#a07040;"
+            title="${last.grade}">${(last.grade||'').slice(0,6)}</span>`;
+        }
+      } else if (legacySubs.length) {
+        lastResultCell = `<span style="font-family:'Cinzel',serif;font-size:.62rem;color:#6a4020;">Pending</span>`;
+      }
+    }
+
+    return `<tr data-id="${m.id}" class="${selectedIds.has(m.id) ? 'selected' : ''}">
+      <td class="cb-cell" onclick="event.stopPropagation()">
+        <input class="row-cb" type="checkbox" data-id="${m.id}" ${checked}
+          onchange="toggleRowSelect('${m.id}',this.checked)">
+      </td>
+      <td style="color:#4a1020;" onclick="selectMember('${m.id}')">${i+1}</td>
+      <td style="color:#e8c8a8;font-family:'Cinzel',serif;" onclick="selectMember('${m.id}')">${m.salutation ? m.salutation+' ' : ''}${m.username}</td>
+      <td onclick="selectMember('${m.id}')">${rankCell}</td>
+      <td onclick="selectMember('${m.id}')">${progCell}</td>
+      <td onclick="selectMember('${m.id}')">${weekCell}</td>
+      <td onclick="selectMember('${m.id}')">${statusCell}</td>
+      <td style="text-align:center;" onclick="selectMember('${m.id}')">${examCell}</td>
+      <td style="text-align:center;">${lastResultCell}</td>
+      <td style="text-align:center;">${retestCell}</td>
     </tr>`;
   }).join('');
+  updateBulkToolbar();
+  // Sync the select-all checkbox
+  const allChecked = allMembers.length > 0 && allMembers.every(m => selectedIds.has(m.id));
+  document.getElementById('cb-select-all').checked = allChecked;
+  document.getElementById('cb-select-all').indeterminate = !allChecked && selectedIds.size > 0;
 }
 
 function populateProgramGrid() {
@@ -772,10 +1207,10 @@ function populateProgramGrid() {
            style="color:#c92727;font-family:'Cinzel',serif;font-size:.72rem;text-decoration:none;">
           Program Site →
         </a>
-        ${p.navAliases?.schoolmaster ? `<a href="/${p.navAliases.schoolmaster}" target="_blank"
+        <a href="/programs/${p.slug}/schoolmaster" target="_blank"
            style="color:#e8c96a;font-family:'Cinzel',serif;font-size:.72rem;text-decoration:none;">
-          SM Guide →
-        </a>` : ''}
+          SM Resources →
+        </a>
       </div>
     </div>
   `).join('');
@@ -794,12 +1229,177 @@ function populateRankSelect() {
     allPrograms.map(p => `<option value="${p.slug}">${p.title}</option>`).join('');
 }
 
+// ── Member Access Registry ──
+async function loadRegistry() {
+  try {
+    const [regRes, pendRes] = await Promise.all([
+      fetch('/api/registry', { credentials: 'include' }),
+      fetch('/api/auth/pending', { credentials: 'include' })
+    ]);
+    const regData  = regRes.ok  ? await regRes.json()  : { items: [] };
+    const pendData = pendRes.ok ? await pendRes.json() : { items: [] };
+    renderRegistryList(regData.items || []);
+    renderPendingList(pendData.items || []);
+  } catch (e) {
+    document.getElementById('registry-list').innerHTML = '<em style="color:#c87070;">Failed to load registry.</em>';
+  }
+}
+
+function renderRegistryList(items) {
+  const el = document.getElementById('registry-list');
+  if (!items.length) {
+    el.innerHTML = '<em style="color:#5a3030;">Registry is empty. Add a KTKC ID above to allow registration.</em>';
+    return;
+  }
+  el.innerHTML = `<table style="width:100%;border-collapse:collapse;font-size:.88rem;">
+    <thead><tr>
+      <th style="text-align:left;padding:6px 8px;color:#c9a227;font-family:'Cinzel',serif;font-size:.72rem;text-transform:uppercase;border-bottom:1px solid rgba(212,175,55,.2);">KTKC ID</th>
+      <th style="text-align:left;padding:6px 8px;color:#c9a227;font-family:'Cinzel',serif;font-size:.72rem;text-transform:uppercase;border-bottom:1px solid rgba(212,175,55,.2);">Name</th>
+      <th style="text-align:left;padding:6px 8px;color:#c9a227;font-family:'Cinzel',serif;font-size:.72rem;text-transform:uppercase;border-bottom:1px solid rgba(212,175,55,.2);">Eligible</th>
+      <th style="text-align:left;padding:6px 8px;color:#c9a227;font-family:'Cinzel',serif;font-size:.72rem;text-transform:uppercase;border-bottom:1px solid rgba(212,175,55,.2);">Account</th>
+      <th style="padding:6px 8px;border-bottom:1px solid rgba(212,175,55,.2);"></th>
+    </tr></thead>
+    <tbody>${items.map(r => {
+      const acctBadge = r.account
+        ? (r.account.approvalStatus === 'approved'
+            ? '<span style="color:#70c870;">✔ Approved</span>'
+            : `<span style="color:#e8c96a;">⏳ ${r.account.approvalStatus}</span>`)
+        : '<span style="color:#5a4a32;">None</span>';
+      return `<tr>
+        <td style="padding:6px 8px;color:#e8d8d0;border-bottom:1px solid rgba(255,255,255,.04);">${r.memberId}</td>
+        <td style="padding:6px 8px;color:#c8b898;border-bottom:1px solid rgba(255,255,255,.04);">${r.fullName || '<em style="color:#5a4030;">Any</em>'}</td>
+        <td style="padding:6px 8px;border-bottom:1px solid rgba(255,255,255,.04);">${r.portalEligible ? '<span style="color:#70c870;">Yes</span>' : '<span style="color:#c87070;">No</span>'}</td>
+        <td style="padding:6px 8px;border-bottom:1px solid rgba(255,255,255,.04);">${acctBadge}</td>
+        <td style="padding:6px 8px;border-bottom:1px solid rgba(255,255,255,.04);text-align:right;">
+          ${r.account && r.account.approvalStatus === 'pending'
+            ? `<button onclick="approveAccount('${r.memberId}')" style="font-size:.75rem;padding:3px 8px;background:rgba(20,60,20,.8);border:1px solid #3a7a3a;color:#90e090;border-radius:3px;cursor:pointer;margin-right:4px;">✔ Approve</button>`
+            : ''}
+          <button onclick="registryRemove('${r.memberId}')" style="font-size:.75rem;padding:3px 8px;background:rgba(60,10,10,.8);border:1px solid #7a2020;color:#e08080;border-radius:3px;cursor:pointer;">✕ Remove</button>
+        </td>
+      </tr>`;
+    }).join('')}</tbody>
+  </table>`;
+}
+
+function renderPendingList(items) {
+  const el = document.getElementById('pending-list');
+  if (!items.length) {
+    el.innerHTML = '<em style="color:#5a3030;">No pending approvals.</em>';
+    return;
+  }
+  el.innerHTML = items.map(a => `
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+      <div>
+        <span style="color:#e8d8d0;">${a.fullName}</span>
+        <span style="color:#5a4a32;margin:0 6px;">·</span>
+        <span style="color:#c9a227;">${a.memberId}</span>
+        <span style="color:#5a4a32;margin:0 6px;">·</span>
+        <span style="color:#7a6a4e;font-size:.82rem;">${a.email || ''}</span>
+      </div>
+      <div>
+        <button onclick="approveAccount('${a.memberId}')" style="font-size:.75rem;padding:3px 10px;background:rgba(20,60,20,.8);border:1px solid #3a7a3a;color:#90e090;border-radius:3px;cursor:pointer;margin-right:6px;">✔ Approve</button>
+        <button onclick="rejectAccount('${a.memberId}')" style="font-size:.75rem;padding:3px 10px;background:rgba(60,10,10,.8);border:1px solid #7a2020;color:#e08080;border-radius:3px;cursor:pointer;">✕ Reject</button>
+      </div>
+    </div>`).join('');
+}
+
+async function registryAdd() {
+  const id   = (document.getElementById('reg-id-input').value || '').trim().toUpperCase();
+  const name = (document.getElementById('reg-name-input').value || '').trim();
+  const msg  = document.getElementById('registry-msg');
+  if (!id) { msg.style.color='#c87070'; msg.textContent='Enter a KTKC ID.'; return; }
+  try {
+    const res  = await fetch('/api/registry/add', {
+      method:'POST', credentials:'include',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ memberId: id, fullName: name, portalEligible: true })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Failed.');
+    msg.style.color='#70c870'; msg.textContent=`✔ ${id} added to registry.`;
+    document.getElementById('reg-id-input').value='';
+    document.getElementById('reg-name-input').value='';
+    setTimeout(()=>{ msg.textContent=''; }, 3000);
+    loadRegistry();
+  } catch(e) { msg.style.color='#c87070'; msg.textContent=e.message; }
+}
+
+async function registryRemove(memberId) {
+  if (!confirm(`Remove ${memberId} from registry? They will no longer be able to register.`)) return;
+  try {
+    const res  = await fetch(`/api/registry/${encodeURIComponent(memberId)}`, {
+      method:'DELETE', credentials:'include'
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Failed.');
+    loadRegistry();
+  } catch(e) { alert('Error: ' + e.message); }
+}
+
+async function approveAccount(memberId) {
+  try {
+    const res  = await fetch('/api/auth/approve', {
+      method:'POST', credentials:'include',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ memberId, action:'approve' })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Failed.');
+    loadRegistry();
+  } catch(e) { alert('Error approving: ' + e.message); }
+}
+
+async function rejectAccount(memberId) {
+  if (!confirm(`Reject account for ${memberId}?`)) return;
+  try {
+    const res  = await fetch('/api/auth/approve', {
+      method:'POST', credentials:'include',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ memberId, action:'reject' })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Failed.');
+    loadRegistry();
+  } catch(e) { alert('Error rejecting: ' + e.message); }
+}
+
+// ── Seek member by KTKC ID ──
+function seekMemberById() {
+  const raw    = (document.getElementById('seek-member-id-input').value || '').trim();
+  const status = document.getElementById('seek-member-status');
+  if (!raw) {
+    status.style.color = '#c87070';
+    status.textContent = 'Enter a Member ID first.';
+    return;
+  }
+  // Normalise: upper-case, collapse internal spaces around hyphen
+  const query = raw.toUpperCase().replace(/\s*-\s*/g, '-').replace(/\s+/g, '');
+  const match = allMembers.find(m =>
+    m.memberId && m.memberId.toUpperCase().replace(/\s*-\s*/g, '-').replace(/\s+/g, '') === query
+  );
+  if (!match) {
+    status.style.color = '#c87070';
+    status.textContent = `No member found with ID "${raw}".`;
+    return;
+  }
+  status.style.color = '#70c870';
+  status.textContent = `✔ Found: ${match.username}`;
+  // Scroll to member row in table and open detail panel
+  selectMember(match.id);
+  // Highlight the row by scrolling it into view
+  const row = document.querySelector(`.member-table tr[data-id="${match.id}"]`);
+  if (row) row.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
 // ── Member detail ──
 function selectMember(id) {
   selectedMember = allMembers.find(m => m.id === id);
   if (!selectedMember) return;
-  document.querySelectorAll('.member-table tr').forEach(r => r.classList.remove('selected'));
-  document.querySelector(`tr[data-id="${id}"]`)?.classList.add('selected');
+  // Keep bulk-checked highlights; only add the detail-open highlight on clicked row
+  document.querySelectorAll('.member-table tr').forEach(r => {
+    const rid = r.dataset.id;
+    r.classList.toggle('selected', rid === id || (rid ? selectedIds.has(rid) : false));
+  });
   renderDetailPanel(selectedMember);
   document.getElementById('detail-overlay').classList.add('open');
 }
@@ -863,8 +1463,7 @@ function renderDetailPanel(m) {
   const smLink   = document.getElementById('d-sm-site-link');
   if (prog) {
     siteLink.href = '/'+prog.siteEntry; siteLink.style.display = 'inline';
-    if (prog.schoolmasterEntry) { smLink.href = '/'+prog.schoolmasterEntry; smLink.style.display = 'inline'; }
-    else smLink.style.display = 'none';
+    smLink.href = `/programs/${prog.slug}/schoolmaster`; smLink.style.display = 'inline';
   } else {
     siteLink.style.display = 'none';
     smLink.style.display   = 'none';
@@ -941,13 +1540,81 @@ function renderRankSection(m) {
 }
 
 // ── Profile section ──
+// ── Profile Edit ── 
+let _profileEditOpen = false;
+function toggleProfileEdit() {
+  _profileEditOpen = !_profileEditOpen;
+  const panel = document.getElementById('profile-edit-panel');
+  const btn   = document.getElementById('btn-edit-profile');
+  panel.classList.toggle('open', _profileEditOpen);
+  btn.textContent = _profileEditOpen ? '✕ Close Edit' : '✎ Edit Profile';
+  document.getElementById('profile-edit-status').className = 'profile-edit-status';
+}
+
+function saveProfileEdit() {
+  if (!selectedMember) return;
+  const name     = document.getElementById('ep-name').value.trim();
+  const memberId = document.getElementById('ep-member-id').value.trim();
+  const birthday = document.getElementById('ep-birthday').value.trim();
+  const email    = document.getElementById('ep-email').value.trim();
+  const phone    = document.getElementById('ep-phone').value.trim();
+  const statusEl = document.getElementById('profile-edit-status');
+
+  if (!name) {
+    statusEl.textContent = 'Full name is required.';
+    statusEl.className = 'profile-edit-status err';
+    return;
+  }
+
+  statusEl.textContent = 'Saving…';
+  statusEl.className = 'profile-edit-status ok';
+
+  fetch(`/api/profile/${selectedMember.id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ username: name, memberId, birthday, email, phone })
+  })
+    .then(r => r.json())
+    .then(data => {
+      if (data.error) {
+        statusEl.textContent = data.error;
+        statusEl.className = 'profile-edit-status err';
+        return;
+      }
+      statusEl.textContent = '✔ Profile saved.';
+      statusEl.className = 'profile-edit-status ok';
+      // Refresh display panel
+      renderMemberProfile(selectedMember.id);
+      // Update header name if changed
+      if (data.profile && data.profile.username) {
+        document.getElementById('d-name').textContent = data.profile.username;
+        selectedMember.username = data.profile.username;
+      }
+      setTimeout(() => {
+        statusEl.className = 'profile-edit-status';
+      }, 3000);
+    })
+    .catch(() => {
+      statusEl.textContent = 'Save failed — please try again.';
+      statusEl.className = 'profile-edit-status err';
+    });
+}
+
 function renderMemberProfile(memberId) {
-  document.getElementById('d-avatar-img').style.display = 'none';
-  document.getElementById('d-avatar-placeholder').style.display = 'flex';
-  document.getElementById('d-temple-badge').style.display = 'none';
+  // Close any open edit panel
+  _profileEditOpen = false;
+  const panel = document.getElementById('profile-edit-panel');
+  const editBtn = document.getElementById('btn-edit-profile');
+  if (panel) { panel.classList.remove('open'); }
+  if (editBtn) { editBtn.textContent = '✎ Edit Profile'; }
   document.getElementById('d-profile-email').innerHTML = '<em style="color:#3a1020;">Loading…</em>';
   document.getElementById('d-profile-phone').innerHTML = '<em style="color:#3a1020;">Loading…</em>';
   document.getElementById('d-profile-age').innerHTML   = '<em style="color:#3a1020;">—</em>';
+  document.getElementById('d-profile-birthday').innerHTML = '<em style="color:#3a1020;">Not provided</em>';
+  document.getElementById('d-profile-member-id').innerHTML = '<em style="color:#3a1020;">Not set</em>';
+  document.getElementById('d-avatar-img').style.display = 'none';
+  document.getElementById('d-avatar-placeholder').style.display = 'flex';
+  document.getElementById('d-temple-badge').style.display = 'none';
 
   fetch(`/api/profile/${memberId}`)
     .then(r => r.ok ? r.json() : Promise.reject(r.status))
@@ -969,8 +1636,21 @@ function renderMemberProfile(memberId) {
       const emailEl = document.getElementById('d-profile-email');
       if (data.email) {
         emailEl.innerHTML = `<a href="mailto:${data.email}" style="color:#c8a8a8;text-decoration:none;">${data.email}</a>`;
+        // Sync email onto selectedMember so resetPasscode() can read it
+        if (selectedMember) selectedMember.email = data.email;
       } else {
         emailEl.innerHTML = '<em style="color:#3a1020;">Not provided</em>';
+        if (selectedMember) selectedMember.email = null;
+      }
+      // Update reset-passcode button state
+      const resetBtn  = document.getElementById('d-reset-passcode-btn');
+      const resetNote = document.getElementById('d-reset-passcode-note');
+      if (resetBtn) {
+        // Button is always enabled — SM can still reset even without email (they inform member manually)
+        resetBtn.disabled = false;
+      }
+      if (resetNote) {
+        resetNote.textContent = data.email ? '' : '\u26a0 No email \u2014 reset will not send notification.';
       }
       const phoneEl = document.getElementById('d-profile-phone');
       if (data.phone) {
@@ -984,6 +1664,37 @@ function renderMemberProfile(memberId) {
       } else {
         ageEl.innerHTML = '<em style="color:#3a1020;">Not provided</em>';
       }
+      const bdEl = document.getElementById('d-profile-birthday');
+      if (data.birthday) {
+        // Format ISO YYYY-MM-DD as a readable date without timezone shift
+        const [y, m, d] = data.birthday.split('-');
+        bdEl.textContent = new Date(+y, +m - 1, +d).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+      } else {
+        bdEl.innerHTML = '<em style="color:#3a1020;">Not provided</em>';
+      }
+      const midEl = document.getElementById('d-profile-member-id');
+      if (data.memberId) {
+        midEl.textContent = data.memberId;
+      } else {
+        midEl.innerHTML = '<em style="color:#3a1020;">Not set</em>';
+      }
+
+      // ── Pre-fill edit inputs with current values ──
+      document.getElementById('ep-name').value     = data.username  || '';
+      document.getElementById('ep-member-id').value = data.memberId || '';
+      document.getElementById('ep-birthday').value  = data.birthday || '';
+      document.getElementById('ep-email').value     = data.email    || '';
+      document.getElementById('ep-phone').value     = data.phone    || '';
+      // Age: auto-compute from birthday
+      const ageInput = document.getElementById('ep-age');
+      if (data.age !== null && data.age !== undefined) {
+        ageInput.value = `${data.age} years old`;
+      } else {
+        ageInput.value = '';
+        ageInput.placeholder = 'Calculated from DOB';
+      }
+      // Set DOB max to today
+      document.getElementById('ep-birthday').max = new Date().toISOString().split('T')[0];
     })
     .catch(() => {
       document.getElementById('d-profile-email').innerHTML = '<em style="color:#3a1020;">Unavailable</em>';
@@ -992,37 +1703,126 @@ function renderMemberProfile(memberId) {
 }
 
 function renderExams(m) {
-  const el   = document.getElementById('d-exams');
-  const subs = m.examSubmissions || [];
-  if (!subs.length) { el.innerHTML = '<div style="color:#4a1020;font-size:.85rem;">No exam submissions yet.</div>'; return; }
-  el.innerHTML = subs.map((s, i) => {
-    const prog = allPrograms.find(p => p.slug === s.programSlug);
-    const answers = (s.answers||[]).map(a => `
-      <div class="qa-item">
-        <div class="qa-q">${a.question || 'Q'+(i+1)}</div>
-        <div class="qa-a">${a.answer   || '<em style="color:#4a1020;">No answer</em>'}</div>
-      </div>`).join('');
-    const status = s.reviewedAt
-      ? `<span class="exam-status-reviewed">✔ Reviewed · Grade: ${s.grade||'—'}</span>`
-      : `<span class="exam-status-pending">⏳ Pending Review</span>`;
-    const reviewForm = !s.reviewedAt ? `
-      <div class="review-form">
-        <input type="text" id="grade-${i}" placeholder="Grade (e.g. Pass / 85%)">
-        <textarea id="notes-${i}" placeholder="Feedback / notes…" rows="2"></textarea>
-        <button class="sm-btn gold" onclick="submitReview(${i})">Save Review</button>
-      </div>` : `<div style="margin-top:8px;font-size:.82rem;color:#6a4040;">Notes: ${s.notes||'—'}</div>`;
-    return `<div class="exam-item">
-      <div class="exam-item-header">
-        <div>
-          <div class="exam-meta">${prog ? prog.title : s.programSlug} · Week ${s.week}</div>
-          <div style="font-size:.76rem;color:#3a1010;margin-top:2px;">${new Date(s.submittedAt).toLocaleString()}</div>
+  const el = document.getElementById('d-exams');
+
+  // ── Curriculum-based exams (new system: program-hub.html → /api/assessment/:slug/submit) ──
+  const currExams = m.curriculumExams || [];
+
+  // ── Legacy manual exams (old system: /api/progression/me/exam) ──
+  const legacySubs = m.examSubmissions || [];
+
+  if (!currExams.length && !legacySubs.length) {
+    el.innerHTML = '<div style="color:#4a1020;font-size:.85rem;">No exam submissions yet.</div>';
+    return;
+  }
+
+  let html = '';
+
+  // Render curriculum-based exams first (auto-graded, most important)
+  if (currExams.length) {
+    html += `<div style="font-size:.76rem;color:#8a6060;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">
+      ✠ Program Hub Exams (Auto-Graded)</div>`;
+    html += currExams.map(s => {
+      const prog = allPrograms.find(p => p.slug === s.programSlug);
+      const progTitle = prog ? prog.title : (s.programSlug || '—');
+      const passClass = s.passed ? 'exam-status-reviewed' : 'exam-status-pending';
+      const passLabel = s.passed
+        ? `<span class="${passClass}">✔ Passed — ${s.score}%</span>`
+        : `<span class="${passClass}">✗ Failed — ${s.score}% (need ${s.passingScore}%)</span>`;
+
+      // Build per-question review
+      const reviewHtml = (s.review || []).map(r => `
+        <div class="qa-item" style="border-left:2px solid ${r.isCorrect ? '#2a6a2a' : '#6a2020'};padding-left:8px;margin:4px 0;">
+          <div class="qa-q" style="font-size:.78rem;">Q${r.questionNumber}: ${r.prompt}</div>
+          <div class="qa-a" style="font-size:.76rem;">
+            Your answer: <strong>${r.submittedAnswer}</strong> — ${r.submittedText}<br>
+            ${!r.isCorrect ? `Correct: <strong>${r.correctAnswer}</strong> — ${r.correctText}<br>` : ''}
+            <em style="color:#6a5040;">${r.explanation}</em>
+          </div>
+        </div>`).join('');
+
+      // Unlock button — pass studentId from submission (no dependency on m.email being loaded).
+      // NOTE: Retests are AUTOMATIC (24hr cooldown). SM approves PROGRESSION only, not retests.
+      const unlockBtn = s.passed ? `
+        <button class="sm-btn gold" style="font-size:.76rem;padding:4px 10px;margin-top:6px;"
+          onclick="approveCurriculumUnlock('${s.programSlug}', ${s.weekNumber}, '${(s.studentId||'').replace(/'/g,"\\'")}')"  >
+          ✠ Approve Week ${s.weekNumber} Unlock</button>` :
+        `<div style="margin-top:6px;font-size:.76rem;color:#8a6040;font-family:'Crimson Text',serif;">
+          ✗ Failed — ${s.score}% (need ${s.passingScore}%) · Student auto-retests after 24-hour cooldown — no SM action required.
+        </div>`;
+
+      return `<div class="exam-item">
+        <div class="exam-item-header">
+          <div>
+            <div class="exam-meta">${progTitle} · Week ${s.weekNumber}${s.weekTitle ? ' — ' + s.weekTitle : ''}</div>
+            <div style="font-size:.76rem;color:#3a1010;margin-top:2px;">${new Date(s.submittedAt).toLocaleString()}</div>
+          </div>
+          ${passLabel}
         </div>
-        ${status}
-      </div>
-      ${answers ? `<div class="qa-list">${answers}</div>` : ''}
-      ${reviewForm}
-    </div>`;
-  }).join('');
+        ${reviewHtml ? `<div class="qa-list" style="margin-top:8px;">${reviewHtml}</div>` : ''}
+        ${unlockBtn}
+      </div>`;
+    }).join('');
+  }
+
+  // Render legacy manual exams (old system, kept for historical data)
+  if (legacySubs.length) {
+    html += `<div style="font-size:.76rem;color:#8a6060;text-transform:uppercase;letter-spacing:.08em;margin:12px 0 6px;">
+      Legacy Manual Submissions</div>`;
+    html += legacySubs.map((s, i) => {
+      const prog = allPrograms.find(p => p.slug === s.programSlug);
+      const answers = (s.answers||[]).map(a => `
+        <div class="qa-item">
+          <div class="qa-q">${a.question || 'Q'+(i+1)}</div>
+          <div class="qa-a">${a.answer   || '<em style="color:#4a1020;">No answer</em>'}</div>
+        </div>`).join('');
+      const status = s.reviewedAt
+        ? `<span class="exam-status-reviewed">✔ Reviewed · Grade: ${s.grade||'—'}</span>`
+        : `<span class="exam-status-pending">⏳ Pending Review</span>`;
+      const reviewForm = !s.reviewedAt ? `
+        <div class="review-form">
+          <input type="text" id="grade-${i}" placeholder="Grade (e.g. Pass / 85%)">
+          <textarea id="notes-${i}" placeholder="Feedback / notes…" rows="2"></textarea>
+          <button class="sm-btn gold" onclick="submitReview(${i})">Save Review</button>
+        </div>` : `<div style="margin-top:8px;font-size:.82rem;color:#6a4040;">Notes: ${s.notes||'—'}</div>`;
+      return `<div class="exam-item">
+        <div class="exam-item-header">
+          <div>
+            <div class="exam-meta">${prog ? prog.title : s.programSlug} · Week ${s.week||'—'}</div>
+            <div style="font-size:.76rem;color:#3a1010;margin-top:2px;">${new Date(s.submittedAt).toLocaleString()}</div>
+          </div>
+          ${status}
+        </div>
+        ${answers ? `<div class="qa-list">${answers}</div>` : ''}
+        ${reviewForm}
+      </div>`;
+    }).join('');
+  }
+
+  el.innerHTML = html;
+}
+
+// Approve curriculum-system week unlock from SM dashboard exam panel
+async function approveCurriculumUnlock(programSlug, weekNumber, studentId) {
+  // studentId is the pre-resolved key from the submission record (email or username-slug).
+  // We use the open member's display name for the confirm dialog.
+  const memberName = selectedMember ? selectedMember.username : studentId;
+  if (!confirm(`Approve Week ${weekNumber} unlock for ${memberName}?\n\nThis allows them to proceed to Week ${weekNumber + 1}.`)) return;
+  try {
+    const res = await fetch(`/api/course/schoolmaster/${programSlug}/unlock`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ studentId, weekNumber, approvedBy: 'Schoolmaster', note: 'Approved via SM Dashboard' })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Unlock failed');
+    alert(`✔ Week ${weekNumber} approved — ${memberName} may now proceed to Week ${weekNumber + 1}.`);
+    // Reload member data to refresh the panel
+    if (selectedMember) await refreshMember(selectedMember.id);
+  } catch (err) {
+    alert(`⚠ ${err.message}`);
+  }
 }
 
 function renderHistory(m) {
@@ -1055,7 +1855,11 @@ function renderNotes(m) {
 function closeDetail(e) {
   if (e && e.target !== document.getElementById('detail-overlay')) return;
   document.getElementById('detail-overlay').classList.remove('open');
-  document.querySelectorAll('.member-table tr').forEach(r => r.classList.remove('selected'));
+  // Restore selected class only for bulk-checked rows (not the detail-highlight)
+  document.querySelectorAll('.member-table tr').forEach(r => {
+    const id = r.dataset.id;
+    r.classList.toggle('selected', id ? selectedIds.has(id) : false);
+  });
   selectedMember = null;
 }
 
@@ -1091,6 +1895,93 @@ function renderUnlockList(m) {
       ${btn}
     </div>`;
   }).join('');
+}
+
+// ── Bulk selection ──
+
+function toggleRowSelect(id, checked) {
+  if (checked) selectedIds.add(id);
+  else         selectedIds.delete(id);
+  // Update row highlight immediately without full re-render
+  const row = document.querySelector(`tr[data-id="${id}"]`);
+  if (row) row.classList.toggle('selected', checked);
+  updateBulkToolbar();
+  // Sync select-all checkbox
+  const allChecked = allMembers.length > 0 && allMembers.every(m => selectedIds.has(m.id));
+  const cbAll = document.getElementById('cb-select-all');
+  cbAll.checked = allChecked;
+  cbAll.indeterminate = !allChecked && selectedIds.size > 0;
+}
+
+function toggleSelectAll(checked) {
+  if (checked) allMembers.forEach(m => selectedIds.add(m.id));
+  else         selectedIds.clear();
+  // Update all checkboxes & row highlights without full re-render
+  document.querySelectorAll('.row-cb').forEach(cb => {
+    cb.checked = checked;
+    const row = cb.closest('tr');
+    if (row) row.classList.toggle('selected', checked);
+  });
+  updateBulkToolbar();
+}
+
+function updateBulkToolbar() {
+  const n       = selectedIds.size;
+  const countEl = document.getElementById('bulk-count');
+  const advBtn  = document.getElementById('bulk-advance-btn');
+  const lockBtn = document.getElementById('bulk-lock-btn');
+  countEl.textContent = n === 0 ? '0 selected' : `${n} member${n>1?'s':''} selected`;
+  countEl.classList.toggle('has-selection', n > 0);
+  advBtn.classList.toggle('enabled', n > 0);
+  lockBtn.classList.toggle('enabled', n > 0);
+}
+
+async function bulkAction(action) {
+  const ids = [...selectedIds];
+  if (!ids.length) return;
+
+  const label  = action === 'advance' ? 'advance to the next week lesson' : 'LOCK (pause) progression';
+  const names  = allMembers.filter(m => selectedIds.has(m.id)).map(m => m.username).join(', ');
+  if (!confirm(`Bulk ${action === 'advance' ? 'unlock next week' : 'lock progression'} for:\n${names}\n\nProceed?`)) return;
+
+  const res  = await fetch('/api/progression/bulk-advance', {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ memberIds: ids, action })
+  });
+  const data = await res.json();
+  if (res.ok) {
+    toast(data.message, action === 'advance');
+    // Clear selection & refresh
+    selectedIds.clear();
+    await loadData();
+  } else {
+    toast(data.error || 'Bulk action failed.');
+  }
+}
+
+// ── Inline retest approval (from roster row, no profile open needed) ──
+async function inlineRetest(memberId, examIdx) {
+  const member = allMembers.find(m => m.id === memberId);
+  if (!member) return;
+  if (!confirm(`Approve retest for ${member.username} (exam submission ${examIdx + 1})?\nThis allows them to retake the week exam.`)) return;
+
+  const res  = await fetch('/api/progression/bulk-retest', {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ memberId, examIdx })
+  });
+  const data = await res.json();
+  if (res.ok) {
+    toast(`✔ Retest approved — ${member.username}`, true);
+    // Refresh just this member's row
+    const r       = await fetch(`/api/progression/member/${memberId}`);
+    const updated = await r.json();
+    const idx     = allMembers.findIndex(m => m.id === memberId);
+    if (idx !== -1) allMembers[idx] = updated;
+    populateRoster();
+    populateStats();
+  } else {
+    toast(data.error || 'Retest approval failed.');
+  }
 }
 
 // ── Actions ──
@@ -1208,6 +2099,73 @@ async function lockProgram(slug) {
   const data = await res.json();
   if (!data.ok) { toast(data.error || 'Error'); return; }
   toast(`⛨ ${prog ? prog.title : slug} — Locked`);
+  await refreshMember(selectedMember.id);
+}
+
+async function unlockAllPrograms() {
+  if (!selectedMember) return;
+  if (!confirm(`Unlock ALL 11 programs for ${selectedMember.username}?\n\nThey will be able to access every program hub from their member dashboard.`)) return;
+  const res  = await fetch(`/api/progression/member/${selectedMember.id}/unlock-all`, { method: 'POST' });
+  const data = await res.json();
+  if (!data.ok) { toast(data.error || 'Error'); return; }
+  toast(`⚔ All programs unlocked for ${selectedMember.username}`, true);
+  await refreshMember(selectedMember.id);
+}
+
+// ── Reset passcode ──
+async function resetPasscode() {
+  if (!selectedMember) return;
+  const hasEmail = !!(selectedMember.email);
+  const confirmMsg = hasEmail
+    ? `Reset passcode for ${selectedMember.username} to "ktkcuser"?\n\nA notification email will be sent to:\n${selectedMember.email}`
+    : `Reset passcode for ${selectedMember.username} to "ktkcuser"?\n\n⚠ No email on file — you will need to inform them directly.`;
+  if (!confirm(confirmMsg)) return;
+
+  const btn = document.getElementById('d-reset-passcode-btn');
+  if (btn) { btn.disabled = true; btn.textContent = '⟳ Resetting…'; }
+
+  try {
+    const res  = await fetch(`/auth/reset-password/${selectedMember.id}`, {
+      method: 'POST', credentials: 'include'
+    });
+    const data = await res.json();
+
+    if (!data.ok) {
+      toast(data.error || 'Reset failed.');
+      return;
+    }
+
+    // Primary toast
+    toast(`⚷ ${data.message}`, true);
+
+    // If Ethereal dev-preview URL is present, show a clickable link note
+    if (data.preview) {
+      const note = document.getElementById('d-reset-passcode-note');
+      if (note) {
+        note.innerHTML = `📧 <a href="${data.preview}" target="_blank"
+          style="color:#c9a227;text-decoration:underline;">Preview email (dev mode)</a>`;
+      }
+    }
+
+    // If member has no email, accent the warning
+    if (data.noEmail) {
+      const note = document.getElementById('d-reset-passcode-note');
+      if (note) note.textContent = '⚠ No email on file — inform member directly.';
+    }
+  } catch (err) {
+    toast('Network error during reset.');
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = '⚷ Reset Passcode'; }
+  }
+}
+
+async function lockAllPrograms() {
+  if (!selectedMember) return;
+  if (!confirm(`Clear ALL program overrides for ${selectedMember.username}?\n\nOnly their current and completed programs will remain accessible. Future programs will be GUARDED again.`)) return;
+  const res  = await fetch(`/api/progression/member/${selectedMember.id}/lock-all`, { method: 'POST' });
+  const data = await res.json();
+  if (!data.ok) { toast(data.error || 'Error'); return; }
+  toast(`⛨ Program overrides cleared for ${selectedMember.username}`);
   await refreshMember(selectedMember.id);
 }
 

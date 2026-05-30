@@ -9,9 +9,7 @@
 const fs    = require('fs');
 const path  = require('path');
 const bcrypt = require('bcryptjs');
-
-const DATA_DIR   = path.join(__dirname, '..', '..', 'data');
-const USERS_FILE = path.join(DATA_DIR, 'users.json');
+const { USERS_FILE } = require('../config/dataPaths');
 
 // ── Reserved names that members cannot register ──
 const RESERVED_NAMES = ['schoolmaster26', 'schoolmaster', 'admin', 'administrator'];
@@ -22,7 +20,7 @@ const SM_PASSWORD = process.env.SM_PASSWORD || 'KTKC26';
 
 // ── Ensure data dir + file exist ──
 function init() {
-  if (!fs.existsSync(DATA_DIR))  fs.mkdirSync(DATA_DIR, { recursive: true });
+  // dataPaths.js already ensures the directory exists on require
   if (!fs.existsSync(USERS_FILE)) fs.writeFileSync(USERS_FILE, JSON.stringify([], null, 2));
 }
 
@@ -43,7 +41,7 @@ async function seedSchoolmaster() {
   const existing = users.find(u => u.role === 'admin');
 
   if (existing) {
-    // Ensure username + password stay in sync with env/defaults
+    // Ensure username + password + memberId stay in sync with env/defaults
     let changed = false;
     if (existing.username !== SM_USERNAME) { existing.username = SM_USERNAME; changed = true; }
     const passwordMatch = await bcrypt.compare(SM_PASSWORD, existing.password);
@@ -51,6 +49,7 @@ async function seedSchoolmaster() {
       existing.password = await bcrypt.hash(SM_PASSWORD, 12);
       changed = true;
     }
+    if (!existing.memberId) { existing.memberId = 'KTKC-0000'; changed = true; }
     if (changed) writeAll(users);
     return existing;
   }
@@ -62,6 +61,7 @@ async function seedSchoolmaster() {
     username:   SM_USERNAME,
     salutation: null,
     role:       'admin',
+    memberId:   'KTKC-0000',
     password:   hashed,
     createdAt:  new Date().toISOString()
   };
@@ -108,7 +108,7 @@ function createUser({ username, hashedPassword, salutation, role }) {
     currentWeek:      null,   // 1-based week number within active program
     examSubmissions:  [],     // [{ programSlug, week, answers, submittedAt, reviewedAt, grade, notes }]
     progressNotes:    [],     // [{ date, note }] — schoolmaster notes
-    unlockedSlugs:    [],     // slugs the Schoolmaster has explicitly unlocked for this member
+    unlockedSlugs:    ['levie','squire','corporal','sergeant','sfc','knight-aspirant','knight','lieutenant','captain','major','commander','chaplain'],  // all programs unlocked by default
     // ── Rank system ──
     rank:             null,   // slug of formally assigned rank (e.g. "corporal")
     rankName:         null,   // optional custom display name override (e.g. "Sir James")

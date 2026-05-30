@@ -1,0 +1,127 @@
+{
+  "program_title": "Major School Program",
+  "week_number": 3,
+  "week_title": "Week 3: The Office of Provincial Master / Grand Prior",
+  "multiple_choice_questions": [
+    {
+      "question": "What is the primary focus of Week 3: The Office of Provincial Master / Grand Prior?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+        },
+        {
+          "option": "B",
+          "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+        },
+        {
+          "option": "C",
+          "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+        },
+        {
+          "option": "D",
+          "text": "Focus: Unifying diverse local commanderies under a single operational standard and core mission."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master.",
+      "rationale": "The week summary states that Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+    },
+    {
+      "question": "Which reading is explicitly assigned for Week 3: The Office of Provincial Master / Grand Prior?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Medieval Warfare: Templars Hierarchy and Duties"
+        },
+        {
+          "option": "B",
+          "text": "Major School Syllabus PDF"
+        },
+        {
+          "option": "C",
+          "text": "OSMTH Templarism and History"
+        },
+        {
+          "option": "D",
+          "text": "Knights Templar Overview (Wikipedia)"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Medieval Warfare: Templars Hierarchy and Duties",
+      "rationale": "Medieval Warfare: Templars Hierarchy and Duties appears in the required reading list for this week."
+    },
+    {
+      "question": "Which concept is most directly associated with Week 3: The Office of Provincial Master / Grand Prior?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "The Office of Provincial Master"
+        },
+        {
+          "option": "B",
+          "text": "Week 1: The Burden of Wider Oversight"
+        },
+        {
+          "option": "C",
+          "text": "Week 2: The Provincial Structure of the Templars"
+        },
+        {
+          "option": "D",
+          "text": "Week 4: Mission Alignment Across Multiple Bodies"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "The Office of Provincial Master",
+      "rationale": "The week is organized around the concept of The Office of Provincial Master."
+    },
+    {
+      "question": "Which statement best reflects the expected learning outcome for Week 3: The Office of Provincial Master / Grand Prior?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+        },
+        {
+          "option": "B",
+          "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+        },
+        {
+          "option": "C",
+          "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+        },
+        {
+          "option": "D",
+          "text": "Focus: Unifying diverse local commanderies under a single operational standard and core mission."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master.",
+      "rationale": "This statement matches the stated memory target or focus for the week: Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+    },
+    {
+      "question": "Which response best applies the lesson of Week 3: The Office of Provincial Master / Grand Prior?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Apply the lesson of The Office of Provincial Master through disciplined conduct, truthful understanding, and practical service."
+        },
+        {
+          "option": "B",
+          "text": "Treat The Office of Provincial Master mainly as ceremonial prestige without practical duty."
+        },
+        {
+          "option": "C",
+          "text": "Ignore assigned readings and rely on legend or speculation about The Office of Provincial Master."
+        },
+        {
+          "option": "D",
+          "text": "Approach The Office of Provincial Master as private opinion rather than accountable formation."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Apply the lesson of The Office of Provincial Master through disciplined conduct, truthful understanding, and practical service.",
+      "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+    }
+  ]
+}

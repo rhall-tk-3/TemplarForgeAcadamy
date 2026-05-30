@@ -1,0 +1,572 @@
+{
+  "program_title": "Knight School Program",
+  "program_phase": "Knight formation",
+  "assessment_type": "multiple_choice_and_discussion",
+  "generated_note": "Original assessment materials generated from the uploaded KTKC program files and website repository structure.",
+  "weeks": [
+    {
+      "week_number": 1,
+      "week_title": "Leadership Under Christ",
+      "focus": "Week 1 establishes that Knightly leadership begins as stewardship under Christ, not status, pride, or ceremony.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Leadership Under Christ?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Week 1 establishes that Knightly leadership begins as stewardship under Christ, not status, pride, or ceremony."
+            },
+            {
+              "option": "B",
+              "text": "Week 2 focuses on leadership inside the Order through brotherhood, accountability, consistency, service, and honest conduct."
+            },
+            {
+              "option": "C",
+              "text": "Week 3 trains the Knight to apply Christian leadership in family life, church life, work, speech, and public witness."
+            },
+            {
+              "option": "D",
+              "text": "Week 4 puts leadership into action through planning or completing a Day of Service project rooted in Christian charity and public witness."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Week 1 establishes that Knightly leadership begins as stewardship under Christ, not status, pride, or ceremony.",
+          "rationale": "The week summary states that Week 1 establishes that Knightly leadership begins as stewardship under Christ, not status, pride, or ceremony."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Leadership Under Christ?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Knight School 4-Week Lesson Plan"
+            },
+            {
+              "option": "B",
+              "text": "Promotion Manual & By-Laws"
+            },
+            {
+              "option": "C",
+              "text": "KTKC Rules & Statutes"
+            },
+            {
+              "option": "D",
+              "text": "Britannica: Templars"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Knight School 4-Week Lesson Plan",
+          "rationale": "Knight School 4-Week Lesson Plan appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Leadership Under Christ?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Leadership Under Christ"
+            },
+            {
+              "option": "B",
+              "text": "Leadership Inside KTKC"
+            },
+            {
+              "option": "C",
+              "text": "Christian Witness in Modern Society"
+            },
+            {
+              "option": "D",
+              "text": "Day of Service and Leadership in Action"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Leadership Under Christ",
+          "rationale": "The week is organized around the concept of Leadership Under Christ."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Leadership Under Christ?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Week 1 establishes that Knightly leadership begins as stewardship under Christ, not status, pride, or ceremony."
+            },
+            {
+              "option": "B",
+              "text": "Week 2 focuses on leadership inside the Order through brotherhood, accountability, consistency, service, and honest conduct."
+            },
+            {
+              "option": "C",
+              "text": "Week 3 trains the Knight to apply Christian leadership in family life, church life, work, speech, and public witness."
+            },
+            {
+              "option": "D",
+              "text": "Week 4 puts leadership into action through planning or completing a Day of Service project rooted in Christian charity and public witness."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Week 1 establishes that Knightly leadership begins as stewardship under Christ, not status, pride, or ceremony.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Week 1 establishes that Knightly leadership begins as stewardship under Christ, not status, pride, or ceremony."
+        },
+        {
+          "question": "Which response best applies the lesson of Leadership Under Christ?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Leadership Under Christ through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Leadership Under Christ mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Leadership Under Christ."
+            },
+            {
+              "option": "D",
+              "text": "Approach Leadership Under Christ as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Leadership Under Christ through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Leadership Under Christ shape the expectations placed on a member in the Knight School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Leadership Under Christ seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Leadership Under Christ in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 2,
+      "week_title": "Leadership Inside KTKC",
+      "focus": "Week 2 focuses on leadership inside the Order through brotherhood, accountability, consistency, service, and honest conduct.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Leadership Inside KTKC?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Week 2 focuses on leadership inside the Order through brotherhood, accountability, consistency, service, and honest conduct."
+            },
+            {
+              "option": "B",
+              "text": "Week 1 establishes that Knightly leadership begins as stewardship under Christ, not status, pride, or ceremony."
+            },
+            {
+              "option": "C",
+              "text": "Week 3 trains the Knight to apply Christian leadership in family life, church life, work, speech, and public witness."
+            },
+            {
+              "option": "D",
+              "text": "Week 4 puts leadership into action through planning or completing a Day of Service project rooted in Christian charity and public witness."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Week 2 focuses on leadership inside the Order through brotherhood, accountability, consistency, service, and honest conduct.",
+          "rationale": "The week summary states that Week 2 focuses on leadership inside the Order through brotherhood, accountability, consistency, service, and honest conduct."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Leadership Inside KTKC?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Knight School 4-Week Lesson Plan"
+            },
+            {
+              "option": "B",
+              "text": "Promotion Manual & By-Laws"
+            },
+            {
+              "option": "C",
+              "text": "KTKC Rules & Statutes"
+            },
+            {
+              "option": "D",
+              "text": "Britannica: Templars"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Knight School 4-Week Lesson Plan",
+          "rationale": "Knight School 4-Week Lesson Plan appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Leadership Inside KTKC?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Leadership Inside KTKC"
+            },
+            {
+              "option": "B",
+              "text": "Leadership Under Christ"
+            },
+            {
+              "option": "C",
+              "text": "Christian Witness in Modern Society"
+            },
+            {
+              "option": "D",
+              "text": "Day of Service and Leadership in Action"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Leadership Inside KTKC",
+          "rationale": "The week is organized around the concept of Leadership Inside KTKC."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Leadership Inside KTKC?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Week 2 focuses on leadership inside the Order through brotherhood, accountability, consistency, service, and honest conduct."
+            },
+            {
+              "option": "B",
+              "text": "Week 1 establishes that Knightly leadership begins as stewardship under Christ, not status, pride, or ceremony."
+            },
+            {
+              "option": "C",
+              "text": "Week 3 trains the Knight to apply Christian leadership in family life, church life, work, speech, and public witness."
+            },
+            {
+              "option": "D",
+              "text": "Week 4 puts leadership into action through planning or completing a Day of Service project rooted in Christian charity and public witness."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Week 2 focuses on leadership inside the Order through brotherhood, accountability, consistency, service, and honest conduct.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Week 2 focuses on leadership inside the Order through brotherhood, accountability, consistency, service, and honest conduct."
+        },
+        {
+          "question": "Which response best applies the lesson of Leadership Inside KTKC?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Leadership Inside KTKC through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Leadership Inside KTKC mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Leadership Inside KTKC."
+            },
+            {
+              "option": "D",
+              "text": "Approach Leadership Inside KTKC as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Leadership Inside KTKC through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Leadership Inside KTKC shape the expectations placed on a member in the Knight School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Leadership Inside KTKC seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Leadership Inside KTKC in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 3,
+      "week_title": "Christian Witness in Modern Society",
+      "focus": "Week 3 trains the Knight to apply Christian leadership in family life, church life, work, speech, and public witness.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Christian Witness in Modern Society?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Week 3 trains the Knight to apply Christian leadership in family life, church life, work, speech, and public witness."
+            },
+            {
+              "option": "B",
+              "text": "Week 1 establishes that Knightly leadership begins as stewardship under Christ, not status, pride, or ceremony."
+            },
+            {
+              "option": "C",
+              "text": "Week 2 focuses on leadership inside the Order through brotherhood, accountability, consistency, service, and honest conduct."
+            },
+            {
+              "option": "D",
+              "text": "Week 4 puts leadership into action through planning or completing a Day of Service project rooted in Christian charity and public witness."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Week 3 trains the Knight to apply Christian leadership in family life, church life, work, speech, and public witness.",
+          "rationale": "The week summary states that Week 3 trains the Knight to apply Christian leadership in family life, church life, work, speech, and public witness."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Christian Witness in Modern Society?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Knight School 4-Week Lesson Plan"
+            },
+            {
+              "option": "B",
+              "text": "Promotion Manual & By-Laws"
+            },
+            {
+              "option": "C",
+              "text": "KTKC Rules & Statutes"
+            },
+            {
+              "option": "D",
+              "text": "Britannica: Templars"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Knight School 4-Week Lesson Plan",
+          "rationale": "Knight School 4-Week Lesson Plan appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Christian Witness in Modern Society?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Christian Witness in Modern Society"
+            },
+            {
+              "option": "B",
+              "text": "Leadership Under Christ"
+            },
+            {
+              "option": "C",
+              "text": "Leadership Inside KTKC"
+            },
+            {
+              "option": "D",
+              "text": "Day of Service and Leadership in Action"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Christian Witness in Modern Society",
+          "rationale": "The week is organized around the concept of Christian Witness in Modern Society."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Christian Witness in Modern Society?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Week 3 trains the Knight to apply Christian leadership in family life, church life, work, speech, and public witness."
+            },
+            {
+              "option": "B",
+              "text": "Week 1 establishes that Knightly leadership begins as stewardship under Christ, not status, pride, or ceremony."
+            },
+            {
+              "option": "C",
+              "text": "Week 2 focuses on leadership inside the Order through brotherhood, accountability, consistency, service, and honest conduct."
+            },
+            {
+              "option": "D",
+              "text": "Week 4 puts leadership into action through planning or completing a Day of Service project rooted in Christian charity and public witness."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Week 3 trains the Knight to apply Christian leadership in family life, church life, work, speech, and public witness.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Week 3 trains the Knight to apply Christian leadership in family life, church life, work, speech, and public witness."
+        },
+        {
+          "question": "Which response best applies the lesson of Christian Witness in Modern Society?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Christian Witness in Modern Society through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Christian Witness in Modern Society mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Christian Witness in Modern Society."
+            },
+            {
+              "option": "D",
+              "text": "Approach Christian Witness in Modern Society as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Christian Witness in Modern Society through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Christian Witness in Modern Society shape the expectations placed on a member in the Knight School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Christian Witness in Modern Society seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Christian Witness in Modern Society in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 4,
+      "week_title": "Day of Service and Leadership in Action",
+      "focus": "Week 4 puts leadership into action through planning or completing a Day of Service project rooted in Christian charity and public witness.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Day of Service and Leadership in Action?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Week 4 puts leadership into action through planning or completing a Day of Service project rooted in Christian charity and public witness."
+            },
+            {
+              "option": "B",
+              "text": "Week 1 establishes that Knightly leadership begins as stewardship under Christ, not status, pride, or ceremony."
+            },
+            {
+              "option": "C",
+              "text": "Week 2 focuses on leadership inside the Order through brotherhood, accountability, consistency, service, and honest conduct."
+            },
+            {
+              "option": "D",
+              "text": "Week 3 trains the Knight to apply Christian leadership in family life, church life, work, speech, and public witness."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Week 4 puts leadership into action through planning or completing a Day of Service project rooted in Christian charity and public witness.",
+          "rationale": "The week summary states that Week 4 puts leadership into action through planning or completing a Day of Service project rooted in Christian charity and public witness."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Day of Service and Leadership in Action?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Knight School 4-Week Lesson Plan"
+            },
+            {
+              "option": "B",
+              "text": "Promotion Manual & By-Laws"
+            },
+            {
+              "option": "C",
+              "text": "KTKC Rules & Statutes"
+            },
+            {
+              "option": "D",
+              "text": "Britannica: Templars"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Knight School 4-Week Lesson Plan",
+          "rationale": "Knight School 4-Week Lesson Plan appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Day of Service and Leadership in Action?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Day of Service and Leadership in Action"
+            },
+            {
+              "option": "B",
+              "text": "Leadership Under Christ"
+            },
+            {
+              "option": "C",
+              "text": "Leadership Inside KTKC"
+            },
+            {
+              "option": "D",
+              "text": "Christian Witness in Modern Society"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Day of Service and Leadership in Action",
+          "rationale": "The week is organized around the concept of Day of Service and Leadership in Action."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Day of Service and Leadership in Action?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Week 4 puts leadership into action through planning or completing a Day of Service project rooted in Christian charity and public witness."
+            },
+            {
+              "option": "B",
+              "text": "Week 1 establishes that Knightly leadership begins as stewardship under Christ, not status, pride, or ceremony."
+            },
+            {
+              "option": "C",
+              "text": "Week 2 focuses on leadership inside the Order through brotherhood, accountability, consistency, service, and honest conduct."
+            },
+            {
+              "option": "D",
+              "text": "Week 3 trains the Knight to apply Christian leadership in family life, church life, work, speech, and public witness."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Week 4 puts leadership into action through planning or completing a Day of Service project rooted in Christian charity and public witness.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Week 4 puts leadership into action through planning or completing a Day of Service project rooted in Christian charity and public witness."
+        },
+        {
+          "question": "Which response best applies the lesson of Day of Service and Leadership in Action?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Day of Service and Leadership in Action through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Day of Service and Leadership in Action mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Day of Service and Leadership in Action."
+            },
+            {
+              "option": "D",
+              "text": "Approach Day of Service and Leadership in Action as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Day of Service and Leadership in Action through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Day of Service and Leadership in Action shape the expectations placed on a member in the Knight School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Day of Service and Leadership in Action seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Day of Service and Leadership in Action in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    }
+  ]
+}

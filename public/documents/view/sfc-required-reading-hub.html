@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sergeant First Class Program - Required Reading Hub</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #0a0804;
+  color: #e0cc98;
+  font-family: 'Crimson Text', serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  padding: 40px 24px 80px;
+}
+.wrap { max-width: 820px; margin: 0 auto; }
+.back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Cinzel', serif; font-size: 0.78rem;
+  color: #b8960c; text-decoration: none;
+  border: 1px solid rgba(184,150,12,0.4);
+  border-radius: 4px; padding: 6px 14px;
+  margin-bottom: 32px; letter-spacing: 0.05em;
+  transition: background 0.18s, color 0.18s;
+}
+.back:hover { background: rgba(184,150,12,0.12); color: #e8c040; }
+.doc-header {
+  border-bottom: 1px solid rgba(180,140,60,0.3);
+  padding-bottom: 22px; margin-bottom: 36px;
+}
+.doc-kicker {
+  font-family: 'Cinzel', serif; font-size: 0.68rem;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: #6a5020; margin-bottom: 10px;
+}
+.doc-title {
+  font-family: 'Cinzel', serif; font-size: 1.65rem;
+  font-weight: 700; color: #e8c850; line-height: 1.25; margin-bottom: 4px;
+}
+.doc-sub {
+  font-size: 0.88rem; color: #8a7040; font-style: italic;
+}
+h2.section-h {
+  font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 700;
+  color: #c8a020; letter-spacing: 0.06em; margin: 36px 0 10px;
+  padding-bottom: 6px; border-bottom: 1px solid rgba(200,160,32,0.2);
+}
+h3.section-sh {
+  font-family: 'Cinzel', serif; font-size: 0.88rem; font-weight: 600;
+  color: #b89040; letter-spacing: 0.05em; margin: 24px 0 8px;
+}
+p.body-p {
+  color: #d0bc88; margin-bottom: 14px; line-height: 1.8;
+}
+ul.list-ul {
+  margin: 0 0 14px 0; padding-left: 0; list-style: none;
+  display: flex; flex-direction: column; gap: 6px;
+}
+ul.list-ul li {
+  display: flex; gap: 10px; align-items: flex-start;
+  color: #c8b880; line-height: 1.65; font-size: 1rem;
+}
+ul.list-ul li::before {
+  content: '\2726'; color: #c8a020; font-size: 0.62rem;
+  flex-shrink: 0; margin-top: 7px;
+}
+ol.list-ol {
+  margin: 0 0 14px 0; padding-left: 0; list-style: none;
+  display: flex; flex-direction: column; gap: 6px;
+  counter-reset: ol-counter;
+}
+ol.list-ol li {
+  display: flex; gap: 10px; align-items: flex-start;
+  color: #c8b880; line-height: 1.65; font-size: 1rem;
+  counter-increment: ol-counter;
+}
+ol.list-ol li::before {
+  content: counter(ol-counter) ".";
+  color: #c8a020; font-family: 'Cinzel', serif; font-size: 0.78rem;
+  flex-shrink: 0; margin-top: 4px; min-width: 20px;
+}
+a.inline-link {
+  color: #c8a020; text-decoration: underline;
+  text-underline-offset: 2px;
+}
+a.inline-link:hover { color: #e8c040; }
+.source-block {
+  margin-top: 48px; padding-top: 20px;
+  border-top: 1px solid rgba(180,140,60,0.2);
+}
+.source-block h2.section-h { margin-top: 0; }
+/* ── Pipe table ── */
+.md-table {
+  width: 100%; border-collapse: collapse;
+  margin: 16px 0 24px; font-size: 0.97rem;
+}
+.md-table th, .md-table td {
+  padding: 8px 14px; text-align: left;
+  border: 1px solid rgba(180,140,60,0.25);
+  color: #c8b880; line-height: 1.6;
+}
+.md-table th {
+  background: rgba(180,140,60,0.10);
+  font-family: 'Cinzel', serif; font-size: 0.78rem;
+  letter-spacing: 0.07em; color: #c8a020; font-weight: 600;
+}
+.md-table tr:nth-child(even) td {
+  background: rgba(255,255,255,0.02);
+}
+/* ── Reference Images ── */
+.ref-images {
+  display: flex; flex-wrap: wrap; gap: 24px;
+  margin: 16px 0 32px;
+}
+.ref-images figure {
+  flex: 1 1 220px; max-width: 280px;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.ref-images figure img {
+  width: 100%; border-radius: 4px;
+  border: 1px solid rgba(180,140,60,0.3);
+  object-fit: cover; max-height: 200px;
+}
+.ref-images figure figcaption {
+  font-size: 0.78rem; color: #8a7040; font-style: italic;
+  text-align: center; line-height: 1.4;
+}
+@media (max-width: 540px) {
+  .ref-images figure { max-width: 100%; }
+}
+@media print {
+  body { background:#fff; color:#111; padding:20px; }
+  .doc-title { color:#111; }
+  .doc-kicker, .doc-sub { color:#666; }
+  h2.section-h { color:#333; border-color:#ccc; }
+  h3.section-sh { color:#555; }
+  p.body-p { color:#222; }
+  ul.list-ul li, ol.list-ol li { color:#333; }
+  .md-table th, .md-table td { color:#333; border-color:#ccc; }
+  .md-table th { background:#eee; }
+  .ref-images figure img { border-color:#ccc; }
+  .ref-images figure figcaption { color:#555; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="doc-header">
+    <div class="doc-kicker">&#10013; Knights Templar of the Kingdom of Christ &middot; Templar Forge Academy</div>
+    <div class="doc-title">Sergeant First Class Program - Required Reading Hub</div>
+    <div class="doc-sub">Templar Forge Academy — Sergeant First Class Program</div>
+  </div>
+  <p class="body-p">The Sergeant First Class phase marks a transition from dependable participation into tested steadiness, visible maturity, and greater responsibility within the life of the Order. This stage emphasizes reliability, self-government, accountable service, disciplined speech, and readiness to strengthen both the chapter and the brethren entrusted to it.</p>
+<h2 class="section-h">Program Orientation</h2>
+<p class="body-p">At this level, advancement is no longer measured simply by participation. It is measured by constancy, credibility, and the ability to carry weight without being carried. The historical Templars gained trust not only through battlefield service but also through disciplined organization, efficient transport, and reliable stewardship that made them trusted by kings and pilgrims alike. <a class="inline-link" href="https://www.britannica.com/topic/Templars" target="_blank">Britannica</a></p>
+<p class="body-p">The formation materials assigned to this phase also stress accountability, prayer, Scripture, brotherhood in charity, service before privilege, attendance, documentation, and board review as hallmarks of serious adult formation. <a class="inline-link" href="https://www.genspark.ai/api/files/s/TeOiSCUN" target="_blank">Adult Formation</a></p>
+<h2 class="section-h">Weekly Overview</h2>
+<table class="md-table">
+<tr>
+<th>Week</th>
+<th>Theme</th>
+<th>Required Reading</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Reliability, steadiness, and senior responsibility</td>
+<td><a class="inline-link" href="https://www.britannica.com/topic/Templars" target="_blank">Templars</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Conduct, humility, obedience, speech, and example</td>
+<td><a class="inline-link" href="https://www.britannica.com/biography/Clement-V" target="_blank">Clement V</a>, <a class="inline-link" href="https://www.history.com/articles/why-friday-the-13th-spelled-doom-for-the-knights-templar" target="_blank">History.com</a>, <a class="inline-link" href="https://www.nationalgeographic.com/culture/article/160512-friday-13-knights-templar-superstition" target="_blank">National Geographic</a>, <a class="inline-link" href="https://www.britannica.com/topic/Templars" target="_blank">Templars</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Truth before legend, verified history, doctrinal steadiness</td>
+<td><a class="inline-link" href="https://www.osmth.org/templar-legacy/modern-order-history" target="_blank">Modern Order History</a>, <a class="inline-link" href="https://www.britannica.com/topic/Templars" target="_blank">Templars</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Organizing service, charity, fellowship, and support</td>
+<td><a class="inline-link" href="https://www.britannica.com/facts/Freemasonry" target="_blank">Freemasonry Facts</a>, <a class="inline-link" href="https://www.yorkriteusa.org/commandery.htm" target="_blank">York Rite Commandery</a>, <a class="inline-link" href="https://usagekt.org/about/" target="_blank">US Grand Encampment About</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Correction, accountability, complaint handling, and self-government</td>
+<td><a class="inline-link" href="https://www.genspark.ai/api/files/s/TeOiSCUN" target="_blank">Adult Formation</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Entrusted duties, punctuality, reporting, and faithful completion</td>
+<td><a class="inline-link" href="https://www.thoughtco.com/crusades-battle-of-montgisard-2360719" target="_blank">Battle of Montgisard</a>, <a class="inline-link" href="https://www.britannica.com/event/Battle-of-Hattin" target="_blank">Battle of Ḥaṭṭīn</a>, <a class="inline-link" href="https://www.britannica.com/event/Crusades" target="_blank">Crusades</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Prayer, Scripture, self-mastery, and inward preparation</td>
+<td><a class="inline-link" href="https://www.osmth.org/templar-legacy/modern-order-history" target="_blank">Modern Order History</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Final review, oral readiness, conduct review, and advancement consideration</td>
+<td><a class="inline-link" href="https://www.genspark.ai/api/files/s/TeOiSCUN" target="_blank">Adult Formation</a></td>
+</tr>
+</table>
+<h2 class="section-h">Week 1 - Reliability, Responsibility, and Steadiness in Service</h2>
+<h3 class="section-sh">Required Reading</h3>
+<ul class="list-ul"><li><a class="inline-link" href="https://www.britannica.com/topic/Templars" target="_blank">Templars - Encyclopaedia Britannica</a></li></ul>
+<h3 class="section-sh">Primary Focus</h3>
+<p class="body-p">Transition from general participation to tested reliability, senior enlisted-style responsibility, and steadiness in service.</p>
+<h3 class="section-sh">Key Formation Subjects</h3>
+<p class="body-p">Defining senior reliability; shifting from being managed to managing oneself and assisting the command structure.</p>
+<h3 class="section-sh">Formation Emphasis</h3>
+<p class="body-p">Internalizing the mandate that advanced rank means greater dependability and less need for external motivation.</p>
+<h3 class="section-sh">Readiness Goal</h3>
+<p class="body-p">Clearly articulate the shift in responsibility and the expectation of steadfast reliability in all Order operations.</p>
+<h3 class="section-sh">Overview</h3>
+<p class="body-p">This week establishes the core expectation of Sergeant First Class formation: dependable members do not wait to be chased, reminded, or externally driven. Britannica&#x27;s treatment of the medieval Templars highlights disciplined service, efficient organization, and a reputation for secure transport and trustworthy administration. That combination of steadiness and usefulness provides the historical lens for this week&#x27;s formation theme. <a class="inline-link" href="https://www.britannica.com/topic/Templars" target="_blank">Britannica</a></p>
+<h2 class="section-h">Week 2 - Conduct Standards, Humility, Obedience, and Speech</h2>
+<h3 class="section-sh">Required Reading</h3>
+<ul class="list-ul"><li><a class="inline-link" href="https://www.britannica.com/topic/Templars" target="_blank">Templars - Encyclopaedia Britannica</a></li><li><a class="inline-link" href="https://www.britannica.com/biography/Clement-V" target="_blank">Clement V - Encyclopaedia Britannica</a></li><li><a class="inline-link" href="https://www.history.com/articles/why-friday-the-13th-spelled-doom-for-the-knights-templar" target="_blank">Why Friday the 13th Spelled Doom for the Knights Templar - History.com</a></li><li><a class="inline-link" href="https://www.nationalgeographic.com/culture/article/160512-friday-13-knights-templar-superstition" target="_blank">Friday the 13th and the Knights Templar - National Geographic</a></li></ul>
+<h3 class="section-sh">Primary Focus</h3>
+<p class="body-p">Conduct standards, visible humility, consistent obedience, speech, and living as an example before newer members.</p>
+<h3 class="section-sh">Key Formation Subjects</h3>
+<p class="body-p">The Latin Rule applied to modern conduct; the power of controlled speech; the danger of pride in rank.</p>
+<h3 class="section-sh">Formation Emphasis</h3>
+<p class="body-p">Cultivating a life that naturally mentors Levies and Corporals simply through visible, humble obedience.</p>
+<h3 class="section-sh">Readiness Goal</h3>
+<p class="body-p">Demonstrate a clear understanding of how personal conduct and speech directly impact the spiritual health of the chapter.</p>
+<h3 class="section-sh">Overview</h3>
+<p class="body-p">Britannica describes the Templars as bound by vows of poverty, chastity, and obedience, ordered prayer, communal life, and explicit prohibitions against gambling, swearing, and drunkenness. Those patterns provide the historical frame for disciplined conduct, ordered speech, and visible humility. <a class="inline-link" href="https://www.britannica.com/topic/Templars" target="_blank">Britannica</a></p>
+<p class="body-p">The suppression readings add a second lesson: reputation can be damaged not only by actual conduct but also by accusation, rumor, and political manipulation. Clement V&#x27;s pontificate shows the pressure of political dependence, while History.com and National Geographic both underline how accusation, myth, and sensationalism can distort public judgment. A senior member must therefore be disciplined in both behavior and speech, knowing that visible example strengthens or weakens the whole body. <a class="inline-link" href="https://www.britannica.com/biography/Clement-V" target="_blank">Britannica</a> <a class="inline-link" href="https://www.history.com/articles/why-friday-the-13th-spelled-doom-for-the-knights-templar" target="_blank">History.com</a> <a class="inline-link" href="https://www.nationalgeographic.com/culture/article/160512-friday-13-knights-templar-superstition" target="_blank">National Geographic</a></p>
+<h2 class="section-h">Week 3 - Truth Before Legend</h2>
+<h3 class="section-sh">Required Reading</h3>
+<ul class="list-ul"><li><a class="inline-link" href="https://www.osmth.org/templar-legacy/modern-order-history" target="_blank">Modern Order History - OSMTH</a></li><li><a class="inline-link" href="https://www.britannica.com/topic/Templars" target="_blank">Templars - Encyclopaedia Britannica</a></li></ul>
+<h3 class="section-sh">Primary Focus</h3>
+<p class="body-p">Truth before legend, factual history, rejection of false Templar myths, and doctrinal steadiness in teaching and conversation.</p>
+<h3 class="section-sh">Key Formation Subjects</h3>
+<p class="body-p">Identifying and addressing common Templar conspiracies; grounding conversations in verified source material and orthodox Christian doctrine.</p>
+<h3 class="section-sh">Formation Emphasis</h3>
+<p class="body-p">Submission to truth over sensationalism; protecting the intellectual and spiritual core of the Academy in daily interactions.</p>
+<h3 class="section-sh">Readiness Goal</h3>
+<p class="body-p">Successfully identify false historical claims and correct them using factual history and doctrinal firmness.</p>
+<h3 class="section-sh">Overview</h3>
+<p class="body-p">Britannica explicitly distinguishes documented Templar history from later legends, pseudohistory, Grail myths, and conspiracy theories, including claims about secret bloodlines and esoteric knowledge. <a class="inline-link" href="https://www.britannica.com/topic/Templars" target="_blank">Britannica</a></p>
+<p class="body-p">The OSMTH modern history page is especially useful here because it openly states that the modern order does <strong>not</strong> claim direct descent from the medieval Knights Templar, even while honoring their traditions. That candor makes it a strong comparative reading for disciplined truthfulness in teaching and conversation. <a class="inline-link" href="https://www.osmth.org/templar-legacy/modern-order-history" target="_blank">OSMTH</a></p>
+<h2 class="section-h">Week 4 - Organizing Service, Charity, and Fellowship</h2>
+<h3 class="section-sh">Required Reading</h3>
+<ul class="list-ul"><li><a class="inline-link" href="https://www.britannica.com/facts/Freemasonry" target="_blank">Freemasonry Facts - Encyclopaedia Britannica</a></li><li><a class="inline-link" href="https://www.yorkriteusa.org/commandery.htm" target="_blank">York Rite Commandery</a></li><li><a class="inline-link" href="https://usagekt.org/about/" target="_blank">US Grand Encampment About</a></li></ul>
+<h3 class="section-sh">Primary Focus</h3>
+<p class="body-p">Organizing service, strengthening fellowship, practical charity, reliability, and support of weaker members.</p>
+<h3 class="section-sh">Key Formation Subjects</h3>
+<p class="body-p">Logistics of local charity; identifying brethren in need; fostering genuine unity rather than superficial association.</p>
+<h3 class="section-sh">Formation Emphasis</h3>
+<p class="body-p">Translating the virtue of charity into sustained, reliable action for both the public and internal brotherhood.</p>
+<h3 class="section-sh">Readiness Goal</h3>
+<p class="body-p">Draft a practical plan for organizing a local service initiative and supporting members who are struggling.</p>
+<h3 class="section-sh">Overview</h3>
+<p class="body-p">These readings are best used as <strong>comparative modern organizational references</strong>, not as medieval Templar history. Britannica states directly that Freemasonry has no historical connection to the medieval Knights Templar. The York Rite page explains that its Templar body is a Masonic order within a modern ritual system, and the US Grand Encampment page describes a present-day Christian-oriented fraternal body organized through commanderies and charitable fundraising. Together, these readings are useful for thinking about structured fellowship, organized service, and practical charity in a modern associational context. <a class="inline-link" href="https://www.britannica.com/facts/Freemasonry" target="_blank">Britannica</a> <a class="inline-link" href="https://www.yorkriteusa.org/commandery.htm" target="_blank">York Rite USA</a> <a class="inline-link" href="https://usagekt.org/about/" target="_blank">US Grand Encampment</a></p>
+<h3 class="section-sh">Accuracy Note</h3>
+<p class="body-p">This week&#x27;s sources describe modern Masonic or modern fraternal Templar-style organizations. They should be used here for organizational comparison, charitable practice, and fellowship models rather than as proof of medieval continuity. <a class="inline-link" href="https://www.britannica.com/facts/Freemasonry" target="_blank">Britannica</a> <a class="inline-link" href="https://www.yorkriteusa.org/commandery.htm" target="_blank">York Rite USA</a></p>
+<h2 class="section-h">Week 5 - Correction, Accountability, and Self-Government</h2>
+<h3 class="section-sh">Required Reading</h3>
+<ul class="list-ul"><li><a class="inline-link" href="https://www.genspark.ai/api/files/s/TeOiSCUN" target="_blank">Adult Formation</a></li></ul>
+<h3 class="section-sh">Primary Focus</h3>
+<p class="body-p">Accepting correction, giving correction with humility, complaint handling, documented accountability, and personal self-government.</p>
+<h3 class="section-sh">Key Formation Subjects</h3>
+<p class="body-p">The biblical model of correction (Matthew 18); receiving reprimand without defense; documenting accountability fairly.</p>
+<h3 class="section-sh">Formation Emphasis</h3>
+<p class="body-p">Practicing severe personal self-government to earn the right to guide others.</p>
+<h3 class="section-sh">Readiness Goal</h3>
+<p class="body-p">Demonstrate proficiency in receiving correction gracefully and issuing gentle, documented correction to a peer or junior member.</p>
+<h3 class="section-sh">Overview</h3>
+<p class="body-p">The assigned formation document stresses accountability, prayer, Scripture, brotherhood in charity, service before privilege, academic diligence, attendance, and promotion review based on demonstrated faithfulness rather than entitlement. Those themes make this an appropriate week for disciplined self-government, fair documentation, and receiving correction without self-justifying reflexes. <a class="inline-link" href="https://www.genspark.ai/api/files/s/TeOiSCUN" target="_blank">Adult Formation</a></p>
+<h3 class="section-sh">Accuracy Note</h3>
+<p class="body-p">The assigned formation document strongly supports accountability and disciplined self-government. The specific Matthew 18 framework named in this week&#x27;s subject line should be taught from Scripture and academy instruction alongside this reading.</p>
+<h2 class="section-h">Week 6 - Entrusted Duties, Punctuality, and Faithful Completion</h2>
+<h3 class="section-sh">Required Reading</h3>
+<ul class="list-ul"><li><a class="inline-link" href="https://www.thoughtco.com/crusades-battle-of-montgisard-2360719" target="_blank">Crusades: Battle of Montgisard - ThoughtCo</a></li><li><a class="inline-link" href="https://www.britannica.com/event/Battle-of-Hattin" target="_blank">Battle of Ḥaṭṭīn - Encyclopaedia Britannica</a></li><li><a class="inline-link" href="https://www.britannica.com/event/Crusades" target="_blank">Crusades - Encyclopaedia Britannica</a></li></ul>
+<h3 class="section-sh">Primary Focus</h3>
+<p class="body-p">Entrusted duties, attendance, punctuality, reading completion, reporting, and faithful completion of assigned responsibilities.</p>
+<h3 class="section-sh">Key Formation Subjects</h3>
+<p class="body-p">The spiritual value of administrative order; punctuality as a form of respect; thoroughness in reporting and reading logs.</p>
+<h3 class="section-sh">Formation Emphasis</h3>
+<p class="body-p">Embracing the truth that faithfulness in small administrative matters qualifies one for greater spiritual burdens.</p>
+<h3 class="section-sh">Readiness Goal</h3>
+<p class="body-p">Present a flawless record of attendance, reading logs, and assigned reports for the duration of the formation cycle.</p>
+<h3 class="section-sh">Overview</h3>
+<p class="body-p">Montgisard illustrates the power of decisive action, concentration, and effective response under pressure, while Ḥaṭṭīn shows the consequences of exhaustion, disorganization, and failure under harsh conditions. The broader Crusades article frames the sustained burden of long campaigns and the immense structural demands of maintaining operations over time. Read together, these sources support the formation lesson that reliability in small duties, reporting, attendance, and timely completion is not trivial administration but part of disciplined service. <a class="inline-link" href="https://www.thoughtco.com/crusades-battle-of-montgisard-2360719" target="_blank">ThoughtCo</a> <a class="inline-link" href="https://www.britannica.com/event/Battle-of-Hattin" target="_blank">Britannica</a> <a class="inline-link" href="https://www.britannica.com/event/Crusades" target="_blank">Britannica</a></p>
+<h2 class="section-h">Week 7 - Prayer, Scripture, and Inward Preparation</h2>
+<h3 class="section-sh">Required Reading</h3>
+<ul class="list-ul"><li><a class="inline-link" href="https://www.osmth.org/templar-legacy/modern-order-history" target="_blank">Modern Order History - OSMTH</a></li></ul>
+<h3 class="section-sh">Primary Focus</h3>
+<p class="body-p">Prayer, Scripture, self-mastery, service before self, and inward preparation for the next formation stage.</p>
+<h3 class="section-sh">Key Formation Subjects</h3>
+<p class="body-p">Deepening the daily prayer rhythm; the concept of &quot;monk before warrior&quot;; assessing personal spiritual vulnerabilities.</p>
+<h3 class="section-sh">Formation Emphasis</h3>
+<p class="body-p">Leaning heavily on Christ as the ultimate foundation in preparation for the solemn vows of knighthood.</p>
+<h3 class="section-sh">Readiness Goal</h3>
+<p class="body-p">Exhibit a disciplined daily spiritual routine and articulate personal readiness for the burdens of the Knight Aspirant phase.</p>
+<h3 class="section-sh">Overview</h3>
+<p class="body-p">The OSMTH history page presents the modern Templar vocation in explicitly ethical and charitable terms, emphasizing high moral principles, service, peace, assistance to others, and the motto &quot;Not for us, Lord, not for us, but to Thy name give glory.&quot; It also states plainly that for modern Templars the Word, not the sword, is the weapon. Those themes make this an appropriate week for inward examination, self-mastery, and service-before-self preparation. <a class="inline-link" href="https://www.osmth.org/templar-legacy/modern-order-history" target="_blank">OSMTH</a></p>
+<h3 class="section-sh">Accuracy Note</h3>
+<p class="body-p">This source supports a modern Christian ethic of service, humility, and moral seriousness. More detailed daily prayer discipline should be supplied by academy rule, chaplain guidance, or the candidate&#x27;s spiritual director.</p>
+<h2 class="section-h">Week 8 - Final Review and Advancement Consideration</h2>
+<h3 class="section-sh">Required Reading</h3>
+<ul class="list-ul"><li><a class="inline-link" href="https://www.genspark.ai/api/files/s/TeOiSCUN" target="_blank">Adult Formation</a></li></ul>
+<h3 class="section-sh">Primary Focus</h3>
+<p class="body-p">Final review, oral readiness, service record review, conduct review, and recommendation for advancement consideration.</p>
+<h3 class="section-sh">Key Formation Subjects</h3>
+<p class="body-p">Comprehensive review of history, doctrine, and operational standards; preparing for the scrutiny of the rank board.</p>
+<h3 class="section-sh">Formation Emphasis</h3>
+<p class="body-p">Cultivating a mindset of quiet obedience, regardless of the board&#x27;s decision regarding future advancement.</p>
+<h3 class="section-sh">Readiness Goal</h3>
+<p class="body-p">Complete the Sergeant First Class formation cycle, presenting all required documentation and demonstrating readiness in the oral review.</p>
+<h3 class="section-sh">Overview</h3>
+<p class="body-p">The assigned formation document stresses course completion, academic diligence, consistent attendance, active fellowship, accountability, and review by the board rather than automatic promotion. That makes it a fitting concluding text for final documentation, oral readiness, and sober preparation for advancement consideration. <a class="inline-link" href="https://www.genspark.ai/api/files/s/TeOiSCUN" target="_blank">Adult Formation</a></p>
+<h2 class="section-h">Reference Images</h2>
+<div class="ref-images">
+<figure><img src="https://cdn.britannica.com/81/117781-050-07440725/Chapter-Order-of-the-Temple-oil-canvas-1844.jpg" alt="Chapter of the Order of the Temple Held at Paris, 22 April 1147" loading="lazy"/><figcaption>Chapter of the Order of the Temple Held at Paris, 22 April 1147</figcaption></figure>
+<figure><img src="https://cdn.britannica.com/13/70913-050-30640982/Knights-Templar-Parade-Triennial-Conclave-Pittsburgh-Pennsylvania-1898.jpg" alt="Parade of the Knights Templar during their Triennial Conclave in Pittsburgh, Pennsylvania, 1898" loading="lazy"/><figcaption>Parade of the Knights Templar during their Triennial Conclave in Pittsburgh, Pennsylvania, 1898</figcaption></figure>
+<figure><img src="https://i.natgeofe.com/n/d577109b-b304-481b-abb1-744887fcb414/02-knights-templar.jpg" alt="National Geographic illustration of a Knight Templar" loading="lazy"/><figcaption>National Geographic illustration of a Knight Templar</figcaption></figure>
+</div>
+</div>
+</body>
+</html>

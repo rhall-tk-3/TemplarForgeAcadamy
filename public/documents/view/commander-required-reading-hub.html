@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Commander Program - Required Reading Hub | Officer Formation Level IV</title>
+  <meta
+    name="description"
+    content="Templar Forge Academy Commander Program required reading hub with the Commander School Syllabus, lesson-by-lesson reading links, assignments, and senior command outcomes."
+  />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --panel-2: #1f2937;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --gold: #d4af37;
+      --gold-soft: rgba(212, 175, 55, 0.12);
+      --line: rgba(148, 163, 184, 0.22);
+      --accent: #7dd3fc;
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --max: 1220px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(212, 175, 55, 0.08), transparent 25%),
+        radial-gradient(circle at top left, rgba(125, 211, 252, 0.08), transparent 20%),
+        linear-gradient(180deg, #08101f 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: underline;
+    }
+
+    .shell {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 20px 80px;
+    }
+
+    .hero,
+    .panel,
+    .week-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 36px 28px;
+      margin-bottom: 24px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+        linear-gradient(135deg, rgba(212,175,55,0.10), rgba(125,211,252,0.05));
+    }
+
+    .panel,
+    .week-card {
+      padding: 22px 24px;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--gold-soft);
+      color: #f8e7a6;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1, h2, h3, h4 {
+      margin: 0 0 12px;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      color: #fff;
+    }
+
+    p {
+      margin: 0 0 1rem;
+    }
+
+    .hero p {
+      max-width: 960px;
+      color: #dbe4f0;
+      font-size: 1.02rem;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .small {
+      font-size: 0.95rem;
+    }
+
+    .quick-nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .quick-nav a {
+      display: block;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: rgba(15, 23, 42, 0.65);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .quick-nav a:hover {
+      border-color: rgba(212, 175, 55, 0.45);
+      text-decoration: none;
+    }
+
+    .docs-grid,
+    .summary-grid,
+    .footer-links {
+      display: grid;
+      gap: 16px;
+    }
+
+    .docs-grid,
+    .summary-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .doc-card,
+    .summary-card {
+      padding: 18px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: rgba(15, 23, 42, 0.72);
+    }
+
+    .doc-card strong,
+    .summary-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .overview-table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 980px;
+      background: rgba(15, 23, 42, 0.55);
+    }
+
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: rgba(212, 175, 55, 0.08);
+      color: #f8e7a6;
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .week-card {
+      scroll-margin-top: 24px;
+    }
+
+    .week-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      font-size: 0.85rem;
+      border-radius: 999px;
+      background: rgba(125, 211, 252, 0.08);
+      border: 1px solid rgba(125, 211, 252, 0.18);
+      color: #d7f3ff;
+    }
+
+    .field {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: var(--radius-sm);
+      background: rgba(2, 8, 23, 0.46);
+      border: 1px solid var(--line);
+    }
+
+    .field-label {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: #f8e7a6;
+      font-size: 0.86rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    ul, ol {
+      margin: 0.4rem 0 0 1.2rem;
+      padding: 0;
+    }
+
+    li + li {
+      margin-top: 0.45rem;
+    }
+
+    .reading-list li a {
+      font-weight: 600;
+    }
+
+    .footer-links {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-top: 16px;
+    }
+
+    .footer-links a {
+      display: block;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: rgba(15, 23, 42, 0.72);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .footer-links a:hover {
+      text-decoration: none;
+      border-color: rgba(212, 175, 55, 0.45);
+    }
+
+    /* ── Sticky nav ─────────────────────────────────────────── */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 19, 38, 0.82);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .sticky-nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      height: 48px;
+    }
+
+    .sticky-nav-brand {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #f8e7a6;
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+    }
+
+    .sticky-nav-links {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+
+    .sticky-nav-links a {
+      padding: 5px 11px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .sticky-nav-links a:hover {
+      color: var(--text);
+      text-decoration: none;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .sticky-nav-links a.active {
+      color: #f8e7a6;
+      background: rgba(212, 175, 55, 0.12);
+    }
+
+    @media (max-width: 760px) {
+      .hero,
+      .panel,
+      .week-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="sticky-nav" aria-label="Commander School Program navigation">
+    <div class="sticky-nav-inner">
+      <span class="sticky-nav-brand">&#10010; Commander School Program</span>
+      <div class="sticky-nav-links">
+        <a href="/programs/commander/site/lesson-plan/index.html">Lesson Plan</a>
+        <a href="/programs/commander/site/weeks/index.html">Weeks</a>
+        <a href="/programs/commander/site/downloads/Commander_Required_Reading_List.html">Reading List</a>
+        <a href="/documents/view/commander-required-reading-hub.html" class="active">Reading Hub</a>
+        <a href="/programs/commander/site/materials/index.html">Materials</a>
+        <a href="/programs/commander/site/schoolmaster/index.html">Schoolmaster</a>
+      </div>
+    </div>
+  </nav>
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">Templar Forge Academy</div>
+      <h1>Commander Program - Required Reading Hub</h1>
+      <p>
+        This static lesson hub places the <strong>Commander School Syllabus</strong> directly into the required-reading flow
+        for Officer Formation Level IV. It preserves the academy hub structure while making the syllabus visible as a
+        program document, a lesson-by-lesson reading requirement, and a course-summary reference for assignments,
+        leadership outcomes, senior-command practicum preparation, and final board review.
+      </p>
+
+      <nav class="quick-nav" aria-label="Quick navigation">
+        <a href="#program-documents">Program Documents</a>
+        <a href="#syllabus-summary">Syllabus Summary</a>
+        <a href="#weekly-overview">Weekly Overview</a>
+        <a href="#lesson-1">Lesson 1</a>
+        <a href="#lesson-6">Lesson 6</a>
+        <a href="#lesson-12">Lesson 12</a>
+        <a href="#evaluation">Evaluation</a>
+      </nav>
+    </section>
+
+    <section id="program-documents" class="panel">
+      <h2>Program Documents</h2>
+      <div class="docs-grid">
+        <article class="doc-card">
+          <strong>Commander School Syllabus PDF</strong>
+          <p class="muted small">Primary Officer Formation Level IV syllabus for all 12 lessons.</p>
+          <a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Open syllabus PDF</a>
+        </article>
+
+        <article class="doc-card">
+          <strong>Commander School Lesson Plan</strong>
+          <p class="muted small">Static lesson-plan document included in the Commander site package.</p>
+          <a href="/programs/commander/site/downloads/Commander_School_Lesson_Plan.html" target="_blank" rel="noopener">Open lesson plan</a>
+        </article>
+
+        <article class="doc-card">
+          <strong>Knights Templar Overview</strong>
+          <p class="muted small">Foundational background for Commander identity and historical continuity.</p>
+          <a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Open overview</a>
+        </article>
+
+        <article class="doc-card">
+          <strong>Templars Hierarchy and Duties</strong>
+          <p class="muted small">Used for Marshal, Seneschal, high office, and wider structure.</p>
+          <a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Open hierarchy source</a>
+        </article>
+
+        <article class="doc-card">
+          <strong>Primitive Rule of the Templars</strong>
+          <p class="muted small">Used for discipline, speech, correction, composure, and lawful authority.</p>
+          <a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Open Rule source</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="syllabus-summary" class="panel">
+      <h2>Syllabus Summary</h2>
+      <p>
+        Commander School is described as the transition from regional steward to institutional guardian: a man who can
+        preserve mission, align senior officers, direct the life of the Order below the Grandmaster, govern through clear
+        doctrine and disciplined authority, and prepare the next generation of leaders without making the office about
+        himself. The historical model named in the syllabus is drawn from the <strong>Marshal</strong> and the
+        <strong>Seneschal</strong>, presented as the clearest foundation for Commander-level formation in operational
+        authority and executive stewardship.
+      </p>
+
+      <div class="summary-grid">
+        <article class="summary-card">
+          <strong>Institutional Stewardship</strong>
+          <p class="muted small">Responsibility for mission, standards, leaders, and continuity across the whole Order.</p>
+        </article>
+        <article class="summary-card">
+          <strong>Leadership Under Authority</strong>
+          <p class="muted small">Exercise broad authority while remaining aligned with mission, law, and higher purpose.</p>
+        </article>
+        <article class="summary-card">
+          <strong>Leader Development</strong>
+          <p class="muted small">Direct, evaluate, and strengthen majors, captains, and the officer pipeline.</p>
+        </article>
+        <article class="summary-card">
+          <strong>Promotion Readiness</strong>
+          <p class="muted small">Show readiness for the highest officer office beneath the Grandmaster.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="weekly-overview" class="panel">
+      <h2>Weekly Overview</h2>
+      <div class="overview-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Lesson</th>
+              <th>Title</th>
+              <th>Assignment</th>
+              <th>Required Reading</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1</strong></td>
+              <td>The Burden of Senior Command</td>
+              <td>1&#8211;2 page reflection on responsibility for the whole body beneath the Grandmaster</td>
+              <td><a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Syllabus PDF</a>, <a href="/programs/commander/site/downloads/Commander_School_Lesson_Plan.html" target="_blank" rel="noopener">Lesson Plan</a>, <a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule</a></td>
+            </tr>
+            <tr>
+              <td><strong>2</strong></td>
+              <td>Senior Command in the Knights Templar</td>
+              <td>Short presentation or visual summary on senior Templar command structure</td>
+              <td><a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Syllabus PDF</a>, <a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Knights Templar</a>, <a href="https://www.britannica.com/topic/Templars" target="_blank" rel="noopener">Britannica: Templars</a></td>
+            </tr>
+            <tr>
+              <td><strong>3</strong></td>
+              <td>The Offices of Marshal and Seneschal</td>
+              <td>2-page comparison paper</td>
+              <td><a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Syllabus PDF</a>, <a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Hierarchy &amp; Duties</a></td>
+            </tr>
+            <tr>
+              <td><strong>4</strong></td>
+              <td>Doctrine, Mission, and Institutional Identity</td>
+              <td>Institutional doctrine statement</td>
+              <td><a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Syllabus PDF</a>, <a href="/programs/commander/site/downloads/Commander_School_Lesson_Plan.html" target="_blank" rel="noopener">Lesson Plan</a>, <a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule</a></td>
+            </tr>
+            <tr>
+              <td><strong>5</strong></td>
+              <td>Authority, Judgment, and Command Presence</td>
+              <td>Command-presence self-assessment with mentor feedback and action plan</td>
+              <td><a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Syllabus PDF</a>, <a href="/programs/commander/site/downloads/Commander_School_Lesson_Plan.html" target="_blank" rel="noopener">Lesson Plan</a>, <a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Knights Templar</a></td>
+            </tr>
+            <tr>
+              <td><strong>6</strong></td>
+              <td>Senior Officer Alignment and Direction</td>
+              <td>Senior-officer alignment plan</td>
+              <td><a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Syllabus PDF</a>, <a href="/programs/commander/site/downloads/Commander_School_Lesson_Plan.html" target="_blank" rel="noopener">Lesson Plan</a></td>
+            </tr>
+            <tr>
+              <td><strong>7</strong></td>
+              <td>Crisis Leadership and Difficult Decisions</td>
+              <td>Written responses to crisis-leadership case studies</td>
+              <td><a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Syllabus PDF</a>, <a href="https://www.britannica.com/topic/Templars" target="_blank" rel="noopener">Britannica: Templars</a></td>
+            </tr>
+            <tr>
+              <td><strong>8</strong></td>
+              <td>Succession, Appointments, and Officer Formation</td>
+              <td>Succession and officer-development map</td>
+              <td><a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Syllabus PDF</a>, <a href="/programs/commander/site/downloads/Commander_School_Lesson_Plan.html" target="_blank" rel="noopener">Lesson Plan</a></td>
+            </tr>
+            <tr>
+              <td><strong>9</strong></td>
+              <td>Discipline, Correction, and Justice at the Highest Officer Level</td>
+              <td>Corrective-action framework</td>
+              <td><a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Syllabus PDF</a>, <a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule</a></td>
+            </tr>
+            <tr>
+              <td><strong>10</strong></td>
+              <td>Stewardship of Culture, Communication, and Morale</td>
+              <td>Command communication and morale-maintenance protocol</td>
+              <td><a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Syllabus PDF</a>, <a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule</a></td>
+            </tr>
+            <tr>
+              <td><strong>11</strong></td>
+              <td>Senior Command Practicum</td>
+              <td>Approved senior command project and after-action review</td>
+              <td><a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Syllabus PDF</a>, <a href="/programs/commander/site/downloads/Commander_School_Lesson_Plan.html" target="_blank" rel="noopener">Lesson Plan</a></td>
+            </tr>
+            <tr>
+              <td><strong>12</strong></td>
+              <td>Capstone Preparation and Commander&#8217;s Board Review</td>
+              <td>Final portfolio submission</td>
+              <td><a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Syllabus PDF</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="lesson-1" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 1</span>
+        <span class="tag">The Burden of Senior Command</span>
+      </div>
+      <h2>Lesson 1 - The Burden of Senior Command</h2>
+      <div class="field">
+        <span class="field-label">Primary Focus</span>
+        <p>The Commander must think in terms of the mission, culture, and future of the whole Order beneath the Grandmaster.</p>
+      </div>
+      <div class="field">
+        <span class="field-label">Leadership Emphasis</span>
+        <p>A Commander is accountable not only for what is done, but for what the Order becomes under his stewardship.</p>
+      </div>
+      <div class="field">
+        <span class="field-label">Assignment</span>
+        <p>1&#8211;2 page reflection on responsibility for the whole body beneath the Grandmaster.</p>
+      </div>
+      <div class="field">
+        <span class="field-label">Leadership Outcome</span>
+        <p>Begins to think like an institutional steward rather than only a regional officer.</p>
+      </div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Commander School Syllabus PDF</a></li>
+          <li><a href="/programs/commander/site/downloads/Commander_School_Lesson_Plan.html" target="_blank" rel="noopener">Commander School Lesson Plan</a></li>
+          <li><a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule of the Templars</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-2" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 2</span>
+        <span class="tag">Senior Command in the Knights Templar</span>
+      </div>
+      <h2>Lesson 2 - Senior Command in the Knights Templar</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>The historical framework for top-level Templar leadership and the way senior officers preserved coordinated action and continuity of command.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Senior command exists so mission does not collapse into fragmentation, personality, or confusion.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Presentation or visual summary on senior Templar command structure.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Understands the historical model of high office.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Commander School Syllabus PDF</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Knights Templar</a></li>
+          <li><a href="https://www.britannica.com/topic/Templars" target="_blank" rel="noopener">Britannica: Templars</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-3" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 3</span>
+        <span class="tag">Marshal and Seneschal</span>
+      </div>
+      <h2>Lesson 3 - The Offices of Marshal and Seneschal</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>The Marshal as the model of senior operational command and the Seneschal as the model of executive stewardship and coordinated governance.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>True senior command requires both decisive authority and disciplined executive judgment.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Comparison paper between the Templar Marshal/Seneschal and your Commander rank.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Sees Commander as a capstone office of both command and stewardship.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Commander School Syllabus PDF</a></li>
+          <li><a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Templars Hierarchy and Duties</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-4" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 4</span>
+        <span class="tag">Doctrine and Institutional Identity</span>
+      </div>
+      <h2>Lesson 4 - Doctrine, Mission, and Institutional Identity</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Guarding not only activity but identity, meaning, standards, and clarity of purpose across the whole Order.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>If doctrine and mission are unclear, senior command becomes reactive and unstable.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Institutional doctrine statement on mission, standards, and command expectations.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Understands how to preserve institutional clarity.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Commander School Syllabus PDF</a></li>
+          <li><a href="/programs/commander/site/downloads/Commander_School_Lesson_Plan.html" target="_blank" rel="noopener">Commander School Lesson Plan</a></li>
+          <li><a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule of the Templars</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-5" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 5</span>
+        <span class="tag">Authority and Command Presence</span>
+      </div>
+      <h2>Lesson 5 - Authority, Judgment, and Command Presence</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Carrying high office with gravity, restraint, clarity, and self-command.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Command presence is not theatrical force; it is disciplined steadiness others can trust.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Command-presence self-assessment with mentor feedback and action plan.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Grows in gravity, composure, and responsible use of authority.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Commander School Syllabus PDF</a></li>
+          <li><a href="/programs/commander/site/downloads/Commander_School_Lesson_Plan.html" target="_blank" rel="noopener">Commander School Lesson Plan</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Knights Templar</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-6" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 6</span>
+        <span class="tag">Senior Officer Alignment</span>
+      </div>
+      <h2>Lesson 6 - Senior Officer Alignment and Direction</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Aligning majors, captains, and lieutenants under one coherent mission without eroding legitimate subordinate authority.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>The best Commander creates aligned leaders, not dependent subordinates.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Senior-officer alignment plan for communication, priorities, reporting, and support.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Can unify senior leaders without creating confusion or dependency.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Commander School Syllabus PDF</a></li>
+          <li><a href="/programs/commander/site/downloads/Commander_School_Lesson_Plan.html" target="_blank" rel="noopener">Commander School Lesson Plan</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-7" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 7</span>
+        <span class="tag">Crisis Leadership</span>
+      </div>
+      <h2>Lesson 7 - Crisis Leadership and Difficult Decisions</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Thinking and acting under pressure in moments of breakdown, conflict, failed leadership, or urgent threat to mission.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>A Commander must bring calm, not confusion, into moments of strain.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Written responses to crisis-leadership case studies.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Develops steadiness and judgment in hard moments.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Commander School Syllabus PDF</a></li>
+          <li><a href="https://www.britannica.com/topic/Templars" target="_blank" rel="noopener">Britannica: Templars</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-8" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 8</span>
+        <span class="tag">Succession and Officer Formation</span>
+      </div>
+      <h2>Lesson 8 - Succession, Appointments, and Officer Formation</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Appointments, succession, talent identification, and the deliberate formation of future commanders and senior officers.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>The future strength of the Order depends on who is being formed now.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Succession and officer-development map for one full command cycle.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Grows in long-range institutional thinking.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Commander School Syllabus PDF</a></li>
+          <li><a href="/programs/commander/site/downloads/Commander_School_Lesson_Plan.html" target="_blank" rel="noopener">Commander School Lesson Plan</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-9" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 9</span>
+        <span class="tag">Justice and Correction</span>
+      </div>
+      <h2>Lesson 9 - Discipline, Correction, and Justice at the Highest Officer Level</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Intervening when leaders fail, standards collapse, or disorder spreads, with justice that is disciplined, proportionate, and transparent in principle.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Senior correction must be firm enough to preserve order and fair enough to preserve legitimacy.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Corrective-action framework for serious officer or command problems.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Learns to correct firmly without becoming arbitrary or reactive.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Commander School Syllabus PDF</a></li>
+          <li><a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule of the Templars</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-10" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 10</span>
+        <span class="tag">Culture, Communication, and Morale</span>
+      </div>
+      <h2>Lesson 10 - Stewardship of Culture, Communication, and Morale</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>The way senior leadership shapes morale, trust, and cohesion across the Order through tone, speech, and discipline.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>What senior leaders permit in tone and speech becomes the climate of the whole body.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Command communication and morale-maintenance protocol.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Understands how culture is protected or damaged from the top.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Commander School Syllabus PDF</a></li>
+          <li><a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule of the Templars</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-11" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 11</span>
+        <span class="tag">Senior Command Practicum</span>
+      </div>
+      <h2>Lesson 11 - Senior Command Practicum</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Demonstrating the ability to assess, align, direct, and strengthen the Order through a real or realistic senior command assignment.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Senior command must be demonstrated through action, judgment, and measurable strengthening of institutional life.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Approved senior command project with after-action review.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Proves he can function as the highest officer beneath the Grandmaster.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Commander School Syllabus PDF</a></li>
+          <li><a href="/programs/commander/site/downloads/Commander_School_Lesson_Plan.html" target="_blank" rel="noopener">Commander School Lesson Plan</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lesson-12" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 12</span>
+        <span class="tag">Commander&#8217;s Board Review</span>
+      </div>
+      <h2>Lesson 12 - Capstone Preparation and Commander&#8217;s Board Review</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Integrating the whole course into one demonstration of readiness for the highest officer rank before Grandmaster.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Readiness for Commander must be visible in doctrine, judgment, composure, succession thinking, and institutional stewardship.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Final portfolio submission.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Demonstrates readiness for senior command responsibility.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Commander School Syllabus PDF</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="evaluation" class="panel">
+      <h2>Evaluation and Board Review</h2>
+      <p>
+        The syllabus evaluates attendance and participation, written assignments, command and planning work,
+        leader-development work, the senior-command practicum, senior observation, final portfolio, and the oral board.
+        It also requires one approved practicum such as conducting an Order-wide command assessment, leading a senior
+        officer alignment cycle, designing a succession framework, resolving a simulated institutional crisis, or building
+        a doctrine, communication, and morale strategy for the whole Order.
+      </p>
+
+      <div class="summary-grid">
+        <article class="summary-card">
+          <strong>Attendance and Participation</strong>
+          <p class="muted small">10% &#8212; presence, preparedness, engagement, contribution to discussion.</p>
+        </article>
+        <article class="summary-card">
+          <strong>Written Assignments</strong>
+          <p class="muted small">20% &#8212; historical understanding, reflection quality, doctrinal clarity, strategic application.</p>
+        </article>
+        <article class="summary-card">
+          <strong>Senior Command Practicum</strong>
+          <p class="muted small">20% &#8212; judgment, alignment, communication, decision-making, and follow-through.</p>
+        </article>
+        <article class="summary-card">
+          <strong>Oral Board / Final Review</strong>
+          <p class="muted small">10% &#8212; officer presence, judgment, historical grounding, readiness for highest officer office.</p>
+        </article>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Sample Oral Board Questions</span>
+        <ul>
+          <li>Why were the Marshal and Seneschal essential to the historical Templar Order?</li>
+          <li>What distinguishes a Commander from a Major in your Order?</li>
+          <li>Why are the Marshal and Seneschal the right models for Commander School?</li>
+          <li>What must a Commander protect in the Order besides outward success or activity?</li>
+          <li>How does a Commander exercise strong authority without becoming overbearing or centralized in the wrong way?</li>
+          <li>What principles should govern a Commander during a serious internal or external crisis?</li>
+          <li>How do you correct failing leadership while preserving legitimacy and fraternity?</li>
+          <li>How do you know whether the Order is actually producing future Commanders?</li>
+          <li>Where is your greatest weakness as a future Commander, and how are you addressing it?</li>
+          <li>Why are you ready&#8212;or not yet ready&#8212;for the highest officer position before Grandmaster?</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Core Links</h2>
+      <div class="footer-links">
+        <a href="/programs/commander/site/downloads/Commander_School_Syllabus.pdf" target="_blank" rel="noopener">Commander School Syllabus PDF</a>
+        <a href="/programs/commander/site/downloads/Commander_School_Lesson_Plan.html" target="_blank" rel="noopener">Commander School Lesson Plan</a>
+        <a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Knights Templar Overview</a>
+        <a href="https://www.britannica.com/topic/Templars" target="_blank" rel="noopener">Britannica: Templars</a>
+        <a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Templars Hierarchy and Duties</a>
+        <a href="https://www.medievalwarfare.info/rule.htm" target="_blank" rel="noopener">Primitive Rule of the Templars</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

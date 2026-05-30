@@ -1,0 +1,127 @@
+{
+  "program_title": "Levie School Program",
+  "week_number": 3,
+  "week_title": "Week 3: Conduct, Leadership, and Accountability",
+  "multiple_choice_questions": [
+    {
+      "question": "What is the primary focus of Week 3: Conduct, Leadership, and Accountability?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "This week centers on conduct, leadership, and accountability."
+        },
+        {
+          "option": "B",
+          "text": "Week 1: Identity, Purpose, and Consecration"
+        },
+        {
+          "option": "C",
+          "text": "Week 2: Standards, Duties, and Equality"
+        },
+        {
+          "option": "D",
+          "text": "Week 4: The Five Governing Pillars"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "This week centers on conduct, leadership, and accountability.",
+      "rationale": "The week summary states that This week centers on conduct, leadership, and accountability."
+    },
+    {
+      "question": "Which reading is explicitly assigned for Week 3: Conduct, Leadership, and Accountability?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Program lesson plan and reading list"
+        },
+        {
+          "option": "B",
+          "text": "Week 1: Identity, Purpose, and Consecration"
+        },
+        {
+          "option": "C",
+          "text": "Week 2: Standards, Duties, and Equality"
+        },
+        {
+          "option": "D",
+          "text": "Week 4: The Five Governing Pillars"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Program lesson plan and reading list",
+      "rationale": "Program lesson plan and reading list appears in the required reading list for this week."
+    },
+    {
+      "question": "Which concept is most directly associated with Week 3: Conduct, Leadership, and Accountability?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Conduct, Leadership, and Accountability"
+        },
+        {
+          "option": "B",
+          "text": "Week 1: Identity, Purpose, and Consecration"
+        },
+        {
+          "option": "C",
+          "text": "Week 2: Standards, Duties, and Equality"
+        },
+        {
+          "option": "D",
+          "text": "Week 4: The Five Governing Pillars"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Conduct, Leadership, and Accountability",
+      "rationale": "The week is organized around the concept of Conduct, Leadership, and Accountability."
+    },
+    {
+      "question": "Which statement best reflects the expected learning outcome for Week 3: Conduct, Leadership, and Accountability?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "This week centers on conduct, leadership, and accountability."
+        },
+        {
+          "option": "B",
+          "text": "Week 1: Identity, Purpose, and Consecration"
+        },
+        {
+          "option": "C",
+          "text": "Week 2: Standards, Duties, and Equality"
+        },
+        {
+          "option": "D",
+          "text": "Week 4: The Five Governing Pillars"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "This week centers on conduct, leadership, and accountability.",
+      "rationale": "This statement matches the stated memory target or focus for the week: This week centers on conduct, leadership, and accountability."
+    },
+    {
+      "question": "Which response best applies the lesson of Week 3: Conduct, Leadership, and Accountability?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Apply the lesson of Conduct, Leadership, and Accountability through disciplined conduct, truthful understanding, and practical service."
+        },
+        {
+          "option": "B",
+          "text": "Treat Conduct, Leadership, and Accountability mainly as ceremonial prestige without practical duty."
+        },
+        {
+          "option": "C",
+          "text": "Ignore assigned readings and rely on legend or speculation about Conduct, Leadership, and Accountability."
+        },
+        {
+          "option": "D",
+          "text": "Approach Conduct, Leadership, and Accountability as private opinion rather than accountable formation."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Apply the lesson of Conduct, Leadership, and Accountability through disciplined conduct, truthful understanding, and practical service.",
+      "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+    }
+  ]
+}

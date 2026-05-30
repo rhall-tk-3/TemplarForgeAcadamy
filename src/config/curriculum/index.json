@@ -6,7 +6,7 @@
       "slug": "squire",
       "title": "Squire School Program",
       "phase": "Foundational rank",
-      "siteEntry": "programs/squire/site/index.html",
+      "siteEntry": "programs/squire/hub",
       "audience": "Youth",
       "durationWeeks": 8,
       "programType": "foundational",
@@ -27,7 +27,7 @@
         "final-evaluation-forms"
       ],
       "resources": [
-        "programs/squire/resources/Squire_School_Lesson_Plan.html",
+        "programs/squire/resources/Squire_School_Lesson_Plan.pdf",
         "programs/squire/resources/Squire_Required_Reading_List.html"
       ]
     },
@@ -35,7 +35,7 @@
       "slug": "levie",
       "title": "Levie School Program",
       "phase": "Foundational rank",
-      "siteEntry": "programs/levie/site/index.html",
+      "siteEntry": "programs/levie/hub",
       "audience": "Adult",
       "durationWeeks": 8,
       "programType": "foundational",
@@ -65,7 +65,7 @@
       "slug": "corporal",
       "title": "Corporal School Program",
       "phase": "Rank advancement",
-      "siteEntry": "programs/corporal/site/index.html",
+      "siteEntry": "programs/corporal/hub",
       "audience": "Adult",
       "durationWeeks": 8,
       "programType": "rank-advancement",
@@ -95,7 +95,7 @@
       "slug": "sergeant",
       "title": "Sergeant School Program",
       "phase": "Rank advancement",
-      "siteEntry": "programs/sergeant/site/index.html",
+      "siteEntry": "programs/sergeant/hub",
       "audience": "Adult",
       "durationWeeks": 8,
       "programType": "rank-advancement",
@@ -125,7 +125,7 @@
       "slug": "sfc",
       "title": "Sergeant First Class School Program",
       "phase": "Rank advancement",
-      "siteEntry": "programs/sfc/site/index.html",
+      "siteEntry": "programs/sfc/hub",
       "audience": "Adult",
       "durationWeeks": 8,
       "programType": "rank-advancement",
@@ -155,7 +155,7 @@
       "slug": "knight-aspirant",
       "title": "Knight Aspirant School Program",
       "phase": "Knight preparation",
-      "siteEntry": "programs/knight-aspirant/site/index.html",
+      "siteEntry": "programs/knight-aspirant/hub",
       "audience": "Adult",
       "durationWeeks": 8,
       "programType": "knight-preparation",
@@ -185,7 +185,7 @@
       "slug": "knight",
       "title": "Knight School Program",
       "phase": "Knight formation",
-      "siteEntry": "programs/knight/site/index.html",
+      "siteEntry": "programs/knight/hub",
       "audience": "Adult",
       "durationWeeks": 4,
       "programType": "knight-formation",
@@ -215,7 +215,7 @@
       "slug": "lieutenant",
       "title": "Lieutenant School Program",
       "phase": "Officer Formation Level I",
-      "siteEntry": "programs/lieutenant/site/index.html",
+      "siteEntry": "programs/lieutenant/hub",
       "audience": "Adult",
       "durationWeeks": 12,
       "programType": "officer-formation",
@@ -246,7 +246,7 @@
       "slug": "captain",
       "title": "Captain School Program",
       "phase": "Officer Formation Level II",
-      "siteEntry": "programs/captain/site/index.html",
+      "siteEntry": "programs/captain/hub",
       "audience": "Adult",
       "durationWeeks": 12,
       "programType": "officer-formation",
@@ -276,7 +276,7 @@
       "slug": "major",
       "title": "Major School Program",
       "phase": "Officer Formation Level III",
-      "siteEntry": "programs/major/site/index.html",
+      "siteEntry": "programs/major/hub",
       "audience": "Adult",
       "durationWeeks": 12,
       "programType": "officer-formation",
@@ -307,7 +307,7 @@
       "slug": "commander",
       "title": "Commander School Program",
       "phase": "Officer Formation Level IV",
-      "siteEntry": "programs/commander/site/index.html",
+      "siteEntry": "programs/commander/hub",
       "audience": "Adult",
       "durationWeeks": 12,
       "programType": "officer-formation",
@@ -331,6 +331,35 @@
         "programs/commander/site/downloads/Commander_School_Syllabus.pdf",
         "programs/commander/site/downloads/Commander_School_Lesson_Plan.html",
         "programs/commander/site/downloads/Commander_Required_Reading_List.html"
+      ]
+    },
+    {
+      "slug": "chaplain",
+      "title": "Chaplain Corps School Program",
+      "phase": "Specialist Corps Certification",
+      "siteEntry": "programs/chaplain/hub",
+      "audience": "Adult",
+      "durationWeeks": 6,
+      "programType": "specialist-certification",
+      "hasReadingLog": true,
+      "hasSyllabus": true,
+      "hasLessonPlan": true,
+      "navAliases": {
+        "weeks": "programs/chaplain/site/weeks/index.html",
+        "schoolmaster": "programs/chaplain/site/schoolmaster/index.html"
+      },
+      "sharedResourceKeys": [
+        "curriculum-handbook",
+        "weekly-lesson-plan-packet",
+        "promotion-and-assessment-guide",
+        "attendance-sheets",
+        "oral-review-rubrics",
+        "advancement-checklists",
+        "final-evaluation-forms"
+      ],
+      "resources": [
+        "programs/chaplain/resources/Chaplain_School_Lesson_Plan.html",
+        "programs/chaplain/resources/Chaplain_Required_Reading_List.html"
       ]
     }
   ]

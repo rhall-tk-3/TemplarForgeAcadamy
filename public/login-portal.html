@@ -1,168 +1,469 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sign In — Templar Forge Academy</title>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="stylesheet" href="/shared.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Templar Forge Academy | Member Access</title>
+  <meta name="description" content="Member sign in and account creation for Templar Forge Academy." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
   <style>
-    /* ── LOGIN PAGE — FULLY RESPONSIVE ── */
-    html, body { width:100%; min-height:100%; }
+    /* ── TOKENS ── */
+    :root {
+      --bg:      #0f172a;
+      --panel:   #111827;
+      --panel-2: #1f2937;
+      --line:    rgba(148,163,184,.18);
+      --text:    #e5e7eb;
+      --muted:   #94a3b8;
+      --gold:    #d4af37;
+      --gold-lt: #f8e7a6;
+      --crimson: #8b0000;
+      --shadow:  0 24px 56px rgba(0,0,0,.38);
+      --radius:  18px;
+    }
 
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── BASE ── */
+    html, body { height: 100%; }
     body {
-      background-color: #000;
-      background-image: url('/images/login-cross.png');
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: clamp(140px, 44vmin, 480px);
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139,0,0,.18) 0%, transparent 70%),
+        linear-gradient(180deg, #08101f 0%, var(--bg) 100%);
       background-attachment: fixed;
       min-height: 100vh;
+
+      /* Cross watermark */
+      background-image:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139,0,0,.18) 0%, transparent 70%),
+        url('/images/login-cross.png');
+      background-image:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139,0,0,.18) 0%, transparent 70%),
+        url('/images/login-cross.png'),
+        linear-gradient(180deg, #08101f 0%, var(--bg) 100%);
+      background-repeat: no-repeat, no-repeat, no-repeat;
+      background-position: top center, center center, top center;
+      background-size: auto, clamp(120px, 36vmin, 400px), 100% 100%;
+      background-attachment: fixed, fixed, fixed;
+    }
+
+    /* ── LAYOUT ── */
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: clamp(24px, 5vh, 56px) clamp(16px, 4vw, 32px) 80px;
+    }
+
+    /* ── HERO ── */
+    .hero {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: clamp(16px,4vh,40px) clamp(12px,4vw,32px);
+      text-align: center;
+      margin-bottom: clamp(28px, 4vh, 40px);
+      padding: clamp(24px, 4vh, 36px) clamp(20px, 4vw, 40px);
+      background: linear-gradient(160deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-crest {
+      display: block;
+      width: clamp(56px, 10vw, 88px);
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,.8));
+      margin-bottom: 14px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: rgba(212,175,55,.1);
+      border: 1px solid rgba(212,175,55,.2);
+      color: var(--gold-lt);
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: .72rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .eyebrow-cross { font-size: .9rem; color: var(--gold); }
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      font-weight: 900;
+      color: #e8c96a;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-shadow: 0 2px 0 rgba(0,0,0,.9), 0 4px 20px rgba(0,0,0,.7);
+      margin-bottom: 12px;
+    }
+    .hero p {
+      max-width: 640px;
+      margin: 0 auto;
+      color: #9aa8ba;
+      font-size: clamp(.92rem, 2vw, 1.05rem);
+      line-height: 1.7;
+    }
+    .rule {
+      width: clamp(120px, 30%, 360px);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 16px auto 0;
+      opacity: .45;
     }
 
-    .auth-box { width:100%; max-width:440px; min-width:0; }
+    /* ── GRID ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+      gap: clamp(16px, 2.5vw, 24px);
+    }
 
-    .auth-header { text-align:center; margin-bottom:clamp(16px,3vh,28px); }
-    .auth-header img {
-      width:clamp(64px,14vw,100px);
-      filter:drop-shadow(0 4px 16px rgba(0,0,0,0.8));
-      margin-bottom:12px;
+    /* ── PANEL ── */
+    .panel {
+      padding: clamp(22px, 3vw, 32px) clamp(18px, 3vw, 28px);
+      background: linear-gradient(160deg, rgba(255,255,255,.035), rgba(255,255,255,.012));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
-    .auth-header h1 {
-      font-family:'Cinzel',serif;
-      font-size:clamp(1.1rem,4vw,1.6rem);
-      font-weight:900; color:#e8c96a;
-      text-shadow:0 2px 0 rgba(0,0,0,0.9),0 4px 12px rgba(0,0,0,0.7);
+    .panel h2 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-weight: 700;
+      color: var(--gold-lt);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
     }
-    .auth-header p { color:#7a6040; font-size:clamp(0.8rem,2.2vw,0.95rem); margin-top:6px; letter-spacing:0.06em; }
+    .panel-divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: rgba(212,175,55,.4);
+      font-size: .8rem;
+    }
+    .panel-divider::before, .panel-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
 
-    .auth-card { padding:clamp(18px,4vw,32px) clamp(14px,4vw,28px); }
-    .form-stack { display:flex; flex-direction:column; gap:clamp(14px,2.5vh,20px); }
+    /* ── FORM FIELDS ── */
+    .field { margin-bottom: 14px; }
+    .field:last-of-type { margin-bottom: 18px; }
 
-    .form-footer { text-align:center; margin-top:18px; font-size:clamp(0.8rem,2vw,0.9rem); color:#6a5030; }
-    .form-footer a {
-      color:#c9a84c; text-decoration:none;
-      font-family:'Cinzel',serif; font-size:clamp(0.72rem,1.8vw,0.82rem); font-weight:600;
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-family: 'Cinzel', serif;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #b8984a;
     }
-    .form-footer a:hover { color:#e8c96a; text-decoration:underline; }
 
-    .back-link {
-      display:block; text-align:center; margin-top:18px;
-      font-family:'Cinzel',serif; font-size:clamp(0.68rem,1.6vw,0.75rem);
-      font-weight:600; letter-spacing:0.14em; text-transform:uppercase;
-      color:#4a3010; text-decoration:none;
+    input {
+      display: block;
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(58, 36, 8, .7);
+      background: rgba(10, 6, 2, .8);
+      color: var(--text);
+      font-family: 'Crimson Text', serif;
+      font-size: 1rem;
+      transition: border-color .2s, box-shadow .2s;
     }
-    .back-link:hover { color:#7a6030; }
+    input::placeholder { color: #4a3820; }
+    input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(212,175,55,.14);
+    }
 
-    /* Responsive */
-    @media (max-width:480px) {
-      body { background-size:clamp(100px,36vmin,260px); justify-content:flex-start; padding-top:clamp(24px,6vh,48px); }
-      .auth-box { max-width:100%; }
+    /* ── BUTTONS ── */
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 13px 16px;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Cinzel', serif;
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform .18s, box-shadow .18s, background .18s;
     }
-    @media (max-width:360px) {
-      body { background-size:clamp(80px,28vmin,180px); }
-      .auth-header h1 { font-size:1rem; }
-      .auth-card { padding:14px 12px; }
+    .btn:disabled { opacity: .55; cursor: not-allowed; transform: none !important; }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #e8c84a 0%, #b8860b 48%, #e8c84a 100%);
+      color: #1a0a00;
+      box-shadow: 0 4px 18px rgba(0,0,0,.45);
     }
-    @media (max-height:600px) and (orientation:landscape) {
-      body { justify-content:flex-start; padding-top:12px; background-size:clamp(80px,28vmin,180px); }
-      .auth-header { margin-bottom:10px; }
-      .auth-header img { width:52px; margin-bottom:6px; }
-      .form-stack { gap:10px; }
+    .btn-gold:hover:not(:disabled) {
+      background: linear-gradient(135deg, #ffd84a 0%, #c8960b 48%, #ffd84a 100%);
+      box-shadow: 0 6px 26px rgba(0,0,0,.55), 0 0 18px rgba(212,175,55,.25);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      border: 1px solid var(--line);
+    }
+    .btn-ghost:hover:not(:disabled) {
+      background: rgba(255,255,255,.08);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    /* ── MESSAGES ── */
+    .msg {
+      margin-top: 14px;
+      padding: 11px 14px;
+      border-radius: 10px;
+      font-size: .95rem;
+      line-height: 1.5;
+      display: none;
+    }
+    .msg.show  { display: block; }
+    .msg.error {
+      background: rgba(239,68,68,.1);
+      color: #fca5a5;
+      border: 1px solid rgba(239,68,68,.22);
+    }
+    .msg.success {
+      background: rgba(34,197,94,.1);
+      color: #86efac;
+      border: 1px solid rgba(34,197,94,.22);
+    }
+
+    /* ── HELP TEXT ── */
+    .help {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.6;
+    }
+    .help a {
+      color: #c9a84c;
+      text-decoration: none;
+    }
+    .help a:hover { color: var(--gold-lt); text-decoration: underline; }
+
+    /* ── BACK LINK ── */
+    .back-row {
+      text-align: center;
+      margin-top: clamp(20px, 3vh, 32px);
+    }
+    .back-row a {
+      font-family: 'Cinzel', serif;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #4a3820;
+      text-decoration: none;
+    }
+    .back-row a:hover { color: #7a6030; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .hero p { font-size: .92rem; }
+    }
+    @media (max-width: 400px) {
+      .panel { padding: 18px 14px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
     }
   </style>
 </head>
 <body>
-  <div class="auth-box">
+  <main class="wrap">
 
-    <div class="auth-header">
-      <img src="/images/order-crest.png" alt="Order Crest">
-      <h1>Enter the Forge</h1>
-      <p>Sign in to your account</p>
-    </div>
-
-    <div class="card auth-card">
-
-      <div id="alert" class="alert"></div>
-
-      <form class="form-stack" id="login-form" onsubmit="handleLogin(event)">
-
-        <!-- Brother / Sister toggle -->
-        <div class="form-group" id="salutation-group">
-          <label>I am a</label>
-          <div class="sex-toggle">
-            <input type="radio" name="salutation" id="brother" value="Brother" checked>
-            <label for="brother">⚔ Brother</label>
-            <input type="radio" name="salutation" id="sister" value="Sister">
-            <label for="sister">✦ Sister</label>
-          </div>
-        </div>
-
-        <!-- Name -->
-        <div class="form-group">
-          <label for="username">Name</label>
-          <input type="text" id="username" name="username"
-                 placeholder="your name" autocomplete="username" required>
-        </div>
-
-        <!-- Passcode -->
-        <div class="form-group">
-          <label for="password">Passcode</label>
-          <input type="password" id="password" name="password"
-                 placeholder="passcode" autocomplete="current-password" required>
-        </div>
-
-        <button type="submit" class="btn-primary">Sign In</button>
-
-      </form>
-
-      <div class="form-footer">
-        No account yet? <a href="/register">Create Account</a>
+    <!-- HERO -->
+    <section class="hero" aria-label="Academy access portal introduction">
+      <img class="hero-crest" src="/images/order-crest.png" alt="Order Crest" />
+      <div class="eyebrow">
+        <span class="eyebrow-cross">✠</span>
+        Templar Forge Academy
       </div>
+      <h1>Member Access Portal</h1>
+      <p>
+        Access is limited to members with a valid academy Member&nbsp;ID. New account requests
+        remain pending until Schoolmaster approval.
+      </p>
+      <div class="rule" aria-hidden="true"></div>
+    </section>
 
+    <!-- SIGN IN + REGISTER GRID -->
+    <section class="grid" aria-label="Sign in and account creation">
+
+      <!-- ── SIGN IN ── -->
+      <article class="panel" aria-labelledby="signin-heading">
+        <h2 id="signin-heading">Sign In</h2>
+
+        <form id="login-form" novalidate>
+
+          <div class="field">
+            <label for="login-name">Full Name</label>
+            <input
+              id="login-name"
+              name="fullName"
+              type="text"
+              placeholder="As registered"
+              autocomplete="name"
+              autocapitalize="words"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="login-member-id">Member ID <span style="font-size:.65rem;color:#5a4830;letter-spacing:.06em;text-transform:none;">(optional for sign-in)</span></label>
+            <input
+              id="login-member-id"
+              name="memberId"
+              type="text"
+              placeholder="e.g. KTKC-0001"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="field">
+            <label for="login-password">Password</label>
+            <input
+              id="login-password"
+              name="password"
+              type="password"
+              placeholder="Your passcode"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn btn-gold">Enter the Forge</button>
+
+          <div id="login-msg" class="msg" role="alert" aria-live="polite"></div>
+        </form>
+
+        <p class="help">
+          No account yet?&ensp;Use the <strong>Create an Account</strong> form
+          or contact your Schoolmaster. Member&nbsp;ID is optional for sign-in
+          but required at registration.
+        </p>
+      </article>
+
+      <!-- ── CREATE ACCOUNT ── -->
+      <article class="panel" aria-labelledby="register-heading">
+        <h2 id="register-heading">Create an Account</h2>
+
+        <form id="register-form" novalidate>
+
+          <div class="field">
+            <label for="register-name">Full Name</label>
+            <input
+              id="register-name"
+              name="fullName"
+              type="text"
+              placeholder="Your full name"
+              autocomplete="name"
+              autocapitalize="words"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="register-member-id">Member ID Number</label>
+            <input
+              id="register-member-id"
+              name="memberId"
+              type="text"
+              placeholder="e.g. KTKC-0001"
+              autocomplete="off"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="register-email">Email Address</label>
+            <input
+              id="register-email"
+              name="email"
+              type="email"
+              placeholder="your@email.com"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="register-password">Password</label>
+            <input
+              id="register-password"
+              name="password"
+              type="password"
+              placeholder="Choose a passcode (min 4 chars)"
+              autocomplete="new-password"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="register-confirm-password">Confirm Password</label>
+            <input
+              id="register-confirm-password"
+              name="confirmPassword"
+              type="password"
+              placeholder="Re-enter passcode"
+              autocomplete="new-password"
+              required
+            />
+          </div>
+
+          <div class="panel-divider" aria-hidden="true">✠</div>
+
+          <button type="submit" class="btn btn-ghost">Request Account</button>
+
+          <div id="register-msg" class="msg" role="alert" aria-live="polite"></div>
+        </form>
+
+        <p class="help">
+          Your account request will remain <strong>pending</strong> until
+          Schoolmaster approval. Your Member&nbsp;ID is verified against the
+          official registry before access is granted.
+        </p>
+      </article>
+
+    </section>
+
+    <!-- BACK LINK -->
+    <div class="back-row">
+      <a href="/">← Return to the Gates</a>
     </div>
 
-    <a class="back-link" href="/">← Return to the Gates</a>
+  </main>
 
-  </div>
-
-  <script>
-    function showAlert(msg, type) {
-      const el = document.getElementById('alert');
-      el.textContent = msg;
-      el.className = 'alert ' + type;
-    }
-    function clearAlert() {
-      const el = document.getElementById('alert');
-      el.className = 'alert';
-      el.textContent = '';
-    }
-
-    async function handleLogin(e) {
-      e.preventDefault();
-      clearAlert();
-
-      const username = document.getElementById('username').value.trim();
-      const password = document.getElementById('password').value;
-
-      const res = await fetch('/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
-      });
-
-      const data = await res.json();
-      if (res.ok) {
-        window.location.href = data.redirect;
-      } else {
-        showAlert(data.error || 'Sign in failed.', 'error');
-      }
-    }
-  </script>
+  <script src="/assets/js/academy-auth.js" defer></script>
 </body>
 </html>

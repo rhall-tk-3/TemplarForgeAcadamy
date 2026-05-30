@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Knight School Week1</title>
+  <meta name="description" content="Knight School 4-week program website structure." />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <div class="topbar"><div class="container">Knight School • 4-Week Program • Website-ready static structure</div></div>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <div class="brand">
+        <img src="../assets/templar-cross.svg" alt="Templar cross emblem" />
+        <div>
+          <strong>Knight School Program</strong>
+          <span>Knights Templar of the Kingdom of Christ</span>
+        </div>
+      </div>
+      <nav><ul><li><a class="" href="../index.html">Home</a></li><li><a class="" href="../weeks/index.html">Weeks</a></li><li><a class="" href="/programs/knight/resources/knight-lesson-plan.html">Lesson Plan</a></li><li><a class="" href="/programs/knight/resources/knight-required-reading-list.html">Reading List</a></li><li><a class="" href="/documents/view/knight-required-reading-hub.html">Reading Hub</a></li><li><a class="" href="/programs/knight/resources/knight-reading-log.html">Reading Log</a></li><li><a class="" href="../member/index.html">Member Guidance</a></li><li><a class="" href="../schoolmaster/index.html">Schoolmaster Resources</a></li></ul></nav>
+    </div>
+  </header>
+
+<section class="section">
+  <div class="container">
+    <div class="panel">
+      <div class="kicker">Week 1</div>
+      <h1>Leadership Under Christ</h1>
+      <p>Week 1 establishes that Knightly leadership begins as stewardship under Christ, not status, pride, or ceremony.</p>
+    </div>
+    <div class="grid-2">
+      <div class="panel"><h2>Key emphasis</h2><ul class="list-clean"><li>Leadership as stewardship</li><li>Humility before authority</li><li>Prayer, Scripture, and inner discipline</li><li>Christian responsibility in rank</li></ul></div>
+      <div class="panel"><h2>Required reading</h2><ul class="list-clean"><li><a href="/library/programs/knight/knight_lesson_plan.pdf">Knight School 4-Week Lesson Plan</a></li><li><a href="/documents/shared/promotion-manual.docx">Promotion Manual & By-Laws</a></li><li><a href="/documents/shared/ktkc-rules-and-statutes.docx">KTKC Rules & Statutes</a></li><li><a href="https://www.britannica.com/topic/Templars">Britannica: Templars</a></li></ul></div>
+    </div>
+    <div class="grid-2" style="margin-top:18px;">
+      <div class="panel"><h2>Reflection questions</h2><ul class="list-clean"><li>Where do I need more humility before I can lead well?</li><li>How does Christian leadership differ from worldly authority?</li><li>What habits of prayer and Scripture must strengthen in me as a Knight?</li></ul></div>
+      <div class="panel"><h2>Discussion questions</h2><ul class="list-clean"><li>Why must a Knight lead under Christ rather than from ego or title?</li><li>How does discipline protect leadership from pride and drift?</li></ul></div>
+    </div>
+    <div class="panel" style="margin-top:18px;"><h2>Readiness goal</h2><p>Demonstrate that leadership is service, stewardship, and visible Christian example.</p></div>
+  </div>
+</section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h3>Knight School Program</h3>
+        <p class="small">This simple Knight package includes the 4-week lesson path, a required reading page, a reading log page, and direct download links to the current Knight program resources.</p>
+      </div>
+      <div>
+        <h3>Downloads</h3>
+        <ul class="list-clean small">
+          <li><a href="/library/programs/knight/knight_lesson_plan.pdf">Knight Lesson Plan</a></li>
+          <li><a href="/documents/knight/knight-required-reading-list.docx">Knight Required Reading List</a></li>
+          <li><a href="/documents/knight/knight-reading-log.docx">Knight Reading Log</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Core Sources</h3>
+        <ul class="list-clean small">
+          <li><a href="/documents/shared/promotion-manual.docx">Promotion Manual & By-Laws</a></li>
+          <li><a href="/documents/shared/ktkc-rules-and-statutes.docx">KTKC Rules & Statutes</a></li>
+          <li><a href="https://www.britannica.com/topic/Templars">Britannica: Templars</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+<script src="/assets/document-link-enhancer.js"></script>
+<script src="/assets/curriculum-portal.js"></script>
+
+<!-- Back to Your Forge button -->
+<style>
+/* ── Back to Your Forge FAB ── */
+.forge-back-fab {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  background: linear-gradient(135deg, #c8a020, #a07818);
+  color: #0a0804 !important;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none !important;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.35), 0 0 10px rgba(184,150,12,0.18);
+  transition: filter 0.2s, transform 0.15s, box-shadow 0.2s;
+  z-index: 9000;
+}
+.forge-back-fab:hover {
+  filter: brightness(1.15);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.45), 0 0 16px rgba(200,168,32,0.28);
+}
+@media (max-width: 540px) {
+  .forge-back-fab { bottom: 14px; left: 14px; padding: 9px 14px; font-size: 0.74rem; }
+}
+@media print { .forge-back-fab { display: none !important; } }
+</style>
+<button class="forge-back-fab" id="forge-back-fab">&#8592; Back to Your Forge</button>
+<script>
+(function() {
+  // Intercept clicks on document viewer links — store this page as the back target
+  document.addEventListener('click', function(e) {
+    var a = e.target.closest('a[href]');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('/documents/') !== -1 || href.indexOf('/viewer/') !== -1) {
+      try { sessionStorage.setItem('forge_back_url', window.location.href); } catch(ex) {}
+    }
+  }, true);
+
+  // Back to Your Forge button
+  var btn = document.getElementById('forge-back-fab');
+  if (!btn) return;
+  var parts = window.location.pathname.split('/');
+  var slug = parts[2] || '';
+  var hubUrl = slug ? '/programs/' + slug + '/hub' : '/member';
+  btn.onclick = function() {
+    var prev = null;
+    try { prev = sessionStorage.getItem('forge_back_url'); } catch(ex) {}
+    if (prev) {
+      try { sessionStorage.removeItem('forge_back_url'); } catch(ex) {}
+      window.location.href = prev;
+    } else if (document.referrer && document.referrer.indexOf(window.location.hostname) !== -1) {
+      history.back();
+    } else {
+      window.location.href = hubUrl;
+    }
+  };
+})();
+</script>
+</body>
+</html>

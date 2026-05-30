@@ -1,0 +1,395 @@
+{
+  "slug": "chaplain",
+  "title": "Chaplain Corps School Program",
+  "description": "A 6-week certification course preparing KTKC members for chaplaincy service. Covers the history of Templar chaplains, the calling and authority of the KTKC Chaplain Corps, public prayer and Scripture ministry, pastoral care and visitation, ethics and confidentiality, and ceremonial commissioning. Rooted in the historic spiritual standards of the medieval Order and applied to modern service.",
+  "weeks": [
+    {
+      "week": 1,
+      "title": "The Calling: Identity, Authority, and the Templar Chaplain",
+      "objectives": [
+        "Explain the identity, mission, and authority of the KTKC Chaplain Corps",
+        "Distinguish between certification and ordination, and between chaplaincy and command authority",
+        "Describe the role of chaplains in the original Knights Templar — their place, duties, and importance",
+        "Identify the offices of Master Chaplain and Assistant Chaplain and their responsibilities",
+        "State why the chaplaincy is a spiritually serious office, not a ceremonial ornament"
+      ],
+      "lesson": "Week 1 establishes the foundation: what a KTKC Chaplain is, where the office comes from, and why it matters. The KTKC Chaplain Corps exists to provide spiritual leadership, prayer support, pastoral care, and biblical encouragement to the members of the Order. This is not a decorative role. It is a spiritually serious office under lawful authority.\n\nTo understand the modern KTKC chaplain, we must go back to the original Knights Templar. From the Order's earliest days, the Templars included a class of members known as chaplains — ordained priests who served within the military community. The 1129 Rule of the Temple, approved at the Council of Troyes, formally recognized chaplains as one of the three classes of the Order: Knights, Sergeants, and Chaplains. Chaplains were not combatants. Their battlefield was the soul. They celebrated Mass, heard confessions, administered last rites to the dying, prayed over the dead, and kept the Order anchored to its sacred purpose. Without the chaplain, the Templars were just soldiers. With the chaplain, they were a religious order.\n\nThe historic Templar Rule emphasized ordered speech, silence before God, moral accountability, and giving a 'good report' before outsiders — all standards that fall within the chaplain's sphere of influence. The chaplain was the keeper of the Order's spiritual identity.\n\nIn the KTKC, this tradition is carried forward through the Chaplain Corps Manual. The Master Chaplain bears primary responsibility for the spiritual life of the conclave: leading devotions, guiding prayer, offering pastoral counsel, and supporting members through difficulty. The Assistant Chaplain supports the Master Chaplain in all these duties and stands ready to carry them forward when needed.\n\nA critical distinction: certification is not ordination. The KTKC Chaplain Corps prepares qualified members to serve as chaplains within the Order. This is not the same as becoming an ordained minister of a church. A KTKC chaplain operates within the boundaries of the Order — not as a replacement for the local church, and not as an independent religious authority. Chaplaincy authority does not equal command authority. The chaplain advises, supports, prays, and cares — the chaplain does not command.",
+      "keyTerms": [
+        {
+          "term": "KTKC Chaplain Corps",
+          "definition": "The formally established body within the KTKC charged with spiritual leadership, prayer, pastoral care, and biblical encouragement for all members"
+        },
+        {
+          "term": "Master Chaplain",
+          "definition": "The primary chaplaincy officer of the conclave; responsible for leading devotions, guiding prayer, pastoral counsel, and the overall spiritual life of the community"
+        },
+        {
+          "term": "Assistant Chaplain",
+          "definition": "The secondary chaplaincy officer who assists the Master Chaplain in all spiritual duties and stands ready to fulfill those duties when the Master Chaplain is unavailable"
+        },
+        {
+          "term": "Certification (vs. Ordination)",
+          "definition": "Certification qualifies a member for chaplaincy service within the KTKC Order; ordination is an ecclesiastical act of a church. These are distinct and must not be confused."
+        },
+        {
+          "term": "Templar Chaplain (Historic)",
+          "definition": "One of the three recognized classes in the original Knights Templar; ordained priests who served the spiritual needs of the military community — celebrating Mass, hearing confession, administering last rites, and keeping the Order spiritually anchored"
+        },
+        {
+          "term": "The Rule of the Temple (1129)",
+          "definition": "The founding governing document of the Knights Templar, approved at the Council of Troyes, which formally established the three classes of membership including chaplains"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What is the primary mission of the KTKC Chaplain Corps?",
+          "type": "short",
+          "answer": "To provide spiritual leadership, prayer support, pastoral care, and biblical encouragement to KTKC members"
+        },
+        {
+          "question": "Name the three classes of membership in the original Knights Templar and describe the role of the chaplain class.",
+          "type": "short",
+          "answer": "Knights, Sergeants, and Chaplains. Chaplains were ordained priests who served the spiritual needs of the military community — celebrating Mass, hearing confession, administering last rites, and anchoring the Order to its sacred purpose."
+        },
+        {
+          "question": "Distinguish between certification and ordination. Why does this distinction matter for a KTKC chaplain?",
+          "type": "essay"
+        }
+      ],
+      "required_reading": [
+        {
+          "title": "KTKC Chaplain Corps Manual — Article I: Identity, Mission, and Authority",
+          "url": "/documents/chaplain/KTKC_Chaplain_Core_Manual.pdf"
+        },
+        {
+          "title": "KTKC Chaplain Corps Certification Syllabus",
+          "url": "/documents/chaplain/KTKC_Chaplain_Corps_Certification_Syllabus.pdf"
+        },
+        {
+          "title": "KTKC Chaplain Corps Student Handbook",
+          "url": "/documents/chaplain/KTKC_Chaplain_Corps_Student_Handbook.pdf"
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "title": "The Foundation: Christian Identity, Chivalric Conduct, and Templar Spiritual Standards",
+      "objectives": [
+        "Articulate the Christian foundation of KTKC chaplaincy and why it is explicitly Christian, not generically spiritual",
+        "Describe the core standards of the chaplain's office: reverence, charity, confidentiality, discipline of speech, and Christian example",
+        "Explain how the historic Templar spiritual standards — prayer, Scripture, reverence, care for the sick, moral accountability — apply to modern chaplaincy",
+        "State what the historic-to-modern correlation standard means and how to apply it",
+        "Write a personal conduct summary reflecting chivalric Christian standards"
+      ],
+      "lesson": "Week 2 binds the chaplaincy firmly to its Christian identity and to the historic spiritual standards of the Templar tradition. This is not generic spirituality. The KTKC Chaplain Corps is explicitly Christian in its foundation, vocabulary, and practice. A chaplain who softens this to avoid offense has already compromised the office.\n\nThe historic Knights Templar were a deeply religious order. Their daily life was structured around prayer. Members rose for early morning prayer (Matins), gathered for the canonical hours, attended Mass regularly, and returned to prayer throughout the day. This was not peripheral — it was the spine of the Order's identity. The chaplain was the person who led, sustained, and protected that rhythm of prayer. Without the chaplain, the Order was at risk of becoming merely a military force.\n\nThe historic Templar spiritual standards that apply directly to modern KTKC chaplaincy include: prayer as a daily discipline (not an occasional activity); Scripture as the living authority guiding all pastoral action; reverence as the posture before God and sacred things; care for the sick and suffering as a non-negotiable duty of the community; moral accountability including confession, correction, and the expectation of holy conduct from all members; and disciplined humility — the chaplain serves, not leads for status.\n\nThe KTKC Chaplain Corps Manual identifies five core standards of the office: Reverence — treating God, sacred things, and persons with deep respect at all times; Charity — active care for the needs of others, especially the struggling; Confidentiality — protecting what is shared in pastoral trust (with defined limits we will study in Week 5); Discipline of Speech — speaking truthfully, carefully, and in ways that build rather than divide; and Christian Example — living in a manner consistent with the faith you represent.\n\nThe historic-to-modern correlation standard means drawing responsibly from the medieval Templar tradition and applying its spiritual substance to present-day chaplaincy. It does not mean romantic nostalgia or theatrical medievalism. It means that the historic chaplain's commitment to prayer, Scripture, care, and reverential conduct is honored by practicing those same things faithfully today.",
+      "keyTerms": [
+        {
+          "term": "Historic-to-Modern Correlation Standard",
+          "definition": "The principle of drawing responsibly from medieval Templar spiritual practice and applying its substance — prayer, Scripture, reverence, care for the sick, moral accountability — to modern KTKC chaplaincy"
+        },
+        {
+          "term": "Reverence",
+          "definition": "One of the five core chaplain standards; the posture of deep respect for God, sacred things, and persons — maintained in all settings and roles"
+        },
+        {
+          "term": "Discipline of Speech",
+          "definition": "One of the five core chaplain standards; speaking truthfully, carefully, and constructively; the historic Rule of the Temple emphasized ordered speech and silence as spiritual disciplines"
+        },
+        {
+          "term": "Charity (Chaplain Standard)",
+          "definition": "Active, consistent care for the needs of others — especially those who are sick, struggling, bereaved, or in spiritual distress; a non-negotiable duty of the chaplain's office"
+        },
+        {
+          "term": "Christian Example",
+          "definition": "One of the five core chaplain standards; the expectation that a chaplain's personal conduct — in public and in private — visibly reflects the Christian faith they represent"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What are the five core standards of the KTKC chaplain's office? List and briefly explain each.",
+          "type": "short",
+          "answer": "Reverence, Charity, Confidentiality, Discipline of Speech, Christian Example — see manual Article III for full definitions"
+        },
+        {
+          "question": "How does the historic-to-modern correlation standard apply to the chaplain's role in prayer?",
+          "type": "short",
+          "answer": "The historic Templars maintained structured daily prayer as the spine of the Order's identity. Modern KTKC chaplains honor this by leading prayer consistently, not occasionally, and treating it as a primary duty rather than a formality."
+        },
+        {
+          "question": "Write a one-page Christian conduct summary: What does a KTKC chaplain look like in daily life? Include at least three specific behavioral commitments grounded in the historic-to-modern correlation standard.",
+          "type": "essay"
+        }
+      ],
+      "required_reading": [
+        {
+          "title": "KTKC Chaplain Corps Manual — Article II: Qualifications; Article III: Core Standards; Article V: Historic-to-Modern Correlation",
+          "url": "/documents/chaplain/KTKC_Chaplain_Core_Manual.pdf"
+        },
+        {
+          "title": "KTKC Chaplain Corps Instructor Edition — Unit 2 & Unit 3 Teaching Notes",
+          "url": "/documents/chaplain/KTKC_Chaplain_Corps_Instructor_Edition.pdf"
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "title": "The Voice: Public Prayer, Scripture Ministry, and Devotional Leadership",
+      "objectives": [
+        "Lead a formal opening prayer with proper structure, tone, and brevity",
+        "Lead a closing benediction appropriate to a KTKC conclave setting",
+        "Read Holy Scripture aloud with clarity and reverence",
+        "Prepare and deliver a brief devotional or exhortation drawn from Scripture",
+        "Explain what makes a prayer suitable versus unsuitable for a formal ceremonial setting"
+      ],
+      "lesson": "Week 3 trains the chaplain's voice. The most visible duty of the KTKC chaplain is leading prayer and Scripture ministry in public settings — conclaves, ceremonies, meals, and observances. This is a skill that must be trained, not improvised.\n\nThe historic Templar chaplain was the Order's voice before God in community. Chaplains opened gatherings with prayer, read Scripture to the assembled brothers, and delivered homilies and exhortations. This was not optional liturgy added for effect — it was how the community acknowledged that their work existed within a sacred framework. Every conclave that opens with prayer is performing the same act the medieval Templar chaplains performed.\n\nA strong public prayer for a formal setting has five elements: Address (speak to God with a proper title, not casually); Acknowledgment (briefly acknowledge who God is and why you come before Him); Petition (state what is being asked — for guidance, for the men gathered, for the work at hand); Alignment (align the work with God's purposes, not the other way around); and Close (a proper closing: in the name of Christ, or a traditional doxological close).\n\nPrayers in formal settings should be brief. The chaplain is not preaching during the invocation. Five sentences of clear, reverent prayer is worth far more than five minutes of wandering speech. The Templar Rule emphasized ordered, disciplined speech — this applies directly to prayer.\n\nScripture reading is an act of ministry in itself. Read slowly. Read with understanding. Give the audience time to receive the text. The chaplain selects readings appropriate to the occasion: prayers of dedication for installations, psalms of comfort for memorial services, words of commission for promotions and advancements.\n\nA brief devotional (2–5 minutes) is not a sermon. It is a focused reflection on a single truth drawn from Scripture and connected to the life of the Order. The chaplain identifies a text, states its meaning simply, applies it specifically to the gathering, and closes with a brief prayer or call to reflection.",
+      "keyTerms": [
+        {
+          "term": "Invocation",
+          "definition": "The opening prayer of a formal gathering; calls upon God's presence and blessing at the beginning of a meeting, ceremony, or conclave"
+        },
+        {
+          "term": "Benediction",
+          "definition": "The closing prayer or blessing spoken at the conclusion of a gathering; sends members forth with a word of blessing and commission"
+        },
+        {
+          "term": "Devotional / Exhortation",
+          "definition": "A brief (2–5 minute) focused reflection on a Scripture text applied to the life and work of the Order; distinct from a sermon in length and scope"
+        },
+        {
+          "term": "Sacred Decorum",
+          "definition": "The standard of reverent, orderly conduct appropriate in all settings where prayer and Scripture ministry are exercised; includes tone of voice, posture, language, and pace"
+        },
+        {
+          "term": "Suitability",
+          "definition": "The judgment of whether a particular prayer, text, or devotional content is appropriate for the occasion — formal vs. informal, joyful vs. solemn, personal vs. communal"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "List the five elements of a strong formal prayer and briefly explain each.",
+          "type": "short",
+          "answer": "Address, Acknowledgment, Petition, Alignment, Close — see Week 3 lesson content for full detail"
+        },
+        {
+          "question": "Why should a formal invocation be brief? What historic Templar principle supports this?",
+          "type": "short",
+          "answer": "Formal settings require disciplined, ordered speech. The Templar Rule emphasized brevity and reverence over length. A brief, clear prayer honors God and the assembly more than lengthy, undisciplined speech."
+        },
+        {
+          "question": "Write three original prayers: a formal opening invocation for a KTKC conclave, a closing benediction, and a short prayer of dedication for a new officer installation.",
+          "type": "essay"
+        }
+      ],
+      "required_reading": [
+        {
+          "title": "KTKC Chaplain Corps Manual — Article IV: Duties (Ritual and Devotional); Article VI: Ritual Standards and Sacred Decorum",
+          "url": "/documents/chaplain/KTKC_Chaplain_Core_Manual.pdf"
+        },
+        {
+          "title": "KTKC Chaplain Corps Certification Syllabus — Unit 4 & Unit 5",
+          "url": "/documents/chaplain/KTKC_Chaplain_Corps_Certification_Syllabus.pdf"
+        },
+        {
+          "title": "KTKC Chaplain Corps Instructor Edition — Unit 4 & Unit 5 Teaching Notes",
+          "url": "/documents/chaplain/KTKC_Chaplain_Corps_Instructor_Edition.pdf"
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "title": "The Shepherd: Pastoral Care, Visitation, and Ministry of Presence",
+      "objectives": [
+        "Define 'ministry of presence' and explain why the chaplain's first duty is often to listen, not to speak",
+        "Describe the historic Templar care for the sick and dying and its connection to modern visitation ministry",
+        "Follow proper protocol for home visits, hospital visits, and bereavement support",
+        "Prepare a pastoral visitation plan for an inactive, hospitalized, or bereaved member",
+        "Identify situations requiring immediate escalation beyond pastoral care"
+      ],
+      "lesson": "Week 4 trains the chaplain's hands and heart — the pastoral care ministry that has distinguished chaplains from other officers throughout the history of the Templar Order.\n\nThe historic Knights Templar were not merely a fighting force. The Order maintained hospitals, infirmaries, and care networks for the sick, the dying, the poor, and the bereaved. Templar chaplains were present at deathbeds, at burials, and in infirmaries. They administered last rites. They sat with the dying when no one else would. This was not a secondary function — it was one of the most spiritually significant things the chaplain did. The medieval chaplain understood that spiritual care in suffering is as important as spiritual care in celebration.\n\nMinistry of presence is the foundational concept of Week 4: the chaplain's most powerful tool is often not words but presence. Being physically, prayerfully, and spiritually available to a member in distress — before you speak, before you advise, before you offer Scripture — is itself a form of ministry. The historic Templar chaplains who sat at deathbeds were not delivering sermons. They were present. That presence was ministry.\n\nPastoral care protocol in the KTKC follows the Chaplain Corps Manual's standard operating procedures:\n- SOP 2 (Distress Intake): When a member presents a concern, the chaplain listens carefully, does not rush to fix, confirms the member's permission to follow up, and logs the concern appropriately.\n- SOP 3 (Home or Hospital Visit): Visits are conducted with another member present when possible (never alone if the situation is sensitive), with prayer offered if welcomed, and with brief, appropriate documentation afterward.\n- SOP 4 (Funeral Support): The chaplain coordinates with the family and with any officiating clergy, ensures the Order's ceremonial presence is respectful and appropriate, and follows up with bereavement care.\n\nThe chaplain must also recognize the boundaries of pastoral care. There are situations that exceed the chaplain's role and require immediate escalation: any stated or implied threat of self-harm; any statement suggesting harm to another person; any disclosure of illegal activity; and any accusation of spiritual abuse or misconduct by a leader. The chaplain's duty in these cases is to report, not to manage independently.",
+      "keyTerms": [
+        {
+          "term": "Ministry of Presence",
+          "definition": "The foundational pastoral practice of being physically and spiritually available to a person in need — before and often without words; presence itself is a form of ministry"
+        },
+        {
+          "term": "Pastoral Care",
+          "definition": "The chaplain's active ministry of compassion, support, prayer, and Scripture to members who are sick, bereaved, struggling, or in spiritual distress"
+        },
+        {
+          "term": "Visitation",
+          "definition": "The practice of personally visiting inactive, hospitalized, homebound, or bereaved members; ideally conducted in pairs per KTKC protocol"
+        },
+        {
+          "term": "SOP (Standard Operating Procedure)",
+          "definition": "A defined, repeatable protocol for handling specific chaplaincy situations (distress intake, hospital visits, funeral support, etc.) consistently and correctly"
+        },
+        {
+          "term": "Escalation",
+          "definition": "The required action when a situation exceeds pastoral boundaries — reporting to the Commander or appropriate authority any threat of self-harm, harm to others, illegal activity, or spiritual abuse"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What does 'ministry of presence' mean, and why is it foundational to pastoral care?",
+          "type": "short",
+          "answer": "Ministry of presence means being physically and spiritually available to someone in need — often before speaking. The chaplain's presence itself communicates care, safety, and the availability of God's comfort."
+        },
+        {
+          "question": "Describe two situations in which a chaplain must immediately escalate beyond pastoral care. What should the chaplain do in each case?",
+          "type": "short",
+          "answer": "Self-harm / harm to others: report immediately to the Commander and relevant authorities. Disclosure of illegal activity: report to the Commander. The chaplain does not manage these situations independently."
+        },
+        {
+          "question": "Prepare a pastoral visitation plan for a KTKC member who has been hospitalized and has not attended the conclave in six weeks. What will you do, in what order, and why?",
+          "type": "essay"
+        }
+      ],
+      "required_reading": [
+        {
+          "title": "KTKC Chaplain Corps Manual — Article IV: Duties (Care of the Sick, Visitation, Funeral); Article VII: Pastoral Care Protocol; Article XII: SOPs 2–4",
+          "url": "/documents/chaplain/KTKC_Chaplain_Core_Manual.pdf"
+        },
+        {
+          "title": "KTKC Chaplain Corps Certification Syllabus — Unit 7 & Unit 8",
+          "url": "/documents/chaplain/KTKC_Chaplain_Corps_Certification_Syllabus.pdf"
+        },
+        {
+          "title": "KTKC Chaplain Corps Student Handbook — Week 7 & Week 8 Assignments",
+          "url": "/documents/chaplain/KTKC_Chaplain_Corps_Student_Handbook.pdf"
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "title": "The Conscience: Ethics, Confidentiality, Boundaries, and Reporting",
+      "objectives": [
+        "Explain the chaplain's duty of confidentiality and the specific limits where it must give way to reporting",
+        "Define spiritual abuse and explain how to identify and prevent it",
+        "State what constitutes proper boundaries in chaplaincy relationships",
+        "Write a factual, non-speculative incident report following KTKC standards",
+        "Explain the chaplain's role in the chain of command and why non-interference is required in formal reviews"
+      ],
+      "lesson": "Week 5 addresses the non-negotiable safety and ethics standards that every KTKC chaplain must master. These are not optional topics. They are the standards that protect members, protect the chaplain, and protect the integrity of the Order.\n\nConfidentiality is one of the five core standards of the chaplain's office. Members must be able to share personal struggles, spiritual concerns, and sensitive information with their chaplain in trust. A chaplain who cannot keep confidence cannot do pastoral work. However, confidentiality has defined limits:\n\nConfidentiality must give way to reporting when: (1) a member states, implies, or behaves in a way that suggests imminent self-harm; (2) a member discloses intent or preparation to harm another person; (3) a disclosure involves illegal activity affecting others; (4) a disclosure involves spiritual abuse, manipulation, or misconduct by a leader of the Order. In these cases, the chaplain's duty is to report — to the Commander and, where required, to appropriate external authorities.\n\nSpiritual abuse is the misuse of spiritual authority or sacred language to manipulate, silence, or control another person. Examples include: claiming 'God told me' to override a member's objection or silence a legitimate complaint; using prayer or Scripture as a threat or a tool of intimidation; imposing spiritual guilt to prevent a member from reporting genuine misconduct; and claiming spiritual authority to bypass the Order's chain of command. The chaplain has a specific duty to recognize, refuse to participate in, and report any pattern of spiritual abuse.\n\nBoundaries in chaplaincy define the relationship between the chaplain and the member being served. The chaplain is available, compassionate, and consistent — but the chaplain does not cross into personal dependency, romantic involvement, financial entanglement, or any other relationship that compromises the pastoral role. When in doubt about whether a relationship is crossing a boundary, the chaplain consults the Commander.\n\nThe incident report is the chaplain's primary written tool for documenting pastoral contacts that involve concern, risk, or required escalation. A strong incident report is: brief; factual (no speculation, no interpretation beyond what was directly stated); dated and timestamped; named only with identifiers necessary for follow-up; and filed with the Commander per KTKC SOP 2. The chaplain does not speculate about motivations, does not investigate independently, and does not interfere in any formal review once a matter has been escalated.",
+      "keyTerms": [
+        {
+          "term": "Confidentiality (Chaplain's Duty)",
+          "definition": "The obligation to protect information shared in pastoral trust — maintained in all ordinary circumstances, but yielding to reporting when self-harm, harm to others, illegal activity, or spiritual abuse is disclosed"
+        },
+        {
+          "term": "Spiritual Abuse",
+          "definition": "The misuse of spiritual authority, sacred language, or religious claims ('God told me') to manipulate, silence, intimidate, or control another person; a reportable offense"
+        },
+        {
+          "term": "Pastoral Boundaries",
+          "definition": "The relational limits that protect both the chaplain and the member — no romantic involvement, no financial entanglement, no personal dependency that compromises the chaplain's impartial pastoral role"
+        },
+        {
+          "term": "Incident Report",
+          "definition": "A brief, factual, dated written record of a pastoral contact requiring documentation or escalation; must be non-speculative, accurate, and filed with the Commander per SOP 2"
+        },
+        {
+          "term": "Non-Interference",
+          "definition": "The chaplain's duty not to insert themselves into or interfere with formal reviews, disciplinary actions, or chain-of-command decisions once a matter has been properly escalated"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "Give two specific examples of situations in which chaplain confidentiality must give way to reporting.",
+          "type": "short",
+          "answer": "1. A member states he may harm himself. 2. A member discloses that a leader has been using 'God told me' to silence a complaint. Both require immediate reporting to the Commander."
+        },
+        {
+          "question": "Define spiritual abuse and give one concrete example of what it looks like in a KTKC setting.",
+          "type": "short",
+          "answer": "Spiritual abuse is using spiritual authority or sacred language to manipulate, silence, or control. Example: a leader tells a member 'God told me you should not question my decision' to prevent a legitimate complaint."
+        },
+        {
+          "question": "You are the KTKC chaplain. During a pastoral conversation, a member discloses that another officer has been pressuring him financially and then praying over him as a tool of manipulation. Write the incident report you would file and describe each step you would take after filing it.",
+          "type": "essay"
+        }
+      ],
+      "required_reading": [
+        {
+          "title": "KTKC Chaplain Corps Manual — Article VII: Pastoral Care Protocol; Article XIII: Ethical Prohibitions",
+          "url": "/documents/chaplain/KTKC_Chaplain_Core_Manual.pdf"
+        },
+        {
+          "title": "KTKC Chaplain Corps Certification Syllabus — Unit 9 & Unit 10",
+          "url": "/documents/chaplain/KTKC_Chaplain_Corps_Certification_Syllabus.pdf"
+        },
+        {
+          "title": "KTKC Chaplain Corps Exam Packet — Ethics and Reporting Questions",
+          "url": "/documents/chaplain/KTKC_Chaplain_Corps_Exam_Packet.pdf"
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "title": "The Commission: Ceremony, Observances, and Chaplain Readiness",
+      "objectives": [
+        "Describe the chaplain's role in KTKC ceremonial settings and formal observances",
+        "Plan and draft an order of service for a KTKC Christian observance",
+        "Demonstrate integrated readiness across all five core chaplain standards",
+        "Articulate the historic significance of the Templar chaplaincy and its living legacy in the KTKC",
+        "Complete the capstone self-assessment and prepare for commissioning"
+      ],
+      "lesson": "Week 6 brings the program to its close with commissioning readiness. Everything studied in the previous five weeks converges here: identity, standards, prayer ministry, pastoral care, and ethics. The final week is not a week of new content — it is a week of integration, demonstration, and formal preparation for service.\n\nThe KTKC chaplain serves in ceremonial settings with a particular weight of responsibility. Ceremonies are the moments when an Order is most fully itself — when its identity, its values, and its commitments are most publicly declared. The chaplain's role in ceremony is to ensure that the sacred dimension of those moments is honored: that prayer opens and closes with reverence, that Scripture is read with authority, that memorial observances are treated with solemnity, and that Christian observances — Christmas, Easter, installation of officers, promotions — are conducted with dignity.\n\nPlanning an order of service for a Christian observance requires the chaplain to consider: the occasion and its specific spiritual significance; the appropriate Scripture readings; the tone (joyful, solemn, commissioning, commemorative); the prayers required (invocation, responsive reading if applicable, benediction); and the flow of the ceremony so that the chaplain's parts integrate with, rather than interrupt, the Order's formal proceedings.\n\nThe historic Templar chaplain's greatest legacy is this: in an order that could easily have become purely military, the chaplain was the reason it remained a religious order. The chaplain kept prayer alive. The chaplain kept Scripture present. The chaplain sat with the dying. The chaplain preserved the spiritual identity that gave the Order its moral authority. Without the chaplain, the Templar Order was just a fighting force with an impressive uniform. With the chaplain, it was something more: a community of men under God, committed to prayer, care, service, and holy conduct.\n\nThe KTKC Chaplain carries this legacy forward. You are not a ceremonial officer. You are the keeper of the Order's spiritual life. You are the voice that calls the brethren to prayer. You are the presence at the bedside of the sick brother. You are the conscience that will not allow spiritual abuse to go unchallenged. You are, in the most ancient tradition of the Order, a chaplain.\n\nThe Model Charge to a KTKC Chaplain (from the Chaplain Corps Manual, Article XIV) summarizes what you are committing to: to lead with prayer, to serve with compassion, to speak the truth, to keep confidence, to stand firm against spiritual abuse, and to reflect the character of Christ in all that you do for the Order and for those in your care.",
+      "keyTerms": [
+        {
+          "term": "Order of Service",
+          "definition": "A planned sequence of ceremonial elements — prayers, Scripture readings, responsive readings, charges, and benedictions — prepared by the chaplain for formal KTKC observances"
+        },
+        {
+          "term": "Christian Observance",
+          "definition": "A formal KTKC gathering centered on a Christian calendar event (Christmas, Easter, memorial day) or a significant Order event (installation of officers, promotion, commissioning) that requires chaplaincy leadership"
+        },
+        {
+          "term": "Capstone Integration",
+          "definition": "The final week's focus on demonstrating integrated readiness across all five core standards: identity, prayer ministry, pastoral care, ethics, and ceremonial service"
+        },
+        {
+          "term": "The Model Charge (Article XIV)",
+          "definition": "The formal charge from the KTKC Chaplain Corps Manual that summarizes the chaplain's full commitment: prayer, compassion, truth, confidence, protection against spiritual abuse, and Christlike conduct"
+        },
+        {
+          "term": "Living Legacy",
+          "definition": "The unbroken line of chaplaincy from the 1129 Templar Rule to the modern KTKC — the conviction that keeping prayer, Scripture, and pastoral care alive in the Order is as vital today as it was in the Holy Land"
+        }
+      ],
+      "examQuestions": [
+        {
+          "question": "What is the chaplain's most important role in a KTKC ceremony? What would be lost if no chaplain were present?",
+          "type": "short",
+          "answer": "The chaplain ensures the sacred dimension of the ceremony is honored — opening and closing with reverent prayer, reading Scripture with authority, and treating solemn moments with dignity. Without the chaplain, the Order is a military organization without spiritual identity."
+        },
+        {
+          "question": "State the most appropriate tone for chaplaincy in ceremony and explain why this standard traces back to the original Templar Rule.",
+          "type": "short",
+          "answer": "Solemn, reverent, and orderly. The 1129 Rule of the Temple emphasized disciplined speech, ordered silence, and reverence as fundamental Templar values — the same standard applies to the chaplain's ceremonial ministry today."
+        },
+        {
+          "question": "Write a full capstone reflection: How has studying the history of the Templar chaplain shaped how you understand your own calling? What will you do differently as a KTKC chaplain because of what you have learned in these six weeks? Include specific references to the historic Templar tradition, the five core standards, and the Model Charge.",
+          "type": "essay"
+        }
+      ],
+      "required_reading": [
+        {
+          "title": "KTKC Chaplain Corps Manual — Article XI: Relationship to the Commander; Article XIV: Model Charge to a KTKC Chaplain",
+          "url": "/documents/chaplain/KTKC_Chaplain_Core_Manual.pdf"
+        },
+        {
+          "title": "KTKC Chaplain Corps Certification Syllabus — Unit 11 & Unit 12: Ceremony and Capstone",
+          "url": "/documents/chaplain/KTKC_Chaplain_Corps_Certification_Syllabus.pdf"
+        },
+        {
+          "title": "KTKC Chaplain Corps Student Handbook — Week 11 & Week 12 Assignments",
+          "url": "/documents/chaplain/KTKC_Chaplain_Corps_Student_Handbook.pdf"
+        },
+        {
+          "title": "KTKC Chaplain Corps Exam Packet — Full Certification Exam",
+          "url": "/documents/chaplain/KTKC_Chaplain_Corps_Exam_Packet.pdf"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Templar Forge Academy | Schoolmaster Reading Log</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --line: rgba(148,163,184,.22);
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --gold: #d4af37;
+      --gold-soft: rgba(212,175,55,.12);
+      --accent: #7dd3fc;
+      --radius: 18px;
+      --shadow: 0 20px 50px rgba(0,0,0,.28);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(212,175,55,.08), transparent 25%),
+        radial-gradient(circle at top left, rgba(125,211,252,.08), transparent 20%),
+        linear-gradient(180deg,#08101f 0%, #0f172a 100%);
+      color: var(--text);
+    }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 28px 20px 72px; }
+    .hero, .summary-card, .detail-card {
+      background: linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 22px 24px;
+      margin-bottom: 20px;
+    }
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--gold-soft);
+      color: #f8e7a6;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    h1,h2,h3 { margin: 0 0 10px; }
+    .muted { color: var(--muted); }
+    .summary-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 900px;
+    }
+    .summary-table th,
+    .summary-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    .summary-table th {
+      background: rgba(212,175,55,.08);
+      color: #f8e7a6;
+    }
+    .view-btn {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: rgba(15,23,42,.65);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 8px 12px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .detail-week {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+    .detail-doc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+    .detail-doc-card {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(2,8,23,.4);
+    }
+    .doc-title {
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #d7f3ff;
+    }
+    .doc-meta {
+      color: var(--muted);
+      margin-top: 6px;
+      font-size: .92rem;
+    }
+    .empty { color: var(--muted); }
+    .overflow-table { overflow-x: auto; }
+  </style>
+</head>
+<body>
+  <script src="/assets/js/academy-guard.js" data-protect="schoolmaster" defer></script>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Templar Forge Academy</div>
+      <h1>Schoolmaster Reading Log Dashboard</h1>
+      <p>
+        Student reading-log activity appears here automatically as members update their readings. One-click sync on the member side marks a program as formally ready for Schoolmaster review.
+      </p>
+    </section>
+
+    <section class="summary-card">
+      <h2>Live Reading Log Summary</h2>
+      <div id="sm-summary" class="overflow-table"></div>
+    </section>
+
+    <div id="sm-detail"></div>
+  </main>
+
+  <script src="/assets/js/academy-reading-log-schoolmaster.js" defer></script>
+</body>
+</html>

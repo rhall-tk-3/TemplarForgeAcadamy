@@ -1,0 +1,127 @@
+{
+  "program_title": "Commander School Program",
+  "week_number": 8,
+  "week_title": "Week 8: Succession, Appointments, and Officer Formation",
+  "multiple_choice_questions": [
+    {
+      "question": "What is the primary focus of Week 8: Succession, Appointments, and Officer Formation?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "This week centers on succession, appointments, and officer formation."
+        },
+        {
+          "option": "B",
+          "text": "Week 1: The Burden of Senior Command"
+        },
+        {
+          "option": "C",
+          "text": "Week 2: Senior Command in the Knights Templar"
+        },
+        {
+          "option": "D",
+          "text": "Week 3: The Offices of Marshal and Seneschal"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "This week centers on succession, appointments, and officer formation.",
+      "rationale": "The week summary states that This week centers on succession, appointments, and officer formation."
+    },
+    {
+      "question": "Which reading is explicitly assigned for Week 8: Succession, Appointments, and Officer Formation?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Commander School Syllabus - Lesson 8 Framework"
+        },
+        {
+          "option": "B",
+          "text": "Commander School Syllabus - Introduction & Objectives"
+        },
+        {
+          "option": "C",
+          "text": "Fordham Primitive Rule of the Templars - Sections on Obedience and Devotion"
+        },
+        {
+          "option": "D",
+          "text": "Wikipedia: Knights Templar - Organization and Leadership"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Commander School Syllabus - Lesson 8 Framework",
+      "rationale": "Commander School Syllabus - Lesson 8 Framework appears in the required reading list for this week."
+    },
+    {
+      "question": "Which concept is most directly associated with Week 8: Succession, Appointments, and Officer Formation?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Succession, Appointments, and Officer Formation"
+        },
+        {
+          "option": "B",
+          "text": "Week 1: The Burden of Senior Command"
+        },
+        {
+          "option": "C",
+          "text": "Week 2: Senior Command in the Knights Templar"
+        },
+        {
+          "option": "D",
+          "text": "Week 3: The Offices of Marshal and Seneschal"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Succession, Appointments, and Officer Formation",
+      "rationale": "The week is organized around the concept of Succession, Appointments, and Officer Formation."
+    },
+    {
+      "question": "Which statement best reflects the expected learning outcome for Week 8: Succession, Appointments, and Officer Formation?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "This week centers on succession, appointments, and officer formation."
+        },
+        {
+          "option": "B",
+          "text": "Week 1: The Burden of Senior Command"
+        },
+        {
+          "option": "C",
+          "text": "Week 2: Senior Command in the Knights Templar"
+        },
+        {
+          "option": "D",
+          "text": "Week 3: The Offices of Marshal and Seneschal"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "This week centers on succession, appointments, and officer formation.",
+      "rationale": "This statement matches the stated memory target or focus for the week: This week centers on succession, appointments, and officer formation."
+    },
+    {
+      "question": "Which response best applies the lesson of Week 8: Succession, Appointments, and Officer Formation?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Apply the lesson of Succession, Appointments, and Officer Formation through disciplined conduct, truthful understanding, and practical service."
+        },
+        {
+          "option": "B",
+          "text": "Treat Succession, Appointments, and Officer Formation mainly as ceremonial prestige without practical duty."
+        },
+        {
+          "option": "C",
+          "text": "Ignore assigned readings and rely on legend or speculation about Succession, Appointments, and Officer Formation."
+        },
+        {
+          "option": "D",
+          "text": "Approach Succession, Appointments, and Officer Formation as private opinion rather than accountable formation."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Apply the lesson of Succession, Appointments, and Officer Formation through disciplined conduct, truthful understanding, and practical service.",
+      "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+    }
+  ]
+}

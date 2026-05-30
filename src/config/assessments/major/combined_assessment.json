@@ -1,0 +1,1700 @@
+{
+  "program_title": "Major School Program",
+  "program_phase": "Officer Formation Level III",
+  "assessment_type": "multiple_choice_and_discussion",
+  "generated_note": "Original assessment materials generated from the uploaded KTKC program files and website repository structure.",
+  "weeks": [
+    {
+      "week_number": 1,
+      "week_title": "Week 1: The Burden of Wider Oversight",
+      "focus": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 1: The Burden of Wider Oversight?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+            },
+            {
+              "option": "C",
+              "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+            },
+            {
+              "option": "D",
+              "text": "Focus: Unifying diverse local commanderies under a single operational standard and core mission."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies.",
+          "rationale": "The week summary states that Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 1: The Burden of Wider Oversight?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Major School Syllabus PDF"
+            },
+            {
+              "option": "B",
+              "text": "OSMTH Templarism and History"
+            },
+            {
+              "option": "C",
+              "text": "Knights Templar Overview (Wikipedia)"
+            },
+            {
+              "option": "D",
+              "text": "Medieval Warfare: Templars Hierarchy and Duties"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Major School Syllabus PDF",
+          "rationale": "Major School Syllabus PDF appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 1: The Burden of Wider Oversight?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "The Burden of Wider Oversight"
+            },
+            {
+              "option": "B",
+              "text": "Week 2: The Provincial Structure of the Templars"
+            },
+            {
+              "option": "C",
+              "text": "Week 3: The Office of Provincial Master / Grand Prior"
+            },
+            {
+              "option": "D",
+              "text": "Week 4: Mission Alignment Across Multiple Bodies"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "The Burden of Wider Oversight",
+          "rationale": "The week is organized around the concept of The Burden of Wider Oversight."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 1: The Burden of Wider Oversight?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+            },
+            {
+              "option": "C",
+              "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+            },
+            {
+              "option": "D",
+              "text": "Focus: Unifying diverse local commanderies under a single operational standard and core mission."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 1: The Burden of Wider Oversight?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of The Burden of Wider Oversight through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat The Burden of Wider Oversight mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about The Burden of Wider Oversight."
+            },
+            {
+              "option": "D",
+              "text": "Approach The Burden of Wider Oversight as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of The Burden of Wider Oversight through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 1: The Burden of Wider Oversight shape the expectations placed on a member in the Major School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 1: The Burden of Wider Oversight seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 1: The Burden of Wider Oversight in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 2,
+      "week_title": "Week 2: The Provincial Structure of the Templars",
+      "focus": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 2: The Provincial Structure of the Templars?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+            },
+            {
+              "option": "C",
+              "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+            },
+            {
+              "option": "D",
+              "text": "Focus: Unifying diverse local commanderies under a single operational standard and core mission."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization.",
+          "rationale": "The week summary states that Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 2: The Provincial Structure of the Templars?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Knights Templar Overview (Wikipedia)"
+            },
+            {
+              "option": "B",
+              "text": "Major School Syllabus PDF"
+            },
+            {
+              "option": "C",
+              "text": "OSMTH Templarism and History"
+            },
+            {
+              "option": "D",
+              "text": "Medieval Warfare: Templars Hierarchy and Duties"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Knights Templar Overview (Wikipedia)",
+          "rationale": "Knights Templar Overview (Wikipedia) appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 2: The Provincial Structure of the Templars?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "The Provincial Structure of the Templars"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Burden of Wider Oversight"
+            },
+            {
+              "option": "C",
+              "text": "Week 3: The Office of Provincial Master / Grand Prior"
+            },
+            {
+              "option": "D",
+              "text": "Week 4: Mission Alignment Across Multiple Bodies"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "The Provincial Structure of the Templars",
+          "rationale": "The week is organized around the concept of The Provincial Structure of the Templars."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 2: The Provincial Structure of the Templars?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+            },
+            {
+              "option": "C",
+              "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+            },
+            {
+              "option": "D",
+              "text": "Focus: Unifying diverse local commanderies under a single operational standard and core mission."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 2: The Provincial Structure of the Templars?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of The Provincial Structure of the Templars through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat The Provincial Structure of the Templars mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about The Provincial Structure of the Templars."
+            },
+            {
+              "option": "D",
+              "text": "Approach The Provincial Structure of the Templars as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of The Provincial Structure of the Templars through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 2: The Provincial Structure of the Templars shape the expectations placed on a member in the Major School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 2: The Provincial Structure of the Templars seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 2: The Provincial Structure of the Templars in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 3,
+      "week_title": "Week 3: The Office of Provincial Master / Grand Prior",
+      "focus": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 3: The Office of Provincial Master / Grand Prior?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+            },
+            {
+              "option": "D",
+              "text": "Focus: Unifying diverse local commanderies under a single operational standard and core mission."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master.",
+          "rationale": "The week summary states that Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 3: The Office of Provincial Master / Grand Prior?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Medieval Warfare: Templars Hierarchy and Duties"
+            },
+            {
+              "option": "B",
+              "text": "Major School Syllabus PDF"
+            },
+            {
+              "option": "C",
+              "text": "OSMTH Templarism and History"
+            },
+            {
+              "option": "D",
+              "text": "Knights Templar Overview (Wikipedia)"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Medieval Warfare: Templars Hierarchy and Duties",
+          "rationale": "Medieval Warfare: Templars Hierarchy and Duties appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 3: The Office of Provincial Master / Grand Prior?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "The Office of Provincial Master"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Burden of Wider Oversight"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: The Provincial Structure of the Templars"
+            },
+            {
+              "option": "D",
+              "text": "Week 4: Mission Alignment Across Multiple Bodies"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "The Office of Provincial Master",
+          "rationale": "The week is organized around the concept of The Office of Provincial Master."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 3: The Office of Provincial Master / Grand Prior?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+            },
+            {
+              "option": "D",
+              "text": "Focus: Unifying diverse local commanderies under a single operational standard and core mission."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 3: The Office of Provincial Master / Grand Prior?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of The Office of Provincial Master through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat The Office of Provincial Master mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about The Office of Provincial Master."
+            },
+            {
+              "option": "D",
+              "text": "Approach The Office of Provincial Master as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of The Office of Provincial Master through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 3: The Office of Provincial Master / Grand Prior shape the expectations placed on a member in the Major School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 3: The Office of Provincial Master / Grand Prior seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 3: The Office of Provincial Master / Grand Prior in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 4,
+      "week_title": "Week 4: Mission Alignment Across Multiple Bodies",
+      "focus": "Focus: Unifying diverse local commanderies under a single operational standard and core mission.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 4: Mission Alignment Across Multiple Bodies?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Unifying diverse local commanderies under a single operational standard and core mission."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+            },
+            {
+              "option": "D",
+              "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Unifying diverse local commanderies under a single operational standard and core mission.",
+          "rationale": "The week summary states that Focus: Unifying diverse local commanderies under a single operational standard and core mission."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 4: Mission Alignment Across Multiple Bodies?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Major School Syllabus PDF"
+            },
+            {
+              "option": "B",
+              "text": "OSMTH Templarism and History"
+            },
+            {
+              "option": "C",
+              "text": "Knights Templar Overview (Wikipedia)"
+            },
+            {
+              "option": "D",
+              "text": "Medieval Warfare: Templars Hierarchy and Duties"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Major School Syllabus PDF",
+          "rationale": "Major School Syllabus PDF appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 4: Mission Alignment Across Multiple Bodies?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Mission Alignment Across Multiple Bodies"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Burden of Wider Oversight"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: The Provincial Structure of the Templars"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: The Office of Provincial Master / Grand Prior"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Mission Alignment Across Multiple Bodies",
+          "rationale": "The week is organized around the concept of Mission Alignment Across Multiple Bodies."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 4: Mission Alignment Across Multiple Bodies?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Unifying diverse local commanderies under a single operational standard and core mission."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+            },
+            {
+              "option": "D",
+              "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Unifying diverse local commanderies under a single operational standard and core mission.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Focus: Unifying diverse local commanderies under a single operational standard and core mission."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 4: Mission Alignment Across Multiple Bodies?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Mission Alignment Across Multiple Bodies through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Mission Alignment Across Multiple Bodies mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Mission Alignment Across Multiple Bodies."
+            },
+            {
+              "option": "D",
+              "text": "Approach Mission Alignment Across Multiple Bodies as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Mission Alignment Across Multiple Bodies through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 4: Mission Alignment Across Multiple Bodies shape the expectations placed on a member in the Major School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 4: Mission Alignment Across Multiple Bodies seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 4: Mission Alignment Across Multiple Bodies in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 5,
+      "week_title": "Week 5: Inspection, Accountability, and Standards",
+      "focus": "Focus: Establishing accountability, maintaining strict standards, and conducting regional inspections.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 5: Inspection, Accountability, and Standards?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Establishing accountability, maintaining strict standards, and conducting regional inspections."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+            },
+            {
+              "option": "D",
+              "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Establishing accountability, maintaining strict standards, and conducting regional inspections.",
+          "rationale": "The week summary states that Focus: Establishing accountability, maintaining strict standards, and conducting regional inspections."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 5: Inspection, Accountability, and Standards?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Primitive Rule of the Templars (Fordham)"
+            },
+            {
+              "option": "B",
+              "text": "Major School Syllabus PDF"
+            },
+            {
+              "option": "C",
+              "text": "OSMTH Templarism and History"
+            },
+            {
+              "option": "D",
+              "text": "Knights Templar Overview (Wikipedia)"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Primitive Rule of the Templars (Fordham)",
+          "rationale": "Primitive Rule of the Templars (Fordham) appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 5: Inspection, Accountability, and Standards?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Inspection, Accountability, and Standards"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Burden of Wider Oversight"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: The Provincial Structure of the Templars"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: The Office of Provincial Master / Grand Prior"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Inspection, Accountability, and Standards",
+          "rationale": "The week is organized around the concept of Inspection, Accountability, and Standards."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 5: Inspection, Accountability, and Standards?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Establishing accountability, maintaining strict standards, and conducting regional inspections."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+            },
+            {
+              "option": "D",
+              "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Establishing accountability, maintaining strict standards, and conducting regional inspections.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Focus: Establishing accountability, maintaining strict standards, and conducting regional inspections."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 5: Inspection, Accountability, and Standards?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Inspection, Accountability, and Standards through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Inspection, Accountability, and Standards mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Inspection, Accountability, and Standards."
+            },
+            {
+              "option": "D",
+              "text": "Approach Inspection, Accountability, and Standards as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Inspection, Accountability, and Standards through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 5: Inspection, Accountability, and Standards shape the expectations placed on a member in the Major School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 5: Inspection, Accountability, and Standards seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 5: Inspection, Accountability, and Standards in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 6,
+      "week_title": "Week 6: Recruitment, Growth, and Officer Pipeline",
+      "focus": "Focus: Sustaining the Order through strategic recruitment and building a capable pipeline of future officers.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 6: Recruitment, Growth, and Officer Pipeline?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Sustaining the Order through strategic recruitment and building a capable pipeline of future officers."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+            },
+            {
+              "option": "D",
+              "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Sustaining the Order through strategic recruitment and building a capable pipeline of future officers.",
+          "rationale": "The week summary states that Focus: Sustaining the Order through strategic recruitment and building a capable pipeline of future officers."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 6: Recruitment, Growth, and Officer Pipeline?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Major School Syllabus PDF"
+            },
+            {
+              "option": "B",
+              "text": "OSMTH Templarism and History"
+            },
+            {
+              "option": "C",
+              "text": "Knights Templar Overview (Wikipedia)"
+            },
+            {
+              "option": "D",
+              "text": "Medieval Warfare: Templars Hierarchy and Duties"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Major School Syllabus PDF",
+          "rationale": "Major School Syllabus PDF appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 6: Recruitment, Growth, and Officer Pipeline?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Recruitment, Growth, and Officer Pipeline"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Burden of Wider Oversight"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: The Provincial Structure of the Templars"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: The Office of Provincial Master / Grand Prior"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Recruitment, Growth, and Officer Pipeline",
+          "rationale": "The week is organized around the concept of Recruitment, Growth, and Officer Pipeline."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 6: Recruitment, Growth, and Officer Pipeline?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Sustaining the Order through strategic recruitment and building a capable pipeline of future officers."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+            },
+            {
+              "option": "D",
+              "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Sustaining the Order through strategic recruitment and building a capable pipeline of future officers.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Focus: Sustaining the Order through strategic recruitment and building a capable pipeline of future officers."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 6: Recruitment, Growth, and Officer Pipeline?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Recruitment, Growth, and Officer Pipeline through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Recruitment, Growth, and Officer Pipeline mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Recruitment, Growth, and Officer Pipeline."
+            },
+            {
+              "option": "D",
+              "text": "Approach Recruitment, Growth, and Officer Pipeline as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Recruitment, Growth, and Officer Pipeline through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 6: Recruitment, Growth, and Officer Pipeline shape the expectations placed on a member in the Major School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 6: Recruitment, Growth, and Officer Pipeline seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 6: Recruitment, Growth, and Officer Pipeline in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 7,
+      "week_title": "Week 7: Resource Stewardship and Regional Planning",
+      "focus": "Focus: Managing regional assets, prioritizing resources, and planning for the long-term health of multiple bodies.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 7: Resource Stewardship and Regional Planning?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Managing regional assets, prioritizing resources, and planning for the long-term health of multiple bodies."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+            },
+            {
+              "option": "D",
+              "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Managing regional assets, prioritizing resources, and planning for the long-term health of multiple bodies.",
+          "rationale": "The week summary states that Focus: Managing regional assets, prioritizing resources, and planning for the long-term health of multiple bodies."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 7: Resource Stewardship and Regional Planning?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Knights Templar Overview (Wikipedia)"
+            },
+            {
+              "option": "B",
+              "text": "Major School Syllabus PDF"
+            },
+            {
+              "option": "C",
+              "text": "OSMTH Templarism and History"
+            },
+            {
+              "option": "D",
+              "text": "Medieval Warfare: Templars Hierarchy and Duties"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Knights Templar Overview (Wikipedia)",
+          "rationale": "Knights Templar Overview (Wikipedia) appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 7: Resource Stewardship and Regional Planning?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Resource Stewardship and Regional Planning"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Burden of Wider Oversight"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: The Provincial Structure of the Templars"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: The Office of Provincial Master / Grand Prior"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Resource Stewardship and Regional Planning",
+          "rationale": "The week is organized around the concept of Resource Stewardship and Regional Planning."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 7: Resource Stewardship and Regional Planning?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Managing regional assets, prioritizing resources, and planning for the long-term health of multiple bodies."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+            },
+            {
+              "option": "D",
+              "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Managing regional assets, prioritizing resources, and planning for the long-term health of multiple bodies.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Focus: Managing regional assets, prioritizing resources, and planning for the long-term health of multiple bodies."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 7: Resource Stewardship and Regional Planning?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Resource Stewardship and Regional Planning through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Resource Stewardship and Regional Planning mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Resource Stewardship and Regional Planning."
+            },
+            {
+              "option": "D",
+              "text": "Approach Resource Stewardship and Regional Planning as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Resource Stewardship and Regional Planning through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 7: Resource Stewardship and Regional Planning shape the expectations placed on a member in the Major School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 7: Resource Stewardship and Regional Planning seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 7: Resource Stewardship and Regional Planning in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 8,
+      "week_title": "Week 8: Training Captains and Strengthening Local Command",
+      "focus": "Focus: Mentoring local Captains to ensure their commanderies are strong, independent, and mission-capable.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 8: Training Captains and Strengthening Local Command?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Mentoring local Captains to ensure their commanderies are strong, independent, and mission-capable."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+            },
+            {
+              "option": "D",
+              "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Mentoring local Captains to ensure their commanderies are strong, independent, and mission-capable.",
+          "rationale": "The week summary states that Focus: Mentoring local Captains to ensure their commanderies are strong, independent, and mission-capable."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 8: Training Captains and Strengthening Local Command?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Major School Syllabus PDF"
+            },
+            {
+              "option": "B",
+              "text": "OSMTH Templarism and History"
+            },
+            {
+              "option": "C",
+              "text": "Knights Templar Overview (Wikipedia)"
+            },
+            {
+              "option": "D",
+              "text": "Medieval Warfare: Templars Hierarchy and Duties"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Major School Syllabus PDF",
+          "rationale": "Major School Syllabus PDF appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 8: Training Captains and Strengthening Local Command?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Training Captains and Strengthening Local Command"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Burden of Wider Oversight"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: The Provincial Structure of the Templars"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: The Office of Provincial Master / Grand Prior"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Training Captains and Strengthening Local Command",
+          "rationale": "The week is organized around the concept of Training Captains and Strengthening Local Command."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 8: Training Captains and Strengthening Local Command?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Mentoring local Captains to ensure their commanderies are strong, independent, and mission-capable."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+            },
+            {
+              "option": "D",
+              "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Mentoring local Captains to ensure their commanderies are strong, independent, and mission-capable.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Focus: Mentoring local Captains to ensure their commanderies are strong, independent, and mission-capable."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 8: Training Captains and Strengthening Local Command?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Training Captains and Strengthening Local Command through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Training Captains and Strengthening Local Command mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Training Captains and Strengthening Local Command."
+            },
+            {
+              "option": "D",
+              "text": "Approach Training Captains and Strengthening Local Command as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Training Captains and Strengthening Local Command through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 8: Training Captains and Strengthening Local Command shape the expectations placed on a member in the Major School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 8: Training Captains and Strengthening Local Command seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 8: Training Captains and Strengthening Local Command in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 9,
+      "week_title": "Week 9: Communication, Coordination, and Order",
+      "focus": "Focus: Developing clear protocols for region-wide communication, reporting, and logistical coordination.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 9: Communication, Coordination, and Order?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Developing clear protocols for region-wide communication, reporting, and logistical coordination."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+            },
+            {
+              "option": "D",
+              "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Developing clear protocols for region-wide communication, reporting, and logistical coordination.",
+          "rationale": "The week summary states that Focus: Developing clear protocols for region-wide communication, reporting, and logistical coordination."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 9: Communication, Coordination, and Order?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Major School Syllabus PDF"
+            },
+            {
+              "option": "B",
+              "text": "OSMTH Templarism and History"
+            },
+            {
+              "option": "C",
+              "text": "Knights Templar Overview (Wikipedia)"
+            },
+            {
+              "option": "D",
+              "text": "Medieval Warfare: Templars Hierarchy and Duties"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Major School Syllabus PDF",
+          "rationale": "Major School Syllabus PDF appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 9: Communication, Coordination, and Order?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Communication, Coordination, and Order"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Burden of Wider Oversight"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: The Provincial Structure of the Templars"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: The Office of Provincial Master / Grand Prior"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Communication, Coordination, and Order",
+          "rationale": "The week is organized around the concept of Communication, Coordination, and Order."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 9: Communication, Coordination, and Order?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Developing clear protocols for region-wide communication, reporting, and logistical coordination."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+            },
+            {
+              "option": "D",
+              "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Developing clear protocols for region-wide communication, reporting, and logistical coordination.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Focus: Developing clear protocols for region-wide communication, reporting, and logistical coordination."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 9: Communication, Coordination, and Order?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Communication, Coordination, and Order through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Communication, Coordination, and Order mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Communication, Coordination, and Order."
+            },
+            {
+              "option": "D",
+              "text": "Approach Communication, Coordination, and Order as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Communication, Coordination, and Order through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 9: Communication, Coordination, and Order shape the expectations placed on a member in the Major School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 9: Communication, Coordination, and Order seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 9: Communication, Coordination, and Order in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 10,
+      "week_title": "Week 10: Correction, Intervention, and Restoration at the Regional Level",
+      "focus": "Focus: Handling disorder appropriately, intervening in failing local bodies, and guiding restoration.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 10: Correction, Intervention, and Restoration at the Regional Level?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Handling disorder appropriately, intervening in failing local bodies, and guiding restoration."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+            },
+            {
+              "option": "D",
+              "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Handling disorder appropriately, intervening in failing local bodies, and guiding restoration.",
+          "rationale": "The week summary states that Focus: Handling disorder appropriately, intervening in failing local bodies, and guiding restoration."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 10: Correction, Intervention, and Restoration at the Regional Level?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Primitive Rule of the Templars (Fordham)"
+            },
+            {
+              "option": "B",
+              "text": "Major School Syllabus PDF"
+            },
+            {
+              "option": "C",
+              "text": "OSMTH Templarism and History"
+            },
+            {
+              "option": "D",
+              "text": "Knights Templar Overview (Wikipedia)"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Primitive Rule of the Templars (Fordham)",
+          "rationale": "Primitive Rule of the Templars (Fordham) appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 10: Correction, Intervention, and Restoration at the Regional Level?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Correction, Intervention, and Restoration at the Regional Level"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Burden of Wider Oversight"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: The Provincial Structure of the Templars"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: The Office of Provincial Master / Grand Prior"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Correction, Intervention, and Restoration at the Regional Level",
+          "rationale": "The week is organized around the concept of Correction, Intervention, and Restoration at the Regional Level."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 10: Correction, Intervention, and Restoration at the Regional Level?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Handling disorder appropriately, intervening in failing local bodies, and guiding restoration."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+            },
+            {
+              "option": "D",
+              "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Handling disorder appropriately, intervening in failing local bodies, and guiding restoration.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Focus: Handling disorder appropriately, intervening in failing local bodies, and guiding restoration."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 10: Correction, Intervention, and Restoration at the Regional Level?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Correction, Intervention, and Restoration at the Regional Level through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Correction, Intervention, and Restoration at the Regional Level mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Correction, Intervention, and Restoration at the Regional Level."
+            },
+            {
+              "option": "D",
+              "text": "Approach Correction, Intervention, and Restoration at the Regional Level as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Correction, Intervention, and Restoration at the Regional Level through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 10: Correction, Intervention, and Restoration at the Regional Level shape the expectations placed on a member in the Major School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 10: Correction, Intervention, and Restoration at the Regional Level seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 10: Correction, Intervention, and Restoration at the Regional Level in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 11,
+      "week_title": "Week 11: Regional Oversight Practicum",
+      "focus": "Focus: Applying regional oversight principles through a structured, real-world assessment or development project.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 11: Regional Oversight Practicum?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Applying regional oversight principles through a structured, real-world assessment or development project."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+            },
+            {
+              "option": "D",
+              "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Applying regional oversight principles through a structured, real-world assessment or development project.",
+          "rationale": "The week summary states that Focus: Applying regional oversight principles through a structured, real-world assessment or development project."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 11: Regional Oversight Practicum?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Major School Syllabus PDF"
+            },
+            {
+              "option": "B",
+              "text": "OSMTH Templarism and History"
+            },
+            {
+              "option": "C",
+              "text": "Knights Templar Overview (Wikipedia)"
+            },
+            {
+              "option": "D",
+              "text": "Medieval Warfare: Templars Hierarchy and Duties"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Major School Syllabus PDF",
+          "rationale": "Major School Syllabus PDF appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 11: Regional Oversight Practicum?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Regional Oversight Practicum"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Burden of Wider Oversight"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: The Provincial Structure of the Templars"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: The Office of Provincial Master / Grand Prior"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Regional Oversight Practicum",
+          "rationale": "The week is organized around the concept of Regional Oversight Practicum."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 11: Regional Oversight Practicum?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Applying regional oversight principles through a structured, real-world assessment or development project."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+            },
+            {
+              "option": "D",
+              "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Applying regional oversight principles through a structured, real-world assessment or development project.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Focus: Applying regional oversight principles through a structured, real-world assessment or development project."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 11: Regional Oversight Practicum?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Regional Oversight Practicum through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Regional Oversight Practicum mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Regional Oversight Practicum."
+            },
+            {
+              "option": "D",
+              "text": "Approach Regional Oversight Practicum as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Regional Oversight Practicum through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 11: Regional Oversight Practicum shape the expectations placed on a member in the Major School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 11: Regional Oversight Practicum seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 11: Regional Oversight Practicum in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 12,
+      "week_title": "Week 12: Capstone Preparation and Major’s Board Review",
+      "focus": "Focus: Compiling the final portfolio, finalizing reflections, and preparing for the oral board evaluation.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 12: Capstone Preparation and Major’s Board Review?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Compiling the final portfolio, finalizing reflections, and preparing for the oral board evaluation."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+            },
+            {
+              "option": "D",
+              "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Compiling the final portfolio, finalizing reflections, and preparing for the oral board evaluation.",
+          "rationale": "The week summary states that Focus: Compiling the final portfolio, finalizing reflections, and preparing for the oral board evaluation."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 12: Capstone Preparation and Major’s Board Review?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Major School Syllabus PDF"
+            },
+            {
+              "option": "B",
+              "text": "OSMTH Templarism and History"
+            },
+            {
+              "option": "C",
+              "text": "Knights Templar Overview (Wikipedia)"
+            },
+            {
+              "option": "D",
+              "text": "Medieval Warfare: Templars Hierarchy and Duties"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Major School Syllabus PDF",
+          "rationale": "Major School Syllabus PDF appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 12: Capstone Preparation and Major’s Board Review?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Capstone Preparation and Major’s Board Review"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Burden of Wider Oversight"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: The Provincial Structure of the Templars"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: The Office of Provincial Master / Grand Prior"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Capstone Preparation and Major’s Board Review",
+          "rationale": "The week is organized around the concept of Capstone Preparation and Major’s Board Review."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 12: Capstone Preparation and Major’s Board Review?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Compiling the final portfolio, finalizing reflections, and preparing for the oral board evaluation."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization."
+            },
+            {
+              "option": "D",
+              "text": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Compiling the final portfolio, finalizing reflections, and preparing for the oral board evaluation.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Focus: Compiling the final portfolio, finalizing reflections, and preparing for the oral board evaluation."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 12: Capstone Preparation and Major’s Board Review?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Capstone Preparation and Major’s Board Review through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Capstone Preparation and Major’s Board Review mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Capstone Preparation and Major’s Board Review."
+            },
+            {
+              "option": "D",
+              "text": "Approach Capstone Preparation and Major’s Board Review as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Capstone Preparation and Major’s Board Review through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 12: Capstone Preparation and Major’s Board Review shape the expectations placed on a member in the Major School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 12: Capstone Preparation and Major’s Board Review seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 12: Capstone Preparation and Major’s Board Review in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    }
+  ]
+}

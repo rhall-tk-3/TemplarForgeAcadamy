@@ -1,0 +1,70 @@
+*{box-sizing:border-box}body{margin:0;font-family:Georgia,'Times New Roman',serif;background:#f3eee2;color:#2a2118;line-height:1.6}a{color:#6b1f1f;text-decoration:none}a:hover{text-decoration:underline}.topbar{background:#2d2115;color:#f6eddc;padding:14px 24px;border-bottom:4px solid #8b6a2b}.topbar .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}.topbar img{width:32px;height:32px}.nav{margin-top:10px;display:flex;gap:16px;flex-wrap:wrap}.nav a{color:#f6eddc;opacity:.95}.hero{padding:56px 24px;background:linear-gradient(rgba(45,33,21,.82),rgba(45,33,21,.78)),url('assets/templar-cross.svg') center/120px no-repeat,#4b3823;color:#fff}.hero-inner{max-width:1100px;margin:0 auto}.hero h1{font-size:clamp(2rem,4vw,3.2rem);margin:0 0 10px}.hero p{max-width:760px;font-size:1.08rem}.button-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}.btn{display:inline-block;padding:12px 18px;border-radius:8px;border:1px solid #d8c29a;background:#c8a96b;color:#24180e;font-weight:700}.btn.secondary{background:transparent;color:#fff;border-color:#d8c29a}.section{max-width:1100px;margin:0 auto;padding:34px 24px}.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}.card{background:#fffdf8;border:1px solid #d5c5a9;border-radius:12px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,.06)}.card h3{margin-top:0}.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-top:18px}.meta .stat{background:#f8f1e4;border-left:4px solid #8b6a2b;padding:14px;border-radius:8px}.download-list{padding-left:18px}.download-list li{margin:10px 0}.footer{background:#2d2115;color:#f6eddc;padding:22px 24px;margin-top:24px}.footer a{color:#f6eddc}.page-title{max-width:1100px;margin:0 auto;padding:34px 24px 8px}.embed-wrap{max-width:1100px;margin:0 auto;padding:0 24px 34px}.pdf-frame,.html-frame{width:100%;height:75vh;border:1px solid #c8b28f;border-radius:10px;background:#fff}.note{background:#fff8ea;border-left:4px solid #8b6a2b;padding:14px 16px;border-radius:8px}.small{font-size:.95rem;color:#5d4a35}@media print{.topbar,.button-row,.footer{display:none}.section,.page-title,.embed-wrap{padding:12px}}
+/* ═══════════════════════════════════════════════════════════
+   PROGRAM HUB BACKGROUND — captain.jpg
+   ═══════════════════════════════════════════════════════════ */
+html {
+  background-image: url('/images/hub-bg/captain.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+html::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    rgba(8,4,1,.82) 0%,
+    rgba(8,4,1,.55) 50%,
+    rgba(8,4,1,.82) 100%
+  );
+  pointer-events: none;
+}
+body { background: transparent !important; color: #e8d5b0 !important; }
+
+/* Nav / topbar */
+.topbar { background: rgba(12,6,2,.88) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; }
+
+/* Hero section */
+.hero { background: rgba(6,3,1,.70) !important; }
+.hero h1 { color: #f5ddb0 !important; }
+.hero p  { color: #d4bc88 !important; }
+
+/* Cards and panels */
+.card, .section .card { background: rgba(16,9,3,.82) !important; border-color: rgba(140,80,20,.35) !important; color: #e8d5b0 !important; }
+.card h3 { color: #f5ddb0 !important; }
+.card p, .card li { color: #c8a870 !important; }
+
+/* Stat blocks */
+.meta .stat { background: rgba(80,40,8,.5) !important; border-left-color: #c9a227 !important; color: #d4b888 !important; }
+
+/* Download / reading list */
+.download-list li { color: #d4b888 !important; }
+
+/* Footer */
+.footer { background: rgba(4,2,0,.95) !important; color: #9a7040 !important; border-top: 1px solid rgba(100,55,15,.4) !important; }
+.footer a { color: #9a7040 !important; }
+
+/* Note callouts */
+.note { border-left-color: #c9a227 !important; background: rgba(80,50,0,.3) !important; color: #d4b888 !important; }
+
+/* Generic links */
+a { color: #c9a227 !important; }
+a:hover { color: #f5ddb0 !important; }
+
+/* Buttons */
+.btn { background: linear-gradient(135deg,#8b6000,#5a3a00) !important; color: #fff5e0 !important; border-color: rgba(140,80,20,.5) !important; }
+.btn.secondary { background: rgba(20,10,2,.7) !important; color: #c9a227 !important; border-color: rgba(140,80,20,.5) !important; }
+
+/* Tables */
+table { background: rgba(16,9,3,.82) !important; }
+th { background: rgba(80,40,8,.6) !important; color: #f5ddb0 !important; }
+td { color: #d4b888 !important; }
+
+/* PDF/HTML embed frames */
+.pdf-frame, .html-frame { background: rgba(16,9,3,.9) !important; border-color: rgba(140,80,20,.35) !important; }
+
+/* Small text */
+.small { color: #9a7040 !important; }

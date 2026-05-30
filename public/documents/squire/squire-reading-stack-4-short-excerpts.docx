@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Squire Reading Stack 4: Short Excerpts and Guided Readings</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+    <style>
+      body {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 32px 80px;
+        position: relative;
+        box-sizing: border-box;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000000;
+        text-align: justify;
+        background-color: #ffffff;
+      }
+      h1 {
+        text-align: center;
+        font-size: 24pt;
+        font-weight: bold;
+        margin-bottom: 24px;
+        color: #000000;
+        font-family: 'Times New Roman', Times, serif;
+      }
+      h2 {
+        font-size: 14pt;
+        font-weight: bold;
+        margin-top: 24px;
+        margin-bottom: 12px;
+        color: #000000;
+        font-family: 'Times New Roman', Times, serif;
+      }
+      p {
+        margin-bottom: 16px;
+        text-indent: 0.5in;
+      }
+      .excerpt-box {
+        border: 1px solid #000000;
+        padding: 16px 24px;
+        margin: 16px 0;
+        text-indent: 0;
+      }
+      .excerpt-box p {
+        margin-bottom: 0;
+        text-indent: 0;
+      }
+      .prompt {
+        font-style: italic;
+        font-weight: bold;
+        margin-top: 16px;
+        display: block;
+      }
+      hr {
+        border: 0;
+        border-top: 1px solid #000000;
+        margin: 24px 0;
+      }
+      .note {
+        font-style: italic;
+        text-indent: 0;
+        margin-bottom: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Squire Reading Stack 4: Short Excerpts and Guided Readings</h1>
+
+    <p class="note">
+      <strong>Instructor's Note:</strong> Welcome to the fourth reading stack in your Squire School training. These
+      short, supervised readings are designed to help you understand the history, virtues, and purpose of the Order.
+      Please read each excerpt carefully and reflect on the questions provided. These readings support your preparation
+      for advancement.
+    </p>
+
+    <h2>Week 1: Origins and Virtues</h2>
+    <div class="excerpt-box">
+      <p>
+        After the First Crusade, the roads leading to Jerusalem remained very dangerous. Christian pilgrims traveling to
+        the Holy Land faced many threats on their journey. The Order was originally formed with a simple, charitable
+        mission: to protect these vulnerable travelers. This mission required the virtues of honesty, courage,
+        obedience, charity, and reverence.
+      </p>
+      <span class="prompt"
+        >Think About It: Why is protecting those who are weak or traveling considered a form of both charity and
+        courage?</span
+      >
+    </div>
+
+    <h2>Week 2: Founding People and Places</h2>
+    <div class="excerpt-box">
+      <p>
+        When studying the founders of the Order, such as Hugh de Payns, it is easy to repeat exciting stories or myths.
+        However, as a Squire, you are taught to value truth before legend. Real history must be based on careful
+        evidence and reliable sources, rather than repeating stories without proof. Honesty is the most important virtue
+        when separating historical fact from legend.
+      </p>
+      <span class="prompt"
+        >Think About It: Why is honesty important when learning about the history of an organization?</span
+      >
+    </div>
+
+    <h2>Week 3: Approval and Mission</h2>
+    <div class="excerpt-box">
+      <p>
+        The early Order was not just an ordinary army; it was recognized by the Council of Troyes as a religious order.
+        This means that its members lived a disciplined life focused on worship and prayer. Their purpose was bound to
+        spiritual duties and service to others, which made their mission entirely different from seeking military glory
+        or conquest.
+      </p>
+      <span class="prompt"
+        >Think About It: How does a focus on prayer and worship change the way an organization carries out its
+        duties?</span
+      >
+    </div>
+
+    <h2>Week 4: Structure and Daily Life</h2>
+    <div class="excerpt-box">
+      <p>
+        To serve effectively, an organization needs structure and discipline. The Order relied on different classes,
+        such as Knights, Sergeants, and Chaplains, as well as leaders like the Grand Master and Seneschal. But no matter
+        the title a member held, or the clothing and symbols they wore, the core rule was always "service before self."
+      </p>
+      <span class="prompt"
+        >Think About It: Why is dependable service more important than wearing a special symbol or holding a leadership
+        title?</span
+      >
+    </div>
+
+    <h2>Week 5: Life of the Order</h2>
+    <div class="excerpt-box">
+      <p>
+        The daily life of the Order was rarely about grand events. It involved routine duties, guarding castles and
+        roads, practicing daily prayer, and giving charity to the poor. A personal rule of conduct helps maintain this
+        quiet, steady faithfulness. Routine life often reveals true character far better than dramatic moments.
+      </p>
+      <span class="prompt"
+        >Think About It: Why does steady, everyday discipline often show more character than a single moment of
+        bravery?</span
+      >
+    </div>
+
+    <h2>Week 6: Power and Crisis</h2>
+    <div class="excerpt-box">
+      <p>
+        As the Order grew powerful and wealthy, it faced new challenges. Success can sometimes cause an organization to
+        forget its original purpose, a problem known as "mission drift." The fall of the city of Acre in 1291 was a
+        major historical crisis that severely weakened the Order's original protective mission, forcing them to navigate
+        a dangerous new reality.
+      </p>
+      <span class="prompt"
+        >Think About It: How can wealth, power, and success make it harder to remember a simple mission of
+        service?</span
+      >
+    </div>
+
+    <h2>Week 7: Suppression and Courage</h2>
+    <div class="excerpt-box">
+      <p>
+        In the early 1300s, the Order faced false accusations, arrests ordered by Philip IV, and eventual suppression.
+        During these dark times, members had to show great endurance. True courage means facing pressure, fear, and
+        injustice with dignity and honesty, rather than responding with panic or anger.
+      </p>
+      <span class="prompt"
+        >Think About It: What does true courage look like when a person is facing false accusations or very difficult
+        times?</span
+      >
+    </div>
+
+    <h2>Week 8: Review and Board Preparation</h2>
+    <div class="excerpt-box">
+      <p>
+        Your time as a Squire prepares you for future advancement to the rank of Sergeant. Readiness is not just about
+        memorizing names and dates on a historical timeline. It is about showing good character, dependably completing
+        your service hours, understanding truthful history, and acting with composure and respect during your oral
+        review board.
+      </p>
+      <span class="prompt"
+        >Think About It: How do your reading habits, memory work, and daily conduct prove that you are ready for the
+        next step?</span
+      >
+    </div>
+
+    <hr />
+
+    <p class="note">
+      <strong>Final Reminder:</strong> Please remember to record these readings in your official reading log. Practice
+      your memory work diligently, and bring your thoughts on these prompts to our moderated discussions. Remember that
+      a true Squire approaches learning with honesty, respect, and a willingness to serve.
+    </p>
+  </body>
+</html>

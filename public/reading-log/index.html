@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reading Log — Templar Forge Academy</title>
+  <link rel="stylesheet" href="/shared.css" />
+  <style>
+    /* ── Page scaffold ── */
+    body {
+      min-height: 100vh;
+      background: transparent;
+      color: #e8dcc8;
+      font-family: 'Crimson Text', Georgia, serif;
+    }
+
+    /* ── Topbar ── */
+    .rl-topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 56px;
+      background: rgba(12, 6, 2, 0.96);
+      border-bottom: 2px solid #7b1113;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.7);
+    }
+    .rl-topbar-brand {
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #d4af37;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .rl-topbar-brand span {
+      color: #7b1113;
+    }
+    .rl-back-link {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      color: #c9a227;
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+    .rl-back-link:hover { color: #f0d060; }
+
+    /* ── Main wrap ── */
+    .rl-wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* ── Page title ── */
+    .rl-page-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.9rem;
+      color: #d4af37;
+      text-align: center;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin: 0 0 0.3rem;
+    }
+    .rl-page-subtitle {
+      text-align: center;
+      color: #8b7050;
+      font-size: 0.95rem;
+      margin: 0 0 2rem;
+      font-style: italic;
+    }
+
+    /* ── Static note banner ── */
+    #staticNote {
+      background: rgba(123, 17, 19, 0.22);
+      border: 1px solid #7b1113;
+      border-left: 4px solid #7b1113;
+      border-radius: 4px;
+      padding: 0.75rem 1.1rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.92rem;
+      color: #c8b08a;
+      font-style: italic;
+    }
+
+    /* ── Cards ── */
+    .rl-card {
+      background: rgba(30, 18, 8, 0.88);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-left: 4px solid #d4af37;
+      border-radius: 6px;
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+    .rl-card h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      margin: 0 0 1rem;
+      border-bottom: 1px solid rgba(212,175,55,0.2);
+      padding-bottom: 0.5rem;
+    }
+
+    /* ── Profile fields ── */
+    .rl-field-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.75rem 1.25rem;
+    }
+    .rl-field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .rl-field-group label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      color: #c9a227;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+    .rl-field-group input,
+    .rl-field-group select {
+      background: rgba(10, 6, 2, 0.7);
+      border: 1px solid rgba(212,175,55,0.35);
+      border-radius: 3px;
+      color: #e8dcc8;
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 1rem;
+      padding: 0.45rem 0.7rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .rl-field-group input:focus,
+    .rl-field-group select:focus {
+      border-color: #d4af37;
+    }
+    .rl-field-group select option {
+      background: #1a0e04;
+    }
+
+    /* ── Progress bar ── */
+    .rl-progress-section {
+      margin-top: 1rem;
+    }
+    .rl-progress-wrap {
+      background: rgba(10,6,2,0.6);
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: 20px;
+      height: 14px;
+      overflow: hidden;
+      margin-bottom: 0.4rem;
+    }
+    #progressBar {
+      height: 100%;
+      background: linear-gradient(90deg, #7b1113, #d4af37);
+      border-radius: 20px;
+      width: 0%;
+      transition: width 0.5s ease;
+    }
+    #progressText {
+      font-size: 0.88rem;
+      color: #c9a227;
+      margin: 0 0 1rem;
+    }
+
+    /* ── Action buttons ── */
+    .rl-btn-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    .rl-btn {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      padding: 0.5rem 1.1rem;
+      border-radius: 3px;
+      cursor: pointer;
+      border: 1px solid;
+      transition: background 0.2s, color 0.2s;
+    }
+    #exportJsonBtn {
+      background: rgba(30,18,8,0.9);
+      border-color: #d4af37;
+      color: #d4af37;
+    }
+    #exportJsonBtn:hover {
+      background: rgba(212,175,55,0.15);
+    }
+    #resetProgramBtn {
+      background: rgba(30,18,8,0.9);
+      border-color: #7b1113;
+      color: #c87070;
+    }
+    #resetProgramBtn:hover {
+      background: rgba(123,17,19,0.2);
+    }
+    #submitToSmBtn {
+      background: rgba(123,17,19,0.5);
+      border-color: #9b2020;
+      color: #f0c8c8;
+    }
+    #submitToSmBtn:hover:not(:disabled) {
+      background: rgba(123,17,19,0.8);
+      border-color: #d4af37;
+      color: #fff;
+    }
+    #submitToSmBtn:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    /* ── Submit status banner ── */
+    #submitStatus {
+      display: none;
+      margin-top: 0.75rem;
+      padding: 0.55rem 0.9rem;
+      border-radius: 4px;
+      font-size: 0.88rem;
+      font-family: 'Crimson Text', Georgia, serif;
+    }
+    #submitStatus.status-ok {
+      display: block;
+      background: rgba(40,100,40,0.25);
+      border: 1px solid #3a7a3a;
+      color: #90e090;
+    }
+    #submitStatus.status-err {
+      display: block;
+      background: rgba(123,17,19,0.25);
+      border: 1px solid #7b1113;
+      color: #f0a0a0;
+    }
+    #submitStatus.status-busy {
+      display: block;
+      background: rgba(212,175,55,0.08);
+      border: 1px solid rgba(212,175,55,0.3);
+      color: #c9a227;
+    }
+
+    /* ── How it works card ── */
+    .rl-how-it-works {
+      border-left-color: #7b1113;
+    }
+    .rl-how-it-works h2 { color: #c87070; }
+    .rl-how-it-works ol {
+      margin: 0;
+      padding-left: 1.4rem;
+      color: #b8a88a;
+      font-size: 0.97rem;
+      line-height: 1.7;
+    }
+    .rl-how-it-works ol li { margin-bottom: 0.3rem; }
+
+    /* ── Week log cards ── */
+    #weeksContainer { margin-top: 0.5rem; }
+
+    .log-card {
+      background: rgba(22, 13, 4, 0.9);
+      border: 1px solid rgba(212,175,55,0.18);
+      border-left: 3px solid #7b1113;
+      border-radius: 5px;
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+    .log-card h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin: 0 0 0.9rem;
+    }
+
+    /* ── Reading table ── */
+    .reading-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .reading-table thead tr {
+      background: rgba(123,17,19,0.3);
+    }
+    .reading-table th {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      color: #c9a227;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.5rem 0.6rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(212,175,55,0.2);
+      white-space: nowrap;
+    }
+    .reading-table td {
+      padding: 0.45rem 0.6rem;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      vertical-align: middle;
+      color: #d8cbb8;
+    }
+    .reading-table tbody tr:hover {
+      background: rgba(212,175,55,0.04);
+    }
+    .reading-table a {
+      color: #c9a227;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .reading-table a:hover { color: #f0d060; }
+    .reading-table select {
+      background: rgba(10,6,2,0.75);
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 3px;
+      color: #e8dcc8;
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 0.88rem;
+      padding: 0.25rem 0.4rem;
+    }
+    .reading-table select option { background: #1a0e04; }
+    .reading-table input[type="text"] {
+      background: rgba(10,6,2,0.6);
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: 3px;
+      color: #e8dcc8;
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 0.88rem;
+      padding: 0.25rem 0.5rem;
+      width: 100%;
+      min-width: 120px;
+    }
+    .reading-table input[type="text"]:focus {
+      outline: none;
+      border-color: #d4af37;
+    }
+
+    /* ── Custom sources block ── */
+    .custom-sources-block {
+      background: rgba(10,6,2,0.45);
+      border: 1px solid rgba(212,175,55,0.12);
+      border-radius: 4px;
+      padding: 0.9rem 1rem;
+      margin-top: 0.5rem;
+    }
+    .cs-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.6rem;
+    }
+    .cs-header-icon { font-size: 1rem; }
+    .cs-header-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      color: #c9a227;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .cs-header-sub {
+      font-size: 0.8rem;
+      color: #7a6a4e;
+      font-style: italic;
+    }
+    .cs-list {
+      list-style: none;
+      margin: 0 0 0.7rem;
+      padding: 0;
+    }
+    .cs-item {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.3rem 0.5rem;
+      padding: 0.35rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.88rem;
+    }
+    .cs-empty {
+      color: #5a4a32;
+      font-style: italic;
+      font-size: 0.85rem;
+      padding: 0.3rem 0;
+    }
+    .cs-badge {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      border: 1px solid;
+    }
+    .cs-badge--book    { color: #8bbcf0; border-color: #3a6090; background: rgba(58,96,144,0.15); }
+    .cs-badge--article { color: #90e0a0; border-color: #3a7050; background: rgba(58,112,80,0.15); }
+    .cs-badge--website { color: #e0c070; border-color: #907030; background: rgba(144,112,48,0.15); }
+    .cs-badge--other   { color: #c0a0d0; border-color: #705080; background: rgba(112,80,128,0.15); }
+    .cs-title a { color: #c9a227; text-decoration: underline; text-underline-offset: 2px; }
+    .cs-title a:hover { color: #f0d060; }
+    .cs-notes { color: #7a6a4e; font-style: italic; }
+    .cs-meta   { color: #5a4a32; font-size: 0.78rem; margin-left: auto; }
+    .cs-remove-btn {
+      background: none;
+      border: none;
+      color: #7b1113;
+      cursor: pointer;
+      font-size: 0.8rem;
+      padding: 0 0.25rem;
+      line-height: 1;
+    }
+    .cs-remove-btn:hover { color: #c84040; }
+
+    /* ── Custom source form ── */
+    .cs-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+    }
+    .cs-input {
+      background: rgba(10,6,2,0.7);
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: 3px;
+      color: #e8dcc8;
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 0.88rem;
+      padding: 0.3rem 0.55rem;
+    }
+    .cs-input:focus { outline: none; border-color: #d4af37; }
+    .cs-input--title { flex: 2; min-width: 160px; }
+    .cs-input--url   { flex: 2; min-width: 140px; }
+    .cs-input--notes { flex: 2; min-width: 140px; }
+    .cs-select {
+      background: rgba(10,6,2,0.7);
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: 3px;
+      color: #e8dcc8;
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 0.88rem;
+      padding: 0.3rem 0.4rem;
+    }
+    .cs-select option { background: #1a0e04; }
+    .cs-add-btn {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: rgba(123,17,19,0.3);
+      border: 1px solid #7b1113;
+      color: #e8a0a0;
+      border-radius: 3px;
+      padding: 0.3rem 0.75rem;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .cs-add-btn:hover { background: rgba(123,17,19,0.55); }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .rl-topbar { padding: 0 1rem; }
+      .rl-wrap { padding: 1.2rem 0.9rem 3rem; }
+      .rl-page-title { font-size: 1.4rem; }
+      .reading-table { font-size: 0.82rem; }
+      .reading-table th, .reading-table td { padding: 0.35rem 0.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Topbar ── -->
+  <nav class="rl-topbar">
+    <span class="rl-topbar-brand">⚔ <span>Templar</span> Forge Academy</span>
+    <a href="/member" class="rl-back-link">← Return to Member Hub</a>
+  </nav>
+
+  <!-- ── Main ── -->
+  <main class="rl-wrap">
+
+    <h1 class="rl-page-title">📖 Reading Log</h1>
+    <p class="rl-page-subtitle">Track your required reading progress for each training program.</p>
+
+    <!-- Static notice -->
+    <div id="staticNote">Loading…</div>
+
+    <!-- Member Profile -->
+    <div class="rl-card">
+      <h2>⚔ Member Profile</h2>
+      <div class="rl-field-row">
+        <div class="rl-field-group">
+          <label for="memberName">Name</label>
+          <input type="text" id="memberName" placeholder="Your full name" autocomplete="name" />
+        </div>
+        <div class="rl-field-group">
+          <label for="memberEmail">Email</label>
+          <input type="email" id="memberEmail" placeholder="your@email.com" autocomplete="email" />
+        </div>
+        <div class="rl-field-group">
+          <label for="chapter">Chapter</label>
+          <input type="text" id="chapter" placeholder="Your chapter name" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Program & Progress -->
+    <div class="rl-card">
+      <h2>🛡 Program &amp; Progress</h2>
+      <div class="rl-field-row" style="margin-bottom:1rem;">
+        <div class="rl-field-group">
+          <label for="programSelect">Active Program</label>
+          <select id="programSelect"></select>
+        </div>
+      </div>
+      <div class="rl-progress-section">
+        <div class="rl-progress-wrap">
+          <div id="progressBar"></div>
+        </div>
+        <p id="progressText">0 / 0 documents completed</p>
+        <div class="rl-btn-row">
+          <button id="exportJsonBtn" class="rl-btn">⬇ Export JSON</button>
+          <button id="submitToSmBtn" class="rl-btn">✉ Submit to Schoolmaster</button>
+          <button id="resetProgramBtn" class="rl-btn">↺ Reset Program</button>
+        </div>
+        <div id="submitStatus"></div>
+      </div>
+    </div>
+
+    <!-- How it works -->
+    <div class="rl-card rl-how-it-works">
+      <h2>✦ How It Works</h2>
+      <ol>
+        <li>Select your active program from the dropdown above.</li>
+        <li>Click any document link to open it — your open count is tracked automatically.</li>
+        <li>Set the status for each document: <em>Not started</em>, <em>In progress</em>, or <em>Completed</em>.</li>
+        <li>Add custom sources (books, articles, websites) to any week using the Custom Sources section.</li>
+        <li>Use <strong>Submit to Schoolmaster</strong> to send your current progress directly to the SM dashboard — one click, no file needed.</li>
+        <li>Use <strong>Export JSON</strong> to download a local backup of your log at any time.</li>
+        <li>Progress is always saved locally in this browser first; Submit syncs it to the server.</li>
+      </ol>
+    </div>
+
+    <!-- Weekly log sections injected here by JS -->
+    <div id="weeksContainer"></div>
+
+  </main>
+
+  <!-- Data + IIFE log script — load in order, non-deferred -->
+  <script src="/assets/js/academy-reading-data.js"></script>
+  <script src="/assets/js/academy-reading-log-member.js"></script>
+
+  <!-- Page guard — member only -->
+  <script src="/assets/js/academy-guard.js" data-protect="member" defer></script>
+
+</body>
+</html>

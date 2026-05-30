@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Squire School Program — Weekly Lesson Outline</title>
+  <title>Squire School Program &mdash; Weekly Lesson Outline</title>
   <style>
   @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,144 +28,470 @@
     letter-spacing: 0.05em;
   }
   .back:hover { background: rgba(184,150,12,0.12); color: #e8c040; }
-  .doc-header {
-    border-bottom: 1px solid rgba(180,140,60,0.3);
-    padding-bottom: 18px;
-    margin-bottom: 32px;
-  }
-  .doc-kicker {
+  .doc-header { margin-bottom: 40px; border-bottom: 1px solid rgba(184,150,12,0.25); padding-bottom: 24px; }
+  .doc-header h1 {
     font-family: 'Cinzel', serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: #8a7040;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #e8c040;
+    letter-spacing: 0.06em;
     margin-bottom: 8px;
   }
-  .doc-title {
+  .doc-header .subtitle {
     font-family: 'Cinzel', serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #e8c850;
-    line-height: 1.2;
-    margin-bottom: 6px;
+    font-size: 0.85rem;
+    color: #b8960c;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
-  .doc-sub {
-    font-size: 0.9rem;
-    color: #8a7040;
+  .doc-header .desc {
+    margin-top: 14px;
+    color: #c8b87a;
+    font-size: 1rem;
     font-style: italic;
+    line-height: 1.6;
   }
-  .week-block {
-    margin-bottom: 28px;
-    background: rgba(180,140,60,0.05);
-    border: 1px solid rgba(180,140,60,0.18);
-    border-left: 3px solid #c8a020;
+  .toc {
+    background: rgba(232,192,64,0.05);
+    border: 1px solid rgba(232,192,64,0.15);
     border-radius: 6px;
-    padding: 18px 20px;
+    padding: 20px 24px;
+    margin-bottom: 40px;
+  }
+  .toc h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.82rem;
+    color: #b8960c;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .toc ol { padding-left: 20px; }
+  .toc li { margin-bottom: 5px; }
+  .toc a {
+    color: #c9a84c;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 0.83rem;
+    letter-spacing: 0.03em;
+  }
+  .toc a:hover { color: #e8c040; text-decoration: underline; }
+  .week {
+    margin-bottom: 50px;
+    border: 1px solid rgba(232,192,64,0.18);
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(232,192,64,0.02);
+  }
+  .week-header {
+    background: rgba(232,192,64,0.08);
+    border-bottom: 1px solid rgba(232,192,64,0.2);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
   }
   .week-num {
     font-family: 'Cinzel', serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.14em;
+    font-size: 0.75rem;
+    color: #b8960c;
     text-transform: uppercase;
-    color: #8a7040;
-    margin-bottom: 5px;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    border: 1px solid rgba(184,150,12,0.35);
+    border-radius: 4px;
+    padding: 3px 10px;
   }
-  .week-title {
+  .week-header h2 {
     font-family: 'Cinzel', serif;
-    font-size: 1.05rem;
-    font-weight: 700;
+    font-size: 1.1rem;
     color: #e8c040;
-    margin-bottom: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
   }
-  .obj-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-  }
-  .obj-list li {
-    display: flex;
-    gap: 9px;
-    align-items: flex-start;
-    font-size: 0.97rem;
-    color: #c8b888;
-    line-height: 1.5;
-  }
-  .obj-bullet { color: #c8a020; font-size: 0.72rem; flex-shrink:0; margin-top:5px; }
-  .note {
+  .week-body { padding: 24px; }
+  .block { margin-bottom: 22px; }
+  .block:last-child { margin-bottom: 0; }
+  .block h3 {
+    font-family: 'Cinzel', serif;
     font-size: 0.82rem;
-    color: #6a5030;
-    font-style: italic;
-    margin-top: 24px;
-    padding-top: 18px;
-    border-top: 1px solid rgba(180,140,60,0.12);
-    line-height: 1.6;
+    color: #b8960c;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(184,150,12,0.2);
+    padding-bottom: 6px;
   }
-  @media print {
-    body { background: #fff; color: #111; padding: 20px; }
-    .back { display: none; }
-    .week-block { border: 1px solid #ccc; background: #fafafa; }
-    .week-title { color: #222; }
-    .week-num, .doc-kicker, .doc-sub { color: #666; }
-    .obj-list li { color: #333; }
-    .doc-title { color: #111; }
+  .obj-list, .term-list, .exam-list { padding-left: 18px; }
+  .obj-list li, .exam-list li { margin-bottom: 6px; line-height: 1.55; color: #d8c48a; }
+  .term-list li { margin-bottom: 8px; line-height: 1.55; color: #d8c48a; }
+  .term-list strong { color: #e8c040; font-style: normal; font-weight: 600; }
+  .lesson-block p { line-height: 1.75; color: #d4be88; font-size: 1.02rem; }
+  .q-type {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.07em;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-right: 7px;
+    vertical-align: middle;
   }
-</style>
+  .q-type.short { background: rgba(184,150,12,0.18); color: #c9a84c; border: 1px solid rgba(184,150,12,0.3); }
+  .q-type.essay { background: rgba(100,150,255,0.1); color: #8fb4e8; border: 1px solid rgba(100,150,255,0.25); }
+  .section-divider {
+    text-align: center;
+    margin: 50px 0 40px;
+    padding: 20px;
+    border: 1px solid rgba(232,192,64,0.2);
+    border-radius: 6px;
+    background: rgba(232,192,64,0.04);
+  }
+  .section-divider h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: #e8c040;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .section-divider p { font-size: 0.9rem; color: #b8960c; margin-top: 8px; font-style: italic; }
+  </style>
 </head>
 <body>
 <div class="wrap">
-  <a class="back" href="/member">← Dashboard</a>
+  <a class="back" href="/member">&larr; Dashboard</a>
+
   <div class="doc-header">
-    <div class="doc-kicker">✠ Knights Templar of the Kingdom of Christ · Templar Forge Academy</div>
-    <div class="doc-title">Squire School Program</div>
-    <div class="doc-sub">Weekly Lesson Outline — 8-Week Program</div>
+    <h1>&#10013; Squire School Program</h1>
+    <div class="subtitle">Knights Templar of the Kingdom of Christ &mdash; Weekly Lesson Outline</div>
+    <p class="desc">The foundational program for youth members entering the Order. Covers the origins and purpose of the Templars, founding figures and places, the order's structure and daily life, the suppression, and the virtues of service, courage, and honest conduct.</p>
   </div>
-  
-    <div class="week-block">
-      <div class="week-num">Week 1 of 8</div>
-      <div class="week-title">The History of the Knights Templar</div>
-      <ul class="obj-list"><li><span class="obj-bullet">✦</span><span>Understand the founding of the Knights Templar in 1118 AD</span></li><li><span class="obj-bullet">✦</span><span>Identify the nine founding knights and their mission</span></li><li><span class="obj-bullet">✦</span><span>Explain the original purpose of protecting Christian pilgrims</span></li></ul>
+
+  <div class="toc">
+    <h3>Table of Contents</h3>
+    <ol>
+      <li><a href="#week1">Week 1 &mdash; Origins and Virtues</a></li>
+      <li><a href="#week2">Week 2 &mdash; Founding People and Places</a></li>
+      <li><a href="#week3">Week 3 &mdash; Approval and Mission</a></li>
+      <li><a href="#week4">Week 4 &mdash; Structure and Daily Life</a></li>
+      <li><a href="#week5">Week 5 &mdash; Life of the Order</a></li>
+      <li><a href="#week6">Week 6 &mdash; Power and Crisis</a></li>
+      <li><a href="#week7">Week 7 &mdash; Suppression and Courage</a></li>
+      <li><a href="#week8">Week 8 &mdash; Review and Board Preparation</a></li>
+    </ol>
+  </div>
+
+  <div class="section-divider">
+    <h2>&#10013; Part I &mdash; Origins, Founding &amp; Structure</h2>
+    <p>Weeks 1&ndash;4: First Crusade, founding figures, formal recognition, and the Order's organization</p>
+  </div>
+
+
+  <section class="week" id="week1">
+    <div class="week-header">
+      <span class="week-num">Week 1</span>
+      <h2>Origins and Virtues</h2>
     </div>
-    <div class="week-block">
-      <div class="week-num">Week 2 of 8</div>
-      <div class="week-title">The Code of Honor and Chivalry</div>
-      <ul class="obj-list"><li><span class="obj-bullet">✦</span><span>Define chivalry and its key virtues</span></li><li><span class="obj-bullet">✦</span><span>Identify the seven knightly virtues</span></li><li><span class="obj-bullet">✦</span><span>Apply principles of chivalry to daily conduct</span></li></ul>
+    <div class="week-body">
+      <div class="block">
+        <h3>&#10013; Objectives</h3>
+        <ul class="obj-list">
+            <li>Understand the First Crusade in simple, age-appropriate terms</li>
+            <li>Explain why pilgrims traveled to Jerusalem and the dangers they faced</li>
+            <li>State why an order was formed to protect them</li>
+            <li>Name and define the five core virtues: honesty, courage, obedience, charity, and reverence</li>
+        </ul>
+      </div>
+      <div class="block lesson-block">
+        <h3>&#10022; Lesson</h3>
+        <p>Week 1 opens with the beginning of the story — the reason the Order was ever formed. Around the year 1095, Pope Urban II called for a great military expedition to protect Christian pilgrims traveling to Jerusalem, the holy city where Jesus Christ lived, died, and rose again. This expedition is known as the First Crusade, and it ran from 1095 to 1099. When it ended, Christian forces held Jerusalem — but the roads leading to the city were still extremely dangerous. Robbers, bandits, and hostile forces preyed on travelers. Pilgrims — ordinary Christians who made long, difficult journeys to pray at holy sites — were robbed, attacked, and killed in large numbers. The problem was not just military. It was moral: the Church and the Christian kingdoms of the East had a duty to protect innocent travelers. This duty is the reason an order was eventually formed to provide protection. A Squire does not need to master every detail of this history in Week 1. The goal is to understand the founding problem: pilgrims needed protection, and faithful people took that responsibility seriously. This is the spirit of service the Order carries forward today. The five core virtues every Squire is expected to practice from day one are: Honesty — speaking truthfully, even when it is difficult; Courage — doing what is right even when you are afraid; Obedience — following lawful direction from those responsible for your formation; Charity — giving your time, attention, and care to others; Reverence — treating God, people, and sacred things with deep respect.</p>
+      </div>
+      <div class="block">
+        <h3>&#9876; Key Terms</h3>
+        <ul class="term-list">
+            <li><strong>First Crusade (1095–1099)</strong> — The military expedition called by Pope Urban II that resulted in Christian forces capturing Jerusalem in 1099</li>
+            <li><strong>Pilgrim</strong> — A person who makes a journey to a holy place as an act of religious devotion; medieval pilgrims traveling to Jerusalem faced extreme danger</li>
+            <li><strong>Reverence</strong> — Deep respect for God, for sacred things, and for persons in authority; one of the five core Squire virtues</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>&#128220; Exam Questions</h3>
+        <ul class="exam-list">
+            <li><span class="q-type short">SHORT</span> What years did the First Crusade run, and what did it accomplish?</li>
+            <li><span class="q-type short">SHORT</span> Why were pilgrims in danger on the roads to Jerusalem even after the First Crusade succeeded?</li>
+            <li><span class="q-type essay">ESSAY</span> List the five Squire virtues and give one example of how you can practice each one this week.</li>
+        </ul>
+      </div>
     </div>
-    <div class="week-block">
-      <div class="week-num">Week 3 of 8</div>
-      <div class="week-title">The Structure of the Order</div>
-      <ul class="obj-list"><li><span class="obj-bullet">✦</span><span>Understand the rank structure of the KTKC</span></li><li><span class="obj-bullet">✦</span><span>Identify the role of each rank from Levie through Commander</span></li><li><span class="obj-bullet">✦</span><span>Explain the purpose of the Schoolmaster and program progression</span></li></ul>
+  </section>
+  <section class="week" id="week2">
+    <div class="week-header">
+      <span class="week-num">Week 2</span>
+      <h2>Founding People and Places</h2>
     </div>
-    <div class="week-block">
-      <div class="week-num">Week 4 of 8</div>
-      <div class="week-title">Prayer, Scripture, and the Templar Faith</div>
-      <ul class="obj-list"><li><span class="obj-bullet">✦</span><span>Understand the role of faith in the Templar tradition</span></li><li><span class="obj-bullet">✦</span><span>Learn the Order&#x27;s opening and closing prayers</span></li><li><span class="obj-bullet">✦</span><span>Reflect on Scripture passages used in Templar ceremony</span></li></ul>
+    <div class="week-body">
+      <div class="block">
+        <h3>&#10013; Objectives</h3>
+        <ul class="obj-list">
+            <li>Identify Hugh de Payns as the founder most closely linked to the Order</li>
+            <li>Explain the role of King Baldwin II of Jerusalem</li>
+            <li>Locate the Temple Mount as the Order's early headquarters</li>
+            <li>Understand the difference between historical fact and legend</li>
+        </ul>
+      </div>
+      <div class="block lesson-block">
+        <h3>&#10022; Lesson</h3>
+        <p>Week 2 introduces the people and places most closely connected to the beginning of the Order. The founder most closely linked with the Knights Templar is Hugh de Payns. Around 1119 or 1120 — roughly twenty years after the First Crusade ended — Hugh de Payns gathered a small group of knights and approached King Baldwin II, the Christian king ruling Jerusalem at that time. Hugh proposed forming a dedicated force specifically to protect pilgrims on the roads. King Baldwin II agreed and granted the group quarters on the Temple Mount in Jerusalem — the site of the ancient Temple of Solomon. Because they lived and operated from the Temple Mount, they became known as the Poor Fellow-Soldiers of Christ and of the Temple of Solomon, or simply the Templars. This week introduces an important principle: the difference between fact and legend. Many dramatic stories surround the Templars — buried treasure, secret knowledge, mysterious ceremonies. A Squire is expected to learn history honestly: stick to what is known from reliable sources and be careful about repeating stories that cannot be proven. The historical record tells us clearly who founded the Order, where they were based, and why they began. That is enough, and it is true.</p>
+      </div>
+      <div class="block">
+        <h3>&#9876; Key Terms</h3>
+        <ul class="term-list">
+            <li><strong>Hugh de Payns</strong> — The founder most closely linked with the Knights Templar; gathered the first companions and proposed the Order to King Baldwin II around 1119–1120</li>
+            <li><strong>Baldwin II</strong> — The King of Jerusalem who received Hugh de Payns and granted the early Order quarters on the Temple Mount</li>
+            <li><strong>Temple Mount</strong> — The site in Jerusalem of the ancient Temple of Solomon; the early headquarters of the Templars, from which they took their name</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>&#128220; Exam Questions</h3>
+        <ul class="exam-list">
+            <li><span class="q-type short">SHORT</span> Who is the founder most closely linked with the Order, and approximately when did the founding occur?</li>
+            <li><span class="q-type short">SHORT</span> What was the Temple Mount, and why was it significant as the Order's early headquarters?</li>
+            <li><span class="q-type essay">ESSAY</span> Why does the difference between fact and legend matter for a Squire studying history? Give an example.</li>
+        </ul>
+      </div>
     </div>
-    <div class="week-block">
-      <div class="week-num">Week 5 of 8</div>
-      <div class="week-title">Service, Duty, and the Squire&#x27;s Pledge</div>
-      <ul class="obj-list"><li><span class="obj-bullet">✦</span><span>Define service as a core obligation of membership</span></li><li><span class="obj-bullet">✦</span><span>Understand what is meant by &#x27;duty before self&#x27;</span></li><li><span class="obj-bullet">✦</span><span>Prepare to articulate the Squire&#x27;s Pledge with sincerity</span></li></ul>
+  </section>
+  <section class="week" id="week3">
+    <div class="week-header">
+      <span class="week-num">Week 3</span>
+      <h2>Approval and Mission</h2>
     </div>
-    <div class="week-block">
-      <div class="week-num">Week 6 of 8</div>
-      <div class="week-title">Symbols, Regalia, and Ceremony</div>
-      <ul class="obj-list"><li><span class="obj-bullet">✦</span><span>Identify the key symbols used by the Templar Order</span></li><li><span class="obj-bullet">✦</span><span>Understand the meaning of the cross, the mantle, and the seal</span></li><li><span class="obj-bullet">✦</span><span>Explain the purpose and reverence of formal ceremony</span></li></ul>
+    <div class="week-body">
+      <div class="block">
+        <h3>&#10013; Objectives</h3>
+        <ul class="obj-list">
+            <li>Explain the significance of the Council of Troyes</li>
+            <li>Describe Bernard of Clairvaux's role as a supporter of the Order</li>
+            <li>Identify Pope Innocent II's grant of privileges in 1139</li>
+            <li>State what makes a religious order different from an ordinary army</li>
+            <li>Retell the early timeline from 1095 to 1139 in correct sequence</li>
+        </ul>
+      </div>
+      <div class="block lesson-block">
+        <h3>&#10022; Lesson</h3>
+        <p>Week 3 covers how the early Order moved from an informal group to a formally recognized institution. For about a decade after their founding, the knights operated without official church recognition. In 1128 or 1129, the Council of Troyes — a church council held in France — gave the Order formal recognition and provided it with an official rule of life. This was a turning point. The Council of Troyes meant the Order now had the Church's blessing to recruit, hold property, and operate across Christendom. Bernard of Clairvaux was one of the most powerful churchmen of the era. He was a strong supporter of the Templars and helped establish their public reputation. He wrote encouragingly about their mission and encouraged donations on their behalf. He was not the founder — that was Hugh de Payns — but his support was enormously valuable to the young Order. In 1139, Pope Innocent II issued a major document granting the Templars extraordinary privileges: they answered to no king or local bishop but directly to the Pope himself. This gave them the independence to operate across all of Europe and the Holy Land. A religious order is different from an ordinary army in one essential way: an ordinary army serves a king or a government, disbands when the campaign ends, and fights for earthly goals. A religious order serves God, operates under a permanent rule of life, and exists to fulfill a spiritual mission. The Templars were a military force, yes — but their foundation was prayer, discipline, and religious vows. Every Squire should be able to retell the early timeline in order: 1095–1099 (First Crusade), 1119 or 1120 (founding by Hugh de Payns), 1128 or 1129 (Council of Troyes), 1139 (Innocent II's grant of privileges).</p>
+      </div>
+      <div class="block">
+        <h3>&#9876; Key Terms</h3>
+        <ul class="term-list">
+            <li><strong>Bernard of Clairvaux</strong> — A powerful churchman who strongly supported the early Templars and helped build their public legitimacy; a supporter, not a founder</li>
+            <li><strong>Innocent II</strong> — The Pope who in 1139 granted the Templars major privileges, making them answerable to no authority but the Pope</li>
+            <li><strong>Council of Troyes</strong> — The church council of 1128 or 1129 that gave the Knights Templar formal recognition and an official rule of life</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>&#128220; Exam Questions</h3>
+        <ul class="exam-list">
+            <li><span class="q-type short">SHORT</span> What did the Council of Troyes accomplish for the Knights Templar?</li>
+            <li><span class="q-type short">SHORT</span> What privilege did Pope Innocent II grant the Templars in 1139?</li>
+            <li><span class="q-type essay">ESSAY</span> Explain in your own words what makes a religious order different from an ordinary army. Why does that distinction matter for the Squire program?</li>
+        </ul>
+      </div>
     </div>
-    <div class="week-block">
-      <div class="week-num">Week 7 of 8</div>
-      <div class="week-title">Brotherhood, Loyalty, and the Bond of the Order</div>
-      <ul class="obj-list"><li><span class="obj-bullet">✦</span><span>Define brotherhood as it applies to the Order</span></li><li><span class="obj-bullet">✦</span><span>Understand the obligations members have to one another</span></li><li><span class="obj-bullet">✦</span><span>Identify conduct that strengthens or weakens the bonds of brotherhood</span></li></ul>
+  </section>
+  <section class="week" id="week4">
+    <div class="week-header">
+      <span class="week-num">Week 4</span>
+      <h2>Structure and Daily Life</h2>
     </div>
-    <div class="week-block">
-      <div class="week-num">Week 8 of 8</div>
-      <div class="week-title">Advancement, Examination, and the Path Forward</div>
-      <ul class="obj-list"><li><span class="obj-bullet">✦</span><span>Review all major topics covered in the Squire program</span></li><li><span class="obj-bullet">✦</span><span>Demonstrate readiness for formal advancement review</span></li><li><span class="obj-bullet">✦</span><span>Articulate personal goals for continued growth in the Order</span></li></ul>
+    <div class="week-body">
+      <div class="block">
+        <h3>&#10013; Objectives</h3>
+        <ul class="obj-list">
+            <li>Name the three classes within the Order: Knight, Sergeant, and Chaplain</li>
+            <li>Identify the four major offices: Grand Master, Seneschal, Marshal, and Preceptor</li>
+            <li>Understand the meaning of the Order's clothing and symbols</li>
+            <li>Apply the principle of service before self</li>
+        </ul>
+      </div>
+      <div class="block lesson-block">
+        <h3>&#10022; Lesson</h3>
+        <p>Week 4 moves inside the Order to examine how it was organized and how members lived day to day. The medieval Templars were organized into three classes: Knights were the noble warriors, trained for mounted combat and bearing the white mantle with the red cross; Sergeants were non-noble members who served in combat support, logistics, and administration; Chaplains were priests who served the spiritual needs of the community, celebrated Mass, and administered the sacraments. The major offices of the Order were: the Grand Master, who held supreme authority over the entire Order worldwide; the Seneschal, who served as the Grand Master's deputy; the Marshal, who commanded the military operations; and the Preceptor, who oversaw administration and resources in a region. Clothing and symbols communicated rank, class, and commitment. The white mantle worn by Knights signified purity and consecration. The red cross marked the willingness to shed blood in service to Christ. The plain dress of Sergeants reflected their vow of humility. These were not decorations — they were declarations. The principle that unifies all of this is service before self. The structure existed to support the mission, not to elevate individuals. A Squire who wants to be honored before they have served has not yet understood what the Order is for.</p>
+      </div>
+      <div class="block">
+        <h3>&#9876; Key Terms</h3>
+        <ul class="term-list">
+            <li><strong>Grand Master</strong> — The supreme authority of the Knights Templar worldwide; the highest office in the Order</li>
+            <li><strong>Seneschal</strong> — The deputy to the Grand Master; responsible for administration and acting in the Grand Master's absence</li>
+            <li><strong>Marshal</strong> — The officer responsible for military command and the conduct of the Order's forces in the field</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>&#128220; Exam Questions</h3>
+        <ul class="exam-list">
+            <li><span class="q-type short">SHORT</span> Name the three classes within the Order and briefly describe each.</li>
+            <li><span class="q-type short">SHORT</span> List the four major offices and state what each was responsible for.</li>
+            <li><span class="q-type essay">ESSAY</span> What does 'service before self' mean to you personally? Describe one specific way you will practice it this week.</li>
+        </ul>
+      </div>
     </div>
-  <p class="note">
-    This outline lists weekly topics and learning objectives only. Detailed lesson content,
-    key terms, and examinations are delivered through your in-app lesson viewer.
-    Exam questions and answer keys are not included in this document.
-  </p>
+  </section>
+
+  <div class="section-divider">
+    <h2>&#10013; Part II &mdash; Life, Crisis, Suppression &amp; Review</h2>
+    <p>Weeks 5&ndash;8: Daily life, the fall of Acre, the arrests of 1307, and promotion readiness</p>
+  </div>
+
+
+  <section class="week" id="week5">
+    <div class="week-header">
+      <span class="week-num">Week 5</span>
+      <h2>Life of the Order</h2>
+    </div>
+    <div class="week-body">
+      <div class="block">
+        <h3>&#10013; Objectives</h3>
+        <ul class="obj-list">
+            <li>Describe the role of castles and roads in the Order's protective mission</li>
+            <li>Explain the place of prayer, worship, and routine in Templar daily life</li>
+            <li>Understand the practice of charity and almsgiving</li>
+            <li>Begin building a personal rule of conduct</li>
+        </ul>
+      </div>
+      <div class="block lesson-block">
+        <h3>&#10022; Lesson</h3>
+        <p>Week 5 looks at how the Templars actually lived and served day to day. Protecting pilgrims meant more than fighting. The Templars maintained castles and fortified waypoints along the major pilgrimage routes, providing safe places for travelers to rest, receive medical care, and continue their journey. They patrolled roads, escorted vulnerable travelers, and used their network of properties to support pilgrims across a vast territory. Daily prayer was not optional for members of a religious order. The Templars followed a strict rhythm of worship: rising for early morning prayer, gathering for Mass, working, training, and returning to prayer throughout the day. This cycle of prayer and work was the framework that kept the Order's mission focused on God rather than on military glory or personal wealth. Charity and almsgiving — giving to the poor — was a core obligation of the Order's life. Members were not permitted to accumulate personal wealth. Resources flowed toward the mission: supplying the military, supporting the sick and poor, and maintaining the Order's properties. A personal rule of conduct is a set of personal commitments about how you will live: how you will speak, how you will treat others, how you will spend your time. A Squire who finishes this week should be able to write at least five personal commitments that reflect the virtues of the Order.</p>
+      </div>
+      <div class="block">
+        <h3>&#9876; Key Terms</h3>
+        <ul class="term-list">
+            <li><strong>Almsgiving</strong> — The practice of giving money, food, or assistance to the poor as an act of religious charity</li>
+            <li><strong>Rule of Conduct</strong> — A personal set of commitments governing how one will live, speak, and act; a practical expression of the Order's virtues</li>
+            <li><strong>Routine</strong> — The regular, ordered pattern of prayer, work, and service that kept the Order's mission focused on God</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>&#128220; Exam Questions</h3>
+        <ul class="exam-list">
+            <li><span class="q-type short">SHORT</span> How did the Templars use castles and roads to protect pilgrims?</li>
+            <li><span class="q-type short">SHORT</span> Why was daily prayer important to the Order's mission — not just to individual members' spiritual lives?</li>
+            <li><span class="q-type essay">ESSAY</span> Write your own personal rule of conduct: at least five commitments that reflect the virtues of honesty, courage, obedience, charity, and reverence.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="week" id="week6">
+    <div class="week-header">
+      <span class="week-num">Week 6</span>
+      <h2>Power and Crisis</h2>
+    </div>
+    <div class="week-body">
+      <div class="block">
+        <h3>&#10013; Objectives</h3>
+        <ul class="obj-list">
+            <li>Explain why the Templars became powerful and how that created enemies</li>
+            <li>State what happened at Acre in 1291 and why it mattered</li>
+            <li>Define mission drift and explain why it is dangerous</li>
+            <li>Connect responsibility to influence</li>
+        </ul>
+      </div>
+      <div class="block lesson-block">
+        <h3>&#10022; Lesson</h3>
+        <p>Week 6 moves into a more difficult part of the story — the problems that came with the Order's success. The Templars became extremely powerful. They accumulated vast wealth through donations, banking operations, and property holdings across Europe and the Holy Land. Their financial network was so sophisticated that they effectively operated like an early banking system, holding deposits and transferring funds across great distances. Power and influence, without strong discipline and humility, attract enemies and create corruption. As the Templars became wealthier and more politically involved, some people began to resent or envy them. A major turning point came in 1291 when the city of Acre fell to Muslim forces. Acre was the last major Crusader stronghold in the Holy Land. When it fell, the military purpose that had justified the Templars' existence was gone. The Order no longer had a front line to defend or pilgrims to protect in the Holy Land. This raised a painful question: what is the Order for now? Mission drift means losing sight of the original purpose that gave an organization its identity and moral authority. When an organization begins to serve its own interests — accumulating wealth, seeking influence, protecting its reputation — rather than the mission it was founded to fulfill, it has drifted. For a Squire, the lesson is personal: stay close to the reason you are here. Service, virtue, and honest conduct. Not status. Not appearance.</p>
+      </div>
+      <div class="block">
+        <h3>&#9876; Key Terms</h3>
+        <ul class="term-list">
+            <li><strong>Acre</strong> — The last major Crusader stronghold in the Holy Land; its fall in 1291 marked the end of the Crusader presence and removed the Templars' primary military purpose</li>
+            <li><strong>Mission Drift</strong> — The gradual process by which an organization loses sight of its original purpose and begins serving its own interests instead</li>
+            <li><strong>Banking</strong> — The Templars developed sophisticated financial services — holding deposits, transferring funds — that made them politically powerful across Europe</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>&#128220; Exam Questions</h3>
+        <ul class="exam-list">
+            <li><span class="q-type short">SHORT</span> What happened at Acre in 1291, and why did it matter to the Templars' future?</li>
+            <li><span class="q-type short">SHORT</span> What does mission drift mean, and how did the Templars show signs of it?</li>
+            <li><span class="q-type essay">ESSAY</span> Why is it dangerous for any organization — or any person — to become more focused on status and wealth than on their original purpose? Connect this to your own life.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="week" id="week7">
+    <div class="week-header">
+      <span class="week-num">Week 7</span>
+      <h2>Suppression and Courage</h2>
+    </div>
+    <div class="week-body">
+      <div class="block">
+        <h3>&#10013; Objectives</h3>
+        <ul class="obj-list">
+            <li>Describe the arrests ordered by Philip IV in 1307</li>
+            <li>Explain Clement V's role in the formal suppression of the Order in 1312</li>
+            <li>State the significance of Jacques de Molay in 1314</li>
+            <li>Reflect honestly on the themes of justice, false accusation, courage, and endurance</li>
+        </ul>
+      </div>
+      <div class="block lesson-block">
+        <h3>&#10022; Lesson</h3>
+        <p>Week 7 addresses the end of the medieval Order — and demands the most careful, honest thinking of the entire program. In 1307, King Philip IV of France ordered the mass arrest of Templars throughout France on a single day — Friday, October 13th. The charges included heresy, blasphemy, and other serious crimes. Historians have long debated these charges. Many of the confessions were obtained under torture and later retracted. The evidence of widespread genuine guilt has never been established to most historians' satisfaction. Philip IV was deeply in debt to the Templars and stood to gain financially from their destruction. His motives were political as much as religious. Pope Clement V, under political pressure from Philip, eventually agreed to suppress the Order. At the Council of Vienne in 1312, the Knights Templar were formally dissolved. Jacques de Molay was the last Grand Master of the Templars. He had confessed under torture and then recanted his confession publicly in 1314. He was burned at the stake in Paris for his recantation. He died maintaining his innocence. The themes of this week are serious: justice — treating people fairly and following evidence rather than political pressure; false accusation — the harm done when charges are made for political rather than truthful reasons; courage — maintaining what is true even when it costs everything; endurance — holding to one's convictions through suffering. A Squire who can discuss these themes honestly and calmly has taken an important step toward maturity.</p>
+      </div>
+      <div class="block">
+        <h3>&#9876; Key Terms</h3>
+        <ul class="term-list">
+            <li><strong>Philip IV</strong> — The King of France who ordered the arrest of the Templars in 1307; heavily in debt to the Order and politically motivated</li>
+            <li><strong>Clement V</strong> — The Pope who formally suppressed the Knights Templar at the Council of Vienne in 1312 under pressure from Philip IV</li>
+            <li><strong>Jacques de Molay</strong> — The last Grand Master of the Knights Templar; executed in Paris in 1314 after publicly recanting a confession made under torture</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>&#128220; Exam Questions</h3>
+        <ul class="exam-list">
+            <li><span class="q-type short">SHORT</span> In what year were the Templars arrested in France, and who ordered it?</li>
+            <li><span class="q-type short">SHORT</span> Place these three events in correct order with dates: suppression of the Order, arrests in France, execution of Jacques de Molay.</li>
+            <li><span class="q-type essay">ESSAY</span> What does the story of Jacques de Molay teach about courage and false accusation? What would it mean for you to show that kind of courage in your own life?</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="week" id="week8">
+    <div class="week-header">
+      <span class="week-num">Week 8</span>
+      <h2>Review and Board Preparation</h2>
+    </div>
+    <div class="week-body">
+      <div class="block">
+        <h3>&#10013; Objectives</h3>
+        <ul class="obj-list">
+            <li>Recite the full timeline from 1095 to 1314 in correct sequence</li>
+            <li>Identify all key figures studied across the 8 weeks</li>
+            <li>Prepare and present a service project reflection</li>
+            <li>Demonstrate readiness for written quiz and oral review</li>
+        </ul>
+      </div>
+      <div class="block lesson-block">
+        <h3>&#10022; Lesson</h3>
+        <p>Week 8 brings everything together. The full program has covered eight weeks of history, character, structure, daily life, and moral reflection. This final week is not a week to learn new facts — it is a week to prove that what you have studied has actually become part of how you think. The full timeline every Squire must know: 1095–1099 — First Crusade; 1119 or 1120 — Hugh de Payns founds the Order; 1128 or 1129 — Council of Troyes grants formal recognition; 1139 — Innocent II grants major privileges; 1291 — Fall of Acre; 1307 — Arrests in France under Philip IV; 1312 — Formal suppression under Clement V; 1314 — Death of Jacques de Molay. All key figures: Hugh de Payns (founder), Baldwin II (supporting king), Bernard of Clairvaux (church supporter), Innocent II (granted privileges), Philip IV (ordered arrests), Clement V (suppressed the Order), Jacques de Molay (last Grand Master). The service project reflection is not optional. A Squire must be able to speak clearly and honestly about service they rendered during the program — what they did, who it served, and what they learned from it. The promotion board will want to hear this. Readiness for the board is not just about memorized dates. It includes calm honest discussion, evidence of service, and a personal commitment to continued formation. A Squire who is ready for advancement will be able to show, not just tell, that they have grown.</p>
+      </div>
+      <div class="block">
+        <h3>&#9876; Key Terms</h3>
+        <ul class="term-list">
+            <li><strong>Full Timeline</strong> — The sequence of key dates every Squire must know: 1095–1099, 1119/1120, 1128/1129, 1139, 1291, 1307, 1312, 1314</li>
+            <li><strong>Service Reflection</strong> — A spoken or written account of service rendered during the program — what was done, who was served, and what was learned</li>
+            <li><strong>Promotion Board</strong> — The formal oral and written review conducted by the Schoolmaster to assess readiness for advancement</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>&#128220; Exam Questions</h3>
+        <ul class="exam-list">
+            <li><span class="q-type short">SHORT</span> Recite the full Squire timeline from 1095 to 1314 with all key dates and what each represents.</li>
+            <li><span class="q-type short">SHORT</span> Name all seven key figures from the Squire program and state each person's significance in one sentence.</li>
+            <li><span class="q-type essay">ESSAY</span> Write your service reflection: describe a specific act of service you performed during this program, who it helped, and what you learned about yourself and the Order's values.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
 </div>
 </body>
 </html>

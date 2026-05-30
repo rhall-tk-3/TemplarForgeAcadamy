@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Knight Aspirant Program - Required Reading Hub</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #0a0804;
+  color: #e0cc98;
+  font-family: 'Crimson Text', serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  padding: 40px 24px 80px;
+}
+.wrap { max-width: 820px; margin: 0 auto; }
+.back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Cinzel', serif; font-size: 0.78rem;
+  color: #b8960c; text-decoration: none;
+  border: 1px solid rgba(184,150,12,0.4);
+  border-radius: 4px; padding: 6px 14px;
+  margin-bottom: 32px; letter-spacing: 0.05em;
+  transition: background 0.18s, color 0.18s;
+}
+.back:hover { background: rgba(184,150,12,0.12); color: #e8c040; }
+.doc-header {
+  border-bottom: 1px solid rgba(180,140,60,0.3);
+  padding-bottom: 22px; margin-bottom: 36px;
+}
+.doc-kicker {
+  font-family: 'Cinzel', serif; font-size: 0.68rem;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: #6a5020; margin-bottom: 10px;
+}
+.doc-title {
+  font-family: 'Cinzel', serif; font-size: 1.65rem;
+  font-weight: 700; color: #e8c850; line-height: 1.25; margin-bottom: 4px;
+}
+.doc-sub {
+  font-size: 0.88rem; color: #8a7040; font-style: italic;
+}
+h2.section-h {
+  font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 700;
+  color: #c8a020; letter-spacing: 0.06em; margin: 36px 0 10px;
+  padding-bottom: 6px; border-bottom: 1px solid rgba(200,160,32,0.2);
+}
+h3.section-sh {
+  font-family: 'Cinzel', serif; font-size: 0.88rem; font-weight: 600;
+  color: #b89040; letter-spacing: 0.05em; margin: 24px 0 8px;
+}
+p.body-p {
+  color: #d0bc88; margin-bottom: 14px; line-height: 1.8;
+}
+ul.list-ul {
+  margin: 0 0 14px 0; padding-left: 0; list-style: none;
+  display: flex; flex-direction: column; gap: 6px;
+}
+ul.list-ul li {
+  display: flex; gap: 10px; align-items: flex-start;
+  color: #c8b880; line-height: 1.65; font-size: 1rem;
+}
+ul.list-ul li::before {
+  content: '\2726'; color: #c8a020; font-size: 0.62rem;
+  flex-shrink: 0; margin-top: 7px;
+}
+ol.list-ol {
+  margin: 0 0 14px 0; padding-left: 0; list-style: none;
+  display: flex; flex-direction: column; gap: 6px;
+  counter-reset: ol-counter;
+}
+ol.list-ol li {
+  display: flex; gap: 10px; align-items: flex-start;
+  color: #c8b880; line-height: 1.65; font-size: 1rem;
+  counter-increment: ol-counter;
+}
+ol.list-ol li::before {
+  content: counter(ol-counter) ".";
+  color: #c8a020; font-family: 'Cinzel', serif; font-size: 0.78rem;
+  flex-shrink: 0; margin-top: 4px; min-width: 20px;
+}
+a.inline-link {
+  color: #c8a020; text-decoration: underline;
+  text-underline-offset: 2px;
+}
+a.inline-link:hover { color: #e8c040; }
+.source-block {
+  margin-top: 48px; padding-top: 20px;
+  border-top: 1px solid rgba(180,140,60,0.2);
+}
+.source-block h2.section-h { margin-top: 0; }
+/* ── Pipe table ── */
+.md-table {
+  width: 100%; border-collapse: collapse;
+  margin: 16px 0 24px; font-size: 0.97rem;
+}
+.md-table th, .md-table td {
+  padding: 8px 14px; text-align: left;
+  border: 1px solid rgba(180,140,60,0.25);
+  color: #c8b880; line-height: 1.6;
+}
+.md-table th {
+  background: rgba(180,140,60,0.10);
+  font-family: 'Cinzel', serif; font-size: 0.78rem;
+  letter-spacing: 0.07em; color: #c8a020; font-weight: 600;
+}
+.md-table tr:nth-child(even) td {
+  background: rgba(255,255,255,0.02);
+}
+/* ── Reference Images ── */
+.ref-images {
+  display: flex; flex-wrap: wrap; gap: 24px;
+  margin: 16px 0 32px;
+}
+.ref-images figure {
+  flex: 1 1 220px; max-width: 280px;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.ref-images figure img {
+  width: 100%; border-radius: 4px;
+  border: 1px solid rgba(180,140,60,0.3);
+  object-fit: cover; max-height: 200px;
+}
+.ref-images figure figcaption {
+  font-size: 0.78rem; color: #8a7040; font-style: italic;
+  text-align: center; line-height: 1.4;
+}
+@media (max-width: 540px) {
+  .ref-images figure { max-width: 100%; }
+}
+/* ── Program Documents & Quick Access ── */
+.prog-docs {
+  margin: 36px 0 0; padding: 20px 24px;
+  border: 1px solid rgba(180,140,60,0.22);
+  border-radius: 4px; background: rgba(255,255,255,0.02);
+}
+.prog-docs h2.section-h { margin-top: 0; }
+.prog-docs p.body-p { margin-bottom: 10px; }
+.grid-2 {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  margin: 14px 0 0;
+}
+@media (max-width: 560px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+.mini-card {
+  padding: 16px 18px;
+  border: 1px solid rgba(180,140,60,0.22);
+  border-radius: 4px; background: rgba(255,255,255,0.02);
+}
+.mini-card h3 {
+  font-family: 'Cinzel', serif; font-size: 0.82rem; font-weight: 600;
+  color: #c8a020; letter-spacing: 0.05em; margin-bottom: 8px;
+}
+.mini-card p {
+  color: #c8b880; font-size: 0.95rem; line-height: 1.65; margin-bottom: 8px;
+}
+.mini-card p:last-child { margin-bottom: 0; }
+/* ── Hub footer ── */
+.hub-footer {
+  margin-top: 48px; padding-top: 18px;
+  border-top: 1px solid rgba(180,140,60,0.18);
+  font-size: 0.88rem; color: #6a5020; line-height: 1.9;
+}
+@media print {
+  body { background:#fff; color:#111; padding:20px; }
+  .doc-title { color:#111; }
+  .doc-kicker, .doc-sub { color:#666; }
+  h2.section-h { color:#333; border-color:#ccc; }
+  h3.section-sh { color:#555; }
+  p.body-p { color:#222; }
+  ul.list-ul li, ol.list-ol li { color:#333; }
+  .md-table th, .md-table td { color:#333; border-color:#ccc; }
+  .md-table th { background:#eee; }
+  .ref-images figure img { border-color:#ccc; }
+  .ref-images figure figcaption { color:#555; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="doc-header">
+    <div class="doc-kicker">&#10013; Knights Templar of the Kingdom of Christ &middot; Templar Forge Academy</div>
+    <div class="doc-title">Knight Aspirant Program - Required Reading Hub</div>
+    <div class="doc-sub">Templar Forge Academy — Knight Aspirant Program</div>
+  </div>
+  <p class="body-p">The Knight Aspirant phase is a preparatory school of identity, discipline, prayer, virtue, and readiness. The early weeks establish the aspirant as a Christian man under rule before any claim to outward chivalric identity, while the later weeks move into essay development, reflection, and final review.</p>
+<div class="prog-docs">
+  <h2 class="section-h">Program Documents</h2>
+  <p class="body-p">Access the current Knight Aspirant handbook, lesson materials, and member resources here.</p>
+  <ul class="list-ul">
+    <li><a class="inline-link" href="/documents/view/knight-aspirant-handbook.html" target="_blank">Knight Aspirant Program Handbook</a></li>
+    <li><a class="inline-link" href="/documents/view/knight-aspirant-lesson-plan.html" target="_blank">Knight Aspirant Lesson Plan Program</a></li>
+    <li><a class="inline-link" href="/programs/knight-aspirant/resources/knight-aspirant-reading-log.html" target="_blank">Knight Aspirant Reading Log</a></li>
+    <li><a class="inline-link" href="/documents/view/promotion-manual.html" target="_blank">Promotion Manual &amp; By-Laws</a></li>
+    <li><a class="inline-link" href="/documents/view/ktkc-rules-and-statutes.html" target="_blank">KTKC Rules &amp; Statutes</a></li>
+  </ul>
+</div>
+
+<div class="prog-docs" style="margin-top:20px;">
+  <h2 class="section-h">Quick Access</h2>
+  <p class="body-p">These static links are provided for direct, viewable access on the page.</p>
+  <div class="grid-2">
+    <article class="mini-card">
+      <h3>Handbook</h3>
+      <p>The current Knight Aspirant handbook for program guidance and structure.</p>
+      <p><a class="inline-link" href="/documents/view/knight-aspirant-handbook.html" target="_blank">Open Knight Aspirant Program Handbook</a></p>
+    </article>
+    <article class="mini-card">
+      <h3>Lesson Plan</h3>
+      <p>The current Knight Aspirant lesson plan used on the hub and dashboard.</p>
+      <p><a class="inline-link" href="/documents/view/knight-aspirant-lesson-plan.html" target="_blank">Open Knight Aspirant Lesson Plan Program</a></p>
+    </article>
+  </div>
+</div>
+
+<h2 class="section-h">Program Orientation</h2>
+<p class="body-p">At this level, formation is not measured by enthusiasm or outward appearance. It is measured by inward change, steady discipline, and willingness to be shaped before claiming any title or honor. The historical Templars were first monks before they were warriors, bound by strict vows, communal life, and ordered prayer. That foundation of inward formation before outward office is the lens for this entire phase. <a class="inline-link" href="https://www.britannica.com/topic/Templars" target="_blank">Britannica</a></p>
+<p class="body-p">The Knight Aspirant phase culminates in a required essay: <em>&quot;What Does a Templar Knight Mean to You?&quot;</em> Standard college essay format. Cover page required. Single-spaced. One full page front and back, or two full typed pages. The essay is developed progressively across weeks 5 through 8 and submitted for final review with the reading record and program documentation.</p>
+<h2 class="section-h">Weekly Overview</h2>
+<table class="md-table">
+<tr>
+<th>Week</th>
+<th>Theme</th>
+<th>Required Reading</th>
+</tr>
+<tr>
+<td>1</td>
+<td>The Calling of a Knight Aspirant</td>
+<td><a class="inline-link" href="/documents/view/knight-aspirant-lesson-plan.html" target="_blank">Lesson Plan Program</a>, <a class="inline-link" href="/documents/view/promotion-manual.html" target="_blank">Promotion Manual</a>, <a class="inline-link" href="/documents/view/ktkc-rules-and-statutes.html" target="_blank">KTKC Rules &amp; Statutes</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Prayer, Scripture, and Rule of Life</td>
+<td><a class="inline-link" href="/documents/view/knight-aspirant-lesson-plan.html" target="_blank">Lesson Plan Program</a>, <a class="inline-link" href="/documents/view/ktkc-rules-and-statutes.html" target="_blank">KTKC Rules &amp; Statutes</a>, <a class="inline-link" href="https://www.britannica.com/topic/Templars" target="_blank">Britannica: Templars</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Virtue, Charity, and Self-Mastery</td>
+<td><a class="inline-link" href="/documents/view/knight-aspirant-lesson-plan.html" target="_blank">Lesson Plan Program</a>, <a class="inline-link" href="/documents/view/promotion-manual.html" target="_blank">Promotion Manual</a>, <a class="inline-link" href="https://www.britannica.com/topic/Templars" target="_blank">Britannica: Templars</a>, <a class="inline-link" href="https://www.osmth.org/templar-legacy/modern-order-history" target="_blank">OSMTH Modern Order History</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Spiritual Warfare, Brotherhood, and Knight Readiness</td>
+<td><a class="inline-link" href="/documents/view/knight-aspirant-lesson-plan.html" target="_blank">Lesson Plan Program</a>, <a class="inline-link" href="/documents/view/promotion-manual.html" target="_blank">Promotion Manual</a>, <a class="inline-link" href="/documents/view/ktkc-rules-and-statutes.html" target="_blank">KTKC Rules &amp; Statutes</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Essay Week I — Theme, Thesis, and Evidence</td>
+<td><a class="inline-link" href="/documents/view/knight-aspirant-required-reading-list.html" target="_blank">Required Reading List</a>, <a class="inline-link" href="/documents/view/promotion-manual.html" target="_blank">Promotion Manual</a>, <a class="inline-link" href="/documents/view/ktkc-rules-and-statutes.html" target="_blank">KTKC Rules &amp; Statutes</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Essay Week II — Outline and First Draft</td>
+<td><a class="inline-link" href="/documents/view/knight-aspirant-required-reading-list.html" target="_blank">Required Reading List</a>, <a class="inline-link" href="/documents/view/knight-aspirant-handbook.html" target="_blank">Knight Aspirant Handbook</a>, <a class="inline-link" href="https://www.britannica.com/topic/Templars" target="_blank">Britannica: Templars</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Essay Week III — Revision, Clarity, and Submission Readiness</td>
+<td><a class="inline-link" href="/documents/view/knight-aspirant-required-reading-list.html" target="_blank">Required Reading List</a>, <a class="inline-link" href="/documents/view/knight-aspirant-handbook.html" target="_blank">Knight Aspirant Handbook</a>, <a class="inline-link" href="/documents/view/promotion-manual.html" target="_blank">Promotion Manual</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Essay Week IV — Final Submission and Knight Review</td>
+<td><a class="inline-link" href="/documents/view/knight-aspirant-required-reading-list.html" target="_blank">Required Reading List</a>, <a class="inline-link" href="https://www.osmth.org/templar-legacy/modern-order-history" target="_blank">OSMTH Modern Order History</a>, <a class="inline-link" href="/documents/view/promotion-manual.html" target="_blank">Promotion Manual</a></td>
+</tr>
+</table>
+<h2 class="section-h">Week 1 - The Calling of a Knight Aspirant</h2>
+<h3 class="section-sh">Required Reading</h3>
+<ul class="list-ul"><li><a class="inline-link" href="/documents/view/knight-aspirant-lesson-plan.html" target="_blank">Knight Aspirant Lesson Plan Program</a></li><li><a class="inline-link" href="/documents/view/promotion-manual.html" target="_blank">KTKC Promotion Manual and By-Laws</a></li><li><a class="inline-link" href="/documents/view/ktkc-rules-and-statutes.html" target="_blank">KTKC Rules and Statutes</a></li></ul>
+<h3 class="section-sh">Primary Focus</h3>
+<p class="body-p">Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior.</p>
+<h3 class="section-sh">Key Formation Subjects</h3>
+<p class="body-p">Christian identity under rule; submission to discipline; the inward foundations of chivalric formation; understanding rank as responsibility rather than honor.</p>
+<h3 class="section-sh">Formation Emphasis</h3>
+<p class="body-p">Receiving the truth that spiritual formation must precede outward office, symbolism, or martial language.</p>
+<h3 class="section-sh">Readiness Goal</h3>
+<p class="body-p">Explain why a Knight Aspirant must first be formed as a disciplined Christian man before he can be considered ready for further advancement.</p>
+<h3 class="section-sh">Overview</h3>
+<p class="body-p">Britannica describes the historical Templars as bound by vows of poverty, chastity, and obedience, subject to ordered prayer, communal discipline, and explicit prohibitions against gambling, swearing, and drunkenness. That combination of monastic rule and military service provides the historical lens for this week&#x27;s formation theme: the Templar was always a monk first. The aspirant enters this phase as a student of identity, not yet a claimant of titles. <a class="inline-link" href="https://www.britannica.com/topic/Templars" target="_blank">Britannica</a></p>
+<h2 class="section-h">Week 2 - Prayer, Scripture, and Rule of Life</h2>
+<h3 class="section-sh">Required Reading</h3>
+<ul class="list-ul"><li><a class="inline-link" href="/documents/view/knight-aspirant-lesson-plan.html" target="_blank">Knight Aspirant Lesson Plan Program</a></li><li><a class="inline-link" href="/documents/view/ktkc-rules-and-statutes.html" target="_blank">KTKC Rules and Statutes</a></li><li><a class="inline-link" href="https://www.britannica.com/topic/Templars" target="_blank">Templars - Encyclopaedia Britannica</a></li></ul>
+<h3 class="section-sh">Primary Focus</h3>
+<p class="body-p">Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability.</p>
+<h3 class="section-sh">Key Formation Subjects</h3>
+<p class="body-p">Daily prayer rhythm; Scripture intake; moral speech; confession; practical accountability to the chapter and to God.</p>
+<h3 class="section-sh">Formation Emphasis</h3>
+<p class="body-p">Establishing stable habits that shape the aspirant from the inside rather than relying on occasional zeal or emotional intensity.</p>
+<h3 class="section-sh">Readiness Goal</h3>
+<p class="body-p">Demonstrate understanding of a daily Christian rule of life and how it supports stability, obedience, and readiness for Knight formation.</p>
+<h3 class="section-sh">Overview</h3>
+<p class="body-p">The Latin Rule of the historical Templars specified prayer hours, communal meals, ordered silence, and accountability to the community. That structured rule of life was not optional — it was the framework inside which the warrior identity was formed and held. The aspirant studies this pattern not to recreate medieval monasticism but to understand that disciplined Christian life requires structure, consistency, and submission to a daily rhythm. <a class="inline-link" href="https://www.britannica.com/topic/Templars" target="_blank">Britannica</a></p>
+<h2 class="section-h">Week 3 - Virtue, Charity, and Self-Mastery</h2>
+<h3 class="section-sh">Required Reading</h3>
+<ul class="list-ul"><li><a class="inline-link" href="/documents/view/knight-aspirant-lesson-plan.html" target="_blank">Knight Aspirant Lesson Plan Program</a></li><li><a class="inline-link" href="/documents/view/promotion-manual.html" target="_blank">KTKC Promotion Manual and By-Laws</a></li><li><a class="inline-link" href="https://www.britannica.com/topic/Templars" target="_blank">Templars - Encyclopaedia Britannica</a></li><li><a class="inline-link" href="https://www.osmth.org/templar-legacy/modern-order-history" target="_blank">Modern Order History - OSMTH</a></li></ul>
+<h3 class="section-sh">Primary Focus</h3>
+<p class="body-p">Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service.</p>
+<h3 class="section-sh">Key Formation Subjects</h3>
+<p class="body-p">Christian virtue in daily conduct; disciplined character under pressure; brotherly care for weaker members; mastery of appetite, tongue, and temper.</p>
+<h3 class="section-sh">Formation Emphasis</h3>
+<p class="body-p">Learning that maturity is proven in conduct, mercy, restraint, and service rather than in appearance or intensity.</p>
+<h3 class="section-sh">Readiness Goal</h3>
+<p class="body-p">Identify the core virtues expected of a Knight Aspirant and describe how they should appear in ordinary chapter life.</p>
+<h3 class="section-sh">Overview</h3>
+<p class="body-p">Britannica notes that the Templars were expected to embody Christian virtue in both their personal conduct and communal life, with explicit prohibitions against pride, excess, and undisciplined behavior. The OSMTH modern history page presents the contemporary Templar vocation in explicitly ethical terms — high moral principles, service, peace, and the motto <em>Non nobis, Domine</em> (&quot;Not for us, Lord&quot;). Together these sources frame the week&#x27;s formation challenge: virtue is not aspired to once — it is practiced daily. <a class="inline-link" href="https://www.britannica.com/topic/Templars" target="_blank">Britannica</a> <a class="inline-link" href="https://www.osmth.org/templar-legacy/modern-order-history" target="_blank">OSMTH</a></p>
+<h2 class="section-h">Week 4 - Spiritual Warfare, Brotherhood, and Knight Readiness</h2>
+<h3 class="section-sh">Required Reading</h3>
+<ul class="list-ul"><li><a class="inline-link" href="/documents/view/knight-aspirant-lesson-plan.html" target="_blank">Knight Aspirant Lesson Plan Program</a></li><li><a class="inline-link" href="/documents/view/promotion-manual.html" target="_blank">KTKC Promotion Manual and By-Laws</a></li><li><a class="inline-link" href="/documents/view/ktkc-rules-and-statutes.html" target="_blank">KTKC Rules and Statutes</a></li></ul>
+<h3 class="section-sh">Primary Focus</h3>
+<p class="body-p">Clarify that the Knight&#x27;s true warfare is first spiritual: resisting sin, guarding speech, protecting the weak, and standing faithfully within Christian brotherhood.</p>
+<h3 class="section-sh">Key Formation Subjects</h3>
+<p class="body-p">Spiritual warfare as the primary battlefield; disciplined speech; protection of the weak and vulnerable; fidelity to Christian brotherhood under pressure.</p>
+<h3 class="section-sh">Formation Emphasis</h3>
+<p class="body-p">Reframing knightly readiness as spiritual steadiness, moral clarity, and faithful presence among the brethren rather than outward bravado or martial romanticism.</p>
+<h3 class="section-sh">Readiness Goal</h3>
+<p class="body-p">Articulate the difference between outward romanticism and true Christian knightly readiness, and demonstrate that readiness through visible conduct.</p>
+<h3 class="section-sh">Overview</h3>
+<p class="body-p">The KTKC governing documents establish that the order&#x27;s mission is Christian service, moral accountability, and brotherhood — not historical reenactment or romantic militarism. The aspirant at this stage should understand that the promotion process tests character, not performance, and that readiness for Knight formation is demonstrated through sustained spiritual discipline, honest self-examination, and faithful service to the chapter. <a class="inline-link" href="/documents/view/promotion-manual.html" target="_blank">Promotion Manual</a> <a class="inline-link" href="/documents/view/ktkc-rules-and-statutes.html" target="_blank">KTKC Rules</a></p>
+<h2 class="section-h">Week 5 - Essay Week I: Theme, Thesis, and Evidence</h2>
+<h3 class="section-sh">Required Reading</h3>
+<ul class="list-ul"><li><a class="inline-link" href="/documents/view/knight-aspirant-required-reading-list.html" target="_blank">Knight Aspirant Required Reading List</a></li><li><a class="inline-link" href="/documents/view/knight-aspirant-handbook.html" target="_blank">Knight Aspirant Program Handbook</a></li><li><a class="inline-link" href="/documents/view/promotion-manual.html" target="_blank">KTKC Promotion Manual and By-Laws</a></li><li><a class="inline-link" href="/documents/view/ktkc-rules-and-statutes.html" target="_blank">KTKC Rules and Statutes</a></li></ul>
+<h3 class="section-sh">Primary Focus</h3>
+<p class="body-p">Launch the required essay by identifying the central claim, spiritual theme, and supporting sources for <em>&quot;What Does a Templar Knight Mean to You?&quot;</em></p>
+<h3 class="section-sh">Key Formation Subjects</h3>
+<p class="body-p">Theme selection rooted in the formation cycle; thesis development grounded in Scripture or verified history; disciplined use of sources; honest personal reflection.</p>
+<h3 class="section-sh">Formation Emphasis</h3>
+<p class="body-p">Moving from vague aspiration to clear thought, grounded evidence, and sincere Christian reflection that the board can evaluate seriously.</p>
+<h3 class="section-sh">Readiness Goal</h3>
+<p class="body-p">Produce a clear essay direction with an identifiable thesis and source base, reviewed by the schoolmaster or chapter officer before proceeding to draft.</p>
+<h3 class="section-sh">Overview</h3>
+<p class="body-p">Essay requirements: Standard college essay format. Cover page required. Single-spaced. One full page front and back, or two full typed pages in a Word document. The essay is not a casual reflection — it is a formal written declaration of identity, formation, and readiness. The aspirant must begin with a genuine claim, not a platitude, and must support it with reading from this program cycle. This week focuses on choosing the right theme and identifying where the evidence comes from. <a class="inline-link" href="/documents/view/knight-aspirant-handbook.html" target="_blank">Knight Aspirant Handbook</a></p>
+<h2 class="section-h">Week 6 - Essay Week II: Outline and First Draft</h2>
+<h3 class="section-sh">Required Reading</h3>
+<ul class="list-ul"><li><a class="inline-link" href="/documents/view/knight-aspirant-required-reading-list.html" target="_blank">Knight Aspirant Required Reading List</a></li><li><a class="inline-link" href="/documents/view/knight-aspirant-handbook.html" target="_blank">Knight Aspirant Program Handbook</a></li><li><a class="inline-link" href="https://www.britannica.com/topic/Templars" target="_blank">Templars - Encyclopaedia Britannica</a></li></ul>
+<h3 class="section-sh">Primary Focus</h3>
+<p class="body-p">Build a complete outline and begin the full draft in standard college essay format, keeping the argument centered on Christian formation rather than sentiment or historical nostalgia.</p>
+<h3 class="section-sh">Key Formation Subjects</h3>
+<p class="body-p">Essay structure and paragraph order; disciplined drafting with supporting evidence; avoiding sentimentality and vague language; keeping the argument grounded in formation reality.</p>
+<h3 class="section-sh">Formation Emphasis</h3>
+<p class="body-p">Treating writing as an act of order, honesty, and careful self-expression rather than rushed opinion or emotional performance.</p>
+<h3 class="section-sh">Readiness Goal</h3>
+<p class="body-p">Present a workable outline and an honest first draft that reflects the theme of Christian knightly formation, reviewed before moving to revision.</p>
+<h3 class="section-sh">Overview</h3>
+<p class="body-p">The Britannica article on the Templars provides a reliable base for historical grounding if the aspirant&#x27;s thesis involves the historical order. The essay is not required to be historical — it may be entirely personal and spiritual — but any historical claim must be accurate. The formation lesson here is that honest, disciplined writing requires the same qualities as honest, disciplined conduct: care, order, and truthfulness. <a class="inline-link" href="https://www.britannica.com/topic/Templars" target="_blank">Britannica</a></p>
+<h2 class="section-h">Week 7 - Essay Week III: Revision, Clarity, and Submission Readiness</h2>
+<h3 class="section-sh">Required Reading</h3>
+<ul class="list-ul"><li><a class="inline-link" href="/documents/view/knight-aspirant-required-reading-list.html" target="_blank">Knight Aspirant Required Reading List</a></li><li><a class="inline-link" href="/documents/view/knight-aspirant-handbook.html" target="_blank">Knight Aspirant Program Handbook</a></li><li><a class="inline-link" href="/documents/view/promotion-manual.html" target="_blank">KTKC Promotion Manual and By-Laws</a></li></ul>
+<h3 class="section-sh">Primary Focus</h3>
+<p class="body-p">Revise for clarity, strength, sincerity, and discipline so the essay reflects genuine maturity rather than haste or sentimentality.</p>
+<h3 class="section-sh">Key Formation Subjects</h3>
+<p class="body-p">Revision as a spiritual discipline; clarity and tone; honesty under the scrutiny of a reader; removal of weak, sentimental, or unsupported argument.</p>
+<h3 class="section-sh">Formation Emphasis</h3>
+<p class="body-p">Learning that mature speech and writing require restraint, refinement, and truthful self-examination — not merely emotional sincerity.</p>
+<h3 class="section-sh">Readiness Goal</h3>
+<p class="body-p">Submit a revised draft that is orderly, clear, and fitting for final review by the schoolmaster and chapter leadership.</p>
+<h3 class="section-sh">Overview</h3>
+<p class="body-p">The promotion standards outlined in the KTKC documents make clear that advancement is earned through demonstrated faithfulness rather than self-report. The essay revision process is a direct application of that standard: the aspirant must be willing to receive feedback, make corrections, and submit something genuinely polished rather than minimally compliant. Revision is not failure — it is the mark of a serious candidate. <a class="inline-link" href="/documents/view/promotion-manual.html" target="_blank">Promotion Manual</a></p>
+<h2 class="section-h">Week 8 - Essay Week IV: Final Submission and Knight Review</h2>
+<h3 class="section-sh">Required Reading</h3>
+<ul class="list-ul"><li><a class="inline-link" href="/documents/view/knight-aspirant-required-reading-list.html" target="_blank">Knight Aspirant Required Reading List</a></li><li><a class="inline-link" href="/documents/view/knight-aspirant-handbook.html" target="_blank">Knight Aspirant Program Handbook</a></li><li><a class="inline-link" href="https://www.osmth.org/templar-legacy/modern-order-history" target="_blank">Modern Order History - OSMTH</a></li><li><a class="inline-link" href="/documents/view/promotion-manual.html" target="_blank">KTKC Promotion Manual and By-Laws</a></li></ul>
+<h3 class="section-sh">Primary Focus</h3>
+<p class="body-p">Submit the final essay with cover page and formatting requirements completed, then undergo final review for Knight readiness — conduct record, attendance, reading log, and oral readiness.</p>
+<h3 class="section-sh">Key Formation Subjects</h3>
+<p class="body-p">Final document compliance; submission readiness and humility; review standards for Knight advancement; receiving the board&#x27;s decision with sober obedience.</p>
+<h3 class="section-sh">Formation Emphasis</h3>
+<p class="body-p">Finishing well, honoring requirements, and presenting oneself for review with humility and seriousness rather than anxiety or entitlement.</p>
+<h3 class="section-sh">Readiness Goal</h3>
+<p class="body-p">Complete the Knight Aspirant formation cycle with the required essay and supporting documentation fully prepared, demonstrating readiness in oral review.</p>
+<h3 class="section-sh">Overview</h3>
+<p class="body-p">The OSMTH modern history page presents the contemporary Templar vocation in terms of high moral principles, service, peace, and the motto <em>Non nobis, Domine, non nobis, sed nomini tuo da gloriam</em> — &quot;Not for us, Lord, not for us, but to Thy name give glory.&quot; That posture of humility before God and the community is the appropriate spirit for this final week. The aspirant does not demand advancement — he presents himself, fully prepared, and receives the chapter&#x27;s judgment with quiet obedience. <a class="inline-link" href="https://www.osmth.org/templar-legacy/modern-order-history" target="_blank">OSMTH</a> <a class="inline-link" href="/documents/view/promotion-manual.html" target="_blank">Promotion Manual</a></p>
+<h2 class="section-h">Reference Images</h2>
+<div class="ref-images">
+<figure><img src="https://cdn.britannica.com/81/117781-050-07440725/Chapter-Order-of-the-Temple-oil-canvas-1844.jpg" alt="Chapter of the Order of the Temple Held at Paris, 22 April 1147" loading="lazy"/><figcaption>Chapter of the Order of the Temple Held at Paris, 22 April 1147</figcaption></figure>
+<figure><img src="https://cdn.britannica.com/13/70913-050-30640982/Knights-Templar-Parade-Triennial-Conclave-Pittsburgh-Pennsylvania-1898.jpg" alt="Parade of the Knights Templar during their Triennial Conclave in Pittsburgh, Pennsylvania, 1898" loading="lazy"/><figcaption>Parade of the Knights Templar during their Triennial Conclave in Pittsburgh, Pennsylvania, 1898</figcaption></figure>
+<figure><img src="https://i.natgeofe.com/n/d577109b-b304-481b-abb1-744887fcb414/02-knights-templar.jpg" alt="National Geographic illustration of a Knight Templar" loading="lazy"/><figcaption>National Geographic illustration of a Knight Templar</figcaption></figure>
+</div>
+</div>
+
+<div class="hub-footer wrap">
+  Knight Aspirant resources: <a class="inline-link" href="/documents/view/knight-aspirant-lesson-plan.html">Lesson Plan Program</a> &middot; <a class="inline-link" href="/documents/view/knight-aspirant-handbook.html">Program Handbook</a> &middot; <a class="inline-link" href="/programs/knight-aspirant/resources/knight-aspirant-reading-log.html">Reading Log</a>
+</div>
+
+</body>
+</html>
