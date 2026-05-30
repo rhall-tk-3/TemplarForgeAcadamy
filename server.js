@@ -12,6 +12,10 @@ try { require('dotenv').config(); } catch (_) { /* dotenv optional */ }
 // publicly visible in the GitHub repo — anyone could forge login cookies.
 // Fail loud so the problem is caught in deployment logs, not in prod traffic.
 (function assertSecrets() {
+  // Accept either SESSION_SECRET or SECRET_SESSION (Railway variable name variants)
+  if (!process.env.SESSION_SECRET && process.env.SECRET_SESSION) {
+    process.env.SESSION_SECRET = process.env.SECRET_SESSION;
+  }
   const missing = ['JWT_SECRET', 'SESSION_SECRET', 'SM_PASSWORD'].filter(
     k => !process.env[k]
   );
@@ -91,7 +95,7 @@ class MapSessionStore extends session.Store {
 app.use(express.json());
 app.use(session({
   store:             new MapSessionStore(),
-  secret:            process.env.SESSION_SECRET,
+  secret:            process.env.SESSION_SECRET || process.env.SECRET_SESSION,
   resave:            false,
   saveUninitialized: false,
   cookie: {
