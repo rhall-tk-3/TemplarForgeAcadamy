@@ -66,12 +66,10 @@ function hydrateSessionFromJwt(req) {
   }
 
   if (!user) {
-    // Valid JWT for a registry-only account (not in userStore).
-    // Grant a lightweight session so JWT-gated routes work.
-    req.session.userId   = payload.memberId || payload.fullName || 'jwt-user';
-    req.session.role     = payload.role || 'member';
-    req.session.username = payload.fullName || '';
-    return true;
+    // No matching userStore entry — JWT is valid but this member has not been
+    // approved yet (or was never promoted to userStore).  Deny access so that
+    // only SM-approved members can reach protected routes.
+    return false;
   }
 
   req.session.userId   = user.id;

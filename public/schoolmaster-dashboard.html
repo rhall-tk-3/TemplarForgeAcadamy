@@ -601,40 +601,17 @@
 
     <div class="gold-rule-red"></div>
 
-    <!-- ── Member Access Registry ── -->
+    <!-- ── Pending Account Approvals ── -->
     <div class="sm-card" id="registry-panel" style="margin-bottom:18px;">
       <div class="section-title" style="margin-bottom:14px;">
-        🗝 Member Access Registry — Portal Login Eligibility
+        ⏳ Pending Account Approvals
       </div>
       <p style="font-family:'Crimson Text',serif;font-size:.9rem;color:#a08080;margin:0 0 14px;">
-        Members must be listed here before they can create a portal account.
-        Add a KTKC ID + name to grant registration access. Leave name blank to allow any name on that ID.
+        Members register at the login page using their KTKC ID and full name.
+        Their request appears here awaiting your approval. Approving grants dashboard access and adds them to the member roster.
       </p>
-
-      <!-- Add form -->
-      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
-        <input type="text" id="reg-id-input" placeholder="KTKC-0004" maxlength="20"
-          style="background:rgba(20,8,12,.7);border:1px solid #5a2030;border-radius:5px;color:#e8d8d0;
-                 font-family:'Crimson Text',serif;font-size:.92rem;padding:6px 10px;width:130px;outline:none;">
-        <input type="text" id="reg-name-input" placeholder="Full name (optional)" maxlength="80"
-          style="background:rgba(20,8,12,.7);border:1px solid #5a2030;border-radius:5px;color:#e8d8d0;
-                 font-family:'Crimson Text',serif;font-size:.92rem;padding:6px 10px;width:220px;outline:none;">
-        <button class="sm-btn" onclick="registryAdd()"
-          style="background:rgba(50,20,10,.8);border-color:#8a5030;">+ Add to Registry</button>
-        <span id="registry-msg" style="font-family:'Crimson Text',serif;font-size:.87rem;color:#c8a070;"></span>
-      </div>
-
-      <!-- Registry list -->
-      <div id="registry-list" style="font-family:'Crimson Text',serif;font-size:.9rem;color:#c8a8a8;">
-        <em style="color:#5a3030;">Loading registry…</em>
-      </div>
-
-      <!-- Pending approvals -->
-      <div style="margin-top:18px;">
-        <div class="section-title" style="font-size:.79rem;margin-bottom:10px;">⏳ Pending Account Approvals</div>
-        <div id="pending-list" style="font-family:'Crimson Text',serif;font-size:.9rem;color:#c8a8a8;">
-          <em style="color:#5a3030;">Loading…</em>
-        </div>
+      <div id="pending-list" style="font-family:'Crimson Text',serif;font-size:.9rem;color:#c8a8a8;">
+        <em style="color:#5a3030;">Loading…</em>
       </div>
     </div>
 
@@ -1069,7 +1046,7 @@ async function loadData() {
   populateStats();
   populateAssignSelect();
   populateRankSelect();
-  loadRegistry();
+  loadPending();
 }
 
 function populateStats() {
@@ -1229,200 +1206,53 @@ function populateRankSelect() {
     allPrograms.map(p => `<option value="${p.slug}">${p.title}</option>`).join('');
 }
 
-// ── Member Access Registry ──
-async function loadRegistry() {
+// ── Pending Account Approvals ──
+async function loadPending() {
   try {
-    const [regRes, pendRes] = await Promise.all([
-      fetch('/api/registry', { credentials: 'include' }),
-      fetch('/api/auth/pending', { credentials: 'include' })
-    ]);
-    const regData  = regRes.ok  ? await regRes.json()  : { items: [] };
-    const pendData = pendRes.ok ? await pendRes.json() : { items: [] };
-    renderRegistryList(regData.items || []);
-    renderPendingList(pendData.items || []);
+    const res  = await fetch('/api/auth/pending', { credentials: 'include' });
+    const data = res.ok ? await res.json() : { items: [] };
+    renderPendingList(data.items || []);
   } catch (e) {
-    document.getElementById('registry-list').innerHTML = '<em style="color:#c87070;">Failed to load registry.</em>';
-  }
-}
-
-function renderRegistryList(items) {
-  const el = document.getElementById('registry-list');
-  if (!items.length) {
-    el.innerHTML = '<em style="color:#5a3030;">Registry is empty. Students who register will appear here automatically.</em>';
-    return;
-  }
-
-  const thStyle = 'text-align:left;padding:6px 8px;color:#c9a227;font-family:\'Cinzel\',serif;font-size:.72rem;text-transform:uppercase;border-bottom:1px solid rgba(212,175,55,.2);white-space:nowrap;';
-  const tdStyle = 'padding:6px 8px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:top;';
-
-  el.innerHTML = `<table style="width:100%;border-collapse:collapse;font-size:.88rem;">
-    <thead><tr>
-      <th style="${thStyle}">KTKC ID</th>
-      <th style="${thStyle}">Name</th>
-      <th style="${thStyle}">Email</th>
-      <th style="${thStyle}">Eligible</th>
-      <th style="${thStyle}">Status</th>
-      <th style="padding:6px 8px;border-bottom:1px solid rgba(212,175,55,.2);min-width:180px;"></th>
-    </tr></thead>
-    <tbody id="registry-tbody">${items.map(r => {
-      const isPending  = r.account && r.account.approvalStatus === 'pending';
-      const isApproved = r.account && r.account.approvalStatus === 'approved';
-      const rowBg      = isPending ? 'background:rgba(50,35,0,.35);' : '';
-
-      const acctBadge = r.account
-        ? (isApproved
-            ? '<span style="color:#70c870;">✔ Approved</span>'
-            : `<span style="color:#e8c96a;">⏳ ${r.account.approvalStatus}</span>`)
-        : '<span style="color:#5a4a32;">—</span>';
-
-      const emailVal = (r.account && r.account.email) ? r.account.email : '—';
-
-      const escapedName  = (r.fullName || '').replace(/'/g, '\\\'');
-      const escapedId    = r.memberId.replace(/'/g, '\\\'');
-
-      return `
-      <tr id="reg-row-${r.memberId}" style="${rowBg}">
-        <td style="${tdStyle}color:#e8d8d0;font-weight:600;">${r.memberId}</td>
-        <td style="${tdStyle}color:#c8b898;" id="reg-name-${r.memberId}">${r.fullName || '<em style="color:#5a4030;">Not set</em>'}</td>
-        <td style="${tdStyle}color:#8a7a60;font-size:.82rem;">${emailVal}</td>
-        <td style="${tdStyle}">${r.portalEligible ? '<span style="color:#70c870;">Yes</span>' : '<span style="color:#c87070;">No</span>'}</td>
-        <td style="${tdStyle}">${acctBadge}</td>
-        <td style="${tdStyle}text-align:right;white-space:nowrap;">
-          ${isPending ? `<button onclick="approveAccount('${escapedId}')" style="font-size:.75rem;padding:3px 8px;background:rgba(20,60,20,.8);border:1px solid #3a7a3a;color:#90e090;border-radius:3px;cursor:pointer;margin-right:4px;">✔ Approve</button>` : ''}
-          <button onclick="registryEditOpen('${escapedId}','${escapedName}',${r.portalEligible})" style="font-size:.75rem;padding:3px 8px;background:rgba(20,30,60,.8);border:1px solid #3a507a;color:#90b0f0;border-radius:3px;cursor:pointer;margin-right:4px;">✎ Edit</button>
-          <button onclick="registryRemove('${escapedId}')" style="font-size:.75rem;padding:3px 8px;background:rgba(60,10,10,.8);border:1px solid #7a2020;color:#e08080;border-radius:3px;cursor:pointer;">✕ Remove</button>
-        </td>
-      </tr>
-      <tr id="reg-edit-${r.memberId}" style="display:none;background:rgba(10,20,40,.6);">
-        <td colspan="6" style="padding:10px 12px;">
-          <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;">
-            <div>
-              <label style="display:block;font-size:.72rem;color:#c9a227;font-family:'Cinzel',serif;text-transform:uppercase;margin-bottom:3px;">Full Name</label>
-              <input id="reg-edit-name-${r.memberId}" type="text" value="${r.fullName || ''}"
-                style="background:#0c0608;border:1px solid #3a2a1a;color:#e8d8d0;padding:4px 8px;border-radius:3px;font-size:.85rem;width:180px;">
-            </div>
-            <div>
-              <label style="display:block;font-size:.72rem;color:#c9a227;font-family:'Cinzel',serif;text-transform:uppercase;margin-bottom:3px;">Portal Eligible</label>
-              <select id="reg-edit-elig-${r.memberId}"
-                style="background:#0c0608;border:1px solid #3a2a1a;color:#e8d8d0;padding:4px 8px;border-radius:3px;font-size:.85rem;">
-                <option value="true"  ${r.portalEligible  ? 'selected' : ''}>Yes</option>
-                <option value="false" ${!r.portalEligible ? 'selected' : ''}>No</option>
-              </select>
-            </div>
-            <button onclick="registryEditSave('${escapedId}')"
-              style="font-size:.75rem;padding:5px 12px;background:rgba(20,60,20,.8);border:1px solid #3a7a3a;color:#90e090;border-radius:3px;cursor:pointer;">
-              ✔ Save
-            </button>
-            <button onclick="registryEditClose('${escapedId}')"
-              style="font-size:.75rem;padding:5px 10px;background:rgba(40,20,10,.6);border:1px solid #5a3a1a;color:#c8a070;border-radius:3px;cursor:pointer;">
-              Cancel
-            </button>
-            <span id="reg-edit-msg-${r.memberId}" style="font-size:.8rem;color:#c8a070;"></span>
-          </div>
-        </td>
-      </tr>`;
-    }).join('')}</tbody>
-  </table>`;
-}
-
-function registryEditOpen(memberId, currentName, currentElig) {
-  document.getElementById('reg-edit-' + memberId).style.display = '';
-  const nameInput = document.getElementById('reg-edit-name-' + memberId);
-  if (nameInput) nameInput.focus();
-}
-function registryEditClose(memberId) {
-  document.getElementById('reg-edit-' + memberId).style.display = 'none';
-}
-async function registryEditSave(memberId) {
-  const nameInput = document.getElementById('reg-edit-name-' + memberId);
-  const eligSel   = document.getElementById('reg-edit-elig-' + memberId);
-  const msgEl     = document.getElementById('reg-edit-msg-' + memberId);
-  const newName   = (nameInput ? nameInput.value.trim() : '');
-  const newElig   = eligSel ? eligSel.value === 'true' : true;
-  msgEl.textContent = 'Saving…';
-  try {
-    const res  = await fetch('/api/registry/update', {
-      method: 'POST', credentials: 'include',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ memberId, fullName: newName, portalEligible: newElig })
-    });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Failed.');
-    msgEl.style.color = '#70c870';
-    msgEl.textContent = '✔ Saved';
-    setTimeout(() => { loadRegistry(); }, 800);
-  } catch(e) {
-    msgEl.style.color = '#c87070';
-    msgEl.textContent = e.message;
+    const el = document.getElementById('pending-list');
+    if (el) el.innerHTML = '<em style="color:#c87070;">Failed to load pending approvals.</em>';
   }
 }
 
 function renderPendingList(items) {
   const el = document.getElementById('pending-list');
+  if (!el) return;
   if (!items.length) {
     el.innerHTML = '<em style="color:#5a3030;">No pending approvals.</em>';
     return;
   }
   el.innerHTML = items.map(a => `
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06);flex-wrap:wrap;gap:8px;">
       <div>
-        <span style="color:#e8d8d0;">${a.fullName}</span>
+        <span style="color:#e8d8d0;font-weight:600;">${a.fullName}</span>
         <span style="color:#5a4a32;margin:0 6px;">·</span>
         <span style="color:#c9a227;">${a.memberId}</span>
         <span style="color:#5a4a32;margin:0 6px;">·</span>
         <span style="color:#7a6a4e;font-size:.82rem;">${a.email || ''}</span>
+        <span style="color:#5a4a32;margin:0 6px;">·</span>
+        <span style="color:#6a5a3e;font-size:.78rem;">Requested ${new Date(a.createdAt).toLocaleDateString()}</span>
       </div>
       <div>
-        <button onclick="approveAccount('${a.memberId}')" style="font-size:.75rem;padding:3px 10px;background:rgba(20,60,20,.8);border:1px solid #3a7a3a;color:#90e090;border-radius:3px;cursor:pointer;margin-right:6px;">✔ Approve</button>
-        <button onclick="rejectAccount('${a.memberId}')" style="font-size:.75rem;padding:3px 10px;background:rgba(60,10,10,.8);border:1px solid #7a2020;color:#e08080;border-radius:3px;cursor:pointer;">✕ Reject</button>
+        <button onclick="approveAccount('${a.memberId}')" style="font-size:.75rem;padding:4px 12px;background:rgba(20,60,20,.8);border:1px solid #3a7a3a;color:#90e090;border-radius:3px;cursor:pointer;margin-right:6px;">✔ Approve</button>
+        <button onclick="rejectAccount('${a.memberId}')" style="font-size:.75rem;padding:4px 12px;background:rgba(60,10,10,.8);border:1px solid #7a2020;color:#e08080;border-radius:3px;cursor:pointer;">✕ Reject</button>
       </div>
     </div>`).join('');
-}
-
-async function registryAdd() {
-  const id   = (document.getElementById('reg-id-input').value || '').trim().toUpperCase();
-  const name = (document.getElementById('reg-name-input').value || '').trim();
-  const msg  = document.getElementById('registry-msg');
-  if (!id) { msg.style.color='#c87070'; msg.textContent='Enter a KTKC ID.'; return; }
-  try {
-    const res  = await fetch('/api/registry/add', {
-      method:'POST', credentials:'include',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({ memberId: id, fullName: name, portalEligible: true })
-    });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Failed.');
-    msg.style.color='#70c870'; msg.textContent=`✔ ${id} added to registry.`;
-    document.getElementById('reg-id-input').value='';
-    document.getElementById('reg-name-input').value='';
-    setTimeout(()=>{ msg.textContent=''; }, 3000);
-    loadRegistry();
-  } catch(e) { msg.style.color='#c87070'; msg.textContent=e.message; }
-}
-
-async function registryRemove(memberId) {
-  if (!confirm(`Remove ${memberId} from registry? They will no longer be able to register.`)) return;
-  try {
-    const res  = await fetch(`/api/registry/${encodeURIComponent(memberId)}`, {
-      method:'DELETE', credentials:'include'
-    });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Failed.');
-    loadRegistry();
-  } catch(e) { alert('Error: ' + e.message); }
 }
 
 async function approveAccount(memberId) {
   try {
     const res  = await fetch('/api/auth/approve', {
-      method:'POST', credentials:'include',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({ memberId, action:'approve' })
+      method: 'POST', credentials: 'include',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ memberId, action: 'approve' })
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'Failed.');
-    // Reload both registry AND full member roster — the newly approved member
-    // is now in userStore so they will appear in the roster for class assignment.
+    // Reload full data — newly approved member now in userStore/roster
     await loadData();
   } catch(e) { alert('Error approving: ' + e.message); }
 }
@@ -1431,13 +1261,13 @@ async function rejectAccount(memberId) {
   if (!confirm(`Reject account for ${memberId}?`)) return;
   try {
     const res  = await fetch('/api/auth/approve', {
-      method:'POST', credentials:'include',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({ memberId, action:'reject' })
+      method: 'POST', credentials: 'include',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ memberId, action: 'reject' })
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'Failed.');
-    loadRegistry();
+    await loadPending();
   } catch(e) { alert('Error rejecting: ' + e.message); }
 }
 

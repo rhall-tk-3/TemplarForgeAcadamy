@@ -283,62 +283,43 @@ app.use('/auth', authRouter);
       return res.json({ ok: true, redirect: '/member' });
     }
 
-    // ── No memberId and no name match in userStore — fall through to registry ──
+    // ── No userStore match — check accounts.json for pending/rejected status ──
+    // Members must register via the login page and wait for SM approval.
+    // Once approved, addRawUser() promotes them to userStore — at that point
+    // Case A above handles their login. We never grant dashboard access from
+    // accounts.json alone; the userStore is the single source of truth for auth.
     if (!normalizedId) {
       return res.status(400).json({ error: 'Member ID is required.' });
     }
 
-    const registry = readRegistry();
     const accounts = readAccounts();
+    const account  = accounts.find(a => a.memberId === normalizedId);
 
-    const member = registry.find(m => m.memberId === normalizedId);
-    if (!member || !member.portalEligible) {
-      return res.status(403).json({ error: 'This Member ID does not have academy access.' });
-    }
-
-    const account = accounts.find(a => a.memberId === normalizedId);
     if (!account) {
-      return res.status(403).json({ error: 'No account exists for this Member ID. Create one first.' });
+      // Not in userStore, not in pending accounts — completely unknown
+      return res.status(401).json({ error: 'Member ID not found. Please register at the login page.' });
     }
 
-    if (account.approvalStatus !== 'approved') {
+    if (account.approvalStatus === 'pending') {
       return res.status(403).json({ error: 'Your account is still pending Schoolmaster approval.' });
     }
 
-    if (String(account.fullName).trim().toUpperCase() !== normalizedName) {
-      return res.status(403).json({ error: 'Full name does not match the approved account.' });
+    if (account.approvalStatus === 'rejected') {
+      return res.status(403).json({ error: 'Your registration was not approved. Please contact the Schoolmaster.' });
     }
 
-    const valid = await bcrypt.compare(password, account.passwordHash);
-    if (!valid) {
-      return res.status(401).json({ error: 'Invalid password.' });
-    }
-
-    const jwt = require('jsonwebtoken');
-    const token = jwt.sign(
-      { memberId: account.memberId, fullName: account.fullName, role: account.role || 'member' },
-      process.env.JWT_SECRET || 'templar-jwt-secret-2026',
-      { expiresIn: '8h' }
-    );
-
-    // Hydrate Express session for this registry member so session-gated routes
-    // (doc-render, programs/lessons, etc.) work immediately without a page reload.
-    // The JWT cookie is also set for client-side guard scripts.
-    req.session.userId   = account.memberId;
-    req.session.role     = account.role || 'member';
-    req.session.username = account.fullName;
-
-    res.setHeader('Set-Cookie', SESSION_COOKIE(token));
-
-    return res.json({ ok: true, redirect: '/member' });
+    // account.approvalStatus === 'approved' but NOT in userStore — this should
+    // not happen in normal operation (approve endpoint calls addRawUser), but
+    // guard against it explicitly rather than letting the request fall through.
+    return res.status(500).json({ error: 'Account state error. Please contact the Schoolmaster.' });
   });
 
   // ── POST /api/auth/register  { fullName, memberId, email, password } ──
-  // Registry-validated registration. Member ID must exist in
-  // private/member-registry.json and be marked portalEligible.
-  // Full name must match the registry record (case-insensitive).
-  // Account is stored in private/accounts.json with approvalStatus: "pending".
-  // No session is created — Schoolmaster must approve first.
+  // Open self-registration. Any member can submit a request using their
+  // KTKC ID, full name, email and a chosen password.
+  // Request lands in private/accounts.json with approvalStatus: "pending".
+  // SM reviews in the Pending Approvals panel → approve promotes to userStore.
+  // No session is created — Schoolmaster must approve before the member can log in.
   app.post('/api/auth/register', async (req, res) => {
     const { fullName, memberId, email, password } = req.body || {};
 
@@ -349,34 +330,6 @@ app.use('/auth', authRouter);
     const accounts      = readAccounts();
     const normalizedId  = String(memberId).trim().toUpperCase();
     const normalizedName = String(fullName).trim();
-
-    // ── Auto-add to registry if not already present ──
-    // Students no longer need to be pre-added by the SM before they can register.
-    // If the ID is new, we create a registry entry automatically so the SM sees
-    // the request in the registry panel and can approve it.
-    let registry = readRegistry();
-    let regEntry = registry.find(m => m.memberId === normalizedId);
-    if (!regEntry) {
-      // New student — add them to the registry automatically
-      regEntry = {
-        memberId:       normalizedId,
-        fullName:       normalizedName,
-        portalEligible: true,
-        addedAt:        new Date().toISOString(),
-        autoAdded:      true   // flag so SM knows this was self-registered
-      };
-      registry.push(regEntry);
-      writeRegistry(registry);
-    } else {
-      // Already in registry — check name match if SM pre-filled a name
-      if (regEntry.fullName &&
-          regEntry.fullName.trim().toUpperCase() !== normalizedName.toUpperCase()) {
-        return res.status(403).json({ error: 'Full name does not match the member registry. Contact the Schoolmaster.' });
-      }
-      if (!regEntry.portalEligible) {
-        return res.status(403).json({ error: 'This Member ID is not eligible for portal access.' });
-      }
-    }
 
     // Block duplicate pending requests, but allow re-registration after rejection
     // or to reset a password on an already-approved account (seeded members).

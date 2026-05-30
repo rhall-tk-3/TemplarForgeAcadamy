@@ -141,30 +141,25 @@ router.get('/logout', (req, res) => {
 // Must hydrate from JWT first — Railway restarts wipe the express-session store,
 // so req.session may be empty even though the JWT cookie is still valid.
 router.get('/me', (req, res) => {
-  // Hydrate from JWT if express-session is cold (e.g. after Railway restart)
+  // Hydrate from JWT if express-session is cold (e.g. after Railway restart).
+  // hydrateSessionFromJwt returns false when the JWT owner is not in userStore
+  // (i.e. member not yet approved) — session will remain empty in that case.
   hydrateSessionFromJwt(req);
 
   if (!req.session.userId) {
     return res.status(401).json({ error: 'Not signed in.' });
   }
 
-  // For userStore members, look up the full record
+  // Look up the full userStore record — this is the single source of truth.
+  // A valid JWT for a non-approved member will not have a userStore entry,
+  // so findById returns null and we fall through to 401.
   const user = findById(req.session.userId);
   if (user) {
     const { password, ...safe } = user;
     return res.json(safe);
   }
 
-  // Registry-only accounts (accounts.json) — not in userStore.
-  // Build a minimal safe object from session data so the dashboard renders.
-  if (req.session.username) {
-    return res.json({
-      id:       req.session.userId,
-      username: req.session.username,
-      role:     req.session.role || 'member',
-    });
-  }
-
+  // No userStore entry — session is stale or member was removed/not yet approved.
   return res.status(401).json({ error: 'Session expired.' });
 });
 
