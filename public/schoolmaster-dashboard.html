@@ -607,8 +607,8 @@
         ⏳ Pending Account Approvals
       </div>
       <p style="font-family:'Crimson Text',serif;font-size:.9rem;color:#a08080;margin:0 0 14px;">
-        Members register at the login page using their KTKC ID and full name.
-        Their request appears here awaiting your approval. Approving grants dashboard access and adds them to the member roster.
+        Members request an account from the login page. Their request appears here awaiting your approval.
+        Approving grants dashboard access and adds them to the member roster.
       </p>
       <div id="pending-list" style="font-family:'Crimson Text',serif;font-size:.9rem;color:#c8a8a8;">
         <em style="color:#5a3030;">Loading…</em>
@@ -1035,12 +1035,17 @@ fetch('/auth/me')
 
 // ── Load everything ──
 async function loadData() {
-  const [progRes, membRes] = await Promise.all([
-    fetch('/api/curriculum').then(r => r.json()),
-    fetch('/api/progression/members').then(r => r.json())
-  ]);
-  allPrograms = progRes.programs || [];
-  allMembers  = membRes.members  || [];
+  try {
+    const [progRes, membRes] = await Promise.all([
+      fetch('/api/curriculum').then(r => r.json()).catch(() => ({ programs: [] })),
+      fetch('/api/progression/members', { credentials: 'include' }).then(r => r.json()).catch(() => ({ members: [] }))
+    ]);
+    allPrograms = progRes.programs || [];
+    allMembers  = membRes.members  || [];
+  } catch (e) {
+    allPrograms = [];
+    allMembers  = [];
+  }
   populateRoster();
   populateProgramGrid();
   populateStats();
@@ -1208,12 +1213,17 @@ function populateRankSelect() {
 
 // ── Pending Account Approvals ──
 async function loadPending() {
+  const el = document.getElementById('pending-list');
   try {
     const res  = await fetch('/api/auth/pending', { credentials: 'include' });
-    const data = res.ok ? await res.json() : { items: [] };
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      if (el) el.innerHTML = `<em style="color:#c87070;">Auth error (${res.status}): ${err.error || 'Could not load approvals.'}</em>`;
+      return;
+    }
+    const data = await res.json();
     renderPendingList(data.items || []);
   } catch (e) {
-    const el = document.getElementById('pending-list');
     if (el) el.innerHTML = '<em style="color:#c87070;">Failed to load pending approvals.</em>';
   }
 }

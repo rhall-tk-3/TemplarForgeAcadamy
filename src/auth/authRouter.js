@@ -122,8 +122,9 @@ router.post('/login', async (req, res) => {
         process.env.JWT_SECRET,
         { expiresIn: '8h' }
       );
+      const IS_PROD = process.env.NODE_ENV === 'production';
       res.setHeader('Set-Cookie',
-        `academy_session=${token}; HttpOnly; Path=/; SameSite=Lax; Max-Age=28800`);
+        `academy_session=${token}; HttpOnly; Path=/; SameSite=Lax; Max-Age=28800${IS_PROD ? '; Secure' : ''}`);
     } catch (_) { /* jwt not available — session-only fallback still works */ }
   }
 
