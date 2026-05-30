@@ -15,8 +15,14 @@ const assessmentController  = require('./src/controllers/assessmentController');
 const app  = express();
 const PORT = process.env.PORT || 3000;
 
-// Trust Nginx reverse proxy — required for correct IP, HTTPS detection, and secure cookies
+// Trust Nginx/Railway reverse proxy — required for correct IP, HTTPS detection, and secure cookies
 app.set('trust proxy', 1);
+
+// Cookie security flag — add Secure in production (HTTPS) so browsers don't drop the cookie
+const COOKIE_SECURE = process.env.NODE_ENV === 'production' ? '; Secure' : '';
+const SESSION_COOKIE = (token) =>
+  `academy_session=${token}; HttpOnly; Path=/; SameSite=Lax; Max-Age=28800${COOKIE_SECURE}`;
+const CLEAR_COOKIE = `academy_session=; HttpOnly; Path=/; SameSite=Lax; Max-Age=0${COOKIE_SECURE}`;
 
 // ── MIDDLEWARE ──
 app.use(express.json());
@@ -228,8 +234,7 @@ app.use('/auth', authRouter);
         process.env.JWT_SECRET || 'templar-jwt-secret-2026',
         { expiresIn: '8h' }
       );
-      res.setHeader('Set-Cookie',
-        `academy_session=${token}; HttpOnly; Path=/; SameSite=Lax; Max-Age=28800`);
+      res.setHeader('Set-Cookie', SESSION_COOKIE(token));
       return res.json({ ok: true, redirect: '/schoolmaster' });
     }
 
@@ -269,8 +274,7 @@ app.use('/auth', authRouter);
         process.env.JWT_SECRET || 'templar-jwt-secret-2026',
         { expiresIn: '8h' }
       );
-      res.setHeader('Set-Cookie',
-        `academy_session=${token}; HttpOnly; Path=/; SameSite=Lax; Max-Age=28800`);
+      res.setHeader('Set-Cookie', SESSION_COOKIE(token));
       return res.json({ ok: true, redirect: '/member' });
     }
 
@@ -306,8 +310,7 @@ app.use('/auth', authRouter);
         process.env.JWT_SECRET || 'templar-jwt-secret-2026',
         { expiresIn: '8h' }
       );
-      res.setHeader('Set-Cookie',
-        `academy_session=${token}; HttpOnly; Path=/; SameSite=Lax; Max-Age=28800`);
+      res.setHeader('Set-Cookie', SESSION_COOKIE(token));
       return res.json({ ok: true, redirect: '/member' });
     }
 
@@ -356,8 +359,7 @@ app.use('/auth', authRouter);
     req.session.role     = account.role || 'member';
     req.session.username = account.fullName;
 
-    res.setHeader('Set-Cookie',
-      `academy_session=${token}; HttpOnly; Path=/; SameSite=Lax; Max-Age=28800`);
+    res.setHeader('Set-Cookie', SESSION_COOKIE(token));
 
     return res.json({ ok: true, redirect: '/member' });
   });
@@ -589,7 +591,7 @@ app.get('/api/auth/session', (req, res) => {
     } catch {
       // Invalid / expired — clear cookie, fall through
       res.setHeader('Set-Cookie',
-        'academy_session=; HttpOnly; Path=/; SameSite=Lax; Max-Age=0');
+        CLEAR_COOKIE);
     }
   }
 
@@ -613,7 +615,7 @@ app.get('/api/auth/session', (req, res) => {
 // For the SM admin, /auth/logout (express-session destroy) remains available.
 app.post('/api/auth/logout', (_req, res) => {
   res.setHeader('Set-Cookie',
-    'academy_session=; HttpOnly; Path=/; SameSite=Lax; Max-Age=0; Secure');
+    CLEAR_COOKIE);
   res.json({ ok: true });
 });
 
