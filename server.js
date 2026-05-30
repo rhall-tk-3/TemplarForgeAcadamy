@@ -1,5 +1,8 @@
 'use strict';
 
+// ── Load .env in development (ignored on Railway — vars injected by platform) ──
+try { require('dotenv').config(); } catch (_) { /* dotenv optional */ }
+
 // ── PRODUCTION SECRET GUARD ──
 // Crash immediately at startup if required secrets are missing.
 // A missing JWT_SECRET would fall back to a hardcoded string that is
