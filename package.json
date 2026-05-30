@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
-    "dotenv": "^17.4.2",
     "express": "^4.21.2",
     "express-session": "^1.19.0",
     "formidable": "^3.5.4",
@@ -34,6 +33,7 @@
     "node": ">=18"
   },
   "devDependencies": {
+    "dotenv": "^16.6.1",
     "xlsx": "^0.18.5"
   }
 }
