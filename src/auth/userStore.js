@@ -16,7 +16,8 @@ const RESERVED_NAMES = ['schoolmaster26', 'schoolmaster', 'admin', 'administrato
 
 // ── Seeded admin credentials (change via env) ──
 const SM_USERNAME = process.env.SM_USERNAME || 'Schoolmaster26';
-const SM_PASSWORD = process.env.SM_PASSWORD || 'KTKC26';
+// SM_PASSWORD is guaranteed non-empty by assertSecrets() in server.js at startup.
+const SM_PASSWORD = process.env.SM_PASSWORD;
 
 // ── Ensure data dir + file exist ──
 function init() {

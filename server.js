@@ -1,3 +1,23 @@
+'use strict';
+
+// ── PRODUCTION SECRET GUARD ──
+// Crash immediately at startup if required secrets are missing.
+// A missing JWT_SECRET would fall back to a hardcoded string that is
+// publicly visible in the GitHub repo — anyone could forge login cookies.
+// Fail loud so the problem is caught in deployment logs, not in prod traffic.
+(function assertSecrets() {
+  const missing = ['JWT_SECRET', 'SESSION_SECRET', 'SM_PASSWORD'].filter(
+    k => !process.env[k]
+  );
+  if (missing.length) {
+    console.error(
+      `\n✠ FATAL: Required environment variable(s) not set: ${missing.join(', ')}\n` +
+      `  Set them in Railway → Service → Variables before deploying.\n`
+    );
+    process.exit(1);
+  }
+}());
+
 const express        = require('express');
 const path           = require('path');
 const session        = require('express-session');
@@ -26,10 +46,46 @@ const SESSION_COOKIE = (token) =>
   `academy_session=${token}; HttpOnly; Path=/; SameSite=Lax; Max-Age=28800${COOKIE_SECURE}`;
 const CLEAR_COOKIE = `academy_session=; HttpOnly; Path=/; SameSite=Lax; Max-Age=0${COOKIE_SECURE}`;
 
+// ── LIGHTWEIGHT SESSION STORE ──
+// express-session's default MemoryStore is explicitly not designed for
+// production — it leaks memory because it never evicts old sessions.
+// We don't rely on server-side sessions for auth (the JWT cookie is
+// authoritative and survives Railway restarts); sessions are only used as
+// a per-request cache populated by hydrateSessionFromJwt().
+// A simple Map with TTL cleanup gives us a proper store with zero extra deps.
+class MapSessionStore extends session.Store {
+  constructor(ttlMs = 8 * 60 * 60 * 1000) {
+    super();
+    this._store = new Map();
+    this._ttl   = ttlMs;
+    // Sweep expired sessions every 15 minutes
+    setInterval(() => {
+      const now = Date.now();
+      for (const [id, entry] of this._store) {
+        if (entry.expires < now) this._store.delete(id);
+      }
+    }, 15 * 60 * 1000).unref();
+  }
+  get(sid, cb) {
+    const entry = this._store.get(sid);
+    if (!entry || entry.expires < Date.now()) return cb(null, null);
+    cb(null, entry.data);
+  }
+  set(sid, data, cb) {
+    this._store.set(sid, { data, expires: Date.now() + this._ttl });
+    cb && cb(null);
+  }
+  destroy(sid, cb) {
+    this._store.delete(sid);
+    cb && cb(null);
+  }
+}
+
 // ── MIDDLEWARE ──
 app.use(express.json());
 app.use(session({
-  secret:            process.env.SESSION_SECRET || 'templar-forge-secret-2026',
+  store:             new MapSessionStore(),
+  secret:            process.env.SESSION_SECRET,
   resave:            false,
   saveUninitialized: false,
   cookie: {
@@ -40,9 +96,9 @@ app.use(session({
   }
 }));
 
-// ── JWT helper — verifies the HttpOnly academy_session cookie ──
+// ── JWT secret — validated at startup above, guaranteed non-empty ──
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = process.env.JWT_SECRET || 'templar-jwt-secret-2026';
+const JWT_SECRET = process.env.JWT_SECRET;
 
 // verifyJwtCookie and hydrateSessionFromJwt are imported from src/config/jwtSession.js
 // and shared by all routers (authRouter, progressionRouter, profileRouter).
@@ -191,7 +247,7 @@ app.use('/auth', authRouter);
       const jwt = require('jsonwebtoken');
       const token = jwt.sign(
         { memberId: smCandidate.memberId || 'KTKC-0000', fullName: smCandidate.username, role: 'schoolmaster' },
-        process.env.JWT_SECRET || 'templar-jwt-secret-2026',
+        JWT_SECRET,
         { expiresIn: '8h' }
       );
       res.setHeader('Set-Cookie', SESSION_COOKIE(token));
@@ -216,7 +272,7 @@ app.use('/auth', authRouter);
       const jwt = require('jsonwebtoken');
       const token = jwt.sign(
         { memberId: rawMember.memberId || null, fullName: rawMember.username, role: 'member' },
-        process.env.JWT_SECRET || 'templar-jwt-secret-2026',
+        JWT_SECRET,
         { expiresIn: '8h' }
       );
       res.setHeader('Set-Cookie', SESSION_COOKIE(token));
@@ -289,7 +345,7 @@ app.use('/auth', authRouter);
         .map(c => c.trim()).find(c => c.startsWith('academy_session='));
       if (!raw) return res.status(401).json({ error: 'Unauthorized.' });
       const token = raw.slice('academy_session='.length);
-      const session = jwt.verify(token, process.env.JWT_SECRET || 'templar-jwt-secret-2026');
+      const session = jwt.verify(token, JWT_SECRET);
       if (session.role !== 'schoolmaster') {
         return res.status(403).json({ error: 'Forbidden.' });
       }
@@ -310,7 +366,7 @@ app.use('/auth', authRouter);
         .map(c => c.trim()).find(c => c.startsWith('academy_session='));
       if (!raw) return res.status(401).json({ error: 'Unauthorized.' });
       const token = raw.slice('academy_session='.length);
-      const session = jwt.verify(token, process.env.JWT_SECRET || 'templar-jwt-secret-2026');
+      const session = jwt.verify(token, JWT_SECRET);
       if (session.role !== 'schoolmaster') {
         return res.status(403).json({ error: 'Forbidden.' });
       }
@@ -400,7 +456,7 @@ app.use('/auth', authRouter);
         .map(c => c.trim()).find(c => c.startsWith('academy_session='));
       if (!raw) { res.status(401).json({ error: 'Unauthorized.' }); return null; }
       const token = raw.slice('academy_session='.length);
-      const session = jwt.verify(token, process.env.JWT_SECRET || 'templar-jwt-secret-2026');
+      const session = jwt.verify(token, JWT_SECRET);
       if (session.role !== 'schoolmaster') { res.status(403).json({ error: 'Forbidden.' }); return null; }
       return session;
     } catch { res.status(401).json({ error: 'Unauthorized.' }); return null; }
@@ -559,7 +615,7 @@ app.get('/api/auth/session', (req, res) => {
   const token   = cookies.academy_session;
   if (token) {
     try {
-      const payload = jwt.verify(token, process.env.JWT_SECRET || 'templar-jwt-secret-2026');
+      const payload = jwt.verify(token, JWT_SECRET);
       return res.json({ authenticated: true, user: payload });
     } catch {
       // Invalid / expired — clear cookie, fall through

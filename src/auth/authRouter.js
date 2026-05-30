@@ -119,7 +119,7 @@ router.post('/login', async (req, res) => {
           fullName: user.username,
           role:     'schoolmaster'
         },
-        process.env.JWT_SECRET || 'templar-jwt-secret-2026',
+        process.env.JWT_SECRET,
         { expiresIn: '8h' }
       );
       res.setHeader('Set-Cookie',

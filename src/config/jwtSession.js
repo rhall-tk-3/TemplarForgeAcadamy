@@ -13,7 +13,8 @@
 'use strict';
 
 const jwt  = require('jsonwebtoken');
-const JWT_SECRET = process.env.JWT_SECRET || 'templar-jwt-secret-2026';
+// JWT_SECRET is guaranteed non-empty by assertSecrets() in server.js at startup.
+const JWT_SECRET = process.env.JWT_SECRET;
 
 /**
  * Parse and verify the academy_session JWT cookie from the request.
