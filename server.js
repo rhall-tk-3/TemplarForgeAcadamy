@@ -18,11 +18,12 @@ const PORT = process.env.PORT || 3000;
 // Trust Nginx/Railway reverse proxy — required for correct IP, HTTPS detection, and secure cookies
 app.set('trust proxy', 1);
 
-// Cookie security flag — add Secure in production (HTTPS) so browsers don't drop the cookie
-const COOKIE_SECURE = process.env.NODE_ENV === 'production' ? '; Secure' : '';
+// Cookie security — Secure flag on HTTPS (Railway/production), strict same-site
+const IS_PROD = process.env.NODE_ENV === 'production';
+const COOKIE_SECURE = IS_PROD ? '; Secure' : '';
 const SESSION_COOKIE = (token) =>
-  `academy_session=${token}; HttpOnly; Path=/; SameSite=Lax; Max-Age=28800${COOKIE_SECURE}`;
-const CLEAR_COOKIE = `academy_session=; HttpOnly; Path=/; SameSite=Lax; Max-Age=0${COOKIE_SECURE}`;
+  `academy_session=${token}; HttpOnly; Path=/; SameSite=Strict; Max-Age=28800${COOKIE_SECURE}`;
+const CLEAR_COOKIE = `academy_session=; HttpOnly; Path=/; SameSite=Strict; Max-Age=0${COOKIE_SECURE}`;
 
 // ── MIDDLEWARE ──
 app.use(express.json());
@@ -30,7 +31,12 @@ app.use(session({
   secret:            process.env.SESSION_SECRET || 'templar-forge-secret-2026',
   resave:            false,
   saveUninitialized: false,
-  cookie: { maxAge: 8 * 60 * 60 * 1000 } // 8 hours
+  cookie: {
+    maxAge:   8 * 60 * 60 * 1000, // 8 hours
+    secure:   IS_PROD,             // HTTPS only in production
+    sameSite: 'strict',
+    httpOnly: true
+  }
 }));
 
 // ── JWT helper — verifies the HttpOnly academy_session cookie ──

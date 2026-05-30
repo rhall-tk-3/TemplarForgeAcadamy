@@ -40,6 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       showMsg(loginMsg, "Sign-in successful. Redirecting...", "success");
+      // Write a short-lived flag so academy-guard.js knows login just succeeded
+      // and doesn't immediately bounce back while the cookie propagates
+      try { sessionStorage.setItem('tfa_just_logged_in', Date.now()); } catch (_) {}
       window.location.href = data.redirect || "/member/";
     } catch (err) {
       showMsg(loginMsg, err.message, "error");
