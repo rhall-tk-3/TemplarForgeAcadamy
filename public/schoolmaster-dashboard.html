@@ -1,8 +1,11 @@
 <!DOCTYPE html>
+<!-- v1.3.2 — pending approvals fix 2026-05-30 -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
   <title>Schoolmaster Command — Templar Forge Academy</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/shared.css">
@@ -1023,15 +1026,22 @@ let selectedIds    = new Set();   // members checked in the bulk toolbar
 
 // ── Auth guard ──
 fetch('/auth/me')
-  .then(r => r.ok ? r.json() : Promise.reject())
+  .then(r => r.ok ? r.json() : Promise.reject(new Error('auth-' + r.status)))
   .then(user => {
     if (user.role !== 'admin') { window.location.href = '/member'; return; }
     document.getElementById('nav-greeting').textContent = user.username;
     document.getElementById('sm-welcome').textContent =
       `Signed in as ${user.username} — full knowledge oversight`;
+    // Fire loadPending first — independently, so roster populate errors cannot block it
+    loadPending();
     loadData();
   })
-  .catch(() => { window.location.href = '/login'; });
+  .catch(err => {
+    // Show auth error in pending list before redirecting so we can diagnose
+    const el = document.getElementById('pending-list');
+    if (el) el.innerHTML = `<em style="color:#c87070;">Auth guard failed: ${err && err.message || 'unknown'} — redirecting to login…</em>`;
+    setTimeout(() => { window.location.href = '/login'; }, 2000);
+  });
 
 // ── Load everything ──
 async function loadData() {
@@ -1051,7 +1061,8 @@ async function loadData() {
   populateStats();
   populateAssignSelect();
   populateRankSelect();
-  loadPending();
+  // loadPending() is called independently from the auth guard — not from here —
+  // so a crash in any populate function cannot prevent approvals from loading.
 }
 
 function populateStats() {
@@ -1214,17 +1225,26 @@ function populateRankSelect() {
 // ── Pending Account Approvals ──
 async function loadPending() {
   const el = document.getElementById('pending-list');
+  if (el) el.innerHTML = '<em style="color:#5a4030;">Checking…</em>';
   try {
     const res  = await fetch('/api/auth/pending', { credentials: 'include' });
+    const raw  = await res.text();
     if (!res.ok) {
-      const err = await res.json().catch(() => ({}));
-      if (el) el.innerHTML = `<em style="color:#c87070;">Auth error (${res.status}): ${err.error || 'Could not load approvals.'}</em>`;
+      let msg = raw;
+      try { msg = JSON.parse(raw).error || raw; } catch (_) {}
+      if (el) el.innerHTML =
+        `<em style="color:#c87070;">Approvals error ${res.status}: ${msg}</em>`;
       return;
     }
-    const data = await res.json();
+    let data;
+    try { data = JSON.parse(raw); } catch (_) {
+      if (el) el.innerHTML = `<em style="color:#c87070;">Bad JSON from /api/auth/pending: ${raw.slice(0,80)}</em>`;
+      return;
+    }
     renderPendingList(data.items || []);
   } catch (e) {
-    if (el) el.innerHTML = '<em style="color:#c87070;">Failed to load pending approvals.</em>';
+    if (el) el.innerHTML =
+      `<em style="color:#c87070;">Network error loading approvals: ${e.message || e}</em>`;
   }
 }
 

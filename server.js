@@ -1,7 +1,7 @@
 'use strict';
 
 // ── DEPLOY VERSION — updated on every push so Railway logs confirm new code ──
-const DEPLOY_VERSION = '1.3.1-2026-05-30';
+const DEPLOY_VERSION = '1.3.2-2026-05-30';
 
 // ── Load .env in development (ignored on Railway — vars injected by platform) ──
 try { require('dotenv').config(); } catch (_) { /* dotenv optional */ }
@@ -786,6 +786,7 @@ app.get('/profile', requireMember, (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'member-profile.html'));
 });
 app.get('/schoolmaster', requireAdmin, (_req, res) => {
+  res.setHeader('Cache-Control', 'no-store');
   res.sendFile(path.join(__dirname, 'public', 'schoolmaster-dashboard.html'));
 });
 app.get('/lesson', requireMember, (req, res) => {
