@@ -346,22 +346,36 @@ app.use('/auth', authRouter);
       return res.status(400).json({ error: 'Full name, Member ID, email, and password are required.' });
     }
 
-    const registry      = readRegistry();
     const accounts      = readAccounts();
     const normalizedId  = String(memberId).trim().toUpperCase();
-    const normalizedName = String(fullName).trim().toUpperCase();
+    const normalizedName = String(fullName).trim();
 
-    const member = registry.find(m => m.memberId === normalizedId);
-    if (!member) {
-      return res.status(403).json({ error: 'Member ID not found. Contact the Schoolmaster.' });
-    }
-
-    if (!member.portalEligible) {
-      return res.status(403).json({ error: 'This Member ID is not eligible for portal access.' });
-    }
-
-    if (member.fullName && member.fullName.trim().toUpperCase() !== normalizedName) {
-      return res.status(403).json({ error: 'Full name does not match the member registry.' });
+    // ── Auto-add to registry if not already present ──
+    // Students no longer need to be pre-added by the SM before they can register.
+    // If the ID is new, we create a registry entry automatically so the SM sees
+    // the request in the registry panel and can approve it.
+    let registry = readRegistry();
+    let regEntry = registry.find(m => m.memberId === normalizedId);
+    if (!regEntry) {
+      // New student — add them to the registry automatically
+      regEntry = {
+        memberId:       normalizedId,
+        fullName:       normalizedName,
+        portalEligible: true,
+        addedAt:        new Date().toISOString(),
+        autoAdded:      true   // flag so SM knows this was self-registered
+      };
+      registry.push(regEntry);
+      writeRegistry(registry);
+    } else {
+      // Already in registry — check name match if SM pre-filled a name
+      if (regEntry.fullName &&
+          regEntry.fullName.trim().toUpperCase() !== normalizedName.toUpperCase()) {
+        return res.status(403).json({ error: 'Full name does not match the member registry. Contact the Schoolmaster.' });
+      }
+      if (!regEntry.portalEligible) {
+        return res.status(403).json({ error: 'This Member ID is not eligible for portal access.' });
+      }
     }
 
     if (accounts.some(a => a.memberId === normalizedId)) {
@@ -371,7 +385,7 @@ app.use('/auth', authRouter);
     const passwordHash = await bcrypt.hash(password, 12);
     accounts.push({
       memberId:       normalizedId,
-      fullName:       fullName.trim(),
+      fullName:       normalizedName,
       email:          String(email).trim().toLowerCase(),
       passwordHash,
       role:           'member',
@@ -380,7 +394,7 @@ app.use('/auth', authRouter);
     });
 
     writeAccounts(accounts);
-    return res.json({ ok: true, message: 'Account request submitted.' });
+    return res.json({ ok: true, message: 'Account request submitted. The Schoolmaster will review and approve your account.' });
   });
 
   // ── GET /api/auth/pending  — Schoolmaster only (JWT role: schoolmaster) ──
@@ -441,6 +455,52 @@ app.use('/auth', authRouter);
     accounts[idx].approvedBy     = smMemberId;
     writeAccounts(accounts);
 
+    // ── On APPROVE: promote to userStore so the member appears in the roster ──
+    // The member roster (/api/progression/members) reads from userStore (users.json).
+    // Registry-only accounts never appear there. When the SM approves, we create a
+    // full userStore record so the member shows up in the roster immediately and the
+    // SM can assign them a class.
+    if (action === 'approve') {
+      const { getAllUsers, addRawUser } = require('./src/auth/userStore');
+      const acct = accounts[idx];
+      const allUsers = getAllUsers();
+      const alreadyInStore = allUsers.find(
+        u => u.memberId && u.memberId.trim().toUpperCase() === normalizedId
+      );
+      if (!alreadyInStore) {
+        addRawUser({
+          id:              Date.now().toString(),
+          username:        acct.fullName,
+          salutation:      null,
+          role:            'member',
+          memberId:        normalizedId,
+          password:        acct.passwordHash,   // reuse the bcrypt hash
+          email:           acct.email || null,
+          createdAt:       acct.createdAt || new Date().toISOString(),
+          // Progression defaults
+          assignedProgram: null,
+          programHistory:  [],
+          currentWeek:     null,
+          examSubmissions: [],
+          progressNotes:   [],
+          unlockedSlugs:   ['levie','squire','corporal','sergeant','sfc','knight-aspirant',
+                            'knight','lieutenant','captain','major','commander','chaplain'],
+          rank:            null,
+          rankName:        null,
+          rankAssignedAt:  null,
+          rankHistory:     [],
+          programStatus:   'active',
+          statusNote:      null,
+          statusChangedAt: null,
+          temple:          null,
+          phone:           null,
+          photoPath:       null,
+          birthday:        null,
+        });
+        console.log(`✠ Approved member ${normalizedId} (${acct.fullName}) promoted to userStore.`);
+      }
+    }
+
     return res.json({ ok: true });
   });
 
@@ -463,26 +523,87 @@ app.use('/auth', authRouter);
     } catch { res.status(401).json({ error: 'Unauthorized.' }); return null; }
   }
 
-  // ── GET /api/registry  — list all registry + accounts (SM only) ──
+  // ── GET /api/registry  — list all registry + accounts + userStore members (SM only) ──
+  // Returns a unified list so the SM sees every member regardless of how they registered:
+  //   • Members added via the Add-to-Registry form (private/member-registry.json)
+  //   • Members who self-registered and were auto-added to the registry
+  //   • Original userStore members (data/users.json) — imported from the old system
   app.get('/api/registry', (req, res) => {
     if (!smJwtCheck(req, res)) return;
     const registry = readRegistry();
     const accounts = readAccounts();
-    const merged = registry.map(r => {
-      const acct = accounts.find(a => a.memberId === r.memberId) || null;
+
+    // Pull all members from userStore so legacy + directly-seeded members appear too
+    const { getAllUsers } = require('./src/auth/userStore');
+    const storeMembers = (getAllUsers() || []).filter(u => u.role === 'member');
+
+    // Build a map keyed by memberId for fast lookup
+    const regMap = new Map(registry.map(r => [r.memberId, r]));
+
+    // Ensure every userStore member has a registry entry (virtual if needed)
+    storeMembers.forEach(u => {
+      const id = (u.memberId || '').trim().toUpperCase();
+      if (!id) return;
+      if (!regMap.has(id)) {
+        // Synthesise a registry entry from userStore data so SM can see and manage them
+        const synth = {
+          memberId:       id,
+          fullName:       u.username || '',
+          portalEligible: true,
+          addedAt:        u.createdAt || null,
+          fromUserStore:  true   // marker — not in registry file, but shown for completeness
+        };
+        regMap.set(id, synth);
+      }
+    });
+
+    // Build merged list: registry entry + matching account + userStore status
+    const merged = Array.from(regMap.values()).map(r => {
+      const acct  = accounts.find(a => a.memberId === r.memberId) || null;
+      const store = storeMembers.find(u =>
+        u.memberId && u.memberId.trim().toUpperCase() === r.memberId
+      ) || null;
+
+      // Derive approval status: explicit account record wins;
+      // if member is already in userStore (approved path), treat as approved.
+      let accountInfo = null;
+      if (acct) {
+        accountInfo = {
+          approvalStatus: acct.approvalStatus,
+          email:          acct.email || (store && store.email) || '',
+          createdAt:      acct.createdAt || null,
+          approvedAt:     acct.approvedAt || null,
+        };
+      } else if (store) {
+        // userStore member with no accounts.json entry — they were added directly
+        // (seeded, or registered via the old /auth/register form). Treat as approved.
+        accountInfo = {
+          approvalStatus: 'approved',
+          email:          store.email || '',
+          createdAt:      store.createdAt || null,
+          approvedAt:     store.createdAt || null,
+        };
+      }
+
       return {
         memberId:       r.memberId,
-        fullName:       r.fullName || '',
+        fullName:       r.fullName || (store && store.username) || '',
         portalEligible: r.portalEligible !== false,
         addedAt:        r.addedAt || null,
-        account:        acct ? {
-          approvalStatus: acct.approvalStatus,
-          email:          acct.email || '',
-          createdAt:      acct.createdAt || null,
-          approvedAt:     acct.approvedAt || null
-        } : null
+        fromUserStore:  r.fromUserStore || false,
+        account:        accountInfo,
       };
     });
+
+    // Sort: pending approvals first, then alphabetically by name
+    merged.sort((a, b) => {
+      const aStatus = a.account ? a.account.approvalStatus : 'none';
+      const bStatus = b.account ? b.account.approvalStatus : 'none';
+      if (aStatus === 'pending' && bStatus !== 'pending') return -1;
+      if (bStatus === 'pending' && aStatus !== 'pending') return 1;
+      return (a.fullName || '').localeCompare(b.fullName || '');
+    });
+
     return res.json({ items: merged });
   });
 

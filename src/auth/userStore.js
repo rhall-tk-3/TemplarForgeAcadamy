@@ -158,6 +158,17 @@ function getMemberUsers() {
   return readAll().filter(u => u.role === 'member').map(safeUser);
 }
 
+// ── Add a fully-formed user object (used when promoting registry accounts) ──
+// Unlike createUser(), this bypasses name-uniqueness checks and accepts a
+// pre-hashed password so approved portal accounts can be promoted without
+// re-hashing. The caller is responsible for deduplication checks.
+function addRawUser(userObj) {
+  const users = readAll();
+  users.push(userObj);
+  writeAll(users);
+  return userObj;
+}
+
 module.exports = {
   seedSchoolmaster,
   findByUsername,
@@ -167,6 +178,7 @@ module.exports = {
   deleteUser,
   getAllUsers,
   getMemberUsers,
+  addRawUser,
   safeUser,
   RESERVED_NAMES
 };
