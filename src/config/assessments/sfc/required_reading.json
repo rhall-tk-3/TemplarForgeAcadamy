@@ -1,0 +1,219 @@
+{
+  "program_slug": "sfc",
+  "program_title": "Sergeant First Class School Program",
+  "program_phase": "Rank advancement",
+  "source_required_reading_file": "public/programs/sfc/resources/sfc-required-reading-list.html",
+  "weeks": [
+    {
+      "week_number": 1,
+      "week_title": "Week 1 From Sergeant to SFC",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "SFC Lesson Plan",
+          "url": "https://www.genspark.ai/api/files/s/TeOiSCUN"
+        },
+        {
+          "title": "Britannica: Templars",
+          "url": "https://www.britannica.com/topic/Templars"
+        },
+        {
+          "title": "KTKC Rules and Statutes",
+          "url": "https://www.genspark.ai/api/files/s/xHK8Sw25"
+        }
+      ],
+      "key_terms": [
+        "Review the true historical Templars",
+        "the transition into SFC rank",
+        "and the Christian virtue standard for visible leadership."
+      ],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 2,
+      "week_title": "Week 2 Suppression, legacy, and historical boundary",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Britannica: Clement V",
+          "url": "https://www.britannica.com/biography/Clement-V"
+        },
+        {
+          "title": "HISTORY: Friday the 13th",
+          "url": "https://www.history.com/articles/why-friday-the-13th-spelled-doom-for-the-knights-templar"
+        },
+        {
+          "title": "National Geographic: Templar myth",
+          "url": "https://www.nationalgeographic.com/culture/article/160512-friday-13-knights-templar-superstition"
+        }
+      ],
+      "key_terms": [
+        "Study the end of the medieval order and learn where documented history stops and later legend begins."
+      ],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 3,
+      "week_title": "Week 3 Modern Templar revivals",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "OSMTH: Modern Order History",
+          "url": "https://www.osmth.org/templar-legacy/modern-order-history"
+        },
+        {
+          "title": "Britannica: Templars",
+          "url": "https://www.britannica.com/topic/Templars"
+        },
+        {
+          "title": "Curriculum Handbook",
+          "url": "https://www.genspark.ai/api/files/s/KCiRchxo"
+        }
+      ],
+      "key_terms": [
+        "Trace how modern groups adopted Templar language",
+        "especially the 1804 revival tradition",
+        "without claiming direct medieval continuity."
+      ],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 4,
+      "week_title": "Week 4 True Templar virtues vs. Masonic Templar orders",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Britannica: Freemasonry Facts",
+          "url": "https://www.britannica.com/facts/Freemasonry"
+        },
+        {
+          "title": "York Rite: Knights Templar",
+          "url": "https://www.yorkriteusa.org/commandery.htm"
+        },
+        {
+          "title": "Grand Encampment: About",
+          "url": "https://www.usagekt.org/about/"
+        }
+      ],
+      "key_terms": [
+        "Understand the difference between Christian virtue-centered Templar formation and the Masonic York Rite structure",
+        "including Britannica’s note that Freemasonry has no historical connection to the medieval Templars."
+      ],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 5,
+      "week_title": "Week 5 SFC rank, duty, and leadership",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "KTKC Rules and Statutes",
+          "url": "https://www.genspark.ai/api/files/s/xHK8Sw25"
+        },
+        {
+          "title": "Promotion Manual and By-Laws",
+          "url": "https://www.genspark.ai/api/files/s/rJ4ZJBEe"
+        },
+        {
+          "title": "SFC Lesson Plan",
+          "url": "https://www.genspark.ai/api/files/s/TeOiSCUN"
+        }
+      ],
+      "key_terms": [
+        "Focus on SFC responsibilities: discipline",
+        "attendance",
+        "fellowship",
+        "correction without cruelty",
+        "and leadership by service rather than privilege."
+      ],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 6,
+      "week_title": "Week 6 Battles, courage, and the power of faith",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "ThoughtCo: Battle of Montgisard",
+          "url": "https://www.thoughtco.com/crusades-battle-of-montgisard-2360719"
+        },
+        {
+          "title": "Britannica: Battle of Hattin",
+          "url": "https://www.britannica.com/event/Battle-of-Hattin"
+        },
+        {
+          "title": "Britannica: Crusades",
+          "url": "https://www.britannica.com/event/Crusades"
+        }
+      ],
+      "key_terms": [
+        "Use Montgisard and Hattin as case studies in morale",
+        "discipline",
+        "leadership",
+        "endurance",
+        "and the role faith played in courage under pressure."
+      ],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 7,
+      "week_title": "Week 7 Modern Christian witness and public service",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "KTKC Rules and Statutes",
+          "url": "https://www.genspark.ai/api/files/s/xHK8Sw25"
+        },
+        {
+          "title": "OSMTH: Modern Order History",
+          "url": "https://www.osmth.org/templar-legacy/modern-order-history"
+        },
+        {
+          "title": "Promotion Manual and By-Laws",
+          "url": "https://www.genspark.ai/api/files/s/rJ4ZJBEe"
+        }
+      ],
+      "key_terms": [
+        "Connect Templar identity to charity",
+        "discipline",
+        "brotherhood",
+        "truthful witness",
+        "and leadership in modern society."
+      ],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 8,
+      "week_title": "Week 8 Knight Aspirant readiness and essay preparation",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Promotion Manual and By-Laws",
+          "url": "https://www.genspark.ai/api/files/s/rJ4ZJBEe"
+        },
+        {
+          "title": "KTKC Rules and Statutes",
+          "url": "https://www.genspark.ai/api/files/s/xHK8Sw25"
+        },
+        {
+          "title": "SFC Lesson Plan",
+          "url": "https://www.genspark.ai/api/files/s/TeOiSCUN"
+        }
+      ],
+      "key_terms": [
+        "Prepare for Knight Aspirant by reviewing monk-like discipline",
+        "modern virtue application",
+        "and the essay prompt on what a Templar Knight means to you."
+      ],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    }
+  ]
+}

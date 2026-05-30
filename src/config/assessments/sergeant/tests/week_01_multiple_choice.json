@@ -1,0 +1,127 @@
+{
+  "program_title": "Sergeant School Program",
+  "week_number": 1,
+  "week_title": "Week 1: From Corporal to Sergeant — Historical Review, Scope, and Source-Based Method",
+  "multiple_choice_questions": [
+    {
+      "question": "What is the primary focus of Week 1: From Corporal to Sergeant — Historical Review, Scope, and Source-Based Method?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "This week centers on from corporal to sergeant."
+        },
+        {
+          "option": "B",
+          "text": "Week 2: Expansion, Patronage, and Legitimacy in Europe"
+        },
+        {
+          "option": "C",
+          "text": "Week 3: Organization, Offices, Provinces, and Internal Classes"
+        },
+        {
+          "option": "D",
+          "text": "Week 4: Military Operations, Logistics, Command, and Disciplined Service"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "This week centers on from corporal to sergeant.",
+      "rationale": "The week summary states that This week centers on from corporal to sergeant."
+    },
+    {
+      "question": "Which reading is explicitly assigned for Week 1: From Corporal to Sergeant — Historical Review, Scope, and Source-Based Method?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Sergeant School — 8 Week Lesson Plan Program"
+        },
+        {
+          "option": "B",
+          "text": "Corporal School — 8 Week Lesson Plan Program"
+        },
+        {
+          "option": "C",
+          "text": "Britannica: Templars"
+        },
+        {
+          "option": "D",
+          "text": "Curriculum Handbook"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Sergeant School — 8 Week Lesson Plan Program",
+      "rationale": "Sergeant School — 8 Week Lesson Plan Program appears in the required reading list for this week."
+    },
+    {
+      "question": "Which concept is most directly associated with Week 1: From Corporal to Sergeant — Historical Review, Scope, and Source-Based Method?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Documented History"
+        },
+        {
+          "option": "B",
+          "text": "Myth vs Fact"
+        },
+        {
+          "option": "C",
+          "text": "Accountability"
+        },
+        {
+          "option": "D",
+          "text": "1119/1120"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Documented History",
+      "rationale": "The week is organized around the concept of Documented History."
+    },
+    {
+      "question": "Which statement best reflects the expected learning outcome for Week 1: From Corporal to Sergeant — Historical Review, Scope, and Source-Based Method?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Sergeant study deepens the Corporal historical foundation through source-based method."
+        },
+        {
+          "option": "B",
+          "text": "Truthful history requires evidence, chronology, and disciplined judgment."
+        },
+        {
+          "option": "C",
+          "text": "Friday the 13th, Grail legends, and conspiracies must be taught carefully and critically."
+        },
+        {
+          "option": "D",
+          "text": "Hugh de Payns’ European tour helped secure broad support for the order."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Sergeant study deepens the Corporal historical foundation through source-based method.",
+      "rationale": "This statement matches the stated memory target or focus for the week: Sergeant study deepens the Corporal historical foundation through source-based method."
+    },
+    {
+      "question": "Which response best applies the lesson of Week 1: From Corporal to Sergeant — Historical Review, Scope, and Source-Based Method?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Apply the lesson of From Corporal to Sergeant through disciplined conduct, truthful understanding, and practical service."
+        },
+        {
+          "option": "B",
+          "text": "Treat From Corporal to Sergeant mainly as ceremonial prestige without practical duty."
+        },
+        {
+          "option": "C",
+          "text": "Ignore assigned readings and rely on legend or speculation about From Corporal to Sergeant."
+        },
+        {
+          "option": "D",
+          "text": "Approach From Corporal to Sergeant as private opinion rather than accountable formation."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Apply the lesson of From Corporal to Sergeant through disciplined conduct, truthful understanding, and practical service.",
+      "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+    }
+  ]
+}

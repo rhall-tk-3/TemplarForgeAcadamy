@@ -1,0 +1,127 @@
+{
+  "program_title": "Knight Aspirant School Program",
+  "week_number": 1,
+  "week_title": "Week 1: The Calling of a Knight Aspirant",
+  "multiple_choice_questions": [
+    {
+      "question": "What is the primary focus of Week 1: The Calling of a Knight Aspirant?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior."
+        },
+        {
+          "option": "B",
+          "text": "Focus: Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability."
+        },
+        {
+          "option": "C",
+          "text": "Focus: Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service."
+        },
+        {
+          "option": "D",
+          "text": "Focus: Clarify that the Knight’s true warfare is first spiritual: resisting sin, guarding speech, protecting the weak, and standing faithfully within Christian brotherhood."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior.",
+      "rationale": "The week summary states that Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior."
+    },
+    {
+      "question": "Which reading is explicitly assigned for Week 1: The Calling of a Knight Aspirant?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Knight Aspirant Lesson Plan Program"
+        },
+        {
+          "option": "B",
+          "text": "Promotion Manual & By-Laws"
+        },
+        {
+          "option": "C",
+          "text": "KTKC Rules & Statutes"
+        },
+        {
+          "option": "D",
+          "text": "Week 2: Prayer, Scripture, and Rule of Life"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Knight Aspirant Lesson Plan Program",
+      "rationale": "Knight Aspirant Lesson Plan Program appears in the required reading list for this week."
+    },
+    {
+      "question": "Which concept is most directly associated with Week 1: The Calling of a Knight Aspirant?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "The Calling of a Knight Aspirant"
+        },
+        {
+          "option": "B",
+          "text": "Week 2: Prayer, Scripture, and Rule of Life"
+        },
+        {
+          "option": "C",
+          "text": "Week 3: Virtue, Charity, and Self-Mastery"
+        },
+        {
+          "option": "D",
+          "text": "Week 4: Spiritual Warfare, Brotherhood, and Knight Readiness"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "The Calling of a Knight Aspirant",
+      "rationale": "The week is organized around the concept of The Calling of a Knight Aspirant."
+    },
+    {
+      "question": "Which statement best reflects the expected learning outcome for Week 1: The Calling of a Knight Aspirant?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior."
+        },
+        {
+          "option": "B",
+          "text": "Focus: Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability."
+        },
+        {
+          "option": "C",
+          "text": "Focus: Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service."
+        },
+        {
+          "option": "D",
+          "text": "Focus: Clarify that the Knight’s true warfare is first spiritual: resisting sin, guarding speech, protecting the weak, and standing faithfully within Christian brotherhood."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior.",
+      "rationale": "This statement matches the stated memory target or focus for the week: Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior."
+    },
+    {
+      "question": "Which response best applies the lesson of Week 1: The Calling of a Knight Aspirant?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Apply the lesson of The Calling of a Knight Aspirant through disciplined conduct, truthful understanding, and practical service."
+        },
+        {
+          "option": "B",
+          "text": "Treat The Calling of a Knight Aspirant mainly as ceremonial prestige without practical duty."
+        },
+        {
+          "option": "C",
+          "text": "Ignore assigned readings and rely on legend or speculation about The Calling of a Knight Aspirant."
+        },
+        {
+          "option": "D",
+          "text": "Approach The Calling of a Knight Aspirant as private opinion rather than accountable formation."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Apply the lesson of The Calling of a Knight Aspirant through disciplined conduct, truthful understanding, and practical service.",
+      "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+    }
+  ]
+}

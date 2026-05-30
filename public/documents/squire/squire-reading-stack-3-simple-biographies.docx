@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Squire Reading Stack 3: Simple Biographies</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <style>
+      body {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 32px 80px;
+        position: relative;
+        box-sizing: border-box;
+        font-family: 'Times New Roman', Times, serif;
+        background-color: #ffffff;
+        color: #000000;
+        line-height: 1.6;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: #000000;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+        margin-bottom: 16px;
+      }
+      h1 {
+        text-align: center;
+        font-size: 2.2rem;
+        border-bottom: 2px solid #000;
+        padding-bottom: 10px;
+      }
+      h2 {
+        font-size: 1.8rem;
+        margin-top: 0;
+      }
+      h3 {
+        font-size: 1.3rem;
+        margin-top: 24px;
+        margin-bottom: 8px;
+        text-decoration: underline;
+      }
+      p {
+        margin-bottom: 16px;
+        text-align: justify;
+      }
+      ul {
+        margin-bottom: 16px;
+        padding-left: 40px;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      .intro-section {
+        margin-bottom: 40px;
+      }
+      .biography-section {
+        margin-top: 40px;
+        break-before: page;
+        page-break-before: always;
+      }
+      .key-facts-box {
+        border: 1px solid #000000;
+        padding: 16px 24px;
+        margin: 24px 0;
+        background-color: #fdfdfd;
+      }
+      .key-facts-box h4 {
+        margin-top: 0;
+        margin-bottom: 12px;
+        font-size: 1.2rem;
+        text-align: center;
+      }
+      .footer-note {
+        margin-top: 60px;
+        border-top: 1px solid #000;
+        padding-top: 16px;
+        font-size: 0.9rem;
+        font-style: italic;
+        text-align: center;
+      }
+      hr {
+        border: 0;
+        border-top: 1px solid #000;
+        margin: 40px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="intro-section">
+      <h1>Squire Reading Stack 3: Simple Biographies</h1>
+      <p>
+        <strong>Introduction:</strong> Welcome to the third reading stack for Squire School. This document introduces
+        the key historical figures that every Squire must know.
+      </p>
+      <p>
+        <em
+          >Note: These biographies support Squire reading, memory work, timeline review, and board preparation. They are
+          designed to be studied carefully alongside your weekly lessons.</em
+        >
+      </p>
+    </div>
+
+    <!-- Biography 1: Hugh de Payns -->
+    <div class="biography-section">
+      <h2>Hugh de Payns</h2>
+
+      <h3>Who Was This Person?</h3>
+      <p>
+        Hugh de Payns is the founder most closely linked with the order. He and his first companions established the
+        group to serve a specific mission.
+      </p>
+
+      <h3>Why This Person Matters in Squire School</h3>
+      <p>
+        Hugh de Payns matters because he is directly connected to why the order began. Learning about him helps Squires
+        understand the foundational purpose of the order and the importance of its first companions.
+      </p>
+
+      <h3>Where This Person Fits in the Timeline</h3>
+      <p>
+        He fits at the very beginning of the order's history. The founding under Hugh de Payns occurred around 1119 or
+        1120, which was after the First Crusade (1095–1099).
+      </p>
+
+      <div class="key-facts-box">
+        <h4>Key Facts to Remember</h4>
+        <ul>
+          <li>Founder most closely linked with the order.</li>
+          <li>Founded the order around 1119 or 1120.</li>
+          <li>Acted alongside the first companions.</li>
+        </ul>
+      </div>
+
+      <h3>Remember This</h3>
+      <p>Hugh de Payns is the founder most closely linked with the order's beginnings around 1119 or 1120.</p>
+    </div>
+
+    <!-- Biography 2: Baldwin II -->
+    <div class="biography-section">
+      <h2>Baldwin II</h2>
+
+      <h3>Who Was This Person?</h3>
+      <p>Baldwin II was the king of Jerusalem during the early days of the order.</p>
+
+      <h3>Why This Person Matters in Squire School</h3>
+      <p>
+        Baldwin II matters because he is connected with the early Templars and the Kingdom of Jerusalem. Knowing his
+        role helps Squires understand the political setting in which the order operated.
+      </p>
+
+      <h3>Where This Person Fits in the Timeline</h3>
+      <p>
+        He fits in the early timeline around the founding of the order in 1119 or 1120, establishing the order's
+        connection to the Kingdom of Jerusalem.
+      </p>
+
+      <div class="key-facts-box">
+        <h4>Key Facts to Remember</h4>
+        <ul>
+          <li>King of Jerusalem.</li>
+          <li>Connected to the early Templars.</li>
+        </ul>
+      </div>
+
+      <h3>Remember This</h3>
+      <p>Baldwin II was the king of Jerusalem who was connected with the early Templars.</p>
+    </div>
+
+    <!-- Biography 3: Bernard of Clairvaux -->
+    <div class="biography-section">
+      <h2>Bernard of Clairvaux</h2>
+
+      <h3>Who Was This Person?</h3>
+      <p>Bernard of Clairvaux was an important church figure and a major supporter of the order.</p>
+
+      <h3>Why This Person Matters in Squire School</h3>
+      <p>
+        He matters because he was an important supporter of the order after its founding. While he was not a founder
+        himself, his support helped the order gain recognition.
+      </p>
+
+      <h3>Where This Person Fits in the Timeline</h3>
+      <p>
+        He fits into the timeline after the founding, particularly around the time of the Council of Troyes (around 1128
+        or 1129), when the order received formal support.
+      </p>
+
+      <div class="key-facts-box">
+        <h4>Key Facts to Remember</h4>
+        <ul>
+          <li>Important supporter of the order.</li>
+          <li>Provided support after the order was already founded.</li>
+        </ul>
+      </div>
+
+      <h3>Remember This</h3>
+      <p>Bernard of Clairvaux was an important supporter of the order after its founding.</p>
+    </div>
+
+    <!-- Biography 4: Innocent II -->
+    <div class="biography-section">
+      <h2>Innocent II</h2>
+
+      <h3>Who Was This Person?</h3>
+      <p>Innocent II was a pope who recognized and supported the order's mission.</p>
+
+      <h3>Why This Person Matters in Squire School</h3>
+      <p>
+        He matters because he granted major privileges to the order. This papal support was a significant event in the
+        order's history.
+      </p>
+
+      <h3>Where This Person Fits in the Timeline</h3>
+      <p>Pope Innocent II fits into the timeline in the year 1139, which is when he granted these major privileges.</p>
+
+      <div class="key-facts-box">
+        <h4>Key Facts to Remember</h4>
+        <ul>
+          <li>He was a pope.</li>
+          <li>Granted major privileges to the order.</li>
+          <li>Acted in the year 1139.</li>
+        </ul>
+      </div>
+
+      <h3>Remember This</h3>
+      <p>Pope Innocent II granted major privileges to the order in 1139.</p>
+    </div>
+
+    <!-- Biography 5: Philip IV -->
+    <div class="biography-section">
+      <h2>Philip IV</h2>
+
+      <h3>Who Was This Person?</h3>
+      <p>Philip IV was a ruler in France during the later years of the order.</p>
+
+      <h3>Why This Person Matters in Squire School</h3>
+      <p>
+        He matters because he is the ruler who ordered the arrests of the Templars in France, marking the beginning of
+        the order's major crisis.
+      </p>
+
+      <h3>Where This Person Fits in the Timeline</h3>
+      <p>
+        Philip IV fits into the timeline in 1307, the year he ordered the arrests. This occurred after the fall of Acre
+        in 1291.
+      </p>
+
+      <div class="key-facts-box">
+        <h4>Key Facts to Remember</h4>
+        <ul>
+          <li>Ruler in France.</li>
+          <li>Ordered the arrests of the Templars.</li>
+          <li>The arrests took place in 1307.</li>
+        </ul>
+      </div>
+
+      <h3>Remember This</h3>
+      <p>Philip IV was the ruler who ordered the arrests of the Templars in France in 1307.</p>
+    </div>
+
+    <!-- Biography 6: Clement V -->
+    <div class="biography-section">
+      <h2>Clement V</h2>
+
+      <h3>Who Was This Person?</h3>
+      <p>Clement V was the pope during the final years of the order's existence.</p>
+
+      <h3>Why This Person Matters in Squire School</h3>
+      <p>
+        He matters because he is the pope who officially suppressed the order, bringing its formal history to a close.
+      </p>
+
+      <h3>Where This Person Fits in the Timeline</h3>
+      <p>
+        Pope Clement V fits into the timeline in 1312, which is the year he suppressed the order (five years after the
+        arrests in 1307).
+      </p>
+
+      <div class="key-facts-box">
+        <h4>Key Facts to Remember</h4>
+        <ul>
+          <li>He was a pope.</li>
+          <li>Suppressed the order.</li>
+          <li>The suppression happened in 1312.</li>
+        </ul>
+      </div>
+
+      <h3>Remember This</h3>
+      <p>Pope Clement V suppressed the order in 1312.</p>
+    </div>
+
+    <!-- Biography 7: Jacques de Molay -->
+    <div class="biography-section">
+      <h2>Jacques de Molay</h2>
+
+      <h3>Who Was This Person?</h3>
+      <p>Jacques de Molay was the last Grand Master of the order.</p>
+
+      <h3>Why This Person Matters in Squire School</h3>
+      <p>
+        He matters because he is connected to the very end of the order. Understanding his role helps Squires complete
+        their knowledge of the order's historical timeline.
+      </p>
+
+      <h3>Where This Person Fits in the Timeline</h3>
+      <p>
+        He fits at the end of the historical timeline. Jacques de Molay was executed in 1314, after the suppression of
+        the order in 1312.
+      </p>
+
+      <div class="key-facts-box">
+        <h4>Key Facts to Remember</h4>
+        <ul>
+          <li>The last Grand Master.</li>
+          <li>Connected to the end of the order.</li>
+          <li>Executed in 1314.</li>
+        </ul>
+      </div>
+
+      <h3>Remember This</h3>
+      <p>Jacques de Molay was the last Grand Master and was executed in 1314.</p>
+    </div>
+
+    <!-- Review Section -->
+    <div class="biography-section">
+      <h2>Names Every Squire Should Know</h2>
+      <p>Review this simple list of the seven key figures and their most important historical actions:</p>
+      <ul>
+        <li><strong>Hugh de Payns:</strong> The founder most closely linked with the order (around 1119 or 1120).</li>
+        <li><strong>Baldwin II:</strong> The king of Jerusalem connected with the early Templars.</li>
+        <li><strong>Bernard of Clairvaux:</strong> An important supporter of the order after its founding.</li>
+        <li><strong>Innocent II:</strong> The pope who granted major privileges to the order in 1139.</li>
+        <li><strong>Philip IV:</strong> The ruler who ordered the arrests of the Templars in France in 1307.</li>
+        <li><strong>Clement V:</strong> The pope who suppressed the order in 1312.</li>
+        <li><strong>Jacques de Molay:</strong> The last Grand Master, executed in 1314.</li>
+      </ul>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-note">
+      <p>
+        This handout is based on official Squire School curriculum materials and should be studied with timeline sheets,
+        school handouts, and supervised class discussion.
+      </p>
+    </div>
+  </body>
+</html>

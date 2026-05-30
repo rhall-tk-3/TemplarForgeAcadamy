@@ -3,3 +3,6 @@ node_modules/
 *.sqlite
 *.log
 .DS_Store
+
+# Member roster exports — personal data, never commit
+private/

@@ -1,87 +1,404 @@
 {
   "title": "KTKC Repository Resource Library",
-
   "programOrder": [
-    "squire", "levie", "corporal", "sergeant", "sfc",
-    "knight-aspirant", "knight", "lieutenant", "captain", "major", "commander"
+    "squire",
+    "levie",
+    "corporal",
+    "sergeant",
+    "sfc",
+    "knight-aspirant",
+    "knight",
+    "lieutenant",
+    "captain",
+    "major",
+    "commander"
   ],
-
   "programDocuments": {
     "squire": {
-      "handbookTitle": "Squire Curriculum Handbook",
-      "handbookPath":  "/documents/handbooks/squire.docx",
-      "outlineTitle":  "Squire School — Weekly Lesson Outline",
-      "outlinePath":   "/documents/outlines/squire.html"
+      "handbookTitle": "Squire Program Handbook",
+      "handbookPath": "/documents/view/squire-handbook.html",
+      "outlineTitle": "Squire School — Weekly Lesson Outline",
+      "outlinePath": "/documents/outlines/squire.html"
     },
     "levie": {
-      "handbookTitle": "Levie Curriculum Handbook",
-      "handbookPath":  "/documents/handbooks/levie.docx",
-      "outlineTitle":  "Levie School — Weekly Lesson Outline",
-      "outlinePath":   "/documents/outlines/levie.html"
+      "handbookTitle": "Levie Program Handbook",
+      "handbookPath": "/documents/view/levie-handbook.html",
+      "outlineTitle": "Levie School — Weekly Lesson Outline",
+      "outlinePath": "/documents/outlines/levie.html"
     },
     "corporal": {
-      "handbookTitle": "Corporal Curriculum Handbook",
-      "handbookPath":  "/documents/handbooks/corporal.docx",
-      "outlineTitle":  "Corporal School — Weekly Lesson Outline",
-      "outlinePath":   "/documents/outlines/corporal.html"
+      "handbookTitle": "Corporal Program Handbook",
+      "handbookPath": "/documents/view/corporal-handbook.html",
+      "outlineTitle": "Corporal School — Weekly Lesson Outline",
+      "outlinePath": "/documents/outlines/corporal.html"
     },
     "sergeant": {
-      "handbookTitle": "Sergeant Curriculum Handbook",
-      "handbookPath":  "/documents/handbooks/sergeant.docx",
-      "outlineTitle":  "Sergeant School — Weekly Lesson Outline",
-      "outlinePath":   "/documents/outlines/sergeant.html"
+      "handbookTitle": "Sergeant Program Handbook",
+      "handbookPath": "/documents/view/sergeant-handbook.html",
+      "outlineTitle": "Sergeant School — Weekly Lesson Outline",
+      "outlinePath": "/documents/outlines/sergeant.html"
     },
     "sfc": {
-      "handbookTitle": "Sergeant First Class Curriculum Handbook",
-      "handbookPath":  "/documents/handbooks/sfc.docx",
-      "outlineTitle":  "SFC School — Weekly Lesson Outline",
-      "outlinePath":   "/documents/outlines/sfc.html"
+      "handbookTitle": "Sergeant First Class Handbook",
+      "handbookPath": "/documents/view/sfc-handbook.html",
+      "outlineTitle": "SFC School — Weekly Lesson Outline",
+      "outlinePath": "/documents/outlines/sfc.html"
     },
     "knight-aspirant": {
-      "handbookTitle": "Knight Aspirant Curriculum Handbook",
-      "handbookPath":  "/documents/handbooks/knight-aspirant.docx",
-      "outlineTitle":  "Knight Aspirant School — Weekly Lesson Outline",
-      "outlinePath":   "/documents/outlines/knight-aspirant.html"
+      "handbookTitle": "Knight Aspirant Program Handbook",
+      "handbookPath": "/documents/view/knight-aspirant-handbook.html",
+      "outlineTitle": "Knight Aspirant School — Weekly Lesson Outline",
+      "outlinePath": "/documents/outlines/knight-aspirant.html"
     },
     "knight": {
-      "handbookTitle": "Knight Curriculum Handbook",
-      "handbookPath":  "/documents/handbooks/knight.docx",
-      "outlineTitle":  "Knight School — Weekly Lesson Outline",
-      "outlinePath":   "/documents/outlines/knight.html"
+      "handbookTitle": "Knight Program Handbook",
+      "handbookPath": "/documents/view/knight-handbook.html",
+      "outlineTitle": "Knight School — Weekly Lesson Outline",
+      "outlinePath": "/documents/outlines/knight.html"
     },
     "lieutenant": {
-      "handbookTitle": "Knight Lieutenant Curriculum Handbook",
-      "handbookPath":  "/documents/handbooks/lieutenant.docx",
-      "outlineTitle":  "Knight Lieutenant School — Weekly Lesson Outline",
-      "outlinePath":   "/documents/outlines/lieutenant.html"
+      "handbookTitle": "Knight Lieutenant Handbook",
+      "handbookPath": "/documents/view/lieutenant-handbook.html",
+      "outlineTitle": "Knight Lieutenant School — Weekly Lesson Outline",
+      "outlinePath": "/documents/outlines/lieutenant.html"
     },
     "captain": {
-      "handbookTitle": "Knight Captain Curriculum Handbook",
-      "handbookPath":  "/documents/handbooks/captain.docx",
-      "outlineTitle":  "Knight Captain School — Weekly Lesson Outline",
-      "outlinePath":   "/documents/outlines/captain.html"
+      "handbookTitle": "Knight Captain Handbook",
+      "handbookPath": "/documents/view/captain-handbook.html",
+      "outlineTitle": "Knight Captain School — Weekly Lesson Outline",
+      "outlinePath": "/documents/outlines/captain.html"
     },
     "major": {
-      "handbookTitle": "Knight Major Curriculum Handbook",
-      "handbookPath":  "/documents/handbooks/major.docx",
-      "outlineTitle":  "Knight Major School — Weekly Lesson Outline",
-      "outlinePath":   "/documents/outlines/major.html"
+      "handbookTitle": "Knight Major Handbook",
+      "handbookPath": "/documents/view/major-handbook.html",
+      "outlineTitle": "Knight Major School — Weekly Lesson Outline",
+      "outlinePath": "/documents/outlines/major.html"
     },
     "commander": {
-      "handbookTitle": "Knight Commander Curriculum Handbook",
-      "handbookPath":  "/documents/handbooks/commander.docx",
-      "outlineTitle":  "Knight Commander School — Weekly Lesson Outline",
-      "outlinePath":   "/documents/outlines/commander.html"
+      "handbookTitle": "Knight Commander Handbook",
+      "handbookPath": "/documents/view/commander-handbook.html",
+      "outlineTitle": "Knight Commander School — Weekly Lesson Outline",
+      "outlinePath": "/documents/outlines/commander.html"
     }
   },
-
   "permanentDocuments": {
     "promotionManual": {
       "title": "KTKC Promotion Manual & By-Laws",
-      "path":  "/documents/handbooks/promotion-manual.docx",
-      "note":  "Available at every level of progression"
+      "path": "/documents/view/promotion-manual.html",
+      "note": "Available at every level of progression"
     }
   },
-
+  "programSourceDocuments": {
+    "levie": [
+      {
+        "title": "Levie Program Handbook",
+        "path": "/documents/view/levie-handbook.html",
+        "type": "html",
+        "icon": "📋"
+      },
+      {
+        "title": "KTKC Rules and Statutes",
+        "path": "/documents/view/ktkc-rules-and-statutes.html",
+        "type": "html",
+        "icon": "⚖"
+      },
+      {
+        "title": "KTKC Promotion Manual & By-Laws",
+        "path": "/documents/view/promotion-manual.html",
+        "type": "html",
+        "icon": "⚖"
+      },
+      {
+        "title": "My Reading Log",
+        "path": "/reading-log",
+        "type": "html",
+        "icon": "📖"
+      }
+    ],
+    "squire": [
+      {
+        "title": "Squire Program Handbook",
+        "path": "/documents/view/squire-handbook.html",
+        "type": "html",
+        "icon": "📋"
+      },
+      {
+        "title": "Squire Required Reading List",
+        "path": "/documents/squire/squire-required-reading-list.docx",
+        "type": "html",
+        "icon": "📖"
+      },
+      {
+        "title": "Reading Stack 1 — Order Structure",
+        "path": "/documents/squire/squire-reading-stack-1-order-structure.docx",
+        "type": "html",
+        "icon": "📗"
+      },
+      {
+        "title": "Reading Stack 2 — Historical Timeline",
+        "path": "/documents/squire/squire-reading-stack-2-historical-timeline.docx",
+        "type": "html",
+        "icon": "📗"
+      },
+      {
+        "title": "Reading Stack 3 — Simple Biographies",
+        "path": "/documents/squire/squire-reading-stack-3-simple-biographies.docx",
+        "type": "html",
+        "icon": "📗"
+      },
+      {
+        "title": "Reading Stack 4 — Short Excerpts",
+        "path": "/documents/squire/squire-reading-stack-4-short-excerpts.docx",
+        "type": "html",
+        "icon": "📗"
+      },
+      {
+        "title": "Squire Required Reading — Weekly Table",
+        "path": "/squire-reading",
+        "type": "html",
+        "icon": "📖"
+      },
+      {
+        "title": "KTKC Promotion Manual & By-Laws",
+        "path": "/documents/view/promotion-manual.html",
+        "type": "html",
+        "icon": "⚖"
+      }
+    ],
+    "corporal": [
+      {
+        "title": "Corporal Program Handbook",
+        "path": "/documents/view/corporal-handbook.html",
+        "type": "html",
+        "icon": "📋"
+      },
+      {
+        "title": "Corporal School — Weekly Lesson Outline",
+        "path": "/documents/outlines/corporal.html",
+        "type": "html",
+        "icon": "📘"
+      },
+      {
+        "title": "KTKC Rules and Statutes",
+        "path": "/documents/view/ktkc-rules-and-statutes.html",
+        "type": "html",
+        "icon": "⚖"
+      },
+      {
+        "title": "KTKC Promotion Manual & By-Laws",
+        "path": "/documents/view/promotion-manual.html",
+        "type": "html",
+        "icon": "⚖"
+      }
+    ],
+    "sergeant": [
+      {
+        "title": "Sergeant Program Handbook",
+        "path": "/documents/view/sergeant-handbook.html",
+        "type": "html",
+        "icon": "📋"
+      },
+      {
+        "title": "Sergeant School — Weekly Lesson Outline",
+        "path": "/documents/outlines/sergeant.html",
+        "type": "html",
+        "icon": "📘"
+      },
+      {
+        "title": "KTKC Rules and Statutes",
+        "path": "/documents/view/ktkc-rules-and-statutes.html",
+        "type": "html",
+        "icon": "⚖"
+      },
+      {
+        "title": "KTKC Promotion Manual & By-Laws",
+        "path": "/documents/view/promotion-manual.html",
+        "type": "html",
+        "icon": "⚖"
+      }
+    ],
+    "sfc": [
+      {
+        "title": "Sergeant First Class Handbook",
+        "path": "/documents/view/sfc-handbook.html",
+        "type": "html",
+        "icon": "📋"
+      },
+      {
+        "title": "SFC School — Weekly Lesson Outline",
+        "path": "/documents/outlines/sfc.html",
+        "type": "html",
+        "icon": "📘"
+      },
+      {
+        "title": "KTKC Rules and Statutes",
+        "path": "/documents/view/ktkc-rules-and-statutes.html",
+        "type": "html",
+        "icon": "⚖"
+      },
+      {
+        "title": "KTKC Promotion Manual & By-Laws",
+        "path": "/documents/view/promotion-manual.html",
+        "type": "html",
+        "icon": "⚖"
+      }
+    ],
+    "knight-aspirant": [
+      {
+        "title": "Knight Aspirant Program Handbook",
+        "path": "/documents/view/knight-aspirant-handbook.html",
+        "type": "html",
+        "icon": "📋"
+      },
+      {
+        "title": "Knight Aspirant School — Weekly Lesson Outline",
+        "path": "/documents/outlines/knight-aspirant.html",
+        "type": "html",
+        "icon": "📘"
+      },
+      {
+        "title": "KTKC Rules and Statutes",
+        "path": "/documents/view/ktkc-rules-and-statutes.html",
+        "type": "html",
+        "icon": "⚖"
+      },
+      {
+        "title": "KTKC Promotion Manual & By-Laws",
+        "path": "/documents/view/promotion-manual.html",
+        "type": "html",
+        "icon": "⚖"
+      }
+    ],
+    "knight": [
+      {
+        "title": "Knight Program Handbook",
+        "path": "/documents/view/knight-handbook.html",
+        "type": "html",
+        "icon": "📋"
+      },
+      {
+        "title": "Knight School — Weekly Lesson Outline",
+        "path": "/documents/outlines/knight.html",
+        "type": "html",
+        "icon": "📘"
+      },
+      {
+        "title": "KTKC Rules and Statutes",
+        "path": "/documents/view/ktkc-rules-and-statutes.html",
+        "type": "html",
+        "icon": "⚖"
+      },
+      {
+        "title": "KTKC Promotion Manual & By-Laws",
+        "path": "/documents/view/promotion-manual.html",
+        "type": "html",
+        "icon": "⚖"
+      }
+    ],
+    "lieutenant": [
+      {
+        "title": "Knight Lieutenant Handbook",
+        "path": "/documents/view/lieutenant-handbook.html",
+        "type": "html",
+        "icon": "📋"
+      },
+      {
+        "title": "Knight Lieutenant School — Weekly Lesson Outline",
+        "path": "/documents/outlines/lieutenant.html",
+        "type": "html",
+        "icon": "📘"
+      },
+      {
+        "title": "KTKC Rules and Statutes",
+        "path": "/documents/view/ktkc-rules-and-statutes.html",
+        "type": "html",
+        "icon": "⚖"
+      },
+      {
+        "title": "KTKC Promotion Manual & By-Laws",
+        "path": "/documents/view/promotion-manual.html",
+        "type": "html",
+        "icon": "⚖"
+      }
+    ],
+    "captain": [
+      {
+        "title": "Knight Captain Handbook",
+        "path": "/documents/view/captain-handbook.html",
+        "type": "html",
+        "icon": "📋"
+      },
+      {
+        "title": "Knight Captain School — Weekly Lesson Outline",
+        "path": "/documents/outlines/captain.html",
+        "type": "html",
+        "icon": "📘"
+      },
+      {
+        "title": "KTKC Rules and Statutes",
+        "path": "/documents/view/ktkc-rules-and-statutes.html",
+        "type": "html",
+        "icon": "⚖"
+      },
+      {
+        "title": "KTKC Promotion Manual & By-Laws",
+        "path": "/documents/view/promotion-manual.html",
+        "type": "html",
+        "icon": "⚖"
+      }
+    ],
+    "major": [
+      {
+        "title": "Knight Major Handbook",
+        "path": "/documents/view/major-handbook.html",
+        "type": "html",
+        "icon": "📋"
+      },
+      {
+        "title": "Knight Major School — Weekly Lesson Outline",
+        "path": "/documents/outlines/major.html",
+        "type": "html",
+        "icon": "📘"
+      },
+      {
+        "title": "KTKC Rules and Statutes",
+        "path": "/documents/view/ktkc-rules-and-statutes.html",
+        "type": "html",
+        "icon": "⚖"
+      },
+      {
+        "title": "KTKC Promotion Manual & By-Laws",
+        "path": "/documents/view/promotion-manual.html",
+        "type": "html",
+        "icon": "⚖"
+      }
+    ],
+    "commander": [
+      {
+        "title": "Knight Commander Handbook",
+        "path": "/documents/view/commander-handbook.html",
+        "type": "html",
+        "icon": "📋"
+      },
+      {
+        "title": "Knight Commander School — Weekly Lesson Outline",
+        "path": "/documents/outlines/commander.html",
+        "type": "html",
+        "icon": "📘"
+      },
+      {
+        "title": "KTKC Rules and Statutes",
+        "path": "/documents/view/ktkc-rules-and-statutes.html",
+        "type": "html",
+        "icon": "⚖"
+      },
+      {
+        "title": "KTKC Promotion Manual & By-Laws",
+        "path": "/documents/view/promotion-manual.html",
+        "type": "html",
+        "icon": "⚖"
+      }
+    ]
+  },
   "sections": []
 }

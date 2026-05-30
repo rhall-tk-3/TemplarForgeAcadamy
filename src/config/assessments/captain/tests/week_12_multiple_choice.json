@@ -1,0 +1,127 @@
+{
+  "program_title": "Captain School Program",
+  "week_number": 12,
+  "week_title": "Week 12 — Capstone Preparation and Captain’s Board Review",
+  "multiple_choice_questions": [
+    {
+      "question": "What is the primary focus of Week 12 — Capstone Preparation and Captain’s Board Review?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "integrate the course into a final portfolio and readiness review."
+        },
+        {
+          "option": "B",
+          "text": "shift from task leadership to stewardship of a local body."
+        },
+        {
+          "option": "C",
+          "text": "understand the commandery as a local center of mission, discipline, and logistics."
+        },
+        {
+          "option": "D",
+          "text": "connect the historical commander role to the modern Captain rank."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "integrate the course into a final portfolio and readiness review.",
+      "rationale": "The week summary states that integrate the course into a final portfolio and readiness review."
+    },
+    {
+      "question": "Which reading is explicitly assigned for Week 12 — Capstone Preparation and Captain’s Board Review?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Captain School Syllabus PDF"
+        },
+        {
+          "option": "B",
+          "text": "Captain School Lesson Plan"
+        },
+        {
+          "option": "C",
+          "text": "Wikipedia: Knights Templar"
+        },
+        {
+          "option": "D",
+          "text": "Week 1 — The Burden of Local Command"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Captain School Syllabus PDF",
+      "rationale": "Captain School Syllabus PDF appears in the required reading list for this week."
+    },
+    {
+      "question": "Which concept is most directly associated with Week 12 — Capstone Preparation and Captain’s Board Review?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Capstone Preparation and Captain’s Board Review"
+        },
+        {
+          "option": "B",
+          "text": "Week 1 — The Burden of Local Command"
+        },
+        {
+          "option": "C",
+          "text": "Week 2 — The Medieval Commandery"
+        },
+        {
+          "option": "D",
+          "text": "Week 3 — The Office of Commander / Preceptor"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Capstone Preparation and Captain’s Board Review",
+      "rationale": "The week is organized around the concept of Capstone Preparation and Captain’s Board Review."
+    },
+    {
+      "question": "Which statement best reflects the expected learning outcome for Week 12 — Capstone Preparation and Captain’s Board Review?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "integrate the course into a final portfolio and readiness review."
+        },
+        {
+          "option": "B",
+          "text": "shift from task leadership to stewardship of a local body."
+        },
+        {
+          "option": "C",
+          "text": "understand the commandery as a local center of mission, discipline, and logistics."
+        },
+        {
+          "option": "D",
+          "text": "connect the historical commander role to the modern Captain rank."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "integrate the course into a final portfolio and readiness review.",
+      "rationale": "This statement matches the stated memory target or focus for the week: integrate the course into a final portfolio and readiness review."
+    },
+    {
+      "question": "Which response best applies the lesson of Week 12 — Capstone Preparation and Captain’s Board Review?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Apply the lesson of Capstone Preparation and Captain’s Board Review through disciplined conduct, truthful understanding, and practical service."
+        },
+        {
+          "option": "B",
+          "text": "Treat Capstone Preparation and Captain’s Board Review mainly as ceremonial prestige without practical duty."
+        },
+        {
+          "option": "C",
+          "text": "Ignore assigned readings and rely on legend or speculation about Capstone Preparation and Captain’s Board Review."
+        },
+        {
+          "option": "D",
+          "text": "Approach Capstone Preparation and Captain’s Board Review as private opinion rather than accountable formation."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Apply the lesson of Capstone Preparation and Captain’s Board Review through disciplined conduct, truthful understanding, and practical service.",
+      "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+    }
+  ]
+}

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Knight Aspirant School — Lesson Plan Program</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #0a0804;
+  color: #e0cc98;
+  font-family: 'Crimson Text', serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  padding: 40px 24px 80px;
+}
+.wrap { max-width: 820px; margin: 0 auto; }
+/* ── Back ── */
+.back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Cinzel', serif; font-size: 0.78rem;
+  color: #b8960c; text-decoration: none;
+  border: 1px solid rgba(184,150,12,0.4);
+  border-radius: 4px; padding: 6px 14px;
+  margin-bottom: 32px; letter-spacing: 0.05em;
+  transition: background 0.18s, color 0.18s;
+}
+.back:hover { background: rgba(184,150,12,0.12); color: #e8c040; }
+/* ── Header ── */
+.doc-header {
+  border-bottom: 1px solid rgba(180,140,60,0.3);
+  padding-bottom: 22px; margin-bottom: 36px;
+}
+.doc-kicker {
+  font-family: 'Cinzel', serif; font-size: 0.68rem;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: #6a5020; margin-bottom: 10px;
+}
+.doc-title {
+  font-family: 'Cinzel', serif; font-size: 1.65rem;
+  font-weight: 700; color: #e8c850; line-height: 1.25; margin-bottom: 4px;
+}
+.doc-sub {
+  font-size: 0.88rem; color: #8a7040; font-style: italic;
+}
+/* ── Section headings ── */
+h2.section-h {
+  font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 700;
+  color: #c8a020; letter-spacing: 0.06em; margin: 40px 0 12px;
+  padding-bottom: 6px; border-bottom: 1px solid rgba(200,160,32,0.2);
+}
+h3.section-sh {
+  font-family: 'Cinzel', serif; font-size: 0.88rem; font-weight: 600;
+  color: #b89040; letter-spacing: 0.05em; margin: 24px 0 8px;
+}
+h4.section-sh4 {
+  font-family: 'Cinzel', serif; font-size: 0.78rem; font-weight: 600;
+  color: #8a6828; letter-spacing: 0.06em; margin: 18px 0 6px;
+  text-transform: uppercase;
+}
+/* ── Body text ── */
+p.body-p {
+  color: #d0bc88; margin-bottom: 14px; line-height: 1.8;
+}
+/* ── Lists ── */
+ul.list-ul {
+  margin: 0 0 14px 0; padding-left: 0; list-style: none;
+  display: flex; flex-direction: column; gap: 6px;
+}
+ul.list-ul li {
+  display: flex; gap: 10px; align-items: flex-start;
+  color: #c8b880; line-height: 1.65; font-size: 1rem;
+}
+ul.list-ul li::before {
+  content: '\2726'; color: #c8a020; font-size: 0.62rem;
+  flex-shrink: 0; margin-top: 7px;
+}
+ol.list-ol {
+  margin: 0 0 14px 0; padding-left: 0; list-style: none;
+  display: flex; flex-direction: column; gap: 6px;
+  counter-reset: ol-counter;
+}
+ol.list-ol li {
+  display: flex; gap: 10px; align-items: flex-start;
+  color: #c8b880; line-height: 1.65; font-size: 1rem;
+  counter-increment: ol-counter;
+}
+ol.list-ol li::before {
+  content: counter(ol-counter) ".";
+  color: #c8a020; font-family: 'Cinzel', serif; font-size: 0.78rem;
+  flex-shrink: 0; margin-top: 4px; min-width: 20px;
+}
+/* ── Callout ── */
+.callout {
+  background: rgba(180,140,60,0.08);
+  border-left: 3px solid rgba(200,160,32,0.5);
+  padding: 14px 18px; margin: 20px 0;
+  color: #c8b880; font-size: 0.97rem; line-height: 1.75;
+  border-radius: 0 3px 3px 0;
+}
+.callout strong { color: #e8c850; }
+/* ── Scripture block ── */
+.scripture-block {
+  margin: 0 0 18px 0;
+  padding: 14px 18px 14px 20px;
+  border-left: 2px solid rgba(200,160,32,0.35);
+  background: rgba(255,255,255,0.02);
+}
+.scripture-ref {
+  font-family: 'Cinzel', serif; font-size: 0.75rem;
+  color: #c8a020; letter-spacing: 0.08em; margin-bottom: 5px;
+}
+.scripture-text {
+  color: #c8b880; font-style: italic; line-height: 1.7; font-size: 1rem;
+}
+/* ── Week block ── */
+.week-block {
+  margin: 36px 0 0;
+  padding: 24px 26px;
+  border: 1px solid rgba(180,140,60,0.2);
+  border-radius: 4px;
+  background: rgba(255,255,255,0.015);
+}
+.week-num {
+  font-family: 'Cinzel', serif; font-size: 0.68rem;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: #6a5020; margin-bottom: 4px;
+}
+.week-title {
+  font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 700;
+  color: #e8c850; margin-bottom: 16px; line-height: 1.3;
+}
+.week-block h3.section-sh { margin-top: 16px; }
+/* ── Essay specs table ── */
+.spec-table {
+  width: 100%; border-collapse: collapse;
+  margin: 14px 0 0; font-size: 0.97rem;
+}
+.spec-table td {
+  padding: 9px 14px; vertical-align: top;
+  border: 1px solid rgba(180,140,60,0.22);
+  color: #c8b880; line-height: 1.6;
+}
+.spec-table td:first-child {
+  font-family: 'Cinzel', serif; font-size: 0.72rem;
+  letter-spacing: 0.06em; color: #c8a020; font-weight: 600;
+  background: rgba(180,140,60,0.07); white-space: nowrap;
+  width: 36%;
+}
+.spec-table tr:nth-child(even) td:last-child {
+  background: rgba(255,255,255,0.02);
+}
+/* ── Inline link ── */
+a.inline-link {
+  color: #c8a020; text-decoration: underline;
+  text-underline-offset: 2px;
+}
+a.inline-link:hover { color: #e8c040; }
+/* ── Note block ── */
+.note-block {
+  margin-top: 40px; padding: 18px 20px;
+  border: 1px solid rgba(180,140,60,0.18);
+  border-radius: 4px; background: rgba(255,255,255,0.015);
+}
+.note-block h3.section-sh { margin-top: 0; }
+/* ── Source block / footer ── */
+.source-block {
+  margin-top: 48px; padding-top: 20px;
+  border-top: 1px solid rgba(180,140,60,0.2);
+}
+.hub-footer {
+  margin-top: 40px; padding-top: 16px;
+  border-top: 1px solid rgba(180,140,60,0.15);
+  font-size: 0.88rem; color: #6a5020; line-height: 1.9;
+}
+.hub-footer a { color: #8a6820; text-decoration: underline; text-underline-offset: 2px; }
+.hub-footer a:hover { color: #c8a020; }
+/* ── Print ── */
+@media print {
+  body { background: #fff; color: #111; padding: 20px; }
+  .back { display: none; }
+  .doc-title { color: #111; }
+  .doc-kicker, .doc-sub { color: #666; }
+  h2.section-h { color: #333; border-color: #ccc; }
+  h3.section-sh { color: #555; }
+  h4.section-sh4 { color: #777; }
+  p.body-p, ul.list-ul li, ol.list-ol li { color: #222; }
+  .callout { background: #f5f5f0; border-color: #999; color: #333; }
+  .callout strong { color: #111; }
+  .scripture-block { border-color: #ccc; background: #fafafa; }
+  .scripture-ref { color: #555; }
+  .scripture-text { color: #444; }
+  .week-block { border-color: #ccc; background: #fafafa; }
+  .week-num { color: #888; }
+  .week-title { color: #111; }
+  .spec-table td { color: #333; border-color: #ccc; }
+  .spec-table td:first-child { color: #555; background: #eee; }
+  .note-block { border-color: #ccc; background: #fafafa; }
+  a.inline-link { color: #555; }
+}
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="#">&#8592; Back</a>
+
+  <div class="doc-header">
+    <div class="doc-kicker">&#10013; Knights Templar of the Kingdom of Christ &middot; Templar Forge Academy</div>
+    <div class="doc-title">Knight Aspirant School — Lesson Plan Program</div>
+    <div class="doc-sub">An Adult Formation Program &mdash; The Next Step After Sergeant First Class</div>
+  </div>
+
+  <!-- ── Program Overview ── -->
+  <h2 class="section-h">Program Overview</h2>
+  <p class="body-p">The Knight Aspirant School is an intensive 8-week period of formation preparing adult candidates for the responsibilities of Christian knighthood. This program deliberately moves away from historical timelines and structural memorization, focusing entirely on inward spiritual discipline and the articulation of personal calling.</p>
+  <div class="callout">
+    This 8-week program is divided into two distinct phases:<br>
+    <strong>Weeks 1&ndash;4:</strong> Class instruction and guided spiritual formation.<br>
+    <strong>Weeks 5&ndash;8:</strong> Writing, refining, and submitting the required Knight Aspirant essay.
+  </div>
+  <p class="body-p">The core philosophy of this program is that an aspirant is being prepared for Christian knighthood through inward discipline before they can ever be trusted with outward responsibility.</p>
+
+  <!-- ── Standards and Spiritual Emphasis ── -->
+  <h2 class="section-h">Knight Aspirant Standards and Spiritual Emphasis</h2>
+  <p class="body-p">The central, unmistakable emphasis of the Knight Aspirant program is this: <strong>A Templar is first a monk before a warrior.</strong></p>
+  <p class="body-p">Outward symbols, rank, and imagery mean absolutely nothing without inward conversion, Christian conduct, and mature obedience. Before a candidate may bear the title of Knight, they must demonstrate mastery over themselves. This formation relies heavily on:</p>
+  <ul class="list-ul">
+    <li><strong>Prayer and Scripture:</strong> The daily anchor of the aspirant&rsquo;s life and the primary weapon of spiritual warfare.</li>
+    <li><strong>Self-Mastery and Discipline:</strong> Governing one&rsquo;s speech, impulses, and ego.</li>
+    <li><strong>Charity and Humility:</strong> Serving others selflessly and rejecting vanity or the desire for prestige.</li>
+    <li><strong>Obedience:</strong> Submission to godly authority and the Rule of the Order.</li>
+    <li><strong>Spiritual Warfare before Outward Combat Imagery:</strong> Recognizing that the true battle is against sin, darkness, and spiritual forces, rather than earthly adversaries.</li>
+    <li><strong>Peacemaking and Wise Restraint:</strong> Knowing exactly when to stand firm in truth, and when to walk away from foolish disputes.</li>
+  </ul>
+
+  <!-- ── Scripture and Formation Anchors ── -->
+  <h2 class="section-h">Scripture and Formation Anchors</h2>
+  <p class="body-p">The following Scriptures form the foundational anchor for the Knight Aspirant&rsquo;s conduct. They emphasize spiritual warfare, peacemaking, restraint, courage, steadfastness, and disciplined conduct.</p>
+
+  <div class="scripture-block">
+    <div class="scripture-ref">Ephesians 6:10&ndash;18</div>
+    <div class="scripture-text">The true armor of a Templar is spiritual, worn to stand against the schemes of the devil.</div>
+  </div>
+  <div class="scripture-block">
+    <div class="scripture-ref">2 Corinthians 10:3&ndash;5</div>
+    <div class="scripture-text">Our weapons are not of the flesh, but have divine power to destroy strongholds and take every thought captive.</div>
+  </div>
+  <div class="scripture-block">
+    <div class="scripture-ref">Matthew 5:9</div>
+    <div class="scripture-text">Blessed are the peacemakers, for they shall be called sons of God; a true knight seeks peace above conflict.</div>
+  </div>
+  <div class="scripture-block">
+    <div class="scripture-ref">Romans 12:18</div>
+    <div class="scripture-text">If possible, so far as it depends on you, live peaceably with all; restraint is a mark of mature strength.</div>
+  </div>
+  <div class="scripture-block">
+    <div class="scripture-ref">James 1:19&ndash;20</div>
+    <div class="scripture-text">Let every person be quick to hear, slow to speak, and slow to anger; human anger does not produce the righteousness of God.</div>
+  </div>
+  <div class="scripture-block">
+    <div class="scripture-ref">Proverbs 15:1</div>
+    <div class="scripture-text">A soft answer turns away wrath, but a harsh word stirs up anger; the tongue must be disciplined.</div>
+  </div>
+  <div class="scripture-block">
+    <div class="scripture-ref">1 Timothy 4:7&ndash;8</div>
+    <div class="scripture-text">Train yourself for godliness; physical training is of some value, but godliness is of value in every way.</div>
+  </div>
+  <div class="scripture-block">
+    <div class="scripture-ref">2 Timothy 2:3&ndash;4</div>
+    <div class="scripture-text">Share in suffering as a good soldier of Christ Jesus, avoiding entanglement in civilian pursuits to please the one who enlisted him.</div>
+  </div>
+  <div class="scripture-block">
+    <div class="scripture-ref">Micah 6:8</div>
+    <div class="scripture-text">He has told you, O man, what is good: to do justice, and to love kindness, and to walk humbly with your God.</div>
+  </div>
+
+  <!-- ── Essay Specifications ── -->
+  <h2 class="section-h">Required Essay Specifications</h2>
+  <p class="body-p">During the final four weeks of this program, the aspirant must write an essay under the exact title:</p>
+  <div class="callout"><strong>&ldquo;What Does a Templar Knight Mean to You?&rdquo;</strong></div>
+  <p class="body-p">This essay is not busywork; it is a profound statement of calling, a demonstration of discipline, and a proof of readiness. The essay must adhere to the following strict specifications:</p>
+  <table class="spec-table">
+    <tr><td>Format</td><td>Standard college essay format</td></tr>
+    <tr><td>Cover Page</td><td>Formal cover page bearing the paper title — required</td></tr>
+    <tr><td>Spacing</td><td>Single-spaced</td></tr>
+    <tr><td>Length</td><td>One full page front and back if handwritten or printed double-sided, <em>or</em> two full typed pages if prepared in a Word document</td></tr>
+    <tr><td>Submission</td><td>Complete, neat, readable, and turned in by the assigned deadline</td></tr>
+    <tr><td>Content</td><td>Must deeply reflect personal conviction, Christian maturity, an understanding of Templar virtues, and readiness for Knightly responsibility</td></tr>
+  </table>
+
+  <!-- ── Weekly Curriculum ── -->
+  <h2 class="section-h">Weekly Curriculum</h2>
+
+  <!-- Week 1 -->
+  <div class="week-block">
+    <div class="week-num">Week 1 &mdash; Class Phase</div>
+    <div class="week-title">The Knight Aspirant Calling &mdash; Monk Before Warrior</div>
+    <p class="body-p">This week introduces the foundational concept of the aspirant journey. Before one can wear the mantle of a warrior, one must adopt the heart of a monk. Christian knighthood begins entirely with surrender to Christ.</p>
+    <h3 class="section-sh">Lesson Focus</h3>
+    <p class="body-p">Inward formation, the necessity of daily prayer, immersion in Scripture, and the embrace of humility.</p>
+    <h3 class="section-sh">Formation Emphasis</h3>
+    <p class="body-p">Recognizing that outward titles are hollow without an inward devotion to Christ and obedience to His Word.</p>
+    <h3 class="section-sh">Reflection Questions</h3>
+    <ul class="list-ul">
+      <li>In what areas of your life do you need to cultivate the &ldquo;monk&rdquo; (inward discipline) before you can act as the &ldquo;warrior&rdquo; (outward action)?</li>
+      <li>How does the concept of total surrender to Christ change your understanding of knighthood?</li>
+    </ul>
+    <h3 class="section-sh">Discussion Questions</h3>
+    <ul class="list-ul">
+      <li>Why is humility considered the foundational virtue of a Templar Knight?</li>
+      <li>Discuss the dangers of seeking the title of Knight without possessing the inward devotion of a monk.</li>
+    </ul>
+    <h3 class="section-sh">Readiness Goal</h3>
+    <p class="body-p">Establish a dedicated, unbroken daily rhythm of prayer and Scripture reading.</p>
+  </div>
+
+  <!-- Week 2 -->
+  <div class="week-block">
+    <div class="week-num">Week 2 &mdash; Class Phase</div>
+    <div class="week-title">Spiritual Warfare, Self-Mastery, and Christian Conduct</div>
+    <p class="body-p">A knight who cannot control his own temper, tongue, and impulses is a danger to the Order and a poor witness to Christ. This week focuses on the Armor of God and the absolute necessity of self-mastery.</p>
+    <h3 class="section-sh">Lesson Focus</h3>
+    <p class="body-p">Putting on the full armor of God; mastery over speech, anger, impulse, and vanity; distinguishing between righteous zeal and reckless behavior.</p>
+    <h3 class="section-sh">Formation Emphasis</h3>
+    <p class="body-p">The hardest battles are fought within. True spiritual warfare means conquering one&rsquo;s own ego and worldly desires.</p>
+    <h3 class="section-sh">Reflection Questions</h3>
+    <ul class="list-ul">
+      <li>When are you most tempted to respond with reckless emotion rather than disciplined restraint?</li>
+      <li>Which piece of the Armor of God (Ephesians 6) do you feel you lack the most right now, and why?</li>
+    </ul>
+    <h3 class="section-sh">Discussion Questions</h3>
+    <ul class="list-ul">
+      <li>What is the difference between righteous Christian zeal and reckless, ego-driven behavior?</li>
+      <li>How does a knight&rsquo;s mastery over their speech impact the reputation of the entire Order?</li>
+    </ul>
+    <h3 class="section-sh">Readiness Goal</h3>
+    <p class="body-p">Demonstrate visible restraint in speech and emotional response during conflicts or disagreements.</p>
+  </div>
+
+  <!-- Week 3 -->
+  <div class="week-block">
+    <div class="week-num">Week 3 &mdash; Class Phase</div>
+    <div class="week-title">Charity, Brotherhood, Service, and Witness in Modern Society</div>
+    <p class="body-p">Knighthood is not an isolated, historical fantasy; it is an active, modern calling to serve others. This week explores how ancient virtues are practically applied in today&rsquo;s world through charity and brotherhood.</p>
+    <h3 class="section-sh">Lesson Focus</h3>
+    <p class="body-p">Practicing mercy, selfless service, active fellowship, protection of the weak, and maintaining a Christian witness in secular society.</p>
+    <h3 class="section-sh">Formation Emphasis</h3>
+    <p class="body-p">Templar virtues must transfer into ordinary, daily life &mdash; at home, at work, and in the community.</p>
+    <h3 class="section-sh">Reflection Questions</h3>
+    <ul class="list-ul">
+      <li>How can you practically protect the weak or serve the marginalized in your current modern context?</li>
+      <li>Is your daily conduct at work and home a true reflection of the Christian witness you profess?</li>
+    </ul>
+    <h3 class="section-sh">Discussion Questions</h3>
+    <ul class="list-ul">
+      <li>Why is active participation in brotherhood/fellowship necessary for individual spiritual survival?</li>
+      <li>Discuss practical ways Templar virtues can be applied to ordinary, modern societal challenges without being theatrical.</li>
+    </ul>
+    <h3 class="section-sh">Readiness Goal</h3>
+    <p class="body-p">Identify and execute a specific act of anonymous charity or selfless service this week.</p>
+  </div>
+
+  <!-- Week 4 -->
+  <div class="week-block">
+    <div class="week-num">Week 4 &mdash; Class Phase</div>
+    <div class="week-title">Knightly Responsibility, Discernment, and Readiness</div>
+    <p class="body-p">The final week of class instruction focuses on the weight of leadership and the discernment required of a Knight. It prepares the aspirant to transition from learning to articulating their calling.</p>
+    <h3 class="section-sh">Lesson Focus</h3>
+    <p class="body-p">Exercising mature judgment, knowing when to stand firm vs. when to withdraw, honoring authority, and rejecting ego-driven conflict.</p>
+    <h3 class="section-sh">Formation Emphasis</h3>
+    <p class="body-p">True strength is often found in restraint. A Knight must discern the difference between a battle worth fighting and a distraction meant to derail them.</p>
+    <h3 class="section-sh">Reflection Questions</h3>
+    <ul class="list-ul">
+      <li>Can you recall a time when withdrawing or remaining silent took more courage than fighting or arguing?</li>
+      <li>Are you spiritually and emotionally ready to bear the weight of Knightly responsibility?</li>
+    </ul>
+    <h3 class="section-sh">Discussion Questions</h3>
+    <ul class="list-ul">
+      <li>How does a Knight determine when it is appropriate to stand firm versus when it is wise to walk away?</li>
+      <li>What does it mean to honor authority even when it requires sacrificing personal preference?</li>
+    </ul>
+    <h3 class="section-sh">Readiness Goal</h3>
+    <p class="body-p">Prepare mentally and spiritually to begin drafting the Knight Aspirant essay.</p>
+  </div>
+
+  <!-- Week 5 -->
+  <div class="week-block">
+    <div class="week-num">Week 5 &mdash; Essay Phase</div>
+    <div class="week-title">Essay Planning and Outline</div>
+    <p class="body-p">Transitioning from classroom instruction to personal articulation. Aspirants will spend this week outlining their required essay, &ldquo;What Does a Templar Knight Mean to You?&rdquo;</p>
+    <h3 class="section-sh">Weekly Task</h3>
+    <p class="body-p">Review the essay specifications. Draft a comprehensive outline covering historical understanding, spiritual calling, the &ldquo;monk before warrior&rdquo; ethos, and personal readiness.</p>
+    <h3 class="section-sh">Formation Emphasis</h3>
+    <p class="body-p">Clarity of thought reflects clarity of calling. Organizing the essay is an exercise in organizing one&rsquo;s spiritual priorities.</p>
+    <h3 class="section-sh">Reflection Question</h3>
+    <p class="body-p">What is the single most important conviction you want to convey in your essay?</p>
+    <h3 class="section-sh">Discussion Question</h3>
+    <p class="body-p">How does outlining your thoughts help clarify your actual readiness for Knighthood?</p>
+    <h3 class="section-sh">Readiness Goal</h3>
+    <p class="body-p">Complete a structured, detailed outline for the essay.</p>
+  </div>
+
+  <!-- Week 6 -->
+  <div class="week-block">
+    <div class="week-num">Week 6 &mdash; Essay Phase</div>
+    <div class="week-title">First Draft and Personal Conviction</div>
+    <p class="body-p">Writing the first full draft. This week requires deep introspection, translating the lessons of the past weeks into a cohesive statement of personal conviction.</p>
+    <h3 class="section-sh">Weekly Task</h3>
+    <p class="body-p">Write the rough draft of the essay. Ensure it meets the length requirements (one page front/back handwritten, or two full pages typed).</p>
+    <h3 class="section-sh">Formation Emphasis</h3>
+    <p class="body-p">Vulnerability and honesty before God. Do not write what sounds impressive; write what is true to your calling.</p>
+    <h3 class="section-sh">Reflection Question</h3>
+    <p class="body-p">Does your draft reflect a desire to serve Christ, or a desire for a title?</p>
+    <h3 class="section-sh">Discussion Question</h3>
+    <p class="body-p">What part of the essay is proving the most difficult to write, and why?</p>
+    <h3 class="section-sh">Readiness Goal</h3>
+    <p class="body-p">Complete the first full draft of the essay.</p>
+  </div>
+
+  <!-- Week 7 -->
+  <div class="week-block">
+    <div class="week-num">Week 7 &mdash; Essay Phase</div>
+    <div class="week-title">Revision, Clarity, and Alignment with Templar Virtues</div>
+    <p class="body-p">A Knight must be precise. This week is dedicated to refining, editing, and polishing the essay to ensure it aligns perfectly with Templar virtues.</p>
+    <h3 class="section-sh">Weekly Task</h3>
+    <p class="body-p">Edit the essay for grammar, flow, and formatting. Ensure the cover page is correct and the document is single-spaced. Check that it clearly articulates the &ldquo;monk before warrior&rdquo; concept.</p>
+    <h3 class="section-sh">Formation Emphasis</h3>
+    <p class="body-p">Discipline in the small things. Presenting a neat, well-edited document demonstrates respect for the Order and the process.</p>
+    <h3 class="section-sh">Reflection Question</h3>
+    <p class="body-p">How does the discipline of revising and correcting your work mirror the discipline of spiritual repentance?</p>
+    <h3 class="section-sh">Discussion Question</h3>
+    <p class="body-p">Why is attention to detail (like formatting and grammar) an important trait for a Knight?</p>
+    <h3 class="section-sh">Readiness Goal</h3>
+    <p class="body-p">Finalize the essay draft, completely free of errors.</p>
+  </div>
+
+  <!-- Week 8 -->
+  <div class="week-block">
+    <div class="week-num">Week 8 &mdash; Essay Phase</div>
+    <div class="week-title">Final Submission, Oral Readiness, and Review</div>
+    <p class="body-p">The culmination of the Aspirant School. The essay is submitted, and the candidate prepares for the Board&rsquo;s review of their overall conduct, attendance, and fellowship.</p>
+    <h3 class="section-sh">Weekly Task</h3>
+    <p class="body-p">Submit the final essay by the assigned deadline. Prepare to orally articulate the core points of your essay to leadership if asked.</p>
+    <h3 class="section-sh">Formation Emphasis</h3>
+    <p class="body-p">Standing ready. The aspirant has done the work and now submits to the judgment and timing of the Order&rsquo;s leadership.</p>
+    <h3 class="section-sh">Reflection Question</h3>
+    <p class="body-p">Are you at peace with yielding your advancement entirely to the discernment of the Board of Promotion?</p>
+    <h3 class="section-sh">Discussion Question</h3>
+    <p class="body-p">How will you maintain your spiritual momentum regardless of when your knighting ceremony takes place?</p>
+    <h3 class="section-sh">Readiness Goal</h3>
+    <p class="body-p">Submit the final essay and maintain impeccable conduct during the review period.</p>
+  </div>
+
+  <!-- ── Reading and Source Guidance ── -->
+  <div class="source-block">
+    <h2 class="section-h" style="margin-top:0;">Reading and Source Guidance</h2>
+    <p class="body-p">The following documents provide core context for Templar history, modern charitable identity, and KTKC regulations. They are provided to support your formation, essay writing, and discernment, rather than serving as a tested reading load.</p>
+    <ul class="list-ul">
+      <li><a class="inline-link" href="/documents/view/promotion-manual.html" target="_blank">Promotion Manual and By-Laws</a></li>
+      <li><a class="inline-link" href="/documents/view/ktkc-rules-and-statutes.html" target="_blank">KTKC Rules and Statutes</a></li>
+      <li><a class="inline-link" href="https://www.britannica.com/topic/Templars" target="_blank">Britannica: Templars</a></li>
+      <li><a class="inline-link" href="https://www.britannica.com/topic/Freemasonry" target="_blank">Britannica: Freemasonry Facts</a></li>
+      <li><a class="inline-link" href="https://www.osmth.org/templar-legacy/modern-order-history" target="_blank">OSMTH Modern Order History</a></li>
+    </ul>
+
+    <h3 class="section-sh">Optional Supplemental Reading &mdash; Broader Knowledge Only</h3>
+    <p class="body-p" style="color:#8a7040; font-size:0.93rem;">Not tested. Not required for promotion. For broader historical awareness and organizational understanding only.</p>
+    <p class="body-p">To fully understand the broader tapestry of Templar history and modern Templar-inspired charitable organizations, candidates may optionally explore the historical context of women within the Order:</p>
+    <ul class="list-ul">
+      <li>While the medieval Knights Templar was a monastic military order of men, it received significant spiritual and financial patronage from noblewomen who supported the Order&rsquo;s survival and logistics.</li>
+      <li>There are historical records of women acting as associate sisters (<em>sorores</em>) or participating in the domestic and spiritual life of certain regional commanderies, dedicating themselves to prayer and the support of the Order.</li>
+      <li>Many modern, secular, and charitable Templar-inspired organizations (such as OSMTH) fully integrate women as Dames, recognizing that the modern battle is one of charity, diplomacy, and Christian witness, which requires the faithful service of both men and women.</li>
+    </ul>
+  </div>
+
+  <!-- ── Schoolmaster Note ── -->
+  <div class="note-block">
+    <h3 class="section-sh">Note to the Schoolmaster and Board of Promotion</h3>
+    <p class="body-p">Completion of this 8-week class instruction and the submission of the required essay supports a candidate&rsquo;s promotion review. However, advancement to the rank of Knight is never automatic. It depends entirely on the candidate&rsquo;s demonstrated Christian conduct, consistent attendance, active fellowship, visible discipline, and overall spiritual readiness as determined by leadership.</p>
+  </div>
+
+  <div class="hub-footer">
+    Knight Aspirant resources:
+    <a href="/documents/view/knight-aspirant-handbook.html">Program Handbook</a> &middot;
+    <a href="/documents/view/knight-aspirant-required-reading-list.html">Required Reading List</a> &middot;
+    <a href="/documents/view/knight-aspirant-required-reading-hub.html">Required Reading Hub</a> &middot;
+    <a href="/documents/view/promotion-manual.html">Promotion Manual &amp; By-Laws</a> &middot;
+    <a href="/documents/view/ktkc-rules-and-statutes.html">KTKC Rules &amp; Statutes</a>
+  </div>
+
+</div>
+<script>
+(function(){
+  var back = document.querySelector('.back');
+  if(back){
+    back.addEventListener('click', function(e){
+      e.preventDefault();
+      if(window.opener && !window.opener.closed){ window.close(); return; }
+      var r = sessionStorage.getItem('lessonHubReturn');
+      if(r){ window.location = r; return; }
+      history.back();
+    });
+  }
+})();
+</script>
+</body>
+</html>

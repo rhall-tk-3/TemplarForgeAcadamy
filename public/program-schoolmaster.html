@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schoolmaster Resources — Templar Forge Academy</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:       #e8c040;
+      --gold-mid:   #c9a84c;
+      --gold-deep:  #b8960c;
+      --gold-dim:   #8a6e22;
+      --red:        #c0282a;
+      --red-dim:    #6a1010;
+      --bg:         #080304;
+      --bg2:        #0e0608;
+      --bg3:        #140a0a;
+      --bg4:        #1a0c0c;
+      --border:     #2a1210;
+      --border-hi:  #3e1a14;
+      --text:       #d4c5a0;
+      --text-dim:   #8a7a58;
+      --text-bright:#ede0b8;
+      --green:      #4caf78;
+      --green-dim:  #0a3a1a;
+      --amber:      #d4880a;
+    }
+
+    /* ── FULL-PAGE BG ── */
+    #page-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-color: var(--bg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    body {
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text);
+      min-height: 100vh;
+      position: relative;
+    }
+
+    .topbar, .hero, .content-wrap, #loading-wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      background: linear-gradient(180deg, rgba(10,0,5,.97) 0%, rgba(22,0,12,.92) 100%);
+      border-bottom: 1px solid var(--border-hi);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .topbar-left { display: flex; align-items: center; gap: 8px; font-family: 'Cinzel', serif; font-size: 0.78rem; }
+    .topbar-logo { color: var(--red); text-decoration: none; letter-spacing: 0.12em; font-weight: 700; }
+    .topbar-logo:hover { color: #e05050; }
+    .topbar-sep { color: var(--text-dim); }
+    .topbar-crumb { color: var(--gold-dim); letter-spacing: 0.08em; }
+    .topbar-right { display: flex; align-items: center; gap: 10px; }
+    .btn-sm {
+      padding: 5px 13px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      border: 1px solid var(--border-hi);
+      color: var(--text-dim);
+      text-decoration: none;
+      background: rgba(255,255,255,0.03);
+      transition: border-color .2s, color .2s;
+    }
+    .btn-sm:hover { border-color: var(--gold-dim); color: var(--gold); }
+    .btn-sm.red { border-color: var(--red-dim); color: var(--red); }
+    .btn-sm.red:hover { border-color: var(--red); color: #e05050; }
+    #nav-greeting { color: var(--text-dim); font-size: 0.72rem; letter-spacing: 0.06em; }
+
+    /* ── LOADING ── */
+    #loading-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 80px 24px;
+    }
+    .spinner {
+      width: 40px; height: 40px;
+      border: 3px solid var(--border-hi);
+      border-top-color: var(--red);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-text { font-family: 'Cinzel', serif; font-size: 0.8rem; color: var(--text-dim); letter-spacing: 0.15em; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(180deg, rgba(10,4,4,.65) 0%, rgba(8,3,3,.38) 50%, rgba(8,3,3,.62) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 42px 32px 32px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      color: var(--red);
+      text-transform: uppercase;
+      border: 1px solid var(--red-dim);
+      padding: 3px 12px;
+      margin-bottom: 14px;
+    }
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--text-bright);
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+    }
+    .hero-actions {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn-hero {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      padding: 8px 20px;
+      text-decoration: none;
+      border: 1px solid;
+      transition: background .2s, color .2s;
+    }
+    .btn-hero.primary { border-color: var(--red-dim); color: var(--red); background: rgba(140,0,0,.08); }
+    .btn-hero.primary:hover { background: rgba(140,0,0,.18); border-color: var(--red); }
+    .btn-hero.gold { border-color: var(--gold-dim); color: var(--gold-mid); background: rgba(184,150,12,.06); }
+    .btn-hero.gold:hover { background: rgba(184,150,12,.14); }
+
+    /* ── MAIN CONTENT ── */
+    .content-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px 80px;
+    }
+
+    /* ── SECTION HEADERS ── */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-icon {
+      font-size: 1.1rem;
+      width: 32px;
+      text-align: center;
+      opacity: 0.8;
+    }
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+    .section-count {
+      margin-left: auto;
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+    }
+
+    /* ── PANELS / CARDS ── */
+    .panel-section {
+      margin-bottom: 40px;
+    }
+    .doc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 12px;
+    }
+    .doc-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: border-color .2s, background .2s;
+    }
+    .doc-card:hover { border-color: var(--border-hi); background: var(--bg3); }
+    .doc-card-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      color: var(--text-bright);
+    }
+    .doc-card-desc { font-size: 0.85rem; color: var(--text-dim); }
+    .doc-card-actions { margin-top: 6px; display: flex; gap: 8px; flex-wrap: wrap; }
+    .doc-btn {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      border: 1px solid var(--border-hi);
+      color: var(--gold-dim);
+      text-decoration: none;
+      background: rgba(255,255,255,.02);
+      cursor: pointer;
+      transition: border-color .15s, color .15s;
+    }
+    .doc-btn:hover { border-color: var(--gold-dim); color: var(--gold); }
+    .doc-btn.red { border-color: var(--red-dim); color: var(--red); }
+    .doc-btn.red:hover { border-color: var(--red); color: #e05050; }
+
+    /* ── MEMBER ROSTER TABLE ── */
+    .roster-wrap {
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    thead th {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-hi);
+      white-space: nowrap;
+    }
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background .15s;
+    }
+    tbody tr:hover { background: rgba(255,255,255,.025); }
+    tbody td {
+      padding: 9px 12px;
+      color: var(--text);
+      vertical-align: middle;
+    }
+    .badge {
+      display: inline-block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      padding: 2px 8px;
+      border: 1px solid;
+    }
+    .badge-active  { border-color: #1a5a2a; color: var(--green);  background: rgba(20,80,40,.18); }
+    .badge-paused  { border-color: #4a3a0a; color: var(--amber);  background: rgba(80,60,10,.18); }
+    .badge-overdue { border-color: #5a1010; color: #e05050;       background: rgba(80,10,10,.18); }
+    .badge-pass    { border-color: #1a5a2a; color: var(--green);  background: rgba(20,80,40,.18); }
+    .badge-fail    { border-color: #5a1010; color: #e05050;       background: rgba(80,10,10,.18); }
+    .badge-pending { border-color: #4a3a0a; color: var(--amber);  background: rgba(80,60,10,.18); }
+
+    .week-bar-wrap { display: flex; align-items: center; gap: 6px; min-width: 120px; }
+    .week-bar-track { flex: 1; height: 4px; background: var(--border); border-radius: 2px; }
+    .week-bar-fill  { height: 4px; background: var(--red-dim); border-radius: 2px; transition: width .3s; }
+    .week-label { font-size: 0.78rem; color: var(--text-dim); white-space: nowrap; }
+
+    .action-btn {
+      font-family: 'Cinzel', serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.08em;
+      padding: 3px 9px;
+      border: 1px solid var(--border-hi);
+      color: var(--text-dim);
+      background: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color .15s, color .15s;
+    }
+    .action-btn:hover { border-color: var(--gold-dim); color: var(--gold); }
+
+    /* ── STAT STRIP ── */
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .stat-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      padding: 16px;
+      text-align: center;
+    }
+    .stat-value {
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-bright);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .stat-value.red   { color: var(--red); }
+    .stat-value.green { color: var(--green); }
+    .stat-value.amber { color: var(--amber); }
+
+    /* ── ACCORDION (Governance docs) ── */
+    .accordion-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      padding: 12px 16px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      user-select: none;
+      transition: background .15s;
+    }
+    .accordion-header:hover { background: var(--bg3); }
+    .accordion-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      color: var(--text);
+    }
+    .accordion-arrow { color: var(--text-dim); font-size: 0.8rem; transition: transform .2s; }
+    .accordion-body {
+      display: none;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-top: none;
+      background: var(--bg);
+    }
+    .accordion-body.open { display: block; }
+    .accordion-arrow.open { transform: rotate(180deg); }
+
+    /* ── EMPTY STATE ── */
+    .empty-state {
+      text-align: center;
+      padding: 40px;
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 32px 0;
+    }
+
+    /* ── INLINE TOAST ── */
+    #toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--bg3);
+      border: 1px solid var(--border-hi);
+      color: var(--text);
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      padding: 10px 22px;
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity .25s, transform .25s;
+      pointer-events: none;
+    }
+    #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    @media (max-width: 700px) {
+      .hero { padding: 28px 16px 22px; }
+      .content-wrap { padding: 20px 12px 60px; }
+      .doc-grid { grid-template-columns: 1fr; }
+      .stat-strip { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <script src="/assets/js/academy-guard.js" data-protect="schoolmaster" defer></script>
+
+
+<!-- FULL-PAGE PROGRAM BACKGROUND -->
+<div id="page-bg"></div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="/schoolmaster" class="topbar-logo">✠ KTKC</a>
+    <span class="topbar-sep">›</span>
+    <span class="topbar-crumb">SM Command</span>
+    <span class="topbar-sep">›</span>
+    <span class="topbar-crumb" id="topbar-program-name">Loading…</span>
+  </div>
+  <div class="topbar-right">
+    <span id="nav-greeting"></span>
+    <a href="/schoolmaster" class="btn-sm">⌂ Dashboard</a>
+    <a href="#" onclick="doLogout()" class="btn-sm red">Sign Out</a>
+  </div>
+</div>
+
+<!-- LOADING STATE -->
+<div id="loading-wrap">
+  <div class="spinner"></div>
+  <div class="loading-text">Loading Program Resources…</div>
+</div>
+
+<!-- MAIN CONTENT (hidden until loaded) -->
+<div id="main-content" style="display:none;">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">Schoolmaster Resources</div>
+    <div class="hero-title" id="hero-title">Program</div>
+    <div class="hero-sub" id="hero-sub">— weeks —</div>
+    <div class="hero-actions">
+      <a href="#" id="hub-link" class="btn-hero gold">✠ Member Hub</a>
+      <a href="/schoolmaster" class="btn-hero primary">⌂ SM Dashboard</a>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <!-- STAT STRIP -->
+    <div class="stat-strip" id="stat-strip"></div>
+
+    <!-- READING LOG REVIEW -->
+    <div class="panel-section" id="section-reading-log" style="margin-bottom:18px;">
+      <div class="section-header">
+        <span class="section-icon">📖</span>
+        <span class="section-title">Reading Log Review</span>
+      </div>
+      <div style="background:#fdfcf7;border:1px solid #d4af37;border-radius:6px;padding:16px 18px;">
+        <p style="margin:0 0 10px;font-size:0.92rem;color:#3a2e10;">
+          Review exported member reading logs to verify whether students have been opening and completing required academy documents for this program.
+          Members export a JSON file from their Reading Log page — upload or paste it in the Schoolmaster Review tool.
+        </p>
+        <a href="/schoolmaster/reading-log"
+           style="display:inline-block;background:#7b1113;color:#fff;text-decoration:none;
+                  padding:9px 16px;border-radius:4px;font-size:0.88rem;letter-spacing:0.04em;">
+          ✠ Open Schoolmaster Reading Log Review
+        </a>
+      </div>
+    </div>
+
+    <!-- PROGRAM DOCUMENTS -->
+    <div class="panel-section" id="section-program-docs">
+      <div class="section-header">
+        <span class="section-icon">📋</span>
+        <span class="section-title">Program Documents</span>
+        <span class="section-count" id="count-prog-docs"></span>
+      </div>
+      <div class="doc-grid" id="prog-docs-grid"></div>
+    </div>
+
+    <!-- SCHOOLMASTER TOOLS -->
+    <div class="panel-section" id="section-sm-docs">
+      <div class="section-header">
+        <span class="section-icon">🗂</span>
+        <span class="section-title">Schoolmaster Tools &amp; Forms</span>
+        <span class="section-count" id="count-sm-docs"></span>
+      </div>
+      <div class="doc-grid" id="sm-docs-grid"></div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ENROLLED MEMBERS FOR THIS PROGRAM -->
+    <div class="panel-section">
+      <div class="section-header">
+        <span class="section-icon">⚔</span>
+        <span class="section-title">Enrolled Members</span>
+        <span class="section-count" id="count-members"></span>
+      </div>
+      <div class="roster-wrap">
+        <table id="roster-table">
+          <thead>
+            <tr>
+              <th>Member</th>
+              <th>Rank</th>
+              <th>Week</th>
+              <th>Status</th>
+              <th>Last Result</th>
+              <th>Pending</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="roster-body"></tbody>
+        </table>
+        <div id="roster-empty" class="empty-state" style="display:none;">
+          No members currently enrolled in this program.
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- GOVERNANCE DOCUMENTS ACCORDION -->
+    <div class="panel-section">
+      <div class="section-header">
+        <span class="section-icon">⚖</span>
+        <span class="section-title">Governance &amp; Core Documents</span>
+      </div>
+      <div
+        class="accordion-header"
+        id="gov-accordion-header"
+        onclick="toggleGovAccordion()"
+        role="button"
+        aria-expanded="false"
+      >
+        <span class="accordion-label">KTKC Bylaws, Articles, Policy Documents — click to expand</span>
+        <span class="accordion-arrow" id="gov-arrow">▼</span>
+      </div>
+      <div class="accordion-body" id="gov-accordion-body">
+        <div class="doc-grid" id="gov-docs-grid"></div>
+      </div>
+    </div>
+
+  </div><!-- /content-wrap -->
+</div><!-- /main-content -->
+
+<div id="toast"></div>
+
+<script>
+// ── SLUG FROM URL ──
+// URL: /programs/:slug/site/schoolmaster/index.html  OR  /programs/:slug/schoolmaster
+const parts = window.location.pathname.split('/').filter(Boolean);
+const SLUG = parts[1] || '';   // parts[0]='programs', parts[1]=slug
+
+// ── HUB BACKGROUND MAP ──
+const HUB_BG_MAP = {
+  squire:            '/images/hub-bg/squire.jpg',
+  levie:             '/images/hub-bg/levie.jpg',
+  corporal:          '/images/hub-bg/corporal.jpg',
+  sergeant:          '/images/hub-bg/sergeant.jpg',
+  sfc:               '/images/hub-bg/sfc.jpg',
+  'knight-aspirant': '/images/hub-bg/knight-aspirant.jpg',
+  knight:            '/images/hub-bg/knight.jpg',
+  lieutenant:        '/images/hub-bg/lieutenant.jpg',
+  captain:           '/images/hub-bg/captain.jpg',
+  major:             '/images/hub-bg/major.jpg',
+  commander:         '/images/hub-bg/commander.jpg',
+};
+const bgPath = HUB_BG_MAP[SLUG];
+if (bgPath) {
+  const el = document.getElementById('page-bg');
+  el.style.backgroundImage =
+    `linear-gradient(180deg,rgba(8,1,1,.80) 0%,rgba(6,1,1,.62) 50%,rgba(8,1,1,.80) 100%), url('${bgPath}')`;
+}
+
+// ── AUTH GUARD (admin only) ──
+fetch('/auth/me', { credentials: 'include' })
+  .then(r => r.ok ? r.json() : Promise.reject())
+  .then(user => {
+    if (user.role !== 'admin') { window.location.href = '/member'; return; }
+    document.getElementById('nav-greeting').textContent = user.username;
+    loadData();
+  })
+  .catch(() => { window.location.href = '/login'; });
+
+// ── LOAD DATA ──
+async function loadData() {
+  const [currRes, membRes, fullCurr] = await Promise.all([
+    fetch('/api/curriculum',            { credentials: 'include' }).then(r => r.json()),
+    fetch('/api/progression/members',   { credentials: 'include' }).then(r => r.json()),
+    fetch('/data/full-program-curriculum.json').then(r => r.json()).catch(() => ({ programs: [] }))
+  ]);
+
+  const programs    = currRes.programs || [];
+  const allMembers  = membRes.members  || [];
+  const fullPrograms = fullCurr.programs || [];
+
+  // Find this program in the curriculum index (enriched metadata)
+  const prog = programs.find(p => p.slug === SLUG);
+  if (!prog) {
+    document.getElementById('loading-wrap').innerHTML =
+      `<div class="empty-state">Program <strong>${SLUG}</strong> not found.<br>
+       <a href="/schoolmaster" style="color:var(--red)">← Back to SM Dashboard</a></div>`;
+    return;
+  }
+
+  // Merge full-curriculum doc arrays into prog
+  const fullProg = fullPrograms.find(p => p.slug === SLUG) || {};
+  prog.current_program_documents = fullProg.current_program_documents || [];
+  prog.schoolmaster_documents    = fullProg.schoolmaster_documents    || [];
+  prog.governance_documents      = fullProg.governance_documents      || [];
+
+  // Members enrolled in this program
+  const enrolled = allMembers.filter(m => m.assignedProgram?.slug === SLUG);
+
+  renderPage(prog, enrolled);
+}
+
+function renderPage(prog, enrolled) {
+  // Topbar + hero
+  document.title = `${prog.title} — Schoolmaster`;
+  document.getElementById('topbar-program-name').textContent = prog.title;
+  document.getElementById('hero-title').textContent = prog.title;
+  document.getElementById('hero-sub').textContent =
+    `${prog.phase || ''} · ${prog.durationWeeks}-week program · Schoolmaster Resources`;
+
+  // Hub link
+  const hubLink = document.getElementById('hub-link');
+  if (prog.siteEntry) hubLink.href = '/' + prog.siteEntry;
+
+  // Stats
+  renderStats(prog, enrolled);
+
+  // Program documents
+  const progDocs = prog.current_program_documents || prog.programDocuments || [];
+  renderDocGrid('prog-docs-grid', progDocs, 'count-prog-docs');
+
+  // SM documents
+  const smDocs = prog.schoolmaster_documents || [];
+  renderDocGrid('sm-docs-grid', smDocs, 'count-sm-docs');
+
+  // Governance docs
+  const govDocs = prog.governance_documents || [];
+  renderDocGrid('gov-docs-grid', govDocs, null);
+
+  // Roster
+  renderRoster(enrolled, prog);
+
+  // Show content
+  document.getElementById('loading-wrap').style.display = 'none';
+  document.getElementById('main-content').style.display = '';
+}
+
+// ── STATS ──
+function renderStats(prog, enrolled) {
+  const total    = enrolled.length;
+  const active   = enrolled.filter(m => m.programStatus !== 'paused').length;
+  const overdue  = enrolled.filter(m => m.overdue).length;
+  const pending  = enrolled.reduce((n, m) => n + (m.pendingExamCount || 0), 0);
+
+  const strip = document.getElementById('stat-strip');
+  const stats = [
+    { label: 'Enrolled',        value: total,   cls: '' },
+    { label: 'Active',          value: active,  cls: 'green' },
+    { label: 'Overdue',         value: overdue, cls: overdue > 0 ? 'red' : '' },
+    { label: 'Exams Pending',   value: pending, cls: pending > 0 ? 'amber' : '' },
+    { label: 'Weeks',           value: prog.durationWeeks, cls: '' },
+  ];
+  strip.innerHTML = stats.map(s =>
+    `<div class="stat-card">
+      <div class="stat-value ${s.cls}">${s.value}</div>
+      <div class="stat-label">${s.label}</div>
+    </div>`
+  ).join('');
+}
+
+// ── DOC GRID ──
+function renderDocGrid(gridId, docs, countId) {
+  const grid = document.getElementById(gridId);
+  if (countId) {
+    document.getElementById(countId).textContent = `${docs.length} item${docs.length !== 1 ? 's' : ''}`;
+  }
+  if (!docs.length) {
+    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">No documents configured.</div>`;
+    return;
+  }
+  grid.innerHTML = docs.map(doc => {
+    const url   = doc.url || doc.href || '#';
+    const title = cleanTitle(doc.title || doc.name || url);
+    const isPDF  = url.toLowerCase().endsWith('.pdf');
+    const isDocx = url.toLowerCase().endsWith('.docx');
+    const isHtml = url.toLowerCase().endsWith('.html');
+    let typeLabel = isPDF ? 'PDF' : isDocx ? 'DOCX' : isHtml ? 'HTML' : 'View';
+    return `
+      <div class="doc-card">
+        <div class="doc-card-title">${title}</div>
+        <div class="doc-card-actions">
+          <a href="${url}" target="_blank" class="doc-btn">${typeLabel} ↗</a>
+          ${isPDF || isDocx ? `<a href="${url}" download class="doc-btn">Download</a>` : ''}
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function cleanTitle(raw) {
+  return raw
+    .replace(/\.[a-z]{2,4}$/i, '')
+    .replace(/[_-]/g, ' ')
+    .replace(/\b\w/g, c => c.toUpperCase())
+    .trim();
+}
+
+// ── ROSTER ──
+function renderRoster(enrolled, prog) {
+  const tbody = document.getElementById('roster-body');
+  const empty = document.getElementById('roster-empty');
+  document.getElementById('count-members').textContent =
+    `${enrolled.length} member${enrolled.length !== 1 ? 's' : ''}`;
+
+  if (!enrolled.length) {
+    tbody.closest('table').style.display = 'none';
+    empty.style.display = '';
+    return;
+  }
+
+  tbody.innerHTML = enrolled.map(m => {
+    const week    = m.currentWeek || '—';
+    const total   = prog.durationWeeks || '?';
+    const pct     = m.currentWeek ? Math.round((m.currentWeek / total) * 100) : 0;
+    const status  = m.programStatus === 'paused' ? 'paused'
+                  : m.overdue ? 'overdue'
+                  : 'active';
+    const statusLabel = status === 'paused'  ? 'Paused'
+                      : status === 'overdue' ? 'Overdue'
+                      : 'Active';
+    const statusBadge = `badge-${status}`;
+
+    // Last exam result
+    const exams = m.examSubmissions || [];
+    const lastReviewed = [...exams].reverse().find(e => e.reviewedAt);
+    let resultBadge = '—';
+    if (lastReviewed) {
+      const g = (lastReviewed.grade || '').toLowerCase();
+      resultBadge = g === 'pass'
+        ? `<span class="badge badge-pass">P</span>`
+        : g === 'fail'
+        ? `<span class="badge badge-fail">F</span>`
+        : `<span class="badge badge-pending">${lastReviewed.grade || '?'}</span>`;
+    }
+
+    const pending = m.pendingExamCount || 0;
+    const pendingBadge = pending > 0
+      ? `<span class="badge badge-pending">${pending}</span>`
+      : '—';
+
+    const name = [m.salutation, m.username].filter(Boolean).join(' ');
+    const rank = m.rankName || m.rank || '—';
+
+    return `<tr>
+      <td><strong>${name}</strong></td>
+      <td style="color:var(--text-dim);font-size:.88rem;">${rank}</td>
+      <td>
+        <div class="week-bar-wrap">
+          <span class="week-label">W${week}/${total}</span>
+          <div class="week-bar-track"><div class="week-bar-fill" style="width:${pct}%"></div></div>
+        </div>
+      </td>
+      <td><span class="badge ${statusBadge}">${statusLabel}</span></td>
+      <td>${resultBadge}</td>
+      <td>${pendingBadge}</td>
+      <td>
+        <a href="/schoolmaster?member=${m.id}" class="action-btn" title="Open in SM Dashboard">View ↗</a>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+// ── GOVERNANCE ACCORDION ──
+function toggleGovAccordion() {
+  const body  = document.getElementById('gov-accordion-body');
+  const arrow = document.getElementById('gov-arrow');
+  const header = document.getElementById('gov-accordion-header');
+  const isOpen = body.classList.toggle('open');
+  arrow.classList.toggle('open', isOpen);
+  header.setAttribute('aria-expanded', isOpen);
+}
+
+// ── LOGOUT ──
+function doLogout() {
+  fetch('/auth/logout', { method: 'POST' })
+    .finally(() => { window.location.href = '/login'; });
+}
+
+// ── TOAST ──
+function showToast(msg, duration = 2800) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), duration);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Templar cross emblem">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#b89444"/>
+      <stop offset="100%" stop-color="#e7cc8b"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="200" height="200" rx="40" fill="#7f1418"/>
+  <path d="M84 28h32v46h46v32h-46v66H84v-66H38V74h46z" fill="url(#g)"/>
+  <circle cx="100" cy="100" r="88" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="4"/>
+</svg>

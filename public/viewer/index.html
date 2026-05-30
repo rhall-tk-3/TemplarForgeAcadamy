@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Document Viewer — KTKC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:       #e8c040;
+      --gold-mid:   #c9a84c;
+      --gold-deep:  #b8960c;
+      --gold-dim:   #8a6e22;
+      --bg:         #0a0804;
+      --bg2:        #0f0c06;
+      --border:     #2a1f08;
+      --border-hi:  #3a2c0a;
+      --text:       #d4c5a0;
+      --text-dim:   #8a7a58;
+      --text-bright:#ede0b8;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 1rem;
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+    }
+
+    /* ── TOOLBAR ── */
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      background: linear-gradient(90deg, #0a0602, #130d03, #0a0602);
+      border-bottom: 1px solid var(--border-hi);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .toolbar-left  { display: flex; align-items: center; gap: 14px; min-width: 0; }
+    .toolbar-logo  {
+      font-family: 'Cinzel', serif; font-size: 0.88rem; font-weight: 700;
+      color: var(--gold); text-decoration: none; letter-spacing: 0.08em; white-space: nowrap;
+    }
+    .toolbar-sep   { color: var(--gold-dim); }
+    .toolbar-title {
+      font-family: 'Cinzel', serif; font-size: 0.88rem; font-weight: 600;
+      color: var(--text-bright); white-space: nowrap; overflow: hidden;
+      text-overflow: ellipsis; max-width: 360px;
+    }
+    .toolbar-subtitle { font-size: 0.78rem; color: var(--text-dim); margin-top: 2px; }
+    .toolbar-actions  { display: flex; gap: 8px; flex-shrink: 0; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 16px; border: 1px solid;
+      font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.08em;
+      text-decoration: none; cursor: pointer; transition: all 0.18s;
+      border-radius: 2px; background: transparent; white-space: nowrap;
+    }
+    .btn-secondary { border-color: var(--border-hi); color: var(--text-dim); }
+    .btn-secondary:hover { border-color: var(--gold-mid); color: var(--gold); }
+    .btn-primary   { border-color: var(--gold-deep); color: var(--gold); background: rgba(184,150,12,0.08); }
+    .btn-primary:hover { background: rgba(184,150,12,0.2); }
+
+    /* ── LOADING BAR ── */
+    .loading-bar {
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-deep), var(--gold), var(--gold-deep));
+      background-size: 200% 100%;
+      animation: shimmer 1.4s ease infinite;
+      display: none;
+    }
+    .loading-bar.active { display: block; }
+    @keyframes shimmer { 0%{background-position:100%}100%{background-position:-100%} }
+
+    /* ── VIEWER WRAP ── */
+    .viewer-wrap {
+      padding: 0;
+      flex: 1;
+      position: relative;
+    }
+    iframe {
+      width: 100%;
+      height: calc(100vh - 120px);
+      border: none;
+      background: #fff;
+      display: block;
+    }
+
+    /* ── ERROR / UNAVAILABLE STATE ── */
+    .info-state {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 55vh;
+      gap: 18px;
+      padding: 40px 32px;
+      text-align: center;
+    }
+    .info-state.visible { display: flex; }
+    .info-cross  { font-size: 3rem; color: var(--gold-dim); }
+    .info-title  { font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--gold); }
+    .info-sub    { color: var(--text-dim); font-size: 0.95rem; max-width: 460px; line-height: 1.6; }
+    .info-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+
+    /* ── FOOTER ── */
+    .viewer-footer {
+      padding: 10px 20px 14px;
+      color: var(--text-dim);
+      font-size: 0.82rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .viewer-footer a { color: var(--gold-dim); text-decoration: none; }
+    .viewer-footer a:hover { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .toolbar-title    { max-width: 160px; }
+      .toolbar-subtitle { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOOLBAR -->
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <a href="/member" class="toolbar-logo">✠ KTKC</a>
+      <span class="toolbar-sep">›</span>
+      <div>
+        <div class="toolbar-title" id="doc-title">Document Viewer</div>
+        <div class="toolbar-subtitle">Reading stack • Program documents</div>
+      </div>
+    </div>
+    <div class="toolbar-actions">
+      <button id="viewer-back-btn" class="btn btn-secondary" style="cursor:pointer;">&#8592; Back to Your Forge</button>
+    </div>
+  </div>
+
+  <!-- LOADING BAR -->
+  <div class="loading-bar" id="loading-bar"></div>
+
+  <!-- UNAVAILABLE STATE (shown when no URL, or render fails) -->
+  <div class="info-state" id="info-state">
+    <div class="info-cross">✠</div>
+    <div class="info-title" id="info-title">No Document Specified</div>
+    <div class="info-sub"   id="info-sub">No document URL was provided. Return to the program page and follow a document link.</div>
+    <div class="info-actions" id="info-actions">
+      <a href="/member" class="btn btn-primary">⌂ Return to Dashboard</a>
+    </div>
+  </div>
+
+  <!-- IFRAME VIEWER -->
+  <div class="viewer-wrap" id="viewer-wrap" style="display:none;">
+    <iframe id="doc-frame" title="Document preview" loading="eager"></iframe>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="viewer-footer">
+    <span>Documents open in-browser for easy reading.</span>
+    <a href="/member">⌂ Dashboard</a>
+  </div>
+
+  <script>
+  // ── Back to Your Forge — close this tab to return to the lesson hub ──
+  (function() {
+    var backBtn = document.getElementById('viewer-back-btn');
+    if (!backBtn) return;
+    backBtn.onclick = function() {
+      // Always try to close this tab first — the opener (week/hub page) stays open
+      if (window.opener) {
+        window.opener.focus();
+        window.close();
+        return;
+      }
+      // Tab was opened with target="_blank" but opener reference lost (some browsers)
+      // Try window.close() anyway — it works when tab was script-opened or link-opened
+      window.close();
+      // If window.close() was blocked (tab wasn't opened by script), fall back:
+      // navigate to sessionStorage URL or /member after a short delay
+      setTimeout(function() {
+        var prev = null;
+        try { prev = sessionStorage.getItem('forge_back_url'); } catch(ex) {}
+        if (prev) {
+          try { sessionStorage.removeItem('forge_back_url'); } catch(ex) {}
+          window.location.href = prev;
+        } else {
+          window.location.href = '/member';
+        }
+      }, 100);
+    };
+  })();
+  </script>
+
+  <script>
+  (function () {
+    const params       = new URLSearchParams(window.location.search);
+    const rawUrl       = params.get('url')   || '';
+    const title        = params.get('title') || 'Document';
+
+    const frame          = document.getElementById('doc-frame');
+    const docTitleEl     = document.getElementById('doc-title');
+    const loadingBar     = document.getElementById('loading-bar');
+    const infoState    = document.getElementById('info-state');
+    const infoTitle    = document.getElementById('info-title');
+    const infoSub      = document.getElementById('info-sub');
+    const infoActions  = document.getElementById('info-actions');
+    const viewerWrap   = document.getElementById('viewer-wrap');
+
+    docTitleEl.textContent = title;
+    document.title = title + ' \u2014 KTKC';
+
+    // ── No URL → show error state ──
+    if (!rawUrl) {
+      infoState.classList.add('visible');
+      return;
+    }
+
+    // ── Build the render URL ──
+    // All local /documents/ and /library/ paths go through /api/doc-render
+    // which sniffs the real file type and serves HTML/PDF/converted-HTML.
+    // External URLs (http/https) are not expected for local docs, but handled gracefully.
+    let renderUrl;
+    const isLocal = rawUrl.startsWith('/documents/') || rawUrl.startsWith('/library/');
+
+    if (isLocal) {
+      renderUrl = '/api/doc-render?path=' + encodeURIComponent(rawUrl);
+    } else {
+      // External URL — let the browser try to embed it directly
+      renderUrl = rawUrl;
+    }
+
+    // ── Show viewer, start loading ──
+    viewerWrap.style.display = 'block';
+    loadingBar.classList.add('active');
+
+    let loadTimer = setTimeout(() => {
+      // 12 seconds with no load event → show friendly fallback
+      showFallback();
+    }, 12000);
+
+    frame.addEventListener('load', function () {
+      clearTimeout(loadTimer);
+      loadingBar.classList.remove('active');
+      // Attempt to detect a blank/error page (works for same-origin renders)
+      try {
+        const body = frame.contentDocument && frame.contentDocument.body;
+        const text = body ? body.innerText.trim() : '';
+        if (text.length < 20 && frame.src && frame.src !== 'about:blank') {
+          showFallback();
+        }
+      } catch (e) {
+        // Cross-origin frame — can't inspect. Assume OK.
+        loadingBar.classList.remove('active');
+      }
+    });
+
+    frame.addEventListener('error', function () {
+      clearTimeout(loadTimer);
+      showFallback();
+    });
+
+    frame.src = renderUrl;
+
+    function showFallback () {
+      loadingBar.classList.remove('active');
+      viewerWrap.style.display = 'none';
+
+      infoTitle.textContent = 'Preview Unavailable';
+      infoSub.textContent   =
+        'This document cannot be displayed in-browser on your device. ' +
+        'Use the Download button above to save it and open it with any document reader. ' +
+        'No Microsoft 365 subscription is required \u2014 Word documents open in Google Docs, ' +
+        'LibreOffice, Apple Pages, or any free reader.';
+
+      // Build action buttons
+      infoActions.innerHTML = '';
+      const dlBtn = document.createElement('a');
+      dlBtn.href      = rawUrl;
+      dlBtn.download  = '';
+      dlBtn.className = 'btn btn-primary';
+      dlBtn.textContent = '\u2B07 Download Document';
+      infoActions.appendChild(dlBtn);
+
+      const backBtn = document.createElement('a');
+      backBtn.href      = '/member';
+      backBtn.className = 'btn btn-secondary';
+      backBtn.textContent = '\u2302 Dashboard';
+      infoActions.appendChild(backBtn);
+
+      infoState.classList.add('visible');
+    }
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Squire School Reading Log — Templar Forge Academy</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #0a0804;
+  color: #e0cc98;
+  font-family: 'Crimson Text', serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  padding: 40px 24px 80px;
+}
+.wrap { max-width: 960px; margin: 0 auto; }
+
+/* ── Back button ── */
+.back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Cinzel', serif; font-size: 0.78rem;
+  color: #b8960c; text-decoration: none;
+  border: 1px solid rgba(184,150,12,0.4);
+  border-radius: 4px; padding: 6px 14px;
+  margin-bottom: 32px; letter-spacing: 0.05em;
+  transition: background 0.18s, color 0.18s;
+}
+.back:hover { background: rgba(184,150,12,0.12); color: #e8c040; }
+
+/* ── Document header ── */
+.doc-header {
+  border-bottom: 1px solid rgba(180,140,60,0.3);
+  padding-bottom: 22px; margin-bottom: 36px;
+}
+.doc-kicker {
+  font-family: 'Cinzel', serif; font-size: 0.68rem;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: #6a5020; margin-bottom: 10px;
+}
+.doc-title {
+  font-family: 'Cinzel', serif; font-size: 1.65rem;
+  font-weight: 700; color: #e8c850; line-height: 1.25; margin-bottom: 4px;
+}
+.doc-sub {
+  font-size: 0.88rem; color: #8a7040; font-style: italic;
+}
+
+/* ── Section headings ── */
+h2.section-h {
+  font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 700;
+  color: #c8a020; letter-spacing: 0.06em; margin: 36px 0 14px;
+  padding-bottom: 6px; border-bottom: 1px solid rgba(200,160,32,0.2);
+}
+
+/* ── Callout ── */
+.callout {
+  background: rgba(180,140,60,0.08);
+  border-left: 3px solid rgba(200,160,32,0.5);
+  padding: 14px 18px; margin-bottom: 24px;
+  color: #c8b880; font-size: 0.97rem; line-height: 1.7;
+  border-radius: 0 3px 3px 0;
+}
+
+/* ── Info grid (member details + instructions) ── */
+.info-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  margin-bottom: 28px;
+}
+@media (max-width: 600px) { .info-grid { grid-template-columns: 1fr; } }
+.info-card {
+  padding: 18px 20px;
+  border: 1px solid rgba(180,140,60,0.22);
+  border-radius: 4px; background: rgba(255,255,255,0.02);
+}
+.info-card h3 {
+  font-family: 'Cinzel', serif; font-size: 0.82rem; font-weight: 600;
+  color: #c8a020; letter-spacing: 0.05em; margin-bottom: 12px;
+}
+.info-card p {
+  color: #c8b880; font-size: 0.97rem; line-height: 2.1;
+  border-bottom: 1px solid rgba(180,140,60,0.15);
+  padding-bottom: 2px; margin-bottom: 6px;
+}
+.info-card p:last-child { border-bottom: none; margin-bottom: 0; }
+.info-card ul {
+  list-style: none; padding: 0; margin: 0;
+}
+.info-card ul li {
+  color: #c8b880; font-size: 0.95rem; line-height: 1.8;
+  border-bottom: 1px solid rgba(180,140,60,0.12);
+  padding: 3px 0;
+  display: flex; align-items: flex-start; gap: 8px;
+}
+.info-card ul li::before {
+  content: '\2726'; color: #c8a020; font-size: 0.55rem;
+  flex-shrink: 0; margin-top: 7px;
+}
+.info-card ul li:last-child { border-bottom: none; }
+
+/* ── Log table ── */
+.table-wrap { overflow-x: auto; margin-bottom: 36px; }
+table.log-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 0.92rem; min-width: 820px;
+}
+table.log-table th {
+  font-family: 'Cinzel', serif; font-size: 0.70rem;
+  letter-spacing: 0.07em; color: #c8a020; font-weight: 600;
+  background: rgba(180,140,60,0.10);
+  padding: 10px 11px; text-align: left;
+  border: 1px solid rgba(180,140,60,0.22);
+}
+table.log-table td {
+  padding: 10px 11px; vertical-align: top;
+  border: 1px solid rgba(180,140,60,0.18);
+  color: #c8b880; line-height: 1.55;
+}
+table.log-table tbody tr:nth-child(even) td {
+  background: rgba(255,255,255,0.02);
+}
+table.log-table td strong {
+  font-family: 'Cinzel', serif; font-size: 0.78rem;
+  color: #e8c850; font-weight: 600; display: block;
+}
+table.log-table td .phase {
+  display: block; font-size: 0.70rem; color: #6a5020;
+  letter-spacing: 0.06em; text-transform: uppercase; margin-top: 2px;
+}
+/* Reading stack badge */
+table.log-table td .stack {
+  display: block; font-size: 0.75rem; color: #7a6840;
+  font-style: italic; margin-top: 3px;
+}
+/* Checkbox */
+.checkbox {
+  display: inline-block; width: 16px; height: 16px;
+  border: 1px solid rgba(180,140,60,0.4); border-radius: 2px;
+  background: rgba(255,255,255,0.01);
+}
+
+/* ── SM Review section ── */
+.sm-panel {
+  background: rgba(200,160,32,0.05);
+  border: 1px solid rgba(200,160,32,0.18);
+  border-radius: 5px; padding: 22px 26px; margin-bottom: 24px;
+}
+.sm-panel h3 {
+  font-family: 'Cinzel', serif; font-size: 0.88rem; font-weight: 600;
+  color: #c8a020; letter-spacing: 0.05em; margin-bottom: 16px;
+}
+.sm-panel .field-row {
+  display: flex; align-items: flex-end; gap: 12px;
+  margin-bottom: 14px; flex-wrap: wrap;
+}
+.sm-panel .field-label {
+  font-family: 'Cinzel', serif; font-size: 0.72rem;
+  letter-spacing: 0.06em; color: #8a7040;
+  white-space: nowrap; flex-shrink: 0;
+  text-transform: uppercase;
+}
+.sm-panel .field-line {
+  flex: 1; min-width: 140px;
+  border-bottom: 1px solid rgba(180,140,60,0.3);
+  height: 22px;
+}
+.sm-panel .write-area {
+  min-height: 70px;
+  border: 1px solid rgba(180,140,60,0.2);
+  border-radius: 3px; background: rgba(255,255,255,0.015);
+  margin-top: 8px; margin-bottom: 16px;
+}
+
+/* ── Review grid ── */
+.review-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  margin-bottom: 28px;
+}
+@media (max-width: 600px) { .review-grid { grid-template-columns: 1fr; } }
+.review-card {
+  padding: 18px 20px;
+  border: 1px solid rgba(180,140,60,0.22);
+  border-radius: 4px; background: rgba(255,255,255,0.02);
+}
+.review-card h3 {
+  font-family: 'Cinzel', serif; font-size: 0.82rem; font-weight: 600;
+  color: #c8a020; letter-spacing: 0.05em; margin-bottom: 12px;
+}
+.review-card .field-lbl {
+  font-family: 'Cinzel', serif; font-size: 0.7rem; color: #8a7040;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  margin-bottom: 4px; display: block;
+}
+.review-card .lines {
+  border-bottom: 1px solid rgba(180,140,60,0.18);
+  min-height: 90px; margin-bottom: 16px;
+}
+.review-card .sig-line {
+  border-bottom: 1px solid rgba(180,140,60,0.3);
+  height: 28px; margin-bottom: 4px;
+}
+
+/* ── Footer ── */
+.hub-footer {
+  margin-top: 48px; padding-top: 18px;
+  border-top: 1px solid rgba(180,140,60,0.18);
+  font-size: 0.88rem; color: #6a5020; line-height: 1.9;
+}
+.hub-footer a { color: #8a6820; text-decoration: underline; text-underline-offset: 2px; }
+.hub-footer a:hover { color: #c8a020; }
+
+/* ── Print ── */
+@media print {
+  body { background: #fff; color: #111; padding: 16px; }
+  .back { display: none; }
+  .doc-title { color: #111; }
+  .doc-kicker, .doc-sub { color: #666; }
+  h2.section-h { color: #333; border-color: #ccc; }
+  .callout { background: #f5f5f0; border-color: #999; color: #333; }
+  .info-card, .review-card { border-color: #ccc; background: #fafafa; }
+  .info-card h3, .review-card h3, .sm-panel h3 { color: #333; }
+  .info-card p, .info-card ul li { color: #444; border-color: #ddd; }
+  .sm-panel { background: #f5f5f5; border-color: #ccc; }
+  .sm-panel .field-label { color: #666; }
+  .sm-panel .field-line { border-color: #999; }
+  .sm-panel .write-area { background: #fff; border-color: #ccc; }
+  table.log-table th { background: #eee; color: #333; border-color: #ccc; }
+  table.log-table td { color: #333; border-color: #ccc; }
+  table.log-table td strong { color: #111; }
+  table.log-table td .phase { color: #888; }
+  table.log-table td .stack { color: #777; }
+  .checkbox { border-color: #999; background: #fff; }
+  .review-card .lines { border-color: #bbb; }
+  .review-card .sig-line { border-color: #999; }
+  .hub-footer { color: #888; border-color: #ddd; }
+}
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="#">&#8592; Back</a>
+
+  <div class="doc-header">
+    <div class="doc-kicker">&#10013; Knights Templar of the Kingdom of Christ &middot; Templar Forge Academy</div>
+    <div class="doc-title">Squire School Reading Log</div>
+    <div class="doc-sub">Templar Forge Academy &mdash; Squire School 8-Week Program</div>
+  </div>
+
+  <p style="color:#d0bc88; margin-bottom:22px; line-height:1.8;">
+    Track weekly reading, lesson preparation, attendance, and Schoolmaster review across the full 8-week Squire School. This log must be completed each week and presented to the Schoolmaster for signature before advancement is considered.
+  </p>
+
+  <div class="callout">
+    <strong>Reading Requirement:</strong> Squire students complete four reading stacks across the 8-week program — Order Structure, Historical Timeline, Simple Biographies, and Short Excerpts. Each week's log row indicates which stack applies. All four must be completed for advancement readiness.
+  </div>
+
+  <!-- ══════════════════
+       MEMBER INFORMATION
+       ══════════════════ -->
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>Student Information</h3>
+      <p>Name: ________________________________</p>
+      <p>Chapter: ______________________________</p>
+      <p>Schoolmaster: _________________________</p>
+      <p>Program Start Date: ___________________</p>
+      <p>Program End Date: _____________________</p>
+    </div>
+    <div class="info-card">
+      <h3>Reading Stack Overview</h3>
+      <ul>
+        <li>Reading Stack 1 — Order Structure (Weeks 1–2)</li>
+        <li>Reading Stack 2 — Historical Timeline (Weeks 3–4)</li>
+        <li>Reading Stack 3 — Simple Biographies (Weeks 5–6)</li>
+        <li>Reading Stack 4 — Short Excerpts &amp; Guided Readings (Weeks 7–8)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════
+       WEEKLY READING & ATTENDANCE
+       ════════════════════════════ -->
+  <h2 class="section-h">Weekly Reading &amp; Attendance Record</h2>
+
+  <div class="table-wrap">
+    <table class="log-table">
+      <thead>
+        <tr>
+          <th style="min-width:95px;">Week</th>
+          <th style="min-width:160px;">Lesson Topic</th>
+          <th style="min-width:140px;">Reading Assignment</th>
+          <th>Reading<br>Complete</th>
+          <th>Prepared<br>for Class</th>
+          <th>Attended</th>
+          <th>Fellowship<br>Participation</th>
+          <th style="min-width:180px;">Student Notes /<br>Reflection</th>
+          <th style="min-width:160px;">Schoolmaster<br>Review &amp; Initials</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <strong>Week 1</strong>
+            <span class="phase">Origins &amp; Virtues</span>
+          </td>
+          <td>The First Crusade, pilgrimage, why the Order was formed, and the five core virtues</td>
+          <td><span class="stack">Reading Stack 1 — Order Structure</span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Week 2</strong>
+            <span class="phase">Founding People &amp; Places</span>
+          </td>
+          <td>Founders, the Temple Mount, Jerusalem, and the distinction between fact and legend</td>
+          <td><span class="stack">Reading Stack 1 — Order Structure</span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Week 3</strong>
+            <span class="phase">Approval &amp; Mission</span>
+          </td>
+          <td>Formal church approval, Bernard of Clairvaux, what makes a religious order, timeline 1095–1139</td>
+          <td><span class="stack">Reading Stack 2 — Historical Timeline</span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Week 4</strong>
+            <span class="phase">Structure &amp; Daily Life</span>
+          </td>
+          <td>Internal classes, major offices, clothing and symbols, discipline of service before self</td>
+          <td><span class="stack">Reading Stack 2 — Historical Timeline</span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Week 5</strong>
+            <span class="phase">Life of the Order</span>
+          </td>
+          <td>Protecting pilgrims, prayer and routine, charity and almsgiving, personal rule of conduct</td>
+          <td><span class="stack">Reading Stack 3 — Simple Biographies</span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Week 6</strong>
+            <span class="phase">Power &amp; Crisis</span>
+          </td>
+          <td>Growth of wealth, political pressure, early signs of institutional crisis</td>
+          <td><span class="stack">Reading Stack 3 — Simple Biographies</span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Week 7</strong>
+            <span class="phase">Suppression &amp; Courage</span>
+          </td>
+          <td>Suppression of the Order, trials, courage in the face of false accusation, Jacques de Molay</td>
+          <td><span class="stack">Reading Stack 4 — Short Excerpts</span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Week 8</strong>
+            <span class="phase">Review &amp; Board Prep</span>
+          </td>
+          <td>Full program review, oral board preparation, legacy and lessons of the Order</td>
+          <td><span class="stack">Reading Stack 4 — Short Excerpts</span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td><span class="checkbox"></span></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ════════════════════
+       READING STACK RECORD
+       ════════════════════ -->
+  <h2 class="section-h">Reading Stack Completion Record</h2>
+  <p style="color:#c8b880; margin-bottom:18px; font-size:0.97rem;">Schoolmaster initials required for each completed stack before advancement review.</p>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>Stack 1 — Order Structure</h3>
+      <p>Date Started: _________________________</p>
+      <p>Date Completed: _______________________</p>
+      <p>SM Initials: __________________________</p>
+    </div>
+    <div class="info-card">
+      <h3>Stack 2 — Historical Timeline</h3>
+      <p>Date Started: _________________________</p>
+      <p>Date Completed: _______________________</p>
+      <p>SM Initials: __________________________</p>
+    </div>
+    <div class="info-card">
+      <h3>Stack 3 — Simple Biographies</h3>
+      <p>Date Started: _________________________</p>
+      <p>Date Completed: _______________________</p>
+      <p>SM Initials: __________________________</p>
+    </div>
+    <div class="info-card">
+      <h3>Stack 4 — Short Excerpts</h3>
+      <p>Date Started: _________________________</p>
+      <p>Date Completed: _______________________</p>
+      <p>SM Initials: __________________________</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════
+       SCHOOLMASTER REVIEW
+       ═══════════════════════ -->
+  <h2 class="section-h">Schoolmaster Final Review</h2>
+
+  <div class="sm-panel">
+    <h3>Program Completion Summary</h3>
+    <div class="field-row">
+      <span class="field-label">Weeks Attended:</span>
+      <div class="field-line"></div>
+      <span class="field-label">of 8 Required</span>
+    </div>
+    <div class="field-row">
+      <span class="field-label">Reading Stacks Completed:</span>
+      <div class="field-line"></div>
+      <span class="field-label">of 4 Required</span>
+    </div>
+    <div class="field-row">
+      <span class="field-label">Service Participation:</span>
+      <div class="field-line"></div>
+      <span class="field-label">(Documented / Not Documented)</span>
+    </div>
+  </div>
+
+  <div class="review-grid">
+    <div class="review-card">
+      <h3>Schoolmaster Observations</h3>
+      <span class="field-lbl">Strengths observed during the program:</span>
+      <div class="lines"></div>
+      <span class="field-lbl">Areas needing growth before advancement:</span>
+      <div class="lines"></div>
+    </div>
+    <div class="review-card">
+      <h3>Oral Review &amp; Board Readiness</h3>
+      <span class="field-lbl">Oral review performance notes:</span>
+      <div class="lines"></div>
+      <span class="field-lbl">Advancement recommendation:</span>
+      <div class="lines"></div>
+    </div>
+  </div>
+
+  <div class="sm-panel">
+    <h3>Schoolmaster Certification</h3>
+    <p style="color:#c8b880; font-size:0.95rem; margin-bottom:18px; line-height:1.7;">
+      I certify that the above student has completed the requirements indicated, and that this log accurately reflects attendance, reading completion, and participation in the Squire School 8-Week Program.
+    </p>
+    <div class="field-row">
+      <span class="field-label">Schoolmaster Name:</span>
+      <div class="field-line"></div>
+    </div>
+    <div class="field-row">
+      <span class="field-label">Schoolmaster Signature:</span>
+      <div class="field-line"></div>
+      <span class="field-label">Date:</span>
+      <div class="field-line" style="max-width:140px;"></div>
+    </div>
+    <div class="field-row">
+      <span class="field-label">Chapter:</span>
+      <div class="field-line"></div>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:8px;">
+    <strong>Advancement Note:</strong> Completion of this log is required but does not guarantee automatic promotion. The Board of Promotion Review evaluates attendance, reading completion, service participation, oral review performance, conduct, and overall character readiness. Ranks cannot be bought or sold — advancement is earned solely through merit.
+  </div>
+
+  <!-- ════════════════
+       FOOTER
+       ════════════════ -->
+  <div class="hub-footer">
+    Squire School resources:
+    <a href="/programs/squire/site/index.html">Program Home</a> &middot;
+    <a href="/programs/squire/resources/Squire_Required_Reading_List.html">Required Reading List</a> &middot;
+    <a href="/programs/squire/resources/Squire_School_Lesson_Plan.pdf">Lesson Plan</a> &middot;
+    <a href="/programs/squire/site/schoolmaster/index.html">Schoolmaster Resources</a> &middot;
+    <a href="/documents/view/promotion-manual.html">Promotion Manual</a> &middot;
+    <a href="/documents/view/ktkc-rules-and-statutes.html">KTKC Rules &amp; Statutes</a>
+  </div>
+
+</div><!-- /.wrap -->
+
+<script>
+(function(){
+  var back = document.querySelector('.back');
+  if(back){
+    back.addEventListener('click', function(e){
+      e.preventDefault();
+      if(window.opener && !window.opener.closed){ window.close(); return; }
+      var r = sessionStorage.getItem('lessonHubReturn');
+      if(r){ window.location = r; return; }
+      if(document.referrer && document.referrer.indexOf(window.location.hostname) !== -1){
+        history.back();
+      } else {
+        window.location.href = '/programs/squire/site/index.html';
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>

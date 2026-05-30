@@ -1,0 +1,127 @@
+{
+  "program_title": "Corporal School Program",
+  "week_number": 3,
+  "week_title": "Week 3: Growth, Expansion, and Public Trust",
+  "multiple_choice_questions": [
+    {
+      "question": "What is the primary focus of Week 3: Growth, Expansion, and Public Trust?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "This week centers on growth, expansion, and public trust."
+        },
+        {
+          "option": "B",
+          "text": "Week 1: Why the Order Was Founded / Mission and Historical Need"
+        },
+        {
+          "option": "C",
+          "text": "Week 2: Founders, Early Support, and Legitimacy"
+        },
+        {
+          "option": "D",
+          "text": "Week 4: Structure, Offices, and Daily Life"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "This week centers on growth, expansion, and public trust.",
+      "rationale": "The week summary states that This week centers on growth, expansion, and public trust."
+    },
+    {
+      "question": "Which reading is explicitly assigned for Week 3: Growth, Expansion, and Public Trust?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Corporal School — 8 Week Lesson Plan Program"
+        },
+        {
+          "option": "B",
+          "text": "Britannica: Templars"
+        },
+        {
+          "option": "C",
+          "text": "Weekly Lesson-Plan Packet"
+        },
+        {
+          "option": "D",
+          "text": "Curriculum Handbook"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Corporal School — 8 Week Lesson Plan Program",
+      "rationale": "Corporal School — 8 Week Lesson Plan Program appears in the required reading list for this week."
+    },
+    {
+      "question": "Which concept is most directly associated with Week 3: Growth, Expansion, and Public Trust?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Public Trust"
+        },
+        {
+          "option": "B",
+          "text": "First Crusade"
+        },
+        {
+          "option": "C",
+          "text": "Pilgrimage"
+        },
+        {
+          "option": "D",
+          "text": "Jerusalem"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Public Trust",
+      "rationale": "The week is organized around the concept of Public Trust."
+    },
+    {
+      "question": "Which statement best reflects the expected learning outcome for Week 3: Growth, Expansion, and Public Trust?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "The Templars gained support through service, discipline, and reliability."
+        },
+        {
+          "option": "B",
+          "text": "The First Crusade took place from 1095 to 1099."
+        },
+        {
+          "option": "C",
+          "text": "Pilgrims traveling to Jerusalem faced serious danger."
+        },
+        {
+          "option": "D",
+          "text": "The earliest Templar mission centered on protection and religious purpose."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "The Templars gained support through service, discipline, and reliability.",
+      "rationale": "This statement matches the stated memory target or focus for the week: The Templars gained support through service, discipline, and reliability."
+    },
+    {
+      "question": "Which response best applies the lesson of Week 3: Growth, Expansion, and Public Trust?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Apply the lesson of Growth, Expansion, and Public Trust through disciplined conduct, truthful understanding, and practical service."
+        },
+        {
+          "option": "B",
+          "text": "Treat Growth, Expansion, and Public Trust mainly as ceremonial prestige without practical duty."
+        },
+        {
+          "option": "C",
+          "text": "Ignore assigned readings and rely on legend or speculation about Growth, Expansion, and Public Trust."
+        },
+        {
+          "option": "D",
+          "text": "Approach Growth, Expansion, and Public Trust as private opinion rather than accountable formation."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Apply the lesson of Growth, Expansion, and Public Trust through disciplined conduct, truthful understanding, and practical service.",
+      "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+    }
+  ]
+}

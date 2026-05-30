@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lieutenant School | Officer Formation Level I</title>
+    <style>
+      body {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 32px 80px;
+        position: relative;
+        box-sizing: border-box;
+        background-color: #fdfbf7;
+        font-family: Georgia, 'Times New Roman', serif;
+        color: #2c2c2c;
+        line-height: 1.6;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: #731f1f;
+        font-weight: bold;
+        margin-top: 24px;
+        margin-bottom: 16px;
+      }
+
+      h1 {
+        font-size: 2.4em;
+        margin: 10px 0 5px 0;
+        text-align: center;
+      }
+
+      h2 {
+        font-size: 1.4em;
+        margin-top: 0;
+        font-weight: normal;
+        color: #4a4a4a;
+        text-align: center;
+      }
+
+      h3 {
+        font-size: 1.3em;
+        border-bottom: 1px solid #c5a059;
+        padding-bottom: 4px;
+        margin-top: 32px;
+      }
+
+      h4 {
+        font-size: 1.1em;
+        margin-top: 0;
+        margin-bottom: 12px;
+      }
+
+      p {
+        text-align: justify;
+        margin-bottom: 16px;
+      }
+
+      .header-block {
+        text-align: center;
+        border-bottom: 2px solid #c5a059;
+        padding-bottom: 24px;
+        margin-bottom: 32px;
+      }
+
+      .eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #731f1f;
+        font-size: 0.9em;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      .hero-summary {
+        font-style: italic;
+        text-align: center;
+        margin-top: 20px;
+        font-size: 1.05em;
+      }
+
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin: 24px 0;
+      }
+
+      .stat-card {
+        border: 1px solid #c5a059;
+        padding: 16px;
+        text-align: center;
+        background-color: #fafaf5;
+      }
+
+      .stat-card-title {
+        font-weight: bold;
+        color: #731f1f;
+        font-size: 1.1em;
+        margin-bottom: 4px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 24px;
+      }
+
+      th,
+      td {
+        border: 1px solid #d2c8b4;
+        padding: 12px;
+        vertical-align: top;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f4efe6;
+        color: #731f1f;
+        font-weight: bold;
+      }
+
+      .lesson-card {
+        border: 1px solid #d2c8b4;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: #fafaf5;
+      }
+
+      .lesson-card p {
+        text-align: left;
+        margin-bottom: 8px;
+      }
+
+      .lesson-card p:last-child {
+        margin-bottom: 0;
+      }
+
+      ul {
+        margin-bottom: 24px;
+        padding-left: 24px;
+      }
+
+      li {
+        margin-bottom: 8px;
+        text-align: left;
+      }
+
+      .footer {
+        margin-top: 48px;
+        border-top: 1px solid #c5a059;
+        padding-top: 16px;
+        font-size: 0.85em;
+        color: #555555;
+        text-align: left;
+      }
+
+      .footer p {
+        text-align: left;
+        margin-bottom: 8px;
+      }
+
+      @media (max-width: 760px) {
+        body {
+          padding: 24px 18px;
+        }
+
+        .stat-grid {
+          grid-template-columns: 1fr;
+        }
+
+        table,
+        thead,
+        tbody,
+        th,
+        td,
+        tr {
+          display: block;
+        }
+
+        thead {
+          display: none;
+        }
+
+        td {
+          border-top: none;
+          padding: 10px 12px;
+        }
+
+        tr {
+          border: 1px solid #d2c8b4;
+          margin-bottom: 12px;
+          background-color: #fafaf5;
+        }
+      }
+
+      @media print {
+        @page {
+          margin: 0.6in;
+        }
+
+        body {
+          max-width: none;
+          padding: 0;
+          background: #ffffff;
+          color: #000000;
+        }
+
+        .stat-card,
+        .lesson-card,
+        table,
+        th,
+        td {
+          box-shadow: none;
+        }
+
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header-block">
+      <p class="eyebrow">Knights Templar of the Kingdom of Christ</p>
+      <h1>Lieutenant School</h1>
+      <h2>Officer Formation Level I</h2>
+      <p class="hero-summary">
+        Lieutenant School forms the first-level officer who can be trusted under authority; office is service, not
+        status.
+      </p>
+    </div>
+
+    <h3>Core Overview</h3>
+    <p>
+      <strong>Course Purpose:</strong> Lieutenant School forms the officer who can be trusted under authority. It is the
+      transition from committed member to dependable officer: a man who can receive mission, execute it faithfully, care
+      for those assigned to him, maintain standards, and represent the Order with humility and steadiness.
+    </p>
+    <p>
+      <strong>Historical Foundation:</strong> The historical model is the Under Marshal, responsible for footmen and
+      equipment, making him the clearest junior operational officer in the Templar hierarchy. The wider system
+      emphasized chain of command, codified conduct, obedience, communal life, humility, discipline, and care for the
+      weak.
+    </p>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-card-title">12 Lessons</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-title">First-Level Officer</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-title">Under Marshal Model</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-title">Board Review</div>
+      </div>
+    </div>
+
+    <h3>Course-Wide Learning Objectives</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Objective Area</th>
+          <th>Objective</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Templar identity</strong></td>
+          <td>
+            Explain the origins, mission, and structure of the historical Knights Templar and how those lessons inform
+            your Order today.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Officer responsibility</strong></td>
+          <td>
+            Describe the role of a Lieutenant as a first-level officer entrusted with readiness, standards,
+            accountability, and care of assigned brothers.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Leadership under authority</strong></td>
+          <td>
+            Demonstrate the ability to receive direction, execute faithfully, report clearly, and lead without ego.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Character formation</strong></td>
+          <td>Practice humility, disciplined speech, reliability, self-control, and fraternal care.</td>
+        </tr>
+        <tr>
+          <td><strong>Team leadership</strong></td>
+          <td>Lead a small team, assignment, meeting, or service element effectively.</td>
+        </tr>
+        <tr>
+          <td><strong>Promotion readiness</strong></td>
+          <td>
+            Show evidence of readiness for greater responsibility through conduct, practicum performance, and final
+            board review.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>12-Lesson Syllabus Overview</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Lesson</th>
+          <th>Title</th>
+          <th>Assignment</th>
+          <th>Leadership Outcome</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>The Call to Office</td>
+          <td>1-page reflection: 'Why do I seek office, and what must be purified in my motives?'</td>
+          <td>Sees leadership as stewardship, not promotion.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Origins of the Knights Templar</td>
+          <td>Short presentation or summary sheet on Templar origins and mission.</td>
+          <td>Articulates identity and mission clearly.</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>The Templar Chain of Command</td>
+          <td>Draw and annotate a chain-of-command chart for the historical Templars and your Order.</td>
+          <td>Understands authority, reporting, and structure.</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>The Under Marshal and the Lieutenant Model</td>
+          <td>2-page comparison: 'Under Marshal and Lieutenant—historical parallels and modern application.'</td>
+          <td>Understands the practical nature of lieutenant duty.</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>The Rule: Obedience and Mission</td>
+          <td>Guided written response on obedience, mission, and self-will.</td>
+          <td>Accepts leadership under mission rather than preference.</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>The Rule: Humility, Speech, and Bearing</td>
+          <td>7-day self-observation log on speech, correction, listening, and emotional control.</td>
+          <td>Improves bearing, discretion, and self-command.</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Care of Brothers and Fraternal Responsibility</td>
+          <td>Interview a senior member and submit a reflection on what real brother-care looks like.</td>
+          <td>Grows from task-focus into people-focus.</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Readiness, Stewardship, and Reliability</td>
+          <td>Build a readiness checklist for a meeting, event, ceremonial duty, or team operation.</td>
+          <td>Learns preparation, follow-through, and trustworthiness.</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Leading a Small Team</td>
+          <td>Conduct a supervised team assignment and submit an after-action review.</td>
+          <td>Can brief, assign, monitor, and complete a team task.</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Correction, Conflict, and Discipline</td>
+          <td>Case-study responses to leadership problems involving correction, lateness, or conflict.</td>
+          <td>Handles minor problems with maturity and justice.</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>Lieutenant as Mentor and Example</td>
+          <td>Mentor a junior member or candidate for one week and submit an observation report.</td>
+          <td>Functions as a multiplier of standards and culture.</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>Capstone Preparation and Officer Review</td>
+          <td>Submit final portfolio: reflections, assignments, readiness plan, and practicum summary.</td>
+          <td>Demonstrates full readiness for first-level office.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Lesson Details</h3>
+
+    <div class="lesson-card">
+      <h4>Lesson 1 — The Call to Office</h4>
+      <p>
+        <strong>Focus:</strong> Office as service, not status. Establish the difference between rank as honor and office
+        as responsibility.
+      </p>
+      <p><strong>Leadership emphasis:</strong> Stewardship, motives, willingness to serve under discipline.</p>
+      <p><strong>Assignment:</strong> One-page reflection on motives for office.</p>
+    </div>
+
+    <div class="lesson-card">
+      <h4>Lesson 2 — Origins of the Knights Templar</h4>
+      <p><strong>Focus:</strong> Founding story, mission, and why disciplined structure mattered from the beginning.</p>
+      <p><strong>Leadership emphasis:</strong> Mission gives meaning to structure.</p>
+      <p><strong>Assignment:</strong> Short presentation or mission summary.</p>
+    </div>
+
+    <div class="lesson-card">
+      <h4>Lesson 3 — The Templar Chain of Command</h4>
+      <p><strong>Focus:</strong> Hierarchy from Grand Master through regional and local command.</p>
+      <p>
+        <strong>Leadership emphasis:</strong> Lawful authority preserves unity, accountability, and coordinated action.
+      </p>
+      <p><strong>Assignment:</strong> Chain-of-command diagram comparing history and your Order.</p>
+    </div>
+
+    <div class="lesson-card">
+      <h4>Lesson 4 — The Under Marshal and the Lieutenant Model</h4>
+      <p><strong>Focus:</strong> Under Marshal as the clearest Templar parallel for lieutenant-level office.</p>
+      <p><strong>Leadership emphasis:</strong> Readiness, supervision, support of mission, dependable execution.</p>
+      <p><strong>Assignment:</strong> Comparison paper on Under Marshal and Lieutenant.</p>
+    </div>
+
+    <div class="lesson-card">
+      <h4>Lesson 5 — The Rule: Obedience and Mission</h4>
+      <p><strong>Focus:</strong> Obedience as a core virtue; no officer leads well who resists lawful authority.</p>
+      <p><strong>Leadership emphasis:</strong> Disciplined execution over personal preference.</p>
+      <p><strong>Assignment:</strong> Written response to Rule passages on obedience.</p>
+    </div>
+
+    <div class="lesson-card">
+      <h4>Lesson 6 — The Rule: Humility, Speech, and Bearing</h4>
+      <p><strong>Focus:</strong> Humility, restraint, disciplined speech, and emotional maturity.</p>
+      <p><strong>Leadership emphasis:</strong> An officer’s tongue can either strengthen order or damage it.</p>
+      <p><strong>Assignment:</strong> 7-day self-observation log.</p>
+    </div>
+
+    <div class="lesson-card">
+      <h4>Lesson 7 — Care of Brothers and Fraternal Responsibility</h4>
+      <p><strong>Focus:</strong> Caring for the weak, sick, aging, and struggling members of the brotherhood.</p>
+      <p><strong>Leadership emphasis:</strong> Authority includes moral responsibility for people, not just tasks.</p>
+      <p><strong>Assignment:</strong> Senior-member interview and reflection.</p>
+    </div>
+
+    <div class="lesson-card">
+      <h4>Lesson 8 — Readiness, Stewardship, and Reliability</h4>
+      <p>
+        <strong>Focus:</strong> Maintaining preparedness, accountability, and stewardship of assigned duties or
+        resources.
+      </p>
+      <p><strong>Leadership emphasis:</strong> Readiness is a moral quality as much as an operational one.</p>
+      <p><strong>Assignment:</strong> Readiness checklist for a real activity.</p>
+    </div>
+
+    <div class="lesson-card">
+      <h4>Lesson 9 — Leading a Small Team</h4>
+      <p><strong>Focus:</strong> Briefing, assigning, supervising, and reviewing team performance.</p>
+      <p><strong>Leadership emphasis:</strong> Clarity is charity in leadership.</p>
+      <p><strong>Assignment:</strong> Supervised team assignment and after-action report.</p>
+    </div>
+
+    <div class="lesson-card">
+      <h4>Lesson 10 — Correction, Conflict, and Discipline</h4>
+      <p><strong>Focus:</strong> Handling problems directly, lawfully, and calmly without rumor or spite.</p>
+      <p><strong>Leadership emphasis:</strong> Disciplined correction protects both people and order.</p>
+      <p><strong>Assignment:</strong> Case-study response paper.</p>
+    </div>
+
+    <div class="lesson-card">
+      <h4>Lesson 11 — Lieutenant as Mentor and Example</h4>
+      <p><strong>Focus:</strong> Junior officers shape culture by example, even when not speaking.</p>
+      <p><strong>Leadership emphasis:</strong> Your life is already part of someone else’s formation.</p>
+      <p><strong>Assignment:</strong> One-week mentoring observation report.</p>
+    </div>
+
+    <div class="lesson-card">
+      <h4>Lesson 12 — Capstone Preparation and Officer Review</h4>
+      <p><strong>Focus:</strong> Integrating course learning for final practicum and oral board.</p>
+      <p><strong>Leadership emphasis:</strong> Readiness for office must be visible, testable, and defendable.</p>
+      <p><strong>Assignment:</strong> Final portfolio submission.</p>
+    </div>
+
+    <h3>Required Assignments Summary</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Assignment</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Motive reflection paper</td>
+          <td>Clarify why the candidate seeks office.</td>
+        </tr>
+        <tr>
+          <td>Templar origins summary/presentation</td>
+          <td>Establish historical identity.</td>
+        </tr>
+        <tr>
+          <td>Chain-of-command chart</td>
+          <td>Understand authority and reporting.</td>
+        </tr>
+        <tr>
+          <td>Under Marshal comparison paper</td>
+          <td>Link the historical role to Lieutenant office.</td>
+        </tr>
+        <tr>
+          <td>Rule reflection on obedience</td>
+          <td>Form mission-centered discipline.</td>
+        </tr>
+        <tr>
+          <td>Speech and bearing self-log</td>
+          <td>Build self-awareness and control.</td>
+        </tr>
+        <tr>
+          <td>Brother-care interview reflection</td>
+          <td>Develop fraternal leadership.</td>
+        </tr>
+        <tr>
+          <td>Readiness checklist</td>
+          <td>Build operational trustworthiness.</td>
+        </tr>
+        <tr>
+          <td>Small-team practicum and AAR</td>
+          <td>Demonstrate applied leadership.</td>
+        </tr>
+        <tr>
+          <td>Conflict case-study paper</td>
+          <td>Practice correction and discipline.</td>
+        </tr>
+        <tr>
+          <td>Mentoring report</td>
+          <td>Build cultural and developmental leadership.</td>
+        </tr>
+        <tr>
+          <td>Final portfolio</td>
+          <td>Integrate all work for board review.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Leadership Outcomes</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Leadership Domain</th>
+          <th>Expected Outcome</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Identity</strong></td>
+          <td>Understands the Templar heritage and the meaning of officer service.</td>
+        </tr>
+        <tr>
+          <td><strong>Discipline</strong></td>
+          <td>Demonstrates punctuality, preparation, self-control, and reliability.</td>
+        </tr>
+        <tr>
+          <td><strong>Obedience</strong></td>
+          <td>Executes direction faithfully and reports responsibly.</td>
+        </tr>
+        <tr>
+          <td><strong>Humility</strong></td>
+          <td>Accepts correction, avoids vanity, and leads without self-importance.</td>
+        </tr>
+        <tr>
+          <td><strong>Speech</strong></td>
+          <td>Communicates clearly, avoids rumor, and handles disagreement with maturity.</td>
+        </tr>
+        <tr>
+          <td><strong>Care of brothers</strong></td>
+          <td>Notices needs, supports weaker members, and treats office as stewardship.</td>
+        </tr>
+        <tr>
+          <td><strong>Execution</strong></td>
+          <td>Can lead a small team or assignment to completion.</td>
+        </tr>
+        <tr>
+          <td><strong>Promotion readiness</strong></td>
+          <td>Shows clear evidence of fitness for continued officer growth.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Final Evaluation</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th>Weight</th>
+          <th>What is Assessed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Attendance and participation</td>
+          <td>10%</td>
+          <td>Presence, preparedness, engagement.</td>
+        </tr>
+        <tr>
+          <td>Written assignments</td>
+          <td>20%</td>
+          <td>Historical understanding, reflection quality, application.</td>
+        </tr>
+        <tr>
+          <td>Readiness/stewardship assignment</td>
+          <td>10%</td>
+          <td>Preparation, organization, practical judgment.</td>
+        </tr>
+        <tr>
+          <td>Small-team practicum</td>
+          <td>20%</td>
+          <td>Leadership execution, clarity, accountability, follow-through.</td>
+        </tr>
+        <tr>
+          <td>Mentor observation</td>
+          <td>10%</td>
+          <td>Bearing, humility, discipline, fraternal conduct.</td>
+        </tr>
+        <tr>
+          <td>Final portfolio</td>
+          <td>10%</td>
+          <td>Integration and completeness of work.</td>
+        </tr>
+        <tr>
+          <td>Oral board / final review</td>
+          <td>20%</td>
+          <td>Officer presence, judgment, historical understanding, readiness for office.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Sample Oral Board Questions</h3>
+    <ul>
+      <li>Why does a Templar-inspired officer need history?</li>
+      <li>Why is obedience foundational to leadership?</li>
+      <li>What distinguishes a Lieutenant from a senior member without office?</li>
+      <li>Why is the Under Marshal the best historical parallel for this rank?</li>
+      <li>What does it mean for a Lieutenant to care for the brothers?</li>
+      <li>Where is your greatest growth area as a future officer?</li>
+      <li>How would you respond to lateness, disorder, or poor communication in your team?</li>
+    </ul>
+
+    <h3>Practicum Requirement</h3>
+    <p>
+      The candidate must complete one approved practicum, such as leading a ceremonial team, organizing a service
+      project, running a training segment, coordinating a meeting or officer support function, or managing readiness for
+      an event or formal gathering. The practicum should include supervisor observation and an after-action review.
+    </p>
+
+    <h3>Promotion Recommendation Standard</h3>
+    <p>
+      A candidate should be recommended only if he completes the course requirements, demonstrates steady conduct,
+      performs competently in practicum, passes the board review, and shows the character expected of a first-level
+      officer.
+    </p>
+
+    <div class="footer">
+      <p><strong>Historical sources used in drafting the syllabus:</strong></p>
+      <ul>
+        <li>Wikipedia — Knights Templar: https://en.wikipedia.org/wiki/Knights_Templar</li>
+        <li>Medieval Warfare — Templars hierarchy and duties: https://www.medievalwarfare.info/templars.htm</li>
+        <li>Medieval Warfare — Primitive Rule of the Templars: https://www.medievalwarfare.info/rule.htm</li>
+      </ul>
+      <p><em>Note: This HTML program was built from the uploaded PDF syllabus 'Lieutenant_School_Syllabus.pdf'.</em></p>
+    </div>
+  
+<script src="/assets/document-link-enhancer.js"></script>
+<script src="/assets/curriculum-portal.js"></script>
+</body>
+</html>

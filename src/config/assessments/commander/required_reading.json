@@ -1,0 +1,216 @@
+{
+  "program_slug": "commander",
+  "program_title": "Commander School Program",
+  "program_phase": "Officer Formation Level IV",
+  "source_required_reading_file": "public/programs/commander/site/downloads/Commander_Required_Reading_List.html",
+  "weeks": [
+    {
+      "week_number": 1,
+      "week_title": "Week 1: The Burden of Senior Command",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Commander School Syllabus - Introduction & Objectives",
+          "url": "https://www.genspark.ai/api/files/s/WLAV69DX"
+        },
+        {
+          "title": "Fordham Primitive Rule of the Templars - Sections on Obedience and Devotion",
+          "url": "https://sourcebooks.web.fordham.edu/source/templars-primitiverule.asp"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 2,
+      "week_title": "Week 2: Senior Command in the Knights Templar",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Wikipedia: Knights Templar - Organization and Leadership",
+          "url": "https://en.wikipedia.org/wiki/Knights_Templar"
+        },
+        {
+          "title": "Britannica: Templars - History and Structure",
+          "url": "https://www.britannica.com/topic/Templars"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 3,
+      "week_title": "Week 3: The Offices of Marshal and Seneschal",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Commander School Syllabus - Historical Models (Marshal & Seneschal)",
+          "url": "https://www.genspark.ai/api/files/s/WLAV69DX"
+        },
+        {
+          "title": "OSMTH Modern Order History - Administrative Evolution",
+          "url": "https://www.osmth.org/templar-legacy/modern-order-history"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 4,
+      "week_title": "Week 4: Doctrine, Mission, and Institutional Identity",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Fordham Primitive Rule of the Templars - Establishing Order Identity",
+          "url": "https://sourcebooks.web.fordham.edu/source/templars-primitiverule.asp"
+        },
+        {
+          "title": "Commander School Syllabus - Lesson 4 Framework",
+          "url": "https://www.genspark.ai/api/files/s/WLAV69DX"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 5,
+      "week_title": "Week 5: Authority, Judgment, and Command Presence",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Commander School Syllabus - Lesson 5 Framework",
+          "url": "https://www.genspark.ai/api/files/s/WLAV69DX"
+        },
+        {
+          "title": "Wikipedia: Knights Templar - Code of Conduct and Authority",
+          "url": "https://en.wikipedia.org/wiki/Knights_Templar"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 6,
+      "week_title": "Week 6: Senior Officer Alignment and Direction",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "OSMTH Modern Order History - Legacy of Institutional Unity",
+          "url": "https://www.osmth.org/templar-legacy/modern-order-history"
+        },
+        {
+          "title": "Commander School Syllabus - Lesson 6 Framework",
+          "url": "https://www.genspark.ai/api/files/s/WLAV69DX"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 7,
+      "week_title": "Week 7: Crisis Leadership and Difficult Decisions",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Britannica: Templars - Decline and Historical Crises",
+          "url": "https://www.britannica.com/topic/Templars"
+        },
+        {
+          "title": "Commander School Syllabus - Lesson 7 Framework",
+          "url": "https://www.genspark.ai/api/files/s/WLAV69DX"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 8,
+      "week_title": "Week 8: Succession, Appointments, and Officer Formation",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Commander School Syllabus - Lesson 8 Framework",
+          "url": "https://www.genspark.ai/api/files/s/WLAV69DX"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 9,
+      "week_title": "Week 9: Discipline, Correction, and Justice at the Highest Officer Level",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Fordham Primitive Rule of the Templars - Sections on Faults and Penance",
+          "url": "https://sourcebooks.web.fordham.edu/source/templars-primitiverule.asp"
+        },
+        {
+          "title": "Commander School Syllabus - Lesson 9 Framework",
+          "url": "https://www.genspark.ai/api/files/s/WLAV69DX"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 10,
+      "week_title": "Week 10: Stewardship of Culture, Communication, and Morale",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "OSMTH Modern Order History - Cultural Stewardship",
+          "url": "https://www.osmth.org/templar-legacy/modern-order-history"
+        },
+        {
+          "title": "Commander School Syllabus - Lesson 10 Framework",
+          "url": "https://www.genspark.ai/api/files/s/WLAV69DX"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 11,
+      "week_title": "Week 11: Senior Command Practicum",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Commander School Syllabus - Practicum Guidelines & Expectations",
+          "url": "https://www.genspark.ai/api/files/s/WLAV69DX"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 12,
+      "week_title": "Week 12: Capstone Preparation and Commander’s Board Review",
+      "focus": "",
+      "required_reading": [
+        {
+          "title": "Commander School Syllabus - Evaluation Criteria and Board Review",
+          "url": "https://www.genspark.ai/api/files/s/WLAV69DX"
+        },
+        {
+          "title": "Britannica: Templars - Final Review of Templar Legacy",
+          "url": "https://www.britannica.com/topic/Templars"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    }
+  ]
+}

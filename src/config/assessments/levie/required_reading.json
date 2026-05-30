@@ -1,0 +1,80 @@
+{
+  "program_slug": "levie",
+  "program_title": "Levie School Program",
+  "program_phase": "Foundational rank",
+  "source_required_reading_file": "public/programs/levie/resources/Levie_Required_Reading_List.html",
+  "weeks": [
+    {
+      "week_number": 1,
+      "week_title": "Week 1: Identity, Purpose, and Consecration",
+      "focus": "",
+      "required_reading": [],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 2,
+      "week_title": "Week 2: Standards, Duties, and Equality",
+      "focus": "",
+      "required_reading": [],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 3,
+      "week_title": "Week 3: Conduct, Leadership, and Accountability",
+      "focus": "",
+      "required_reading": [],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 4,
+      "week_title": "Week 4: The Five Governing Pillars",
+      "focus": "",
+      "required_reading": [],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 5,
+      "week_title": "Week 5: The Need for Protection (Early Pre-Templar History)",
+      "focus": "",
+      "required_reading": [],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 6,
+      "week_title": "Week 6: Founding People and Places",
+      "focus": "",
+      "required_reading": [],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 7,
+      "week_title": "Week 7: Official Approval and Early Support",
+      "focus": "",
+      "required_reading": [],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 8,
+      "week_title": "Week 8: Religious-Order Identity and Early Timeline Review",
+      "focus": "",
+      "required_reading": [],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    }
+  ]
+}

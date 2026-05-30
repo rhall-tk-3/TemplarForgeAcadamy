@@ -1,0 +1,1 @@
+Corporal program static site for website deployment.

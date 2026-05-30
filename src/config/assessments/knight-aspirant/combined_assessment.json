@@ -1,0 +1,1136 @@
+{
+  "program_title": "Knight Aspirant School Program",
+  "program_phase": "Knight preparation",
+  "assessment_type": "multiple_choice_and_discussion",
+  "generated_note": "Original assessment materials generated from the uploaded KTKC program files and website repository structure.",
+  "weeks": [
+    {
+      "week_number": 1,
+      "week_title": "Week 1: The Calling of a Knight Aspirant",
+      "focus": "Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 1: The Calling of a Knight Aspirant?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service."
+            },
+            {
+              "option": "D",
+              "text": "Focus: Clarify that the Knight’s true warfare is first spiritual: resisting sin, guarding speech, protecting the weak, and standing faithfully within Christian brotherhood."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior.",
+          "rationale": "The week summary states that Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 1: The Calling of a Knight Aspirant?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Knight Aspirant Lesson Plan Program"
+            },
+            {
+              "option": "B",
+              "text": "Promotion Manual & By-Laws"
+            },
+            {
+              "option": "C",
+              "text": "KTKC Rules & Statutes"
+            },
+            {
+              "option": "D",
+              "text": "Week 2: Prayer, Scripture, and Rule of Life"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Knight Aspirant Lesson Plan Program",
+          "rationale": "Knight Aspirant Lesson Plan Program appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 1: The Calling of a Knight Aspirant?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "The Calling of a Knight Aspirant"
+            },
+            {
+              "option": "B",
+              "text": "Week 2: Prayer, Scripture, and Rule of Life"
+            },
+            {
+              "option": "C",
+              "text": "Week 3: Virtue, Charity, and Self-Mastery"
+            },
+            {
+              "option": "D",
+              "text": "Week 4: Spiritual Warfare, Brotherhood, and Knight Readiness"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "The Calling of a Knight Aspirant",
+          "rationale": "The week is organized around the concept of The Calling of a Knight Aspirant."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 1: The Calling of a Knight Aspirant?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service."
+            },
+            {
+              "option": "D",
+              "text": "Focus: Clarify that the Knight’s true warfare is first spiritual: resisting sin, guarding speech, protecting the weak, and standing faithfully within Christian brotherhood."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 1: The Calling of a Knight Aspirant?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of The Calling of a Knight Aspirant through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat The Calling of a Knight Aspirant mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about The Calling of a Knight Aspirant."
+            },
+            {
+              "option": "D",
+              "text": "Approach The Calling of a Knight Aspirant as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of The Calling of a Knight Aspirant through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 1: The Calling of a Knight Aspirant shape the expectations placed on a member in the Knight Aspirant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 1: The Calling of a Knight Aspirant seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 1: The Calling of a Knight Aspirant in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 2,
+      "week_title": "Week 2: Prayer, Scripture, and Rule of Life",
+      "focus": "Focus: Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 2: Prayer, Scripture, and Rule of Life?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service."
+            },
+            {
+              "option": "D",
+              "text": "Focus: Clarify that the Knight’s true warfare is first spiritual: resisting sin, guarding speech, protecting the weak, and standing faithfully within Christian brotherhood."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability.",
+          "rationale": "The week summary states that Focus: Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 2: Prayer, Scripture, and Rule of Life?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Knight Aspirant Lesson Plan Program"
+            },
+            {
+              "option": "B",
+              "text": "Promotion Manual & By-Laws"
+            },
+            {
+              "option": "C",
+              "text": "KTKC Rules & Statutes"
+            },
+            {
+              "option": "D",
+              "text": "Week 1: The Calling of a Knight Aspirant"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Knight Aspirant Lesson Plan Program",
+          "rationale": "Knight Aspirant Lesson Plan Program appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 2: Prayer, Scripture, and Rule of Life?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Prayer, Scripture, and Rule of Life"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Calling of a Knight Aspirant"
+            },
+            {
+              "option": "C",
+              "text": "Week 3: Virtue, Charity, and Self-Mastery"
+            },
+            {
+              "option": "D",
+              "text": "Week 4: Spiritual Warfare, Brotherhood, and Knight Readiness"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Prayer, Scripture, and Rule of Life",
+          "rationale": "The week is organized around the concept of Prayer, Scripture, and Rule of Life."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 2: Prayer, Scripture, and Rule of Life?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service."
+            },
+            {
+              "option": "D",
+              "text": "Focus: Clarify that the Knight’s true warfare is first spiritual: resisting sin, guarding speech, protecting the weak, and standing faithfully within Christian brotherhood."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Focus: Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 2: Prayer, Scripture, and Rule of Life?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Prayer, Scripture, and Rule of Life through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Prayer, Scripture, and Rule of Life mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Prayer, Scripture, and Rule of Life."
+            },
+            {
+              "option": "D",
+              "text": "Approach Prayer, Scripture, and Rule of Life as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Prayer, Scripture, and Rule of Life through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 2: Prayer, Scripture, and Rule of Life shape the expectations placed on a member in the Knight Aspirant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 2: Prayer, Scripture, and Rule of Life seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 2: Prayer, Scripture, and Rule of Life in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 3,
+      "week_title": "Week 3: Virtue, Charity, and Self-Mastery",
+      "focus": "Focus: Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 3: Virtue, Charity, and Self-Mastery?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability."
+            },
+            {
+              "option": "D",
+              "text": "Focus: Clarify that the Knight’s true warfare is first spiritual: resisting sin, guarding speech, protecting the weak, and standing faithfully within Christian brotherhood."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service.",
+          "rationale": "The week summary states that Focus: Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 3: Virtue, Charity, and Self-Mastery?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Knight Aspirant Lesson Plan Program"
+            },
+            {
+              "option": "B",
+              "text": "Promotion Manual & By-Laws"
+            },
+            {
+              "option": "C",
+              "text": "KTKC Rules & Statutes"
+            },
+            {
+              "option": "D",
+              "text": "Week 1: The Calling of a Knight Aspirant"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Knight Aspirant Lesson Plan Program",
+          "rationale": "Knight Aspirant Lesson Plan Program appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 3: Virtue, Charity, and Self-Mastery?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Virtue, Charity, and Self"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Calling of a Knight Aspirant"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Prayer, Scripture, and Rule of Life"
+            },
+            {
+              "option": "D",
+              "text": "Week 4: Spiritual Warfare, Brotherhood, and Knight Readiness"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Virtue, Charity, and Self",
+          "rationale": "The week is organized around the concept of Virtue, Charity, and Self."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 3: Virtue, Charity, and Self-Mastery?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability."
+            },
+            {
+              "option": "D",
+              "text": "Focus: Clarify that the Knight’s true warfare is first spiritual: resisting sin, guarding speech, protecting the weak, and standing faithfully within Christian brotherhood."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Focus: Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 3: Virtue, Charity, and Self-Mastery?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Virtue, Charity, and Self through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Virtue, Charity, and Self mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Virtue, Charity, and Self."
+            },
+            {
+              "option": "D",
+              "text": "Approach Virtue, Charity, and Self as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Virtue, Charity, and Self through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 3: Virtue, Charity, and Self-Mastery shape the expectations placed on a member in the Knight Aspirant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 3: Virtue, Charity, and Self-Mastery seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 3: Virtue, Charity, and Self-Mastery in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 4,
+      "week_title": "Week 4: Spiritual Warfare, Brotherhood, and Knight Readiness",
+      "focus": "Focus: Clarify that the Knight’s true warfare is first spiritual: resisting sin, guarding speech, protecting the weak, and standing faithfully within Christian brotherhood.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 4: Spiritual Warfare, Brotherhood, and Knight Readiness?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Clarify that the Knight’s true warfare is first spiritual: resisting sin, guarding speech, protecting the weak, and standing faithfully within Christian brotherhood."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability."
+            },
+            {
+              "option": "D",
+              "text": "Focus: Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Clarify that the Knight’s true warfare is first spiritual: resisting sin, guarding speech, protecting the weak, and standing faithfully within Christian brotherhood.",
+          "rationale": "The week summary states that Focus: Clarify that the Knight’s true warfare is first spiritual: resisting sin, guarding speech, protecting the weak, and standing faithfully within Christian brotherhood."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 4: Spiritual Warfare, Brotherhood, and Knight Readiness?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Knight Aspirant Lesson Plan Program"
+            },
+            {
+              "option": "B",
+              "text": "Promotion Manual & By-Laws"
+            },
+            {
+              "option": "C",
+              "text": "KTKC Rules & Statutes"
+            },
+            {
+              "option": "D",
+              "text": "Week 1: The Calling of a Knight Aspirant"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Knight Aspirant Lesson Plan Program",
+          "rationale": "Knight Aspirant Lesson Plan Program appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 4: Spiritual Warfare, Brotherhood, and Knight Readiness?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Spiritual Warfare, Brotherhood, and Knight Readiness"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Calling of a Knight Aspirant"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Prayer, Scripture, and Rule of Life"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: Virtue, Charity, and Self-Mastery"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Spiritual Warfare, Brotherhood, and Knight Readiness",
+          "rationale": "The week is organized around the concept of Spiritual Warfare, Brotherhood, and Knight Readiness."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 4: Spiritual Warfare, Brotherhood, and Knight Readiness?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Clarify that the Knight’s true warfare is first spiritual: resisting sin, guarding speech, protecting the weak, and standing faithfully within Christian brotherhood."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability."
+            },
+            {
+              "option": "D",
+              "text": "Focus: Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Clarify that the Knight’s true warfare is first spiritual: resisting sin, guarding speech, protecting the weak, and standing faithfully within Christian brotherhood.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Focus: Clarify that the Knight’s true warfare is first spiritual: resisting sin, guarding speech, protecting the weak, and standing faithfully within Christian brotherhood."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 4: Spiritual Warfare, Brotherhood, and Knight Readiness?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Spiritual Warfare, Brotherhood, and Knight Readiness through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Spiritual Warfare, Brotherhood, and Knight Readiness mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Spiritual Warfare, Brotherhood, and Knight Readiness."
+            },
+            {
+              "option": "D",
+              "text": "Approach Spiritual Warfare, Brotherhood, and Knight Readiness as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Spiritual Warfare, Brotherhood, and Knight Readiness through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 4: Spiritual Warfare, Brotherhood, and Knight Readiness shape the expectations placed on a member in the Knight Aspirant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 4: Spiritual Warfare, Brotherhood, and Knight Readiness seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 4: Spiritual Warfare, Brotherhood, and Knight Readiness in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 5,
+      "week_title": "Week 5: Essay Week I — Theme, Thesis, and Evidence",
+      "focus": "Focus: Launch the required essay by identifying the central claim, spiritual theme, and supporting sources for “What Does a Templar Knight Mean to You?”",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 5: Essay Week I — Theme, Thesis, and Evidence?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Launch the required essay by identifying the central claim, spiritual theme, and supporting sources for “What Does a Templar Knight Mean to You?”"
+            },
+            {
+              "option": "B",
+              "text": "Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability."
+            },
+            {
+              "option": "D",
+              "text": "Focus: Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Launch the required essay by identifying the central claim, spiritual theme, and supporting sources for “What Does a Templar Knight Mean to You?”",
+          "rationale": "The week summary states that Focus: Launch the required essay by identifying the central claim, spiritual theme, and supporting sources for “What Does a Templar Knight Mean to You?”"
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 5: Essay Week I — Theme, Thesis, and Evidence?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Knight Aspirant Required Reading List"
+            },
+            {
+              "option": "B",
+              "text": "Knight Aspirant Lesson Plan Program"
+            },
+            {
+              "option": "C",
+              "text": "Promotion Manual & By-Laws"
+            },
+            {
+              "option": "D",
+              "text": "KTKC Rules & Statutes"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Knight Aspirant Required Reading List",
+          "rationale": "Knight Aspirant Required Reading List appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 5: Essay Week I — Theme, Thesis, and Evidence?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Essay Week I"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Calling of a Knight Aspirant"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Prayer, Scripture, and Rule of Life"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: Virtue, Charity, and Self-Mastery"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Essay Week I",
+          "rationale": "The week is organized around the concept of Essay Week I."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 5: Essay Week I — Theme, Thesis, and Evidence?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Launch the required essay by identifying the central claim, spiritual theme, and supporting sources for “What Does a Templar Knight Mean to You?”"
+            },
+            {
+              "option": "B",
+              "text": "Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability."
+            },
+            {
+              "option": "D",
+              "text": "Focus: Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Launch the required essay by identifying the central claim, spiritual theme, and supporting sources for “What Does a Templar Knight Mean to You?”",
+          "rationale": "This statement matches the stated memory target or focus for the week: Focus: Launch the required essay by identifying the central claim, spiritual theme, and supporting sources for “What Does a Templar Knight Mean to You?”"
+        },
+        {
+          "question": "Which response best applies the lesson of Week 5: Essay Week I — Theme, Thesis, and Evidence?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Essay Week I through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Essay Week I mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Essay Week I."
+            },
+            {
+              "option": "D",
+              "text": "Approach Essay Week I as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Essay Week I through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 5: Essay Week I — Theme, Thesis, and Evidence shape the expectations placed on a member in the Knight Aspirant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 5: Essay Week I — Theme, Thesis, and Evidence seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 5: Essay Week I — Theme, Thesis, and Evidence in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 6,
+      "week_title": "Week 6: Essay Week II — Outline and First Draft",
+      "focus": "Focus: Build a complete outline and begin the full draft in standard college essay format, keeping the argument centered on Christian formation.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 6: Essay Week II — Outline and First Draft?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Build a complete outline and begin the full draft in standard college essay format, keeping the argument centered on Christian formation."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability."
+            },
+            {
+              "option": "D",
+              "text": "Focus: Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Build a complete outline and begin the full draft in standard college essay format, keeping the argument centered on Christian formation.",
+          "rationale": "The week summary states that Focus: Build a complete outline and begin the full draft in standard college essay format, keeping the argument centered on Christian formation."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 6: Essay Week II — Outline and First Draft?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Knight Aspirant Required Reading List"
+            },
+            {
+              "option": "B",
+              "text": "Knight Aspirant Lesson Plan Program"
+            },
+            {
+              "option": "C",
+              "text": "Promotion Manual & By-Laws"
+            },
+            {
+              "option": "D",
+              "text": "KTKC Rules & Statutes"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Knight Aspirant Required Reading List",
+          "rationale": "Knight Aspirant Required Reading List appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 6: Essay Week II — Outline and First Draft?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Essay Week II"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Calling of a Knight Aspirant"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Prayer, Scripture, and Rule of Life"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: Virtue, Charity, and Self-Mastery"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Essay Week II",
+          "rationale": "The week is organized around the concept of Essay Week II."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 6: Essay Week II — Outline and First Draft?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Build a complete outline and begin the full draft in standard college essay format, keeping the argument centered on Christian formation."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability."
+            },
+            {
+              "option": "D",
+              "text": "Focus: Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Build a complete outline and begin the full draft in standard college essay format, keeping the argument centered on Christian formation.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Focus: Build a complete outline and begin the full draft in standard college essay format, keeping the argument centered on Christian formation."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 6: Essay Week II — Outline and First Draft?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Essay Week II through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Essay Week II mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Essay Week II."
+            },
+            {
+              "option": "D",
+              "text": "Approach Essay Week II as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Essay Week II through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 6: Essay Week II — Outline and First Draft shape the expectations placed on a member in the Knight Aspirant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 6: Essay Week II — Outline and First Draft seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 6: Essay Week II — Outline and First Draft in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 7,
+      "week_title": "Week 7: Essay Week III — Revision, Clarity, and Submission Readiness",
+      "focus": "Focus: Revise for clarity, strength, sincerity, and discipline so the essay reflects maturity, not haste or sentimentality.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 7: Essay Week III — Revision, Clarity, and Submission Readiness?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Revise for clarity, strength, sincerity, and discipline so the essay reflects maturity, not haste or sentimentality."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability."
+            },
+            {
+              "option": "D",
+              "text": "Focus: Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Revise for clarity, strength, sincerity, and discipline so the essay reflects maturity, not haste or sentimentality.",
+          "rationale": "The week summary states that Focus: Revise for clarity, strength, sincerity, and discipline so the essay reflects maturity, not haste or sentimentality."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 7: Essay Week III — Revision, Clarity, and Submission Readiness?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Knight Aspirant Required Reading List"
+            },
+            {
+              "option": "B",
+              "text": "Knight Aspirant Lesson Plan Program"
+            },
+            {
+              "option": "C",
+              "text": "Promotion Manual & By-Laws"
+            },
+            {
+              "option": "D",
+              "text": "KTKC Rules & Statutes"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Knight Aspirant Required Reading List",
+          "rationale": "Knight Aspirant Required Reading List appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 7: Essay Week III — Revision, Clarity, and Submission Readiness?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Essay Week III"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Calling of a Knight Aspirant"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Prayer, Scripture, and Rule of Life"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: Virtue, Charity, and Self-Mastery"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Essay Week III",
+          "rationale": "The week is organized around the concept of Essay Week III."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 7: Essay Week III — Revision, Clarity, and Submission Readiness?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Revise for clarity, strength, sincerity, and discipline so the essay reflects maturity, not haste or sentimentality."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability."
+            },
+            {
+              "option": "D",
+              "text": "Focus: Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Revise for clarity, strength, sincerity, and discipline so the essay reflects maturity, not haste or sentimentality.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Focus: Revise for clarity, strength, sincerity, and discipline so the essay reflects maturity, not haste or sentimentality."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 7: Essay Week III — Revision, Clarity, and Submission Readiness?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Essay Week III through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Essay Week III mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Essay Week III."
+            },
+            {
+              "option": "D",
+              "text": "Approach Essay Week III as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Essay Week III through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 7: Essay Week III — Revision, Clarity, and Submission Readiness shape the expectations placed on a member in the Knight Aspirant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 7: Essay Week III — Revision, Clarity, and Submission Readiness seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 7: Essay Week III — Revision, Clarity, and Submission Readiness in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 8,
+      "week_title": "Week 8: Essay Week IV — Final Submission and Knight Review",
+      "focus": "Focus: Submit the final essay with cover page and formatting requirements completed, then undergo final review for Knight readiness.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 8: Essay Week IV — Final Submission and Knight Review?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Submit the final essay with cover page and formatting requirements completed, then undergo final review for Knight readiness."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability."
+            },
+            {
+              "option": "D",
+              "text": "Focus: Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Submit the final essay with cover page and formatting requirements completed, then undergo final review for Knight readiness.",
+          "rationale": "The week summary states that Focus: Submit the final essay with cover page and formatting requirements completed, then undergo final review for Knight readiness."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 8: Essay Week IV — Final Submission and Knight Review?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Knight Aspirant Required Reading List"
+            },
+            {
+              "option": "B",
+              "text": "Knight Aspirant Lesson Plan Program"
+            },
+            {
+              "option": "C",
+              "text": "Promotion Manual & By-Laws"
+            },
+            {
+              "option": "D",
+              "text": "KTKC Rules & Statutes"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Knight Aspirant Required Reading List",
+          "rationale": "Knight Aspirant Required Reading List appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 8: Essay Week IV — Final Submission and Knight Review?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Essay Week IV"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Calling of a Knight Aspirant"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Prayer, Scripture, and Rule of Life"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: Virtue, Charity, and Self-Mastery"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Essay Week IV",
+          "rationale": "The week is organized around the concept of Essay Week IV."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 8: Essay Week IV — Final Submission and Knight Review?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Focus: Submit the final essay with cover page and formatting requirements completed, then undergo final review for Knight readiness."
+            },
+            {
+              "option": "B",
+              "text": "Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior."
+            },
+            {
+              "option": "C",
+              "text": "Focus: Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability."
+            },
+            {
+              "option": "D",
+              "text": "Focus: Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Focus: Submit the final essay with cover page and formatting requirements completed, then undergo final review for Knight readiness.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Focus: Submit the final essay with cover page and formatting requirements completed, then undergo final review for Knight readiness."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 8: Essay Week IV — Final Submission and Knight Review?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Essay Week IV through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Essay Week IV mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Essay Week IV."
+            },
+            {
+              "option": "D",
+              "text": "Approach Essay Week IV as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Essay Week IV through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 8: Essay Week IV — Final Submission and Knight Review shape the expectations placed on a member in the Knight Aspirant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 8: Essay Week IV — Final Submission and Knight Review seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 8: Essay Week IV — Final Submission and Knight Review in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    }
+  ]
+}

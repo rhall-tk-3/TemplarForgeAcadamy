@@ -1,0 +1,127 @@
+{
+  "program_title": "Captain School Program",
+  "week_number": 3,
+  "week_title": "Week 3 — The Office of Commander / Preceptor",
+  "multiple_choice_questions": [
+    {
+      "question": "What is the primary focus of Week 3 — The Office of Commander / Preceptor?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "connect the historical commander role to the modern Captain rank."
+        },
+        {
+          "option": "B",
+          "text": "shift from task leadership to stewardship of a local body."
+        },
+        {
+          "option": "C",
+          "text": "understand the commandery as a local center of mission, discipline, and logistics."
+        },
+        {
+          "option": "D",
+          "text": "align local culture with the wider Order."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "connect the historical commander role to the modern Captain rank.",
+      "rationale": "The week summary states that connect the historical commander role to the modern Captain rank."
+    },
+    {
+      "question": "Which reading is explicitly assigned for Week 3 — The Office of Commander / Preceptor?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Captain School Syllabus PDF"
+        },
+        {
+          "option": "B",
+          "text": "Captain School Lesson Plan"
+        },
+        {
+          "option": "C",
+          "text": "Wikipedia: Knights Templar"
+        },
+        {
+          "option": "D",
+          "text": "Week 1 — The Burden of Local Command"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Captain School Syllabus PDF",
+      "rationale": "Captain School Syllabus PDF appears in the required reading list for this week."
+    },
+    {
+      "question": "Which concept is most directly associated with Week 3 — The Office of Commander / Preceptor?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "The Office of Commander"
+        },
+        {
+          "option": "B",
+          "text": "Week 1 — The Burden of Local Command"
+        },
+        {
+          "option": "C",
+          "text": "Week 2 — The Medieval Commandery"
+        },
+        {
+          "option": "D",
+          "text": "Week 4 — Mission, Standards, and Local Identity"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "The Office of Commander",
+      "rationale": "The week is organized around the concept of The Office of Commander."
+    },
+    {
+      "question": "Which statement best reflects the expected learning outcome for Week 3 — The Office of Commander / Preceptor?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "connect the historical commander role to the modern Captain rank."
+        },
+        {
+          "option": "B",
+          "text": "shift from task leadership to stewardship of a local body."
+        },
+        {
+          "option": "C",
+          "text": "understand the commandery as a local center of mission, discipline, and logistics."
+        },
+        {
+          "option": "D",
+          "text": "align local culture with the wider Order."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "connect the historical commander role to the modern Captain rank.",
+      "rationale": "This statement matches the stated memory target or focus for the week: connect the historical commander role to the modern Captain rank."
+    },
+    {
+      "question": "Which response best applies the lesson of Week 3 — The Office of Commander / Preceptor?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Apply the lesson of The Office of Commander through disciplined conduct, truthful understanding, and practical service."
+        },
+        {
+          "option": "B",
+          "text": "Treat The Office of Commander mainly as ceremonial prestige without practical duty."
+        },
+        {
+          "option": "C",
+          "text": "Ignore assigned readings and rely on legend or speculation about The Office of Commander."
+        },
+        {
+          "option": "D",
+          "text": "Approach The Office of Commander as private opinion rather than accountable formation."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Apply the lesson of The Office of Commander through disciplined conduct, truthful understanding, and practical service.",
+      "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+    }
+  ]
+}

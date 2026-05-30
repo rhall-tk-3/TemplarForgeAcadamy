@@ -1,0 +1,1700 @@
+{
+  "program_title": "Lieutenant School Program",
+  "program_phase": "Officer Formation Level I",
+  "assessment_type": "multiple_choice_and_discussion",
+  "generated_note": "Original assessment materials generated from the uploaded KTKC program files and website repository structure.",
+  "weeks": [
+    {
+      "week_number": 1,
+      "week_title": "Week 1: The Call to Office",
+      "focus": "Office as service, not status.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 1: The Call to Office?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Office as service, not status."
+            },
+            {
+              "option": "B",
+              "text": "Founding story and mission."
+            },
+            {
+              "option": "C",
+              "text": "Hierarchy and Unity of Command."
+            },
+            {
+              "option": "D",
+              "text": "The Under Marshal as the clearest Templar parallel to a Junior Operational Officer."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Office as service, not status.",
+          "rationale": "The week summary states that Office as service, not status."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 1: The Call to Office?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Lieutenant School Syllabus PDF (Lesson 1)"
+            },
+            {
+              "option": "B",
+              "text": "Primitive Rule of the Templars (Sections on obedience and humble service)"
+            },
+            {
+              "option": "C",
+              "text": "Lieutenant School Syllabus PDF (Lesson 2)"
+            },
+            {
+              "option": "D",
+              "text": "Knights Templar - Wikipedia (History & Origins)"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Lieutenant School Syllabus PDF (Lesson 1)",
+          "rationale": "Lieutenant School Syllabus PDF (Lesson 1) appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 1: The Call to Office?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "The Call to Office"
+            },
+            {
+              "option": "B",
+              "text": "Week 2: Origins of the Knights Templar"
+            },
+            {
+              "option": "C",
+              "text": "Week 3: The Templar Chain of Command"
+            },
+            {
+              "option": "D",
+              "text": "Week 4: The Under Marshal and the Lieutenant Model"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "The Call to Office",
+          "rationale": "The week is organized around the concept of The Call to Office."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 1: The Call to Office?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Office as service, not status."
+            },
+            {
+              "option": "B",
+              "text": "Founding story and mission."
+            },
+            {
+              "option": "C",
+              "text": "Hierarchy and Unity of Command."
+            },
+            {
+              "option": "D",
+              "text": "The Under Marshal as the clearest Templar parallel to a Junior Operational Officer."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Office as service, not status.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Office as service, not status."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 1: The Call to Office?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of The Call to Office through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat The Call to Office mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about The Call to Office."
+            },
+            {
+              "option": "D",
+              "text": "Approach The Call to Office as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of The Call to Office through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 1: The Call to Office shape the expectations placed on a member in the Lieutenant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 1: The Call to Office seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 1: The Call to Office in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 2,
+      "week_title": "Week 2: Origins of the Knights Templar",
+      "focus": "Founding story and mission.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 2: Origins of the Knights Templar?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Founding story and mission."
+            },
+            {
+              "option": "B",
+              "text": "Office as service, not status."
+            },
+            {
+              "option": "C",
+              "text": "Hierarchy and Unity of Command."
+            },
+            {
+              "option": "D",
+              "text": "The Under Marshal as the clearest Templar parallel to a Junior Operational Officer."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Founding story and mission.",
+          "rationale": "The week summary states that Founding story and mission."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 2: Origins of the Knights Templar?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Lieutenant School Syllabus PDF (Lesson 2)"
+            },
+            {
+              "option": "B",
+              "text": "Lieutenant School Syllabus PDF (Lesson 1)"
+            },
+            {
+              "option": "C",
+              "text": "Primitive Rule of the Templars (Sections on obedience and humble service)"
+            },
+            {
+              "option": "D",
+              "text": "Knights Templar - Wikipedia (History & Origins)"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Lieutenant School Syllabus PDF (Lesson 2)",
+          "rationale": "Lieutenant School Syllabus PDF (Lesson 2) appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 2: Origins of the Knights Templar?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Origins of the Knights Templar"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Call to Office"
+            },
+            {
+              "option": "C",
+              "text": "Week 3: The Templar Chain of Command"
+            },
+            {
+              "option": "D",
+              "text": "Week 4: The Under Marshal and the Lieutenant Model"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Origins of the Knights Templar",
+          "rationale": "The week is organized around the concept of Origins of the Knights Templar."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 2: Origins of the Knights Templar?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Founding story and mission."
+            },
+            {
+              "option": "B",
+              "text": "Office as service, not status."
+            },
+            {
+              "option": "C",
+              "text": "Hierarchy and Unity of Command."
+            },
+            {
+              "option": "D",
+              "text": "The Under Marshal as the clearest Templar parallel to a Junior Operational Officer."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Founding story and mission.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Founding story and mission."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 2: Origins of the Knights Templar?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Origins of the Knights Templar through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Origins of the Knights Templar mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Origins of the Knights Templar."
+            },
+            {
+              "option": "D",
+              "text": "Approach Origins of the Knights Templar as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Origins of the Knights Templar through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 2: Origins of the Knights Templar shape the expectations placed on a member in the Lieutenant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 2: Origins of the Knights Templar seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 2: Origins of the Knights Templar in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 3,
+      "week_title": "Week 3: The Templar Chain of Command",
+      "focus": "Hierarchy and Unity of Command.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 3: The Templar Chain of Command?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Hierarchy and Unity of Command."
+            },
+            {
+              "option": "B",
+              "text": "Office as service, not status."
+            },
+            {
+              "option": "C",
+              "text": "Founding story and mission."
+            },
+            {
+              "option": "D",
+              "text": "The Under Marshal as the clearest Templar parallel to a Junior Operational Officer."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Hierarchy and Unity of Command.",
+          "rationale": "The week summary states that Hierarchy and Unity of Command."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 3: The Templar Chain of Command?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Lieutenant School Syllabus PDF (Lesson 3)"
+            },
+            {
+              "option": "B",
+              "text": "Lieutenant School Syllabus PDF (Lesson 1)"
+            },
+            {
+              "option": "C",
+              "text": "Primitive Rule of the Templars (Sections on obedience and humble service)"
+            },
+            {
+              "option": "D",
+              "text": "Lieutenant School Syllabus PDF (Lesson 2)"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Lieutenant School Syllabus PDF (Lesson 3)",
+          "rationale": "Lieutenant School Syllabus PDF (Lesson 3) appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 3: The Templar Chain of Command?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "The Templar Chain of Command"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Call to Office"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Origins of the Knights Templar"
+            },
+            {
+              "option": "D",
+              "text": "Week 4: The Under Marshal and the Lieutenant Model"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "The Templar Chain of Command",
+          "rationale": "The week is organized around the concept of The Templar Chain of Command."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 3: The Templar Chain of Command?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Hierarchy and Unity of Command."
+            },
+            {
+              "option": "B",
+              "text": "Office as service, not status."
+            },
+            {
+              "option": "C",
+              "text": "Founding story and mission."
+            },
+            {
+              "option": "D",
+              "text": "The Under Marshal as the clearest Templar parallel to a Junior Operational Officer."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Hierarchy and Unity of Command.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Hierarchy and Unity of Command."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 3: The Templar Chain of Command?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of The Templar Chain of Command through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat The Templar Chain of Command mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about The Templar Chain of Command."
+            },
+            {
+              "option": "D",
+              "text": "Approach The Templar Chain of Command as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of The Templar Chain of Command through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 3: The Templar Chain of Command shape the expectations placed on a member in the Lieutenant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 3: The Templar Chain of Command seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 3: The Templar Chain of Command in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 4,
+      "week_title": "Week 4: The Under Marshal and the Lieutenant Model",
+      "focus": "The Under Marshal as the clearest Templar parallel to a Junior Operational Officer.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 4: The Under Marshal and the Lieutenant Model?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "The Under Marshal as the clearest Templar parallel to a Junior Operational Officer."
+            },
+            {
+              "option": "B",
+              "text": "Office as service, not status."
+            },
+            {
+              "option": "C",
+              "text": "Founding story and mission."
+            },
+            {
+              "option": "D",
+              "text": "Hierarchy and Unity of Command."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "The Under Marshal as the clearest Templar parallel to a Junior Operational Officer.",
+          "rationale": "The week summary states that The Under Marshal as the clearest Templar parallel to a Junior Operational Officer."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 4: The Under Marshal and the Lieutenant Model?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Lieutenant School Syllabus PDF (Lesson 4)"
+            },
+            {
+              "option": "B",
+              "text": "Lieutenant School Syllabus PDF (Lesson 1)"
+            },
+            {
+              "option": "C",
+              "text": "Primitive Rule of the Templars (Sections on obedience and humble service)"
+            },
+            {
+              "option": "D",
+              "text": "Lieutenant School Syllabus PDF (Lesson 2)"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Lieutenant School Syllabus PDF (Lesson 4)",
+          "rationale": "Lieutenant School Syllabus PDF (Lesson 4) appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 4: The Under Marshal and the Lieutenant Model?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "The Under Marshal and the Lieutenant Model"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Call to Office"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Origins of the Knights Templar"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: The Templar Chain of Command"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "The Under Marshal and the Lieutenant Model",
+          "rationale": "The week is organized around the concept of The Under Marshal and the Lieutenant Model."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 4: The Under Marshal and the Lieutenant Model?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "The Under Marshal as the clearest Templar parallel to a Junior Operational Officer."
+            },
+            {
+              "option": "B",
+              "text": "Office as service, not status."
+            },
+            {
+              "option": "C",
+              "text": "Founding story and mission."
+            },
+            {
+              "option": "D",
+              "text": "Hierarchy and Unity of Command."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "The Under Marshal as the clearest Templar parallel to a Junior Operational Officer.",
+          "rationale": "This statement matches the stated memory target or focus for the week: The Under Marshal as the clearest Templar parallel to a Junior Operational Officer."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 4: The Under Marshal and the Lieutenant Model?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of The Under Marshal and the Lieutenant Model through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat The Under Marshal and the Lieutenant Model mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about The Under Marshal and the Lieutenant Model."
+            },
+            {
+              "option": "D",
+              "text": "Approach The Under Marshal and the Lieutenant Model as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of The Under Marshal and the Lieutenant Model through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 4: The Under Marshal and the Lieutenant Model shape the expectations placed on a member in the Lieutenant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 4: The Under Marshal and the Lieutenant Model seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 4: The Under Marshal and the Lieutenant Model in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 5,
+      "week_title": "Week 5: The Rule: Obedience and Mission",
+      "focus": "Obedience as a core virtue and submission to lawful authority.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 5: The Rule: Obedience and Mission?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Obedience as a core virtue and submission to lawful authority."
+            },
+            {
+              "option": "B",
+              "text": "Office as service, not status."
+            },
+            {
+              "option": "C",
+              "text": "Founding story and mission."
+            },
+            {
+              "option": "D",
+              "text": "Hierarchy and Unity of Command."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Obedience as a core virtue and submission to lawful authority.",
+          "rationale": "The week summary states that Obedience as a core virtue and submission to lawful authority."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 5: The Rule: Obedience and Mission?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Lieutenant School Syllabus PDF (Lesson 5)"
+            },
+            {
+              "option": "B",
+              "text": "Lieutenant School Syllabus PDF (Lesson 1)"
+            },
+            {
+              "option": "C",
+              "text": "Primitive Rule of the Templars (Sections on obedience and humble service)"
+            },
+            {
+              "option": "D",
+              "text": "Lieutenant School Syllabus PDF (Lesson 2)"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Lieutenant School Syllabus PDF (Lesson 5)",
+          "rationale": "Lieutenant School Syllabus PDF (Lesson 5) appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 5: The Rule: Obedience and Mission?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "The Rule"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Call to Office"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Origins of the Knights Templar"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: The Templar Chain of Command"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "The Rule",
+          "rationale": "The week is organized around the concept of The Rule."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 5: The Rule: Obedience and Mission?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Obedience as a core virtue and submission to lawful authority."
+            },
+            {
+              "option": "B",
+              "text": "Office as service, not status."
+            },
+            {
+              "option": "C",
+              "text": "Founding story and mission."
+            },
+            {
+              "option": "D",
+              "text": "Hierarchy and Unity of Command."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Obedience as a core virtue and submission to lawful authority.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Obedience as a core virtue and submission to lawful authority."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 5: The Rule: Obedience and Mission?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of The Rule through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat The Rule mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about The Rule."
+            },
+            {
+              "option": "D",
+              "text": "Approach The Rule as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of The Rule through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 5: The Rule: Obedience and Mission shape the expectations placed on a member in the Lieutenant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 5: The Rule: Obedience and Mission seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 5: The Rule: Obedience and Mission in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 6,
+      "week_title": "Week 6: The Rule: Humility, Speech, and Bearing",
+      "focus": "Self-command, humility, restraint, and disciplined speech.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 6: The Rule: Humility, Speech, and Bearing?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Self-command, humility, restraint, and disciplined speech."
+            },
+            {
+              "option": "B",
+              "text": "Office as service, not status."
+            },
+            {
+              "option": "C",
+              "text": "Founding story and mission."
+            },
+            {
+              "option": "D",
+              "text": "Hierarchy and Unity of Command."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Self-command, humility, restraint, and disciplined speech.",
+          "rationale": "The week summary states that Self-command, humility, restraint, and disciplined speech."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 6: The Rule: Humility, Speech, and Bearing?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Lieutenant School Syllabus PDF (Lesson 6)"
+            },
+            {
+              "option": "B",
+              "text": "Lieutenant School Syllabus PDF (Lesson 1)"
+            },
+            {
+              "option": "C",
+              "text": "Primitive Rule of the Templars (Sections on obedience and humble service)"
+            },
+            {
+              "option": "D",
+              "text": "Lieutenant School Syllabus PDF (Lesson 2)"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Lieutenant School Syllabus PDF (Lesson 6)",
+          "rationale": "Lieutenant School Syllabus PDF (Lesson 6) appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 6: The Rule: Humility, Speech, and Bearing?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "The Rule"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Call to Office"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Origins of the Knights Templar"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: The Templar Chain of Command"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "The Rule",
+          "rationale": "The week is organized around the concept of The Rule."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 6: The Rule: Humility, Speech, and Bearing?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Self-command, humility, restraint, and disciplined speech."
+            },
+            {
+              "option": "B",
+              "text": "Office as service, not status."
+            },
+            {
+              "option": "C",
+              "text": "Founding story and mission."
+            },
+            {
+              "option": "D",
+              "text": "Hierarchy and Unity of Command."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Self-command, humility, restraint, and disciplined speech.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Self-command, humility, restraint, and disciplined speech."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 6: The Rule: Humility, Speech, and Bearing?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of The Rule through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat The Rule mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about The Rule."
+            },
+            {
+              "option": "D",
+              "text": "Approach The Rule as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of The Rule through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 6: The Rule: Humility, Speech, and Bearing shape the expectations placed on a member in the Lieutenant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 6: The Rule: Humility, Speech, and Bearing seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 6: The Rule: Humility, Speech, and Bearing in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 7,
+      "week_title": "Week 7: Care of Brothers and Fraternal Responsibility",
+      "focus": "Moral responsibility for people and caring for the weak.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 7: Care of Brothers and Fraternal Responsibility?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Moral responsibility for people and caring for the weak."
+            },
+            {
+              "option": "B",
+              "text": "Office as service, not status."
+            },
+            {
+              "option": "C",
+              "text": "Founding story and mission."
+            },
+            {
+              "option": "D",
+              "text": "Hierarchy and Unity of Command."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Moral responsibility for people and caring for the weak.",
+          "rationale": "The week summary states that Moral responsibility for people and caring for the weak."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 7: Care of Brothers and Fraternal Responsibility?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Lieutenant School Syllabus PDF (Lesson 7)"
+            },
+            {
+              "option": "B",
+              "text": "Lieutenant School Syllabus PDF (Lesson 1)"
+            },
+            {
+              "option": "C",
+              "text": "Primitive Rule of the Templars (Sections on obedience and humble service)"
+            },
+            {
+              "option": "D",
+              "text": "Lieutenant School Syllabus PDF (Lesson 2)"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Lieutenant School Syllabus PDF (Lesson 7)",
+          "rationale": "Lieutenant School Syllabus PDF (Lesson 7) appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 7: Care of Brothers and Fraternal Responsibility?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Care of Brothers and Fraternal Responsibility"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Call to Office"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Origins of the Knights Templar"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: The Templar Chain of Command"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Care of Brothers and Fraternal Responsibility",
+          "rationale": "The week is organized around the concept of Care of Brothers and Fraternal Responsibility."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 7: Care of Brothers and Fraternal Responsibility?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Moral responsibility for people and caring for the weak."
+            },
+            {
+              "option": "B",
+              "text": "Office as service, not status."
+            },
+            {
+              "option": "C",
+              "text": "Founding story and mission."
+            },
+            {
+              "option": "D",
+              "text": "Hierarchy and Unity of Command."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Moral responsibility for people and caring for the weak.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Moral responsibility for people and caring for the weak."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 7: Care of Brothers and Fraternal Responsibility?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Care of Brothers and Fraternal Responsibility through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Care of Brothers and Fraternal Responsibility mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Care of Brothers and Fraternal Responsibility."
+            },
+            {
+              "option": "D",
+              "text": "Approach Care of Brothers and Fraternal Responsibility as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Care of Brothers and Fraternal Responsibility through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 7: Care of Brothers and Fraternal Responsibility shape the expectations placed on a member in the Lieutenant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 7: Care of Brothers and Fraternal Responsibility seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 7: Care of Brothers and Fraternal Responsibility in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 8,
+      "week_title": "Week 8: Readiness, Stewardship, and Reliability",
+      "focus": "Operational preparedness and maintaining readiness.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 8: Readiness, Stewardship, and Reliability?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Operational preparedness and maintaining readiness."
+            },
+            {
+              "option": "B",
+              "text": "Office as service, not status."
+            },
+            {
+              "option": "C",
+              "text": "Founding story and mission."
+            },
+            {
+              "option": "D",
+              "text": "Hierarchy and Unity of Command."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Operational preparedness and maintaining readiness.",
+          "rationale": "The week summary states that Operational preparedness and maintaining readiness."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 8: Readiness, Stewardship, and Reliability?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Lieutenant School Syllabus PDF (Lesson 8)"
+            },
+            {
+              "option": "B",
+              "text": "Lieutenant School Syllabus PDF (Lesson 1)"
+            },
+            {
+              "option": "C",
+              "text": "Primitive Rule of the Templars (Sections on obedience and humble service)"
+            },
+            {
+              "option": "D",
+              "text": "Lieutenant School Syllabus PDF (Lesson 2)"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Lieutenant School Syllabus PDF (Lesson 8)",
+          "rationale": "Lieutenant School Syllabus PDF (Lesson 8) appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 8: Readiness, Stewardship, and Reliability?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Readiness, Stewardship, and Reliability"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Call to Office"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Origins of the Knights Templar"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: The Templar Chain of Command"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Readiness, Stewardship, and Reliability",
+          "rationale": "The week is organized around the concept of Readiness, Stewardship, and Reliability."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 8: Readiness, Stewardship, and Reliability?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Operational preparedness and maintaining readiness."
+            },
+            {
+              "option": "B",
+              "text": "Office as service, not status."
+            },
+            {
+              "option": "C",
+              "text": "Founding story and mission."
+            },
+            {
+              "option": "D",
+              "text": "Hierarchy and Unity of Command."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Operational preparedness and maintaining readiness.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Operational preparedness and maintaining readiness."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 8: Readiness, Stewardship, and Reliability?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Readiness, Stewardship, and Reliability through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Readiness, Stewardship, and Reliability mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Readiness, Stewardship, and Reliability."
+            },
+            {
+              "option": "D",
+              "text": "Approach Readiness, Stewardship, and Reliability as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Readiness, Stewardship, and Reliability through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 8: Readiness, Stewardship, and Reliability shape the expectations placed on a member in the Lieutenant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 8: Readiness, Stewardship, and Reliability seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 8: Readiness, Stewardship, and Reliability in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 9,
+      "week_title": "Week 9: Leading a Small Team",
+      "focus": "Briefing, assigning, supervising, and accountability.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 9: Leading a Small Team?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Briefing, assigning, supervising, and accountability."
+            },
+            {
+              "option": "B",
+              "text": "Office as service, not status."
+            },
+            {
+              "option": "C",
+              "text": "Founding story and mission."
+            },
+            {
+              "option": "D",
+              "text": "Hierarchy and Unity of Command."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Briefing, assigning, supervising, and accountability.",
+          "rationale": "The week summary states that Briefing, assigning, supervising, and accountability."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 9: Leading a Small Team?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Lieutenant School Syllabus PDF (Lesson 9)"
+            },
+            {
+              "option": "B",
+              "text": "Lieutenant School Syllabus PDF (Lesson 1)"
+            },
+            {
+              "option": "C",
+              "text": "Primitive Rule of the Templars (Sections on obedience and humble service)"
+            },
+            {
+              "option": "D",
+              "text": "Lieutenant School Syllabus PDF (Lesson 2)"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Lieutenant School Syllabus PDF (Lesson 9)",
+          "rationale": "Lieutenant School Syllabus PDF (Lesson 9) appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 9: Leading a Small Team?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Leading a Small Team"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Call to Office"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Origins of the Knights Templar"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: The Templar Chain of Command"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Leading a Small Team",
+          "rationale": "The week is organized around the concept of Leading a Small Team."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 9: Leading a Small Team?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Briefing, assigning, supervising, and accountability."
+            },
+            {
+              "option": "B",
+              "text": "Office as service, not status."
+            },
+            {
+              "option": "C",
+              "text": "Founding story and mission."
+            },
+            {
+              "option": "D",
+              "text": "Hierarchy and Unity of Command."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Briefing, assigning, supervising, and accountability.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Briefing, assigning, supervising, and accountability."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 9: Leading a Small Team?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Leading a Small Team through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Leading a Small Team mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Leading a Small Team."
+            },
+            {
+              "option": "D",
+              "text": "Approach Leading a Small Team as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Leading a Small Team through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 9: Leading a Small Team shape the expectations placed on a member in the Lieutenant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 9: Leading a Small Team seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 9: Leading a Small Team in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 10,
+      "week_title": "Week 10: Correction, Conflict, and Discipline",
+      "focus": "Mature problem solving and handling issues directly.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 10: Correction, Conflict, and Discipline?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Mature problem solving and handling issues directly."
+            },
+            {
+              "option": "B",
+              "text": "Office as service, not status."
+            },
+            {
+              "option": "C",
+              "text": "Founding story and mission."
+            },
+            {
+              "option": "D",
+              "text": "Hierarchy and Unity of Command."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Mature problem solving and handling issues directly.",
+          "rationale": "The week summary states that Mature problem solving and handling issues directly."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 10: Correction, Conflict, and Discipline?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Lieutenant School Syllabus PDF (Lesson 10)"
+            },
+            {
+              "option": "B",
+              "text": "Lieutenant School Syllabus PDF (Lesson 1)"
+            },
+            {
+              "option": "C",
+              "text": "Primitive Rule of the Templars (Sections on obedience and humble service)"
+            },
+            {
+              "option": "D",
+              "text": "Lieutenant School Syllabus PDF (Lesson 2)"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Lieutenant School Syllabus PDF (Lesson 10)",
+          "rationale": "Lieutenant School Syllabus PDF (Lesson 10) appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 10: Correction, Conflict, and Discipline?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Correction, Conflict, and Discipline"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Call to Office"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Origins of the Knights Templar"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: The Templar Chain of Command"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Correction, Conflict, and Discipline",
+          "rationale": "The week is organized around the concept of Correction, Conflict, and Discipline."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 10: Correction, Conflict, and Discipline?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Mature problem solving and handling issues directly."
+            },
+            {
+              "option": "B",
+              "text": "Office as service, not status."
+            },
+            {
+              "option": "C",
+              "text": "Founding story and mission."
+            },
+            {
+              "option": "D",
+              "text": "Hierarchy and Unity of Command."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Mature problem solving and handling issues directly.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Mature problem solving and handling issues directly."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 10: Correction, Conflict, and Discipline?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Correction, Conflict, and Discipline through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Correction, Conflict, and Discipline mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Correction, Conflict, and Discipline."
+            },
+            {
+              "option": "D",
+              "text": "Approach Correction, Conflict, and Discipline as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Correction, Conflict, and Discipline through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 10: Correction, Conflict, and Discipline shape the expectations placed on a member in the Lieutenant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 10: Correction, Conflict, and Discipline seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 10: Correction, Conflict, and Discipline in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 11,
+      "week_title": "Week 11: Lieutenant as Mentor and Example",
+      "focus": "Junior officers shape culture by example and multiplication.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 11: Lieutenant as Mentor and Example?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Junior officers shape culture by example and multiplication."
+            },
+            {
+              "option": "B",
+              "text": "Office as service, not status."
+            },
+            {
+              "option": "C",
+              "text": "Founding story and mission."
+            },
+            {
+              "option": "D",
+              "text": "Hierarchy and Unity of Command."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Junior officers shape culture by example and multiplication.",
+          "rationale": "The week summary states that Junior officers shape culture by example and multiplication."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 11: Lieutenant as Mentor and Example?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Lieutenant School Syllabus PDF (Lesson 11)"
+            },
+            {
+              "option": "B",
+              "text": "Lieutenant School Syllabus PDF (Lesson 1)"
+            },
+            {
+              "option": "C",
+              "text": "Primitive Rule of the Templars (Sections on obedience and humble service)"
+            },
+            {
+              "option": "D",
+              "text": "Lieutenant School Syllabus PDF (Lesson 2)"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Lieutenant School Syllabus PDF (Lesson 11)",
+          "rationale": "Lieutenant School Syllabus PDF (Lesson 11) appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 11: Lieutenant as Mentor and Example?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Lieutenant as Mentor and Example"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Call to Office"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Origins of the Knights Templar"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: The Templar Chain of Command"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Lieutenant as Mentor and Example",
+          "rationale": "The week is organized around the concept of Lieutenant as Mentor and Example."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 11: Lieutenant as Mentor and Example?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Junior officers shape culture by example and multiplication."
+            },
+            {
+              "option": "B",
+              "text": "Office as service, not status."
+            },
+            {
+              "option": "C",
+              "text": "Founding story and mission."
+            },
+            {
+              "option": "D",
+              "text": "Hierarchy and Unity of Command."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Junior officers shape culture by example and multiplication.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Junior officers shape culture by example and multiplication."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 11: Lieutenant as Mentor and Example?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Lieutenant as Mentor and Example through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Lieutenant as Mentor and Example mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Lieutenant as Mentor and Example."
+            },
+            {
+              "option": "D",
+              "text": "Approach Lieutenant as Mentor and Example as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Lieutenant as Mentor and Example through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 11: Lieutenant as Mentor and Example shape the expectations placed on a member in the Lieutenant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 11: Lieutenant as Mentor and Example seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 11: Lieutenant as Mentor and Example in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 12,
+      "week_title": "Week 12: Capstone Preparation and Officer Review",
+      "focus": "Integration of learning and final portfolio submission.",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 12: Capstone Preparation and Officer Review?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Integration of learning and final portfolio submission."
+            },
+            {
+              "option": "B",
+              "text": "Office as service, not status."
+            },
+            {
+              "option": "C",
+              "text": "Founding story and mission."
+            },
+            {
+              "option": "D",
+              "text": "Hierarchy and Unity of Command."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Integration of learning and final portfolio submission.",
+          "rationale": "The week summary states that Integration of learning and final portfolio submission."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 12: Capstone Preparation and Officer Review?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Lieutenant School Syllabus PDF (Lesson 12 & Final Review Requirements)"
+            },
+            {
+              "option": "B",
+              "text": "Lieutenant School Syllabus PDF (Lesson 1)"
+            },
+            {
+              "option": "C",
+              "text": "Primitive Rule of the Templars (Sections on obedience and humble service)"
+            },
+            {
+              "option": "D",
+              "text": "Lieutenant School Syllabus PDF (Lesson 2)"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Lieutenant School Syllabus PDF (Lesson 12 & Final Review Requirements)",
+          "rationale": "Lieutenant School Syllabus PDF (Lesson 12 & Final Review Requirements) appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 12: Capstone Preparation and Officer Review?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Capstone Preparation and Officer Review"
+            },
+            {
+              "option": "B",
+              "text": "Week 1: The Call to Office"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Origins of the Knights Templar"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: The Templar Chain of Command"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Capstone Preparation and Officer Review",
+          "rationale": "The week is organized around the concept of Capstone Preparation and Officer Review."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 12: Capstone Preparation and Officer Review?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Integration of learning and final portfolio submission."
+            },
+            {
+              "option": "B",
+              "text": "Office as service, not status."
+            },
+            {
+              "option": "C",
+              "text": "Founding story and mission."
+            },
+            {
+              "option": "D",
+              "text": "Hierarchy and Unity of Command."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Integration of learning and final portfolio submission.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Integration of learning and final portfolio submission."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 12: Capstone Preparation and Officer Review?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Capstone Preparation and Officer Review through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Capstone Preparation and Officer Review mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Capstone Preparation and Officer Review."
+            },
+            {
+              "option": "D",
+              "text": "Approach Capstone Preparation and Officer Review as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Capstone Preparation and Officer Review through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 12: Capstone Preparation and Officer Review shape the expectations placed on a member in the Lieutenant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 12: Capstone Preparation and Officer Review seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 12: Capstone Preparation and Officer Review in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    }
+  ]
+}

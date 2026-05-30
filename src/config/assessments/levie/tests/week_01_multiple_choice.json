@@ -1,0 +1,127 @@
+{
+  "program_title": "Levie School Program",
+  "week_number": 1,
+  "week_title": "Week 1: Identity, Purpose, and Consecration",
+  "multiple_choice_questions": [
+    {
+      "question": "What is the primary focus of Week 1: Identity, Purpose, and Consecration?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "This week centers on identity, purpose, and consecration."
+        },
+        {
+          "option": "B",
+          "text": "Week 2: Standards, Duties, and Equality"
+        },
+        {
+          "option": "C",
+          "text": "Week 3: Conduct, Leadership, and Accountability"
+        },
+        {
+          "option": "D",
+          "text": "Week 4: The Five Governing Pillars"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "This week centers on identity, purpose, and consecration.",
+      "rationale": "The week summary states that This week centers on identity, purpose, and consecration."
+    },
+    {
+      "question": "Which reading is explicitly assigned for Week 1: Identity, Purpose, and Consecration?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Program lesson plan and reading list"
+        },
+        {
+          "option": "B",
+          "text": "Week 2: Standards, Duties, and Equality"
+        },
+        {
+          "option": "C",
+          "text": "Week 3: Conduct, Leadership, and Accountability"
+        },
+        {
+          "option": "D",
+          "text": "Week 4: The Five Governing Pillars"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Program lesson plan and reading list",
+      "rationale": "Program lesson plan and reading list appears in the required reading list for this week."
+    },
+    {
+      "question": "Which concept is most directly associated with Week 1: Identity, Purpose, and Consecration?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Identity, Purpose, and Consecration"
+        },
+        {
+          "option": "B",
+          "text": "Week 2: Standards, Duties, and Equality"
+        },
+        {
+          "option": "C",
+          "text": "Week 3: Conduct, Leadership, and Accountability"
+        },
+        {
+          "option": "D",
+          "text": "Week 4: The Five Governing Pillars"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Identity, Purpose, and Consecration",
+      "rationale": "The week is organized around the concept of Identity, Purpose, and Consecration."
+    },
+    {
+      "question": "Which statement best reflects the expected learning outcome for Week 1: Identity, Purpose, and Consecration?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "This week centers on identity, purpose, and consecration."
+        },
+        {
+          "option": "B",
+          "text": "Week 2: Standards, Duties, and Equality"
+        },
+        {
+          "option": "C",
+          "text": "Week 3: Conduct, Leadership, and Accountability"
+        },
+        {
+          "option": "D",
+          "text": "Week 4: The Five Governing Pillars"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "This week centers on identity, purpose, and consecration.",
+      "rationale": "This statement matches the stated memory target or focus for the week: This week centers on identity, purpose, and consecration."
+    },
+    {
+      "question": "Which response best applies the lesson of Week 1: Identity, Purpose, and Consecration?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Apply the lesson of Identity, Purpose, and Consecration through disciplined conduct, truthful understanding, and practical service."
+        },
+        {
+          "option": "B",
+          "text": "Treat Identity, Purpose, and Consecration mainly as ceremonial prestige without practical duty."
+        },
+        {
+          "option": "C",
+          "text": "Ignore assigned readings and rely on legend or speculation about Identity, Purpose, and Consecration."
+        },
+        {
+          "option": "D",
+          "text": "Approach Identity, Purpose, and Consecration as private opinion rather than accountable formation."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Apply the lesson of Identity, Purpose, and Consecration through disciplined conduct, truthful understanding, and practical service.",
+      "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "program_title": "Captain School Program",
+  "week_number": 5,
+  "week_title": "Week 5 — Administration and Provisions",
+  "multiple_choice_questions": [
+    {
+      "question": "What is the primary focus of Week 5 — Administration and Provisions?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "calendars, records, logistics, and practical support."
+        },
+        {
+          "option": "B",
+          "text": "shift from task leadership to stewardship of a local body."
+        },
+        {
+          "option": "C",
+          "text": "understand the commandery as a local center of mission, discipline, and logistics."
+        },
+        {
+          "option": "D",
+          "text": "connect the historical commander role to the modern Captain rank."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "calendars, records, logistics, and practical support.",
+      "rationale": "The week summary states that calendars, records, logistics, and practical support."
+    },
+    {
+      "question": "Which reading is explicitly assigned for Week 5 — Administration and Provisions?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Captain School Lesson Plan"
+        },
+        {
+          "option": "B",
+          "text": "Captain School Syllabus PDF"
+        },
+        {
+          "option": "C",
+          "text": "Wikipedia: Knights Templar"
+        },
+        {
+          "option": "D",
+          "text": "Medieval Warfare: Templars Hierarchy and Duties"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Captain School Lesson Plan",
+      "rationale": "Captain School Lesson Plan appears in the required reading list for this week."
+    },
+    {
+      "question": "Which concept is most directly associated with Week 5 — Administration and Provisions?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Administration and Provisions"
+        },
+        {
+          "option": "B",
+          "text": "Week 1 — The Burden of Local Command"
+        },
+        {
+          "option": "C",
+          "text": "Week 2 — The Medieval Commandery"
+        },
+        {
+          "option": "D",
+          "text": "Week 3 — The Office of Commander / Preceptor"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Administration and Provisions",
+      "rationale": "The week is organized around the concept of Administration and Provisions."
+    },
+    {
+      "question": "Which statement best reflects the expected learning outcome for Week 5 — Administration and Provisions?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "calendars, records, logistics, and practical support."
+        },
+        {
+          "option": "B",
+          "text": "shift from task leadership to stewardship of a local body."
+        },
+        {
+          "option": "C",
+          "text": "understand the commandery as a local center of mission, discipline, and logistics."
+        },
+        {
+          "option": "D",
+          "text": "connect the historical commander role to the modern Captain rank."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "calendars, records, logistics, and practical support.",
+      "rationale": "This statement matches the stated memory target or focus for the week: calendars, records, logistics, and practical support."
+    },
+    {
+      "question": "Which response best applies the lesson of Week 5 — Administration and Provisions?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Apply the lesson of Administration and Provisions through disciplined conduct, truthful understanding, and practical service."
+        },
+        {
+          "option": "B",
+          "text": "Treat Administration and Provisions mainly as ceremonial prestige without practical duty."
+        },
+        {
+          "option": "C",
+          "text": "Ignore assigned readings and rely on legend or speculation about Administration and Provisions."
+        },
+        {
+          "option": "D",
+          "text": "Approach Administration and Provisions as private opinion rather than accountable formation."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Apply the lesson of Administration and Provisions through disciplined conduct, truthful understanding, and practical service.",
+      "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+    }
+  ]
+}

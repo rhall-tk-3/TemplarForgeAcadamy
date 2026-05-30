@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Week 6 | Sergeant School</title><meta name="description" content="Sergeant School 8-week program website structure." /><link rel="stylesheet" href="../style.css" /></head><body><div class="topbar"><div class="container">Sergeant School • 8-Week Program • Website-ready static structure</div></div><header class="site-header"><div class="container nav-wrap"><div class="brand"><strong>Sergeant School Program</strong><span>Knights Templar of the Kingdom of Christ</span></div><nav><ul><li><a class="" href="../index.html">Home</a></li><li><a class="active" href="../weeks/index.html">Weeks</a></li><li><a class="" href="../member/index.html">Member Guidance</a></li><li><a class="" href="../schoolmaster/index.html">Schoolmaster Resources</a></li></ul></nav></div></header><section class="page-hero"><div class="container"><div class="breadcrumbs"><a href="../index.html">Home</a> / <a href="index.html">Weeks</a> / Week 6</div><h1>Week 6: Strategic Strain, Acre, and the Crisis of Purpose</h1><p>Week 6 traces the strategic weakening of the Crusader world, the growing strain on the Templars’ military purpose, and the significance of Acre’s fall in 1291. It examines how changing conditions exposed the order to crisis and criticism.</p></div></section><section class="section"><div class="container grid-2"><article class="panel"><h2>Lesson Focus Areas</h2><ul class="list-clean"><li>The Broader Crusades Context and Strategic Pressure</li><li>Acre and the End of the Crusader Stronghold</li><li>Changing Conditions and the Question of Purpose</li><li>Mission Drift, Reputation, and Vulnerability</li></ul></article><article class="panel"><h2>Required Reading</h2><ul class="list-clean"><li><a href="/documents/sergeant/sergeant-lesson-plan.docx">Sergeant School — 8 Week Lesson Plan Program</a></li><li><a href="https://www.britannica.com/event/Crusades">Britannica: Crusades</a></li><li><a href="https://www.britannica.com/topic/Templars">Britannica: Templars</a></li><li><a href="/documents/squire/squire-curriculum-handbook.docx">Curriculum Handbook</a></li></ul></article></div></section><section class="section"><div class="container grid-2"><article class="panel"><h2>Guided Focus</h2><p>Study Acre, the larger Crusading decline, and the weakening of the order’s original purpose. Consider how loss of mission clarity creates vulnerability both historically and spiritually.</p><p><span class="badge">Acre</span><span class="badge">1291</span><span class="badge">Strategic Decline</span><span class="badge">Purpose</span><span class="badge">Vulnerability</span></p></article><article class="panel"><h2>Memory Targets</h2><ul class="list-clean"><li>The fall of Acre in 1291 marked a decisive blow to the Crusader position in the East.</li><li>As conditions changed, the Templars’ original role became more difficult to justify publicly.</li><li>Mission drift and loss of clarity can weaken even disciplined institutions.</li></ul></article></div></section><section class="section"><div class="container"><div class="panel"><h2>Readiness Goals</h2><ul class="list-clean"><li>Explain why Acre mattered in Templar history.</li><li>Connect changing historical conditions with institutional vulnerability.</li><li>Recognize the importance of preserving mission clarity in Christian service.</li></ul></div></div></section><footer><div class="container footer-grid"><div><h3>Sergeant School Program</h3><p class="small">This site section follows the same layout as the Corporal set while presenting the advanced Sergeant reading path, reading log, and adult formation materials.</p></div><div><h3>Program Downloads</h3><ul class="list-clean small"><li><a href="/documents/sergeant/sergeant-lesson-plan.docx">Sergeant Lesson Plan</a></li><li><a href="../reading/index.html">Required Reading Page</a></li><li><a href="../reading-log/index.html">Reading Log Page</a></li></ul></div><div><h3>Core Sources</h3><ul class="list-clean small"><li><a href="https://www.britannica.com/topic/Templars">Britannica: Templars</a></li><li><a href="https://www.britannica.com/topic/Hospitallers">Britannica: Hospitallers</a></li><li><a href="https://www.history.com/articles/why-friday-the-13th-spelled-doom-for-the-knights-templar">HISTORY: Friday the 13th</a></li></ul></div></div></footer>
+<script src="/assets/document-link-enhancer.js"></script>
+<script src="/assets/curriculum-portal.js"></script>
+
+<!-- Back to Your Forge button -->
+<style>
+/* ── Back to Your Forge FAB ── */
+.forge-back-fab {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  background: linear-gradient(135deg, #c8a020, #a07818);
+  color: #0a0804 !important;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none !important;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.35), 0 0 10px rgba(184,150,12,0.18);
+  transition: filter 0.2s, transform 0.15s, box-shadow 0.2s;
+  z-index: 9000;
+}
+.forge-back-fab:hover {
+  filter: brightness(1.15);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.45), 0 0 16px rgba(200,168,32,0.28);
+}
+@media (max-width: 540px) {
+  .forge-back-fab { bottom: 14px; left: 14px; padding: 9px 14px; font-size: 0.74rem; }
+}
+@media print { .forge-back-fab { display: none !important; } }
+</style>
+<button class="forge-back-fab" id="forge-back-fab">&#8592; Back to Your Forge</button>
+<script>
+(function() {
+  // Intercept clicks on document viewer links — store this page as the back target
+  document.addEventListener('click', function(e) {
+    var a = e.target.closest('a[href]');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('/documents/') !== -1 || href.indexOf('/viewer/') !== -1) {
+      try { sessionStorage.setItem('forge_back_url', window.location.href); } catch(ex) {}
+    }
+  }, true);
+
+  // Back to Your Forge button
+  var btn = document.getElementById('forge-back-fab');
+  if (!btn) return;
+  var parts = window.location.pathname.split('/');
+  var slug = parts[2] || '';
+  var hubUrl = slug ? '/programs/' + slug + '/hub' : '/member';
+  btn.onclick = function() {
+    var prev = null;
+    try { prev = sessionStorage.getItem('forge_back_url'); } catch(ex) {}
+    if (prev) {
+      try { sessionStorage.removeItem('forge_back_url'); } catch(ex) {}
+      window.location.href = prev;
+    } else if (document.referrer && document.referrer.indexOf(window.location.hostname) !== -1) {
+      history.back();
+    } else {
+      window.location.href = hubUrl;
+    }
+  };
+})();
+</script>
+</body></html>

@@ -1,0 +1,220 @@
+{
+  "program_slug": "major",
+  "program_title": "Major School Program",
+  "program_phase": "Officer Formation Level III",
+  "source_required_reading_file": "public/programs/major/site/downloads/Major_Required_Reading_List.html",
+  "weeks": [
+    {
+      "week_number": 1,
+      "week_title": "Week 1: The Burden of Wider Oversight",
+      "focus": "Focus: Understanding the transition from local command to regional stewardship and the burden of multiple bodies.",
+      "required_reading": [
+        {
+          "title": "Major School Syllabus PDF",
+          "url": "https://www.genspark.ai/api/files/s/0gtlV8IV"
+        },
+        {
+          "title": "OSMTH Templarism and History",
+          "url": "https://www.osmth.org/templar-legacy/templarism-history"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 2,
+      "week_title": "Week 2: The Provincial Structure of the Templars",
+      "focus": "Focus: Examining the historical division of the Order into provinces and the mechanics of wide-scale organization.",
+      "required_reading": [
+        {
+          "title": "Knights Templar Overview (Wikipedia)",
+          "url": "https://en.wikipedia.org/wiki/Knights_Templar"
+        },
+        {
+          "title": "Medieval Warfare: Templars Hierarchy and Duties",
+          "url": "https://www.medievalwarfare.info/templars.htm"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 3,
+      "week_title": "Week 3: The Office of Provincial Master / Grand Prior",
+      "focus": "Focus: The historical role, administrative authority, and operational duties of the Provincial Master.",
+      "required_reading": [
+        {
+          "title": "Medieval Warfare: Templars Hierarchy and Duties",
+          "url": "https://www.medievalwarfare.info/templars.htm"
+        },
+        {
+          "title": "Templars Overview (Britannica)",
+          "url": "https://www.britannica.com/video/Overview-Templars/-193815"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 4,
+      "week_title": "Week 4: Mission Alignment Across Multiple Bodies",
+      "focus": "Focus: Unifying diverse local commanderies under a single operational standard and core mission.",
+      "required_reading": [
+        {
+          "title": "Major School Syllabus PDF",
+          "url": "https://www.genspark.ai/api/files/s/0gtlV8IV"
+        },
+        {
+          "title": "Primitive Rule of the Templars (Fordham)",
+          "url": "https://sourcebooks.web.fordham.edu/source/templars-primitiverule.asp"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 5,
+      "week_title": "Week 5: Inspection, Accountability, and Standards",
+      "focus": "Focus: Establishing accountability, maintaining strict standards, and conducting regional inspections.",
+      "required_reading": [
+        {
+          "title": "Primitive Rule of the Templars (Fordham)",
+          "url": "https://sourcebooks.web.fordham.edu/source/templars-primitiverule.asp"
+        },
+        {
+          "title": "OSMTH Modern Order History",
+          "url": "https://www.osmth.org/templar-legacy/modern-order-history"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 6,
+      "week_title": "Week 6: Recruitment, Growth, and Officer Pipeline",
+      "focus": "Focus: Sustaining the Order through strategic recruitment and building a capable pipeline of future officers.",
+      "required_reading": [
+        {
+          "title": "Major School Syllabus PDF",
+          "url": "https://www.genspark.ai/api/files/s/0gtlV8IV"
+        },
+        {
+          "title": "OSMTH Templarism and History",
+          "url": "https://www.osmth.org/templar-legacy/templarism-history"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 7,
+      "week_title": "Week 7: Resource Stewardship and Regional Planning",
+      "focus": "Focus: Managing regional assets, prioritizing resources, and planning for the long-term health of multiple bodies.",
+      "required_reading": [
+        {
+          "title": "Knights Templar Overview (Wikipedia)",
+          "url": "https://en.wikipedia.org/wiki/Knights_Templar"
+        },
+        {
+          "title": "OSMTH Modern Order History",
+          "url": "https://www.osmth.org/templar-legacy/modern-order-history"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 8,
+      "week_title": "Week 8: Training Captains and Strengthening Local Command",
+      "focus": "Focus: Mentoring local Captains to ensure their commanderies are strong, independent, and mission-capable.",
+      "required_reading": [
+        {
+          "title": "Major School Syllabus PDF",
+          "url": "https://www.genspark.ai/api/files/s/0gtlV8IV"
+        },
+        {
+          "title": "Medieval Warfare: Templars Hierarchy and Duties",
+          "url": "https://www.medievalwarfare.info/templars.htm"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 9,
+      "week_title": "Week 9: Communication, Coordination, and Order",
+      "focus": "Focus: Developing clear protocols for region-wide communication, reporting, and logistical coordination.",
+      "required_reading": [
+        {
+          "title": "Major School Syllabus PDF",
+          "url": "https://www.genspark.ai/api/files/s/0gtlV8IV"
+        },
+        {
+          "title": "Primitive Rule of the Templars (Fordham)",
+          "url": "https://sourcebooks.web.fordham.edu/source/templars-primitiverule.asp"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 10,
+      "week_title": "Week 10: Correction, Intervention, and Restoration at the Regional Level",
+      "focus": "Focus: Handling disorder appropriately, intervening in failing local bodies, and guiding restoration.",
+      "required_reading": [
+        {
+          "title": "Primitive Rule of the Templars (Fordham)",
+          "url": "https://sourcebooks.web.fordham.edu/source/templars-primitiverule.asp"
+        },
+        {
+          "title": "Major School Syllabus PDF",
+          "url": "https://www.genspark.ai/api/files/s/0gtlV8IV"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 11,
+      "week_title": "Week 11: Regional Oversight Practicum",
+      "focus": "Focus: Applying regional oversight principles through a structured, real-world assessment or development project.",
+      "required_reading": [
+        {
+          "title": "Major School Syllabus PDF",
+          "url": "https://www.genspark.ai/api/files/s/0gtlV8IV"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 12,
+      "week_title": "Week 12: Capstone Preparation and Major’s Board Review",
+      "focus": "Focus: Compiling the final portfolio, finalizing reflections, and preparing for the oral board evaluation.",
+      "required_reading": [
+        {
+          "title": "Major School Syllabus PDF",
+          "url": "https://www.genspark.ai/api/files/s/0gtlV8IV"
+        },
+        {
+          "title": "OSMTH Modern Order History",
+          "url": "https://www.osmth.org/templar-legacy/modern-order-history"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    }
+  ]
+}

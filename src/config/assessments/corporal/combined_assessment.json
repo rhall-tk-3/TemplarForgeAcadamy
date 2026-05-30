@@ -1,0 +1,1136 @@
+{
+  "program_title": "Corporal School Program",
+  "program_phase": "Rank advancement",
+  "assessment_type": "multiple_choice_and_discussion",
+  "generated_note": "Original assessment materials generated from the uploaded KTKC program files and website repository structure.",
+  "weeks": [
+    {
+      "week_number": 1,
+      "week_title": "Week 1: Why the Order Was Founded / Mission and Historical Need",
+      "focus": "",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 1: Why the Order Was Founded / Mission and Historical Need?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on why the order was founded."
+            },
+            {
+              "option": "B",
+              "text": "Week 2: Founders, Early Support, and Legitimacy"
+            },
+            {
+              "option": "C",
+              "text": "Week 3: Growth, Expansion, and Public Trust"
+            },
+            {
+              "option": "D",
+              "text": "Week 4: Structure, Offices, and Daily Life"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on why the order was founded.",
+          "rationale": "The week summary states that This week centers on why the order was founded."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 1: Why the Order Was Founded / Mission and Historical Need?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Corporal School — 8 Week Lesson Plan Program"
+            },
+            {
+              "option": "B",
+              "text": "Britannica: Templars"
+            },
+            {
+              "option": "C",
+              "text": "Weekly Lesson-Plan Packet"
+            },
+            {
+              "option": "D",
+              "text": "Curriculum Handbook"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Corporal School — 8 Week Lesson Plan Program",
+          "rationale": "Corporal School — 8 Week Lesson Plan Program appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 1: Why the Order Was Founded / Mission and Historical Need?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "First Crusade"
+            },
+            {
+              "option": "B",
+              "text": "Pilgrimage"
+            },
+            {
+              "option": "C",
+              "text": "Jerusalem"
+            },
+            {
+              "option": "D",
+              "text": "Protection"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "First Crusade",
+          "rationale": "The week is organized around the concept of First Crusade."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 1: Why the Order Was Founded / Mission and Historical Need?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "The First Crusade took place from 1095 to 1099."
+            },
+            {
+              "option": "B",
+              "text": "Pilgrims traveling to Jerusalem faced serious danger."
+            },
+            {
+              "option": "C",
+              "text": "The earliest Templar mission centered on protection and religious purpose."
+            },
+            {
+              "option": "D",
+              "text": "Hugh de Payns is the founder most closely linked to the order."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "The First Crusade took place from 1095 to 1099.",
+          "rationale": "This statement matches the stated memory target or focus for the week: The First Crusade took place from 1095 to 1099."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 1: Why the Order Was Founded / Mission and Historical Need?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Why the Order Was Founded through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Why the Order Was Founded mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Why the Order Was Founded."
+            },
+            {
+              "option": "D",
+              "text": "Approach Why the Order Was Founded as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Why the Order Was Founded through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 1: Why the Order Was Founded / Mission and Historical Need shape the expectations placed on a member in the Corporal School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 1: Why the Order Was Founded / Mission and Historical Need seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 1: Why the Order Was Founded / Mission and Historical Need in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 2,
+      "week_title": "Week 2: Founders, Early Support, and Legitimacy",
+      "focus": "",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 2: Founders, Early Support, and Legitimacy?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on founders, early support, and legitimacy."
+            },
+            {
+              "option": "B",
+              "text": "Week 1: Why the Order Was Founded / Mission and Historical Need"
+            },
+            {
+              "option": "C",
+              "text": "Week 3: Growth, Expansion, and Public Trust"
+            },
+            {
+              "option": "D",
+              "text": "Week 4: Structure, Offices, and Daily Life"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on founders, early support, and legitimacy.",
+          "rationale": "The week summary states that This week centers on founders, early support, and legitimacy."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 2: Founders, Early Support, and Legitimacy?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Corporal School — 8 Week Lesson Plan Program"
+            },
+            {
+              "option": "B",
+              "text": "Britannica: Templars"
+            },
+            {
+              "option": "C",
+              "text": "Weekly Lesson-Plan Packet"
+            },
+            {
+              "option": "D",
+              "text": "Curriculum Handbook"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Corporal School — 8 Week Lesson Plan Program",
+          "rationale": "Corporal School — 8 Week Lesson Plan Program appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 2: Founders, Early Support, and Legitimacy?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Hugh de Payns"
+            },
+            {
+              "option": "B",
+              "text": "First Crusade"
+            },
+            {
+              "option": "C",
+              "text": "Pilgrimage"
+            },
+            {
+              "option": "D",
+              "text": "Jerusalem"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Hugh de Payns",
+          "rationale": "The week is organized around the concept of Hugh de Payns."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 2: Founders, Early Support, and Legitimacy?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Hugh de Payns is the founder most closely linked to the order."
+            },
+            {
+              "option": "B",
+              "text": "The First Crusade took place from 1095 to 1099."
+            },
+            {
+              "option": "C",
+              "text": "Pilgrims traveling to Jerusalem faced serious danger."
+            },
+            {
+              "option": "D",
+              "text": "The earliest Templar mission centered on protection and religious purpose."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Hugh de Payns is the founder most closely linked to the order.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Hugh de Payns is the founder most closely linked to the order."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 2: Founders, Early Support, and Legitimacy?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Founders, Early Support, and Legitimacy through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Founders, Early Support, and Legitimacy mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Founders, Early Support, and Legitimacy."
+            },
+            {
+              "option": "D",
+              "text": "Approach Founders, Early Support, and Legitimacy as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Founders, Early Support, and Legitimacy through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 2: Founders, Early Support, and Legitimacy shape the expectations placed on a member in the Corporal School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 2: Founders, Early Support, and Legitimacy seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 2: Founders, Early Support, and Legitimacy in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 3,
+      "week_title": "Week 3: Growth, Expansion, and Public Trust",
+      "focus": "",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 3: Growth, Expansion, and Public Trust?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on growth, expansion, and public trust."
+            },
+            {
+              "option": "B",
+              "text": "Week 1: Why the Order Was Founded / Mission and Historical Need"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Founders, Early Support, and Legitimacy"
+            },
+            {
+              "option": "D",
+              "text": "Week 4: Structure, Offices, and Daily Life"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on growth, expansion, and public trust.",
+          "rationale": "The week summary states that This week centers on growth, expansion, and public trust."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 3: Growth, Expansion, and Public Trust?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Corporal School — 8 Week Lesson Plan Program"
+            },
+            {
+              "option": "B",
+              "text": "Britannica: Templars"
+            },
+            {
+              "option": "C",
+              "text": "Weekly Lesson-Plan Packet"
+            },
+            {
+              "option": "D",
+              "text": "Curriculum Handbook"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Corporal School — 8 Week Lesson Plan Program",
+          "rationale": "Corporal School — 8 Week Lesson Plan Program appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 3: Growth, Expansion, and Public Trust?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Public Trust"
+            },
+            {
+              "option": "B",
+              "text": "First Crusade"
+            },
+            {
+              "option": "C",
+              "text": "Pilgrimage"
+            },
+            {
+              "option": "D",
+              "text": "Jerusalem"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Public Trust",
+          "rationale": "The week is organized around the concept of Public Trust."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 3: Growth, Expansion, and Public Trust?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "The Templars gained support through service, discipline, and reliability."
+            },
+            {
+              "option": "B",
+              "text": "The First Crusade took place from 1095 to 1099."
+            },
+            {
+              "option": "C",
+              "text": "Pilgrims traveling to Jerusalem faced serious danger."
+            },
+            {
+              "option": "D",
+              "text": "The earliest Templar mission centered on protection and religious purpose."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "The Templars gained support through service, discipline, and reliability.",
+          "rationale": "This statement matches the stated memory target or focus for the week: The Templars gained support through service, discipline, and reliability."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 3: Growth, Expansion, and Public Trust?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Growth, Expansion, and Public Trust through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Growth, Expansion, and Public Trust mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Growth, Expansion, and Public Trust."
+            },
+            {
+              "option": "D",
+              "text": "Approach Growth, Expansion, and Public Trust as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Growth, Expansion, and Public Trust through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 3: Growth, Expansion, and Public Trust shape the expectations placed on a member in the Corporal School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 3: Growth, Expansion, and Public Trust seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 3: Growth, Expansion, and Public Trust in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 4,
+      "week_title": "Week 4: Structure, Offices, and Daily Life",
+      "focus": "",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 4: Structure, Offices, and Daily Life?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on structure, offices, and daily life."
+            },
+            {
+              "option": "B",
+              "text": "Week 1: Why the Order Was Founded / Mission and Historical Need"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Founders, Early Support, and Legitimacy"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: Growth, Expansion, and Public Trust"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on structure, offices, and daily life.",
+          "rationale": "The week summary states that This week centers on structure, offices, and daily life."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 4: Structure, Offices, and Daily Life?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Corporal School — 8 Week Lesson Plan Program"
+            },
+            {
+              "option": "B",
+              "text": "Britannica: Templars"
+            },
+            {
+              "option": "C",
+              "text": "Weekly Lesson-Plan Packet"
+            },
+            {
+              "option": "D",
+              "text": "Curriculum Handbook"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Corporal School — 8 Week Lesson Plan Program",
+          "rationale": "Corporal School — 8 Week Lesson Plan Program appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 4: Structure, Offices, and Daily Life?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Grand Master"
+            },
+            {
+              "option": "B",
+              "text": "First Crusade"
+            },
+            {
+              "option": "C",
+              "text": "Pilgrimage"
+            },
+            {
+              "option": "D",
+              "text": "Jerusalem"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Grand Master",
+          "rationale": "The week is organized around the concept of Grand Master."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 4: Structure, Offices, and Daily Life?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "The order included knights, sergeants, and chaplains."
+            },
+            {
+              "option": "B",
+              "text": "The First Crusade took place from 1095 to 1099."
+            },
+            {
+              "option": "C",
+              "text": "Pilgrims traveling to Jerusalem faced serious danger."
+            },
+            {
+              "option": "D",
+              "text": "The earliest Templar mission centered on protection and religious purpose."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "The order included knights, sergeants, and chaplains.",
+          "rationale": "This statement matches the stated memory target or focus for the week: The order included knights, sergeants, and chaplains."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 4: Structure, Offices, and Daily Life?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Structure, Offices, and Daily Life through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Structure, Offices, and Daily Life mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Structure, Offices, and Daily Life."
+            },
+            {
+              "option": "D",
+              "text": "Approach Structure, Offices, and Daily Life as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Structure, Offices, and Daily Life through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 4: Structure, Offices, and Daily Life shape the expectations placed on a member in the Corporal School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 4: Structure, Offices, and Daily Life seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 4: Structure, Offices, and Daily Life in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 5,
+      "week_title": "Week 5: Spiritual Discipline, Service, and the Corporal Rank",
+      "focus": "",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 5: Spiritual Discipline, Service, and the Corporal Rank?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on spiritual discipline, service, and the corporal rank."
+            },
+            {
+              "option": "B",
+              "text": "Week 1: Why the Order Was Founded / Mission and Historical Need"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Founders, Early Support, and Legitimacy"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: Growth, Expansion, and Public Trust"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on spiritual discipline, service, and the corporal rank.",
+          "rationale": "The week summary states that This week centers on spiritual discipline, service, and the corporal rank."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 5: Spiritual Discipline, Service, and the Corporal Rank?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Corporal School — 8 Week Lesson Plan Program"
+            },
+            {
+              "option": "B",
+              "text": "Britannica: Templars"
+            },
+            {
+              "option": "C",
+              "text": "Weekly Lesson-Plan Packet"
+            },
+            {
+              "option": "D",
+              "text": "Curriculum Handbook"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Corporal School — 8 Week Lesson Plan Program",
+          "rationale": "Corporal School — 8 Week Lesson Plan Program appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 5: Spiritual Discipline, Service, and the Corporal Rank?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Virtue"
+            },
+            {
+              "option": "B",
+              "text": "First Crusade"
+            },
+            {
+              "option": "C",
+              "text": "Pilgrimage"
+            },
+            {
+              "option": "D",
+              "text": "Jerusalem"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Virtue",
+          "rationale": "The week is organized around the concept of Virtue."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 5: Spiritual Discipline, Service, and the Corporal Rank?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "A Corporal must remain current with classwork and attend meetings, Bible studies, and Round Tables."
+            },
+            {
+              "option": "B",
+              "text": "The First Crusade took place from 1095 to 1099."
+            },
+            {
+              "option": "C",
+              "text": "Pilgrims traveling to Jerusalem faced serious danger."
+            },
+            {
+              "option": "D",
+              "text": "The earliest Templar mission centered on protection and religious purpose."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "A Corporal must remain current with classwork and attend meetings, Bible studies, and Round Tables.",
+          "rationale": "This statement matches the stated memory target or focus for the week: A Corporal must remain current with classwork and attend meetings, Bible studies, and Round Tables."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 5: Spiritual Discipline, Service, and the Corporal Rank?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Spiritual Discipline, Service, and the Corporal Rank through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Spiritual Discipline, Service, and the Corporal Rank mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Spiritual Discipline, Service, and the Corporal Rank."
+            },
+            {
+              "option": "D",
+              "text": "Approach Spiritual Discipline, Service, and the Corporal Rank as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Spiritual Discipline, Service, and the Corporal Rank through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 5: Spiritual Discipline, Service, and the Corporal Rank shape the expectations placed on a member in the Corporal School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 5: Spiritual Discipline, Service, and the Corporal Rank seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 5: Spiritual Discipline, Service, and the Corporal Rank in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 6,
+      "week_title": "Week 6: Wealth, Power, Risks, and Mission Drift",
+      "focus": "",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 6: Wealth, Power, Risks, and Mission Drift?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on wealth, power, risks, and mission drift."
+            },
+            {
+              "option": "B",
+              "text": "Week 1: Why the Order Was Founded / Mission and Historical Need"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Founders, Early Support, and Legitimacy"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: Growth, Expansion, and Public Trust"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on wealth, power, risks, and mission drift.",
+          "rationale": "The week summary states that This week centers on wealth, power, risks, and mission drift."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 6: Wealth, Power, Risks, and Mission Drift?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Corporal School — 8 Week Lesson Plan Program"
+            },
+            {
+              "option": "B",
+              "text": "Britannica: Templars"
+            },
+            {
+              "option": "C",
+              "text": "Weekly Lesson-Plan Packet"
+            },
+            {
+              "option": "D",
+              "text": "Curriculum Handbook"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Corporal School — 8 Week Lesson Plan Program",
+          "rationale": "Corporal School — 8 Week Lesson Plan Program appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 6: Wealth, Power, Risks, and Mission Drift?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Commandery"
+            },
+            {
+              "option": "B",
+              "text": "First Crusade"
+            },
+            {
+              "option": "C",
+              "text": "Pilgrimage"
+            },
+            {
+              "option": "D",
+              "text": "Jerusalem"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Commandery",
+          "rationale": "The week is organized around the concept of Commandery."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 6: Wealth, Power, Risks, and Mission Drift?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "The Templars became important as logisticians, administrators, and financial custodians."
+            },
+            {
+              "option": "B",
+              "text": "The First Crusade took place from 1095 to 1099."
+            },
+            {
+              "option": "C",
+              "text": "Pilgrims traveling to Jerusalem faced serious danger."
+            },
+            {
+              "option": "D",
+              "text": "The earliest Templar mission centered on protection and religious purpose."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "The Templars became important as logisticians, administrators, and financial custodians.",
+          "rationale": "This statement matches the stated memory target or focus for the week: The Templars became important as logisticians, administrators, and financial custodians."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 6: Wealth, Power, Risks, and Mission Drift?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Wealth, Power, Risks, and Mission Drift through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Wealth, Power, Risks, and Mission Drift mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Wealth, Power, Risks, and Mission Drift."
+            },
+            {
+              "option": "D",
+              "text": "Approach Wealth, Power, Risks, and Mission Drift as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Wealth, Power, Risks, and Mission Drift through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 6: Wealth, Power, Risks, and Mission Drift shape the expectations placed on a member in the Corporal School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 6: Wealth, Power, Risks, and Mission Drift seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 6: Wealth, Power, Risks, and Mission Drift in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 7,
+      "week_title": "Week 7: Crisis, Friday the 13th, and Suppression",
+      "focus": "",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 7: Crisis, Friday the 13th, and Suppression?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on crisis, friday the 13th, and suppression."
+            },
+            {
+              "option": "B",
+              "text": "Week 1: Why the Order Was Founded / Mission and Historical Need"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Founders, Early Support, and Legitimacy"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: Growth, Expansion, and Public Trust"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on crisis, friday the 13th, and suppression.",
+          "rationale": "The week summary states that This week centers on crisis, friday the 13th, and suppression."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 7: Crisis, Friday the 13th, and Suppression?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Corporal School — 8 Week Lesson Plan Program"
+            },
+            {
+              "option": "B",
+              "text": "Britannica: Templars"
+            },
+            {
+              "option": "C",
+              "text": "Weekly Lesson-Plan Packet"
+            },
+            {
+              "option": "D",
+              "text": "Curriculum Handbook"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Corporal School — 8 Week Lesson Plan Program",
+          "rationale": "Corporal School — 8 Week Lesson Plan Program appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 7: Crisis, Friday the 13th, and Suppression?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Philip IV"
+            },
+            {
+              "option": "B",
+              "text": "First Crusade"
+            },
+            {
+              "option": "C",
+              "text": "Pilgrimage"
+            },
+            {
+              "option": "D",
+              "text": "Jerusalem"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Philip IV",
+          "rationale": "The week is organized around the concept of Philip IV."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 7: Crisis, Friday the 13th, and Suppression?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "The arrests in France took place on Friday, October 13, 1307."
+            },
+            {
+              "option": "B",
+              "text": "The First Crusade took place from 1095 to 1099."
+            },
+            {
+              "option": "C",
+              "text": "Pilgrims traveling to Jerusalem faced serious danger."
+            },
+            {
+              "option": "D",
+              "text": "The earliest Templar mission centered on protection and religious purpose."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "The arrests in France took place on Friday, October 13, 1307.",
+          "rationale": "This statement matches the stated memory target or focus for the week: The arrests in France took place on Friday, October 13, 1307."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 7: Crisis, Friday the 13th, and Suppression?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Crisis, Friday the 13th, and Suppression through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Crisis, Friday the 13th, and Suppression mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Crisis, Friday the 13th, and Suppression."
+            },
+            {
+              "option": "D",
+              "text": "Approach Crisis, Friday the 13th, and Suppression as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Crisis, Friday the 13th, and Suppression through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 7: Crisis, Friday the 13th, and Suppression shape the expectations placed on a member in the Corporal School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 7: Crisis, Friday the 13th, and Suppression seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 7: Crisis, Friday the 13th, and Suppression in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 8,
+      "week_title": "Week 8: Jacques de Molay, Fall of the Order, Historical Importance",
+      "focus": "",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 8: Jacques de Molay, Fall of the Order, Historical Importance?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on jacques de molay, fall of the order, historical importance."
+            },
+            {
+              "option": "B",
+              "text": "Week 1: Why the Order Was Founded / Mission and Historical Need"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Founders, Early Support, and Legitimacy"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: Growth, Expansion, and Public Trust"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on jacques de molay, fall of the order, historical importance.",
+          "rationale": "The week summary states that This week centers on jacques de molay, fall of the order, historical importance."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 8: Jacques de Molay, Fall of the Order, Historical Importance?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Corporal School — 8 Week Lesson Plan Program"
+            },
+            {
+              "option": "B",
+              "text": "Britannica: Templars"
+            },
+            {
+              "option": "C",
+              "text": "Weekly Lesson-Plan Packet"
+            },
+            {
+              "option": "D",
+              "text": "Curriculum Handbook"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Corporal School — 8 Week Lesson Plan Program",
+          "rationale": "Corporal School — 8 Week Lesson Plan Program appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 8: Jacques de Molay, Fall of the Order, Historical Importance?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Jacques de Molay"
+            },
+            {
+              "option": "B",
+              "text": "First Crusade"
+            },
+            {
+              "option": "C",
+              "text": "Pilgrimage"
+            },
+            {
+              "option": "D",
+              "text": "Jerusalem"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Jacques de Molay",
+          "rationale": "The week is organized around the concept of Jacques de Molay."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 8: Jacques de Molay, Fall of the Order, Historical Importance?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Jacques de Molay is remembered as the last grand master of the order."
+            },
+            {
+              "option": "B",
+              "text": "The First Crusade took place from 1095 to 1099."
+            },
+            {
+              "option": "C",
+              "text": "Pilgrims traveling to Jerusalem faced serious danger."
+            },
+            {
+              "option": "D",
+              "text": "The earliest Templar mission centered on protection and religious purpose."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Jacques de Molay is remembered as the last grand master of the order.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Jacques de Molay is remembered as the last grand master of the order."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 8: Jacques de Molay, Fall of the Order, Historical Importance?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Jacques de Molay, Fall of the Order, Historical Importance through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Jacques de Molay, Fall of the Order, Historical Importance mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Jacques de Molay, Fall of the Order, Historical Importance."
+            },
+            {
+              "option": "D",
+              "text": "Approach Jacques de Molay, Fall of the Order, Historical Importance as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Jacques de Molay, Fall of the Order, Historical Importance through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 8: Jacques de Molay, Fall of the Order, Historical Importance shape the expectations placed on a member in the Corporal School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 8: Jacques de Molay, Fall of the Order, Historical Importance seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 8: Jacques de Molay, Fall of the Order, Historical Importance in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    }
+  ]
+}

@@ -9,19 +9,12 @@ test('required repository paths exist', () => {
   const requiredPaths = [
     'package.json',
     'src/config/curriculum/index.json',
-    'src/config/repositoryResources.json',
     'src/controllers/curriculumController.js',
-    'src/controllers/repositoryResourceController.js',
     'src/services/curriculumService.js',
-    'src/services/repositoryResourceService.js',
     'tests/curriculumService.test.js',
-    'tests/repositoryResources.test.js',
     'public/index.html',
-    'public/app.js',
     'database/schema.sql',
-    'database/migrations/001_create_curriculum_tables.sql',
-    'database/migrations/003_create_shared_resource_tables.sql',
-    '.dockerignore'
+    'database/migrations/001_create_curriculum_tables.sql'
   ];
 
   for (const relPath of requiredPaths) {

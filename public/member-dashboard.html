@@ -182,14 +182,20 @@
     .program-link:hover { border-color:#c9a227; color:#e8c96a; box-shadow:0 4px 16px rgba(0,0,0,0.4); }
     .program-link.current   { border-color:#c9a227; background:linear-gradient(135deg,#241a08,#160e02); }
     .program-link.completed  { border-color:#2a6020; }
-    /* Guarded: dimmed, no pointer, no hover lift */
+    /* Guarded: future programs not yet assigned */
     .program-link.guarded {
-      opacity: 0.45;
+      opacity: 0.40;
       cursor: not-allowed;
       pointer-events: none;
       border-color: #6a1010;
       background: linear-gradient(135deg,#120505,#0a0202);
     }
+    /* Review: completed/past programs accessible for review */
+    .program-link.review {
+      border-color: #1e3a5a;
+      background: linear-gradient(135deg,#081420,#050c18);
+    }
+    .program-link.review:hover { border-color:#4a7ab8; color:#90b8e8; }
     .program-link .prog-badge {
       display:inline-flex; align-items:center; gap:5px;
       padding:2px 8px; border-radius:999px;
@@ -202,6 +208,11 @@
       border: 1px solid #8b0000;
       color: #c92727;
       letter-spacing: 0.14em;
+    }
+    .program-link .prog-badge.review {
+      background: rgba(30,58,90,0.25);
+      border: 1px solid #2a5a8a;
+      color: #6090c0;
     }
 
     /* ── History ── */
@@ -273,17 +284,19 @@
   </style>
 </head>
 <body>
+  <script src="/assets/js/academy-guard.js" data-protect="member" defer></script>
+
 <div class="page-wrap">
 
   <!-- TOP BAR -->
   <nav class="topbar">
-    <a class="topbar-brand" href="/">
+    <span class="topbar-brand">
       <img src="/images/order-crest.png" alt="Crest">
       <div>
         <div class="topbar-brand-text">Templar Forge Academy</div>
         <div class="topbar-brand-sub">Member Portal</div>
       </div>
-    </a>
+    </span>
     <!-- KTKC Motto -->
     <div class="topbar-motto">
       <span class="topbar-motto-word"><span class="topbar-motto-cap k1">K</span><span class="topbar-motto-rest">nowledge</span></span>
@@ -297,7 +310,7 @@
     <div class="topbar-nav">
       <span id="nav-greeting" style="font-family:'Cinzel',serif;font-size:0.8rem;color:#8b6530;"></span>
       <a href="/profile" title="My Profile" style="font-size:1.1rem;letter-spacing:0;padding:6px 10px;" aria-label="Profile">⚔</a>
-      <a href="/auth/logout" class="btn-nav">Sign Out</a>
+      <a href="/auth/logout" class="btn-nav">✠ Retire Training Session</a>
     </div>
   </nav>
 
@@ -340,7 +353,7 @@
         <div class="lbl">Exams Submitted</div>
       </div>
       <div class="stat-box">
-        <span class="num">11</span>
+        <span class="num" id="stat-programs">12</span>
         <div class="lbl">Programs in Order</div>
       </div>
     </div>
@@ -370,6 +383,30 @@
       <div class="section-title">📜 Your Program History</div>
       <div id="history-container">
         <div style="color:#4a3010;font-size:0.88rem;">No completed programs yet.</div>
+      </div>
+    </div>
+
+    <div class="gold-rule"></div>
+
+    <!-- ── READING LOG ── -->
+    <div style="margin-bottom:28px;">
+      <div class="section-title">📖 Reading Log</div>
+      <div style="background:rgba(180,140,60,0.07);border:1px solid rgba(180,140,60,0.3);
+                  border-radius:8px;padding:18px 20px;">
+        <p style="margin:0 0 12px;font-size:0.92rem;color:#c8a060;line-height:1.6;">
+          Track your required reading documents, mark each item as in-progress or completed,
+          and export your reading record as a JSON file for Schoolmaster review.
+        </p>
+        <a href="/reading-log"
+           style="display:inline-block;background:rgba(180,140,60,0.15);
+                  border:1px solid rgba(180,140,60,0.45);color:#e8c050;
+                  text-decoration:none;padding:10px 20px;border-radius:6px;
+                  font-family:'Cinzel',serif;font-size:0.84rem;letter-spacing:0.06em;
+                  transition:background 0.2s,color 0.2s;"
+           onmouseover="this.style.background='rgba(180,140,60,0.28)';this.style.color='#f0d060';"
+           onmouseout="this.style.background='rgba(180,140,60,0.15)';this.style.color='#e8c050';">
+          📖 Open Reading Log
+        </a>
       </div>
     </div>
 
@@ -455,7 +492,8 @@ function renderStats() {
   const p = userProgression;
   document.getElementById('stat-week').textContent      = p.currentWeek      || '—';
   document.getElementById('stat-completed').textContent = (p.programHistory||[]).filter(h=>h.completedAt).length || 0;
-  document.getElementById('stat-exams').textContent     = (p.examSubmissions||[]).length || 0;
+  document.getElementById('stat-exams').textContent     = (p.totalExamCount != null) ? p.totalExamCount : ((p.curriculumExams||[]).length + (p.examSubmissions||[]).length) || 0;
+  if (allPrograms.length) document.getElementById('stat-programs').textContent = allPrograms.length;
 
   const prog = p.assignedProgram;
   document.getElementById('welcome-sub').textContent = prog
@@ -504,6 +542,15 @@ function renderActiveProgram() {
         <a class="prog-link primary" href="/lesson">
           ✠ Begin This Week's Lesson
         </a>
+        <a class="prog-link" href="/reading-log?from=${prog.slug}"
+           style="background:rgba(180,140,60,0.08);border:1px solid rgba(180,140,60,0.28);
+                  color:#c9a84c;border-radius:6px;padding:10px 18px;text-decoration:none;
+                  font-family:'Cinzel',serif;font-size:0.82rem;letter-spacing:0.05em;
+                  display:inline-block;transition:background 0.2s,color 0.2s;"
+           onmouseover="this.style.background='rgba(180,140,60,0.18)';this.style.color='#e8c040';"
+           onmouseout="this.style.background='rgba(180,140,60,0.08)';this.style.color='#c9a84c';">
+          📖 Reading Log
+        </a>
       </div>
     </div>`;
 }
@@ -514,36 +561,56 @@ function renderProgramList() {
   const completed  = new Set((userProgression?.programHistory||[]).filter(h=>h.completedAt).map(h=>h.slug));
   const unlocked   = new Set(userProgression?.unlockedSlugs || []);
 
-  container.innerHTML = allPrograms.map(p => {
+  // Build ordered set of programs that have been encountered (current + completed + unlocked)
+  // so we can distinguish "past" from "future-locked" programs
+  const assignedIndex = allPrograms.findIndex(p => p.slug === assigned);
+
+  container.innerHTML = allPrograms.map((p, idx) => {
     const isCurrent   = p.slug === assigned;
     const isCompleted = completed.has(p.slug);
-    // A program is accessible if it is the current one, already completed, or explicitly unlocked by SM
-    const isAccessible = isCurrent || isCompleted || unlocked.has(p.slug);
-    const isGuarded    = !isAccessible;
+    const isUnlocked  = unlocked.has(p.slug);
+
+    // A program is a past/review program if it was completed OR if it comes
+    // before the current program in the curriculum order
+    const isPast = isCompleted || (assignedIndex > -1 && idx < assignedIndex);
+
+    // A program is accessible for full hub view if:
+    //   1. It is the current program
+    //   2. It has been completed
+    //   3. It was explicitly unlocked by SM
+    //   4. It comes before the current program in curriculum order (review access)
+    const isAccessible = isCurrent || isCompleted || isUnlocked || isPast;
+
+    // Only guard programs that are strictly future (beyond current assignment)
+    const isGuarded = !isAccessible;
 
     let badge;
     if (isCurrent) {
       badge = '<span class="prog-badge current">▶ Current</span>';
     } else if (isCompleted) {
       badge = '<span class="prog-badge complete">✔ Complete</span>';
+    } else if (isPast) {
+      badge = '<span class="prog-badge review">⟳ Review</span>';
     } else if (isGuarded) {
-      badge = '<span class="prog-badge guarded">⛨ GUARDED</span>';
+      badge = '<span class="prog-badge guarded">⛨ Locked</span>';
     } else {
-      badge = ''; // unlocked by SM but not yet assigned — no badge
+      badge = ''; // unlocked by SM — no badge
     }
 
-    const arrow = isGuarded ? '' : '<span style="opacity:0.4;">→</span>';
-
     if (isGuarded) {
-      // Render as non-interactive div — member cannot click through
+      // Render as non-interactive div — future programs not yet reached
       return `<div class="program-link guarded">
         <span>✠ ${p.title} <span style="font-size:0.76rem;color:#3a1010;">· ${p.phase}</span></span>
         <span style="display:flex;align-items:center;gap:8px;">${badge}</span>
       </div>`;
     }
 
-    return `<a class="program-link ${isCurrent?'current':isCompleted?'completed':''}"
-               href="/${p.siteEntry}" target="_blank">
+    // All accessible programs link to the hub — current, completed, past review, SM-unlocked
+    const linkClass = isCurrent ? 'current' : isCompleted ? 'completed' : isPast ? 'review' : '';
+    const arrow = '<span style="opacity:0.4;">→</span>';
+
+    return `<a class="program-link ${linkClass}"
+               href="/programs/${p.slug}/hub">
       <span>✠ ${p.title} <span style="font-size:0.76rem;color:#4a3010;">· ${p.phase}</span></span>
       <span style="display:flex;align-items:center;gap:8px;">${badge}${arrow}</span>
     </a>`;

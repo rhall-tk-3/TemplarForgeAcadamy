@@ -1,0 +1,1136 @@
+{
+  "program_title": "Sergeant School Program",
+  "program_phase": "Rank advancement",
+  "assessment_type": "multiple_choice_and_discussion",
+  "generated_note": "Original assessment materials generated from the uploaded KTKC program files and website repository structure.",
+  "weeks": [
+    {
+      "week_number": 1,
+      "week_title": "Week 1: From Corporal to Sergeant — Historical Review, Scope, and Source-Based Method",
+      "focus": "",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 1: From Corporal to Sergeant — Historical Review, Scope, and Source-Based Method?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on from corporal to sergeant."
+            },
+            {
+              "option": "B",
+              "text": "Week 2: Expansion, Patronage, and Legitimacy in Europe"
+            },
+            {
+              "option": "C",
+              "text": "Week 3: Organization, Offices, Provinces, and Internal Classes"
+            },
+            {
+              "option": "D",
+              "text": "Week 4: Military Operations, Logistics, Command, and Disciplined Service"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on from corporal to sergeant.",
+          "rationale": "The week summary states that This week centers on from corporal to sergeant."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 1: From Corporal to Sergeant — Historical Review, Scope, and Source-Based Method?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Sergeant School — 8 Week Lesson Plan Program"
+            },
+            {
+              "option": "B",
+              "text": "Corporal School — 8 Week Lesson Plan Program"
+            },
+            {
+              "option": "C",
+              "text": "Britannica: Templars"
+            },
+            {
+              "option": "D",
+              "text": "Curriculum Handbook"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Sergeant School — 8 Week Lesson Plan Program",
+          "rationale": "Sergeant School — 8 Week Lesson Plan Program appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 1: From Corporal to Sergeant — Historical Review, Scope, and Source-Based Method?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Documented History"
+            },
+            {
+              "option": "B",
+              "text": "Myth vs Fact"
+            },
+            {
+              "option": "C",
+              "text": "Accountability"
+            },
+            {
+              "option": "D",
+              "text": "1119/1120"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Documented History",
+          "rationale": "The week is organized around the concept of Documented History."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 1: From Corporal to Sergeant — Historical Review, Scope, and Source-Based Method?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Sergeant study deepens the Corporal historical foundation through source-based method."
+            },
+            {
+              "option": "B",
+              "text": "Truthful history requires evidence, chronology, and disciplined judgment."
+            },
+            {
+              "option": "C",
+              "text": "Friday the 13th, Grail legends, and conspiracies must be taught carefully and critically."
+            },
+            {
+              "option": "D",
+              "text": "Hugh de Payns’ European tour helped secure broad support for the order."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Sergeant study deepens the Corporal historical foundation through source-based method.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Sergeant study deepens the Corporal historical foundation through source-based method."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 1: From Corporal to Sergeant — Historical Review, Scope, and Source-Based Method?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of From Corporal to Sergeant through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat From Corporal to Sergeant mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about From Corporal to Sergeant."
+            },
+            {
+              "option": "D",
+              "text": "Approach From Corporal to Sergeant as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of From Corporal to Sergeant through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 1: From Corporal to Sergeant — Historical Review, Scope, and Source-Based Method shape the expectations placed on a member in the Sergeant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 1: From Corporal to Sergeant — Historical Review, Scope, and Source-Based Method seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 1: From Corporal to Sergeant — Historical Review, Scope, and Source-Based Method in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 2,
+      "week_title": "Week 2: Expansion, Patronage, and Legitimacy in Europe",
+      "focus": "",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 2: Expansion, Patronage, and Legitimacy in Europe?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on expansion, patronage, and legitimacy in europe."
+            },
+            {
+              "option": "B",
+              "text": "Week 1: From Corporal to Sergeant — Historical Review, Scope, and Source-Based Method"
+            },
+            {
+              "option": "C",
+              "text": "Week 3: Organization, Offices, Provinces, and Internal Classes"
+            },
+            {
+              "option": "D",
+              "text": "Week 4: Military Operations, Logistics, Command, and Disciplined Service"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on expansion, patronage, and legitimacy in europe.",
+          "rationale": "The week summary states that This week centers on expansion, patronage, and legitimacy in europe."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 2: Expansion, Patronage, and Legitimacy in Europe?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Sergeant School — 8 Week Lesson Plan Program"
+            },
+            {
+              "option": "B",
+              "text": "Corporal School — 8 Week Lesson Plan Program"
+            },
+            {
+              "option": "C",
+              "text": "Britannica: Templars"
+            },
+            {
+              "option": "D",
+              "text": "Curriculum Handbook"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Sergeant School — 8 Week Lesson Plan Program",
+          "rationale": "Sergeant School — 8 Week Lesson Plan Program appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 2: Expansion, Patronage, and Legitimacy in Europe?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Hugh de Payns"
+            },
+            {
+              "option": "B",
+              "text": "Documented History"
+            },
+            {
+              "option": "C",
+              "text": "Myth vs Fact"
+            },
+            {
+              "option": "D",
+              "text": "Accountability"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Hugh de Payns",
+          "rationale": "The week is organized around the concept of Hugh de Payns."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 2: Expansion, Patronage, and Legitimacy in Europe?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Hugh de Payns’ European tour helped secure broad support for the order."
+            },
+            {
+              "option": "B",
+              "text": "Sergeant study deepens the Corporal historical foundation through source-based method."
+            },
+            {
+              "option": "C",
+              "text": "Truthful history requires evidence, chronology, and disciplined judgment."
+            },
+            {
+              "option": "D",
+              "text": "Friday the 13th, Grail legends, and conspiracies must be taught carefully and critically."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Hugh de Payns’ European tour helped secure broad support for the order.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Hugh de Payns’ European tour helped secure broad support for the order."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 2: Expansion, Patronage, and Legitimacy in Europe?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Expansion, Patronage, and Legitimacy in Europe through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Expansion, Patronage, and Legitimacy in Europe mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Expansion, Patronage, and Legitimacy in Europe."
+            },
+            {
+              "option": "D",
+              "text": "Approach Expansion, Patronage, and Legitimacy in Europe as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Expansion, Patronage, and Legitimacy in Europe through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 2: Expansion, Patronage, and Legitimacy in Europe shape the expectations placed on a member in the Sergeant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 2: Expansion, Patronage, and Legitimacy in Europe seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 2: Expansion, Patronage, and Legitimacy in Europe in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 3,
+      "week_title": "Week 3: Organization, Offices, Provinces, and Internal Classes",
+      "focus": "",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 3: Organization, Offices, Provinces, and Internal Classes?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on organization, offices, provinces, and internal classes."
+            },
+            {
+              "option": "B",
+              "text": "Week 1: From Corporal to Sergeant — Historical Review, Scope, and Source-Based Method"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Expansion, Patronage, and Legitimacy in Europe"
+            },
+            {
+              "option": "D",
+              "text": "Week 4: Military Operations, Logistics, Command, and Disciplined Service"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on organization, offices, provinces, and internal classes.",
+          "rationale": "The week summary states that This week centers on organization, offices, provinces, and internal classes."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 3: Organization, Offices, Provinces, and Internal Classes?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Sergeant School — 8 Week Lesson Plan Program"
+            },
+            {
+              "option": "B",
+              "text": "Corporal School — 8 Week Lesson Plan Program"
+            },
+            {
+              "option": "C",
+              "text": "Britannica: Templars"
+            },
+            {
+              "option": "D",
+              "text": "Curriculum Handbook"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Sergeant School — 8 Week Lesson Plan Program",
+          "rationale": "Sergeant School — 8 Week Lesson Plan Program appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 3: Organization, Offices, Provinces, and Internal Classes?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Grand Master"
+            },
+            {
+              "option": "B",
+              "text": "Documented History"
+            },
+            {
+              "option": "C",
+              "text": "Myth vs Fact"
+            },
+            {
+              "option": "D",
+              "text": "Accountability"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Grand Master",
+          "rationale": "The week is organized around the concept of Grand Master."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 3: Organization, Offices, Provinces, and Internal Classes?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "The order was governed through a structured hierarchy and provincial network."
+            },
+            {
+              "option": "B",
+              "text": "Sergeant study deepens the Corporal historical foundation through source-based method."
+            },
+            {
+              "option": "C",
+              "text": "Truthful history requires evidence, chronology, and disciplined judgment."
+            },
+            {
+              "option": "D",
+              "text": "Friday the 13th, Grail legends, and conspiracies must be taught carefully and critically."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "The order was governed through a structured hierarchy and provincial network.",
+          "rationale": "This statement matches the stated memory target or focus for the week: The order was governed through a structured hierarchy and provincial network."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 3: Organization, Offices, Provinces, and Internal Classes?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Organization, Offices, Provinces, and Internal Classes through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Organization, Offices, Provinces, and Internal Classes mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Organization, Offices, Provinces, and Internal Classes."
+            },
+            {
+              "option": "D",
+              "text": "Approach Organization, Offices, Provinces, and Internal Classes as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Organization, Offices, Provinces, and Internal Classes through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 3: Organization, Offices, Provinces, and Internal Classes shape the expectations placed on a member in the Sergeant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 3: Organization, Offices, Provinces, and Internal Classes seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 3: Organization, Offices, Provinces, and Internal Classes in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 4,
+      "week_title": "Week 4: Military Operations, Logistics, Command, and Disciplined Service",
+      "focus": "",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 4: Military Operations, Logistics, Command, and Disciplined Service?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on military operations, logistics, command, and disciplined service."
+            },
+            {
+              "option": "B",
+              "text": "Week 1: From Corporal to Sergeant — Historical Review, Scope, and Source-Based Method"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Expansion, Patronage, and Legitimacy in Europe"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: Organization, Offices, Provinces, and Internal Classes"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on military operations, logistics, command, and disciplined service.",
+          "rationale": "The week summary states that This week centers on military operations, logistics, command, and disciplined service."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 4: Military Operations, Logistics, Command, and Disciplined Service?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Sergeant School — 8 Week Lesson Plan Program"
+            },
+            {
+              "option": "B",
+              "text": "Corporal School — 8 Week Lesson Plan Program"
+            },
+            {
+              "option": "C",
+              "text": "Britannica: Templars"
+            },
+            {
+              "option": "D",
+              "text": "Curriculum Handbook"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Sergeant School — 8 Week Lesson Plan Program",
+          "rationale": "Sergeant School — 8 Week Lesson Plan Program appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 4: Military Operations, Logistics, Command, and Disciplined Service?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Crusader States"
+            },
+            {
+              "option": "B",
+              "text": "Documented History"
+            },
+            {
+              "option": "C",
+              "text": "Myth vs Fact"
+            },
+            {
+              "option": "D",
+              "text": "Accountability"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Crusader States",
+          "rationale": "The week is organized around the concept of Crusader States."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 4: Military Operations, Logistics, Command, and Disciplined Service?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Military effectiveness depended on disciplined organization and logistics."
+            },
+            {
+              "option": "B",
+              "text": "Sergeant study deepens the Corporal historical foundation through source-based method."
+            },
+            {
+              "option": "C",
+              "text": "Truthful history requires evidence, chronology, and disciplined judgment."
+            },
+            {
+              "option": "D",
+              "text": "Friday the 13th, Grail legends, and conspiracies must be taught carefully and critically."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Military effectiveness depended on disciplined organization and logistics.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Military effectiveness depended on disciplined organization and logistics."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 4: Military Operations, Logistics, Command, and Disciplined Service?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Military Operations, Logistics, Command, and Disciplined Service through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Military Operations, Logistics, Command, and Disciplined Service mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Military Operations, Logistics, Command, and Disciplined Service."
+            },
+            {
+              "option": "D",
+              "text": "Approach Military Operations, Logistics, Command, and Disciplined Service as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Military Operations, Logistics, Command, and Disciplined Service through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 4: Military Operations, Logistics, Command, and Disciplined Service shape the expectations placed on a member in the Sergeant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 4: Military Operations, Logistics, Command, and Disciplined Service seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 4: Military Operations, Logistics, Command, and Disciplined Service in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 5,
+      "week_title": "Week 5: Finance, Stewardship, Administration, and Public Trust",
+      "focus": "",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 5: Finance, Stewardship, Administration, and Public Trust?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on finance, stewardship, administration, and public trust."
+            },
+            {
+              "option": "B",
+              "text": "Week 1: From Corporal to Sergeant — Historical Review, Scope, and Source-Based Method"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Expansion, Patronage, and Legitimacy in Europe"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: Organization, Offices, Provinces, and Internal Classes"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on finance, stewardship, administration, and public trust.",
+          "rationale": "The week summary states that This week centers on finance, stewardship, administration, and public trust."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 5: Finance, Stewardship, Administration, and Public Trust?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Sergeant School — 8 Week Lesson Plan Program"
+            },
+            {
+              "option": "B",
+              "text": "Corporal School — 8 Week Lesson Plan Program"
+            },
+            {
+              "option": "C",
+              "text": "Britannica: Templars"
+            },
+            {
+              "option": "D",
+              "text": "Curriculum Handbook"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Sergeant School — 8 Week Lesson Plan Program",
+          "rationale": "Sergeant School — 8 Week Lesson Plan Program appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 5: Finance, Stewardship, Administration, and Public Trust?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Stewardship"
+            },
+            {
+              "option": "B",
+              "text": "Documented History"
+            },
+            {
+              "option": "C",
+              "text": "Myth vs Fact"
+            },
+            {
+              "option": "D",
+              "text": "Accountability"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Stewardship",
+          "rationale": "The week is organized around the concept of Stewardship."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 5: Finance, Stewardship, Administration, and Public Trust?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "The Templars developed trusted systems for transport, storage, and credit."
+            },
+            {
+              "option": "B",
+              "text": "Sergeant study deepens the Corporal historical foundation through source-based method."
+            },
+            {
+              "option": "C",
+              "text": "Truthful history requires evidence, chronology, and disciplined judgment."
+            },
+            {
+              "option": "D",
+              "text": "Friday the 13th, Grail legends, and conspiracies must be taught carefully and critically."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "The Templars developed trusted systems for transport, storage, and credit.",
+          "rationale": "This statement matches the stated memory target or focus for the week: The Templars developed trusted systems for transport, storage, and credit."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 5: Finance, Stewardship, Administration, and Public Trust?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Finance, Stewardship, Administration, and Public Trust through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Finance, Stewardship, Administration, and Public Trust mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Finance, Stewardship, Administration, and Public Trust."
+            },
+            {
+              "option": "D",
+              "text": "Approach Finance, Stewardship, Administration, and Public Trust as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Finance, Stewardship, Administration, and Public Trust through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 5: Finance, Stewardship, Administration, and Public Trust shape the expectations placed on a member in the Sergeant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 5: Finance, Stewardship, Administration, and Public Trust seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 5: Finance, Stewardship, Administration, and Public Trust in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 6,
+      "week_title": "Week 6: Strategic Strain, Acre, and the Crisis of Purpose",
+      "focus": "",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 6: Strategic Strain, Acre, and the Crisis of Purpose?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on strategic strain, acre, and the crisis of purpose."
+            },
+            {
+              "option": "B",
+              "text": "Week 1: From Corporal to Sergeant — Historical Review, Scope, and Source-Based Method"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Expansion, Patronage, and Legitimacy in Europe"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: Organization, Offices, Provinces, and Internal Classes"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on strategic strain, acre, and the crisis of purpose.",
+          "rationale": "The week summary states that This week centers on strategic strain, acre, and the crisis of purpose."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 6: Strategic Strain, Acre, and the Crisis of Purpose?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Sergeant School — 8 Week Lesson Plan Program"
+            },
+            {
+              "option": "B",
+              "text": "Corporal School — 8 Week Lesson Plan Program"
+            },
+            {
+              "option": "C",
+              "text": "Britannica: Templars"
+            },
+            {
+              "option": "D",
+              "text": "Curriculum Handbook"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Sergeant School — 8 Week Lesson Plan Program",
+          "rationale": "Sergeant School — 8 Week Lesson Plan Program appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 6: Strategic Strain, Acre, and the Crisis of Purpose?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Acre"
+            },
+            {
+              "option": "B",
+              "text": "Documented History"
+            },
+            {
+              "option": "C",
+              "text": "Myth vs Fact"
+            },
+            {
+              "option": "D",
+              "text": "Accountability"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Acre",
+          "rationale": "The week is organized around the concept of Acre."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 6: Strategic Strain, Acre, and the Crisis of Purpose?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "The fall of Acre in 1291 marked a decisive blow to the Crusader position in the East."
+            },
+            {
+              "option": "B",
+              "text": "Sergeant study deepens the Corporal historical foundation through source-based method."
+            },
+            {
+              "option": "C",
+              "text": "Truthful history requires evidence, chronology, and disciplined judgment."
+            },
+            {
+              "option": "D",
+              "text": "Friday the 13th, Grail legends, and conspiracies must be taught carefully and critically."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "The fall of Acre in 1291 marked a decisive blow to the Crusader position in the East.",
+          "rationale": "This statement matches the stated memory target or focus for the week: The fall of Acre in 1291 marked a decisive blow to the Crusader position in the East."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 6: Strategic Strain, Acre, and the Crisis of Purpose?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Strategic Strain, Acre, and the Crisis of Purpose through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Strategic Strain, Acre, and the Crisis of Purpose mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Strategic Strain, Acre, and the Crisis of Purpose."
+            },
+            {
+              "option": "D",
+              "text": "Approach Strategic Strain, Acre, and the Crisis of Purpose as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Strategic Strain, Acre, and the Crisis of Purpose through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 6: Strategic Strain, Acre, and the Crisis of Purpose shape the expectations placed on a member in the Sergeant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 6: Strategic Strain, Acre, and the Crisis of Purpose seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 6: Strategic Strain, Acre, and the Crisis of Purpose in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 7,
+      "week_title": "Week 7: Philip IV, Clement V, Accusations, Torture, and Suppression",
+      "focus": "",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 7: Philip IV, Clement V, Accusations, Torture, and Suppression?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on philip iv, clement v, accusations, torture, and suppression."
+            },
+            {
+              "option": "B",
+              "text": "Week 1: From Corporal to Sergeant — Historical Review, Scope, and Source-Based Method"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Expansion, Patronage, and Legitimacy in Europe"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: Organization, Offices, Provinces, and Internal Classes"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on philip iv, clement v, accusations, torture, and suppression.",
+          "rationale": "The week summary states that This week centers on philip iv, clement v, accusations, torture, and suppression."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 7: Philip IV, Clement V, Accusations, Torture, and Suppression?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Sergeant School — 8 Week Lesson Plan Program"
+            },
+            {
+              "option": "B",
+              "text": "Corporal School — 8 Week Lesson Plan Program"
+            },
+            {
+              "option": "C",
+              "text": "Britannica: Templars"
+            },
+            {
+              "option": "D",
+              "text": "Curriculum Handbook"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Sergeant School — 8 Week Lesson Plan Program",
+          "rationale": "Sergeant School — 8 Week Lesson Plan Program appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 7: Philip IV, Clement V, Accusations, Torture, and Suppression?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Philip IV"
+            },
+            {
+              "option": "B",
+              "text": "Documented History"
+            },
+            {
+              "option": "C",
+              "text": "Myth vs Fact"
+            },
+            {
+              "option": "D",
+              "text": "Accountability"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Philip IV",
+          "rationale": "The week is organized around the concept of Philip IV."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 7: Philip IV, Clement V, Accusations, Torture, and Suppression?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Mass arrests in France occurred on Friday, October 13, 1307."
+            },
+            {
+              "option": "B",
+              "text": "Sergeant study deepens the Corporal historical foundation through source-based method."
+            },
+            {
+              "option": "C",
+              "text": "Truthful history requires evidence, chronology, and disciplined judgment."
+            },
+            {
+              "option": "D",
+              "text": "Friday the 13th, Grail legends, and conspiracies must be taught carefully and critically."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Mass arrests in France occurred on Friday, October 13, 1307.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Mass arrests in France occurred on Friday, October 13, 1307."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 7: Philip IV, Clement V, Accusations, Torture, and Suppression?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Philip IV, Clement V, Accusations, Torture, and Suppression through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Philip IV, Clement V, Accusations, Torture, and Suppression mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Philip IV, Clement V, Accusations, Torture, and Suppression."
+            },
+            {
+              "option": "D",
+              "text": "Approach Philip IV, Clement V, Accusations, Torture, and Suppression as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Philip IV, Clement V, Accusations, Torture, and Suppression through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 7: Philip IV, Clement V, Accusations, Torture, and Suppression shape the expectations placed on a member in the Sergeant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 7: Philip IV, Clement V, Accusations, Torture, and Suppression seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 7: Philip IV, Clement V, Accusations, Torture, and Suppression in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    },
+    {
+      "week_number": 8,
+      "week_title": "Week 8: Jacques de Molay, Hospitallers, Legacy, Myth versus History, and Sergeant Readiness",
+      "focus": "",
+      "multiple_choice_questions": [
+        {
+          "question": "What is the primary focus of Week 8: Jacques de Molay, Hospitallers, Legacy, Myth versus History, and Sergeant Readiness?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "This week centers on jacques de molay, hospitallers, legacy, myth versus history, and sergeant readiness."
+            },
+            {
+              "option": "B",
+              "text": "Week 1: From Corporal to Sergeant — Historical Review, Scope, and Source-Based Method"
+            },
+            {
+              "option": "C",
+              "text": "Week 2: Expansion, Patronage, and Legitimacy in Europe"
+            },
+            {
+              "option": "D",
+              "text": "Week 3: Organization, Offices, Provinces, and Internal Classes"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "This week centers on jacques de molay, hospitallers, legacy, myth versus history, and sergeant readiness.",
+          "rationale": "The week summary states that This week centers on jacques de molay, hospitallers, legacy, myth versus history, and sergeant readiness."
+        },
+        {
+          "question": "Which reading is explicitly assigned for Week 8: Jacques de Molay, Hospitallers, Legacy, Myth versus History, and Sergeant Readiness?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Sergeant School — 8 Week Lesson Plan Program"
+            },
+            {
+              "option": "B",
+              "text": "Corporal School — 8 Week Lesson Plan Program"
+            },
+            {
+              "option": "C",
+              "text": "Britannica: Templars"
+            },
+            {
+              "option": "D",
+              "text": "Curriculum Handbook"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Sergeant School — 8 Week Lesson Plan Program",
+          "rationale": "Sergeant School — 8 Week Lesson Plan Program appears in the required reading list for this week."
+        },
+        {
+          "question": "Which concept is most directly associated with Week 8: Jacques de Molay, Hospitallers, Legacy, Myth versus History, and Sergeant Readiness?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Jacques de Molay"
+            },
+            {
+              "option": "B",
+              "text": "Documented History"
+            },
+            {
+              "option": "C",
+              "text": "Myth vs Fact"
+            },
+            {
+              "option": "D",
+              "text": "Accountability"
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Jacques de Molay",
+          "rationale": "The week is organized around the concept of Jacques de Molay."
+        },
+        {
+          "question": "Which statement best reflects the expected learning outcome for Week 8: Jacques de Molay, Hospitallers, Legacy, Myth versus History, and Sergeant Readiness?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Jacques de Molay is remembered as the final Grand Master of the order."
+            },
+            {
+              "option": "B",
+              "text": "Sergeant study deepens the Corporal historical foundation through source-based method."
+            },
+            {
+              "option": "C",
+              "text": "Truthful history requires evidence, chronology, and disciplined judgment."
+            },
+            {
+              "option": "D",
+              "text": "Friday the 13th, Grail legends, and conspiracies must be taught carefully and critically."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Jacques de Molay is remembered as the final Grand Master of the order.",
+          "rationale": "This statement matches the stated memory target or focus for the week: Jacques de Molay is remembered as the final Grand Master of the order."
+        },
+        {
+          "question": "Which response best applies the lesson of Week 8: Jacques de Molay, Hospitallers, Legacy, Myth versus History, and Sergeant Readiness?",
+          "choices": [
+            {
+              "option": "A",
+              "text": "Apply the lesson of Jacques de Molay, Hospitallers, Legacy, Myth versus History, and Sergeant Readiness through disciplined conduct, truthful understanding, and practical service."
+            },
+            {
+              "option": "B",
+              "text": "Treat Jacques de Molay, Hospitallers, Legacy, Myth versus History, and Sergeant Readiness mainly as ceremonial prestige without practical duty."
+            },
+            {
+              "option": "C",
+              "text": "Ignore assigned readings and rely on legend or speculation about Jacques de Molay, Hospitallers, Legacy, Myth versus History, and Sergeant Readiness."
+            },
+            {
+              "option": "D",
+              "text": "Approach Jacques de Molay, Hospitallers, Legacy, Myth versus History, and Sergeant Readiness as private opinion rather than accountable formation."
+            }
+          ],
+          "correct_answer": "A",
+          "correct_text": "Apply the lesson of Jacques de Molay, Hospitallers, Legacy, Myth versus History, and Sergeant Readiness through disciplined conduct, truthful understanding, and practical service.",
+          "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+        }
+      ],
+      "discussion_questions": [
+        {
+          "prompt": "How does Week 8: Jacques de Molay, Hospitallers, Legacy, Myth versus History, and Sergeant Readiness shape the expectations placed on a member in the Sergeant School Program?",
+          "purpose": "Connect the weekly theme to program standards and member conduct."
+        },
+        {
+          "prompt": "Which assigned reading for Week 8: Jacques de Molay, Hospitallers, Legacy, Myth versus History, and Sergeant Readiness seems most important, and why?",
+          "purpose": "Encourage evidence-based discussion rooted in the required reading."
+        },
+        {
+          "prompt": "What practical action should follow from the lesson of Week 8: Jacques de Molay, Hospitallers, Legacy, Myth versus History, and Sergeant Readiness in personal life, chapter life, or service?",
+          "purpose": "Move from comprehension to concrete application."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "program_title": "Captain School Program",
+  "week_number": 9,
+  "week_title": "Week 9 — Training Lieutenants and Building Future Officers",
+  "multiple_choice_questions": [
+    {
+      "question": "What is the primary focus of Week 9 — Training Lieutenants and Building Future Officers?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "mentoring, multiplying leadership, and preparing successors."
+        },
+        {
+          "option": "B",
+          "text": "shift from task leadership to stewardship of a local body."
+        },
+        {
+          "option": "C",
+          "text": "understand the commandery as a local center of mission, discipline, and logistics."
+        },
+        {
+          "option": "D",
+          "text": "connect the historical commander role to the modern Captain rank."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "mentoring, multiplying leadership, and preparing successors.",
+      "rationale": "The week summary states that mentoring, multiplying leadership, and preparing successors."
+    },
+    {
+      "question": "Which reading is explicitly assigned for Week 9 — Training Lieutenants and Building Future Officers?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Captain School Syllabus PDF"
+        },
+        {
+          "option": "B",
+          "text": "Captain School Lesson Plan"
+        },
+        {
+          "option": "C",
+          "text": "Wikipedia: Knights Templar"
+        },
+        {
+          "option": "D",
+          "text": "Week 1 — The Burden of Local Command"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Captain School Syllabus PDF",
+      "rationale": "Captain School Syllabus PDF appears in the required reading list for this week."
+    },
+    {
+      "question": "Which concept is most directly associated with Week 9 — Training Lieutenants and Building Future Officers?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Training Lieutenants and Building Future Officers"
+        },
+        {
+          "option": "B",
+          "text": "Week 1 — The Burden of Local Command"
+        },
+        {
+          "option": "C",
+          "text": "Week 2 — The Medieval Commandery"
+        },
+        {
+          "option": "D",
+          "text": "Week 3 — The Office of Commander / Preceptor"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Training Lieutenants and Building Future Officers",
+      "rationale": "The week is organized around the concept of Training Lieutenants and Building Future Officers."
+    },
+    {
+      "question": "Which statement best reflects the expected learning outcome for Week 9 — Training Lieutenants and Building Future Officers?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "mentoring, multiplying leadership, and preparing successors."
+        },
+        {
+          "option": "B",
+          "text": "shift from task leadership to stewardship of a local body."
+        },
+        {
+          "option": "C",
+          "text": "understand the commandery as a local center of mission, discipline, and logistics."
+        },
+        {
+          "option": "D",
+          "text": "connect the historical commander role to the modern Captain rank."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "mentoring, multiplying leadership, and preparing successors.",
+      "rationale": "This statement matches the stated memory target or focus for the week: mentoring, multiplying leadership, and preparing successors."
+    },
+    {
+      "question": "Which response best applies the lesson of Week 9 — Training Lieutenants and Building Future Officers?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Apply the lesson of Training Lieutenants and Building Future Officers through disciplined conduct, truthful understanding, and practical service."
+        },
+        {
+          "option": "B",
+          "text": "Treat Training Lieutenants and Building Future Officers mainly as ceremonial prestige without practical duty."
+        },
+        {
+          "option": "C",
+          "text": "Ignore assigned readings and rely on legend or speculation about Training Lieutenants and Building Future Officers."
+        },
+        {
+          "option": "D",
+          "text": "Approach Training Lieutenants and Building Future Officers as private opinion rather than accountable formation."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Apply the lesson of Training Lieutenants and Building Future Officers through disciplined conduct, truthful understanding, and practical service.",
+      "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "program_title": "Squire School Program",
+  "week_number": 8,
+  "week_title": "Week 8: Review and Board Preparation",
+  "multiple_choice_questions": [
+    {
+      "question": "What is the primary focus of Week 8: Review and Board Preparation?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Required Reading: Review all four official reading-stack documents: Order Structure , Historical Timeline , Simple Biographies , and Short Excerpts and Guided Readings ."
+        },
+        {
+          "option": "B",
+          "text": "Required Reading: Short Excerpts and Guided Readings (Week 1 section) and Historical Timeline (First Crusade background)."
+        },
+        {
+          "option": "C",
+          "text": "Required Reading: Simple Biographies (Hugh de Payns and Baldwin II), Short Excerpts and Guided Readings (fact versus legend), and Historical Timeline (founding setting)."
+        },
+        {
+          "option": "D",
+          "text": "Required Reading: Historical Timeline (1095-1139), Simple Biographies (Bernard of Clairvaux and Innocent II), and Order Structure (religious order identity)."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Required Reading: Review all four official reading-stack documents: Order Structure , Historical Timeline , Simple Biographies , and Short Excerpts and Guided Readings .",
+      "rationale": "The week summary states that Required Reading: Review all four official reading-stack documents: Order Structure , Historical Timeline , Simple Biographies , and Short Excerpts and Guided Readings ."
+    },
+    {
+      "question": "Which reading is explicitly assigned for Week 8: Review and Board Preparation?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Program lesson plan and reading list"
+        },
+        {
+          "option": "B",
+          "text": "Week 1: Origins and Virtues"
+        },
+        {
+          "option": "C",
+          "text": "Week 2: Founding People and Places"
+        },
+        {
+          "option": "D",
+          "text": "Week 3: Approval and Mission"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Program lesson plan and reading list",
+      "rationale": "Program lesson plan and reading list appears in the required reading list for this week."
+    },
+    {
+      "question": "Which concept is most directly associated with Week 8: Review and Board Preparation?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Review and Board Preparation"
+        },
+        {
+          "option": "B",
+          "text": "Week 1: Origins and Virtues"
+        },
+        {
+          "option": "C",
+          "text": "Week 2: Founding People and Places"
+        },
+        {
+          "option": "D",
+          "text": "Week 3: Approval and Mission"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Review and Board Preparation",
+      "rationale": "The week is organized around the concept of Review and Board Preparation."
+    },
+    {
+      "question": "Which statement best reflects the expected learning outcome for Week 8: Review and Board Preparation?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Required Reading: Review all four official reading-stack documents: Order Structure , Historical Timeline , Simple Biographies , and Short Excerpts and Guided Readings ."
+        },
+        {
+          "option": "B",
+          "text": "Required Reading: Short Excerpts and Guided Readings (Week 1 section) and Historical Timeline (First Crusade background)."
+        },
+        {
+          "option": "C",
+          "text": "Required Reading: Simple Biographies (Hugh de Payns and Baldwin II), Short Excerpts and Guided Readings (fact versus legend), and Historical Timeline (founding setting)."
+        },
+        {
+          "option": "D",
+          "text": "Required Reading: Historical Timeline (1095-1139), Simple Biographies (Bernard of Clairvaux and Innocent II), and Order Structure (religious order identity)."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Required Reading: Review all four official reading-stack documents: Order Structure , Historical Timeline , Simple Biographies , and Short Excerpts and Guided Readings .",
+      "rationale": "This statement matches the stated memory target or focus for the week: Required Reading: Review all four official reading-stack documents: Order Structure , Historical Timeline , Simple Biographies , and Short Excerpts and Guided Readings ."
+    },
+    {
+      "question": "Which response best applies the lesson of Week 8: Review and Board Preparation?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Apply the lesson of Review and Board Preparation through disciplined conduct, truthful understanding, and practical service."
+        },
+        {
+          "option": "B",
+          "text": "Treat Review and Board Preparation mainly as ceremonial prestige without practical duty."
+        },
+        {
+          "option": "C",
+          "text": "Ignore assigned readings and rely on legend or speculation about Review and Board Preparation."
+        },
+        {
+          "option": "D",
+          "text": "Approach Review and Board Preparation as private opinion rather than accountable formation."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Apply the lesson of Review and Board Preparation through disciplined conduct, truthful understanding, and practical service.",
+      "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+    }
+  ]
+}

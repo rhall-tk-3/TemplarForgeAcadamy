@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Corporal Program - Week 4 History Required Reading</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #0a0804;
+  color: #e0cc98;
+  font-family: 'Crimson Text', serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  padding: 40px 24px 80px;
+}
+.wrap { max-width: 820px; margin: 0 auto; }
+.back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Cinzel', serif; font-size: 0.78rem;
+  color: #b8960c; text-decoration: none;
+  border: 1px solid rgba(184,150,12,0.4);
+  border-radius: 4px; padding: 6px 14px;
+  margin-bottom: 32px; letter-spacing: 0.05em;
+  transition: background 0.18s, color 0.18s;
+}
+.back:hover { background: rgba(184,150,12,0.12); color: #e8c040; }
+.doc-header {
+  border-bottom: 1px solid rgba(180,140,60,0.3);
+  padding-bottom: 22px; margin-bottom: 36px;
+}
+.doc-kicker {
+  font-family: 'Cinzel', serif; font-size: 0.68rem;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: #6a5020; margin-bottom: 10px;
+}
+.doc-title {
+  font-family: 'Cinzel', serif; font-size: 1.65rem;
+  font-weight: 700; color: #e8c850; line-height: 1.25; margin-bottom: 4px;
+}
+.doc-sub {
+  font-size: 0.88rem; color: #8a7040; font-style: italic;
+}
+h2.section-h {
+  font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 700;
+  color: #c8a020; letter-spacing: 0.06em; margin: 36px 0 10px;
+  padding-bottom: 6px; border-bottom: 1px solid rgba(200,160,32,0.2);
+}
+h3.section-sh {
+  font-family: 'Cinzel', serif; font-size: 0.88rem; font-weight: 600;
+  color: #b89040; letter-spacing: 0.05em; margin: 24px 0 8px;
+}
+p.body-p {
+  color: #d0bc88; margin-bottom: 14px; line-height: 1.8;
+}
+ul.list-ul {
+  margin: 0 0 14px 0; padding-left: 0; list-style: none;
+  display: flex; flex-direction: column; gap: 6px;
+}
+ul.list-ul li {
+  display: flex; gap: 10px; align-items: flex-start;
+  color: #c8b880; line-height: 1.65; font-size: 1rem;
+}
+ul.list-ul li::before {
+  content: '\2726'; color: #c8a020; font-size: 0.62rem;
+  flex-shrink: 0; margin-top: 7px;
+}
+ol.list-ol {
+  margin: 0 0 14px 0; padding-left: 0; list-style: none;
+  display: flex; flex-direction: column; gap: 6px;
+  counter-reset: ol-counter;
+}
+ol.list-ol li {
+  display: flex; gap: 10px; align-items: flex-start;
+  color: #c8b880; line-height: 1.65; font-size: 1rem;
+  counter-increment: ol-counter;
+}
+ol.list-ol li::before {
+  content: counter(ol-counter) ".";
+  color: #c8a020; font-family: 'Cinzel', serif; font-size: 0.78rem;
+  flex-shrink: 0; margin-top: 4px; min-width: 20px;
+}
+a.inline-link {
+  color: #c8a020; text-decoration: underline;
+  text-underline-offset: 2px;
+}
+a.inline-link:hover { color: #e8c040; }
+.source-block {
+  margin-top: 48px; padding-top: 20px;
+  border-top: 1px solid rgba(180,140,60,0.2);
+}
+.source-block h2.section-h { margin-top: 0; }
+/* ── Pipe table ── */
+.md-table {
+  width: 100%; border-collapse: collapse;
+  margin: 16px 0 24px; font-size: 0.97rem;
+}
+.md-table th, .md-table td {
+  padding: 8px 14px; text-align: left;
+  border: 1px solid rgba(180,140,60,0.25);
+  color: #c8b880; line-height: 1.6;
+}
+.md-table th {
+  background: rgba(180,140,60,0.10);
+  font-family: 'Cinzel', serif; font-size: 0.78rem;
+  letter-spacing: 0.07em; color: #c8a020; font-weight: 600;
+}
+.md-table tr:nth-child(even) td {
+  background: rgba(255,255,255,0.02);
+}
+/* ── Reference Images ── */
+.ref-images {
+  display: flex; flex-wrap: wrap; gap: 24px;
+  margin: 16px 0 32px;
+}
+.ref-images figure {
+  flex: 1 1 220px; max-width: 280px;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.ref-images figure img {
+  width: 100%; border-radius: 4px;
+  border: 1px solid rgba(180,140,60,0.3);
+  object-fit: cover; max-height: 200px;
+}
+.ref-images figure figcaption {
+  font-size: 0.78rem; color: #8a7040; font-style: italic;
+  text-align: center; line-height: 1.4;
+}
+@media (max-width: 540px) {
+  .ref-images figure { max-width: 100%; }
+}
+@media print {
+  body { background:#fff; color:#111; padding:20px; }
+  .doc-title { color:#111; }
+  .doc-kicker, .doc-sub { color:#666; }
+  h2.section-h { color:#333; border-color:#ccc; }
+  h3.section-sh { color:#555; }
+  p.body-p { color:#222; }
+  ul.list-ul li, ol.list-ol li { color:#333; }
+  .md-table th, .md-table td { color:#333; border-color:#ccc; }
+  .md-table th { background:#eee; }
+  .ref-images figure img { border-color:#ccc; }
+  .ref-images figure figcaption { color:#555; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="doc-header">
+    <div class="doc-kicker">&#10013; Knights Templar of the Kingdom of Christ &middot; Templar Forge Academy</div>
+    <div class="doc-title">Corporal Program — Week 4 History Required Reading</div>
+    <div class="doc-sub">Templar Forge Academy — Weekly Formation Guide</div>
+  </div>
+  <h2 class="section-h">Required Reading</h2>
+<p class="body-p">Read: <a class="inline-link" href="https://www.britannica.com/topic/Templars" target="_blank">Templars - Encyclopaedia Britannica</a></p>
+<h2 class="section-h">Supplemental Reading</h2>
+<p class="body-p">For officer detail: <a class="inline-link" href="https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Templars" target="_blank">1911 Encyclopaedia Britannica - Templars</a></p>
+<h2 class="section-h">Primary Focus</h2>
+<p class="body-p">Knight, sergeant, and chaplain classes; key offices such as Grand Master, Seneschal, Marshal, and Preceptor; daily discipline and routine life.</p>
+<h2 class="section-h">Key Historical Subjects</h2>
+<p class="body-p">The Latin Rule, hierarchy, monastic schedules, and the separation of classes.</p>
+<h2 class="section-h">Formation Emphasis</h2>
+<p class="body-p">Embracing structured discipline and understanding one&#x27;s organizational role without ego.</p>
+<h2 class="section-h">Readiness Goal</h2>
+<p class="body-p">Identify the major offices of the Order and describe the daily monastic routine of a Templar.</p>
+<h2 class="section-h">Historical Snapshot</h2>
+<p class="body-p">Britannica identifies three main classes within the mature Order: knights, sergeants, and chaplains. It also explains that the Order was headed by a Grand Master, that territories were divided into provinces under provincial commanders, and that each house, or preceptory, was headed by a preceptor. The brothers lived by a disciplined religious rule modeled after monastic life: they heard the divine office at the canonical hours, kept fasts and vigils, prayed regularly, lived in community, slept in a common dormitory, and ate together. They were forbidden to gamble, swear, or become drunk.</p>
+<h2 class="section-h">Major Offices</h2>
+<ul class="list-ul"><li>Grand Master — head of the Order, elected for life.</li><li>Seneschal — second officer of the Order.</li><li>Marshal — chief military authority, responsible for horses and arms.</li><li>Preceptor — head of an individual house or preceptory.</li></ul>
+<h2 class="section-h">Daily Routine Themes</h2>
+<ul class="list-ul"><li>Prayer ordered the day.</li><li>Hierarchy ordered responsibility.</li><li>Community life restrained ego and promoted obedience.</li><li>Discipline shaped both spiritual and military readiness.</li></ul>
+<h2 class="section-h">Formation Insight</h2>
+<p class="body-p">The Templar life was not heroic improvisation. It was ordered discipline. Every class had its place, every office had its duty, and every brother was expected to submit to a common rule.</p>
+<div class="source-block">
+<h2 class="section-h">Sources</h2>
+<p class="body-p"><a class="inline-link" href="https://www.britannica.com/topic/Templars" target="_blank">Encyclopaedia Britannica - Templars</a></p>
+<p class="body-p"><a class="inline-link" href="https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Templars" target="_blank">1911 Encyclopaedia Britannica - Templars</a></p>
+</div>
+</div>
+</body>
+</html>

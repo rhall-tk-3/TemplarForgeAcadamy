@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lieutenant Program - Required Reading Hub | Officer Formation Level I</title>
+  <meta
+    name="description"
+    content="Templar Forge Academy Lieutenant Program required reading hub with the Lieutenant School Syllabus, lesson-by-lesson reading links, assignments, and officer formation outcomes."
+  />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --panel-2: #1f2937;
+      --panel-3: #0b1220;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --gold: #d4af37;
+      --gold-soft: rgba(212, 175, 55, 0.12);
+      --line: rgba(148, 163, 184, 0.22);
+      --accent: #7dd3fc;
+      --success: #86efac;
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --max: 1220px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(212, 175, 55, 0.08), transparent 25%),
+        radial-gradient(circle at top left, rgba(125, 211, 252, 0.08), transparent 20%),
+        linear-gradient(180deg, #08101f 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover, a:focus { text-decoration: underline; }
+
+    /* ── Sticky site nav ── */
+    .site-nav {
+      background: rgba(8, 16, 31, 0.92);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+      padding: 0 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .site-nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 10px 0;
+    }
+
+    .site-nav-brand {
+      font-weight: 700;
+      color: #f8e7a6;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .site-nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .site-nav-links li a {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color 0.15s, background 0.15s;
+    }
+
+    .site-nav-links li a:hover,
+    .site-nav-links li a.active {
+      color: #f8e7a6;
+      background: rgba(212, 175, 55, 0.12);
+      text-decoration: none;
+    }
+
+    .shell {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 20px 80px;
+    }
+
+    .hero,
+    .panel,
+    .week-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 36px 28px;
+      margin-bottom: 24px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+        linear-gradient(135deg, rgba(212,175,55,0.10), rgba(125,211,252,0.05));
+    }
+
+    .panel,
+    .week-card {
+      padding: 22px 24px;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--gold-soft);
+      color: #f8e7a6;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1, h2, h3, h4 { margin: 0 0 12px; line-height: 1.2; }
+    h1 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.02em; }
+    h2 { font-size: 1.5rem; margin-bottom: 14px; }
+    h3 { font-size: 1.15rem; color: #fff; }
+
+    p { margin: 0 0 1rem; }
+
+    .hero p {
+      max-width: 920px;
+      color: #dbe4f0;
+      font-size: 1.02rem;
+    }
+
+    .muted { color: var(--muted); }
+    .small { font-size: 0.95rem; }
+
+    .quick-nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .quick-nav a {
+      display: block;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: rgba(15, 23, 42, 0.65);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .quick-nav a:hover {
+      border-color: rgba(212, 175, 55, 0.45);
+      text-decoration: none;
+    }
+
+    .docs-grid,
+    .summary-grid,
+    .footer-links {
+      display: grid;
+      gap: 16px;
+    }
+
+    .docs-grid,
+    .summary-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .doc-card,
+    .summary-card {
+      padding: 18px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: rgba(15, 23, 42, 0.72);
+    }
+
+    .doc-card strong,
+    .summary-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .overview-table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 900px;
+      background: rgba(15, 23, 42, 0.55);
+    }
+
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: rgba(212, 175, 55, 0.08);
+      color: #f8e7a6;
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    .week-card { scroll-margin-top: 24px; }
+
+    .week-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      font-size: 0.85rem;
+      border-radius: 999px;
+      background: rgba(125, 211, 252, 0.08);
+      border: 1px solid rgba(125, 211, 252, 0.18);
+      color: #d7f3ff;
+    }
+
+    .field {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: var(--radius-sm);
+      background: rgba(2, 8, 23, 0.46);
+      border: 1px solid var(--line);
+    }
+
+    .field-label {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: #f8e7a6;
+      font-size: 0.86rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    ul, ol { margin: 0.4rem 0 0 1.2rem; padding: 0; }
+    li + li { margin-top: 0.45rem; }
+    .reading-list li a { font-weight: 600; }
+
+    .footer-links {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-top: 16px;
+    }
+
+    .footer-links a {
+      display: block;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: rgba(15, 23, 42, 0.72);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .footer-links a:hover {
+      text-decoration: none;
+      border-color: rgba(212, 175, 55, 0.45);
+    }
+
+    @media (max-width: 760px) {
+      .hero, .panel, .week-card { padding: 20px; }
+      .site-nav-links li a { padding: 5px 8px; font-size: 0.82rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Sticky site nav ── -->
+  <nav class="site-nav" aria-label="Lieutenant program navigation">
+    <div class="site-nav-inner">
+      <span class="site-nav-brand">✠ Lieutenant School Program</span>
+      <ul class="site-nav-links">
+        <li><a href="/programs/lieutenant/resources/Lieutenant_School_Lesson_Plan.html">Lesson Plan</a></li>
+        <li><a href="/programs/lieutenant/site/weeks/index.html">Weeks</a></li>
+        <li><a href="/programs/lieutenant/site/downloads/Lieutenant_Required_Reading_List.html">Reading List</a></li>
+        <li><a href="/documents/view/lieutenant-required-reading-hub.html" class="active">Reading Hub</a></li>
+        <li><a href="/programs/lieutenant/site/downloads/Lieutenant_Reading_Log.html">Reading Log</a></li>
+        <li><a href="/programs/lieutenant/site/materials/index.html">Materials</a></li>
+        <li><a href="/programs/lieutenant/site/schoolmaster/index.html">Schoolmaster</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">Templar Forge Academy</div>
+      <h1>Lieutenant Program — Required Reading Hub</h1>
+      <p>
+        This static lesson hub places the <strong>Lieutenant School Syllabus</strong> directly into the required-reading flow for
+        Officer Formation Level I. It preserves the academy hub structure while making the syllabus visible as a program
+        document, a week-by-week reading requirement, and a course-summary reference for assignments, leadership outcomes,
+        and final review preparation.
+      </p>
+
+      <nav class="quick-nav" aria-label="Quick navigation">
+        <a href="#program-documents">Program Documents</a>
+        <a href="#syllabus-summary">Syllabus Summary</a>
+        <a href="#weekly-overview">Weekly Overview</a>
+        <a href="#week-1">Lesson 1</a>
+        <a href="#week-6">Lesson 6</a>
+        <a href="#week-12">Lesson 12</a>
+        <a href="#evaluation">Evaluation</a>
+      </nav>
+    </section>
+
+    <section id="program-documents" class="panel">
+      <h2>Program Documents</h2>
+      <div class="docs-grid">
+        <article class="doc-card">
+          <strong>Primitive Rule of the Templars</strong>
+          <p class="muted small">Used in lessons on obedience, bearing, discipline, and fraternal care.</p>
+          <a href="https://sourcebooks.web.fordham.edu/source/templars-primitiverule.asp" target="_blank" rel="noopener">Open Rule source</a>
+        </article>
+
+        <article class="doc-card">
+          <strong>Knights Templar Overview</strong>
+          <p class="muted small">Foundational overview for identity, origins, and historical continuity.</p>
+          <a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Open overview</a>
+        </article>
+
+        <article class="doc-card">
+          <strong>Templars Hierarchy and Duties</strong>
+          <p class="muted small">Used for chain of command, Under Marshal, and operational roles.</p>
+          <a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Open hierarchy source</a>
+        </article>
+
+        <article class="doc-card">
+          <strong>Required Reading List</strong>
+          <p class="muted small">Week-by-week reading reference for the Lieutenant program.</p>
+          <a href="/programs/lieutenant/site/downloads/Lieutenant_Required_Reading_List.html">Open reading list</a>
+        </article>
+
+        <article class="doc-card">
+          <strong>Reading Log</strong>
+          <p class="muted small">Track reading completion throughout the 12-lesson course.</p>
+          <a href="/programs/lieutenant/site/downloads/Lieutenant_Reading_Log.html">Open reading log</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="syllabus-summary" class="panel">
+      <h2>Syllabus Summary</h2>
+      <p>
+        Lieutenant School is the transition from committed member to dependable officer: a man who can receive
+        mission, execute it faithfully, care for those assigned to him, maintain standards, and represent the Order with
+        humility and steadiness. The historical model named in the syllabus is the <strong>Under Marshal</strong> — the clearest
+        junior operational officer parallel in the Templar hierarchy.</p>
+      <div class="summary-grid">
+        <article class="summary-card">
+          <strong>Officer Responsibility</strong>
+          <p class="muted small">Readiness, standards, accountability, and care of assigned brothers.</p>
+        </article>
+        <article class="summary-card">
+          <strong>Leadership Under Authority</strong>
+          <p class="muted small">Receive direction, execute faithfully, report clearly, and lead without ego.</p>
+        </article>
+        <article class="summary-card">
+          <strong>Character Formation</strong>
+          <p class="muted small">Humility, disciplined speech, reliability, self-control, and fraternal care.</p>
+        </article>
+        <article class="summary-card">
+          <strong>Team Leadership</strong>
+          <p class="muted small">Lead a small team, assignment, meeting, or service element effectively.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="weekly-overview" class="panel">
+      <h2>Weekly Overview</h2>
+      <div class="overview-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Lesson</th>
+              <th>Title</th>
+              <th>Assignment</th>
+              <th>Required Reading</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1</strong></td>
+              <td>The Call to Office</td>
+              <td>1-page reflection on motives for office</td>
+              <td>
+                <a href="https://sourcebooks.web.fordham.edu/source/templars-primitiverule.asp" target="_blank" rel="noopener">Primitive Rule</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>2</strong></td>
+              <td>Origins of the Knights Templar</td>
+              <td>Short presentation or mission summary</td>
+              <td>
+                <a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Knights Templar</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>3</strong></td>
+              <td>The Templar Chain of Command</td>
+              <td>Chain-of-command chart</td>
+              <td>
+                <a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Hierarchy &amp; Duties</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>4</strong></td>
+              <td>The Under Marshal and the Lieutenant Model</td>
+              <td>2-page comparison paper</td>
+              <td>
+                <a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Hierarchy &amp; Duties</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>5</strong></td>
+              <td>The Rule: Obedience and Mission</td>
+              <td>Written response on obedience</td>
+              <td>
+                <a href="https://sourcebooks.web.fordham.edu/source/templars-primitiverule.asp" target="_blank" rel="noopener">Primitive Rule</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>6</strong></td>
+              <td>The Rule: Humility, Speech, and Bearing</td>
+              <td>7-day self-observation log</td>
+              <td>
+                <a href="https://sourcebooks.web.fordham.edu/source/templars-primitiverule.asp" target="_blank" rel="noopener">Primitive Rule</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>7</strong></td>
+              <td>Care of Brothers and Fraternal Responsibility</td>
+              <td>Senior-member interview and reflection</td>
+              <td>
+                <a href="https://sourcebooks.web.fordham.edu/source/templars-primitiverule.asp" target="_blank" rel="noopener">Primitive Rule</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>8</strong></td>
+              <td>Readiness, Stewardship, and Reliability</td>
+              <td>Readiness checklist</td>
+              <td>
+                <a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Knights Templar</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>9</strong></td>
+              <td>Leading a Small Team</td>
+              <td>Supervised assignment and AAR</td>
+              <td>
+                <a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Hierarchy &amp; Duties</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>10</strong></td>
+              <td>Correction, Conflict, and Discipline</td>
+              <td>Case-study response paper</td>
+              <td>
+                <a href="https://sourcebooks.web.fordham.edu/source/templars-primitiverule.asp" target="_blank" rel="noopener">Primitive Rule</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>11</strong></td>
+              <td>Lieutenant as Mentor and Example</td>
+              <td>One-week mentoring observation report</td>
+              <td>
+                <a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Knights Templar</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>12</strong></td>
+              <td>Capstone Preparation and Officer Review</td>
+              <td>Final portfolio submission</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="week-1" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 1</span>
+        <span class="tag">The Call to Office</span>
+      </div>
+      <h2>Lesson 1 — The Call to Office</h2>
+      <div class="field">
+        <span class="field-label">Primary Focus</span>
+        <p>Office as service, not status. Establish the difference between rank as honor and office as responsibility.</p>
+      </div>
+      <div class="field">
+        <span class="field-label">Leadership Emphasis</span>
+        <p>Stewardship, motives, willingness to serve under discipline.</p>
+      </div>
+      <div class="field">
+        <span class="field-label">Assignment</span>
+        <p>One-page reflection on motives for office.</p>
+      </div>
+      <div class="field">
+        <span class="field-label">Leadership Outcome</span>
+        <p>Sees leadership as stewardship, not promotion.</p>
+      </div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://sourcebooks.web.fordham.edu/source/templars-primitiverule.asp" target="_blank" rel="noopener">Primitive Rule of the Templars</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="week-2" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 2</span>
+        <span class="tag">Origins of the Knights Templar</span>
+      </div>
+      <h2>Lesson 2 — Origins of the Knights Templar</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Founding story, mission, and why disciplined structure mattered from the beginning.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Mission gives meaning to structure.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Short presentation or mission summary.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Articulates identity and mission clearly.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Knights Templar Overview</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="week-3" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 3</span>
+        <span class="tag">The Templar Chain of Command</span>
+      </div>
+      <h2>Lesson 3 — The Templar Chain of Command</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Hierarchy from Grand Master through regional and local command.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Lawful authority preserves unity, accountability, and coordinated action.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Chain-of-command diagram comparing history and your Order.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Understands authority, reporting, and structure.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Templars Hierarchy and Duties</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="week-4" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 4</span>
+        <span class="tag">Under Marshal and Lieutenant Model</span>
+      </div>
+      <h2>Lesson 4 — The Under Marshal and the Lieutenant Model</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Under Marshal as the clearest Templar parallel for lieutenant-level office.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Readiness, supervision, support of mission, dependable execution.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Comparison paper on Under Marshal and Lieutenant.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Understands the practical nature of lieutenant duty.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Templars Hierarchy and Duties</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="week-5" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 5</span>
+        <span class="tag">Obedience and Mission</span>
+      </div>
+      <h2>Lesson 5 — The Rule: Obedience and Mission</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Obedience as a core virtue; no officer leads well who resists lawful authority.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Disciplined execution over personal preference.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Written response to Rule passages on obedience.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Accepts leadership under mission rather than preference.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://sourcebooks.web.fordham.edu/source/templars-primitiverule.asp" target="_blank" rel="noopener">Primitive Rule of the Templars</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="week-6" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 6</span>
+        <span class="tag">Humility, Speech, and Bearing</span>
+      </div>
+      <h2>Lesson 6 — The Rule: Humility, Speech, and Bearing</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Humility, restraint, disciplined speech, and emotional maturity.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>An officer's tongue can either strengthen order or damage it.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>7-day self-observation log on speech, correction, listening, and emotional control.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Improves bearing, discretion, and self-command.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://sourcebooks.web.fordham.edu/source/templars-primitiverule.asp" target="_blank" rel="noopener">Primitive Rule of the Templars</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="week-7" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 7</span>
+        <span class="tag">Care of Brothers</span>
+      </div>
+      <h2>Lesson 7 — Care of Brothers and Fraternal Responsibility</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Caring for the weak, sick, aging, and struggling members of the brotherhood.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Authority includes moral responsibility for people, not just tasks.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Senior-member interview and reflection.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Grows from task-focus into people-focus.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://sourcebooks.web.fordham.edu/source/templars-primitiverule.asp" target="_blank" rel="noopener">Primitive Rule of the Templars</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="week-8" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 8</span>
+        <span class="tag">Readiness and Reliability</span>
+      </div>
+      <h2>Lesson 8 — Readiness, Stewardship, and Reliability</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Maintaining preparedness, accountability, and stewardship of assigned duties or resources.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Readiness is a moral quality as much as an operational one.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Readiness checklist for a real activity.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Learns preparation, follow-through, and trustworthiness.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Knights Templar Overview</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="week-9" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 9</span>
+        <span class="tag">Leading a Small Team</span>
+      </div>
+      <h2>Lesson 9 — Leading a Small Team</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Briefing, assigning, supervising, and reviewing team performance.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Clarity is charity in leadership.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Supervised team assignment and after-action review.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Can brief, assign, monitor, and complete a team task.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Templars Hierarchy and Duties</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="week-10" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 10</span>
+        <span class="tag">Correction and Discipline</span>
+      </div>
+      <h2>Lesson 10 — Correction, Conflict, and Discipline</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Handling problems directly, lawfully, and calmly without rumor or spite.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Disciplined correction protects both people and order.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Case-study response paper.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Handles minor problems with maturity and justice.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://sourcebooks.web.fordham.edu/source/templars-primitiverule.asp" target="_blank" rel="noopener">Primitive Rule of the Templars</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="week-11" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 11</span>
+        <span class="tag">Mentor and Example</span>
+      </div>
+      <h2>Lesson 11 — Lieutenant as Mentor and Example</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Junior officers shape culture by example, even when not speaking.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Your life is already part of someone else's formation.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>One-week mentoring observation report.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Functions as a multiplier of standards and culture.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Knights Templar Overview</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="week-12" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Lesson 12</span>
+        <span class="tag">Capstone and Officer Review</span>
+      </div>
+      <h2>Lesson 12 — Capstone Preparation and Officer Review</h2>
+      <div class="field"><span class="field-label">Primary Focus</span><p>Integrating course learning for final practicum and oral board.</p></div>
+      <div class="field"><span class="field-label">Leadership Emphasis</span><p>Readiness for office must be visible, testable, and defendable.</p></div>
+      <div class="field"><span class="field-label">Assignment</span><p>Final portfolio submission.</p></div>
+      <div class="field"><span class="field-label">Leadership Outcome</span><p>Demonstrates full readiness for first-level office.</p></div>
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+        </ul>
+      </div>
+    </section>
+
+    <section id="evaluation" class="panel">
+      <h2>Evaluation and Board Review</h2>
+      <p>
+        The syllabus evaluates attendance and participation, written assignments, readiness and stewardship work, the
+        small-team practicum, mentoring observation, final portfolio, and the oral board. One approved practicum is
+        required — leading a ceremonial team, organizing a service project, running a training segment, coordinating
+        a meeting, or managing readiness for an event.</p>
+
+      <div class="summary-grid">
+        <article class="summary-card">
+          <strong>Attendance and Participation</strong>
+          <p class="muted small">10% — presence, preparedness, engagement.</p>
+        </article>
+        <article class="summary-card">
+          <strong>Written Assignments</strong>
+          <p class="muted small">20% — history, reflection, application.</p>
+        </article>
+        <article class="summary-card">
+          <strong>Small-Team Practicum</strong>
+          <p class="muted small">20% — execution, clarity, accountability, follow-through.</p>
+        </article>
+        <article class="summary-card">
+          <strong>Oral Board / Final Review</strong>
+          <p class="muted small">20% — presence, judgment, historical understanding, readiness.</p>
+        </article>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Sample Oral Board Questions</span>
+        <ul>
+          <li>Why does a Templar-inspired officer need history?</li>
+          <li>Why is obedience foundational to leadership?</li>
+          <li>What distinguishes a Lieutenant from a senior member without office?</li>
+          <li>Why is the Under Marshal the best historical parallel for this rank?</li>
+          <li>What does it mean for a Lieutenant to care for the brothers?</li>
+          <li>Where is your greatest growth area as a future officer?</li>
+          <li>How would you respond to lateness, disorder, or poor communication in your team?</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Core Links</h2>
+      <p class="muted small">Standard Lieutenant hub references for lesson pages and static navigation.</p>
+      <div class="footer-links"><a href="https://sourcebooks.web.fordham.edu/source/templars-primitiverule.asp" target="_blank" rel="noopener">Primitive Rule of the Templars</a>
+        <a href="https://en.wikipedia.org/wiki/Knights_Templar" target="_blank" rel="noopener">Knights Templar Overview</a>
+        <a href="https://www.medievalwarfare.info/templars.htm" target="_blank" rel="noopener">Templars Hierarchy and Duties</a>
+        <a href="/programs/lieutenant/site/downloads/Lieutenant_Required_Reading_List.html">Required Reading List</a>
+        <a href="/programs/lieutenant/site/downloads/Lieutenant_Reading_Log.html">Reading Log</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

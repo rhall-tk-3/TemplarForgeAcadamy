@@ -1,0 +1,112 @@
+{
+  "program_slug": "knight",
+  "program_title": "Knight School Program",
+  "program_phase": "Knight formation",
+  "source_required_reading_file": "public/programs/knight/resources/knight-required-reading-list.html",
+  "weeks": [
+    {
+      "week_number": 1,
+      "week_title": "Leadership Under Christ",
+      "focus": "Week 1 establishes that Knightly leadership begins as stewardship under Christ, not status, pride, or ceremony.",
+      "required_reading": [
+        {
+          "title": "Knight School 4-Week Lesson Plan",
+          "url": "https://www.genspark.ai/api/files/s/NPEUUZPh"
+        },
+        {
+          "title": "Promotion Manual & By-Laws",
+          "url": "https://www.genspark.ai/api/files/s/rJ4ZJBEe"
+        },
+        {
+          "title": "KTKC Rules & Statutes",
+          "url": "https://www.genspark.ai/api/files/s/xHK8Sw25"
+        },
+        {
+          "title": "Britannica: Templars",
+          "url": "https://www.britannica.com/topic/Templars"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 2,
+      "week_title": "Leadership Inside KTKC",
+      "focus": "Week 2 focuses on leadership inside the Order through brotherhood, accountability, consistency, service, and honest conduct.",
+      "required_reading": [
+        {
+          "title": "Knight School 4-Week Lesson Plan",
+          "url": "https://www.genspark.ai/api/files/s/NPEUUZPh"
+        },
+        {
+          "title": "Knight Required Reading List",
+          "url": "https://www.genspark.ai/doc_agent?id=645e1b4a-1593-4c0d-b6fd-7dcb98124b55"
+        },
+        {
+          "title": "KTKC Rules & Statutes",
+          "url": "https://www.genspark.ai/api/files/s/xHK8Sw25"
+        },
+        {
+          "title": "Promotion Manual & By-Laws",
+          "url": "https://www.genspark.ai/api/files/s/rJ4ZJBEe"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 3,
+      "week_title": "Christian Witness in Modern Society",
+      "focus": "Week 3 trains the Knight to apply Christian leadership in family life, church life, work, speech, and public witness.",
+      "required_reading": [
+        {
+          "title": "Knight School 4-Week Lesson Plan",
+          "url": "https://www.genspark.ai/api/files/s/NPEUUZPh"
+        },
+        {
+          "title": "Knight Required Reading List",
+          "url": "https://www.genspark.ai/doc_agent?id=645e1b4a-1593-4c0d-b6fd-7dcb98124b55"
+        },
+        {
+          "title": "KTKC Rules & Statutes",
+          "url": "https://www.genspark.ai/api/files/s/xHK8Sw25"
+        },
+        {
+          "title": "Britannica: Templars",
+          "url": "https://www.britannica.com/topic/Templars"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 4,
+      "week_title": "Day of Service and Leadership in Action",
+      "focus": "Week 4 puts leadership into action through planning or completing a Day of Service project rooted in Christian charity and public witness.",
+      "required_reading": [
+        {
+          "title": "Knight School 4-Week Lesson Plan",
+          "url": "https://www.genspark.ai/api/files/s/NPEUUZPh"
+        },
+        {
+          "title": "Knight Required Reading List",
+          "url": "https://www.genspark.ai/doc_agent?id=645e1b4a-1593-4c0d-b6fd-7dcb98124b55"
+        },
+        {
+          "title": "Knight Reading Log",
+          "url": "https://www.genspark.ai/api/files/s/gsbsvyGD"
+        },
+        {
+          "title": "Promotion Manual & By-Laws",
+          "url": "https://www.genspark.ai/api/files/s/rJ4ZJBEe"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    }
+  ]
+}

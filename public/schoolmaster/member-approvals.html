@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Schoolmaster | Member Approvals</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+    }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 28px 20px 60px; }
+    .card {
+      background: #111827;
+      border: 1px solid rgba(148,163,184,.2);
+      border-radius: 18px;
+      padding: 22px;
+      margin-bottom: 18px;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    th, td {
+      padding: 12px 10px;
+      border-bottom: 1px solid rgba(148,163,184,.15);
+      text-align: left;
+      vertical-align: top;
+    }
+    button {
+      border: 0;
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-right: 8px;
+    }
+    .approve { background: #86efac; color: #052e16; }
+    .reject { background: #fca5a5; color: #450a0a; }
+  </style>
+</head>
+<body>
+  <script src="/assets/js/academy-guard.js" data-protect="schoolmaster" defer></script>
+
+  <main class="wrap">
+    <section class="card">
+      <h1>Pending Member Approvals</h1>
+      <p>Approve or reject account requests for members with valid Member ID numbers.</p>
+    </section>
+
+    <section class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Member ID</th>
+            <th>Email</th>
+            <th>Requested</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="pending-body">
+          <tr><td colspan="5">Loading...</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script>
+    async function loadPending() {
+      const res = await fetch("/api/auth/pending", { credentials: "include" });
+      const data = await res.json();
+      const body = document.getElementById("pending-body");
+
+      if (!data.items || !data.items.length) {
+        body.innerHTML = '<tr><td colspan="5">No pending requests.</td></tr>';
+        return;
+      }
+
+      body.innerHTML = data.items.map(item => `
+        <tr>
+          <td>${item.fullName}</td>
+          <td>${item.memberId}</td>
+          <td>${item.email}</td>
+          <td>${new Date(item.createdAt).toLocaleString()}</td>
+          <td>
+            <button class="approve" data-id="${item.memberId}" data-action="approve">Approve</button>
+            <button class="reject" data-id="${item.memberId}" data-action="reject">Reject</button>
+          </td>
+        </tr>
+      `).join("");
+
+      body.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", async () => {
+          await fetch("/api/auth/approve", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: "include",
+            body: JSON.stringify({
+              memberId: btn.dataset.id,
+              action: btn.dataset.action
+            })
+          });
+          loadPending();
+        });
+      });
+    }
+
+    loadPending();
+  </script>
+</body>
+</html>

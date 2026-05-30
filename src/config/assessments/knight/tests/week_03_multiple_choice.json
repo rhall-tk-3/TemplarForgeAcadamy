@@ -1,0 +1,127 @@
+{
+  "program_title": "Knight School Program",
+  "week_number": 3,
+  "week_title": "Christian Witness in Modern Society",
+  "multiple_choice_questions": [
+    {
+      "question": "What is the primary focus of Christian Witness in Modern Society?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Week 3 trains the Knight to apply Christian leadership in family life, church life, work, speech, and public witness."
+        },
+        {
+          "option": "B",
+          "text": "Week 1 establishes that Knightly leadership begins as stewardship under Christ, not status, pride, or ceremony."
+        },
+        {
+          "option": "C",
+          "text": "Week 2 focuses on leadership inside the Order through brotherhood, accountability, consistency, service, and honest conduct."
+        },
+        {
+          "option": "D",
+          "text": "Week 4 puts leadership into action through planning or completing a Day of Service project rooted in Christian charity and public witness."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Week 3 trains the Knight to apply Christian leadership in family life, church life, work, speech, and public witness.",
+      "rationale": "The week summary states that Week 3 trains the Knight to apply Christian leadership in family life, church life, work, speech, and public witness."
+    },
+    {
+      "question": "Which reading is explicitly assigned for Christian Witness in Modern Society?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Knight School 4-Week Lesson Plan"
+        },
+        {
+          "option": "B",
+          "text": "Promotion Manual & By-Laws"
+        },
+        {
+          "option": "C",
+          "text": "KTKC Rules & Statutes"
+        },
+        {
+          "option": "D",
+          "text": "Britannica: Templars"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Knight School 4-Week Lesson Plan",
+      "rationale": "Knight School 4-Week Lesson Plan appears in the required reading list for this week."
+    },
+    {
+      "question": "Which concept is most directly associated with Christian Witness in Modern Society?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Christian Witness in Modern Society"
+        },
+        {
+          "option": "B",
+          "text": "Leadership Under Christ"
+        },
+        {
+          "option": "C",
+          "text": "Leadership Inside KTKC"
+        },
+        {
+          "option": "D",
+          "text": "Day of Service and Leadership in Action"
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Christian Witness in Modern Society",
+      "rationale": "The week is organized around the concept of Christian Witness in Modern Society."
+    },
+    {
+      "question": "Which statement best reflects the expected learning outcome for Christian Witness in Modern Society?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Week 3 trains the Knight to apply Christian leadership in family life, church life, work, speech, and public witness."
+        },
+        {
+          "option": "B",
+          "text": "Week 1 establishes that Knightly leadership begins as stewardship under Christ, not status, pride, or ceremony."
+        },
+        {
+          "option": "C",
+          "text": "Week 2 focuses on leadership inside the Order through brotherhood, accountability, consistency, service, and honest conduct."
+        },
+        {
+          "option": "D",
+          "text": "Week 4 puts leadership into action through planning or completing a Day of Service project rooted in Christian charity and public witness."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Week 3 trains the Knight to apply Christian leadership in family life, church life, work, speech, and public witness.",
+      "rationale": "This statement matches the stated memory target or focus for the week: Week 3 trains the Knight to apply Christian leadership in family life, church life, work, speech, and public witness."
+    },
+    {
+      "question": "Which response best applies the lesson of Christian Witness in Modern Society?",
+      "choices": [
+        {
+          "option": "A",
+          "text": "Apply the lesson of Christian Witness in Modern Society through disciplined conduct, truthful understanding, and practical service."
+        },
+        {
+          "option": "B",
+          "text": "Treat Christian Witness in Modern Society mainly as ceremonial prestige without practical duty."
+        },
+        {
+          "option": "C",
+          "text": "Ignore assigned readings and rely on legend or speculation about Christian Witness in Modern Society."
+        },
+        {
+          "option": "D",
+          "text": "Approach Christian Witness in Modern Society as private opinion rather than accountable formation."
+        }
+      ],
+      "correct_answer": "A",
+      "correct_text": "Apply the lesson of Christian Witness in Modern Society through disciplined conduct, truthful understanding, and practical service.",
+      "rationale": "The strongest response applies the weekly theme through accountable action and disciplined formation."
+    }
+  ]
+}

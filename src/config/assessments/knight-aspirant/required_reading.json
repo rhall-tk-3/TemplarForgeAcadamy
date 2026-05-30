@@ -1,0 +1,184 @@
+{
+  "program_slug": "knight-aspirant",
+  "program_title": "Knight Aspirant School Program",
+  "program_phase": "Knight preparation",
+  "source_required_reading_file": "public/programs/knight-aspirant/resources/knight-aspirant-required-reading-list.html",
+  "weeks": [
+    {
+      "week_number": 1,
+      "week_title": "Week 1: The Calling of a Knight Aspirant",
+      "focus": "Focus: Establish the identity of the Knight Aspirant as a Christian man under discipline, learning that a Templar must first become a monk before he can rightly stand as a warrior.",
+      "required_reading": [
+        {
+          "title": "Knight Aspirant Lesson Plan Program",
+          "url": "/documents/view/knight-aspirant-lesson-plan.html"
+        },
+        {
+          "title": "Promotion Manual & By-Laws",
+          "url": "/documents/view/promotion-manual.html"
+        },
+        {
+          "title": "KTKC Rules & Statutes",
+          "url": "/documents/view/ktkc-rules-and-statutes.html"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 2,
+      "week_title": "Week 2: Prayer, Scripture, and Rule of Life",
+      "focus": "Focus: Train the aspirant to build a daily rule of life grounded in prayer, Scripture, confession, sober speech, and steady accountability.",
+      "required_reading": [
+        {
+          "title": "Knight Aspirant Lesson Plan Program",
+          "url": "/documents/view/knight-aspirant-lesson-plan.html"
+        },
+        {
+          "title": "KTKC Rules & Statutes",
+          "url": "/documents/view/ktkc-rules-and-statutes.html"
+        },
+        {
+          "title": "Britannica: Templars",
+          "url": "https://www.britannica.com/topic/Templars"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 3,
+      "week_title": "Week 3: Virtue, Charity, and Self-Mastery",
+      "focus": "Focus: Focus on the virtues expected of a Christian Templar: charity, integrity, restraint, courage, mercy, honorable speech, and brotherly service.",
+      "required_reading": [
+        {
+          "title": "Knight Aspirant Lesson Plan Program",
+          "url": "/documents/view/knight-aspirant-lesson-plan.html"
+        },
+        {
+          "title": "Promotion Manual & By-Laws",
+          "url": "/documents/view/promotion-manual.html"
+        },
+        {
+          "title": "Britannica: Templars",
+          "url": "https://www.britannica.com/topic/Templars"
+        },
+        {
+          "title": "OSMTH Modern Order History",
+          "url": "https://www.osmth.org/templar-legacy/modern-order-history"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 4,
+      "week_title": "Week 4: Spiritual Warfare, Brotherhood, and Knight Readiness",
+      "focus": "Focus: Clarify that the Knight\u2019s true warfare is first spiritual: resisting sin, guarding speech, protecting the weak, and standing faithfully within Christian brotherhood.",
+      "required_reading": [
+        {
+          "title": "Knight Aspirant Lesson Plan Program",
+          "url": "/documents/view/knight-aspirant-lesson-plan.html"
+        },
+        {
+          "title": "Promotion Manual & By-Laws",
+          "url": "/documents/view/promotion-manual.html"
+        },
+        {
+          "title": "KTKC Rules & Statutes",
+          "url": "/documents/view/ktkc-rules-and-statutes.html"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 5,
+      "week_title": "Week 5: Essay Week I \u2014 Theme, Thesis, and Evidence",
+      "focus": "Focus: Launch the required essay by identifying the central claim, spiritual theme, and supporting sources for \u201cWhat Does a Templar Knight Mean to You?\u201d",
+      "required_reading": [
+        {
+          "title": "Knight Aspirant Required Reading List",
+          "url": "/documents/view/knight-aspirant-required-reading-list.html"
+        },
+        {
+          "title": "Promotion Manual & By-Laws",
+          "url": "/documents/view/promotion-manual.html"
+        },
+        {
+          "title": "KTKC Rules & Statutes",
+          "url": "/documents/view/ktkc-rules-and-statutes.html"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 6,
+      "week_title": "Week 6: Essay Week II \u2014 Outline and First Draft",
+      "focus": "Focus: Build a complete outline and begin the full draft in standard college essay format, keeping the argument centered on Christian formation.",
+      "required_reading": [
+        {
+          "title": "Knight Aspirant Required Reading List",
+          "url": "/documents/view/knight-aspirant-required-reading-list.html"
+        },
+        {
+          "title": "Knight Aspirant Lesson Plan Program",
+          "url": "/documents/view/knight-aspirant-lesson-plan.html"
+        },
+        {
+          "title": "Britannica: Templars",
+          "url": "https://www.britannica.com/topic/Templars"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 7,
+      "week_title": "Week 7: Essay Week III \u2014 Revision, Clarity, and Submission Readiness",
+      "focus": "Focus: Revise for clarity, strength, sincerity, and discipline so the essay reflects maturity, not haste or sentimentality.",
+      "required_reading": [
+        {
+          "title": "Knight Aspirant Required Reading List",
+          "url": "/documents/view/knight-aspirant-required-reading-list.html"
+        },
+        {
+          "title": "Promotion Manual & By-Laws",
+          "url": "/documents/view/promotion-manual.html"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    },
+    {
+      "week_number": 8,
+      "week_title": "Week 8: Essay Week IV \u2014 Final Submission and Knight Review",
+      "focus": "Focus: Submit the final essay with cover page and formatting requirements completed, then undergo final review for Knight readiness.",
+      "required_reading": [
+        {
+          "title": "Knight Aspirant Required Reading List",
+          "url": "/documents/view/knight-aspirant-required-reading-list.html"
+        },
+        {
+          "title": "Knight Aspirant Reading Log",
+          "url": "/programs/knight-aspirant/resources/knight-aspirant-reading-log.html"
+        },
+        {
+          "title": "Promotion Manual & By-Laws",
+          "url": "/documents/view/promotion-manual.html"
+        }
+      ],
+      "key_terms": [],
+      "memory_targets": [],
+      "verified_public_domain_links": []
+    }
+  ]
+}

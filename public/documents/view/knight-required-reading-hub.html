@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Knight Program - Required Reading Hub | Knight formation</title>
+  <meta
+    name="description"
+    content="Templar Forge Academy Knight School Program required reading hub with weekly lesson links, reflection prompts, discussion prompts, and readiness goals."
+  />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --panel-2: #1f2937;
+      --panel-3: #0b1220;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --gold: #d4af37;
+      --gold-soft: rgba(212, 175, 55, 0.14);
+      --line: rgba(148, 163, 184, 0.22);
+      --accent: #7dd3fc;
+      --success: #86efac;
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(212, 175, 55, 0.08), transparent 25%),
+        radial-gradient(circle at top left, rgba(125, 211, 252, 0.08), transparent 20%),
+        linear-gradient(180deg, #08101f 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: underline;
+    }
+
+    /* ── Site nav bar (matches Knight site style) ── */
+    .site-nav {
+      background: rgba(8, 16, 31, 0.92);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+      padding: 0 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .site-nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 10px 0;
+    }
+
+    .site-nav-brand {
+      font-weight: 700;
+      color: #f8e7a6;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .site-nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .site-nav-links li a {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color 0.15s, background 0.15s;
+    }
+
+    .site-nav-links li a:hover,
+    .site-nav-links li a.active {
+      color: #f8e7a6;
+      background: rgba(212, 175, 55, 0.12);
+      text-decoration: none;
+    }
+
+    .shell {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 20px 80px;
+    }
+
+    .hero {
+      padding: 36px 28px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+        linear-gradient(135deg, rgba(212,175,55,0.10), rgba(125,211,252,0.05));
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--gold-soft);
+      color: #f8e7a6;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1, h2, h3, h4 {
+      margin: 0 0 12px;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      color: #f8fafc;
+    }
+
+    p {
+      margin: 0 0 1rem;
+      color: var(--text);
+    }
+
+    .hero p {
+      max-width: 920px;
+      color: #dbe4f0;
+      font-size: 1.02rem;
+    }
+
+    .note,
+    .panel,
+    .week-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .note,
+    .panel {
+      padding: 22px 24px;
+      margin-bottom: 22px;
+    }
+
+    .quick-nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .quick-nav a {
+      display: block;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: rgba(15, 23, 42, 0.65);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .quick-nav a:hover {
+      border-color: rgba(212, 175, 55, 0.45);
+      text-decoration: none;
+    }
+
+    .docs-grid,
+    .weeks-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .docs-grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .doc-card {
+      padding: 18px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: rgba(15, 23, 42, 0.72);
+    }
+
+    .doc-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .overview-table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+      background: rgba(15, 23, 42, 0.55);
+    }
+
+    th,
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: rgba(212, 175, 55, 0.08);
+      color: #f8e7a6;
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .week-card {
+      padding: 24px;
+      margin-bottom: 20px;
+      scroll-margin-top: 24px;
+    }
+
+    .week-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      font-size: 0.85rem;
+      border-radius: 999px;
+      background: rgba(125, 211, 252, 0.08);
+      border: 1px solid rgba(125, 211, 252, 0.18);
+      color: #d7f3ff;
+    }
+
+    .field {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: var(--radius-sm);
+      background: rgba(2, 8, 23, 0.46);
+      border: 1px solid var(--line);
+    }
+
+    .field-label {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: #f8e7a6;
+      font-size: 0.86rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    ul,
+    ol {
+      margin: 0.4rem 0 0 1.2rem;
+      padding: 0;
+    }
+
+    li + li {
+      margin-top: 0.45rem;
+    }
+
+    .reading-list li a {
+      font-weight: 600;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .footer-links a {
+      display: inline-block;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.72);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .footer-links a:hover {
+      text-decoration: none;
+      border-color: rgba(212, 175, 55, 0.45);
+    }
+
+    .section-title {
+      margin-bottom: 14px;
+    }
+
+    .small {
+      font-size: 0.95rem;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--line);
+      margin: 18px 0;
+      border: 0;
+    }
+
+    @media (max-width: 760px) {
+      .hero,
+      .note,
+      .panel,
+      .week-card {
+        padding: 20px;
+      }
+
+      .site-nav-links li a {
+        padding: 5px 8px;
+        font-size: 0.82rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Site nav (mirrors Knight resource pages) ── -->
+  <nav class="site-nav" aria-label="Knight program navigation">
+    <div class="site-nav-inner">
+      <span class="site-nav-brand">✠ Knight School Program</span>
+      <ul class="site-nav-links">
+        <li><a href="/programs/knight/resources/knight-lesson-plan.html">Lesson Plan</a></li>
+        <li><a href="/programs/knight/site/weeks/index.html">Weeks</a></li>
+        <li><a href="/programs/knight/resources/knight-required-reading-list.html">Reading List</a></li>
+        <li><a href="/documents/view/knight-required-reading-hub.html" class="active">Reading Hub</a></li>
+        <li><a href="/programs/knight/resources/knight-reading-log.html">Reading Log</a></li>
+        <li><a href="/programs/knight/site/member/index.html">Member Guidance</a></li>
+        <li><a href="/programs/knight/site/schoolmaster/index.html">Schoolmaster</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">Templar Forge Academy</div>
+      <h1>Knight Program — Required Reading Hub</h1>
+      <p>
+        This static lesson hub organizes the Knight School Program required reading by week so members can
+        move through the formation cycle with clear lesson links, focused reflection, and readiness goals.
+        The emphasis of the Knight phase is not status or ceremony, but tested Christian stewardship,
+        disciplined service, and leadership under Christ.
+      </p>
+
+      <nav class="quick-nav" aria-label="Quick navigation">
+        <a href="#program-documents">Program Documents</a>
+        <a href="#weekly-overview">Weekly Overview</a>
+        <a href="#week-1">Week 1</a>
+        <a href="#week-2">Week 2</a>
+        <a href="#week-3">Week 3</a>
+        <a href="#week-4">Week 4</a>
+      </nav>
+    </section>
+
+    <section class="note">
+      <h2 class="section-title">Program Orientation</h2>
+      <p>
+        The <strong>Knight School Program</strong> is the Knight formation phase of the academy. The lesson hub below
+        places each required reading item under the correct week and adds focused prompts so the reading list
+        functions as a real formation guide rather than only a download page.
+      </p>
+      <p class="muted small">
+        Static-page note: all links below are direct, viewable resources and can be used on the lesson hub as-is.
+      </p>
+    </section>
+
+    <section id="program-documents" class="panel">
+      <h2 class="section-title">Program Documents</h2>
+      <div class="docs-grid">
+        <article class="doc-card">
+          <strong>Knight School 4-Week Lesson Plan</strong>
+          <p class="muted small">Core weekly lesson-plan document used throughout Weeks 1–4.</p>
+          <a href="https://www.genspark.ai/api/files/s/NPEUUZPh" target="_blank" rel="noopener">Open lesson plan</a>
+        </article>
+
+        <article class="doc-card">
+          <strong>Knight Required Reading List</strong>
+          <p class="muted small">Reference reading list for the Knight phase.</p>
+          <a href="https://www.genspark.ai/doc_agent?id=645e1b4a-1593-4c0d-b6fd-7dcb98124b55" target="_blank" rel="noopener">Open reading list</a>
+        </article>
+
+        <article class="doc-card">
+          <strong>Knight Reading Log</strong>
+          <p class="muted small">Used in Week 4 and for tracking reading completion.</p>
+          <a href="https://www.genspark.ai/api/files/s/gsbsvyGD" target="_blank" rel="noopener">Open reading log</a>
+        </article>
+
+        <article class="doc-card">
+          <strong>Promotion Manual &amp; By-Laws</strong>
+          <p class="muted small">Promotion standards, expectations, and governing guidance.</p>
+          <a href="https://www.genspark.ai/api/files/s/rJ4ZJBEe" target="_blank" rel="noopener">Open manual</a>
+        </article>
+
+        <article class="doc-card">
+          <strong>KTKC Rules &amp; Statutes</strong>
+          <p class="muted small">Rule and governance reference for leadership inside the Order.</p>
+          <a href="https://www.genspark.ai/api/files/s/xHK8Sw25" target="_blank" rel="noopener">Open rules &amp; statutes</a>
+        </article>
+
+        <article class="doc-card">
+          <strong>Britannica: Templars</strong>
+          <p class="muted small">Historical background source used in Week 1 and Week 3.</p>
+          <a href="https://www.britannica.com/topic/Templars" target="_blank" rel="noopener">Open Britannica article</a>
+        </article>
+
+        <article class="doc-card">
+          <strong>OSMTH Modern Order History</strong>
+          <p class="muted small">Supplemental modern-order background for Week 3.</p>
+          <a href="https://osmth.org/templar-legacy/modern-order-history" target="_blank" rel="noopener">Open OSMTH source</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="weekly-overview" class="panel">
+      <h2 class="section-title">Weekly Overview</h2>
+      <div class="overview-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Week</th>
+              <th>Theme</th>
+              <th>Focus</th>
+              <th>Required Reading</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Week 1</strong></td>
+              <td>Leadership Under Christ</td>
+              <td>Stewardship under Christ; monk before warrior; inward consecration before outward rank.</td>
+              <td>
+                <a href="https://www.genspark.ai/api/files/s/NPEUUZPh" target="_blank" rel="noopener">Lesson Plan</a>,
+                <a href="https://www.genspark.ai/api/files/s/rJ4ZJBEe" target="_blank" rel="noopener">Promotion Manual</a>,
+                <a href="https://www.genspark.ai/api/files/s/xHK8Sw25" target="_blank" rel="noopener">Rules &amp; Statutes</a>,
+                <a href="https://www.britannica.com/topic/Templars" target="_blank" rel="noopener">Britannica</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Week 2</strong></td>
+              <td>Leadership Inside KTKC</td>
+              <td>Prayer, obedience, discipline, accountability, and self-mastery inside the Order.</td>
+              <td>
+                <a href="https://www.genspark.ai/api/files/s/NPEUUZPh" target="_blank" rel="noopener">Lesson Plan</a>,
+                <a href="https://www.genspark.ai/doc_agent?id=645e1b4a-1593-4c0d-b6fd-7dcb98124b55" target="_blank" rel="noopener">Required Reading List</a>,
+                <a href="https://www.genspark.ai/api/files/s/xHK8Sw25" target="_blank" rel="noopener">Rules &amp; Statutes</a>,
+                <a href="https://www.genspark.ai/api/files/s/rJ4ZJBEe" target="_blank" rel="noopener">Promotion Manual</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Week 3</strong></td>
+              <td>Christian Witness in Modern Society</td>
+              <td>Spiritual warfare, steadfastness, humility, and readiness for knightly responsibility.</td>
+              <td>
+                <a href="https://www.genspark.ai/api/files/s/NPEUUZPh" target="_blank" rel="noopener">Lesson Plan</a>,
+                <a href="https://www.genspark.ai/doc_agent?id=645e1b4a-1593-4c0d-b6fd-7dcb98124b55" target="_blank" rel="noopener">Required Reading List</a>,
+                <a href="https://www.genspark.ai/api/files/s/xHK8Sw25" target="_blank" rel="noopener">Rules &amp; Statutes</a>,
+                <a href="https://www.britannica.com/topic/Templars" target="_blank" rel="noopener">Britannica</a>,
+                <a href="https://osmth.org/templar-legacy/modern-order-history" target="_blank" rel="noopener">OSMTH</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Week 4</strong></td>
+              <td>Day of Service and Leadership in Action</td>
+              <td>Leadership in public witness through charity, service planning, and faithful completion.</td>
+              <td>
+                <a href="https://www.genspark.ai/api/files/s/NPEUUZPh" target="_blank" rel="noopener">Lesson Plan</a>,
+                <a href="https://www.genspark.ai/doc_agent?id=645e1b4a-1593-4c0d-b6fd-7dcb98124b55" target="_blank" rel="noopener">Required Reading List</a>,
+                <a href="https://www.genspark.ai/api/files/s/gsbsvyGD" target="_blank" rel="noopener">Reading Log</a>,
+                <a href="https://www.genspark.ai/api/files/s/rJ4ZJBEe" target="_blank" rel="noopener">Promotion Manual</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="week-1" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Week 1</span>
+        <span class="tag">Leadership Under Christ</span>
+      </div>
+
+      <h2>Week 1 — Leadership Under Christ</h2>
+      <p>
+        Week 1 establishes that Knightly leadership begins as stewardship under Christ, not status, pride,
+        or ceremony. The first movement of Knight formation is inward: monk before warrior, consecration before
+        recognition, surrender before public responsibility.
+      </p>
+
+      <div class="field">
+        <span class="field-label">Primary Focus</span>
+        <p>
+          Monk before warrior; inward consecration before outward rank; surrender of personal ambition;
+          monastic foundation of the original Templar Order; hidden devotion and private prayer; dying to self
+          in order to live for Christ.
+        </p>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Reflection Questions</span>
+        <ul>
+          <li>Where are you seeking outward recognition over inward purity?</li>
+          <li>What does "monk before warrior" demand of you personally?</li>
+        </ul>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Discussion Questions</span>
+        <ul>
+          <li>Why is a warrior without the discipline of a monk dangerous to the Order and the Church?</li>
+          <li>How do we maintain inward consecration in a culture obsessed with outward success?</li>
+        </ul>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Readiness Goal</span>
+        <p>
+          Demonstrate a sincere surrender of personal ambition and an embrace of hidden, inward devotion.
+        </p>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://www.genspark.ai/api/files/s/NPEUUZPh" target="_blank" rel="noopener">Knight School 4-Week Lesson Plan</a></li>
+          <li><a href="https://www.genspark.ai/api/files/s/rJ4ZJBEe" target="_blank" rel="noopener">Promotion Manual &amp; By-Laws</a></li>
+          <li><a href="https://www.genspark.ai/api/files/s/xHK8Sw25" target="_blank" rel="noopener">KTKC Rules &amp; Statutes</a></li>
+          <li><a href="https://www.britannica.com/topic/Templars" target="_blank" rel="noopener">Britannica: Templars</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="week-2" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Week 2</span>
+        <span class="tag">Leadership Inside KTKC</span>
+      </div>
+
+      <h2>Week 2 — Leadership Inside KTKC</h2>
+      <p>
+        Week 2 focuses on leadership inside the Order through brotherhood, accountability, consistency,
+        service, and honest conduct. The Knight must be governed inwardly before he can be trusted outwardly.
+      </p>
+
+      <div class="field">
+        <span class="field-label">Primary Focus</span>
+        <p>
+          Prayer, Scripture, obedience, discipline, accountability, self-mastery; establishing a daily rhythm
+          of prayer and Scripture; obedience to legitimate authority; self-mastery over appetites, time, and
+          desires; transparent accountability.
+        </p>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Reflection Questions</span>
+        <ul>
+          <li>Where does your current daily routine lack spiritual discipline?</li>
+          <li>How do you respond internally to an order or directive you dislike?</li>
+        </ul>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Discussion Questions</span>
+        <ul>
+          <li>How does a structured Rule of Life create spiritual freedom rather than legalism?</li>
+          <li>What role does accountability play in preventing moral failure in leadership?</li>
+        </ul>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Readiness Goal</span>
+        <p>
+          Establish and articulate a rigorous personal Rule of Life anchored in daily spiritual discipline.
+        </p>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://www.genspark.ai/api/files/s/NPEUUZPh" target="_blank" rel="noopener">Knight School 4-Week Lesson Plan</a></li>
+          <li><a href="https://www.genspark.ai/doc_agent?id=645e1b4a-1593-4c0d-b6fd-7dcb98124b55" target="_blank" rel="noopener">Knight Required Reading List</a></li>
+          <li><a href="https://www.genspark.ai/api/files/s/xHK8Sw25" target="_blank" rel="noopener">KTKC Rules &amp; Statutes</a></li>
+          <li><a href="https://www.genspark.ai/api/files/s/rJ4ZJBEe" target="_blank" rel="noopener">Promotion Manual &amp; By-Laws</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="week-3" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Week 3</span>
+        <span class="tag">Christian Witness in Modern Society</span>
+      </div>
+
+      <h2>Week 3 — Christian Witness in Modern Society</h2>
+      <p>
+        Week 3 trains the Knight to apply Christian leadership in family life, church life, work, speech,
+        and public witness. This week pushes toward spiritual warfare, steadfastness, humility, and final
+        readiness for knightly responsibility.
+      </p>
+
+      <div class="field">
+        <span class="field-label">Primary Focus</span>
+        <p>
+          Spiritual warfare, steadfastness, service, leadership through humility, final readiness for
+          knightly responsibility; putting on the full armor of God; servant leadership; steadfastness in trial;
+          final self-examination.
+        </p>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Reflection Questions</span>
+        <ul>
+          <li>Are you prepared to accept the burdens of leadership without the praises of men?</li>
+          <li>What vulnerabilities currently exist in your spiritual armor?</li>
+        </ul>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Discussion Questions</span>
+        <ul>
+          <li>What does it practically mean to engage in spiritual warfare today?</li>
+          <li>How will you ensure that promotion to Knight results in greater service rather than greater pride?</li>
+        </ul>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Readiness Goal</span>
+        <p>
+          Complete final self-examination confirming absolute readiness for solemn knightly vows and selfless service.
+        </p>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://www.genspark.ai/api/files/s/NPEUUZPh" target="_blank" rel="noopener">Knight School 4-Week Lesson Plan</a></li>
+          <li><a href="https://www.genspark.ai/doc_agent?id=645e1b4a-1593-4c0d-b6fd-7dcb98124b55" target="_blank" rel="noopener">Knight Required Reading List</a></li>
+          <li><a href="https://www.genspark.ai/api/files/s/xHK8Sw25" target="_blank" rel="noopener">KTKC Rules &amp; Statutes</a></li>
+          <li><a href="https://www.britannica.com/topic/Templars" target="_blank" rel="noopener">Britannica: Templars</a></li>
+          <li><a href="https://osmth.org/templar-legacy/modern-order-history" target="_blank" rel="noopener">OSMTH Modern Order History</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="week-4" class="week-card">
+      <div class="week-meta">
+        <span class="tag">Week 4</span>
+        <span class="tag">Day of Service and Leadership in Action</span>
+      </div>
+
+      <h2>Week 4 — Day of Service and Leadership in Action</h2>
+      <p>
+        Week 4 puts leadership into action through planning or completing a Day of Service project rooted in
+        Christian charity and public witness. Leadership is tested not only in conviction, but in faithful,
+        visible service carried out with humility and consistency.
+      </p>
+
+      <div class="field">
+        <span class="field-label">Primary Focus</span>
+        <p>
+          Leadership through service, practical charity, reliability in visible works, and faithful public
+          witness. This week moves the Knight from internal preparation toward concrete, accountable action.
+        </p>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Reflection Questions</span>
+        <ul>
+          <li>How does your willingness to serve reveal the true condition of your heart?</li>
+          <li>Where do convenience, pride, or hesitation weaken your readiness to serve others?</li>
+        </ul>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Discussion Questions</span>
+        <ul>
+          <li>Why must Christian leadership be demonstrated in service rather than claimed in title alone?</li>
+          <li>How does a Day of Service expose whether a man is dependable in action and not only in speech?</li>
+        </ul>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Readiness Goal</span>
+        <p>
+          Plan or complete a Day of Service project with clear charity, order, follow-through, and accountability.
+        </p>
+      </div>
+
+      <div class="field">
+        <span class="field-label">Required Reading</span>
+        <ul class="reading-list">
+          <li><a href="https://www.genspark.ai/api/files/s/NPEUUZPh" target="_blank" rel="noopener">Knight School 4-Week Lesson Plan</a></li>
+          <li><a href="https://www.genspark.ai/doc_agent?id=645e1b4a-1593-4c0d-b6fd-7dcb98124b55" target="_blank" rel="noopener">Knight Required Reading List</a></li>
+          <li><a href="https://www.genspark.ai/api/files/s/gsbsvyGD" target="_blank" rel="noopener">Knight Reading Log</a></li>
+          <li><a href="https://www.genspark.ai/api/files/s/rJ4ZJBEe" target="_blank" rel="noopener">Promotion Manual &amp; By-Laws</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2 class="section-title">Core Links</h2>
+      <p class="muted small">
+        Use these as the standard Knight hub references across the lesson page and related static navigation.
+      </p>
+      <div class="footer-links">
+        <a href="https://www.genspark.ai/api/files/s/NPEUUZPh" target="_blank" rel="noopener">Lesson Plan</a>
+        <a href="https://www.genspark.ai/doc_agent?id=645e1b4a-1593-4c0d-b6fd-7dcb98124b55" target="_blank" rel="noopener">Required Reading List</a>
+        <a href="https://www.genspark.ai/api/files/s/gsbsvyGD" target="_blank" rel="noopener">Reading Log</a>
+        <a href="https://www.genspark.ai/api/files/s/rJ4ZJBEe" target="_blank" rel="noopener">Promotion Manual</a>
+        <a href="https://www.genspark.ai/api/files/s/xHK8Sw25" target="_blank" rel="noopener">Rules &amp; Statutes</a>
+        <a href="https://www.britannica.com/topic/Templars" target="_blank" rel="noopener">Britannica: Templars</a>
+        <a href="https://osmth.org/templar-legacy/modern-order-history" target="_blank" rel="noopener">OSMTH History</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

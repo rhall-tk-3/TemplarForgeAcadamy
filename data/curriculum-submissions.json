@@ -1,0 +1,610 @@
+{
+  "submissions": [
+    {
+      "id": "e83e518d-8d69-4494-87b3-12fb16ada189",
+      "slug": "squire",
+      "studentId": "brown1957@aol.com",
+      "studentName": "Richard Brown",
+      "studentEmail": "brown1957@aol.com",
+      "weekNumber": 1,
+      "submittedAt": "2026-05-28T20:07:09.055Z",
+      "answers": [
+        "B",
+        "B",
+        "C",
+        "C",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B"
+      ],
+      "discussionAnswers": [],
+      "score": 100,
+      "correctCount": 10,
+      "totalQuestions": 10,
+      "passed": true,
+      "passingScore": 70,
+      "review": [
+        {
+          "questionNumber": 1,
+          "prompt": "The founding purpose of the original Knights Templar (circa 1119/1120) was primarily to:",
+          "submittedAnswer": "B",
+          "submittedText": "Protect Christian pilgrims traveling the dangerous roads to Jerusalem",
+          "correctAnswer": "B",
+          "correctText": "Protect Christian pilgrims traveling the dangerous roads to Jerusalem",
+          "explanation": "The founding mission of the Templars was protective \u2014 guarding Christian pilgrims on the perilous road from coastal ports to Jerusalem.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 2,
+          "prompt": "The three foundational vows taken by members of the original Templar Order were:",
+          "submittedAnswer": "B",
+          "submittedText": "Poverty, Chastity, and Obedience",
+          "correctAnswer": "B",
+          "correctText": "Poverty, Chastity, and Obedience",
+          "explanation": "Like other religious orders, the Templars took monastic vows of poverty, chastity, and obedience \u2014 which defined their religious identity.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 3,
+          "prompt": "Which of the following best describes 'Christian knighthood' as understood in the KTKC context?",
+          "submittedAnswer": "C",
+          "submittedText": "A life of spiritual discipline, truthful witness, service, and virtue \u2014 reflecting Christ rather than seeking personal glory",
+          "correctAnswer": "C",
+          "correctText": "A life of spiritual discipline, truthful witness, service, and virtue \u2014 reflecting Christ rather than seeking personal glory",
+          "explanation": "Christian knighthood in the KTKC means living the virtues of Christ \u2014 service, discipline, truth, and humility \u2014 not martial or social achievement.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 4,
+          "prompt": "What does the historical timeline show as the primary reason the Templar Order grew so rapidly after the Council of Troyes (1128/1129)?",
+          "submittedAnswer": "C",
+          "submittedText": "Official Church recognition enabled open recruitment and the receipt of donations and property bequests across Europe",
+          "correctAnswer": "C",
+          "correctText": "Official Church recognition enabled open recruitment and the receipt of donations and property bequests across Europe",
+          "explanation": "Before Troyes, the Order could not publicly recruit or receive donations. After formal recognition, it expanded rapidly across Europe through legitimate channels.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 5,
+          "prompt": "The Squire rank study of Templar history focuses on which aspect most heavily?",
+          "submittedAnswer": "B",
+          "submittedText": "The Christian virtues, structural identity, and foundational history of the Order \u2014 building on Levie-level knowledge",
+          "correctAnswer": "B",
+          "correctText": "The Christian virtues, structural identity, and foundational history of the Order \u2014 building on Levie-level knowledge",
+          "explanation": "Squire-level study builds on Levie foundational knowledge by examining Templar virtues, structure, and history more deeply \u2014 not just the timeline basics.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 6,
+          "prompt": "Which of the following virtues was NOT one of the Templar's three founding vows?",
+          "submittedAnswer": "B",
+          "submittedText": "Humility",
+          "correctAnswer": "B",
+          "correctText": "Humility",
+          "explanation": "Humility was a practiced virtue but was not one of the three formal monastic vows \u2014 poverty, chastity, and obedience were the vows taken at entry.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 7,
+          "prompt": "The Squire Reading Stack 2 (Historical Timeline) covers what primary subject matter?",
+          "submittedAnswer": "B",
+          "submittedText": "The chronological sequence of key events in Templar history from founding through suppression",
+          "correctAnswer": "B",
+          "correctText": "The chronological sequence of key events in Templar history from founding through suppression",
+          "explanation": "Reading Stack 2 provides the historical timeline framework \u2014 from founding through suppression \u2014 that Squires must master to progress in the program.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 8,
+          "prompt": "A Squire claims the original Templars were motivated by the same desire for wealth as secular knights. Based on the founding record, this claim:",
+          "submittedAnswer": "B",
+          "submittedText": "Is inaccurate \u2014 founding accounts emphasize protective service and religious vows, not wealth acquisition",
+          "correctAnswer": "B",
+          "correctText": "Is inaccurate \u2014 founding accounts emphasize protective service and religious vows, not wealth acquisition",
+          "explanation": "The founding accounts consistently emphasize their mission of pilgrim protection and the religious vows they took \u2014 wealth and power came later and were not the original purpose.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 9,
+          "prompt": "The Squire program reading requirement expects students to be able to do which of the following by the end of Week 1?",
+          "submittedAnswer": "B",
+          "submittedText": "Identify the founding of the Templar Order, its original purpose, and the three foundational vows",
+          "correctAnswer": "B",
+          "correctText": "Identify the founding of the Templar Order, its original purpose, and the three foundational vows",
+          "explanation": "Week 1 establishes foundational knowledge: the founding context, purpose, and the three vows that defined the Order's religious character.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 10,
+          "prompt": "Why does the KTKC consider the study of Templar origins important for Squire-rank formation?",
+          "submittedAnswer": "B",
+          "submittedText": "Because understanding the Order's founding virtues \u2014 service, poverty, obedience \u2014 provides a moral compass for modern Christian knighthood",
+          "correctAnswer": "B",
+          "correctText": "Because understanding the Order's founding virtues \u2014 service, poverty, obedience \u2014 provides a moral compass for modern Christian knighthood",
+          "explanation": "The KTKC studies Templar origins because the founding virtues of service, poverty, and obedience model the Christian character the Order seeks to cultivate in modern members.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "007c5b57-5360-46d5-9fed-bf6466ff521b",
+      "slug": "squire",
+      "studentId": "brown1957@aol.com",
+      "studentName": "Richard Brown",
+      "studentEmail": "brown1957@aol.com",
+      "weekNumber": 2,
+      "submittedAt": "2026-05-28T23:01:10.582Z",
+      "answers": [
+        "B",
+        "B",
+        "C",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "C",
+        "B"
+      ],
+      "discussionAnswers": [],
+      "score": 100,
+      "correctCount": 10,
+      "totalQuestions": 10,
+      "passed": true,
+      "passingScore": 70,
+      "review": [
+        {
+          "questionNumber": 1,
+          "prompt": "What was Godfrey de Saint-Omer's relationship to the founding of the Templar Order?",
+          "submittedAnswer": "B",
+          "submittedText": "He was one of the original co-founders alongside Hugh de Payns",
+          "correctAnswer": "B",
+          "correctText": "He was one of the original co-founders alongside Hugh de Payns",
+          "explanation": "Godfrey de Saint-Omer is identified in early sources as one of the original co-founders of the Order alongside Hugh de Payns.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 2,
+          "prompt": "How many founding members did the early Templar brotherhood have approximately?",
+          "submittedAnswer": "B",
+          "submittedText": "Approximately 9 knights",
+          "correctAnswer": "B",
+          "correctText": "Approximately 9 knights",
+          "explanation": "Early sources consistently suggest approximately 9 founding knights \u2014 a very small group with a clear protective mission.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 3,
+          "prompt": "The Temple Mount headquarters given to the Templars by King Baldwin II was significant because it was located:",
+          "submittedAnswer": "C",
+          "submittedText": "On what was believed to be the site of Solomon's Temple \u2014 a location of profound religious significance",
+          "correctAnswer": "C",
+          "correctText": "On what was believed to be the site of Solomon's Temple \u2014 a location of profound religious significance",
+          "explanation": "The Temple Mount carried enormous religious weight \u2014 believed to be Solomon's Temple site. This location shaped the Order's identity and name.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 4,
+          "prompt": "Squire Reading Stack 3 (Simple Biographies) covers the lives of key Templar figures primarily to:",
+          "submittedAnswer": "B",
+          "submittedText": "Help students humanize the founding figures and understand their motivations and contributions",
+          "correctAnswer": "B",
+          "correctText": "Help students humanize the founding figures and understand their motivations and contributions",
+          "explanation": "Biography study helps Squires understand the real people behind the Order \u2014 their motivations, decisions, and the context that shaped the Order's early identity.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 5,
+          "prompt": "What was the approximate gap in years between the founding of the Order (~1119) and Hugh de Payns traveling to Europe to promote it?",
+          "submittedAnswer": "B",
+          "submittedText": "Approximately 8 to 10 years",
+          "correctAnswer": "B",
+          "correctText": "Approximately 8 to 10 years",
+          "explanation": "Around 1127/1128 \u2014 approximately 8 to 9 years after founding \u2014 Hugh de Payns traveled to Europe to seek formal approval and recruit members, culminating in the Council of Troyes.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 6,
+          "prompt": "Which document from the Squire reading materials provides the most detailed organizational structure of the medieval Templar Order?",
+          "submittedAnswer": "B",
+          "submittedText": "Reading Stack 1 \u2014 Order Structure",
+          "correctAnswer": "B",
+          "correctText": "Reading Stack 1 \u2014 Order Structure",
+          "explanation": "Reading Stack 1 specifically covers Order structure \u2014 the organizational framework, ranks, and command structure of the historical Templar Order.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 7,
+          "prompt": "King Baldwin II's decision to house the Templars in his palace is historically significant because it demonstrates:",
+          "submittedAnswer": "B",
+          "submittedText": "Royal endorsement and support \u2014 lending the small new group political legitimacy in the Crusader Kingdom",
+          "correctAnswer": "B",
+          "correctText": "Royal endorsement and support \u2014 lending the small new group political legitimacy in the Crusader Kingdom",
+          "explanation": "A king providing his palace space to a small group of knights was a significant endorsement \u2014 it gave the Templars political legitimacy and protection in their earliest years.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 8,
+          "prompt": "The Squire program requires reading multiple 'stacks' of material rather than a single document. The reason for this is:",
+          "submittedAnswer": "B",
+          "submittedText": "Because no single document covers all aspects \u2014 structure, timeline, biography, and excerpts each provide a different lens on Templar history",
+          "correctAnswer": "B",
+          "correctText": "Because no single document covers all aspects \u2014 structure, timeline, biography, and excerpts each provide a different lens on Templar history",
+          "explanation": "The four stacks are intentionally complementary \u2014 structure, timeline, biography, and primary excerpts each teach different aspects that together provide a complete picture.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 9,
+          "prompt": "According to early Templar founding accounts, what was the initial reaction of most of the Church hierarchy to the idea of armed religious knights?",
+          "submittedAnswer": "C",
+          "submittedText": "Mixed \u2014 some church figures were skeptical about combining military service with religious vows, which is why Bernard of Clairvaux's endorsement was so important",
+          "correctAnswer": "C",
+          "correctText": "Mixed \u2014 some church figures were skeptical about combining military service with religious vows, which is why Bernard of Clairvaux's endorsement was so important",
+          "explanation": "The concept of armed monks was theologically unusual and drew skepticism. Bernard's prestigious endorsement was crucial in winning over hesitant church leaders.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 10,
+          "prompt": "A Squire is asked to compare the KTKC's Five Governing Pillars to the Templar founding vows. Which comparison is most accurate?",
+          "submittedAnswer": "B",
+          "submittedText": "Both reflect a commitment to ordered, disciplined Christian service \u2014 though the KTKC pillars are broader and include communal charity and courageous witness",
+          "correctAnswer": "B",
+          "correctText": "Both reflect a commitment to ordered, disciplined Christian service \u2014 though the KTKC pillars are broader and include communal charity and courageous witness",
+          "explanation": "Both the Templar vows and KTKC pillars center on disciplined Christian service \u2014 the KTKC framework is broader and modern, but draws on the same tradition of ordered religious commitment.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "98d6ebdc-517f-4bee-947e-4986fc13aed1",
+      "slug": "levie",
+      "studentId": "brown1957@aol.com",
+      "studentName": "Richard Brown",
+      "studentEmail": "brown1957@aol.com",
+      "weekNumber": 1,
+      "submittedAt": "2026-05-28T23:19:00.019Z",
+      "answers": [
+        "B",
+        "B",
+        "B",
+        "C",
+        "C"
+      ],
+      "discussionAnswers": [],
+      "score": 100,
+      "correctCount": 5,
+      "totalQuestions": 5,
+      "passed": true,
+      "passingScore": 60,
+      "review": [
+        {
+          "questionNumber": 1,
+          "prompt": "A new Levie tells his sponsor: 'Since the KTKC traces its roots to medieval knights, our first loyalty is to the chivalric code \u2014 the Christian faith part is just ceremonial.' As a fellow Levie who has completed Week 1, how do you respond?",
+          "submittedAnswer": "B",
+          "submittedText": "Correct him \u2014 Article I consecrates the Order exclusively to Jesus Christ, making Christian faith the foundation, not a decoration.",
+          "correctAnswer": "B",
+          "correctText": "Correct him \u2014 Article I consecrates the Order exclusively to Jesus Christ, making Christian faith the foundation, not a decoration.",
+          "explanation": "Article I of the KTKC Rules and Statutes names the Order after Jesus Christ and consecrates it to Him. The Christian faith is not ceremonial \u2014 it is the explicit foundation. A Levie who understands Week 1 must be able to state this clearly, not hedge or defer.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 2,
+          "prompt": "A Levie attends 6 of 8 required class meetings during the probationary period and scores well on all assessments. At the end of the 60-day window his sponsor argues he should advance because his scores are excellent. Which principle from the Week 1 material most directly governs this situation?",
+          "submittedAnswer": "B",
+          "submittedText": "The Board of Promotion Review weighs both performance and attendance; a pattern of absence is a legitimate reason to withhold advancement regardless of scores.",
+          "correctAnswer": "B",
+          "correctText": "The Board of Promotion Review weighs both performance and attendance; a pattern of absence is a legitimate reason to withhold advancement regardless of scores.",
+          "explanation": "Week 1 establishes that the Levie class is a probationary period evaluated by a Board of Promotion Review that considers the full record \u2014 not scores alone. Attendance and participation are part of the standard. A sponsor cannot override the Board's authority on these criteria.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 3,
+          "prompt": "The Order's mission, as established in Week 1, is described as 'truthful, nonviolent Christian witness and service.' A chapter is debating whether to publicly endorse a political candidate because the candidate holds Christian values. What tension does this create with the Order's foundational mission statement?",
+          "submittedAnswer": "B",
+          "submittedText": "The mission's emphasis on 'truthful, nonviolent witness' describes a posture of service and testimony, not political alignment, which risks entangling the Order's identity in partisan controversy.",
+          "correctAnswer": "B",
+          "correctText": "The mission's emphasis on 'truthful, nonviolent witness' describes a posture of service and testimony, not political alignment, which risks entangling the Order's identity in partisan controversy.",
+          "explanation": "The Order's mission as framed in Week 1 is oriented toward service and Christian witness \u2014 not political advocacy. Political endorsements would compromise the Order's ability to be a nonpartisan witness and could fracture the ecumenical fellowship the Order is built on. This is a direct application of Week 1 principles, not a policy question.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 4,
+          "prompt": "Article II requires all members to affirm a specific foundational Christian doctrine. A candidate for Levie admission states he respects Jesus as a great moral teacher but does not affirm the doctrine named in Article II. Under the Rules and Statutes, what is the correct outcome?",
+          "submittedAnswer": "C",
+          "submittedText": "He cannot be admitted \u2014 Article II establishes this affirmation as a non-negotiable condition of membership, not a preference.",
+          "correctAnswer": "C",
+          "correctText": "He cannot be admitted \u2014 Article II establishes this affirmation as a non-negotiable condition of membership, not a preference.",
+          "explanation": "Article II is not advisory \u2014 it names a specific doctrinal affirmation that all members must hold. Respecting Jesus as a teacher while not affirming the named doctrine does not satisfy the requirement. The Schoolmaster has no authority to waive foundational statute requirements, and provisional admission under this condition would violate the Order's governing documents.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 5,
+          "prompt": "A Levie completes all 8 weeks of coursework and passes every assessment with high marks, but the 60-day window expires before his promotion board can be scheduled due to a Schoolmaster's scheduling conflict. The Levie argues he has met every requirement and should be promoted immediately. What does Week 1 teach about this situation?",
+          "submittedAnswer": "C",
+          "submittedText": "Promotion is a deliberate process that includes a formal board review \u2014 fulfilling coursework satisfies the academic requirements but does not substitute for the review itself. The board should be scheduled promptly.",
+          "correctAnswer": "C",
+          "correctText": "Promotion is a deliberate process that includes a formal board review \u2014 fulfilling coursework satisfies the academic requirements but does not substitute for the review itself. The board should be scheduled promptly.",
+          "explanation": "Week 1 establishes that promotion involves a Board of Promotion Review as a distinct step \u2014 it is not automatic upon completing coursework. The student has met the academic requirements and should not restart. The correct response is to schedule the board promptly, not to bypass it or auto-promote. Restarting the window would be unjust given the scheduling conflict was not the student's fault.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "479bce90-99a3-4eb5-b2f2-c6a7373d6f25",
+      "slug": "squire",
+      "studentId": "cutiarna@protonmail.com",
+      "studentName": "Perrin Sizemore",
+      "studentEmail": "cutiarna@protonmail.com",
+      "weekNumber": 1,
+      "submittedAt": "2026-05-29T01:58:58.139Z",
+      "answers": [
+        "B",
+        "D",
+        "C",
+        "C",
+        "B",
+        "A",
+        "B",
+        "B",
+        "B",
+        "B"
+      ],
+      "discussionAnswers": [],
+      "score": 80,
+      "correctCount": 8,
+      "totalQuestions": 10,
+      "passed": true,
+      "passingScore": 70,
+      "review": [
+        {
+          "questionNumber": 1,
+          "prompt": "The founding purpose of the original Knights Templar (circa 1119/1120) was primarily to:",
+          "submittedAnswer": "B",
+          "submittedText": "Protect Christian pilgrims traveling the dangerous roads to Jerusalem",
+          "correctAnswer": "B",
+          "correctText": "Protect Christian pilgrims traveling the dangerous roads to Jerusalem",
+          "explanation": "The founding mission of the Templars was protective \u2014 guarding Christian pilgrims on the perilous road from coastal ports to Jerusalem.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 2,
+          "prompt": "The three foundational vows taken by members of the original Templar Order were:",
+          "submittedAnswer": "D",
+          "submittedText": "Courage, Honor, and Sacrifice",
+          "correctAnswer": "B",
+          "correctText": "Poverty, Chastity, and Obedience",
+          "explanation": "Like other religious orders, the Templars took monastic vows of poverty, chastity, and obedience \u2014 which defined their religious identity.",
+          "isCorrect": false
+        },
+        {
+          "questionNumber": 3,
+          "prompt": "Which of the following best describes 'Christian knighthood' as understood in the KTKC context?",
+          "submittedAnswer": "C",
+          "submittedText": "A life of spiritual discipline, truthful witness, service, and virtue \u2014 reflecting Christ rather than seeking personal glory",
+          "correctAnswer": "C",
+          "correctText": "A life of spiritual discipline, truthful witness, service, and virtue \u2014 reflecting Christ rather than seeking personal glory",
+          "explanation": "Christian knighthood in the KTKC means living the virtues of Christ \u2014 service, discipline, truth, and humility \u2014 not martial or social achievement.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 4,
+          "prompt": "What does the historical timeline show as the primary reason the Templar Order grew so rapidly after the Council of Troyes (1128/1129)?",
+          "submittedAnswer": "C",
+          "submittedText": "Official Church recognition enabled open recruitment and the receipt of donations and property bequests across Europe",
+          "correctAnswer": "C",
+          "correctText": "Official Church recognition enabled open recruitment and the receipt of donations and property bequests across Europe",
+          "explanation": "Before Troyes, the Order could not publicly recruit or receive donations. After formal recognition, it expanded rapidly across Europe through legitimate channels.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 5,
+          "prompt": "The Squire rank study of Templar history focuses on which aspect most heavily?",
+          "submittedAnswer": "B",
+          "submittedText": "The Christian virtues, structural identity, and foundational history of the Order \u2014 building on Levie-level knowledge",
+          "correctAnswer": "B",
+          "correctText": "The Christian virtues, structural identity, and foundational history of the Order \u2014 building on Levie-level knowledge",
+          "explanation": "Squire-level study builds on Levie foundational knowledge by examining Templar virtues, structure, and history more deeply \u2014 not just the timeline basics.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 6,
+          "prompt": "Which of the following virtues was NOT one of the Templar's three founding vows?",
+          "submittedAnswer": "A",
+          "submittedText": "Poverty",
+          "correctAnswer": "B",
+          "correctText": "Humility",
+          "explanation": "Humility was a practiced virtue but was not one of the three formal monastic vows \u2014 poverty, chastity, and obedience were the vows taken at entry.",
+          "isCorrect": false
+        },
+        {
+          "questionNumber": 7,
+          "prompt": "The Squire Reading Stack 2 (Historical Timeline) covers what primary subject matter?",
+          "submittedAnswer": "B",
+          "submittedText": "The chronological sequence of key events in Templar history from founding through suppression",
+          "correctAnswer": "B",
+          "correctText": "The chronological sequence of key events in Templar history from founding through suppression",
+          "explanation": "Reading Stack 2 provides the historical timeline framework \u2014 from founding through suppression \u2014 that Squires must master to progress in the program.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 8,
+          "prompt": "A Squire claims the original Templars were motivated by the same desire for wealth as secular knights. Based on the founding record, this claim:",
+          "submittedAnswer": "B",
+          "submittedText": "Is inaccurate \u2014 founding accounts emphasize protective service and religious vows, not wealth acquisition",
+          "correctAnswer": "B",
+          "correctText": "Is inaccurate \u2014 founding accounts emphasize protective service and religious vows, not wealth acquisition",
+          "explanation": "The founding accounts consistently emphasize their mission of pilgrim protection and the religious vows they took \u2014 wealth and power came later and were not the original purpose.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 9,
+          "prompt": "The Squire program reading requirement expects students to be able to do which of the following by the end of Week 1?",
+          "submittedAnswer": "B",
+          "submittedText": "Identify the founding of the Templar Order, its original purpose, and the three foundational vows",
+          "correctAnswer": "B",
+          "correctText": "Identify the founding of the Templar Order, its original purpose, and the three foundational vows",
+          "explanation": "Week 1 establishes foundational knowledge: the founding context, purpose, and the three vows that defined the Order's religious character.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 10,
+          "prompt": "Why does the KTKC consider the study of Templar origins important for Squire-rank formation?",
+          "submittedAnswer": "B",
+          "submittedText": "Because understanding the Order's founding virtues \u2014 service, poverty, obedience \u2014 provides a moral compass for modern Christian knighthood",
+          "correctAnswer": "B",
+          "correctText": "Because understanding the Order's founding virtues \u2014 service, poverty, obedience \u2014 provides a moral compass for modern Christian knighthood",
+          "explanation": "The KTKC studies Templar origins because the founding virtues of service, poverty, and obedience model the Christian character the Order seeks to cultivate in modern members.",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "id": "7bb5aa68-b071-48b3-a651-86cb7c855884",
+      "slug": "squire",
+      "studentId": "mdynak@tkkc.info",
+      "studentName": "Michael G. Dynak",
+      "studentEmail": "mdynak@tkkc.info",
+      "weekNumber": 1,
+      "submittedAt": "2026-05-29T16:20:29.029Z",
+      "answers": [
+        "B",
+        "B",
+        "C",
+        "C",
+        "B",
+        "B",
+        "A",
+        "B",
+        "B",
+        "B"
+      ],
+      "discussionAnswers": [],
+      "score": 90,
+      "correctCount": 9,
+      "totalQuestions": 10,
+      "passed": true,
+      "passingScore": 70,
+      "review": [
+        {
+          "questionNumber": 1,
+          "prompt": "The founding purpose of the original Knights Templar (circa 1119/1120) was primarily to:",
+          "submittedAnswer": "B",
+          "submittedText": "Protect Christian pilgrims traveling the dangerous roads to Jerusalem",
+          "correctAnswer": "B",
+          "correctText": "Protect Christian pilgrims traveling the dangerous roads to Jerusalem",
+          "explanation": "The founding mission of the Templars was protective \u2014 guarding Christian pilgrims on the perilous road from coastal ports to Jerusalem.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 2,
+          "prompt": "The three foundational vows taken by members of the original Templar Order were:",
+          "submittedAnswer": "B",
+          "submittedText": "Poverty, Chastity, and Obedience",
+          "correctAnswer": "B",
+          "correctText": "Poverty, Chastity, and Obedience",
+          "explanation": "Like other religious orders, the Templars took monastic vows of poverty, chastity, and obedience \u2014 which defined their religious identity.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 3,
+          "prompt": "Which of the following best describes 'Christian knighthood' as understood in the KTKC context?",
+          "submittedAnswer": "C",
+          "submittedText": "A life of spiritual discipline, truthful witness, service, and virtue \u2014 reflecting Christ rather than seeking personal glory",
+          "correctAnswer": "C",
+          "correctText": "A life of spiritual discipline, truthful witness, service, and virtue \u2014 reflecting Christ rather than seeking personal glory",
+          "explanation": "Christian knighthood in the KTKC means living the virtues of Christ \u2014 service, discipline, truth, and humility \u2014 not martial or social achievement.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 4,
+          "prompt": "What does the historical timeline show as the primary reason the Templar Order grew so rapidly after the Council of Troyes (1128/1129)?",
+          "submittedAnswer": "C",
+          "submittedText": "Official Church recognition enabled open recruitment and the receipt of donations and property bequests across Europe",
+          "correctAnswer": "C",
+          "correctText": "Official Church recognition enabled open recruitment and the receipt of donations and property bequests across Europe",
+          "explanation": "Before Troyes, the Order could not publicly recruit or receive donations. After formal recognition, it expanded rapidly across Europe through legitimate channels.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 5,
+          "prompt": "The Squire rank study of Templar history focuses on which aspect most heavily?",
+          "submittedAnswer": "B",
+          "submittedText": "The Christian virtues, structural identity, and foundational history of the Order \u2014 building on Levie-level knowledge",
+          "correctAnswer": "B",
+          "correctText": "The Christian virtues, structural identity, and foundational history of the Order \u2014 building on Levie-level knowledge",
+          "explanation": "Squire-level study builds on Levie foundational knowledge by examining Templar virtues, structure, and history more deeply \u2014 not just the timeline basics.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 6,
+          "prompt": "Which of the following virtues was NOT one of the Templar's three founding vows?",
+          "submittedAnswer": "B",
+          "submittedText": "Humility",
+          "correctAnswer": "B",
+          "correctText": "Humility",
+          "explanation": "Humility was a practiced virtue but was not one of the three formal monastic vows \u2014 poverty, chastity, and obedience were the vows taken at entry.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 7,
+          "prompt": "The Squire Reading Stack 2 (Historical Timeline) covers what primary subject matter?",
+          "submittedAnswer": "A",
+          "submittedText": "Modern KTKC governance documents and bylaws",
+          "correctAnswer": "B",
+          "correctText": "The chronological sequence of key events in Templar history from founding through suppression",
+          "explanation": "Reading Stack 2 provides the historical timeline framework \u2014 from founding through suppression \u2014 that Squires must master to progress in the program.",
+          "isCorrect": false
+        },
+        {
+          "questionNumber": 8,
+          "prompt": "A Squire claims the original Templars were motivated by the same desire for wealth as secular knights. Based on the founding record, this claim:",
+          "submittedAnswer": "B",
+          "submittedText": "Is inaccurate \u2014 founding accounts emphasize protective service and religious vows, not wealth acquisition",
+          "correctAnswer": "B",
+          "correctText": "Is inaccurate \u2014 founding accounts emphasize protective service and religious vows, not wealth acquisition",
+          "explanation": "The founding accounts consistently emphasize their mission of pilgrim protection and the religious vows they took \u2014 wealth and power came later and were not the original purpose.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 9,
+          "prompt": "The Squire program reading requirement expects students to be able to do which of the following by the end of Week 1?",
+          "submittedAnswer": "B",
+          "submittedText": "Identify the founding of the Templar Order, its original purpose, and the three foundational vows",
+          "correctAnswer": "B",
+          "correctText": "Identify the founding of the Templar Order, its original purpose, and the three foundational vows",
+          "explanation": "Week 1 establishes foundational knowledge: the founding context, purpose, and the three vows that defined the Order's religious character.",
+          "isCorrect": true
+        },
+        {
+          "questionNumber": 10,
+          "prompt": "Why does the KTKC consider the study of Templar origins important for Squire-rank formation?",
+          "submittedAnswer": "B",
+          "submittedText": "Because understanding the Order's founding virtues \u2014 service, poverty, obedience \u2014 provides a moral compass for modern Christian knighthood",
+          "correctAnswer": "B",
+          "correctText": "Because understanding the Order's founding virtues \u2014 service, poverty, obedience \u2014 provides a moral compass for modern Christian knighthood",
+          "explanation": "The KTKC studies Templar origins because the founding virtues of service, poverty, and obedience model the Christian character the Order seeks to cultivate in modern members.",
+          "isCorrect": true
+        }
+      ]
+    }
+  ],
+  "retestApprovals": [],
+  "unlockApprovals": [
+    {
+      "id": "e8875889-5fc9-4e03-b88a-dd7da801c7d1",
+      "slug": "squire",
+      "studentId": "brown1957@aol.com",
+      "studentName": "Richard Brown",
+      "studentEmail": "brown1957@aol.com",
+      "weekNumber": 1,
+      "weekTitle": "Week 1",
+      "approvedBy": "Schoolmaster",
+      "note": "Approved via SM Dashboard",
+      "approvedAt": "2026-05-28T21:33:18.338Z",
+      "usedAt": null
+    }
+  ]
+}

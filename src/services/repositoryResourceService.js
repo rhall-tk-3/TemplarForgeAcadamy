@@ -48,7 +48,7 @@ function getDocumentsForProgram(currentSlug, completedSlugs = []) {
         {
           title: doc.handbookTitle,
           path:  doc.handbookPath,
-          type:  'docx',
+          type:  'html',
           icon:  '📖'
         },
         {
@@ -82,7 +82,7 @@ function getDocumentsForProgram(currentSlug, completedSlugs = []) {
     pastItems.push({
       title: progDocs[slug].handbookTitle,
       path:  progDocs[slug].handbookPath,
-      type:  'docx',
+      type:  'html',
       icon:  '📘'
     });
   }
@@ -96,17 +96,35 @@ function getDocumentsForProgram(currentSlug, completedSlugs = []) {
     });
   }
 
-  // ── 3. Permanent — Promotion Manual (always shown) ────────
+  // ── 2b. Program Source Documents (program-specific extra materials) ──
+  const sourceDocs = config.programSourceDocuments;
+  if (currentSlug && sourceDocs && sourceDocs[currentSlug] && sourceDocs[currentSlug].length > 0) {
+    const slugLabel = currentSlug.charAt(0).toUpperCase() + currentSlug.slice(1);
+    sections.push({
+      key:         'program-source-docs',
+      title:       `\u2726 ${slugLabel} Program Source Documents`,
+      description: `Primary reference documents for the ${slugLabel} School Program — reading list, lesson plan, statutes, and printable logs.`,
+      items: sourceDocs[currentSlug]
+    });
+  }
+
+  // ── 3. Permanent — Promotion Manual + Reading Log (always shown) ──
   sections.push({
     key:         'promotion-manual',
-    title:       '⚖ Promotion Guidelines & By-Laws',
-    description: perm.promotionManual.note,
+    title:       '⚖ Promotion Guidelines & Logs',
+    description: 'Standing resources available at every level of progression.',
     items: [
       {
         title: perm.promotionManual.title,
         path:  perm.promotionManual.path,
-        type:  'docx',
+        type:  'html',
         icon:  '⚖'
+      },
+      {
+        title: 'My Reading Log',
+        path:  '/reading-log',
+        type:  'html',
+        icon:  '📖'
       }
     ]
   });

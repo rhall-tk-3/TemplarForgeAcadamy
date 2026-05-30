@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Levie School Program — Weekly Lesson Outline</title>
+  <title>Levie School Program &mdash; Weekly Lesson Outline</title>
   <style>
   @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,144 +28,488 @@
     letter-spacing: 0.05em;
   }
   .back:hover { background: rgba(184,150,12,0.12); color: #e8c040; }
-  .doc-header {
-    border-bottom: 1px solid rgba(180,140,60,0.3);
-    padding-bottom: 18px;
-    margin-bottom: 32px;
-  }
-  .doc-kicker {
+  .doc-header { margin-bottom: 40px; border-bottom: 1px solid rgba(184,150,12,0.25); padding-bottom: 24px; }
+  .doc-header h1 {
     font-family: 'Cinzel', serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: #8a7040;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #e8c040;
+    letter-spacing: 0.06em;
     margin-bottom: 8px;
   }
-  .doc-title {
+  .doc-header .subtitle {
     font-family: 'Cinzel', serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #e8c850;
-    line-height: 1.2;
-    margin-bottom: 6px;
+    font-size: 0.85rem;
+    color: #b8960c;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
-  .doc-sub {
-    font-size: 0.9rem;
-    color: #8a7040;
+  .doc-header .desc {
+    margin-top: 14px;
+    color: #c8b87a;
+    font-size: 1rem;
     font-style: italic;
+    line-height: 1.6;
   }
-  .week-block {
-    margin-bottom: 28px;
-    background: rgba(180,140,60,0.05);
-    border: 1px solid rgba(180,140,60,0.18);
-    border-left: 3px solid #c8a020;
+  .toc {
+    background: rgba(232,192,64,0.05);
+    border: 1px solid rgba(232,192,64,0.15);
     border-radius: 6px;
-    padding: 18px 20px;
+    padding: 20px 24px;
+    margin-bottom: 40px;
+  }
+  .toc h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.82rem;
+    color: #b8960c;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .toc ol { padding-left: 20px; }
+  .toc li { margin-bottom: 5px; }
+  .toc a {
+    color: #c9a84c;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 0.83rem;
+    letter-spacing: 0.03em;
+  }
+  .toc a:hover { color: #e8c040; text-decoration: underline; }
+  .week {
+    margin-bottom: 50px;
+    border: 1px solid rgba(232,192,64,0.18);
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(232,192,64,0.02);
+  }
+  .week-header {
+    background: rgba(232,192,64,0.08);
+    border-bottom: 1px solid rgba(232,192,64,0.2);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
   }
   .week-num {
     font-family: 'Cinzel', serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.14em;
+    font-size: 0.75rem;
+    color: #b8960c;
     text-transform: uppercase;
-    color: #8a7040;
-    margin-bottom: 5px;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    border: 1px solid rgba(184,150,12,0.35);
+    border-radius: 4px;
+    padding: 3px 10px;
   }
-  .week-title {
+  .week-header h2 {
     font-family: 'Cinzel', serif;
-    font-size: 1.05rem;
-    font-weight: 700;
+    font-size: 1.1rem;
     color: #e8c040;
-    margin-bottom: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
   }
-  .obj-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-  }
-  .obj-list li {
-    display: flex;
-    gap: 9px;
-    align-items: flex-start;
-    font-size: 0.97rem;
-    color: #c8b888;
-    line-height: 1.5;
-  }
-  .obj-bullet { color: #c8a020; font-size: 0.72rem; flex-shrink:0; margin-top:5px; }
-  .note {
+  .week-body { padding: 24px; }
+  .block { margin-bottom: 22px; }
+  .block:last-child { margin-bottom: 0; }
+  .block h3 {
+    font-family: 'Cinzel', serif;
     font-size: 0.82rem;
-    color: #6a5030;
+    color: #b8960c;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(184,150,12,0.2);
+    padding-bottom: 6px;
+  }
+  .obj-list, .term-list, .exam-list { padding-left: 18px; }
+  .obj-list li, .exam-list li {
+    margin-bottom: 6px;
+    line-height: 1.55;
+    color: #d8c48a;
+  }
+  .term-list li {
+    margin-bottom: 8px;
+    line-height: 1.55;
+    color: #d8c48a;
+  }
+  .term-list strong {
+    color: #e8c040;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .lesson-block p {
+    line-height: 1.75;
+    color: #d4be88;
+    font-size: 1.02rem;
+  }
+  .q-type {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.07em;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-right: 7px;
+    vertical-align: middle;
+  }
+  .q-type.short { background: rgba(184,150,12,0.18); color: #c9a84c; border: 1px solid rgba(184,150,12,0.3); }
+  .q-type.essay { background: rgba(100,150,255,0.1); color: #8fb4e8; border: 1px solid rgba(100,150,255,0.25); }
+  .section-divider {
+    text-align: center;
+    margin: 50px 0 40px;
+    padding: 20px;
+    border: 1px solid rgba(232,192,64,0.2);
+    border-radius: 6px;
+    background: rgba(232,192,64,0.04);
+  }
+  .section-divider h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: #e8c040;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .section-divider p {
+    font-size: 0.9rem;
+    color: #b8960c;
+    margin-top: 8px;
     font-style: italic;
-    margin-top: 24px;
-    padding-top: 18px;
-    border-top: 1px solid rgba(180,140,60,0.12);
-    line-height: 1.6;
   }
-  @media print {
-    body { background: #fff; color: #111; padding: 20px; }
-    .back { display: none; }
-    .week-block { border: 1px solid #ccc; background: #fafafa; }
-    .week-title { color: #222; }
-    .week-num, .doc-kicker, .doc-sub { color: #666; }
-    .obj-list li { color: #333; }
-    .doc-title { color: #111; }
-  }
-</style>
+  </style>
 </head>
 <body>
 <div class="wrap">
-  <a class="back" href="/member">← Dashboard</a>
+  <a class="back" href="/member">&larr; Dashboard</a>
+
   <div class="doc-header">
-    <div class="doc-kicker">✠ Knights Templar of the Kingdom of Christ · Templar Forge Academy</div>
-    <div class="doc-title">Levie School Program</div>
-    <div class="doc-sub">Weekly Lesson Outline — 8-Week Program</div>
+    <h1>&#10013; Levie School Program</h1>
+    <div class="subtitle">Knights Templar of the Kingdom of Christ &mdash; Weekly Lesson Outline</div>
+    <p class="desc">The foundational adult entry program. Weeks 1–4 cover KTKC rules, statutes, duties, and identity. Weeks 5–8 cover early pre-Templar history through the Council of Troyes.</p>
   </div>
-  
-    <div class="week-block">
-      <div class="week-num">Week 1 of 8</div>
-      <div class="week-title">Origins and Mission of the Order</div>
-      <ul class="obj-list"><li><span class="obj-bullet">✦</span><span>Explain the historical founding of the Knights Templar</span></li><li><span class="obj-bullet">✦</span><span>Understand the KTKC&#x27;s connection to that heritage</span></li><li><span class="obj-bullet">✦</span><span>State the mission of the modern Order in your own words</span></li></ul>
+
+  <div class="toc">
+    <h3>Table of Contents</h3>
+    <ol>
+      <li><a href="#week1">Week 1 &mdash; Identity, Purpose, and Consecration</a></li>
+      <li><a href="#week2">Week 2 &mdash; Standards, Duties, and Equality</a></li>
+      <li><a href="#week3">Week 3 &mdash; Conduct, Leadership, and Accountability</a></li>
+      <li><a href="#week4">Week 4 &mdash; The Five Governing Pillars</a></li>
+      <li><a href="#week5">Week 5 &mdash; The Need for Protection (Early Pre-Templar History)</a></li>
+      <li><a href="#week6">Week 6 &mdash; Founding People and Places</a></li>
+      <li><a href="#week7">Week 7 &mdash; Official Approval and Early Support</a></li>
+      <li><a href="#week8">Week 8 &mdash; Religious-Order Identity and Early Timeline Review</a></li>
+    </ol>
+  </div>
+
+  <div class="section-divider">
+    <h2>&#10013; Part I &mdash; KTKC Identity, Rules &amp; Formation</h2>
+    <p>Weeks 1&ndash;4: Christian identity, rules and statutes, conduct, and the Five Governing Pillars</p>
+  </div>
+
+
+  <section class="week" id="week1">
+    <div class="week-header">
+      <span class="week-num">Week 1</span>
+      <h2>Identity, Purpose, and Consecration</h2>
     </div>
-    <div class="week-block">
-      <div class="week-num">Week 2 of 8</div>
-      <div class="week-title">The Seven Virtues and Daily Conduct</div>
-      <ul class="obj-list"><li><span class="obj-bullet">✦</span><span>Identify and define the seven knightly virtues</span></li><li><span class="obj-bullet">✦</span><span>Relate each virtue to a concrete behavior in daily life</span></li><li><span class="obj-bullet">✦</span><span>Evaluate your own areas of strength and growth</span></li></ul>
+    <div class="week-body">
+      <div class="block">
+        <h3>&#10013; Objectives</h3>
+        <ul class="obj-list">
+            <li>State the name and consecration of the Order</li>
+            <li>Explain the Christian nature and mission of the KTKC</li>
+            <li>Understand the Levie class period as an 8-week or 60-day probationary program</li>
+            <li>Identify general principles of promotion and timelines</li>
+        </ul>
+      </div>
+      <div class="block lesson-block">
+        <h3>&#10022; Lesson</h3>
+        <p>Week 1 establishes the Christian identity of the Order, its consecration to Jesus Christ, and its mission of truthful Christian service. The Knights Templar of the Kingdom of Christ is consecrated to Jesus Christ and to the Holy Trinity. Its purpose is truthful, nonviolent Christian witness and service — not prestige, ceremony, or personal gain. The Order embraces Ecumenical Fellowship: brothers and sisters from across the Christian tradition are welcome, united by faith in Jesus Christ rather than divided by denominational difference. The Levie class period is an 8-week or 60-day probationary program. This is not a formality — it is an intentional formation period during which a new member demonstrates the seriousness of their commitment through attendance, study, and conduct. Promotion timelines exist to ensure that every member who advances has genuinely prepared. No one is rushed forward; no one is left behind without reason. The first week's work is to understand why you are here and what this Order is consecrated to.</p>
+      </div>
+      <div class="block">
+        <h3>&#9876; Key Terms</h3>
+        <ul class="term-list">
+            <li><strong>KTKC</strong> — Knights Templar of the Kingdom of Christ — the modern Order in which the Levie program is conducted</li>
+            <li><strong>Holy Trinity</strong> — The Christian doctrine of God as Father, Son, and Holy Spirit; the foundation of the Order's consecration</li>
+            <li><strong>Ecumenical Fellowship</strong> — The welcoming of Christians from across denominational traditions into shared brotherhood and sisterhood</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>&#128220; Exam Questions</h3>
+        <ul class="exam-list">
+            <li><span class="q-type short">SHORT</span> State the consecration of the Order and the purpose it serves.</li>
+            <li><span class="q-type short">SHORT</span> What is the Levie class period, and how long does it last?</li>
+            <li><span class="q-type essay">ESSAY</span> What does Ecumenical Fellowship mean, and why does the Order practice it?</li>
+        </ul>
+      </div>
     </div>
-    <div class="week-block">
-      <div class="week-num">Week 3 of 8</div>
-      <div class="week-title">The Rule of the Order and Obligations of Membership</div>
-      <ul class="obj-list"><li><span class="obj-bullet">✦</span><span>Understand what the Rule of the Templars required</span></li><li><span class="obj-bullet">✦</span><span>Identify the ongoing obligations of KTKC membership</span></li><li><span class="obj-bullet">✦</span><span>Distinguish between rules as restrictions and rules as framework for excellence</span></li></ul>
+  </section>
+  <section class="week" id="week2">
+    <div class="week-header">
+      <span class="week-num">Week 2</span>
+      <h2>Standards, Duties, and Equality</h2>
     </div>
-    <div class="week-block">
-      <div class="week-num">Week 4 of 8</div>
-      <div class="week-title">Prayer, Scripture, and the Templar Liturgy</div>
-      <ul class="obj-list"><li><span class="obj-bullet">✦</span><span>Understand the role of daily prayer in Templar formation</span></li><li><span class="obj-bullet">✦</span><span>Learn key Scriptures referenced in the Order&#x27;s tradition</span></li><li><span class="obj-bullet">✦</span><span>Reflect on the spiritual dimension of membership</span></li></ul>
+    <div class="week-body">
+      <div class="block">
+        <h3>&#10013; Objectives</h3>
+        <ul class="obj-list">
+            <li>Understand Ecumenical Fellowship and the rejection of false worship</li>
+            <li>Explain liberty of conscience and moral obedience</li>
+            <li>Identify the standards governing oaths, vows, and solemn promises</li>
+            <li>State the equality, attendance, and promotion requirements</li>
+        </ul>
+      </div>
+      <div class="block lesson-block">
+        <h3>&#10022; Lesson</h3>
+        <p>Week 2 develops the Levie's understanding of what it means to be a Christian fellowship that rejects corrupt practice and guards the liberty of conscience of every member. The Order rejects false worship and all practices that contradict Scripture or lawful conduct. Members are not required to abandon their conscience — in fact, the Order protects liberty of conscience as a foundational principle. No member may be asked to bind themselves to a secret oath or to swear in ways that contradict Christian truth. Open promises and solemn vows, made honestly before God and witnesses, are the standard. Equality is not optional in this Order. Ranks cannot be bought or sold. No member receives advancement because of social status, wealth, family connection, or favoritism. Promotion requires completion of classwork and regular attendance — period. Round Tables — the assembly structure of the Order — exist as a place of equal standing: every member's voice has weight. Members are accountable to Christian truth, Scripture, and lawful civil conduct. This is the standard from the first day of the Levie class to the last day of the member's active service.</p>
+      </div>
+      <div class="block">
+        <h3>&#9876; Key Terms</h3>
+        <ul class="term-list">
+            <li><strong>Equality and Fairness</strong> — The principle that no member may be treated differently based on wealth, status, or social standing</li>
+            <li><strong>Round Tables</strong> — The assembly structure of the Order in which members meet with equal standing and shared voice</li>
+            <li><strong>Probationary Period</strong> — The 8-week or 60-day Levie class period during which attendance, conduct, and classwork are evaluated for promotion</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>&#128220; Exam Questions</h3>
+        <ul class="exam-list">
+            <li><span class="q-type short">SHORT</span> Why can ranks not be bought or sold in the Order?</li>
+            <li><span class="q-type short">SHORT</span> What is liberty of conscience, and how does the Order protect it?</li>
+            <li><span class="q-type essay">ESSAY</span> Explain what it means to be accountable to Scripture and lawful conduct. Give a specific example.</li>
+        </ul>
+      </div>
     </div>
-    <div class="week-block">
-      <div class="week-num">Week 5 of 8</div>
-      <div class="week-title">Service and the Obligation to Community</div>
-      <ul class="obj-list"><li><span class="obj-bullet">✦</span><span>Define service as the primary reason the Order exists</span></li><li><span class="obj-bullet">✦</span><span>Identify specific service opportunities within and outside the Order</span></li><li><span class="obj-bullet">✦</span><span>Understand how personal service builds the Order&#x27;s reputation</span></li></ul>
+  </section>
+  <section class="week" id="week3">
+    <div class="week-header">
+      <span class="week-num">Week 3</span>
+      <h2>Conduct, Leadership, and Accountability</h2>
     </div>
-    <div class="week-block">
-      <div class="week-num">Week 6 of 8</div>
-      <div class="week-title">Symbols, Ceremony, and the Meaning of Regalia</div>
-      <ul class="obj-list"><li><span class="obj-bullet">✦</span><span>Identify key symbols of the Templar Order and their meanings</span></li><li><span class="obj-bullet">✦</span><span>Understand the purpose of formal ceremony in the Order&#x27;s life</span></li><li><span class="obj-bullet">✦</span><span>Explain why regalia is treated with reverence</span></li></ul>
+    <div class="week-body">
+      <div class="block">
+        <h3>&#10013; Objectives</h3>
+        <ul class="obj-list">
+            <li>Understand the meaning of offices, titles, and rank as service</li>
+            <li>Explain the requirement of financial integrity and rejection of bought rank</li>
+            <li>Apply the principle of equality of persons and mutual respect</li>
+            <li>Describe daily duties, conduct expectations, and recordkeeping</li>
+        </ul>
+      </div>
+      <div class="block lesson-block">
+        <h3>&#10022; Lesson</h3>
+        <p>Week 3 teaches the Levie to view rank as service rather than privilege. An office or title in the Order is not a reward for loyalty — it is a responsibility accepted on behalf of the whole community. Financial integrity is a defining standard: no member may buy, sell, or trade rank or position. The Order's resources belong to the mission, not to individuals. Offices exist to serve the members, not to enrich or elevate those who hold them. Equality of persons is not merely a rule — it is an expression of the Christian conviction that every human being is made in the image of God. No member, regardless of rank, is exempt from correction, accountability, or the respect owed to every other person in the Order. Daily duties are real: attendance is tracked, conduct is observed, and records are kept. These are not bureaucratic inconveniences. They are the concrete expressions of commitment. A member who cannot be counted on for ordinary duties will not be trusted with greater ones. The liberty of conscience principle means that no superior may command what violates Scripture or civil law. Leaders are held to a higher standard of visible virtue and humility — not a lower one. No rank shields a member from discipline. Understanding complaint and redress as a function of integrity — not rebellion — is essential for every Levie.</p>
+      </div>
+      <div class="block">
+        <h3>&#9876; Key Terms</h3>
+        <ul class="term-list">
+            <li><strong>Liberty of Conscience</strong> — The right of every member to refuse commands that violate Scripture or civil law without fear of unjust punishment</li>
+            <li><strong>Discipline and Redress</strong> — The Order's system for correction and complaint — tools of integrity, not rebellion</li>
+            <li><strong>Standard of Leadership</strong> — The principle that those in higher rank are held to a higher — not lower — standard of conduct and humility</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>&#128220; Exam Questions</h3>
+        <ul class="exam-list">
+            <li><span class="q-type short">SHORT</span> What does it mean that rank is service rather than privilege? Give a concrete example.</li>
+            <li><span class="q-type short">SHORT</span> Under what circumstances may a member refuse a superior's command?</li>
+            <li><span class="q-type essay">ESSAY</span> Explain the difference between discipline as correction and discipline as punishment. Why does this distinction matter?</li>
+        </ul>
+      </div>
     </div>
-    <div class="week-block">
-      <div class="week-num">Week 7 of 8</div>
-      <div class="week-title">Brotherhood, Accountability, and the Chain of Authority</div>
-      <ul class="obj-list"><li><span class="obj-bullet">✦</span><span>Understand brotherhood as covenant rather than casual friendship</span></li><li><span class="obj-bullet">✦</span><span>Explain the chain of authority from Levie to Grand Master</span></li><li><span class="obj-bullet">✦</span><span>Describe the practice of fraternal accountability</span></li></ul>
+  </section>
+  <section class="week" id="week4">
+    <div class="week-header">
+      <span class="week-num">Week 4</span>
+      <h2>The Five Governing Pillars</h2>
     </div>
-    <div class="week-block">
-      <div class="week-num">Week 8 of 8</div>
-      <div class="week-title">Final Review and Advancement Preparation</div>
-      <ul class="obj-list"><li><span class="obj-bullet">✦</span><span>Review all core topics from the Levie program</span></li><li><span class="obj-bullet">✦</span><span>Prepare a brief personal statement of commitment</span></li><li><span class="obj-bullet">✦</span><span>Identify the next program in your advancement path</span></li></ul>
+    <div class="week-body">
+      <div class="block">
+        <h3>&#10013; Objectives</h3>
+        <ul class="obj-list">
+            <li>Name and define the Five Governing Pillars of the KTKC</li>
+            <li>Understand spiritual warfare as spiritual witness rather than physical combat</li>
+            <li>Explain brotherhood and sisterhood in charity as sacrificial fellowship</li>
+            <li>Assess personal readiness for promotion and probationary review</li>
+        </ul>
+      </div>
+      <div class="block lesson-block">
+        <h3>&#10022; Lesson</h3>
+        <p>Week 4 gathers the moral and spiritual core of the entire Levie program into one central framework: the Five Governing Pillars of the KTKC. These pillars are not categories of bureaucratic policy — they are the living expression of what the Order is and what every member is called to become. The Five Governing Pillars are: (1) Service to Christ and His Kingdom — the Order exists for Christ, not for its members' advancement; (2) Prayer and Holy Meditation — the interior life of the Order is the source of its outward strength; (3) Discipline and Virtue — formation is a daily, intentional practice, not a one-time event; (4) Courageous Christian Witness — speaking and living the truth of the Gospel in the face of opposition; (5) Brotherhood and Sisterhood in Charity — sacrificial fellowship that bears one another's burdens. Spiritual warfare in this Order means spiritual witness: prayer, truth-speaking, living faithfully, and serving sacrificially. It is not about physical conflict. Promotion readiness is evaluated against these pillars. A Levie who can name them, define them, and give evidence of their practical application is ready to advance. The transition from Week 4 to Week 5 marks a shift from internal formation to historical knowledge — the second half of the program places that formation in historical context.</p>
+      </div>
+      <div class="block">
+        <h3>&#9876; Key Terms</h3>
+        <ul class="term-list">
+            <li><strong>Five Governing Pillars</strong> — The five core commitments of KTKC: Service to Christ, Prayer and Holy Meditation, Discipline and Virtue, Courageous Christian Witness, and Brotherhood/Sisterhood in Charity</li>
+            <li><strong>Spiritual Warfare</strong> — In the KTKC context: the practice of prayer, truth, faithful living, and sacrificial service as spiritual witness — not physical combat</li>
+            <li><strong>Sacrificial Love</strong> — The willingness to bear one another's burdens and serve at personal cost; the heart of brotherhood and sisterhood in the Order</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>&#128220; Exam Questions</h3>
+        <ul class="exam-list">
+            <li><span class="q-type short">SHORT</span> List and briefly define each of the Five Governing Pillars.</li>
+            <li><span class="q-type short">SHORT</span> What does the Order mean by 'spiritual warfare,' and why is the distinction important?</li>
+            <li><span class="q-type essay">ESSAY</span> Which of the Five Governing Pillars do you find most challenging personally? Explain why and how you will strengthen it.</li>
+        </ul>
+      </div>
     </div>
-  <p class="note">
-    This outline lists weekly topics and learning objectives only. Detailed lesson content,
-    key terms, and examinations are delivered through your in-app lesson viewer.
-    Exam questions and answer keys are not included in this document.
-  </p>
+  </section>
+
+  <div class="section-divider">
+    <h2>&#10013; Part II &mdash; Early Templar History</h2>
+    <p>Weeks 5&ndash;8: Pre-Templar context, founding, recognition, and religious-order identity</p>
+  </div>
+
+
+  <section class="week" id="week5">
+    <div class="week-header">
+      <span class="week-num">Week 5</span>
+      <h2>The Need for Protection (Early Pre-Templar History)</h2>
+    </div>
+    <div class="week-body">
+      <div class="block">
+        <h3>&#10013; Objectives</h3>
+        <ul class="obj-list">
+            <li>Explain why the Holy Land mattered to medieval Christians</li>
+            <li>Describe the pilgrimage routes and the dangers on the roads to Jerusalem</li>
+            <li>Summarize the First Crusade context from 1095 to 1099</li>
+            <li>Connect the danger faced by pilgrims to the need for organized protection</li>
+        </ul>
+      </div>
+      <div class="block lesson-block">
+        <h3>&#10022; Lesson</h3>
+        <p>Week 5 begins the historical portion of the Levie program. The first four weeks established who we are as an Order. The final four weeks establish where we come from historically. These are not separate subjects — the history illuminates the identity. The Holy Land — and especially Jerusalem — held singular importance for medieval Christians. It was the city of Christ's crucifixion, burial, and resurrection. Pilgrimage to Jerusalem was not tourism: it was an act of profound religious devotion, often undertaken at great personal sacrifice. The roads from Europe to Jerusalem ran through territories that were unstable, dangerous, and poorly policed. Pilgrims were regularly robbed, attacked, enslaved, or killed. The First Crusade ran from 1095 to 1099. Pope Urban II's call at Clermont in 1095 set in motion a massive military expedition that succeeded in capturing Jerusalem in 1099. But success did not produce safety. The Crusader states established after 1099 were fragile — small, thinly populated Christian enclaves surrounded by far larger hostile forces. Travel remained dangerous even after the city fell to Crusader control. Pilgrims who arrived expecting the safety of Christian territory found roads that were still lethal. Pilgrim danger created the need for organized protection. This is the historical context that made the founding of a military-religious order not just understandable but necessary.</p>
+      </div>
+      <div class="block">
+        <h3>&#9876; Key Terms</h3>
+        <ul class="term-list">
+            <li><strong>Christian Pilgrims</strong> — Medieval Christians who traveled to Jerusalem and the Holy Land as acts of religious devotion, often at great personal risk</li>
+            <li><strong>First Crusade (1095–1099)</strong> — The military expedition called by Pope Urban II at Clermont in 1095 that culminated in the capture of Jerusalem in 1099</li>
+            <li><strong>Jerusalem</strong> — The holy city central to Christian pilgrimage; site of Christ's crucifixion, burial, and resurrection; focal point of the Crusades</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>&#128220; Exam Questions</h3>
+        <ul class="exam-list">
+            <li><span class="q-type short">SHORT</span> Why did medieval Christians consider Jerusalem worth traveling great distances to reach?</li>
+            <li><span class="q-type short">SHORT</span> Why were Crusader states described as 'fragile,' and what did that mean for pilgrims?</li>
+            <li><span class="q-type essay">ESSAY</span> Explain how the history of the First Crusade creates the context for the founding of a protective order. Connect the historical need to the Order's present mission of service.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="week" id="week6">
+    <div class="week-header">
+      <span class="week-num">Week 6</span>
+      <h2>Founding People and Places</h2>
+    </div>
+    <div class="week-body">
+      <div class="block">
+        <h3>&#10013; Objectives</h3>
+        <ul class="obj-list">
+            <li>Identify Hugh de Payns and the first companions of the Order</li>
+            <li>Explain the role of King Baldwin II and the Kingdom of Jerusalem</li>
+            <li>Describe the Temple Mount as the Order's early headquarters</li>
+            <li>State the founding purpose: the protection of pilgrims</li>
+        </ul>
+      </div>
+      <div class="block lesson-block">
+        <h3>&#10022; Lesson</h3>
+        <p>Week 6 introduces the figures and places most closely connected to the beginning of the Order. Hugh de Payns is the founder most closely linked with the founding of the Knights Templar. Around 1119 or 1120, Hugh de Payns gathered a small group of knights — the first companions — and proposed to King Baldwin II of Jerusalem that they form a dedicated force to protect pilgrims on the roads. King Baldwin II received them and granted them quarters on the Temple Mount in Jerusalem — the site of the ancient Temple of Solomon — as their base of operations. This grant of headquarters was both practical and symbolic: it placed the new Order at the heart of the holy city and gave them a name. Their early mission was specific and humble: patrol the roads, escort pilgrims, and prevent the attacks that were destroying the lives of travelers. The founding purpose was not glory, power, or territorial conquest — it was protective service. The location, the founders, and the purpose together define the beginning of the Order. A Levie who cannot identify Hugh de Payns, King Baldwin II, and the Temple Mount does not yet have the factual foundation for the later weeks.</p>
+      </div>
+      <div class="block">
+        <h3>&#9876; Key Terms</h3>
+        <ul class="term-list">
+            <li><strong>Hugh de Payns</strong> — The primary founder of the Knights Templar, who gathered the first companions and proposed the Order to King Baldwin II around 1119–1120</li>
+            <li><strong>King Baldwin II</strong> — The King of Jerusalem who received Hugh de Payns and his companions and granted them quarters on the Temple Mount</li>
+            <li><strong>Temple Mount</strong> — The site in Jerusalem of the ancient Temple of Solomon; the location of the early Order's headquarters, from which the Templars took their name</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>&#128220; Exam Questions</h3>
+        <ul class="exam-list">
+            <li><span class="q-type short">SHORT</span> Who founded the Knights Templar, and approximately when?</li>
+            <li><span class="q-type short">SHORT</span> What role did King Baldwin II play in the early history of the Order?</li>
+            <li><span class="q-type essay">ESSAY</span> Explain the significance of the Temple Mount as the early headquarters of the Order. Why does the location matter for understanding the name?</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="week" id="week7">
+    <div class="week-header">
+      <span class="week-num">Week 7</span>
+      <h2>Official Approval and Early Support</h2>
+    </div>
+    <div class="week-body">
+      <div class="block">
+        <h3>&#10013; Objectives</h3>
+        <ul class="obj-list">
+            <li>Explain the significance of the Council of Troyes</li>
+            <li>Describe the role of Bernard of Clairvaux as supporter — not founder</li>
+            <li>Distinguish formal approval from the earlier informal beginning</li>
+            <li>Explain how early mission and public trust were established</li>
+        </ul>
+      </div>
+      <div class="block lesson-block">
+        <h3>&#10022; Lesson</h3>
+        <p>Week 7 shows how the early Order moved from informal beginning to formal recognition. The Order's founding around 1119–1120 was informal: a small group of knights with a mission but no official standing. For approximately a decade, they operated without formal church recognition or a written rule. In 1128 or 1129, the Council of Troyes changed that. The Council of Troyes was a church council convened in France that gave the Knights Templar formal approval and provided them with an official rule of life. This formal approval gave the Order legitimacy: the authority to recruit, to hold property, to receive donations, and to operate across Christian Europe under recognized ecclesiastical sanction. Bernard of Clairvaux was one of the most influential church figures of the era. He was a powerful supporter of the Knights Templar and is closely associated with their early rule and public reputation. However, Bernard of Clairvaux was a supporter — not the founder. The Council of Troyes granted formal approval; the actual founding had occurred a decade earlier under Hugh de Payns. This distinction matters: formal approval is not the same as informal beginning, and an important supporter is not the same as a founder. A Levie must be able to state clearly who founded the Order, what the Council of Troyes accomplished, and why Bernard of Clairvaux is significant without confusing these roles.</p>
+      </div>
+      <div class="block">
+        <h3>&#9876; Key Terms</h3>
+        <ul class="term-list">
+            <li><strong>Council of Troyes (1128/1129)</strong> — The church council that gave the Knights Templar formal recognition and provided them with an official rule of life</li>
+            <li><strong>Bernard of Clairvaux</strong> — A highly influential church leader who strongly supported the early Knights Templar and helped establish their public legitimacy; a supporter, not a founder</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>&#128220; Exam Questions</h3>
+        <ul class="exam-list">
+            <li><span class="q-type short">SHORT</span> What did the Council of Troyes accomplish for the Knights Templar?</li>
+            <li><span class="q-type short">SHORT</span> Why is it important to distinguish between Bernard of Clairvaux as a supporter and Hugh de Payns as the founder?</li>
+            <li><span class="q-type essay">ESSAY</span> Explain the difference between the informal founding of the Order around 1119–1120 and its formal recognition at the Council of Troyes. Why do both events matter?</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="week" id="week8">
+    <div class="week-header">
+      <span class="week-num">Week 8</span>
+      <h2>Religious-Order Identity and Early Timeline Review</h2>
+    </div>
+    <div class="week-body">
+      <div class="block">
+        <h3>&#10013; Objectives</h3>
+        <ul class="obj-list">
+            <li>Explain what distinguishes a religious order from an ordinary army</li>
+            <li>Describe the role of prayer, discipline, and service in Templar identity</li>
+            <li>Review the early timeline from 1095 through the Council of Troyes (1128/1129)</li>
+            <li>Prepare for the final written quiz and oral board review</li>
+        </ul>
+      </div>
+      <div class="block lesson-block">
+        <h3>&#10022; Lesson</h3>
+        <p>Week 8 completes the Levie historical introduction by reviewing the early timeline and clarifying what separated the early Templars from an ordinary medieval army. An ordinary army exists to fight and be disbanded. A religious order exists to pray, serve, and persist. The Knights Templar were a religious body before they were a military one. Their daily life included the Hours of prayer, obedience to a rule, communal discipline, and a spiritual mission that extended beyond any single battle or campaign. This is what the Levie program has been building toward: an understanding that the Order the member is joining is not primarily a fraternal organization with military aesthetics — it is a Christian religious order with a living tradition of prayer, discipline, and service. The early timeline in review: 1095 — Pope Urban II calls the First Crusade at Clermont. 1099 — Jerusalem falls to Crusader forces. 1119 or 1120 — Hugh de Payns and the first companions begin what will become the Knights Templar. 1128 or 1129 — The Council of Troyes grants formal approval. The Levie program stops at this point. Later history — the growth, wealth, controversy, and suppression of the medieval Order — belongs to more advanced study. The Levie exits the program with a clear understanding of why the Order was founded, who founded it, how it gained recognition, and what kind of body it was. That is sufficient — and it is essential. Finish your reading log. Present it to the Schoolmaster. You are ready to advance.</p>
+      </div>
+      <div class="block">
+        <h3>&#9876; Key Terms</h3>
+        <ul class="term-list">
+            <li><strong>Religious Order Identity</strong> — The defining character of the Knights Templar as a body of prayer, discipline, and service — not merely a military force</li>
+            <li><strong>Service Before Self</strong> — The foundational ethic of the Order: members exist to serve the mission, not to be served by it</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>&#128220; Exam Questions</h3>
+        <ul class="exam-list">
+            <li><span class="q-type short">SHORT</span> Name three things that distinguished the early Knights Templar as a religious order rather than an ordinary army.</li>
+            <li><span class="q-type short">SHORT</span> Place these events in correct chronological order: Council of Troyes, First Crusade, Founding by Hugh de Payns, Capture of Jerusalem.</li>
+            <li><span class="q-type essay">ESSAY</span> Write a summary of what you have learned in the Levie program. Include both the internal (identity/rules) and historical portions, and explain how they connect to your personal commitment as a member.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
 </div>
 </body>
 </html>
