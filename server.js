@@ -1,7 +1,7 @@
 'use strict';
 
 // ── DEPLOY VERSION — updated on every push so Railway logs confirm new code ──
-const DEPLOY_VERSION = '1.3.2-2026-05-30';
+const DEPLOY_VERSION = '1.3.2b-2026-05-31';
 
 // ── Load .env in development (ignored on Railway — vars injected by platform) ──
 try { require('dotenv').config(); } catch (_) { /* dotenv optional */ }
