@@ -1683,9 +1683,20 @@ function renderHistory(m) {
     return `<div class="history-item">
       <div>
         <div class="history-title">${prog ? prog.title : h.slug}</div>
-        <div class="history-meta">Completed ${new Date(h.completedAt).toLocaleDateString()}</div>
+        <div class="history-meta">Completed ${new Date(h.completedAt).toLocaleDateString()}${
+          h.grade ? ' &nbsp;·&nbsp; Grade: ' + h.grade : ''
+        }</div>
       </div>
-      <span class="prog-pill complete">${h.grade || 'Complete'}</span>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span class="prog-pill complete">${h.grade || 'Complete'}</span>
+        <button
+          onclick="resendCertificate('${m.id}','${h.slug}')"
+          title="Re-send completion certificate to ${m.email || 'member'}"
+          style="font-size:.68rem;padding:3px 10px;background:rgba(20,20,60,.8);
+                 border:1px solid #3a3a8a;color:#9090e0;border-radius:3px;
+                 cursor:pointer;white-space:nowrap;"
+        >✉ Certificate</button>
+      </div>
     </div>`;
   }).join('');
 }
@@ -1916,12 +1927,47 @@ async function completeProgram(assignNext) {
     }
   }
   const res  = await fetch(`/api/progression/member/${selectedMember.id}/complete`, {
-    method:'POST', headers:{'Content-Type':'application/json'},
+    method:'POST', headers:{'Content-Type':'application/json'}, credentials:'include',
     body: JSON.stringify({ grade, nextProgramSlug: nextSlug })
   });
   const data = await res.json();
-  if (res.ok) { toast(data.message, true); await refreshMember(selectedMember.id); }
-  else         toast(data.error || 'Failed.');
+  if (res.ok) {
+    // Show completion message + certificate status
+    const cert = data.certificate || {};
+    let msg = data.message;
+    if (cert.sent) {
+      msg += ` — Certificate emailed to ${cert.email}`;
+      if (cert.preview) msg += ` (preview: ${cert.preview})`;
+    } else if (cert.error) {
+      msg += ` — Certificate email failed: ${cert.error}`;
+    } else if (!cert.email) {
+      msg += ' — No email on file; certificate not sent.';
+    }
+    toast(msg, true);
+    await refreshMember(selectedMember.id);
+  } else {
+    toast(data.error || 'Failed.');
+  }
+}
+
+async function resendCertificate(memberId, programSlug) {
+  const prog = allPrograms.find(p => p.slug === programSlug);
+  if (!confirm(`Re-send completion certificate for "${prog ? prog.title : programSlug}" to ${selectedMember?.email || 'this member'}?`)) return;
+  try {
+    const res  = await fetch(`/api/progression/member/${memberId}/certificate/${programSlug}`, {
+      method: 'POST', credentials: 'include'
+    });
+    const data = await res.json();
+    if (data.ok) {
+      let msg = `✉ Certificate sent to ${data.email}`;
+      if (data.preview) msg += ` — preview: ${data.preview}`;
+      toast(msg, true);
+    } else {
+      toast(data.error || data.message || 'Could not send certificate.');
+    }
+  } catch (e) {
+    toast('Network error sending certificate.');
+  }
 }
 
 async function unlockProgram(slug) {

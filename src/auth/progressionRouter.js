@@ -27,6 +27,7 @@ const { findById, updateUser, deleteUser, getMemberUsers, safeUser } = require('
 const { getCurriculumIndex } = require('../services/curriculumService');
 const { getLessonForWeek }   = require('../services/lessonService');
 const { readStore, studentKey } = require('../services/submissionStoreService');
+const { sendCertificate }    = require('../services/certificateService');
 
 const { hydrateSessionFromJwt } = require('../config/jwtSession');
 
@@ -368,24 +369,26 @@ router.post('/member/:id/note', requireAdmin, (req, res) => {
 });
 
 // POST /api/progression/member/:id/complete  { grade?, nextProgramSlug? }
-router.post('/member/:id/complete', requireAdmin, (req, res) => {
+router.post('/member/:id/complete', requireAdmin, async (req, res) => {
   const user = findById(req.params.id);
   if (!user || user.role === 'admin') return res.status(404).json({ error: 'Member not found.' });
   if (!user.assignedProgram) return res.status(400).json({ error: 'No program assigned.' });
 
   const { grade, nextProgramSlug } = req.body;
+  const completedProgramSlug  = user.assignedProgram;
+  const completedAt            = new Date().toISOString();
 
   // Mark current program complete in history
   const history = [...(user.programHistory || [])];
-  const existing = history.find(h => h.slug === user.assignedProgram && !h.completedAt);
+  const existing = history.find(h => h.slug === completedProgramSlug && !h.completedAt);
   if (existing) {
-    existing.completedAt = new Date().toISOString();
+    existing.completedAt = completedAt;
     existing.grade = grade || null;
   } else {
     history.push({
-      slug:        user.assignedProgram,
+      slug:        completedProgramSlug,
       assignedAt:  user.programAssignedAt || user.createdAt,
-      completedAt: new Date().toISOString(),
+      completedAt: completedAt,
       grade:       grade || null
     });
   }
@@ -413,11 +416,54 @@ router.post('/member/:id/complete', requireAdmin, (req, res) => {
   }
 
   updateUser(user.id, update);
+
+  // ── Send completion certificate email ──
+  const programs      = getCurriculumIndex();
+  const completedProg = programs.find(p => p.slug === completedProgramSlug);
+  const programTitle  = completedProg ? completedProg.title : completedProgramSlug;
+  const certResult    = await sendCertificate(user, programTitle, completedAt, grade || null);
+
   res.json({
     ok: true,
     message: nextProgramSlug
       ? `Program completed. ${user.username} assigned to next program.`
-      : `Program marked complete for ${user.username}.`
+      : `Program marked complete for ${user.username}.`,
+    certificate: {
+      sent:    certResult.sent,
+      email:   user.email || null,
+      preview: certResult.preview || null,
+      error:   certResult.error   || null,
+    }
+  });
+});
+
+// POST /api/progression/member/:id/certificate/:slug
+// Re-send (or send for the first time) a certificate for a completed program.
+// Useful if the original email was missed, or for manual sending after the fact.
+router.post('/member/:id/certificate/:slug', requireAdmin, async (req, res) => {
+  const user = findById(req.params.id);
+  if (!user || user.role === 'admin') return res.status(404).json({ error: 'Member not found.' });
+
+  const slug    = req.params.slug;
+  const history = user.programHistory || [];
+  const entry   = history.filter(h => h.slug === slug && h.completedAt).pop();
+  if (!entry) {
+    return res.status(404).json({ error: `No completed record found for program "${slug}".` });
+  }
+
+  const programs     = getCurriculumIndex();
+  const prog         = programs.find(p => p.slug === slug);
+  const programTitle = prog ? prog.title : slug;
+
+  const certResult = await sendCertificate(user, programTitle, entry.completedAt, entry.grade || null);
+  return res.json({
+    ok:      certResult.sent,
+    email:   user.email || null,
+    preview: certResult.preview || null,
+    error:   certResult.error   || null,
+    message: certResult.sent
+      ? `Certificate re-sent to ${user.email}.`
+      : `Certificate could not be sent: ${certResult.error}`,
   });
 });
 
