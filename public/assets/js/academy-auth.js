@@ -63,10 +63,10 @@ document.addEventListener("DOMContentLoaded", () => {
         password
       });
 
-      showMsg(registerMsg, "Account created! Taking you to your dashboard...", "success");
+      showMsg(registerMsg, "Account created! Taking you to your profile...", "success");
       try { sessionStorage.setItem("tfa_just_logged_in", Date.now()); } catch (_) {}
       setTimeout(() => {
-        window.location.href = data.redirect || "/member";
+        window.location.href = data.redirect || "/member/profile?new=1";
       }, 800);
     } catch (err) {
       showMsg(registerMsg, err.message, "error");

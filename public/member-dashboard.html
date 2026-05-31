@@ -424,8 +424,9 @@
 </div>
 
 <script>
-let userProgression = null;
-let allPrograms     = [];
+let userProgression  = null;
+let allPrograms      = [];
+let memberProfile    = null;  // cached profile for lock/unlock decisions
 
 // ── Load session + profile ──
 Promise.all([
@@ -437,6 +438,9 @@ Promise.all([
     document.getElementById('welcome-heading').innerHTML =
       `Welcome, ${greeting} <a href="/profile" title="My Profile" style="font-size:0.82em;vertical-align:middle;text-decoration:none;margin-left:6px;opacity:0.85;" aria-label="My Profile">⚔</a>`;
     document.getElementById('nav-greeting').textContent = greeting;
+
+    // Cache profile for use in renderProgramList
+    memberProfile = profile;
 
     // Show profile photo or shield placeholder
     if (profile && profile.photoPath) {
@@ -561,8 +565,53 @@ function renderProgramList() {
   const completed  = new Set((userProgression?.programHistory||[]).filter(h=>h.completedAt).map(h=>h.slug));
   const unlocked   = new Set(userProgression?.unlockedSlugs || []);
 
-  // Build ordered set of programs that have been encountered (current + completed + unlocked)
-  // so we can distinguish "past" from "future-locked" programs
+  // ── Fully locked state: no assignment, nothing unlocked by SM ──
+  // Show a single informational banner instead of a list of locked cards.
+  const profileDone = memberProfile && memberProfile.profileComplete;
+  const hasAccess   = assigned || completed.size > 0 || unlocked.size > 0;
+
+  if (!hasAccess) {
+    if (!profileDone) {
+      // Profile incomplete — send them to finish it
+      container.innerHTML = `
+        <div style="padding:20px 0;text-align:center;">
+          <div style="font-size:1.6rem;margin-bottom:10px;opacity:0.6;">⛨</div>
+          <div style="font-family:'Cinzel',serif;font-size:0.8rem;color:#5a2020;
+                      letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;">
+            All Programs Locked
+          </div>
+          <div style="color:#7a5040;font-family:'Crimson Text',serif;font-size:0.95rem;
+                      line-height:1.6;max-width:380px;margin:0 auto 18px;">
+            Complete your member profile to proceed. The Schoolmaster
+            will then assign your first program based on your rank.
+          </div>
+          <a href="/member/profile"
+             style="display:inline-block;font-family:'Cinzel',serif;font-size:0.78rem;
+                    letter-spacing:0.08em;text-transform:uppercase;
+                    color:#c9a84c;border:1px solid rgba(180,140,60,0.4);
+                    border-radius:4px;padding:8px 20px;text-decoration:none;
+                    background:rgba(180,140,60,0.06);">Complete Profile →</a>
+        </div>`;
+    } else {
+      // Profile complete but SM hasn’t assigned a program yet
+      container.innerHTML = `
+        <div style="padding:20px 0;text-align:center;">
+          <div style="font-size:1.6rem;margin-bottom:10px;opacity:0.6;">✠</div>
+          <div style="font-family:'Cinzel',serif;font-size:0.8rem;color:#3a2010;
+                      letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;">
+            Awaiting Assignment
+          </div>
+          <div style="color:#7a5040;font-family:'Crimson Text',serif;font-size:0.95rem;
+                      line-height:1.6;max-width:380px;margin:0 auto;">
+            Your profile is complete. The Schoolmaster will review your rank
+            and assign your first training program. Check back soon.
+          </div>
+        </div>`;
+    }
+    return;
+  }
+
+  // ── Normal render: SM has assigned or unlocked at least one program ──
   const assignedIndex = allPrograms.findIndex(p => p.slug === assigned);
 
   container.innerHTML = allPrograms.map((p, idx) => {
@@ -570,18 +619,8 @@ function renderProgramList() {
     const isCompleted = completed.has(p.slug);
     const isUnlocked  = unlocked.has(p.slug);
 
-    // A program is a past/review program if it was completed OR if it comes
-    // before the current program in the curriculum order
     const isPast = isCompleted || (assignedIndex > -1 && idx < assignedIndex);
-
-    // A program is accessible for full hub view if:
-    //   1. It is the current program
-    //   2. It has been completed
-    //   3. It was explicitly unlocked by SM
-    //   4. It comes before the current program in curriculum order (review access)
     const isAccessible = isCurrent || isCompleted || isUnlocked || isPast;
-
-    // Only guard programs that are strictly future (beyond current assignment)
     const isGuarded = !isAccessible;
 
     let badge;
@@ -598,14 +637,12 @@ function renderProgramList() {
     }
 
     if (isGuarded) {
-      // Render as non-interactive div — future programs not yet reached
       return `<div class="program-link guarded">
         <span>✠ ${p.title} <span style="font-size:0.76rem;color:#3a1010;">· ${p.phase}</span></span>
         <span style="display:flex;align-items:center;gap:8px;">${badge}</span>
       </div>`;
     }
 
-    // All accessible programs link to the hub — current, completed, past review, SM-unlocked
     const linkClass = isCurrent ? 'current' : isCompleted ? 'completed' : isPast ? 'review' : '';
     const arrow = '<span style="opacity:0.4;">→</span>';
 

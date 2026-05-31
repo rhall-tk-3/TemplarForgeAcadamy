@@ -515,9 +515,9 @@
     <div class="welcome-new" id="welcome-new-banner">
       <div class="welcome-new-title">✠ Welcome to the Order — Complete Your Profile</div>
       <p>
-        Before you can access your training programs, you must complete your member profile.
-        Fill in all required fields below and click <strong>Save Profile</strong>.
-        Your program access will unlock automatically based on your age.
+        All training programs are locked until your profile is complete and the Schoolmaster
+        assigns your first program based on your rank.
+        Fill in all required fields below and click <strong>Save Profile</strong> to proceed.
       </p>
     </div>
 
@@ -532,15 +532,15 @@
       <div class="profile-locked-banner-title">⛨ Programs Locked — Profile Incomplete</div>
       <p>
         All training programs are locked until your profile is complete.
-        Fill in the required fields to unlock access.
+        Fill in the required fields below, then the Schoolmaster will assign your program.
       </p>
       <div class="incomplete-fields" id="incomplete-fields-list"></div>
     </div>
 
-    <!-- Unlock success banner (shown after a complete save) -->
+    <!-- Profile complete banner (shown after a complete save) -->
     <div class="unlock-banner" id="unlock-banner">
-      <div class="unlock-banner-title">✔ Programs Unlocked</div>
-      <p id="unlock-banner-msg">Your training program has been unlocked. Return to your dashboard to begin.</p>
+      <div class="unlock-banner-title">✔ Profile Complete</div>
+      <p id="unlock-banner-msg">Your profile is complete. The Schoolmaster will review your rank and assign your first training program. Return to your dashboard to check your status.</p>
     </div>
 
     <!-- Profile header: avatar + name -->
@@ -923,16 +923,8 @@ function renderStatusBanners(profile) {
     lockedBanner.style.display = 'block';
     unlockBanner.style.display = 'none';
   } else {
-    // Profile complete — show what was unlocked
+    // Profile complete — confirm and tell them to wait for SM assignment
     lockedBanner.style.display = 'none';
-    const msg = document.getElementById('unlock-banner-msg');
-    if (profile.age !== null) {
-      if (profile.age >= 5 && profile.age <= 17) {
-        msg.textContent = `Age ${profile.age} — Squire School Program unlocked as your primary training. Levie School is also available as an extra course. Return to your dashboard to begin.`;
-      } else if (profile.age >= 18) {
-        msg.textContent = `Age ${profile.age} — Levie School Program unlocked as your primary training. Squire School is also available as an extra course. Return to your dashboard to begin.`;
-      }
-    }
     unlockBanner.style.display = 'block';
   }
 }

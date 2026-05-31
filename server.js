@@ -1,7 +1,7 @@
 'use strict';
 
 // ── DEPLOY VERSION — updated on every push so Railway logs confirm new code ──
-const DEPLOY_VERSION = '1.3.5-2026-05-31';
+const DEPLOY_VERSION = '1.4.0-2026-05-31';
 
 // ── Load .env in development (ignored on Railway — vars injected by platform) ──
 try { require('dotenv').config(); } catch (_) { /* dotenv optional */ }
@@ -359,8 +359,7 @@ app.use('/auth', authRouter);
       currentWeek:     null,
       examSubmissions: [],
       progressNotes:   [],
-      unlockedSlugs:   ['levie','squire','corporal','sergeant','sfc','knight-aspirant',
-                        'knight','lieutenant','captain','major','commander','chaplain'],
+      unlockedSlugs:   [],  // empty — SM unlocks programs after profile is complete
       rank:            null,
       rankName:        null,
       rankAssignedAt:  null,
@@ -383,7 +382,8 @@ app.use('/auth', authRouter);
       { expiresIn: '8h' }
     );
     res.setHeader('Set-Cookie', SESSION_COOKIE(token));
-    return res.json({ ok: true, redirect: '/member' });
+    // Send new member to profile page (?new=1 triggers welcome banner)
+    return res.json({ ok: true, redirect: '/member/profile?new=1' });
   });
 
   // ── GET /api/auth/pending  — Schoolmaster only (JWT role: schoolmaster) ──
@@ -473,8 +473,7 @@ app.use('/auth', authRouter);
           currentWeek:     null,
           examSubmissions: [],
           progressNotes:   [],
-          unlockedSlugs:   ['levie','squire','corporal','sergeant','sfc','knight-aspirant',
-                            'knight','lieutenant','captain','major','commander','chaplain'],
+          unlockedSlugs:   [],  // SM unlocks programs after profile is complete
           rank:            null,
           rankName:        null,
           rankAssignedAt:  null,
