@@ -1196,14 +1196,8 @@ function restoreExamState(progressWeeks) {
       </div>`).join('');
 
     if (passed) {
-      let statusMsg = '';
-      if (pw.status === 'pending_unlock') {
-        statusMsg = `✠ Passed — ${score}%. Your work is submitted and awaiting Schoolmaster review before the next week unlocks.`;
-      } else if (pw.status === 'passed') {
-        statusMsg = `✠ Passed — ${score}%. The Schoolmaster has approved your progression to the next week.`;
-      } else {
-        statusMsg = `✠ Passed — ${score}%.`;
-      }
+      // Passing auto-unlocks the next week — no SM approval needed.
+      const statusMsg = `✠ Passed — ${score}%. The next week is now unlocked.`;
       stateDiv.innerHTML = `
         <div class="exam-result-banner passed">${statusMsg}</div>
         <div class="exam-answer-review">${reviewHtml}</div>

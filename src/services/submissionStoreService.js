@@ -10,7 +10,10 @@ const storePath = SUBMISSIONS_FILE;
 // ── Auto-retest cooldown: 24 hours after a failed attempt ──
 // Students do NOT need Schoolmaster approval to retest.  After failing they
 // must wait 24 hours (RETEST_COOLDOWN_MS), then the exam form unlocks
-// automatically.  The Schoolmaster still approves *progression* (unlock gate).
+// automatically.
+// ── Week progression ──
+// Students do NOT need Schoolmaster approval to advance to the next week.
+// Passing an exam automatically unlocks the next week — no unlock approval required.
 const RETEST_COOLDOWN_MS = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
 function ensureStore() {
@@ -141,11 +144,8 @@ function getStudentProgress(slug, studentName, studentEmail) {
     const canRetest = retestAvailable(latest && !latest.passed ? latest : null);
 
     if (passed) {
-      // Week is passed. If the Schoolmaster has issued an unlock approval for this
-      // week, treat it as fully passed (next week opens). Otherwise it sits in
-      // pending_unlock — the student's work is done but the gate stays shut until
-      // the Schoolmaster reviews and explicitly approves progression.
-      status = unlockApproval ? 'passed' : 'pending_unlock';
+      // Week is passed — next week opens automatically, no SM approval required.
+      status = 'passed';
       passedCount += 1;
     } else if (latest && latest.passed === false) {
       // Auto-retest: no SM approval needed.
@@ -167,9 +167,8 @@ function getStudentProgress(slug, studentName, studentEmail) {
       passingScore: week.passing_score || 70
     });
 
-    // A week only unlocks the NEXT week when it has been passed AND the
-    // Schoolmaster has approved progression (unlock approval exists).
-    unlocked = passed && !!unlockApproval;
+    // A passed week automatically unlocks the next week (no SM approval required).
+    unlocked = passed;
   }
 
   const nextWeek = progressWeeks.find(
@@ -219,8 +218,8 @@ function submitWeekWork(slug, payload) {
   const studentId = studentKey(studentName, studentEmail);
   const submissions = getStudentSubmissions(store, slug, studentId);
 
-  // Progression gate: every prior week must be passed AND have an unlock approval
-  // before the student can submit the current week.
+  // Progression gate: every prior week must be passed before the student
+  // can submit the current week. No SM unlock approval needed.
   const priorWeeks = course.weeks
     .map((w, i) => ({ w, effNum: (w.week_number != null) ? Number(w.week_number) : (i + 1) }))
     .filter(({ effNum }) => effNum < effectiveWeekNum);
@@ -232,24 +231,6 @@ function submitWeekWork(slug, payload) {
   );
   if (missingPriorPass) {
     throw new Error(`Progression is locked until ${missingPriorPass.w.week_title || `Week ${missingPriorPass.effNum}`} is passed`);
-  }
-
-  // Also verify each passed prior week has an unlock approval
-  const missingUnlock = priorWeeks.find(({ w, effNum }) => {
-    const priorPassed = submissions.some(
-      (item) => Number(item.weekNumber) === effNum && item.passed
-    );
-    if (!priorPassed) return false;
-    const hasAnyUnlock = (store.unlockApprovals || []).some(
-      (item) =>
-        item.slug === slug &&
-        item.studentId === studentId &&
-        Number(item.weekNumber) === effNum
-    );
-    return !hasAnyUnlock;
-  });
-  if (missingUnlock) {
-    throw new Error(`Week ${missingUnlock.effNum} is awaiting Schoolmaster unlock before you can proceed`);
   }
 
   const alreadyPassed = submissions.some(

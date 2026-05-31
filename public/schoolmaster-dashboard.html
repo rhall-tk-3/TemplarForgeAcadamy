@@ -195,6 +195,13 @@
     .sm-btn.danger:hover { background:linear-gradient(135deg,#8a0000,#500000); }
     .sm-btn.green   { background:linear-gradient(135deg,#1a5010,#0e3008); color:#90e090; }
     .sm-btn.green:hover { background:linear-gradient(135deg,#2a6018,#183808); }
+    /* ⊕ Unlock Next Week — prominent teal-green action button used in Week Progression panel */
+    .sm-btn.advance-week-btn {
+      background: linear-gradient(135deg,#1a5878,#0e3048);
+      color: #90d8f8; border-color: #2a7898; font-size:.82rem; width:100%;
+      padding: 9px 14px; letter-spacing:.06em;
+    }
+    .sm-btn.advance-week-btn:hover { background:linear-gradient(135deg,#2a6888,#183858); border-color:#4a98b8; }
 
     /* Week control */
     .week-ctrl { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
@@ -665,7 +672,7 @@
         <button class="bulk-btn advance-btn" id="bulk-advance-btn"
           onclick="bulkAction('advance')"
           title="Advance each selected member to their next week lesson">
-          ▶ Unlock Next Week
+          ⊕ Bulk Week Unlock
         </button>
         <button class="bulk-btn lock-btn" id="bulk-lock-btn"
           onclick="bulkAction('lock')"
@@ -916,7 +923,14 @@
         <button class="sm-btn ghost" onclick="changeWeek(1)">Next ▶</button>
         <button class="sm-btn primary" onclick="setWeekManual()" title="Set specific week">Set Week</button>
       </div>
-      <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;">
+      <!-- Quick week unlock: advance this member to the next week in one click -->
+      <div style="margin-top:10px;">
+        <button class="sm-btn advance-week-btn" onclick="changeWeek(1)"
+          title="Advance this member to the next week immediately">
+          ⊕ Unlock Next Week
+        </button>
+      </div>
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;">
         <button class="sm-btn gold"    onclick="completeProgram(false)">Mark Complete</button>
         <button class="sm-btn primary" onclick="completeProgram(true)">Complete & Assign Next</button>
       </div>
@@ -1590,12 +1604,11 @@ function renderExams(m) {
           </div>
         </div>`).join('');
 
-      // Unlock button — pass studentId from submission (no dependency on m.email being loaded).
-      // NOTE: Retests are AUTOMATIC (24hr cooldown). SM approves PROGRESSION only, not retests.
+      // Week progression is automatic on pass — no SM unlock approval needed.
+      // Use the Week Progression panel to manually adjust the member's week if needed.
       const unlockBtn = s.passed ? `
-        <button class="sm-btn gold" style="font-size:.76rem;padding:4px 10px;margin-top:6px;"
-          onclick="approveCurriculumUnlock('${s.programSlug}', ${s.weekNumber}, '${(s.studentId||'').replace(/'/g,"\\'")}')"  >
-          ✠ Approve Week ${s.weekNumber} Unlock</button>` :
+        <div style="margin-top:6px;font-size:.76rem;color:#4a8040;font-family:'Crimson Text',serif;">
+          ✔ Passed — Week ${s.weekNumber + 1} auto-unlocked · Use <em>Week Progression</em> above to adjust manually.</div>` :
         `<div style="margin-top:6px;font-size:.76rem;color:#8a6040;font-family:'Crimson Text',serif;">
           ✗ Failed — ${s.score}% (need ${s.passingScore}%) · Student auto-retests after 24-hour cooldown — no SM action required.
         </div>`;
