@@ -311,8 +311,8 @@
       </div>
       <h1>Member Access Portal</h1>
       <p>
-        New account requests remain pending until Schoolmaster approval.
-        Sign in with your full name and passcode once approved.
+        Sign in with your full name and passcode, or create an account to
+        get instant access to your member dashboard.
       </p>
       <div class="rule" aria-hidden="true"></div>
     </section>
@@ -358,7 +358,7 @@
 
         <p class="help">
           No account yet?&ensp;Use the <strong>Create an Account</strong> form
-          below to request access.
+          below for instant access.
         </p>
       </article>
 
@@ -378,6 +378,18 @@
               autocomplete="name"
               autocapitalize="words"
               required
+            />
+          </div>
+
+          <div class="field">
+            <label for="register-member-id">Member ID</label>
+            <input
+              id="register-member-id"
+              name="memberId"
+              type="text"
+              placeholder="e.g. KTKC-0001"
+              autocomplete="off"
+              autocapitalize="characters"
             />
           </div>
 
@@ -419,15 +431,14 @@
 
           <div class="panel-divider" aria-hidden="true">✠</div>
 
-          <button type="submit" class="btn btn-ghost">Request Account</button>
+          <button type="submit" class="btn btn-ghost">Create Account</button>
 
           <div id="register-msg" class="msg" role="alert" aria-live="polite"></div>
         </form>
 
         <p class="help">
-          Your account request will remain <strong>pending</strong> until
-          the Schoolmaster reviews and approves it. You will be able to
-          sign in once your account has been approved.
+          Your account is created instantly. Your Member ID is stored for
+          Schoolmaster records — you can add or update it later in your profile.
         </p>
       </article>
 

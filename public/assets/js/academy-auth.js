@@ -56,18 +56,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
-      await sendJson("/api/auth/register", {
+      const data = await sendJson("/api/auth/register", {
         fullName: form.get("fullName"),
         email:    form.get("email"),
+        memberId: form.get("memberId") || "",
         password
       });
 
-      showMsg(
-        registerMsg,
-        "Account request received. Access will be enabled after Schoolmaster approval.",
-        "success"
-      );
-      registerForm.reset();
+      showMsg(registerMsg, "Account created! Taking you to your dashboard…", "success");
+      try { sessionStorage.setItem("tfa_just_logged_in", Date.now()); } catch (_) {}
+      setTimeout(() => {
+        window.location.href = data.redirect || "/member";
+      }, 800);
     } catch (err) {
       showMsg(registerMsg, err.message, "error");
     }

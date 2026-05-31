@@ -1,7 +1,7 @@
 'use strict';
 
 // ── DEPLOY VERSION — updated on every push so Railway logs confirm new code ──
-const DEPLOY_VERSION = '1.3.3-2026-05-31';
+const DEPLOY_VERSION = '1.3.4-2026-05-31';
 
 // ── Load .env in development (ignored on Railway — vars injected by platform) ──
 try { require('dotenv').config(); } catch (_) { /* dotenv optional */ }
@@ -289,60 +289,101 @@ app.use('/auth', authRouter);
       return res.json({ ok: true, redirect: '/member' });
     }
 
-    // ── Not in userStore — check if they have a pending/rejected registration ──
-    const accounts = readAccounts();
-    const acct = accounts.find(
-      a => a.fullName.trim().toUpperCase() === normalizedName
-    );
-    if (acct && acct.approvalStatus === 'pending') {
-      return res.status(403).json({ error: 'Your account is still pending Schoolmaster approval.' });
-    }
-    if (acct && acct.approvalStatus === 'rejected') {
-      return res.status(403).json({ error: 'Your registration was not approved. Please contact the Schoolmaster.' });
-    }
-
-    // Completely unknown name
+    // Name not in userStore — unknown
     return res.status(401).json({ error: 'Name not found. Please check your spelling or create an account.' });
   });
 
-  // ── POST /api/auth/register  { fullName, email, password } ──
-  // Open self-registration — no Member ID required.
-  // SM assigns the Member ID later via the member's profile in the SM dashboard.
-  // Request lands in private/accounts.json with approvalStatus: "pending".
+  // ── POST /api/auth/register  { fullName, email, password, memberId? } ──
+  // Open self-registration — instant access, no approval step.
+  // Member ID is stored for SM records but does not gate access.
+  // Account is written to private/accounts.json as 'approved' and immediately
+  // promoted to userStore so the member can log in right away.
   app.post('/api/auth/register', async (req, res) => {
-    const { fullName, email, password } = req.body || {};
+    const { fullName, email, password, memberId } = req.body || {};
 
     if (!fullName || !email || !password) {
       return res.status(400).json({ error: 'Full name, email, and password are required.' });
     }
 
-    const accounts       = readAccounts();
+    const { getAllUsers, addRawUser } = require('./src/auth/userStore');
+    const jwt            = require('jsonwebtoken');
     const normalizedName = String(fullName).trim();
+    const normalizedId   = memberId ? String(memberId).trim().toUpperCase() : null;
 
-    // Block duplicate pending requests by name
-    const existingAcct = accounts.find(
-      a => a.fullName.trim().toUpperCase() === normalizedName.toUpperCase()
+    // Block duplicate name in userStore
+    const allUsers = getAllUsers();
+    const existingUser = allUsers.find(
+      u => u.username.trim().toUpperCase() === normalizedName.toUpperCase()
     );
-    if (existingAcct) {
-      if (existingAcct.approvalStatus === 'pending') {
-        return res.status(409).json({ error: 'A registration request is already pending for this name. Please wait for Schoolmaster approval.' });
-      }
-      // Rejected or already approved — allow re-registration
-      accounts.splice(accounts.indexOf(existingAcct), 1);
+    if (existingUser) {
+      return res.status(409).json({ error: 'An account with that name already exists. Please sign in instead.' });
     }
 
     const passwordHash = await bcrypt.hash(password, 12);
+    const newId        = Date.now().toString();
+
+    // ── Write to accounts.json for SM records ──
+    const accounts = readAccounts();
+    // Remove any old entry for this name (re-registration)
+    const oldIdx = accounts.findIndex(
+      a => a.fullName.trim().toUpperCase() === normalizedName.toUpperCase()
+    );
+    if (oldIdx !== -1) accounts.splice(oldIdx, 1);
     accounts.push({
+      id:             newId,
       fullName:       normalizedName,
       email:          String(email).trim().toLowerCase(),
+      memberId:       normalizedId,
       passwordHash,
       role:           'member',
-      approvalStatus: 'pending',
-      createdAt:      new Date().toISOString()
+      approvalStatus: 'approved',
+      createdAt:      new Date().toISOString(),
+      approvedAt:     new Date().toISOString(),
+      approvedBy:     'self',
+      source:         'registered',
     });
-
     writeAccounts(accounts);
-    return res.json({ ok: true, message: 'Account request submitted. The Schoolmaster will review and approve your account.' });
+
+    // ── Immediately promote to userStore so login works ──
+    addRawUser({
+      id:              newId,
+      username:        normalizedName,
+      salutation:      null,
+      role:            'member',
+      memberId:        normalizedId,
+      password:        passwordHash,
+      email:           String(email).trim().toLowerCase(),
+      createdAt:       new Date().toISOString(),
+      assignedProgram: null,
+      programHistory:  [],
+      currentWeek:     null,
+      examSubmissions: [],
+      progressNotes:   [],
+      unlockedSlugs:   ['levie','squire','corporal','sergeant','sfc','knight-aspirant',
+                        'knight','lieutenant','captain','major','commander','chaplain'],
+      rank:            null,
+      rankName:        null,
+      rankAssignedAt:  null,
+      rankHistory:     [],
+      programStatus:   'active',
+      statusNote:      null,
+      statusChangedAt: null,
+      temple:          null,
+      phone:           null,
+      photoPath:       null,
+      birthday:        null,
+      source:          'registered',
+    });
+    console.log(`✠ New member registered: ${normalizedName} (${normalizedId || 'no ID yet'})`);
+
+    // ── Issue JWT cookie so member is logged in immediately ──
+    const token = jwt.sign(
+      { memberId: normalizedId, fullName: normalizedName, role: 'member' },
+      JWT_SECRET,
+      { expiresIn: '8h' }
+    );
+    res.setHeader('Set-Cookie', SESSION_COOKIE(token));
+    return res.json({ ok: true, redirect: '/member' });
   });
 
   // ── GET /api/auth/pending  — Schoolmaster only (JWT role: schoolmaster) ──

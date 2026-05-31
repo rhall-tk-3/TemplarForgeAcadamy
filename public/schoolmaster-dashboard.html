@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v1.3.3 — pending approvals fix 2026-05-31 -->
+<!-- v1.3.4 — instant registration, no approval gate 2026-05-31 -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -605,18 +605,16 @@
 
     <div class="gold-rule-red"></div>
 
-    <!-- ── Pending Account Approvals ── -->
+    <!-- ── New Members ── -->
     <div class="sm-card" id="registry-panel" style="margin-bottom:18px;">
       <div class="section-title" style="margin-bottom:14px;">
-        ⏳ Pending Account Approvals
+        ✠ New Member Registrations
       </div>
-      <p style="font-family:'Crimson Text',serif;font-size:.9rem;color:#a08080;margin:0 0 14px;">
-        Members request an account from the login page. Their request appears here awaiting your approval.
-        Approving grants dashboard access and adds them to the member roster.
+      <p style="font-family:'Crimson Text',serif;font-size:.9rem;color:#a08080;margin:0 0 6px;">
+        Members create their own accounts from the login page and receive instant access.
+        New members appear in the roster below. Use the roster to assign programs, set their
+        Member ID, and manage progression.
       </p>
-      <div id="pending-list" style="font-family:'Crimson Text',serif;font-size:.9rem;color:#c8a8a8;">
-        <em style="color:#5a4030;">v1.3.3 — initialising…</em>
-      </div>
     </div>
 
     <!-- ── Find Member by ID ── -->
@@ -1033,16 +1031,9 @@ fetch('/auth/me')
     document.getElementById('nav-greeting').textContent = user.username;
     document.getElementById('sm-welcome').textContent =
       `Signed in as ${user.username} — full knowledge oversight`;
-    // Fire loadPending first — independently, so roster populate errors cannot block it
-    loadPending();
     loadData();
   })
-  .catch(err => {
-    // Show auth error in pending list before redirecting so we can diagnose
-    const el = document.getElementById('pending-list');
-    if (el) el.innerHTML = `<em style="color:#c87070;">Auth guard failed: ${err && err.message || 'unknown'} — redirecting to login…</em>`;
-    setTimeout(() => { window.location.href = '/login'; }, 2000);
-  });
+  .catch(() => { window.location.href = '/login'; });
 
 // ── Load everything ──
 async function loadData() {
@@ -1062,8 +1053,6 @@ async function loadData() {
   populateStats();
   populateAssignSelect();
   populateRankSelect();
-  // loadPending() is called independently from the auth guard — not from here —
-  // so a crash in any populate function cannot prevent approvals from loading.
 }
 
 function populateStats() {
@@ -1221,83 +1210,6 @@ function populateRankSelect() {
   const sel = document.getElementById('d-rank-select');
   sel.innerHTML = '<option value="">— Select Rank to Confer —</option>' +
     allPrograms.map(p => `<option value="${p.slug}">${p.title}</option>`).join('');
-}
-
-// ── Pending Account Approvals ──
-async function loadPending() {
-  const el = document.getElementById('pending-list');
-  if (el) el.innerHTML = '<em style="color:#5a4030;">Checking…</em>';
-  try {
-    const res  = await fetch('/api/auth/pending', { credentials: 'include' });
-    const raw  = await res.text();
-    if (!res.ok) {
-      let msg = raw;
-      try { msg = JSON.parse(raw).error || raw; } catch (_) {}
-      if (el) el.innerHTML =
-        `<em style="color:#c87070;">Approvals error ${res.status}: ${msg}</em>`;
-      return;
-    }
-    let data;
-    try { data = JSON.parse(raw); } catch (_) {
-      if (el) el.innerHTML = `<em style="color:#c87070;">Bad JSON from /api/auth/pending: ${raw.slice(0,80)}</em>`;
-      return;
-    }
-    renderPendingList(data.items || []);
-  } catch (e) {
-    if (el) el.innerHTML =
-      `<em style="color:#c87070;">Network error loading approvals: ${e.message || e}</em>`;
-  }
-}
-
-function renderPendingList(items) {
-  const el = document.getElementById('pending-list');
-  if (!el) return;
-  if (!items.length) {
-    el.innerHTML = '<em style="color:#5a3030;">No pending approvals.</em>';
-    return;
-  }
-  el.innerHTML = items.map(a => `
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06);flex-wrap:wrap;gap:8px;">
-      <div>
-        <span style="color:#e8d8d0;font-weight:600;">${a.fullName}</span>
-        <span style="color:#5a4a32;margin:0 6px;">·</span>
-        <span style="color:#7a6a4e;font-size:.82rem;">${a.email || ''}</span>
-        <span style="color:#5a4a32;margin:0 6px;">·</span>
-        <span style="color:#6a5a3e;font-size:.78rem;">Requested ${new Date(a.createdAt).toLocaleDateString()}</span>
-      </div>
-      <div>
-        <button onclick="approveAccount('${a.fullName.replace(/'/g,&quot;\\&apos;&quot;)}')" style="font-size:.75rem;padding:4px 12px;background:rgba(20,60,20,.8);border:1px solid #3a7a3a;color:#90e090;border-radius:3px;cursor:pointer;margin-right:6px;">✔ Approve</button>
-        <button onclick="rejectAccount('${a.fullName.replace(/'/g,&quot;\\&apos;&quot;)}')" style="font-size:.75rem;padding:4px 12px;background:rgba(60,10,10,.8);border:1px solid #7a2020;color:#e08080;border-radius:3px;cursor:pointer;">✕ Reject</button>
-      </div>
-    </div>`).join('');
-}
-
-async function approveAccount(fullName) {
-  try {
-    const res  = await fetch('/api/auth/approve', {
-      method: 'POST', credentials: 'include',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ fullName, action: 'approve' })
-    });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Failed.');
-    // Reload full data — newly approved member now in userStore/roster
-    await loadData();
-  } catch(e) { alert('Error approving: ' + e.message); }
-}
-
-async function rejectAccount(fullName) {
-  if (!confirm(`Reject account for ${fullName}?`)) return;
-  try {
-    const res  = await fetch('/api/auth/approve', {
-      method: 'POST', credentials: 'include',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ fullName, action: 'reject' })
-    });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Failed.');
-    await loadPending();
-  } catch(e) { alert('Error rejecting: ' + e.message); }
 }
 
 // ── Seek member by KTKC ID ──
