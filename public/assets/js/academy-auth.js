@@ -58,12 +58,12 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const data = await sendJson("/api/auth/register", {
         fullName: form.get("fullName"),
-        email:    form.get("email"),
         memberId: form.get("memberId") || "",
+        email:    form.get("email"),
         password
       });
 
-      showMsg(registerMsg, "Account created! Taking you to your dashboard…", "success");
+      showMsg(registerMsg, "Account created! Taking you to your dashboard...", "success");
       try { sessionStorage.setItem("tfa_just_logged_in", Date.now()); } catch (_) {}
       setTimeout(() => {
         window.location.href = data.redirect || "/member";
