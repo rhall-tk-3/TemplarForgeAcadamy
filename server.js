@@ -1,7 +1,7 @@
 'use strict';
 
 // ── DEPLOY VERSION — updated on every push so Railway logs confirm new code ──
-const DEPLOY_VERSION = '1.5.0-2026-05-31';
+const DEPLOY_VERSION = '1.5.1-2026-05-31';
 
 // ── Load .env in development (ignored on Railway — vars injected by platform) ──
 try { require('dotenv').config(); } catch (_) { /* dotenv optional */ }
@@ -1116,55 +1116,105 @@ app.use((req, res) => {
 // the old pre-seeded accounts (unknown passwords) without touching any member
 // who has already registered + been approved on Railway.
 function seedVolumeIfNeeded() {
-  const { USERS_FILE, DATA_DIR, PRIVATE_DIR } = require('./src/config/dataPaths');
-  const VOLUME = process.env.RAILWAY_VOLUME_MOUNT_PATH || null;
-  if (!VOLUME) return; // local dev — files are already in the repo dirs
+  const { USERS_FILE, DATA_DIR, PRIVATE_DIR, ACCOUNTS_FILE, REGISTRY_FILE } = require('./src/config/dataPaths');
+  const VOLUME  = process.env.RAILWAY_VOLUME_MOUNT_PATH || null;
+  const fsSync  = require('fs');
 
-  const fsSync = require('fs');
-  const REPO_USERS = path.join(__dirname, 'data', 'users.json');
+  if (VOLUME) {
+    // ── Railway only: seed / migrate users.json on the persistent volume ──
+    const REPO_USERS = path.join(__dirname, 'data', 'users.json');
 
-  // ── Seed users.json (first boot — file missing or empty) ──
-  if (!fsSync.existsSync(USERS_FILE) || fsSync.readFileSync(USERS_FILE, 'utf8').trim() === '[]') {
-    if (fsSync.existsSync(REPO_USERS)) {
-      fsSync.mkdirSync(DATA_DIR, { recursive: true });
-      fsSync.copyFileSync(REPO_USERS, USERS_FILE);
-      console.log(`✠ Volume seed: copied repo data/users.json → ${USERS_FILE}`);
-    }
-  } else {
-    // ── Migration: remove old pre-seeded members from the volume ──
-    // Keep: role==='admin'  OR  source==='registered'  (SM-approved new members).
-    // Purge: any member record without source:'registered' — those are the old
-    //        pre-seeded entries with unknown/lost passwords that block login.
-    try {
-      const volumeUsers = JSON.parse(fsSync.readFileSync(USERS_FILE, 'utf8'));
-      const cleaned = volumeUsers.filter(u => u.role === 'admin' || u.source === 'registered');
-      if (cleaned.length !== volumeUsers.length) {
-        const removed = volumeUsers.length - cleaned.length;
-        fsSync.writeFileSync(USERS_FILE, JSON.stringify(cleaned, null, 2), 'utf8');
-        console.log(`✠ Volume migration: purged ${removed} old pre-seeded member(s) from userStore. Kept ${cleaned.length} (admin + registered).`);
+    // Seed users.json (first boot — file missing or empty)
+    if (!fsSync.existsSync(USERS_FILE) || fsSync.readFileSync(USERS_FILE, 'utf8').trim() === '[]') {
+      if (fsSync.existsSync(REPO_USERS)) {
+        fsSync.mkdirSync(DATA_DIR, { recursive: true });
+        fsSync.copyFileSync(REPO_USERS, USERS_FILE);
+        console.log(`✠ Volume seed: copied repo data/users.json → ${USERS_FILE}`);
       }
-    } catch (e) {
-      console.error('✠ Volume migration error (users.json):', e.message);
+    } else {
+      // Migration: remove old pre-seeded members (no source:'registered') from volume
+      try {
+        const volumeUsers = JSON.parse(fsSync.readFileSync(USERS_FILE, 'utf8'));
+        const cleaned = volumeUsers.filter(u => u.role === 'admin' || u.source === 'registered');
+        if (cleaned.length !== volumeUsers.length) {
+          const removed = volumeUsers.length - cleaned.length;
+          fsSync.writeFileSync(USERS_FILE, JSON.stringify(cleaned, null, 2), 'utf8');
+          console.log(`✠ Volume migration: purged ${removed} old pre-seeded member(s). Kept ${cleaned.length}.`);
+        }
+      } catch (e) {
+        console.error('✠ Volume migration error (users.json):', e.message);
+      }
+    }
+
+    // Seed curriculum-submissions.json
+    const { SUBMISSIONS_FILE } = require('./src/config/dataPaths');
+    if (!fsSync.existsSync(SUBMISSIONS_FILE)) {
+      fsSync.writeFileSync(SUBMISSIONS_FILE, '[]', 'utf8');
+      console.log(`✠ Volume seed: created empty submissions file at ${SUBMISSIONS_FILE}`);
+    }
+
+    // Ensure private/ dir exists
+    fsSync.mkdirSync(PRIVATE_DIR, { recursive: true });
+    if (!fsSync.existsSync(ACCOUNTS_FILE)) {
+      fsSync.writeFileSync(ACCOUNTS_FILE, '[]', 'utf8');
+      console.log(`✠ Volume seed: created empty accounts file at ${ACCOUNTS_FILE}`);
+    }
+    if (!fsSync.existsSync(REGISTRY_FILE)) {
+      fsSync.writeFileSync(REGISTRY_FILE, '[]', 'utf8');
+      console.log(`✠ Volume seed: created empty registry file at ${REGISTRY_FILE}`);
     }
   }
 
-  // ── Seed curriculum-submissions.json (empty array if missing) ──
-  const { SUBMISSIONS_FILE } = require('./src/config/dataPaths');
-  if (!fsSync.existsSync(SUBMISSIONS_FILE)) {
-    fsSync.writeFileSync(SUBMISSIONS_FILE, '[]', 'utf8');
-    console.log(`✠ Volume seed: created empty submissions file at ${SUBMISSIONS_FILE}`);
-  }
+  // ── Always: promote any accounts.json 'pending' entries into userStore ──
+  // Runs on both Railway and local dev.
+  // Handles members who registered before the instant-approval deploy landed.
+  // Safe on every boot — skips anyone already in userStore by name.
+  try {
+    if (!fsSync.existsSync(ACCOUNTS_FILE)) return;
+    const { getAllUsers, addRawUser } = require('./src/auth/userStore');
+    const accounts = JSON.parse(fsSync.readFileSync(ACCOUNTS_FILE, 'utf8'));
+    const allUsers = getAllUsers();
+    const existingNames = new Set(allUsers.map(u => u.username.trim().toUpperCase()));
 
-  // ── Ensure private/ dir + empty JSON files exist ──
-  const { ACCOUNTS_FILE, REGISTRY_FILE } = require('./src/config/dataPaths');
-  fsSync.mkdirSync(PRIVATE_DIR, { recursive: true });
-  if (!fsSync.existsSync(ACCOUNTS_FILE)) {
-    fsSync.writeFileSync(ACCOUNTS_FILE, '[]', 'utf8');
-    console.log(`✠ Volume seed: created empty accounts file at ${ACCOUNTS_FILE}`);
-  }
-  if (!fsSync.existsSync(REGISTRY_FILE)) {
-    fsSync.writeFileSync(REGISTRY_FILE, '[]', 'utf8');
-    console.log(`✠ Volume seed: created empty registry file at ${REGISTRY_FILE}`);
+    let promoted = 0;
+    const updated = accounts.map(acct => {
+      if (!acct.passwordHash) return acct;
+      if (existingNames.has((acct.fullName || '').trim().toUpperCase())) return acct;
+
+      const newId = acct.id || (Date.now().toString() + promoted);
+      addRawUser({
+        id:              newId,
+        username:        acct.fullName.trim(),
+        salutation:      null,
+        role:            'member',
+        memberId:        acct.memberId || null,
+        password:        acct.passwordHash,
+        email:           acct.email    || null,
+        source:          'registered',
+        createdAt:       acct.createdAt || new Date().toISOString(),
+        assignedProgram: null,
+        programHistory:  [],
+        currentWeek:     null,
+        examSubmissions: [],
+        progressNotes:   [],
+        unlockedSlugs:   [],
+        rank:            null, rankName: null, rankAssignedAt: null, rankHistory: [],
+        programStatus:   'active',
+        statusNote:      null, statusChangedAt: null,
+        temple:          null, phone: null, photoPath: null, birthday: null,
+      });
+      existingNames.add(acct.fullName.trim().toUpperCase());
+      promoted++;
+      console.log(`✠ Account migration: promoted "${acct.fullName}" → userStore`);
+      return { ...acct, approvalStatus: 'approved', approvedAt: new Date().toISOString(), approvedBy: 'migration' };
+    });
+
+    if (promoted > 0) {
+      fsSync.writeFileSync(ACCOUNTS_FILE, JSON.stringify(updated, null, 2), 'utf8');
+      console.log(`✠ Account migration complete: ${promoted} pending account(s) promoted.`);
+    }
+  } catch (e) {
+    console.error('✠ Account migration error:', e.message);
   }
 }
 
