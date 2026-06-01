@@ -194,9 +194,10 @@ function buildCertHtml(member, programTitle, completedAt, grade, certId) {
     </td>
   </tr>
 
-  <!-- ══ PROGRAM NAME ══ -->
+  <!-- ══ PROGRAM NAME + BADGE ══ -->
   <tr>
-    <td colspan="3" style="background:#FFFFCC;padding:16px 60px 4px;text-align:center;">
+    <td colspan="3" style="background:#FFFFCC;padding:16px 60px 14px;text-align:center;">
+      <!-- Short program name (strip ' — Templar Forge Academy' suffix if present) + "Program" -->
       <div style="
         font-family:'Palatino Linotype','Book Antiqua',Palatino,Georgia,serif;
         font-size:22px;
@@ -205,13 +206,8 @@ function buildCertHtml(member, programTitle, completedAt, grade, certId) {
         letter-spacing:0.08em;
         text-transform:uppercase;
         line-height:1.2;
-      ">${esc(programTitle)}</div>
-    </td>
-  </tr>
-
-  <!-- ══ PROGRAM BADGE  — Parchment/decorative style ══ -->
-  <tr>
-    <td colspan="3" style="background:#FFFFCC;padding:4px 60px 14px;text-align:center;">
+      ">${esc((programTitle.includes(' — ') ? programTitle.split(' — ')[0] : programTitle).trim())} Program</div>
+      <!-- Decorative order badge — stacked below the name -->
       <div style="
         font-family:'Palatino Linotype','Book Antiqua',Palatino,Georgia,serif;
         font-size:11px;
@@ -219,7 +215,8 @@ function buildCertHtml(member, programTitle, completedAt, grade, certId) {
         letter-spacing:0.22em;
         text-transform:uppercase;
         font-style:italic;
-      ">&#10022; Knights Templar Journey of Knowledge &#10022; Program</div>
+        margin-top:6px;
+      ">&#10022; Knights Templar Journey of Knowledge &#10022;</div>
     </td>
   </tr>
 
@@ -442,8 +439,8 @@ function buildCertText(member, programTitle, completedAt, grade, certId) {
     '',
     'for successfully completing the',
     '',
-    `  ${programTitle}`,
-    '  ✠ Knights Templar Journey of Knowledge · Program',
+    `  ${(programTitle.includes(' — ') ? programTitle.split(' — ')[0] : programTitle).trim()} Program`,
+    '  ✦ Knights Templar Journey of Knowledge ✦',
     '',
     'at Templar Forge Academy.',
     'through dedication, discipline, and commitment to excellence, this student',
