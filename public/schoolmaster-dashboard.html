@@ -1950,7 +1950,8 @@ async function completeProgram(assignNext) {
     let msg = data.message;
     if (cert.sent) {
       msg += ` — Certificate emailed to ${cert.email}`;
-      if (cert.preview) msg += ` (preview: ${cert.preview})`;
+      if (cert.certId) msg += ` · ID: ${cert.certId}`;
+      if (cert.preview) msg += ` · <a href="${cert.preview}" target="_blank">Preview</a>`;
     } else if (cert.error) {
       msg += ` — Certificate email failed: ${cert.error}`;
     } else if (!cert.email) {
@@ -1973,7 +1974,8 @@ async function resendCertificate(memberId, programSlug) {
     const data = await res.json();
     if (data.ok) {
       let msg = `✉ Certificate sent to ${data.email}`;
-      if (data.preview) msg += ` — preview: ${data.preview}`;
+      if (data.certId)  msg += ` · ID: ${data.certId}`;
+      if (data.preview) msg += ` · <a href="${data.preview}" target="_blank">Preview</a>`;
       toast(msg, true);
     } else {
       toast(data.error || data.message || 'Could not send certificate.');

@@ -421,7 +421,7 @@ router.post('/member/:id/complete', requireAdmin, async (req, res) => {
   const programs      = getCurriculumIndex();
   const completedProg = programs.find(p => p.slug === completedProgramSlug);
   const programTitle  = completedProg ? completedProg.title : completedProgramSlug;
-  const certResult    = await sendCertificate(user, programTitle, completedAt, grade || null);
+  const certResult    = await sendCertificate(user, programTitle, completedAt, grade || null, completedProgramSlug);
 
   res.json({
     ok: true,
@@ -430,7 +430,8 @@ router.post('/member/:id/complete', requireAdmin, async (req, res) => {
       : `Program marked complete for ${user.username}.`,
     certificate: {
       sent:    certResult.sent,
-      email:   user.email || null,
+      email:   user.email  || null,
+      certId:  certResult.certId  || null,
       preview: certResult.preview || null,
       error:   certResult.error   || null,
     }
@@ -455,14 +456,15 @@ router.post('/member/:id/certificate/:slug', requireAdmin, async (req, res) => {
   const prog         = programs.find(p => p.slug === slug);
   const programTitle = prog ? prog.title : slug;
 
-  const certResult = await sendCertificate(user, programTitle, entry.completedAt, entry.grade || null);
+  const certResult = await sendCertificate(user, programTitle, entry.completedAt, entry.grade || null, slug);
   return res.json({
     ok:      certResult.sent,
-    email:   user.email || null,
+    email:   user.email  || null,
+    certId:  certResult.certId  || null,
     preview: certResult.preview || null,
     error:   certResult.error   || null,
     message: certResult.sent
-      ? `Certificate re-sent to ${user.email}.`
+      ? `Certificate re-sent to ${user.email}. (ID: ${certResult.certId})`
       : `Certificate could not be sent: ${certResult.error}`,
   });
 });
@@ -703,6 +705,7 @@ function buildProgressView(user, programs) {
     id:              user.id,
     username:        user.username,
     salutation:      user.salutation,
+    memberId:        user.memberId      || null,
     role:            user.role,
     createdAt:       user.createdAt,
     unlockedSlugs:   user.unlockedSlugs || [],
