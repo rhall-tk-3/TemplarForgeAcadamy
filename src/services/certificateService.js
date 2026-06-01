@@ -80,7 +80,7 @@ function cornerSvg(flip) {
 
 // ── Main HTML builder ─────────────────────────────────────────────────────────
 
-function buildCertHtml(member, programTitle, completedAt, grade, certId) {
+function buildCertHtml(member, programTitle, completedAt, grade, certId, programSlug) {
   const displayName = (member.salutation ? member.salutation + ' ' : '') + member.username;
   const dateStr     = fmtDate(completedAt);
   const memberId    = member.memberId || '—';
@@ -404,7 +404,25 @@ function buildCertHtml(member, programTitle, completedAt, grade, certId) {
 <table width="100%" cellpadding="0" cellspacing="0" border="0"
        style="max-width:760px;width:100%;margin-top:0;">
   <tr>
-    <td align="center" style="padding:12px 20px 0;">
+    <td align="center" style="padding:16px 20px 4px;">
+      ${programSlug ? `
+      <!-- ── DOWNLOAD BUTTON ── -->
+      <table cellpadding="0" cellspacing="0" border="0" style="margin:0 auto 14px;">
+        <tr>
+          <td align="center"
+              style="background:#8a2000;border-radius:6px;padding:0;
+                     border:1px solid #6a1800;">
+            <a href="https://templarforge.academy/api/member/certificate/${programSlug}/download"
+               style="display:inline-block;padding:10px 28px;
+                      font-family:'Palatino Linotype',Georgia,serif;
+                      font-size:13px;font-weight:700;color:#f8e4b0;
+                      letter-spacing:0.08em;text-decoration:none;
+                      white-space:nowrap;">
+              &#8659; Download Certificate PDF
+            </a>
+          </td>
+        </tr>
+      </table>` : ''}
       <p style="font-family:Georgia,serif;font-size:10.5px;color:#8a6030;
                 line-height:1.6;margin:0;text-align:center;">
         This certificate was issued by Templar Forge Academy &middot; Knights Templar of the Kingdom of Christ.<br>
@@ -498,7 +516,7 @@ async function sendCertificate(member, programTitle, completedAt, grade, program
       to:      member.email,
       subject: `✠ Certificate of Completion — ${programTitle}`,
       text:    buildCertText(member, programTitle, completedAt, grade, certId),
-      html:    buildCertHtml(member, programTitle, completedAt, grade, certId),
+      html:    buildCertHtml(member, programTitle, completedAt, grade, certId, programSlug),
     });
 
     const preview = result.preview || null;
@@ -515,4 +533,4 @@ async function sendCertificate(member, programTitle, completedAt, grade, program
   }
 }
 
-module.exports = { sendCertificate, buildCertHtml, generateCertId, fmtDate };
+module.exports = { sendCertificate, buildCertHtml, buildCertText, generateCertId, fmtDate };

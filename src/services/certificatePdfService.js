@@ -70,17 +70,25 @@ async function renderCertificatePdf(html) {
   const page    = await browser.newPage();
 
   try {
-    // Set viewport to landscape A4 proportions (792×612 pt @ 96dpi)
-    await page.setViewport({ width: 1122, height: 794, deviceScaleFactor: 2 });
+    // Landscape A4: 297mm × 210mm  (width > height)
+    await page.setViewport({ width: 1123, height: 795, deviceScaleFactor: 2 });
 
-    await page.setContent(html, { waitUntil: 'networkidle0', timeout: 15000 });
+    // Inject @page rule BEFORE setContent so Puppeteer respects the page size
+    const landscapeHtml = html.replace(
+      '</head>',
+      `<style>
+        @page { size: 297mm 210mm landscape; margin: 0; }
+        html, body { width: 297mm; height: 210mm; margin: 0; padding: 0; }
+      </style></head>`
+    );
+
+    await page.setContent(landscapeHtml, { waitUntil: 'networkidle0', timeout: 15000 });
 
     const pdf = await page.pdf({
-      format:            'A4',
-      landscape:         true,
-      printBackground:   true,       // essential — renders background colours
-      margin:            { top: '0', right: '0', bottom: '0', left: '0' },
-      preferCSSPageSize: false,
+      width:           '297mm',   // explicit landscape A4 width
+      height:          '210mm',   // explicit landscape A4 height
+      printBackground: true,      // essential — renders background colours
+      margin:          { top: '0', right: '0', bottom: '0', left: '0' },
     });
 
     return pdf; // Buffer
