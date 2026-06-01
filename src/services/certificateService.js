@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * certificateService.js  — v3.1
+ * certificateService.js  — v3.2
  *
  * HTML email certificate that faithfully matches the official TFA PDF:
  *
@@ -291,12 +291,14 @@ function buildCertHtml(member, programTitle, completedAt, grade, certId) {
 
   <!-- ══ DUAL SIGNATURE BLOCK ══ -->
   <tr>
-    <td colspan="3" style="background:#FFFFCC;padding:16px 60px 10px;">
+    <td colspan="3" style="background:#FFFFCC;padding:16px 50px 8px;">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
+
+        <!-- Row 1: Signature names + lines + titles -->
         <tr>
 
           <!-- ── LEFT: Schoolmaster Hall / Academy Director ── -->
-          <td width="38%" style="text-align:center;vertical-align:bottom;padding:0 8px;">
+          <td width="38%" style="text-align:center;vertical-align:bottom;padding:0 6px 0;">
             <div style="
               font-family:'Brush Script MT','Segoe Script',Georgia,cursive;
               font-size:24px;
@@ -304,7 +306,7 @@ function buildCertHtml(member, programTitle, completedAt, grade, certId) {
               line-height:1;
               margin-bottom:4px;
             ">Schoolmaster Hall</div>
-            <div style="border-top:1.5px solid #8a7000;padding-top:5px;margin-bottom:8px;">
+            <div style="border-top:1.5px solid #8a7000;padding-top:5px;">
               <div style="
                 font-family:'Palatino Linotype',Georgia,serif;
                 font-size:10.5px;
@@ -314,28 +316,15 @@ function buildCertHtml(member, programTitle, completedAt, grade, certId) {
                 text-transform:uppercase;
               ">Academy Director</div>
             </div>
-            <div>
-              <img src="https://templarforge.academy/images/order-crest.png"
-                   alt="Academy Director Seal"
-                   width="62" height="92"
-                   style="display:inline-block;max-width:62px;height:auto;opacity:0.82;"
-              />
-            </div>
           </td>
 
-          <!-- ── CENTRE: Main TFA Seal ── -->
-          <td width="24%" style="text-align:center;vertical-align:bottom;padding:0 4px;">
-            <div>
-              <img src="https://templarforge.academy/images/order-seal.png"
-                   alt="Templar Forge Academy Seal"
-                   width="100" height="100"
-                   style="display:inline-block;max-width:100px;height:auto;opacity:0.90;"
-              />
-            </div>
+          <!-- ── CENTRE spacer (title row) ── -->
+          <td width="24%" style="text-align:center;vertical-align:bottom;padding:0 4px 0;">
+            &nbsp;
           </td>
 
           <!-- ── RIGHT: Michael G. Dynak / Grand Master ── -->
-          <td width="38%" style="text-align:center;vertical-align:bottom;padding:0 8px;">
+          <td width="38%" style="text-align:center;vertical-align:bottom;padding:0 6px 0;">
             <div style="
               font-family:'Brush Script MT','Segoe Script',Georgia,cursive;
               font-size:24px;
@@ -343,7 +332,7 @@ function buildCertHtml(member, programTitle, completedAt, grade, certId) {
               line-height:1;
               margin-bottom:4px;
             ">Michael G. Dynak</div>
-            <div style="border-top:1.5px solid #8a7000;padding-top:5px;margin-bottom:8px;">
+            <div style="border-top:1.5px solid #8a7000;padding-top:5px;">
               <div style="
                 font-family:'Palatino Linotype',Georgia,serif;
                 font-size:10.5px;
@@ -353,16 +342,42 @@ function buildCertHtml(member, programTitle, completedAt, grade, certId) {
                 text-transform:uppercase;
               ">Grand Master</div>
             </div>
-            <div>
-              <img src="https://templarforge.academy/images/order-crest.png"
-                   alt="Grand Master Seal"
-                   width="62" height="92"
-                   style="display:inline-block;max-width:62px;height:auto;opacity:0.82;"
-              />
-            </div>
           </td>
 
         </tr>
+
+        <!-- Row 2: Seal images — side seals + large TFA centre seal -->
+        <tr>
+
+          <!-- Schoolmaster seal -->
+          <td width="38%" style="text-align:center;vertical-align:top;padding:10px 6px 0;">
+            <img src="https://templarforge.academy/images/seal-schoolmaster.png"
+                 alt="Schoolmaster Seal"
+                 width="120" height="120"
+                 style="display:inline-block;max-width:120px;height:auto;"
+            />
+          </td>
+
+          <!-- TFA main seal — centred, larger, fills the space -->
+          <td width="24%" style="text-align:center;vertical-align:top;padding:6px 4px 0;">
+            <img src="https://templarforge.academy/images/seal-tfa.png"
+                 alt="Templar Forge Academy Seal"
+                 width="160" height="160"
+                 style="display:inline-block;max-width:160px;height:auto;"
+            />
+          </td>
+
+          <!-- Grand Master seal -->
+          <td width="38%" style="text-align:center;vertical-align:top;padding:10px 6px 0;">
+            <img src="https://templarforge.academy/images/seal-grandmaster.png"
+                 alt="Grand Master Seal"
+                 width="120" height="120"
+                 style="display:inline-block;max-width:120px;height:auto;"
+            />
+          </td>
+
+        </tr>
+
       </table>
     </td>
   </tr>
