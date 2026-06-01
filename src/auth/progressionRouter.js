@@ -425,6 +425,17 @@ router.post('/member/:id/complete', requireAdmin, async (req, res) => {
   const programTitle  = completedProg ? completedProg.title : completedProgramSlug;
   const certResult    = await sendCertificate(user, programTitle, completedAt, grade || null, completedProgramSlug);
 
+  // ── Persist certId on the history entry so member can re-download later ──
+  if (certResult.certId) {
+    const freshUser    = findById(user.id);
+    const freshHistory = [...(freshUser.programHistory || [])];
+    const hEntry       = freshHistory.find(h => h.slug === completedProgramSlug && h.completedAt === completedAt);
+    if (hEntry) {
+      hEntry.certId = certResult.certId;
+      updateUser(user.id, { programHistory: freshHistory });
+    }
+  }
+
   res.json({
     ok: true,
     message: nextProgramSlug
@@ -459,6 +470,18 @@ router.post('/member/:id/certificate/:slug', requireAdmin, async (req, res) => {
   const programTitle = prog ? prog.title : slug;
 
   const certResult = await sendCertificate(user, programTitle, entry.completedAt, entry.grade || null, slug);
+
+  // Persist updated certId on history entry
+  if (certResult.certId) {
+    const freshUser    = findById(user.id);
+    const freshHistory = [...(freshUser.programHistory || [])];
+    const hEntry       = freshHistory.find(h => h.slug === slug && h.completedAt === entry.completedAt);
+    if (hEntry) {
+      hEntry.certId = certResult.certId;
+      updateUser(user.id, { programHistory: freshHistory });
+    }
+  }
+
   return res.json({
     ok:      certResult.sent,
     email:   user.email  || null,

@@ -1,7 +1,7 @@
 'use strict';
 
 // ── DEPLOY VERSION — updated on every push so Railway logs confirm new code ──
-const DEPLOY_VERSION = '1.6.7-2026-06-01';
+const DEPLOY_VERSION = '1.7.0-2026-06-01';
 
 // ── Load .env in development (ignored on Railway — vars injected by platform) ──
 try { require('dotenv').config(); } catch (_) { /* dotenv optional */ }
@@ -1009,6 +1009,92 @@ ${result.value}
 // ── ADMIN API ──
 app.get('/admin/members', requireAdmin, (_req, res) => {
   res.json({ members: getAllUsers() });
+});
+
+// ── CERTIFICATE DOWNLOAD ──
+// GET /api/member/certificate/:slug/download
+// Member downloads their own completion certificate for a given program as a PDF.
+// The slug must match a completed program in the member's programHistory.
+// No certId lookup is needed — we regenerate the same HTML and render to PDF on demand.
+app.get('/api/member/certificate/:slug/download', requireMember, async (req, res) => {
+  const { findById, getMemberUsers } = require('./src/auth/userStore');
+  const { getCurriculumIndex }       = require('./src/services/curriculumService');
+  const { buildCertHtml, generateCertId, fmtDate } = require('./src/services/certificateService');
+  const { renderCertificatePdf }     = require('./src/services/certificatePdfService');
+
+  // Only members (not admin) download their own certs
+  if (req.session.role === 'admin') {
+    return res.status(403).json({ error: 'Admins do not have personal certificates.' });
+  }
+
+  const user = findById(req.session.userId);
+  if (!user) return res.status(401).json({ error: 'Session expired.' });
+
+  const slug    = req.params.slug;
+  const history = user.programHistory || [];
+  const entry   = history.filter(h => h.slug === slug && h.completedAt).pop();
+
+  if (!entry) {
+    return res.status(404).json({
+      error: `No completed certificate found for program "${slug}". Complete the program first.`
+    });
+  }
+
+  const programs     = getCurriculumIndex();
+  const prog         = programs.find(p => p.slug === slug);
+  const programTitle = prog ? prog.title : slug;
+
+  // Use stored certId if available, otherwise regenerate deterministically
+  const certId = entry.certId || generateCertId(user, slug, entry.completedAt);
+
+  try {
+    const html = buildCertHtml(user, programTitle, entry.completedAt, entry.grade || null, certId);
+    const pdf  = await renderCertificatePdf(html);
+
+    // Safe filename: "TFA-Certificate-Squire-School-2026-06-01.pdf"
+    const shortTitle = (programTitle.includes(' — ')
+      ? programTitle.split(' — ')[0]
+      : programTitle
+    ).trim().replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, '-');
+    const dateTag    = new Date(entry.completedAt).toISOString().slice(0, 10);
+    const filename   = `TFA-Certificate-${shortTitle}-${dateTag}.pdf`;
+
+    res.setHeader('Content-Type',        'application/pdf');
+    res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
+    res.setHeader('Content-Length',      pdf.length);
+    res.setHeader('Cache-Control',       'no-store');
+    return res.send(pdf);
+
+  } catch (err) {
+    console.error('✠ Certificate PDF generation failed:', err.message);
+    return res.status(500).json({ error: 'Could not generate PDF: ' + err.message });
+  }
+});
+
+// GET /api/member/certificates — list all completed program slugs for the logged-in member
+app.get('/api/member/certificates', requireMember, (req, res) => {
+  const { findById } = require('./src/auth/userStore');
+  const { getCurriculumIndex } = require('./src/services/curriculumService');
+  if (req.session.role === 'admin') return res.json({ certificates: [] });
+  const user = findById(req.session.userId);
+  if (!user) return res.status(401).json({ error: 'Session expired.' });
+  const programs = getCurriculumIndex();
+  const certs = (user.programHistory || [])
+    .filter(h => h.completedAt)
+    .map(h => {
+      const prog = programs.find(p => p.slug === h.slug);
+      const shortTitle = prog
+        ? (prog.title.includes(' — ') ? prog.title.split(' — ')[0] : prog.title).trim()
+        : h.slug;
+      return {
+        slug:        h.slug,
+        title:       shortTitle,
+        completedAt: h.completedAt,
+        grade:       h.grade || null,
+        certId:      h.certId || null,
+      };
+    });
+  res.json({ certificates: certs });
 });
 
 // ── PAGE ROUTES ──

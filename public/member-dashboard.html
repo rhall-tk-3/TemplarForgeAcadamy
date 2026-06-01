@@ -664,15 +664,63 @@ function renderHistory() {
   }
 
   container.innerHTML = hist.map(h => {
-    const prog = allPrograms.find(p => p.slug === h.slug);
+    const prog      = allPrograms.find(p => p.slug === h.slug);
+    const shortTitle = prog
+      ? (prog.title.includes(' — ') ? prog.title.split(' — ')[0] : prog.title).trim()
+      : h.slug;
+    const fullTitle  = prog ? prog.title : h.slug;
     return `<div class="history-item">
-      <div>
-        <div class="history-title">${prog ? prog.title : h.slug}</div>
+      <div style="flex:1;min-width:0;">
+        <div class="history-title">${fullTitle}</div>
         <div class="history-meta">Completed ${new Date(h.completedAt).toLocaleDateString()}</div>
       </div>
-      ${h.grade ? `<span class="grade-pill">${h.grade}</span>` : '<span class="grade-pill" style="opacity:0.5;">Complete</span>'}
+      <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
+        ${h.grade ? `<span class="grade-pill">${h.grade}</span>` : '<span class="grade-pill" style="opacity:0.5;">Complete</span>'}
+        <button
+          onclick="downloadCertificate('${h.slug}', '${shortTitle.replace(/'/g,"\\'")}', this)"
+          title="Download certificate as PDF"
+          style="background:linear-gradient(135deg,#7a4f00,#4a2e00);color:#e8c040;
+                 border:1px solid #8a6030;border-radius:5px;padding:5px 11px;
+                 font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.05em;
+                 cursor:pointer;white-space:nowrap;transition:background 0.2s,opacity 0.2s;"
+          onmouseover="this.style.background='linear-gradient(135deg,#9a6200,#6a3e00)';"
+          onmouseout="this.style.background='linear-gradient(135deg,#7a4f00,#4a2e00)';">
+          ⬇ Certificate
+        </button>
+      </div>
     </div>`;
   }).join('');
+}
+
+async function downloadCertificate(slug, title, btn) {
+  const orig = btn.textContent;
+  btn.disabled   = true;
+  btn.textContent = '⏳ Generating…';
+  btn.style.opacity = '0.6';
+  try {
+    const res = await fetch(`/api/member/certificate/${encodeURIComponent(slug)}/download`);
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({ error: res.statusText }));
+      throw new Error(err.error || 'Download failed');
+    }
+    const blob     = await res.blob();
+    const url      = URL.createObjectURL(blob);
+    const a        = document.createElement('a');
+    a.href         = url;
+    a.download     = `TFA-Certificate-${title.replace(/\s+/g,'-')}.pdf`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    btn.textContent = '✅ Downloaded';
+    setTimeout(() => { btn.textContent = orig; btn.disabled = false; btn.style.opacity = '1'; }, 2500);
+  } catch (e) {
+    console.error('Certificate download error:', e);
+    btn.textContent = '❌ Error';
+    btn.style.opacity = '1';
+    setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 2500);
+    alert('Could not download certificate: ' + e.message);
+  }
 }
 
 function renderResources(data) {
