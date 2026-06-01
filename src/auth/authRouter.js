@@ -1,6 +1,6 @@
 const express    = require('express');
 const bcrypt     = require('bcryptjs');
-const nodemailer = require('nodemailer');
+const { sendMail } = require('../services/mailerService');
 const fs         = require('fs');
 const path       = require('path');
 const {
@@ -15,31 +15,6 @@ const { hydrateSessionFromJwt }   = require('../config/jwtSession');
 
 const router = express.Router();
 
-// ── Reset-passcode mailer ──
-// Uses SMTP_HOST / SMTP_PORT / SMTP_USER / SMTP_PASS env vars if set.
-// Falls back to Ethereal (catches test mail) when env is absent so the
-// password reset still works in dev/sandbox — SM is shown a preview URL.
-async function buildTransporter() {
-  if (process.env.SMTP_HOST) {
-    return nodemailer.createTransport({
-      host:   process.env.SMTP_HOST,
-      port:   Number(process.env.SMTP_PORT) || 587,
-      secure: Number(process.env.SMTP_PORT) === 465,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
-  }
-  // No real SMTP configured — create a one-time Ethereal test account
-  const testAccount = await nodemailer.createTestAccount();
-  return nodemailer.createTransport({
-    host:   'smtp.ethereal.email',
-    port:   587,
-    secure: false,
-    auth: { user: testAccount.user, pass: testAccount.pass },
-  });
-}
 
 // ── Reset-log (file in data/) ──
 const RESET_LOG = RESET_LOG_FILE;
@@ -202,9 +177,8 @@ router.post('/reset-password/:id', async (req, res) => {
   let emailResult = { sent: false, preview: null, error: null };
   if (target.email) {
     try {
-      const transporter = await buildTransporter();
-      const fromAddr = process.env.SMTP_FROM || process.env.SMTP_USER || 'noreply@templarforge.academy';
-      const info = await transporter.sendMail({
+      const fromAddr = process.env.RESEND_FROM || process.env.SMTP_FROM || process.env.SMTP_USER || 'noreply@templarforge.academy';
+      const result = await sendMail({
         from:    `"Templar Forge Academy" <${fromAddr}>`,
         to:      target.email,
         subject: '✠ KTKC — Your Passcode Has Been Reset',
@@ -235,8 +209,8 @@ router.post('/reset-password/:id', async (req, res) => {
             <p style="margin-top:28px;font-size:.85rem;color:#6a5a40;"><em>Ad Maiorem Dei Gloriam</em></p>
           </div>`,
       });
-      const preview = nodemailer.getTestMessageUrl(info);
-      emailResult = { sent: true, preview: preview || null, error: null };
+      const preview = result.preview || null;
+      emailResult = { sent: true, preview, error: null };
     } catch (err) {
       emailResult = { sent: false, preview: null, error: err.message };
     }

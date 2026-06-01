@@ -23,27 +23,8 @@
  *   Falls back to Ethereal test-catch in dev.
  */
 
-const nodemailer = require('nodemailer');
-const crypto     = require('crypto');
-
-// ── Transporter ──────────────────────────────────────────────────────────────
-
-async function buildTransporter() {
-  if (process.env.SMTP_HOST) {
-    return nodemailer.createTransport({
-      host:   process.env.SMTP_HOST,
-      port:   Number(process.env.SMTP_PORT) || 587,
-      secure: Number(process.env.SMTP_PORT) === 465,
-      auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
-    });
-  }
-  const testAccount = await nodemailer.createTestAccount();
-  return nodemailer.createTransport({
-    host: 'smtp.ethereal.email', port: 587, secure: false,
-    auth: { user: testAccount.user, pass: testAccount.pass },
-  });
-}
-
+const { sendMail } = require('./mailerService');
+const crypto       = require('crypto');
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
 function fmtDate(iso) {
@@ -361,15 +342,15 @@ async function sendCertificate(member, programTitle, completedAt, grade, program
       error: 'No email address on file for this member.' };
   }
 
-  const certId = generateCertId(member, programSlug || 'PROG', completedAt);
+  const certId      = generateCertId(member, programSlug || 'PROG', completedAt);
+  const displayName = `${member.salutation ? member.salutation + ' ' : ''}${member.username}`;
+  const fromAddr    = process.env.RESEND_FROM
+                      || process.env.SMTP_FROM
+                      || process.env.SMTP_USER
+                      || 'noreply@templarforge.academy';
 
   try {
-    const transporter = await buildTransporter();
-    const fromAddr    = process.env.SMTP_FROM || process.env.SMTP_USER
-                        || 'noreply@templarforge.academy';
-    const displayName = `${member.salutation ? member.salutation + ' ' : ''}${member.username}`;
-
-    const info = await transporter.sendMail({
+    const result = await sendMail({
       from:    `"Templar Forge Academy" <${fromAddr}>`,
       to:      member.email,
       subject: `✠ Certificate of Completion — ${programTitle}`,
@@ -377,7 +358,7 @@ async function sendCertificate(member, programTitle, completedAt, grade, program
       html:    buildCertHtml(member, programTitle, completedAt, grade, certId),
     });
 
-    const preview = nodemailer.getTestMessageUrl(info) || null;
+    const preview = result.preview || null;
     console.log(
       `✠ Certificate [${certId}] sent to ${displayName} <${member.email}> ` +
       `for "${programTitle}"${preview ? ' — preview: ' + preview : ''}`
