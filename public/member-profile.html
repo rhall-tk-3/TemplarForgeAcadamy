@@ -741,6 +741,63 @@
       <div class="photo-status" id="photo-status-2" style="margin-top:10px;"></div>
     </div>
 
+    <!-- ── Set / Change Password ── -->
+    <div class="profile-card" id="password-card" style="margin-bottom:40px;">
+      <div class="section-title" id="pw-card-title">🔑 Set Your Password</div>
+
+      <!-- Banner shown to SM-created accounts who haven't yet set their own password -->
+      <div id="pw-must-change-banner" style="
+        display:none;
+        background:linear-gradient(135deg,rgba(140,80,10,.35),rgba(80,40,5,.35));
+        border:1px solid #c08030;
+        border-radius:8px;
+        padding:14px 18px;
+        margin-bottom:18px;
+      ">
+        <div style="font-family:'Cinzel',serif;font-size:.85rem;font-weight:700;color:#f0c060;letter-spacing:.06em;margin-bottom:6px;">
+          ✠ Action Required — Set Your Own Password
+        </div>
+        <p style="font-family:'Crimson Text',serif;font-size:.92rem;color:#d0a860;line-height:1.55;margin:0;">
+          Your account was created by the Schoolmaster with a temporary password.
+          Please set your own personal password below before continuing.
+        </p>
+      </div>
+
+      <p id="pw-card-desc" style="font-family:'Crimson Text',serif;font-size:.92rem;color:#8b7040;line-height:1.6;margin-bottom:18px;">
+        Change your login password at any time. Choose something you'll remember.
+      </p>
+
+      <div style="max-width:420px;">
+        <!-- Current password row — hidden when mustChangePassword -->
+        <div id="pw-current-row" style="margin-bottom:14px;">
+          <label class="field-label">Current Password</label>
+          <input id="pw-current" type="password" class="field-input"
+            placeholder="Your current password"
+            autocomplete="current-password">
+        </div>
+
+        <div style="margin-bottom:14px;">
+          <label class="field-label">New Password <span style="color:#c9a227;">*</span></label>
+          <input id="pw-new" type="password" class="field-input"
+            placeholder="Min 4 characters"
+            autocomplete="new-password">
+        </div>
+
+        <div style="margin-bottom:20px;">
+          <label class="field-label">Confirm New Password <span style="color:#c9a227;">*</span></label>
+          <input id="pw-confirm" type="password" class="field-input"
+            placeholder="Re-enter new password"
+            autocomplete="new-password">
+        </div>
+
+        <button class="btn-save" id="pw-save-btn" onclick="changePassword()"
+          style="padding:11px 32px;font-size:.88rem;">
+          🔑 &nbsp; Update Password
+        </button>
+        <div class="save-status" id="pw-status" style="margin-top:10px;"></div>
+      </div>
+    </div>
+
   </main>
 </div>
 
@@ -777,6 +834,19 @@ Promise.all([
     if (isNewMember) {
       document.getElementById('welcome-new-banner').style.display = 'block';
       document.getElementById('back-link').style.display = 'none';
+    }
+
+    // SM-created accounts: prompt to set own password
+    if (user.mustChangePassword) {
+      document.getElementById('pw-must-change-banner').style.display = 'block';
+      document.getElementById('pw-card-title').textContent = '🔑 Action Required — Set Your Password';
+      document.getElementById('pw-card-desc').textContent =
+        'Your account was set up by the Schoolmaster. Please choose your own personal password now.';
+      document.getElementById('pw-current-row').style.display = 'none';
+      // Scroll to password card after brief delay
+      setTimeout(() => {
+        document.getElementById('password-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 600);
     }
   })
   .catch(() => { window.location.href = '/login'; });
@@ -1093,6 +1163,62 @@ function showSaveStatus(msg, isError) {
   el.textContent = msg;
   el.className = 'save-status ' + (isError ? 'error' : 'success');
   if (!isError) setTimeout(() => { el.className = 'save-status'; }, 5000);
+}
+
+// ── Change Password ──
+async function changePassword() {
+  const currentPw  = document.getElementById('pw-current').value;
+  const newPw      = document.getElementById('pw-new').value;
+  const confirmPw  = document.getElementById('pw-confirm').value;
+  const statusEl   = document.getElementById('pw-status');
+  const btn        = document.getElementById('pw-save-btn');
+  const mustChange = currentUser?.mustChangePassword;
+
+  const showPwStatus = (msg, isErr) => {
+    statusEl.textContent = msg;
+    statusEl.className   = 'save-status ' + (isErr ? 'error' : 'success');
+  };
+
+  if (!newPw)             return showPwStatus('New password is required.', true);
+  if (newPw.length < 4)   return showPwStatus('Password must be at least 4 characters.', true);
+  if (newPw !== confirmPw) return showPwStatus('Passwords do not match.', true);
+  if (!mustChange && !currentPw) return showPwStatus('Current password is required.', true);
+
+  btn.disabled    = true;
+  btn.textContent = '⌛ Saving...';
+
+  try {
+    const res  = await fetch('/api/auth/change-password', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body:    JSON.stringify({ currentPassword: currentPw, newPassword: newPw }),
+    });
+    const data = await res.json();
+
+    if (res.ok) {
+      showPwStatus('✓ Password updated successfully!', false);
+      // Clear fields
+      ['pw-current','pw-new','pw-confirm'].forEach(id => {
+        document.getElementById(id).value = '';
+      });
+      // Hide the must-change banner and restore normal UI
+      document.getElementById('pw-must-change-banner').style.display = 'none';
+      document.getElementById('pw-current-row').style.display = 'block';
+      document.getElementById('pw-card-title').textContent = '🔑 Change Password';
+      document.getElementById('pw-card-desc').textContent =
+        'Change your login password at any time. Choose something you\'ll remember.';
+      // Update local user state so banner doesn't re-appear
+      if (currentUser) currentUser.mustChangePassword = false;
+    } else {
+      showPwStatus(data.error || 'Failed to update password.', true);
+    }
+  } catch (e) {
+    showPwStatus('Connection error — please try again.', true);
+  } finally {
+    btn.disabled    = false;
+    btn.textContent = '🔑 \u00a0 Update Password';
+  }
 }
 </script>
 </body>

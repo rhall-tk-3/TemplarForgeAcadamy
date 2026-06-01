@@ -1,7 +1,7 @@
 'use strict';
 
 // ── DEPLOY VERSION — updated on every push so Railway logs confirm new code ──
-const DEPLOY_VERSION = '1.5.9-2026-06-01';
+const DEPLOY_VERSION = '1.6.0-2026-06-01';
 
 // ── Load .env in development (ignored on Railway — vars injected by platform) ──
 try { require('dotenv').config(); } catch (_) { /* dotenv optional */ }
@@ -386,6 +386,30 @@ app.use('/auth', authRouter);
     return res.json({ ok: true, redirect: '/member/profile?new=1' });
   });
 
+  // ── POST /api/auth/change-password  { currentPassword?, newPassword } ──
+  // Signed-in member changes their own password.
+  // mustChangePassword:true accounts skip the currentPassword check.
+  app.post('/api/auth/change-password', async (req, res) => {
+    hydrateSessionFromJwt(req);
+    if (!req.session.userId) return res.status(401).json({ error: 'Not signed in.' });
+    const { currentPassword, newPassword } = req.body || {};
+    if (!newPassword || newPassword.length < 4) {
+      return res.status(400).json({ error: 'New password must be at least 4 characters.' });
+    }
+    const { findById, updateUser } = require('./src/auth/userStore');
+    const user = findById(req.session.userId);
+    if (!user) return res.status(404).json({ error: 'Account not found.' });
+
+    if (!user.mustChangePassword) {
+      if (!currentPassword) return res.status(400).json({ error: 'Current password is required.' });
+      const ok = await bcrypt.compare(currentPassword, user.password);
+      if (!ok) return res.status(401).json({ error: 'Current password is incorrect.' });
+    }
+    const hashed = await bcrypt.hash(newPassword, 12);
+    updateUser(user.id, { password: hashed, mustChangePassword: false });
+    return res.json({ ok: true, message: 'Password updated successfully.' });
+  });
+
   // ── GET /api/auth/pending  — Schoolmaster only (JWT role: schoolmaster) ──
   // Returns all entries in private/accounts.json with approvalStatus === 'pending'.
   // Auth: academy_session JWT cookie, role must be 'schoolmaster'.
@@ -558,6 +582,91 @@ app.use('/auth', authRouter);
       console.error('✠ promote-pending error:', e.message);
       return res.status(500).json({ error: e.message });
     }
+  });
+
+  // ── POST /api/admin/create-member  — SM only ──
+  // Schoolmaster creates an account on behalf of a non-tech-savvy member.
+  // Payload: { fullName, memberId?, email?, salutation?, tempPassword }
+  // Creates the userStore entry and accounts.json record with mustChangePassword:true
+  // so the member is prompted to set their own password on first login.
+  app.post('/api/admin/create-member', async (req, res) => {
+    if (!smJwtCheck(req, res)) return;
+    const { fullName, memberId, email, salutation, tempPassword } = req.body || {};
+
+    if (!fullName || !fullName.trim()) {
+      return res.status(400).json({ error: 'Full name is required.' });
+    }
+    if (!tempPassword || tempPassword.length < 4) {
+      return res.status(400).json({ error: 'Temporary password must be at least 4 characters.' });
+    }
+
+    const normalizedName = fullName.trim();
+    const { getAllUsers, addRawUser } = require('./src/auth/userStore');
+    const allUsers = getAllUsers();
+
+    // Block duplicate names
+    const duplicate = allUsers.find(
+      u => u.username.trim().toUpperCase() === normalizedName.toUpperCase()
+    );
+    if (duplicate) {
+      return res.status(409).json({ error: `An account for "${normalizedName}" already exists.` });
+    }
+
+    const passwordHash = await bcrypt.hash(tempPassword, 12);
+    const newId        = Date.now().toString();
+    const createdAt    = new Date().toISOString();
+
+    // Add to userStore
+    addRawUser({
+      id:                 newId,
+      username:           normalizedName,
+      salutation:         salutation?.trim() || null,
+      role:               'member',
+      memberId:           memberId?.trim().toUpperCase() || null,
+      password:           passwordHash,
+      email:              email?.trim() || null,
+      source:             'sm-created',
+      mustChangePassword: true,     // forces password-change prompt on first login
+      createdAt,
+      assignedProgram: null, programHistory: [], currentWeek: null,
+      weekSetAt: null, programAssignedAt: null,
+      examSubmissions: [], progressNotes: [],
+      unlockedSlugs: ['levie','squire','corporal','sergeant','sfc',
+                      'knight-aspirant','knight','lieutenant','captain',
+                      'major','commander','chaplain'],
+      rank: null, rankName: null, rankAssignedAt: null, rankHistory: [],
+      programStatus: 'active', statusNote: null, statusChangedAt: null,
+      temple: null, phone: null, photoPath: null, birthday: null,
+    });
+
+    // Also write to accounts.json so SM roster shows them
+    try {
+      const accounts = readAccounts();
+      accounts.push({
+        id:             newId,
+        fullName:       normalizedName,
+        email:          email?.trim() || null,
+        memberId:       memberId?.trim().toUpperCase() || null,
+        passwordHash,
+        role:           'member',
+        approvalStatus: 'approved',
+        approvedAt:     createdAt,
+        approvedBy:     'schoolmaster',
+        source:         'sm-created',
+        createdAt,
+      });
+      writeAccounts(accounts);
+    } catch (e) {
+      console.warn('✠ create-member: could not write accounts.json:', e.message);
+    }
+
+    console.log(`✠ SM created account for "${normalizedName}" (mustChangePassword=true)`);
+    return res.json({
+      ok:       true,
+      id:       newId,
+      username: normalizedName,
+      message:  `Account created for ${normalizedName}. They can log in with the temporary password and will be prompted to set their own.`,
+    });
   });
 
   // ── POST /api/admin/test-certificate  — SM only ──

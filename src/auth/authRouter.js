@@ -236,4 +236,36 @@ router.post('/reset-password/:id', async (req, res) => {
   });
 });
 
+// ── POST /api/auth/change-password  { currentPassword, newPassword } ──
+// Allows a signed-in member to set a new password.
+// If the account has mustChangePassword:true, currentPassword check is skipped
+// (they log in with the SM-assigned temp password and must change it on first login).
+router.post('/change-password', async (req, res) => {
+  hydrateSessionFromJwt(req);
+  if (!req.session.userId) return res.status(401).json({ error: 'Not signed in.' });
+
+  const { currentPassword, newPassword } = req.body || {};
+  if (!newPassword || newPassword.length < 4) {
+    return res.status(400).json({ error: 'New password must be at least 4 characters.' });
+  }
+
+  const { findById, updateUser } = require('./userStore');
+  const user = findById(req.session.userId);
+  if (!user) return res.status(404).json({ error: 'Account not found.' });
+
+  // If mustChangePassword is NOT set, require the current password
+  if (!user.mustChangePassword) {
+    if (!currentPassword) {
+      return res.status(400).json({ error: 'Current password is required.' });
+    }
+    const match = await bcrypt.compare(currentPassword, user.password);
+    if (!match) return res.status(401).json({ error: 'Current password is incorrect.' });
+  }
+
+  const hashed = await bcrypt.hash(newPassword, 12);
+  updateUser(user.id, { password: hashed, mustChangePassword: false });
+
+  return res.json({ ok: true, message: 'Password updated successfully.' });
+});
+
 module.exports = router;

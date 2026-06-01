@@ -542,6 +542,39 @@
       transition:all .2s;
     }
     .btn-edit-toggle:hover { border-color:#8b0030; color:#e8809a; }
+
+    /* ── Create Member form inputs ── */
+    .cm-label {
+      display:block;
+      font-family:'Cinzel',serif;
+      font-size:.65rem;
+      font-weight:700;
+      letter-spacing:.08em;
+      color:#9a7060;
+      text-transform:uppercase;
+      margin-bottom:5px;
+    }
+    .cm-input {
+      width:100%;
+      background:rgba(8,3,1,.7);
+      border:1px solid #5a2818;
+      border-radius:7px;
+      color:#e8d0c0;
+      font-family:'Crimson Text',serif;
+      font-size:.95rem;
+      padding:8px 12px;
+      outline:none;
+      transition:border-color .2s;
+      box-sizing:border-box;
+    }
+    .cm-input:focus { border-color:#a04030; }
+    .cm-input option { background:#1a0800; color:#e8d0c0; }
+    @media (max-width:600px) {
+      #create-member-form-wrap [style*="grid-template-columns:2fr 1fr"],
+      #create-member-form-wrap [style*="grid-template-columns:1fr 1fr"] {
+        grid-template-columns:1fr !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -639,6 +672,125 @@
           style="font-family:'Crimson Text',serif;font-size:.85rem;color:#80c890;display:none;"></span>
         <span id="test-cert-status"
           style="font-family:'Crimson Text',serif;font-size:.85rem;display:none;"></span>
+      </div>
+    </div>
+
+    <!-- ── Create Member Account (SM-created accounts) ── -->
+    <div class="sm-card" id="create-member-panel" style="margin-bottom:18px;">
+      <div class="section-title" style="margin-bottom:4px;">
+        ✠ Create Member Account
+      </div>
+      <p style="font-family:'Crimson Text',serif;font-size:.88rem;color:#a08080;margin:0 0 14px;line-height:1.55;">
+        For members who aren't tech-savvy. Create their account here with a temporary password.
+        They log in, then set their own password and complete their profile.
+      </p>
+
+      <!-- Collapsible form — toggle open/closed -->
+      <button class="sm-btn" id="create-member-toggle"
+        onclick="toggleCreateMemberForm()"
+        style="background:rgba(60,20,10,.85);border-color:#a04020;color:#f0a080;font-size:.8rem;margin-bottom:12px;">
+        ✚ New Account
+      </button>
+
+      <div id="create-member-form-wrap" style="display:none;">
+        <div style="
+          background:rgba(10,4,2,.55);
+          border:1px solid #5a2818;
+          border-radius:10px;
+          padding:20px 22px;
+          margin-top:4px;
+        ">
+          <!-- Row 1: Name + Salutation -->
+          <div style="display:grid;grid-template-columns:2fr 1fr;gap:12px;margin-bottom:14px;">
+            <div>
+              <label class="cm-label">Full Name <span style="color:#c06040;">*</span></label>
+              <input id="cm-fullname" type="text" class="cm-input"
+                placeholder="e.g. John Cody Goodwin"
+                autocapitalize="words" autocomplete="off">
+            </div>
+            <div>
+              <label class="cm-label">Salutation</label>
+              <select id="cm-salutation" class="cm-input">
+                <option value="">— none —</option>
+                <option value="Sir">Sir</option>
+                <option value="Dame">Dame</option>
+                <option value="Bro.">Bro.</option>
+                <option value="Sr.">Sr.</option>
+                <option value="Fr.">Fr.</option>
+                <option value="Dr.">Dr.</option>
+                <option value="Rev.">Rev.</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Row 2: Member ID + Email -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+            <div>
+              <label class="cm-label">Member ID</label>
+              <input id="cm-memberid" type="text" class="cm-input"
+                placeholder="e.g. KTKC-0042"
+                autocapitalize="characters" autocomplete="off">
+            </div>
+            <div>
+              <label class="cm-label">Email Address</label>
+              <input id="cm-email" type="email" class="cm-input"
+                placeholder="member@email.com"
+                autocomplete="off">
+            </div>
+          </div>
+
+          <!-- Row 3: Temp Password + Confirm -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;">
+            <div>
+              <label class="cm-label">Temporary Password <span style="color:#c06040;">*</span></label>
+              <div style="position:relative;">
+                <input id="cm-password" type="password" class="cm-input" style="padding-right:36px;"
+                  placeholder="Min 4 characters"
+                  autocomplete="new-password">
+                <button type="button" onclick="toggleCmPw('cm-password','cm-pw-eye')"
+                  style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#a08070;font-size:1rem;padding:0;"
+                  title="Show/hide">
+                  <span id="cm-pw-eye">👁</span>
+                </button>
+              </div>
+            </div>
+            <div>
+              <label class="cm-label">Confirm Password <span style="color:#c06040;">*</span></label>
+              <div style="position:relative;">
+                <input id="cm-password2" type="password" class="cm-input" style="padding-right:36px;"
+                  placeholder="Re-enter password"
+                  autocomplete="new-password">
+                <button type="button" onclick="toggleCmPw('cm-password2','cm-pw2-eye')"
+                  style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#a08070;font-size:1rem;padding:0;"
+                  title="Show/hide">
+                  <span id="cm-pw2-eye">👁</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hint -->
+          <p style="font-family:'Crimson Text',serif;font-size:.82rem;color:#7a6050;margin:0 0 14px;line-height:1.5;">
+            💡 Give the member their full name and temporary password to log in at
+            <strong style="color:#a08060;">templarforge.academy/login</strong>.
+            They will be prompted to set their own password on first login.
+          </p>
+
+          <!-- Actions -->
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+            <button class="sm-btn" id="cm-submit-btn"
+              onclick="submitCreateMember()"
+              style="background:linear-gradient(135deg,rgba(120,50,10,.9),rgba(80,25,5,.9));border-color:#c06030;color:#f0c090;">
+              ✠ Create Account
+            </button>
+            <button class="sm-btn" onclick="cancelCreateMember()"
+              style="background:rgba(30,10,5,.7);border-color:#4a2010;color:#907060;font-size:.78rem;">
+              Cancel
+            </button>
+            <span id="cm-status"
+              style="font-family:'Crimson Text',serif;font-size:.88rem;display:none;margin-left:4px;"></span>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1680,6 +1832,91 @@ function renderExams(m) {
   }
 
   el.innerHTML = html;
+}
+
+// ── Create Member Account (SM-created) ──
+function toggleCreateMemberForm() {
+  const wrap = document.getElementById('create-member-form-wrap');
+  const btn  = document.getElementById('create-member-toggle');
+  const open = wrap.style.display === 'none';
+  wrap.style.display = open ? 'block' : 'none';
+  btn.textContent    = open ? '✖ Close' : '✚ New Account';
+  if (open) document.getElementById('cm-fullname').focus();
+}
+function cancelCreateMember() {
+  document.getElementById('create-member-form-wrap').style.display = 'none';
+  document.getElementById('create-member-toggle').textContent = '✚ New Account';
+  clearCreateMemberForm();
+}
+function clearCreateMemberForm() {
+  ['cm-fullname','cm-memberid','cm-email','cm-password','cm-password2'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  document.getElementById('cm-salutation').value = '';
+  const s = document.getElementById('cm-status');
+  s.style.display = 'none';
+  s.textContent   = '';
+}
+function toggleCmPw(inputId, eyeId) {
+  const input = document.getElementById(inputId);
+  const eye   = document.getElementById(eyeId);
+  if (input.type === 'password') {
+    input.type = 'text';
+    eye.textContent = '🙈';
+  } else {
+    input.type = 'password';
+    eye.textContent = '👁';
+  }
+}
+async function submitCreateMember() {
+  const name   = document.getElementById('cm-fullname').value.trim();
+  const sal    = document.getElementById('cm-salutation').value;
+  const mid    = document.getElementById('cm-memberid').value.trim();
+  const email  = document.getElementById('cm-email').value.trim();
+  const pw     = document.getElementById('cm-password').value;
+  const pw2    = document.getElementById('cm-password2').value;
+  const status = document.getElementById('cm-status');
+  const btn    = document.getElementById('cm-submit-btn');
+
+  const showStatus = (msg, ok) => {
+    status.textContent    = msg;
+    status.style.color    = ok ? '#80d890' : '#e08070';
+    status.style.display  = 'inline';
+  };
+
+  if (!name)          return showStatus('✗ Full name is required.', false);
+  if (!pw)            return showStatus('✗ Temporary password is required.', false);
+  if (pw.length < 4)  return showStatus('✗ Password must be at least 4 characters.', false);
+  if (pw !== pw2)     return showStatus('✗ Passwords do not match.', false);
+
+  btn.disabled    = true;
+  btn.textContent = '⌛ Creating...';
+  status.style.display = 'none';
+
+  try {
+    const res  = await fetch('/api/admin/create-member', {
+      method:      'POST',
+      credentials: 'include',
+      headers:     { 'Content-Type': 'application/json' },
+      body:        JSON.stringify({ fullName: name, salutation: sal, memberId: mid, email, tempPassword: pw }),
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      showStatus('✗ ' + (data.error || 'Failed.'), false);
+    } else {
+      showStatus(`✓ Account created for ${name}. Give them their name + temp password to log in.`, true);
+      clearCreateMemberForm();
+      // Add to local roster without full reload
+      await loadRoster();
+      toast(`✠ Account created: ${name}`, true);
+    }
+  } catch(e) {
+    showStatus('✗ ' + e.message, false);
+  } finally {
+    btn.disabled    = false;
+    btn.textContent = '✠ Create Account';
+  }
 }
 
 // ── Fix Stuck Logins — force-promote pending accounts.json entries ──
