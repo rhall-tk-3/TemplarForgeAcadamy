@@ -1,7 +1,7 @@
 'use strict';
 
 // ── DEPLOY VERSION — updated on every push so Railway logs confirm new code ──
-const DEPLOY_VERSION = '1.7.1-2026-06-01';
+const DEPLOY_VERSION = '1.7.2-2026-06-01';
 
 // ── Load .env in development (ignored on Railway — vars injected by platform) ──
 try { require('dotenv').config(); } catch (_) { /* dotenv optional */ }
@@ -1012,11 +1012,12 @@ app.get('/admin/members', requireAdmin, (_req, res) => {
 });
 
 // ── CERTIFICATE DOWNLOAD ──
-// GET /api/member/certificate/:slug/download
-// Member downloads their own completion certificate for a given program as a PDF.
-// The slug must match a completed program in the member's programHistory.
-// No certId lookup is needed — we regenerate the same HTML and render to PDF on demand.
-app.get('/api/member/certificate/:slug/download', requireMember, async (req, res) => {
+// GET /member/certificate/:slug/download  (browser-navigable — no /api/ prefix)
+// Non-API path so unauthenticated clicks (e.g. from email button) get a login
+// redirect instead of a 401 JSON blob.  After login, the browser resumes the
+// original URL and the PDF streams as an attachment.
+// Also aliased as /api/member/certificate/:slug/download for dashboard JS fetch.
+async function handleCertDownload(req, res) {
   const { findById, getMemberUsers } = require('./src/auth/userStore');
   const { getCurriculumIndex }       = require('./src/services/curriculumService');
   const { buildCertHtml, generateCertId, fmtDate } = require('./src/services/certificateService');
@@ -1067,9 +1068,18 @@ app.get('/api/member/certificate/:slug/download', requireMember, async (req, res
 
   } catch (err) {
     console.error('✠ Certificate PDF generation failed:', err.message);
-    return res.status(500).json({ error: 'Could not generate PDF: ' + err.message });
+    // For browser nav return a readable error page; for XHR return JSON
+    if (req.xhr || (req.headers.accept || '').includes('application/json')) {
+      return res.status(500).json({ error: 'Could not generate PDF: ' + err.message });
+    }
+    return res.status(500).send(`<h2 style="font-family:sans-serif;color:#8a2000;">Certificate generation failed</h2><p>${err.message}</p><p><a href="/member">Return to dashboard</a></p>`);
   }
-});
+}
+
+// Browser-navigable route (email link / direct bookmark) — redirects to login if not authenticated
+app.get('/member/certificate/:slug/download', requireMember, handleCertDownload);
+// API alias — used by dashboard JS fetch()
+app.get('/api/member/certificate/:slug/download', requireMember, handleCertDownload);
 
 // GET /api/member/certificates — list all completed program slugs for the logged-in member
 app.get('/api/member/certificates', requireMember, (req, res) => {

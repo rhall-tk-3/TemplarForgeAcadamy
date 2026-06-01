@@ -412,7 +412,7 @@ function buildCertHtml(member, programTitle, completedAt, grade, certId, program
           <td align="center"
               style="background:#8a2000;border-radius:6px;padding:0;
                      border:1px solid #6a1800;">
-            <a href="https://templarforge.academy/api/member/certificate/${programSlug}/download"
+            <a href="https://templarforge.academy/member/certificate/${programSlug}/download"
                style="display:inline-block;padding:10px 28px;
                       font-family:'Palatino Linotype',Georgia,serif;
                       font-size:13px;font-weight:700;color:#f8e4b0;
