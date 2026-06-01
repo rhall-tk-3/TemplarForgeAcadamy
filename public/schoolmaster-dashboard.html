@@ -629,8 +629,16 @@
           style="background:rgba(20,60,30,.85);border-color:#2a8040;color:#80d890;font-size:.75rem;">
           ⚙ Fix Stuck Logins
         </button>
+        <button class="sm-btn" id="test-cert-btn"
+          onclick="sendTestCertificate()"
+          title="Send a test certificate email to verify Resend is working"
+          style="background:rgba(20,30,70,.85);border-color:#2a4090;color:#80a8f0;font-size:.75rem;">
+          ✉ Test Certificate Email
+        </button>
         <span id="promote-pending-status"
           style="font-family:'Crimson Text',serif;font-size:.85rem;color:#80c890;display:none;"></span>
+        <span id="test-cert-status"
+          style="font-family:'Crimson Text',serif;font-size:.85rem;display:none;"></span>
       </div>
     </div>
 
@@ -1706,6 +1714,39 @@ async function promotePendingAccounts() {
   } finally {
     btn.disabled = false;
     btn.textContent = '⚙ Fix Stuck Logins';
+  }
+}
+
+// ── Test Certificate Email ──
+async function sendTestCertificate() {
+  const btn    = document.getElementById('test-cert-btn');
+  const status = document.getElementById('test-cert-status');
+  btn.disabled = true;
+  btn.textContent = '✉ Sending...';
+  status.style.display = 'none';
+  try {
+    const res  = await fetch('/api/admin/test-certificate', {
+      method: 'POST',
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({})
+    });
+    const data = await res.json();
+    if (data.ok) {
+      status.textContent = `✓ Sent to ${data.to}${data.certId ? ' · ID: ' + data.certId : ''}`;
+      status.style.color = '#80c8f0';
+    } else {
+      status.textContent = `✗ ${data.error || data.message || 'Failed'}`;
+      status.style.color = '#e07070';
+    }
+    status.style.display = 'inline';
+  } catch(e) {
+    status.textContent = '✗ ' + e.message;
+    status.style.color = '#e07070';
+    status.style.display = 'inline';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '✉ Test Certificate Email';
   }
 }
 

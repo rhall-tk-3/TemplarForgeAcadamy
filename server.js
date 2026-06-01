@@ -1,7 +1,7 @@
 'use strict';
 
 // ── DEPLOY VERSION — updated on every push so Railway logs confirm new code ──
-const DEPLOY_VERSION = '1.5.8-2026-06-01';
+const DEPLOY_VERSION = '1.5.9-2026-06-01';
 
 // ── Load .env in development (ignored on Railway — vars injected by platform) ──
 try { require('dotenv').config(); } catch (_) { /* dotenv optional */ }
@@ -557,6 +557,45 @@ app.use('/auth', authRouter);
     } catch (e) {
       console.error('✠ promote-pending error:', e.message);
       return res.status(500).json({ error: e.message });
+    }
+  });
+
+  // ── POST /api/admin/test-certificate  — SM only ──
+  // Sends a real certificate email to the SM's own address (or any supplied address)
+  // so the email pipeline can be verified without marking a member complete.
+  app.post('/api/admin/test-certificate', async (req, res) => {
+    if (!smJwtCheck(req, res)) return;
+    const { sendCertificate } = require('./src/services/certificateService');
+    const { to } = req.body || {};
+
+    const fakeMember = {
+      username:  'Test Knight',
+      salutation: 'Sir',
+      email:      to || process.env.SMTP_USER || process.env.SMTP_FROM?.match(/<(.+)>/)?.[1] || 'rhall@tkkc.info',
+      memberId:  'KTKC-TEST',
+    };
+
+    try {
+      const result = await sendCertificate(
+        fakeMember,
+        'Squire School — Templar Forge Academy',
+        new Date().toISOString(),
+        'Pass',
+        'squire'
+      );
+      console.log(`✠ Test certificate: sent=${result.sent}, certId=${result.certId}, error=${result.error}`);
+      return res.json({
+        ok:      result.sent,
+        to:      fakeMember.email,
+        certId:  result.certId,
+        preview: result.preview,
+        error:   result.error,
+        message: result.sent
+          ? `Test certificate sent to ${fakeMember.email}. Check your inbox (and spam folder).`
+          : `Send failed: ${result.error}`,
+      });
+    } catch (e) {
+      return res.status(500).json({ ok: false, error: e.message });
     }
   });
 
