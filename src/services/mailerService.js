@@ -12,16 +12,16 @@
  *                          - transporter.verify() before send for clean error messages
  *   3. Neither set     → Ethereal test-catch (dev only; preview URL in logs)
  *
- * Railway env vars needed for live email (SMTP path):
+ * ── Resend (REQUIRED on Railway — SMTP ports 465/587 are blocked by Railway) ──
+ *   RESEND_API_KEY   re_xxxxxxxxxxxx          ← from resend.com dashboard
+ *   RESEND_FROM      Templar Forge Academy <noreply@templarforge.academy>
+ *
+ * ── SMTP (local dev / non-Railway only — Railway blocks all outbound SMTP) ──
  *   SMTP_HOST   smtp.gmail.com
  *   SMTP_PORT   465
  *   SMTP_USER   rhall@tkkc.info
  *   SMTP_PASS   mhqe fyjq vqfq ahuk   ← spaces OK, stripped automatically
- *   SMTP_FROM   TEMPLAR FORGE ACADEMY <rhall@tkkc.info>
- *
- * Or for Resend (recommended — port 443, zero Railway firewall issues):
- *   RESEND_API_KEY   re_xxxxxxxxxxxx
- *   RESEND_FROM      TEMPLAR FORGE ACADEMY <noreply@yourdomain.com>
+ *   SMTP_FROM   Templar Forge Academy <noreply@templarforge.academy>
  */
 
 const nodemailer = require('nodemailer');
