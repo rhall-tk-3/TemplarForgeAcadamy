@@ -1,34 +1,39 @@
 'use strict';
 
 /**
- * mailerService.js — shared, Railway-hardened email transport
+ * mailerService.js — shared, Railway-hardened email transport  v3
  *
  * Priority order:
- *   1. RESEND_API_KEY  → Resend.com REST API (most reliable on Railway; no SMTP port issues)
- *   2. SMTP_HOST       → nodemailer SMTP with hardened TLS/timeout config
- *   3. Neither         → Ethereal test-catch (dev only; preview URL logged)
+ *   1. RESEND_API_KEY  → Resend.com REST API over HTTPS 443 (never blocked by Railway)
+ *   2. SMTP_HOST       → SMTP with:
+ *                          - SMTP_PASS spaces stripped (App Passwords copy with spaces)
+ *                          - Port 465 (SMTPS/SSL) tried first; auto-falls back to 587 (STARTTLS)
+ *                          - requireTLS on 587, secure:true on 465, TLS options, explicit timeouts
+ *                          - transporter.verify() before send for clean error messages
+ *   3. Neither set     → Ethereal test-catch (dev only; preview URL in logs)
  *
- * Railway note:
- *   Railway's network commonly blocks outbound SMTP on port 587/465.
- *   Resend (HTTPS port 443) is the recommended path for production.
- *   Sign up free at https://resend.com → API Keys → add RESEND_API_KEY to Railway.
- *   Also set RESEND_FROM to your verified sender, e.g.:
- *     RESEND_FROM=Templar Forge Academy <noreply@templarforge.academy>
+ * Railway env vars needed for live email (SMTP path):
+ *   SMTP_HOST   smtp.gmail.com
+ *   SMTP_PORT   465
+ *   SMTP_USER   rhall@tkkc.info
+ *   SMTP_PASS   mhqe fyjq vqfq ahuk   ← spaces OK, stripped automatically
+ *   SMTP_FROM   TEMPLAR FORGE ACADEMY <rhall@tkkc.info>
  *
- * Exports:
- *   sendMail({ from, to, subject, text, html })
- *   → Promise<{ messageId, preview: url|null }>
- *   Throws on failure (caller should catch and handle).
+ * Or for Resend (recommended — port 443, zero Railway firewall issues):
+ *   RESEND_API_KEY   re_xxxxxxxxxxxx
+ *   RESEND_FROM      TEMPLAR FORGE ACADEMY <noreply@yourdomain.com>
  */
 
 const nodemailer = require('nodemailer');
 const https      = require('https');
 
-// ── 1. Resend REST transport (no SMTP port; uses HTTPS 443) ─────────────────
+// ─────────────────────────────────────────────────────────────────────────────
+// 1. Resend REST transport
+// ─────────────────────────────────────────────────────────────────────────────
 
 function sendViaResend({ from, to, subject, text, html }) {
   return new Promise((resolve, reject) => {
-    const apiKey = process.env.RESEND_API_KEY;
+    const apiKey   = process.env.RESEND_API_KEY;
     const fromAddr = from
       || process.env.RESEND_FROM
       || process.env.SMTP_FROM
@@ -36,19 +41,17 @@ function sendViaResend({ from, to, subject, text, html }) {
 
     const body = JSON.stringify({ from: fromAddr, to: [to], subject, text, html });
 
-    const options = {
+    const req = https.request({
       hostname: 'api.resend.com',
       port:     443,
       path:     '/emails',
       method:   'POST',
       headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Content-Type':  'application/json',
+        'Authorization':  `Bearer ${apiKey}`,
+        'Content-Type':   'application/json',
         'Content-Length': Buffer.byteLength(body),
       },
-    };
-
-    const req = https.request(options, (res) => {
+    }, (res) => {
       let data = '';
       res.on('data', chunk => { data += chunk; });
       res.on('end', () => {
@@ -57,121 +60,156 @@ function sendViaResend({ from, to, subject, text, html }) {
           if (res.statusCode >= 200 && res.statusCode < 300) {
             resolve({ messageId: parsed.id || 'resend-ok', preview: null });
           } else {
-            reject(new Error(`Resend API error ${res.statusCode}: ${parsed.message || data}`));
+            reject(new Error(`Resend API ${res.statusCode}: ${parsed.message || parsed.name || data}`));
           }
         } catch (e) {
-          reject(new Error(`Resend parse error: ${e.message}`));
+          reject(new Error(`Resend parse error: ${e.message} — raw: ${data.slice(0,200)}`));
         }
       });
     });
 
-    req.on('error', (e) => reject(new Error(`Resend network error: ${e.message}`)));
-    req.setTimeout(15000, () => { req.destroy(); reject(new Error('Resend request timed out')); });
+    req.on('error', e => reject(new Error(`Resend network error: ${e.message}`)));
+    req.setTimeout(15000, () => { req.destroy(); reject(new Error('Resend request timed out after 15s')); });
     req.write(body);
     req.end();
   });
 }
 
-// ── 2. Nodemailer SMTP transport (hardened for Railway) ──────────────────────
-
-async function buildSmtpTransporter() {
-  const host = process.env.SMTP_HOST;
-  const port = Number(process.env.SMTP_PORT) || 587;
-
-  // Gmail-specific: port 465 = SSL (secure:true), port 587 = STARTTLS (secure:false + requireTLS:true)
-  const isSSL = port === 465;
-
-  return nodemailer.createTransport({
-    host,
-    port,
-    secure: isSSL,
-    requireTLS: !isSSL,           // force STARTTLS on port 587; never allow plain-text fallback
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
-    },
-    tls: {
-      // Accept self-signed or intermediate certs (common on Railway proxies)
-      rejectUnauthorized: false,
-      minVersion: 'TLSv1.2',
-    },
-    // Explicit timeouts — Railway default is very short; 30s is safe for Gmail
-    connectionTimeout: 30000,   // 30 s to establish TCP connection
-    greetingTimeout:   20000,   // 20 s to receive SMTP greeting
-    socketTimeout:     60000,   // 60 s max for entire transaction
-    // Pooling off — each send is independent; avoids stale-connection errors
-    pool: false,
-    // Disable SMTP pipelining (some Railway egress proxies strip PIPELINING capability)
-    disableFileAccess: true,
-  });
-}
-
-// ── 3. Ethereal fallback (dev only) ─────────────────────────────────────────
-
-async function buildEtherealTransporter() {
-  const testAccount = await nodemailer.createTestAccount();
-  return nodemailer.createTransport({
-    host: 'smtp.ethereal.email',
-    port: 587,
-    secure: false,
-    auth: { user: testAccount.user, pass: testAccount.pass },
-    connectionTimeout: 20000,
-    greetingTimeout:   15000,
-    socketTimeout:     30000,
-  });
-}
-
-// ── Public: sendMail ─────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────
+// 2. Gmail/SMTP transport  (hardened for Railway)
+// ─────────────────────────────────────────────────────────────────────────────
 
 /**
- * sendMail(opts)
- *
- * opts: { from?, to, subject, text, html }
- *
- * Returns { messageId, preview }  — preview is an Ethereal URL or null.
- * Throws a descriptive Error on failure.
+ * Gmail App Passwords are displayed with spaces every 4 chars (e.g. "mhqe fyjq vqfq ahuk").
+ * Railway stores the value as-is. Stripping spaces gives the real 16-char password.
+ */
+function cleanPass(raw) {
+  return String(raw || '').replace(/\s+/g, '');
+}
+
+function makeSmtpConfig(port) {
+  const isSSL = port === 465;
+  return {
+    host:       process.env.SMTP_HOST,
+    port,
+    secure:     isSSL,
+    requireTLS: !isSSL,          // force STARTTLS on 587; no plain-text fallback
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: cleanPass(process.env.SMTP_PASS),   // ← strip spaces from App Password
+    },
+    tls: {
+      rejectUnauthorized: false, // tolerate Railway's egress TLS proxy
+      minVersion: 'TLSv1.2',
+    },
+    connectionTimeout: 30000,    // 30 s TCP connect
+    greetingTimeout:   20000,    // 20 s SMTP greeting
+    socketTimeout:     60000,    // 60 s full transaction
+    pool:              false,    // independent connection per send
+    disableFileAccess: true,
+  };
+}
+
+/**
+ * Try a transporter config, verify the connection, send the mail.
+ * Returns { messageId, preview: null } on success.
+ * Throws descriptive Error on failure.
+ */
+async function trySend(config, mailOpts) {
+  const t = nodemailer.createTransport(config);
+  try {
+    await t.verify();
+  } catch (err) {
+    t.close();
+    throw err;
+  }
+  const info = await t.sendMail(mailOpts);
+  t.close();
+  return { messageId: info.messageId || 'smtp-ok', preview: null };
+}
+
+async function sendViaSmtp(mailOpts) {
+  const configuredPort = Number(process.env.SMTP_PORT) || 465;  // default: 465 (SMTPS)
+
+  // Try configured port first
+  try {
+    console.log(`✠ Mailer: SMTP attempt on port ${configuredPort}`);
+    return await trySend(makeSmtpConfig(configuredPort), mailOpts);
+  } catch (firstErr) {
+    console.warn(`✠ Mailer: port ${configuredPort} failed — ${firstErr.message}`);
+  }
+
+  // Auto-fallback to the other port (465 → 587 or 587 → 465)
+  const fallbackPort = configuredPort === 465 ? 587 : 465;
+  try {
+    console.log(`✠ Mailer: SMTP fallback attempt on port ${fallbackPort}`);
+    return await trySend(makeSmtpConfig(fallbackPort), mailOpts);
+  } catch (secondErr) {
+    console.error(`✠ Mailer: port ${fallbackPort} also failed — ${secondErr.message}`);
+    // Both ports failed — give SM a clear actionable error
+    throw new Error(
+      `SMTP failed on ports ${configuredPort} and ${fallbackPort}: ${secondErr.message}. ` +
+      `Railway may be blocking outbound SMTP. ` +
+      `To fix: add RESEND_API_KEY to Railway env vars (free at resend.com).`
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 3. Ethereal fallback  (dev / no credentials configured)
+// ─────────────────────────────────────────────────────────────────────────────
+
+async function sendViaEthereal(mailOpts) {
+  const testAccount = await nodemailer.createTestAccount();
+  const t = nodemailer.createTransport({
+    host: 'smtp.ethereal.email', port: 587, secure: false,
+    auth: { user: testAccount.user, pass: testAccount.pass },
+    connectionTimeout: 20000, greetingTimeout: 15000, socketTimeout: 30000,
+  });
+  const info    = await t.sendMail(mailOpts);
+  const preview = nodemailer.getTestMessageUrl(info) || null;
+  t.close();
+  console.log(`✠ Mailer: Ethereal preview → ${preview}`);
+  return { messageId: info.messageId, preview };
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Public API
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * sendMail({ from?, to, subject, text, html })
+ * Returns { messageId, preview }
+ * Throws on failure — caller wraps in try/catch and returns { sent:false, error }
  */
 async function sendMail({ from, to, subject, text, html }) {
-  // ── Path 1: Resend API ──
+  const fromAddr = from
+    || process.env.RESEND_FROM
+    || process.env.SMTP_FROM
+    || process.env.SMTP_USER
+    || 'Templar Forge Academy <noreply@templarforge.academy>';
+
+  const mailOpts = { from: fromAddr, to, subject, text, html };
+
+  // ── Resend (preferred on Railway) ──
   if (process.env.RESEND_API_KEY) {
-    console.log(`✠ Mailer: sending via Resend API to ${to}`);
-    const result = await sendViaResend({ from, to, subject, text, html });
-    console.log(`✠ Mailer: Resend accepted (id: ${result.messageId})`);
-    return result;
+    console.log(`✠ Mailer: Resend → ${to}`);
+    const r = await sendViaResend(mailOpts);
+    console.log(`✠ Mailer: Resend OK (${r.messageId})`);
+    return r;
   }
 
-  // ── Path 2: SMTP ──
+  // ── SMTP (with space-stripped password + port fallback) ──
   if (process.env.SMTP_HOST) {
-    console.log(`✠ Mailer: sending via SMTP ${process.env.SMTP_HOST}:${process.env.SMTP_PORT || 587} to ${to}`);
-    const transporter = await buildSmtpTransporter();
-
-    // Verify connection before attempting send — gives a clean error instead of timeout
-    try {
-      await transporter.verify();
-      console.log('✠ Mailer: SMTP connection verified');
-    } catch (verifyErr) {
-      // Common Railway issue: SMTP port blocked by egress firewall
-      throw new Error(
-        `SMTP connection failed: ${verifyErr.message}. ` +
-        `Check SMTP_HOST/PORT in Railway env vars, or switch to Resend (add RESEND_API_KEY).`
-      );
-    }
-
-    const info    = await transporter.sendMail({ from, to, subject, text, html });
-    const preview = nodemailer.getTestMessageUrl(info) || null;
-    console.log(`✠ Mailer: SMTP sent (id: ${info.messageId})${preview ? ' preview: ' + preview : ''}`);
-    transporter.close();
-    return { messageId: info.messageId, preview };
+    console.log(`✠ Mailer: SMTP → ${to} (user: ${process.env.SMTP_USER}, pass length: ${cleanPass(process.env.SMTP_PASS).length})`);
+    const r = await sendViaSmtp(mailOpts);
+    console.log(`✠ Mailer: SMTP OK (${r.messageId})`);
+    return r;
   }
 
-  // ── Path 3: Ethereal (dev fallback) ──
-  console.log('✠ Mailer: no SMTP/Resend config — using Ethereal test account');
-  const transporter = await buildEtherealTransporter();
-  const info        = await transporter.sendMail({ from, to, subject, text, html });
-  const preview     = nodemailer.getTestMessageUrl(info) || null;
-  console.log(`✠ Mailer: Ethereal preview → ${preview}`);
-  transporter.close();
-  return { messageId: info.messageId, preview };
+  // ── Ethereal dev fallback ──
+  console.log(`✠ Mailer: no credentials — Ethereal dev catch → ${to}`);
+  return sendViaEthereal(mailOpts);
 }
 
 module.exports = { sendMail };
