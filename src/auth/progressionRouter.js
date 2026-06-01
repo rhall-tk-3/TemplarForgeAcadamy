@@ -23,7 +23,9 @@
  */
 
 const express  = require('express');
+const fs       = require('fs');
 const { findById, updateUser, deleteUser, getMemberUsers, safeUser } = require('./userStore');
+const { ACCOUNTS_FILE, SUBMISSIONS_FILE } = require('../config/dataPaths');
 const { getCurriculumIndex } = require('../services/curriculumService');
 const { getLessonForWeek }   = require('../services/lessonService');
 const { readStore, studentKey } = require('../services/submissionStoreService');
@@ -611,8 +613,45 @@ router.delete('/member/:id', requireAdmin, (req, res) => {
   if (!user || user.role === 'admin') return res.status(404).json({ error: 'Member not found.' });
 
   const username = user.username;
+  const userEmail = (user.email || '').trim().toLowerCase();
   try {
+    // 1. Remove from userStore (data/users.json)
     deleteUser(user.id);
+
+    // 2. Remove from accounts.json so the boot migration never re-promotes them
+    try {
+      if (fs.existsSync(ACCOUNTS_FILE)) {
+        const accounts = JSON.parse(fs.readFileSync(ACCOUNTS_FILE, 'utf8'));
+        const filtered = accounts.filter(a => {
+          const nameMatch  = (a.fullName  || '').trim().toUpperCase() === username.trim().toUpperCase();
+          const emailMatch = userEmail && (a.email || '').trim().toLowerCase() === userEmail;
+          return !(nameMatch || emailMatch);
+        });
+        if (filtered.length !== accounts.length) {
+          fs.writeFileSync(ACCOUNTS_FILE, JSON.stringify(filtered, null, 2), 'utf8');
+        }
+      }
+    } catch (acctErr) {
+      console.warn(`✠ Delete: could not clean accounts.json for ${username}:`, acctErr.message);
+    }
+
+    // 3. Remove curriculum submissions for this member
+    try {
+      if (fs.existsSync(SUBMISSIONS_FILE)) {
+        const subs = JSON.parse(fs.readFileSync(SUBMISSIONS_FILE, 'utf8'));
+        const filteredSubs = subs.filter(s =>
+          s.studentId !== user.id &&
+          s.studentName?.trim().toUpperCase() !== username.trim().toUpperCase()
+        );
+        if (filteredSubs.length !== subs.length) {
+          fs.writeFileSync(SUBMISSIONS_FILE, JSON.stringify(filteredSubs, null, 2), 'utf8');
+        }
+      }
+    } catch (subErr) {
+      console.warn(`✠ Delete: could not clean submissions for ${username}:`, subErr.message);
+    }
+
+    console.log(`✠ Member "${username}" permanently deleted (userStore + accounts.json + submissions).`);
     res.json({ ok: true, message: `Member "${username}" has been permanently deleted.` });
   } catch (err) {
     res.status(500).json({ error: err.message });
