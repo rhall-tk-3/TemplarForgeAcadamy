@@ -344,14 +344,19 @@ async function sendCertificate(member, programTitle, completedAt, grade, program
 
   const certId      = generateCertId(member, programSlug || 'PROG', completedAt);
   const displayName = `${member.salutation ? member.salutation + ' ' : ''}${member.username}`;
-  const fromAddr    = process.env.RESEND_FROM
-                      || process.env.SMTP_FROM
-                      || process.env.SMTP_USER
-                      || 'noreply@templarforge.academy';
+  // Build a safe from address: if the env var already contains "Name <email>"
+  // use it as-is; if it's a bare email address, wrap it with the display name.
+  const rawFrom  = process.env.RESEND_FROM
+                   || process.env.SMTP_FROM
+                   || process.env.SMTP_USER
+                   || null;
+  const fromAddr = rawFrom
+    ? (rawFrom.includes('<') ? rawFrom : `Templar Forge Academy <${rawFrom}>`)
+    : 'Templar Forge Academy <noreply@templarforge.academy>';
 
   try {
     const result = await sendMail({
-      from:    `"Templar Forge Academy" <${fromAddr}>`,
+      from:    fromAddr,
       to:      member.email,
       subject: `✠ Certificate of Completion — ${programTitle}`,
       text:    buildCertText(member, programTitle, completedAt, grade, certId),

@@ -177,9 +177,12 @@ router.post('/reset-password/:id', async (req, res) => {
   let emailResult = { sent: false, preview: null, error: null };
   if (target.email) {
     try {
-      const fromAddr = process.env.RESEND_FROM || process.env.SMTP_FROM || process.env.SMTP_USER || 'noreply@templarforge.academy';
+      const rawFrom  = process.env.RESEND_FROM || process.env.SMTP_FROM || process.env.SMTP_USER || null;
+      const fromAddr = rawFrom
+        ? (rawFrom.includes('<') ? rawFrom : `Templar Forge Academy <${rawFrom}>`)
+        : 'Templar Forge Academy <noreply@templarforge.academy>';
       const result = await sendMail({
-        from:    `"Templar Forge Academy" <${fromAddr}>`,
+        from:    fromAddr,
         to:      target.email,
         subject: '✠ KTKC — Your Passcode Has Been Reset',
         text: [
