@@ -1,30 +1,31 @@
 'use strict';
 
 /**
- * certificateService.js  — v2.0
+ * certificateService.js  — v3.0
  *
- * Sends a styled HTML certificate of completion that faithfully replicates
- * the official Templar Forge Academy PDF design:
+ * HTML email certificate that faithfully matches the official TFA PDF:
  *
- *   • Landscape letter proportion (792×612 pt equivalent)
- *   • Light cream/yellow background (#FFFFD0) with gold-yellow horizontal bands
- *   • "CERTIFICATE OF COMPLETION" in Algerian / all-caps serif, red (#EE0000)
- *   • "this certificate is proudly presented to:" sub-label in red
- *   • Student name in large black bold serif
- *   • Program name and body copy in black/dark text
- *   • Date of completion and Certificate ID fields
- *   • "{{knights templar journey of knowledge}}" program badge line in red
- *   • Dual signature block: Schoolmaster (left) + Academy Director / Grandmaster (right)
- *   • Certificate ID generated as  TFA-{MEMBERID}-{SLUG}-{YYYYMMDD}-{HEX4}
+ *  Colors (extracted directly from PDF content streams):
+ *    Background:  rgb(1, 1, 0.8)   → #FFFFCC  (cream)
+ *    Bands:       rgb(1, 1, 0.6)   → #FFFF99  (yellow)
+ *    Title/heads: rgb(0.933,0,0)   → #EE0000  (red)
+ *    Body text:   0 g              → #000000  (black)
+ *    Sub-labels:  rgb(0.753,0,0)   → #C00000  (dark red)
+ *    Gold border: rgb(0.8,0.6,0)   → #CC9900  (gold)
  *
- * Env vars:
- *   SMTP_HOST / SMTP_PORT / SMTP_USER / SMTP_PASS  — live SMTP
- *   SMTP_FROM                                       — friendly sender
- *   Falls back to Ethereal test-catch in dev.
+ *  Fonts (extracted from PDF font table):
+ *    Algerian         → title "CERTIFICATE OF COMPLETION", section headers
+ *    ImprintMT-Shadow → sub-labels ("this certificate is proudly presented to:" etc.)
+ *    BrushScriptMT    → student name, "MICHAEL G. DYNAK"
+ *    Parchment        → decorative "Knights Templar Journey of Knowledge"
+ *    Aptos            → body copy
+ *
+ *  Layout: landscape 792×612pt, gold corner ornaments, dual sig block
  */
 
 const { sendMail } = require('./mailerService');
 const crypto       = require('crypto');
+
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
 function fmtDate(iso) {
@@ -34,260 +35,350 @@ function fmtDate(iso) {
 }
 
 /**
- * generateCertId(member, programSlug, completedAt)
- *
- * Format: TFA-{MEMBERID}-{SLUG_UPPER}-{YYYYMMDD}-{HEX4}
- * Example: TFA-KTKC-1042-KNIGHT-20260531-A3F7
- *
- * If member has no memberId we fall back to a 6-char hex derived from their username.
+ * Certificate ID format: TFA-{MEMBERID}-{SLUG}-{YYYYMMDD}-{HEX4}
+ * Example: TFA-KTKC-1042-KNIGHT-20260601-A3F7
  */
 function generateCertId(member, programSlug, completedAt) {
-  const dateTag  = new Date(completedAt).toISOString().slice(0, 10).replace(/-/g, '');
-  const slugTag  = (programSlug || 'PROG').toUpperCase().replace(/[^A-Z0-9]/g, '-').slice(0, 16);
-  const idTag    = member.memberId
+  const dateTag = new Date(completedAt).toISOString().slice(0, 10).replace(/-/g, '');
+  const slugTag = (programSlug || 'PROG').toUpperCase().replace(/[^A-Z0-9]/g, '-').slice(0, 16);
+  const idTag   = member.memberId
     ? String(member.memberId).toUpperCase().replace(/[^A-Z0-9\-]/g, '')
     : crypto.createHash('sha1').update(member.username || '').digest('hex').slice(0, 6).toUpperCase();
-  const hex4     = crypto.randomBytes(2).toString('hex').toUpperCase();
+  const hex4    = crypto.randomBytes(2).toString('hex').toUpperCase();
   return `TFA-${idTag}-${slugTag}-${dateTag}-${hex4}`;
 }
 
-// ── HTML certificate (landscape email, matches PDF layout) ───────────────────
+function esc(str) {
+  return String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+// ── Corner ornament SVG (gold, matches PDF corner squares + diamond) ──────────
+// Inline SVG so it renders in all email clients that support it;
+// falls back gracefully in clients that don't.
+function cornerSvg(flip) {
+  const t = flip ? 'transform="scale(-1,1) translate(-32,0)"' : '';
+  return `<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" ${t}>
+    <rect x="0" y="0" width="32" height="32" fill="#FFFFCC"/>
+    <rect x="2" y="2" width="28" height="28" fill="none" stroke="#CC9900" stroke-width="1.5"/>
+    <rect x="6" y="6" width="8" height="8" fill="#CC9900"/>
+    <line x1="10" y1="6" x2="10" y2="2" stroke="#CC9900" stroke-width="1.5"/>
+    <line x1="6" y1="10" x2="2" y2="10" stroke="#CC9900" stroke-width="1.5"/>
+    <polygon points="10,14 14,18 10,22 6,18" fill="#CC9900"/>
+  </svg>`;
+}
+
+// ── Main HTML builder ─────────────────────────────────────────────────────────
 
 function buildCertHtml(member, programTitle, completedAt, grade, certId) {
-  const displayName = `${member.salutation ? member.salutation + ' ' : ''}${member.username}`;
+  const displayName = (member.salutation ? member.salutation + ' ' : '') + member.username;
   const dateStr     = fmtDate(completedAt);
   const memberId    = member.memberId || '—';
-
-  // PDF colors extracted from stream:
-  //   background fill:  rgb(255,255,204)  → #FFFFD0  (1 1 0.8 rg)
-  //   band fill:        rgb(255,255,153)  → #FFFF99  (1 1 0.6 rg)
-  //   header red:       rgb(238,0,0)      → #EE0000  (0.933 0 0 rg)
-  //   body text:        rgb(0,0,0)        → #000000  (0 g)
-  //   academy red:      rgb(192,0,0)      → #C00000  (0.753 0 0 rg)
-  //   border/accent:    rgb(204,153,0)    → #CC9900  (gold)
+  const gradeRow    = grade
+    ? `<tr><td colspan="2" style="font-family:Georgia,serif;font-size:0.78rem;color:#000;text-align:center;padding:4px 4px 0;"><strong>Final Grade: ${esc(grade)}</strong></td></tr>`
+    : '';
 
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Certificate of Completion — ${programTitle}</title>
+<title>Certificate of Completion — ${esc(programTitle)}</title>
 </head>
-<body style="margin:0;padding:0;background:#1a0a00;font-family:Georgia,'Times New Roman',serif;">
+<body style="margin:0;padding:0;background:#2a1800;">
 
-<!-- Outer wrapper -->
-<table width="100%" cellpadding="0" cellspacing="0"
-       style="background:#1a0a00;padding:30px 16px;">
+<!-- ═══════════════════════════════════════════════════════════
+     OUTER MAILER WRAPPER  (dark brown — matches PDF envelope)
+     ═══════════════════════════════════════════════════════════ -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0"
+       style="background:#2a1800;padding:28px 12px;">
 <tr><td align="center">
 
-<!-- ══════════ CERTIFICATE CARD (landscape proportion) ══════════ -->
-<table cellpadding="0" cellspacing="0"
-       style="width:100%;max-width:720px;
-              background:#FFFFD0;
-              border:2px solid #CC9900;
-              border-radius:3px;">
+<!-- ═══════════════════════════════════════════════════════════
+     CERTIFICATE CARD  — 792×612 landscape proportion
+     Background: #FFFFCC  (PDF: 1 1 0.8 rg)
+     ═══════════════════════════════════════════════════════════ -->
+<table cellpadding="0" cellspacing="0" border="0"
+  style="width:100%;max-width:760px;background:#FFFFCC;
+         border:3px solid #CC9900;border-collapse:collapse;">
 
-  <!-- ── GOLD TOP BAND ── -->
+  <!-- ══ THICK GOLD TOP BAR ══ -->
   <tr>
-    <td style="background:#CC9900;height:6px;font-size:0;line-height:0;">&nbsp;</td>
-  </tr>
-  <tr>
-    <td style="background:#FFFF99;height:22px;font-size:0;line-height:0;">&nbsp;</td>
+    <td colspan="3" style="background:#CC9900;height:8px;font-size:0;line-height:0;padding:0;">&nbsp;</td>
   </tr>
 
-  <!-- ── RED HEADER BAND: CERTIFICATE OF COMPLETION ── -->
+  <!-- ══ YELLOW TOP BAND  (PDF: 1 1 0.6 rg band at top) ══ -->
   <tr>
-    <td align="center"
-        style="background:#FFFF99;padding:6px 40px 8px;border-top:1px solid #CC9900;border-bottom:1px solid #CC9900;">
-      <div style="font-family:Georgia,serif;font-size:1.55rem;font-weight:900;
-                  color:#EE0000;letter-spacing:0.12em;text-transform:uppercase;
-                  text-shadow:1px 1px 0 rgba(0,0,0,.08);">
-        Certificate of Completion
-      </div>
-      <div style="width:80%;margin:5px auto 0;height:1px;background:#EE0000;opacity:.4;"></div>
+    <td colspan="3" style="background:#FFFF99;height:28px;font-size:0;line-height:0;
+        border-bottom:1.5px solid #CC9900;padding:0;">&nbsp;</td>
+  </tr>
+
+  <!-- ══ TITLE ROW: corner ornaments + CERTIFICATE OF COMPLETION ══ -->
+  <tr>
+    <!-- Left corner ornament -->
+    <td width="38" style="background:#FFFFCC;padding:0;vertical-align:top;">${cornerSvg(false)}</td>
+
+    <!-- Title -->
+    <td style="background:#FFFFCC;padding:18px 20px 10px;text-align:center;">
+      <!-- Gold rule above title -->
+      <div style="height:2px;background:linear-gradient(90deg,transparent,#CC9900 20%,#CC9900 80%,transparent);margin-bottom:12px;"></div>
+
+      <!-- CERTIFICATE OF COMPLETION  — Algerian-style -->
+      <div style="
+        font-family:'Palatino Linotype','Book Antiqua',Palatino,Georgia,serif;
+        font-size:26px;
+        font-weight:900;
+        color:#EE0000;
+        letter-spacing:0.18em;
+        text-transform:uppercase;
+        line-height:1;
+      ">Certificate of Completion</div>
+
+      <!-- Red underline rule -->
+      <div style="height:2px;background:#EE0000;width:72%;margin:10px auto 0;opacity:0.7;"></div>
+    </td>
+
+    <!-- Right corner ornament (mirrored) -->
+    <td width="38" style="background:#FFFFCC;padding:0;vertical-align:top;">${cornerSvg(true)}</td>
+  </tr>
+
+  <!-- ══ YELLOW BAND: "this certificate is proudly presented to:" ══ -->
+  <tr>
+    <td colspan="3" style="background:#FFFF99;padding:7px 40px;
+        border-top:1.5px solid #CC9900;border-bottom:1.5px solid #CC9900;text-align:center;">
+      <span style="
+        font-family:'Palatino Linotype','Book Antiqua',Palatino,Georgia,serif;
+        font-size:13px;
+        font-style:italic;
+        color:#C00000;
+        letter-spacing:0.06em;
+      ">this certificate is proudly presented to:</span>
     </td>
   </tr>
 
-  <!-- ── LIGHT BAND ── -->
+  <!-- ══ STUDENT NAME  — BrushScript style ══ -->
   <tr>
-    <td style="background:#FFFFD0;height:16px;">&nbsp;</td>
-  </tr>
-
-  <!-- ── "this certificate is proudly presented to:" ── -->
-  <tr>
-    <td align="center" style="background:#FFFF99;padding:6px 40px;
-        border-top:1px solid #CC9900;border-bottom:1px solid #CC9900;">
-      <div style="font-family:Georgia,serif;font-size:0.82rem;color:#EE0000;
-                  letter-spacing:0.08em;font-style:italic;">
-        this certificate is proudly presented to:
-      </div>
+    <td colspan="3" style="background:#FFFFCC;padding:20px 40px 8px;text-align:center;">
+      <div style="
+        font-family:'Brush Script MT','Segoe Script','Palatino Linotype',Georgia,cursive;
+        font-size:46px;
+        font-weight:400;
+        color:#000000;
+        line-height:1.1;
+        letter-spacing:0.02em;
+      ">${esc(displayName)}</div>
     </td>
   </tr>
 
-  <!-- ── STUDENT NAME ── -->
+  <!-- ══ YELLOW BAND: "for successfully completing the" ══ -->
   <tr>
-    <td align="center" style="background:#FFFFD0;padding:14px 40px 4px;">
-      <div style="font-family:Georgia,serif;font-size:2.1rem;font-weight:900;
-                  color:#000000;letter-spacing:0.04em;line-height:1.15;">
-        ${esc(displayName)}
-      </div>
+    <td colspan="3" style="background:#FFFF99;padding:7px 40px;
+        border-top:1.5px solid #CC9900;border-bottom:1.5px solid #CC9900;text-align:center;">
+      <span style="
+        font-family:'Palatino Linotype','Book Antiqua',Palatino,Georgia,serif;
+        font-size:13px;
+        font-style:italic;
+        color:#C00000;
+        letter-spacing:0.06em;
+      ">for successfully completing the</span>
     </td>
   </tr>
 
-  <!-- ── LIGHT BAND ── -->
+  <!-- ══ PROGRAM NAME ══ -->
   <tr>
-    <td style="background:#FFFFD0;height:10px;">&nbsp;</td>
-  </tr>
-
-  <!-- ── "for successfully completing the" ── -->
-  <tr>
-    <td align="center" style="background:#FFFF99;padding:6px 40px;
-        border-top:1px solid #CC9900;border-bottom:1px solid #CC9900;">
-      <div style="font-family:Georgia,serif;font-size:0.82rem;color:#EE0000;
-                  letter-spacing:0.08em;font-style:italic;">
-        for successfully completing the
-      </div>
+    <td colspan="3" style="background:#FFFFCC;padding:16px 60px 4px;text-align:center;">
+      <div style="
+        font-family:'Palatino Linotype','Book Antiqua',Palatino,Georgia,serif;
+        font-size:22px;
+        font-weight:900;
+        color:#000000;
+        letter-spacing:0.08em;
+        text-transform:uppercase;
+        line-height:1.2;
+      ">${esc(programTitle)}</div>
     </td>
   </tr>
 
-  <!-- ── PROGRAM NAME ── -->
+  <!-- ══ PROGRAM BADGE  — Parchment/decorative style ══ -->
   <tr>
-    <td align="center" style="background:#FFFFD0;padding:12px 40px 4px;">
-      <div style="font-family:Georgia,serif;font-size:1.45rem;font-weight:900;
-                  color:#000000;letter-spacing:0.05em;line-height:1.2;">
-        ${esc(programTitle)}
-      </div>
+    <td colspan="3" style="background:#FFFFCC;padding:4px 60px 14px;text-align:center;">
+      <div style="
+        font-family:'Palatino Linotype','Book Antiqua',Palatino,Georgia,serif;
+        font-size:11px;
+        color:#C00000;
+        letter-spacing:0.22em;
+        text-transform:uppercase;
+        font-style:italic;
+      ">&#10022; Knights Templar Journey of Knowledge &#10022; Program</div>
     </td>
   </tr>
 
-  <!-- ── PROGRAM BADGE LINE ── -->
+  <!-- ══ YELLOW BAND: body copy ══ -->
   <tr>
-    <td align="center" style="background:#FFFFD0;padding:2px 40px 10px;">
-      <div style="font-family:Georgia,serif;font-size:0.68rem;color:#C00000;
-                  letter-spacing:0.18em;text-transform:uppercase;">
-        Knights Templar Journey of Knowledge · Program
-      </div>
+    <td colspan="3" style="background:#FFFF99;padding:12px 70px;
+        border-top:1.5px solid #CC9900;border-bottom:1.5px solid #CC9900;text-align:center;">
+      <p style="
+        font-family:'Palatino Linotype','Book Antiqua',Palatino,Georgia,serif;
+        font-size:12.5px;
+        color:#000000;
+        line-height:1.75;
+        margin:0;
+      ">at Templar Forge Academy.<br>
+      through dedication, discipline, and commitment to excellence, this student has fulfilled the<br>
+      requirements of the program and demonstrated meaningful achievement in their course of study.</p>
     </td>
   </tr>
 
-  <!-- ── BODY COPY ── -->
+  <!-- ══ DATE · MEMBER ID · CERT ID ══ -->
   <tr>
-    <td style="background:#FFFF99;padding:10px 60px;border-top:1px solid #CC9900;border-bottom:1px solid #CC9900;">
-      <p style="font-family:Georgia,serif;font-size:0.82rem;color:#1a1a00;
-                line-height:1.7;margin:0;text-align:center;">
-        at Templar Forge Academy.<br>
-        through dedication, discipline, and commitment to excellence, this student has fulfilled the<br>
-        requirements of the program and demonstrated meaningful achievement in their course of study.${
-          grade ? `<br><strong>Final Grade: ${esc(grade)}</strong>` : ''
-        }
-      </p>
-    </td>
-  </tr>
-
-  <!-- ── DATE + CERT ID ── -->
-  <tr>
-    <td style="background:#FFFFD0;padding:12px 60px 10px;">
-      <table width="100%" cellpadding="0" cellspacing="0">
+    <td colspan="3" style="background:#FFFFCC;padding:14px 50px 12px;">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td style="font-family:Georgia,serif;font-size:0.78rem;color:#1a1a00;text-align:left;padding:0 4px;">
-            <strong>Date of Completion:</strong> ${dateStr}
+          <td style="font-family:'Palatino Linotype',Georgia,serif;font-size:12px;
+              color:#000;text-align:left;vertical-align:top;">
+            <span style="color:#C00000;font-weight:700;letter-spacing:0.05em;">date of completion:</span><br>
+            ${esc(dateStr)}
           </td>
-          <td style="font-family:Georgia,serif;font-size:0.78rem;color:#1a1a00;text-align:right;padding:0 4px;">
-            <strong>Member ID:</strong> ${esc(memberId)}
+          <td style="font-family:'Palatino Linotype',Georgia,serif;font-size:12px;
+              color:#000;text-align:right;vertical-align:top;">
+            <span style="color:#C00000;font-weight:700;letter-spacing:0.05em;">member id:</span><br>
+            ${esc(memberId)}
           </td>
         </tr>
+        ${gradeRow}
         <tr>
-          <td colspan="2" style="font-family:Georgia,serif;font-size:0.72rem;
-              color:#4a3a00;text-align:center;padding-top:4px;letter-spacing:0.06em;">
-            <strong>Certificate ID:</strong> ${esc(certId)}
-          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-
-  <!-- ── GOLD DIVIDER ── -->
-  <tr>
-    <td style="background:#FFFFD0;padding:0 40px;">
-      <div style="border-top:1px solid #CC9900;border-bottom:1px solid #CC9900;
-                  height:3px;background:#FFFF99;margin:0;"></div>
-    </td>
-  </tr>
-
-  <!-- ── DUAL SIGNATURE BLOCK ── -->
-  <tr>
-    <td style="background:#FFFFD0;padding:16px 60px 20px;">
-      <table width="100%" cellpadding="0" cellspacing="0">
-        <tr>
-          <!-- Left: Schoolmaster -->
-          <td width="45%" style="text-align:center;vertical-align:bottom;padding:0 10px;">
-            <div style="border-top:1px solid #8a7000;padding-top:6px;margin-top:20px;">
-              <div style="font-family:Georgia,serif;font-size:0.75rem;font-weight:700;
-                          color:#1a1a00;letter-spacing:0.1em;text-transform:uppercase;">
-                Schoolmaster
-              </div>
-            </div>
-          </td>
-          <!-- Spacer -->
-          <td width="10%"></td>
-          <!-- Right: Academy Director / Grandmaster -->
-          <td width="45%" style="text-align:center;vertical-align:bottom;padding:0 10px;">
-            <div style="font-family:Georgia,serif;font-size:0.82rem;font-weight:700;
-                        color:#1a1a00;margin-bottom:4px;">
-              MICHAEL G. DYNAK
-            </div>
-            <div style="border-top:1px solid #8a7000;padding-top:6px;">
-              <div style="font-family:Georgia,serif;font-size:0.75rem;font-weight:700;
-                          color:#1a1a00;letter-spacing:0.1em;text-transform:uppercase;">
-                Academy Director / Grandmaster
-              </div>
-            </div>
+          <td colspan="2" style="font-family:'Palatino Linotype',Georgia,serif;font-size:11px;
+              color:#4a3000;text-align:center;padding-top:8px;letter-spacing:0.07em;">
+            <span style="color:#C00000;font-weight:700;">certificate id:</span>&nbsp;${esc(certId)}
           </td>
         </tr>
       </table>
     </td>
   </tr>
 
-  <!-- ── GOLD BOTTOM BAND ── -->
+  <!-- ══ GOLD TRIPLE RULE ══ -->
   <tr>
-    <td style="background:#FFFF99;height:22px;font-size:0;line-height:0;">&nbsp;</td>
+    <td colspan="3" style="background:#FFFFCC;padding:0 40px;">
+      <div style="border-top:3px solid #CC9900;"></div>
+      <div style="border-top:1px solid #CC9900;margin-top:3px;"></div>
+    </td>
   </tr>
+
+  <!-- ══ KNIGHTS TEMPLAR BADGE LINE ══ -->
   <tr>
-    <td style="background:#CC9900;height:6px;font-size:0;line-height:0;">&nbsp;</td>
+    <td colspan="3" style="background:#FFFFCC;padding:10px 60px 4px;text-align:center;">
+      <div style="
+        font-family:'Palatino Linotype','Book Antiqua',Palatino,Georgia,serif;
+        font-size:13px;
+        font-weight:900;
+        color:#EE0000;
+        letter-spacing:0.2em;
+        text-transform:uppercase;
+      ">&#10022; Knights Templar Journey of Knowledge &#10022;</div>
+      <div style="
+        font-family:'Palatino Linotype','Book Antiqua',Palatino,Georgia,serif;
+        font-size:11px;
+        color:#EE0000;
+        letter-spacing:0.28em;
+        text-transform:uppercase;
+        margin-top:2px;
+      ">Program</div>
+    </td>
+  </tr>
+
+  <!-- ══ DUAL SIGNATURE BLOCK ══ -->
+  <tr>
+    <td colspan="3" style="background:#FFFFCC;padding:16px 60px 22px;">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <!-- Left: Schoolmaster signature line -->
+          <td width="44%" style="text-align:center;vertical-align:bottom;padding:0 8px;">
+            <div style="margin-bottom:28px;font-size:10px;">&nbsp;</div><!-- signature space -->
+            <div style="border-top:1.5px solid #8a7000;padding-top:6px;">
+              <div style="
+                font-family:'Palatino Linotype',Georgia,serif;
+                font-size:11px;
+                font-weight:700;
+                color:#000;
+                letter-spacing:0.14em;
+                text-transform:uppercase;
+              ">Schoolmaster</div>
+            </div>
+          </td>
+
+          <!-- Centre diamond ornament -->
+          <td width="12%" style="text-align:center;vertical-align:bottom;padding-bottom:6px;">
+            <div style="color:#CC9900;font-size:22px;line-height:1;">&#10022;</div>
+          </td>
+
+          <!-- Right: MICHAEL G. DYNAK -->
+          <td width="44%" style="text-align:center;vertical-align:bottom;padding:0 8px;">
+            <div style="
+              font-family:'Brush Script MT','Segoe Script',Georgia,cursive;
+              font-size:26px;
+              color:#000;
+              line-height:1;
+              margin-bottom:4px;
+            ">Michael G. Dynak</div>
+            <div style="border-top:1.5px solid #8a7000;padding-top:6px;">
+              <div style="
+                font-family:'Palatino Linotype',Georgia,serif;
+                font-size:11px;
+                font-weight:700;
+                color:#000;
+                letter-spacing:0.14em;
+                text-transform:uppercase;
+              ">Academy Director / Grandmaster</div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <!-- ══ YELLOW BOTTOM BAND ══ -->
+  <tr>
+    <td colspan="3" style="background:#FFFF99;height:28px;font-size:0;line-height:0;
+        border-top:1.5px solid #CC9900;padding:0;">&nbsp;</td>
+  </tr>
+
+  <!-- ══ THICK GOLD BOTTOM BAR ══ -->
+  <tr>
+    <td colspan="3" style="background:#CC9900;height:8px;font-size:0;line-height:0;padding:0;">&nbsp;</td>
   </tr>
 
 </table>
-<!-- ══════════ END CERTIFICATE ══════════ -->
+<!-- ═══ END CERTIFICATE CARD ═══ -->
 
-<!-- Footer -->
-<table width="100%" cellpadding="0" cellspacing="0" style="max-width:720px;width:100%;">
+<!-- Small footer below card -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0"
+       style="max-width:760px;width:100%;margin-top:0;">
   <tr>
-    <td align="center" style="padding:14px 20px 0;">
-      <div style="font-family:Georgia,serif;font-size:0.68rem;color:#5a4020;line-height:1.6;">
-        This certificate was issued by Templar Forge Academy · Knights of the Templar Cross.<br>
-        Save or print this message for your records. Certificate ID: ${esc(certId)}<br>
+    <td align="center" style="padding:12px 20px 0;">
+      <p style="font-family:Georgia,serif;font-size:10.5px;color:#8a6030;
+                line-height:1.6;margin:0;text-align:center;">
+        This certificate was issued by Templar Forge Academy &middot; Knights of the Templar Cross.<br>
+        Save or print this message for your records. &nbsp;|&nbsp; Certificate ID: ${esc(certId)}<br>
         <a href="https://templarforge.academy"
-           style="color:#8a6030;text-decoration:none;">templarforge.academy</a>
-      </div>
+           style="color:#b08040;text-decoration:none;">templarforge.academy</a>
+      </p>
     </td>
   </tr>
 </table>
 
 </td></tr>
 </table>
-
 </body>
 </html>`;
 }
 
-function esc(str) {
-  return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
-// ── Plain-text fallback ──────────────────────────────────────────────────────
+// ── Plain-text fallback ───────────────────────────────────────────────────────
 
 function buildCertText(member, programTitle, completedAt, grade, certId) {
-  const displayName = `${member.salutation ? member.salutation + ' ' : ''}${member.username}`;
+  const displayName = (member.salutation ? member.salutation + ' ' : '') + member.username;
   const dateStr     = fmtDate(completedAt);
   const memberId    = member.memberId || '—';
   const gradeStr    = grade ? `\nFinal Grade: ${grade}` : '';
@@ -302,37 +393,37 @@ function buildCertText(member, programTitle, completedAt, grade, certId) {
     'for successfully completing the',
     '',
     `  ${programTitle}`,
-    '  Knights Templar Journey of Knowledge · Program',
+    '  ✠ Knights Templar Journey of Knowledge · Program',
     '',
     'at Templar Forge Academy.',
     'through dedication, discipline, and commitment to excellence, this student',
     'has fulfilled the requirements of the program and demonstrated meaningful',
     'achievement in their course of study.' + gradeStr,
     '',
-    `Date of Completion: ${dateStr}`,
-    `Member ID:          ${memberId}`,
-    `Certificate ID:     ${certId}`,
+    `date of completion:  ${dateStr}`,
+    `member id:           ${memberId}`,
+    `certificate id:      ${certId}`,
     '',
-    '────────────────────────────────────────────────────',
-    '  Schoolmaster                  MICHAEL G. DYNAK',
-    '  Templar Forge Academy         Academy Director / Grandmaster',
-    '────────────────────────────────────────────────────',
+    '────────────────────────────────────────',
+    '  Schoolmaster            Michael G. Dynak',
+    '  Templar Forge Academy   Academy Director / Grandmaster',
+    '────────────────────────────────────────',
     '',
     'Templar Forge Academy · Knights of the Templar Cross',
     'https://templarforge.academy',
   ].join('\n');
 }
 
-// ── Public API ───────────────────────────────────────────────────────────────
+// ── Public API ────────────────────────────────────────────────────────────────
 
 /**
- * sendCertificate(member, programTitle, completedAt, grade)
+ * sendCertificate(member, programTitle, completedAt, grade, programSlug)
  *
- * member       — userStore record (needs .username, .email, .salutation, .memberId)
+ * member       — userStore record (.username, .email, .salutation, .memberId)
  * programTitle — full display title of the completed program
  * completedAt  — ISO date string
  * grade        — optional final grade string
- * programSlug  — optional; used to build the Certificate ID (defaults to 'PROG')
+ * programSlug  — optional; used in Certificate ID (defaults to 'PROG')
  *
  * Returns { sent, preview, certId, error }
  */
@@ -342,10 +433,10 @@ async function sendCertificate(member, programTitle, completedAt, grade, program
       error: 'No email address on file for this member.' };
   }
 
-  const certId      = generateCertId(member, programSlug || 'PROG', completedAt);
-  const displayName = `${member.salutation ? member.salutation + ' ' : ''}${member.username}`;
-  // Build a safe from address: if the env var already contains "Name <email>"
-  // use it as-is; if it's a bare email address, wrap it with the display name.
+  const certId = generateCertId(member, programSlug || 'PROG', completedAt);
+
+  // Smart from-address builder: use env var as-is if it already has Name <email>,
+  // otherwise wrap bare email in display name.
   const rawFrom  = process.env.RESEND_FROM
                    || process.env.SMTP_FROM
                    || process.env.SMTP_USER
@@ -364,6 +455,7 @@ async function sendCertificate(member, programTitle, completedAt, grade, program
     });
 
     const preview = result.preview || null;
+    const displayName = (member.salutation ? member.salutation + ' ' : '') + member.username;
     console.log(
       `✠ Certificate [${certId}] sent to ${displayName} <${member.email}> ` +
       `for "${programTitle}"${preview ? ' — preview: ' + preview : ''}`
