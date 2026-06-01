@@ -243,12 +243,12 @@ function buildCertHtml(member, programTitle, completedAt, grade, certId) {
         <tr>
           <td style="font-family:'Palatino Linotype',Georgia,serif;font-size:12px;
               color:#000;text-align:left;vertical-align:top;">
-            <span style="color:#C00000;font-weight:700;letter-spacing:0.05em;">date of completion:</span><br>
+            <span style="color:#C00000;font-weight:700;letter-spacing:0.05em;">Date of Completion:</span><br>
             ${esc(dateStr)}
           </td>
           <td style="font-family:'Palatino Linotype',Georgia,serif;font-size:12px;
               color:#000;text-align:right;vertical-align:top;">
-            <span style="color:#C00000;font-weight:700;letter-spacing:0.05em;">member id:</span><br>
+            <span style="color:#C00000;font-weight:700;letter-spacing:0.05em;">Member ID:</span><br>
             ${esc(memberId)}
           </td>
         </tr>
@@ -256,7 +256,7 @@ function buildCertHtml(member, programTitle, completedAt, grade, certId) {
         <tr>
           <td colspan="2" style="font-family:'Palatino Linotype',Georgia,serif;font-size:11px;
               color:#4a3000;text-align:center;padding-top:8px;letter-spacing:0.07em;">
-            <span style="color:#C00000;font-weight:700;">certificate id:</span>&nbsp;${esc(certId)}
+            <span style="color:#C00000;font-weight:700;">Certificate ID:</span>&nbsp;${esc(certId)}
           </td>
         </tr>
       </table>
@@ -447,9 +447,9 @@ function buildCertText(member, programTitle, completedAt, grade, certId) {
     'has fulfilled the requirements of the program and demonstrated meaningful',
     'achievement in their course of study.' + gradeStr,
     '',
-    `date of completion:  ${dateStr}`,
-    `member id:           ${memberId}`,
-    `certificate id:      ${certId}`,
+    `Date of Completion:  ${dateStr}`,
+    `Member ID:           ${memberId}`,
+    `Certificate ID:      ${certId}`,
     '',
     '────────────────────────────────────────',
     '  Schoolmaster Hall       Michael G. Dynak',
