@@ -35,6 +35,19 @@ const SEAL_TFA          = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
+/**
+ * getSiteUrl()
+ * Returns the base URL of the site at runtime — never hardcoded.
+ * Priority: SITE_URL env var → RAILWAY_PUBLIC_DOMAIN → fallback to templarforge.academy
+ * Set SITE_URL=https://your-domain.railway.app in Railway env vars if the
+ * custom domain isn't set up yet.
+ */
+function getSiteUrl() {
+  if (process.env.SITE_URL) return process.env.SITE_URL.replace(/\/$/, '');
+  if (process.env.RAILWAY_PUBLIC_DOMAIN) return `https://${process.env.RAILWAY_PUBLIC_DOMAIN}`;
+  return 'https://templarforge.academy';
+}
+
 function fmtDate(iso) {
   return new Date(iso).toLocaleDateString('en-US', {
     year: 'numeric', month: 'long', day: 'numeric'
@@ -412,7 +425,7 @@ function buildCertHtml(member, programTitle, completedAt, grade, certId, program
           <td align="center"
               style="background:#8a2000;border-radius:6px;padding:0;
                      border:1px solid #6a1800;">
-            <a href="https://templarforge.academy/member/certificate/${programSlug}/download"
+            <a href="${getSiteUrl()}/member/certificate/${programSlug}/download"
                style="display:inline-block;padding:10px 28px;
                       font-family:'Palatino Linotype',Georgia,serif;
                       font-size:13px;font-weight:700;color:#f8e4b0;
@@ -427,8 +440,8 @@ function buildCertHtml(member, programTitle, completedAt, grade, certId, program
                 line-height:1.6;margin:0;text-align:center;">
         This certificate was issued by Templar Forge Academy &middot; Knights Templar of the Kingdom of Christ.<br>
         Save or print this message for your records. &nbsp;|&nbsp; Certificate ID: ${esc(certId)}<br>
-        <a href="https://templarforge.academy"
-           style="color:#b08040;text-decoration:none;">templarforge.academy</a>
+        <a href="${getSiteUrl()}"
+           style="color:#b08040;text-decoration:none;">${getSiteUrl().replace('https://','').replace('http://','')}</a>
       </p>
     </td>
   </tr>
@@ -475,7 +488,7 @@ function buildCertText(member, programTitle, completedAt, grade, certId) {
     '────────────────────────────────────────',
     '',
     'Templar Forge Academy · Knights Templar of the Kingdom of Christ',
-    'https://templarforge.academy',
+    getSiteUrl(),
   ].join('\n');
 }
 
@@ -508,7 +521,8 @@ async function sendCertificate(member, programTitle, completedAt, grade, program
                    || null;
   const fromAddr = rawFrom
     ? (rawFrom.includes('<') ? rawFrom : `Templar Forge Academy <${rawFrom}>`)
-    : 'Templar Forge Academy <noreply@templarforge.academy>';
+    : `Templar Forge Academy <noreply@${getSiteUrl().replace(/^https?:\/\//, '').split('/')[0]}>`;
+  // Strip path from domain for email address (e.g. myapp.railway.app → noreply@myapp.railway.app)
 
   try {
     const result = await sendMail({

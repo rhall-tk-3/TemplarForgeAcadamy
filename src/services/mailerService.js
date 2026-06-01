@@ -31,13 +31,20 @@ const https      = require('https');
 // 1. Resend REST transport
 // ─────────────────────────────────────────────────────────────────────────────
 
+function getSiteUrl() {
+  if (process.env.SITE_URL) return process.env.SITE_URL.replace(/\/$/, '');
+  if (process.env.RAILWAY_PUBLIC_DOMAIN) return `https://${process.env.RAILWAY_PUBLIC_DOMAIN}`;
+  return 'https://templarforge.academy';
+}
+
 function sendViaResend({ from, to, subject, text, html }) {
   return new Promise((resolve, reject) => {
     const apiKey   = process.env.RESEND_API_KEY;
+    const domain   = new URL(getSiteUrl()).hostname;
     const fromAddr = from
       || process.env.RESEND_FROM
       || process.env.SMTP_FROM
-      || 'Templar Forge Academy <noreply@templarforge.academy>';
+      || `Templar Forge Academy <noreply@${domain}>`;
 
     const body = JSON.stringify({ from: fromAddr, to: [to], subject, text, html });
 
@@ -183,11 +190,12 @@ async function sendViaEthereal(mailOpts) {
  * Throws on failure — caller wraps in try/catch and returns { sent:false, error }
  */
 async function sendMail({ from, to, subject, text, html }) {
+  const domain   = new URL(getSiteUrl()).hostname;
   const fromAddr = from
     || process.env.RESEND_FROM
     || process.env.SMTP_FROM
     || process.env.SMTP_USER
-    || 'Templar Forge Academy <noreply@templarforge.academy>';
+    || `Templar Forge Academy <noreply@${domain}>`;
 
   const mailOpts = { from: fromAddr, to, subject, text, html };
 

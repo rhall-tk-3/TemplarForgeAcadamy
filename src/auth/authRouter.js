@@ -15,6 +15,12 @@ const { hydrateSessionFromJwt }   = require('../config/jwtSession');
 
 const router = express.Router();
 
+// ── Dynamic site URL (resolves before custom domain is live) ──
+function getSiteUrl() {
+  if (process.env.SITE_URL) return process.env.SITE_URL.replace(/\/$/, '');
+  if (process.env.RAILWAY_PUBLIC_DOMAIN) return `https://${process.env.RAILWAY_PUBLIC_DOMAIN}`;
+  return 'https://templarforge.academy';
+}
 
 // ── Reset-log (file in data/) ──
 const RESET_LOG = RESET_LOG_FILE;
@@ -180,7 +186,7 @@ router.post('/reset-password/:id', async (req, res) => {
       const rawFrom  = process.env.RESEND_FROM || process.env.SMTP_FROM || process.env.SMTP_USER || null;
       const fromAddr = rawFrom
         ? (rawFrom.includes('<') ? rawFrom : `Templar Forge Academy <${rawFrom}>`)
-        : 'Templar Forge Academy <noreply@templarforge.academy>';
+        : `Templar Forge Academy <noreply@${new URL(getSiteUrl()).hostname}>`;
       const result = await sendMail({
         from:    fromAddr,
         to:      target.email,
@@ -192,7 +198,7 @@ router.post('/reset-password/:id', async (req, res) => {
           '',
           `  New passcode: ${RESET_PASSCODE}`,
           '',
-          'Sign in at: https://templarforge.academy/login',
+          `Sign in at: ${getSiteUrl()}/login`,
           '',
           'You may change your passcode from your member profile after signing in.',
           '',
@@ -208,7 +214,7 @@ router.post('/reset-password/:id', async (req, res) => {
               <span style="font-family:'Cinzel',Georgia,serif;font-size:.75rem;color:#8a7a58;letter-spacing:.12em;display:block;margin-bottom:6px;">NEW PASSCODE</span>
               <span style="font-size:1.4rem;font-weight:bold;color:#e8c040;letter-spacing:.12em;">${RESET_PASSCODE}</span>
             </div>
-            <p><a href="https://templarforge.academy/login" style="color:#c0282a;">Sign in here</a> — you may update your passcode from your member profile at any time.</p>
+            <p><a href="${getSiteUrl()}/login" style="color:#c0282a;">Sign in here</a> — you may update your passcode from your member profile at any time.</p>
             <p style="margin-top:28px;font-size:.85rem;color:#6a5a40;"><em>Ad Maiorem Dei Gloriam</em></p>
           </div>`,
       });
