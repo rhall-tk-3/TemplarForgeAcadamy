@@ -617,11 +617,21 @@
       <div class="section-title" style="margin-bottom:14px;">
         ✠ New Member Registrations
       </div>
-      <p style="font-family:'Crimson Text',serif;font-size:.9rem;color:#a08080;margin:0 0 6px;">
+      <p style="font-family:'Crimson Text',serif;font-size:.9rem;color:#a08080;margin:0 0 12px;">
         Members create their own accounts from the login page and receive instant access.
         New members appear in the roster below. Use the roster to assign programs, set their
         Member ID, and manage progression.
       </p>
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <button class="sm-btn" id="promote-pending-btn"
+          onclick="promotePendingAccounts()"
+          title="Force-promote any accounts.json entries that can't log in yet"
+          style="background:rgba(20,60,30,.85);border-color:#2a8040;color:#80d890;font-size:.75rem;">
+          ⚙ Fix Stuck Logins
+        </button>
+        <span id="promote-pending-status"
+          style="font-family:'Crimson Text',serif;font-size:.85rem;color:#80c890;display:none;"></span>
+      </div>
     </div>
 
     <!-- ── Find Member by ID ── -->
@@ -1662,6 +1672,41 @@ function renderExams(m) {
   }
 
   el.innerHTML = html;
+}
+
+// ── Fix Stuck Logins — force-promote pending accounts.json entries ──
+async function promotePendingAccounts() {
+  const btn = document.getElementById('promote-pending-btn');
+  const status = document.getElementById('promote-pending-status');
+  btn.disabled = true;
+  btn.textContent = '⚙ Running...';
+  status.style.display = 'none';
+  try {
+    const res = await fetch('/api/admin/promote-pending', {
+      method: 'POST',
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' }
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Failed');
+    const promoted = (data.results || []).filter(r => r.action === 'promoted');
+    const synced   = (data.results || []).filter(r => r.action === 'synced');
+    let msg = promoted.length
+      ? `✓ Promoted ${promoted.length}: ${promoted.map(r=>r.name).join(', ')}`
+      : '✓ No new accounts to promote.';
+    if (synced.length) msg += ` · Synced ${synced.length}.`;
+    status.textContent = msg;
+    status.style.color = '#80d890';
+    status.style.display = 'inline';
+    if (promoted.length) await loadRoster();
+  } catch(e) {
+    status.textContent = '✗ ' + e.message;
+    status.style.color = '#e07070';
+    status.style.display = 'inline';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '⚙ Fix Stuck Logins';
+  }
 }
 
 // Approve curriculum-system week unlock from SM dashboard exam panel

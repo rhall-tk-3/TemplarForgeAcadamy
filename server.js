@@ -1,7 +1,7 @@
 'use strict';
 
 // ── DEPLOY VERSION — updated on every push so Railway logs confirm new code ──
-const DEPLOY_VERSION = '1.5.6-2026-06-01';
+const DEPLOY_VERSION = '1.5.7-2026-06-01';
 
 // ── Load .env in development (ignored on Railway — vars injected by platform) ──
 try { require('dotenv').config(); } catch (_) { /* dotenv optional */ }
@@ -491,6 +491,73 @@ app.use('/auth', authRouter);
     }
 
     return res.json({ ok: true });
+  });
+
+  // ── POST /api/admin/promote-pending  — SM only ──
+  // Force-promotes all accounts.json entries that have a passwordHash but are
+  // missing from userStore. Fixes members stuck in "pending" limbo on Railway
+  // without needing a full redeploy.
+  app.post('/api/admin/promote-pending', (req, res) => {
+    if (!smJwtCheck(req, res)) return;
+    try {
+      const { getAllUsers, addRawUser, updateUser } = require('./src/auth/userStore');
+      const accounts = readAccounts();
+      const allUsers = getAllUsers();
+      const existingNames = new Map(
+        allUsers.map(u => [u.username.trim().toUpperCase(), u])
+      );
+
+      const results = [];
+      const updatedAccounts = accounts.map(acct => {
+        if (!acct.passwordHash || !acct.fullName) return acct;
+
+        const key = acct.fullName.trim().toUpperCase();
+        const existing = existingNames.get(key);
+
+        if (existing) {
+          // Already in userStore — sync password + email if needed
+          const updates = { password: acct.passwordHash };
+          if (acct.email) updates.email = acct.email;
+          if (acct.memberId) updates.memberId = acct.memberId;
+          updateUser(existing.id, updates);
+          results.push({ name: acct.fullName, action: 'synced' });
+          return { ...acct, approvalStatus: 'approved',
+                   approvedAt: acct.approvedAt || new Date().toISOString(),
+                   approvedBy: acct.approvedBy || 'promote-pending' };
+        } else {
+          // Not in userStore — promote
+          const newId = acct.id || Date.now().toString() + Math.random().toString(36).slice(2,6);
+          addRawUser({
+            id:              newId,
+            username:        acct.fullName.trim(),
+            salutation:      null,
+            role:            'member',
+            memberId:        acct.memberId || null,
+            password:        acct.passwordHash,
+            email:           acct.email || null,
+            source:          'registered',
+            createdAt:       acct.createdAt || new Date().toISOString(),
+            assignedProgram: null, programHistory: [], currentWeek: null,
+            examSubmissions: [], progressNotes: [], unlockedSlugs: [],
+            rank: null, rankName: null, rankAssignedAt: null, rankHistory: [],
+            programStatus: 'active', statusNote: null, statusChangedAt: null,
+            temple: null, phone: null, photoPath: null, birthday: null,
+          });
+          existingNames.set(key, { id: newId });
+          results.push({ name: acct.fullName, action: 'promoted' });
+          console.log(`✠ promote-pending: promoted "${acct.fullName}" → userStore`);
+          return { ...acct, approvalStatus: 'approved',
+                   approvedAt: new Date().toISOString(), approvedBy: 'promote-pending' };
+        }
+      });
+
+      writeAccounts(updatedAccounts);
+      console.log(`✠ promote-pending complete:`, results);
+      return res.json({ ok: true, results });
+    } catch (e) {
+      console.error('✠ promote-pending error:', e.message);
+      return res.status(500).json({ error: e.message });
+    }
   });
 
   // ── helpers shared by registry routes below ──
