@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * certificateService.js  — v3.0
+ * certificateService.js  — v3.1
  *
  * HTML email certificate that faithfully matches the official TFA PDF:
  *
@@ -291,49 +291,77 @@ function buildCertHtml(member, programTitle, completedAt, grade, certId) {
 
   <!-- ══ DUAL SIGNATURE BLOCK ══ -->
   <tr>
-    <td colspan="3" style="background:#FFFFCC;padding:16px 60px 22px;">
+    <td colspan="3" style="background:#FFFFCC;padding:16px 60px 10px;">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <!-- Left: Schoolmaster signature line -->
-          <td width="44%" style="text-align:center;vertical-align:bottom;padding:0 8px;">
-            <div style="margin-bottom:28px;font-size:10px;">&nbsp;</div><!-- signature space -->
-            <div style="border-top:1.5px solid #8a7000;padding-top:6px;">
+
+          <!-- ── LEFT: Schoolmaster Hall / Academy Director ── -->
+          <td width="38%" style="text-align:center;vertical-align:bottom;padding:0 8px;">
+            <div style="
+              font-family:'Brush Script MT','Segoe Script',Georgia,cursive;
+              font-size:24px;
+              color:#000;
+              line-height:1;
+              margin-bottom:4px;
+            ">Schoolmaster Hall</div>
+            <div style="border-top:1.5px solid #8a7000;padding-top:5px;margin-bottom:8px;">
               <div style="
                 font-family:'Palatino Linotype',Georgia,serif;
-                font-size:11px;
+                font-size:10.5px;
                 font-weight:700;
                 color:#000;
                 letter-spacing:0.14em;
                 text-transform:uppercase;
-              ">Schoolmaster</div>
+              ">Academy Director</div>
+            </div>
+            <div>
+              <img src="https://templarforge.academy/images/order-crest.png"
+                   alt="Academy Director Seal"
+                   width="62" height="92"
+                   style="display:inline-block;max-width:62px;height:auto;opacity:0.82;"
+              />
             </div>
           </td>
 
-          <!-- Centre diamond ornament -->
-          <td width="12%" style="text-align:center;vertical-align:bottom;padding-bottom:6px;">
-            <div style="color:#CC9900;font-size:22px;line-height:1;">&#10022;</div>
+          <!-- ── CENTRE: Main TFA Seal ── -->
+          <td width="24%" style="text-align:center;vertical-align:bottom;padding:0 4px;">
+            <div>
+              <img src="https://templarforge.academy/images/order-seal.png"
+                   alt="Templar Forge Academy Seal"
+                   width="100" height="100"
+                   style="display:inline-block;max-width:100px;height:auto;opacity:0.90;"
+              />
+            </div>
           </td>
 
-          <!-- Right: MICHAEL G. DYNAK -->
-          <td width="44%" style="text-align:center;vertical-align:bottom;padding:0 8px;">
+          <!-- ── RIGHT: Michael G. Dynak / Grand Master ── -->
+          <td width="38%" style="text-align:center;vertical-align:bottom;padding:0 8px;">
             <div style="
               font-family:'Brush Script MT','Segoe Script',Georgia,cursive;
-              font-size:26px;
+              font-size:24px;
               color:#000;
               line-height:1;
               margin-bottom:4px;
             ">Michael G. Dynak</div>
-            <div style="border-top:1.5px solid #8a7000;padding-top:6px;">
+            <div style="border-top:1.5px solid #8a7000;padding-top:5px;margin-bottom:8px;">
               <div style="
                 font-family:'Palatino Linotype',Georgia,serif;
-                font-size:11px;
+                font-size:10.5px;
                 font-weight:700;
                 color:#000;
                 letter-spacing:0.14em;
                 text-transform:uppercase;
-              ">Academy Director / Grandmaster</div>
+              ">Grand Master</div>
+            </div>
+            <div>
+              <img src="https://templarforge.academy/images/order-crest.png"
+                   alt="Grand Master Seal"
+                   width="62" height="92"
+                   style="display:inline-block;max-width:62px;height:auto;opacity:0.82;"
+              />
             </div>
           </td>
+
         </tr>
       </table>
     </td>
@@ -405,8 +433,8 @@ function buildCertText(member, programTitle, completedAt, grade, certId) {
     `certificate id:      ${certId}`,
     '',
     '────────────────────────────────────────',
-    '  Schoolmaster            Michael G. Dynak',
-    '  Templar Forge Academy   Academy Director / Grandmaster',
+    '  Schoolmaster Hall       Michael G. Dynak',
+    '  Academy Director        Grand Master',
     '────────────────────────────────────────',
     '',
     'Templar Forge Academy · Knights of the Templar Cross',
