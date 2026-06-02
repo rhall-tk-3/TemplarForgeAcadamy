@@ -1,7 +1,7 @@
 'use strict';
 
 // ── DEPLOY VERSION — updated on every push so Railway logs confirm new code ──
-const DEPLOY_VERSION = '1.7.2-2026-06-01';
+const DEPLOY_VERSION = '1.7.6-2026-06-02';
 
 // ── Load .env in development (ignored on Railway — vars injected by platform) ──
 try { require('dotenv').config(); } catch (_) { /* dotenv optional */ }
@@ -21,8 +21,12 @@ try { require('dotenv').config(); } catch (_) { /* dotenv optional */ }
   );
   if (missing.length) {
     console.error(
-      `\n✠ FATAL: Required environment variable(s) not set: ${missing.join(', ')}\n` +
-      `  Set them in Railway → Service → Variables before deploying.\n`
+      `\n✠ FATAL: Required environment variable(s) not set: ${missing.join(', ')}` +
+      `\n  Go to Railway → Your Service → Variables tab and add each missing variable.` +
+      `\n  JWT_SECRET    — random 48-byte hex string (used to sign login tokens)` +
+      `\n  SESSION_SECRET — random 48-byte hex string (used to sign session cookies)` +
+      `\n  SM_PASSWORD   — Schoolmaster account password` +
+      `\n  Generate with: node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"\n`
     );
     process.exit(1);
   }
