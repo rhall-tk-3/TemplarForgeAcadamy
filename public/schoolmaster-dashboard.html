@@ -229,6 +229,51 @@
     .review-form input[type="text"]:focus,
     .review-form textarea:focus { outline:none; border-color:#8b0000; }
 
+    /* ── Exam accordion (per-program collapsible groups) ── */
+    .exam-group {
+      border:1px solid #2a0010; border-radius:12px; margin-bottom:10px; overflow:hidden;
+    }
+    .exam-group summary {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:11px 14px; cursor:pointer; list-style:none;
+      background:linear-gradient(135deg,#120006,#0a0004);
+      user-select:none; gap:10px; flex-wrap:wrap;
+    }
+    .exam-group summary::-webkit-details-marker { display:none; }
+    .exam-group summary:hover { background:linear-gradient(135deg,#1c000c,#120007); }
+    .exam-group[open] > summary { border-bottom:1px solid #2a0010; }
+    .exam-group-title {
+      font-family:'Cinzel',serif; font-size:.78rem; font-weight:700;
+      color:#c8a8a8; letter-spacing:.07em; flex:1;
+    }
+    .exam-group-meta {
+      display:flex; align-items:center; gap:8px; flex-shrink:0; flex-wrap:wrap;
+    }
+    .exam-group-count {
+      font-family:'Cinzel',serif; font-size:.66rem; font-weight:700;
+      letter-spacing:.08em; padding:2px 9px; border-radius:999px;
+      background:rgba(139,0,0,.18); border:1px solid #4a0010; color:#8b3030;
+    }
+    .exam-group-latest {
+      font-size:.7rem; color:#6a3030;
+    }
+    .exam-group-chevron {
+      font-size:.7rem; color:#4a1020; transition:transform .2s; flex-shrink:0;
+    }
+    .exam-group[open] .exam-group-chevron { transform:rotate(180deg); }
+    .exam-group-pass-badge {
+      font-family:'Cinzel',serif; font-size:.64rem; font-weight:700;
+      padding:2px 8px; border-radius:999px; white-space:nowrap;
+    }
+    .exam-group-pass-badge.has-pass {
+      background:rgba(0,80,0,.18); border:1px solid #2a6020; color:#90e090;
+    }
+    .exam-group-pass-badge.all-fail {
+      background:rgba(139,0,0,.15); border:1px solid #4a0010; color:#e8c96a;
+    }
+    .exam-group-body { padding:12px; display:flex; flex-direction:column; gap:8px; }
+    .exam-group-body .exam-item { margin-bottom:0; }
+
     /* History / notes */
     .history-item {
       display:flex; justify-content:space-between; align-items:center; gap:12px;
@@ -1749,86 +1794,157 @@ function renderExams(m) {
     return;
   }
 
-  let html = '';
+  // ── Helper: build a single exam-item for a curriculum exam ──
+  function buildCurrItem(s) {
+    const prog      = allPrograms.find(p => p.slug === s.programSlug);
+    const progTitle = prog ? prog.title : (s.programSlug || '—');
+    const passClass = s.passed ? 'exam-status-reviewed' : 'exam-status-pending';
+    const passLabel = s.passed
+      ? `<span class="${passClass}">✔ Passed — ${s.score}%</span>`
+      : `<span class="${passClass}">✗ Failed — ${s.score}% (need ${s.passingScore}%)</span>`;
 
-  // Render curriculum-based exams first (auto-graded, most important)
-  if (currExams.length) {
-    html += `<div style="font-size:.76rem;color:#8a6060;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">
-      ✠ Program Hub Exams (Auto-Graded)</div>`;
-    html += currExams.map(s => {
-      const prog = allPrograms.find(p => p.slug === s.programSlug);
-      const progTitle = prog ? prog.title : (s.programSlug || '—');
-      const passClass = s.passed ? 'exam-status-reviewed' : 'exam-status-pending';
-      const passLabel = s.passed
-        ? `<span class="${passClass}">✔ Passed — ${s.score}%</span>`
-        : `<span class="${passClass}">✗ Failed — ${s.score}% (need ${s.passingScore}%)</span>`;
+    const reviewHtml = (s.review || []).map(r => `
+      <div class="qa-item" style="border-left:2px solid ${r.isCorrect ? '#2a6a2a' : '#6a2020'};padding-left:8px;margin:4px 0;">
+        <div class="qa-q" style="font-size:.78rem;">Q${r.questionNumber}: ${r.prompt}</div>
+        <div class="qa-a" style="font-size:.76rem;">
+          Your answer: <strong>${r.submittedAnswer}</strong> — ${r.submittedText}<br>
+          ${!r.isCorrect ? `Correct: <strong>${r.correctAnswer}</strong> — ${r.correctText}<br>` : ''}
+          <em style="color:#6a5040;">${r.explanation}</em>
+        </div>
+      </div>`).join('');
 
-      // Build per-question review
-      const reviewHtml = (s.review || []).map(r => `
-        <div class="qa-item" style="border-left:2px solid ${r.isCorrect ? '#2a6a2a' : '#6a2020'};padding-left:8px;margin:4px 0;">
-          <div class="qa-q" style="font-size:.78rem;">Q${r.questionNumber}: ${r.prompt}</div>
-          <div class="qa-a" style="font-size:.76rem;">
-            Your answer: <strong>${r.submittedAnswer}</strong> — ${r.submittedText}<br>
-            ${!r.isCorrect ? `Correct: <strong>${r.correctAnswer}</strong> — ${r.correctText}<br>` : ''}
-            <em style="color:#6a5040;">${r.explanation}</em>
-          </div>
-        </div>`).join('');
-
-      // Week progression is automatic on pass — no SM unlock approval needed.
-      // Use the Week Progression panel to manually adjust the member's week if needed.
-      const unlockBtn = s.passed ? `
-        <div style="margin-top:6px;font-size:.76rem;color:#4a8040;font-family:'Crimson Text',serif;">
-          ✔ Passed — Week ${s.weekNumber + 1} auto-unlocked · Use <em>Week Progression</em> above to adjust manually.</div>` :
-        `<div style="margin-top:6px;font-size:.76rem;color:#8a6040;font-family:'Crimson Text',serif;">
+    const unlockBtn = s.passed
+      ? `<div style="margin-top:6px;font-size:.76rem;color:#4a8040;font-family:'Crimson Text',serif;">
+          ✔ Passed — Week ${s.weekNumber + 1} auto-unlocked · Use <em>Week Progression</em> above to adjust manually.</div>`
+      : `<div style="margin-top:6px;font-size:.76rem;color:#8a6040;font-family:'Crimson Text',serif;">
           ✗ Failed — ${s.score}% (need ${s.passingScore}%) · Student auto-retests after 24-hour cooldown — no SM action required.
         </div>`;
 
-      return `<div class="exam-item">
-        <div class="exam-item-header">
-          <div>
-            <div class="exam-meta">${progTitle} · Week ${s.weekNumber}${s.weekTitle ? ' — ' + s.weekTitle : ''}</div>
-            <div style="font-size:.76rem;color:#3a1010;margin-top:2px;">${new Date(s.submittedAt).toLocaleString()}</div>
-          </div>
-          ${passLabel}
+    return `<div class="exam-item">
+      <div class="exam-item-header">
+        <div>
+          <div class="exam-meta">${progTitle} · Week ${s.weekNumber}${s.weekTitle ? ' — ' + s.weekTitle : ''}</div>
+          <div style="font-size:.76rem;color:#3a1010;margin-top:2px;">${new Date(s.submittedAt).toLocaleString()}</div>
         </div>
-        ${reviewHtml ? `<div class="qa-list" style="margin-top:8px;">${reviewHtml}</div>` : ''}
-        ${unlockBtn}
-      </div>`;
-    }).join('');
+        ${passLabel}
+      </div>
+      ${reviewHtml ? `<div class="qa-list" style="margin-top:8px;">${reviewHtml}</div>` : ''}
+      ${unlockBtn}
+    </div>`;
   }
 
-  // Render legacy manual exams (old system, kept for historical data)
-  if (legacySubs.length) {
-    html += `<div style="font-size:.76rem;color:#8a6060;text-transform:uppercase;letter-spacing:.08em;margin:12px 0 6px;">
-      Legacy Manual Submissions</div>`;
-    html += legacySubs.map((s, i) => {
-      const prog = allPrograms.find(p => p.slug === s.programSlug);
-      const answers = (s.answers||[]).map(a => `
-        <div class="qa-item">
-          <div class="qa-q">${a.question || 'Q'+(i+1)}</div>
-          <div class="qa-a">${a.answer   || '<em style="color:#4a1020;">No answer</em>'}</div>
-        </div>`).join('');
-      const status = s.reviewedAt
-        ? `<span class="exam-status-reviewed">✔ Reviewed · Grade: ${s.grade||'—'}</span>`
-        : `<span class="exam-status-pending">⏳ Pending Review</span>`;
-      const reviewForm = !s.reviewedAt ? `
-        <div class="review-form">
+  // ── Helper: build a single exam-item for a legacy manual exam ──
+  function buildLegacyItem(s, i) {
+    const prog    = allPrograms.find(p => p.slug === s.programSlug);
+    const answers = (s.answers||[]).map(a => `
+      <div class="qa-item">
+        <div class="qa-q">${a.question || 'Q'+(i+1)}</div>
+        <div class="qa-a">${a.answer   || '<em style="color:#4a1020;">No answer</em>'}</div>
+      </div>`).join('');
+    const status = s.reviewedAt
+      ? `<span class="exam-status-reviewed">✔ Reviewed · Grade: ${s.grade||'—'}</span>`
+      : `<span class="exam-status-pending">⏳ Pending Review</span>`;
+    const reviewForm = !s.reviewedAt
+      ? `<div class="review-form">
           <input type="text" id="grade-${i}" placeholder="Grade (e.g. Pass / 85%)">
           <textarea id="notes-${i}" placeholder="Feedback / notes…" rows="2"></textarea>
           <button class="sm-btn gold" onclick="submitReview(${i})">Save Review</button>
-        </div>` : `<div style="margin-top:8px;font-size:.82rem;color:#6a4040;">Notes: ${s.notes||'—'}</div>`;
-      return `<div class="exam-item">
-        <div class="exam-item-header">
-          <div>
-            <div class="exam-meta">${prog ? prog.title : s.programSlug} · Week ${s.week||'—'}</div>
-            <div style="font-size:.76rem;color:#3a1010;margin-top:2px;">${new Date(s.submittedAt).toLocaleString()}</div>
-          </div>
-          ${status}
+        </div>`
+      : `<div style="margin-top:8px;font-size:.82rem;color:#6a4040;">Notes: ${s.notes||'—'}</div>`;
+    return `<div class="exam-item">
+      <div class="exam-item-header">
+        <div>
+          <div class="exam-meta">${prog ? prog.title : s.programSlug} · Week ${s.week||'—'}</div>
+          <div style="font-size:.76rem;color:#3a1010;margin-top:2px;">${new Date(s.submittedAt).toLocaleString()}</div>
         </div>
-        ${answers ? `<div class="qa-list">${answers}</div>` : ''}
-        ${reviewForm}
-      </div>`;
-    }).join('');
+        ${status}
+      </div>
+      ${answers ? `<div class="qa-list">${answers}</div>` : ''}
+      ${reviewForm}
+    </div>`;
+  }
+
+  // ── Helper: group an array of submissions by programSlug ──
+  function groupByProgram(subs) {
+    const map = new Map();
+    subs.forEach(s => {
+      const key = s.programSlug || '—';
+      if (!map.has(key)) map.set(key, []);
+      map.get(key).push(s);
+    });
+    return map;
+  }
+
+  // ── Helper: build one accordion <details> for a program group ──
+  // type = 'curr' | 'legacy'
+  function buildAccordion(slug, items, type, legacyOffset) {
+    const prog      = allPrograms.find(p => p.slug === slug);
+    const progTitle = prog ? prog.title : slug;
+
+    // Pass/fail summary for curriculum exams
+    let badgeHtml = '';
+    if (type === 'curr') {
+      const anyPass = items.some(s => s.passed);
+      const allFail = items.every(s => !s.passed);
+      badgeHtml = anyPass
+        ? `<span class="exam-group-pass-badge has-pass">✔ Passed</span>`
+        : `<span class="exam-group-pass-badge all-fail">✗ Not Yet Passed</span>`;
+    } else {
+      const anyPending = items.some(s => !s.reviewedAt);
+      if (anyPending)
+        badgeHtml = `<span class="exam-group-pass-badge all-fail">⏳ Pending Review</span>`;
+    }
+
+    // Latest submission date
+    const latestDate = items.reduce((newest, s) =>
+      !newest || new Date(s.submittedAt) > new Date(newest) ? s.submittedAt : newest, null);
+    const latestStr = latestDate ? new Date(latestDate).toLocaleDateString() : '';
+
+    // Open by default only if there's a pending item (needs SM attention)
+    const hasPending = type === 'legacy'
+      ? items.some(s => !s.reviewedAt)
+      : false;   // curriculum exams are auto-graded — no SM action needed, default collapsed
+
+    const bodyHtml = type === 'curr'
+      ? items.map(s => buildCurrItem(s)).join('')
+      : items.map((s, i) => buildLegacyItem(s, legacyOffset + i)).join('');
+
+    return `<details class="exam-group"${hasPending ? ' open' : ''}>
+      <summary>
+        <span class="exam-group-title">${progTitle}</span>
+        <span class="exam-group-meta">
+          ${badgeHtml}
+          <span class="exam-group-count">${items.length} submission${items.length !== 1 ? 's' : ''}</span>
+          ${latestStr ? `<span class="exam-group-latest">${latestStr}</span>` : ''}
+          <span class="exam-group-chevron">▼</span>
+        </span>
+      </summary>
+      <div class="exam-group-body">${bodyHtml}</div>
+    </details>`;
+  }
+
+  let html = '';
+
+  // ── Curriculum-based exams (auto-graded, grouped by program) ──
+  if (currExams.length) {
+    html += `<div style="font-size:.76rem;color:#8a6060;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;">
+      ✠ Program Hub Exams (Auto-Graded)</div>`;
+    const groups = groupByProgram(currExams);
+    groups.forEach((items, slug) => {
+      html += buildAccordion(slug, items, 'curr', 0);
+    });
+  }
+
+  // ── Legacy manual exams (old system, grouped by program) ──
+  if (legacySubs.length) {
+    html += `<div style="font-size:.76rem;color:#8a6060;text-transform:uppercase;letter-spacing:.08em;margin:${currExams.length ? '14px' : '0px'} 0 8px;">
+      Legacy Manual Submissions</div>`;
+    const groups = groupByProgram(legacySubs);
+    let legacyOffset = 0;
+    groups.forEach((items, slug) => {
+      html += buildAccordion(slug, items, 'legacy', legacyOffset);
+      legacyOffset += items.length;
+    });
   }
 
   el.innerHTML = html;
