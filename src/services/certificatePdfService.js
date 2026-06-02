@@ -22,6 +22,7 @@
 
 const fs   = require('fs');
 const path = require('path');
+const os   = require('os');
 
 let puppeteer;
 try {
@@ -103,14 +104,19 @@ async function renderCertificatePdf({ memberName, programTitle, completionDate, 
     .replace(/\{\{MEMBER_ID\}\}/g,       esc(memberId))
     .replace(/\{\{CERT_ID\}\}/g,         esc(certId));
 
+  // Write filled HTML to a temp file so Puppeteer loads it as file://
+  // This is critical — page.goto('file://...') allows the browser to load
+  // sibling file:// images, whereas page.setContent() blocks them.
+  const tmpFile = path.join(os.tmpdir(), `tfa-cert-${Date.now()}.html`);
+  fs.writeFileSync(tmpFile, html);
+
   const browser = await getBrowser();
   const page    = await browser.newPage();
 
   try {
     await page.setViewport({ width: 1123, height: 795, deviceScaleFactor: 2 });
 
-    // Load HTML with a file:// base URL so relative paths resolve correctly
-    await page.setContent(html, {
+    await page.goto('file://' + tmpFile, {
       waitUntil: 'networkidle0',
       timeout:   20000,
     });
@@ -125,6 +131,8 @@ async function renderCertificatePdf({ memberName, programTitle, completionDate, 
     return pdf; // Buffer
   } finally {
     await page.close();
+    // Clean up temp file
+    try { fs.unlinkSync(tmpFile); } catch (_) {}
   }
 }
 
