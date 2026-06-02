@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Certificate of Completion</title>
+<style>
+  @page { size: 297mm 210mm landscape; margin: 0; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: 297mm;
+    height: 210mm;
+    background: #2a1800;
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
+  }
+
+  /* ── Outer envelope ── */
+  .envelope {
+    width: 297mm;
+    height: 210mm;
+    background: #2a1800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10mm;
+  }
+
+  /* ── Certificate card ── */
+  .card {
+    width: 100%;
+    height: 100%;
+    background: #FFFFCC;
+    border: 3px solid #CC9900;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* ── Thick gold bars top/bottom ── */
+  .gold-bar {
+    background: #CC9900;
+    height: 8px;
+    flex-shrink: 0;
+  }
+
+  /* ── Yellow band ── */
+  .yellow-band {
+    background: #FFFF99;
+    border-top: 1.5px solid #CC9900;
+    border-bottom: 1.5px solid #CC9900;
+    flex-shrink: 0;
+  }
+  .yellow-band-top {
+    background: #FFFF99;
+    border-bottom: 1.5px solid #CC9900;
+    height: 18px;
+    flex-shrink: 0;
+  }
+  .yellow-band-bottom {
+    background: #FFFF99;
+    border-top: 1.5px solid #CC9900;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  /* ── Title row ── */
+  .title-row {
+    background: #FFFFCC;
+    text-align: center;
+    padding: 10px 50px 6px;
+    flex-shrink: 0;
+  }
+  .gold-rule {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #CC9900 20%, #CC9900 80%, transparent);
+    margin-bottom: 8px;
+  }
+  .cert-title {
+    font-size: 22px;
+    font-weight: 900;
+    color: #EE0000;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .red-rule {
+    height: 2px;
+    background: #EE0000;
+    width: 65%;
+    margin: 6px auto 0;
+    opacity: 0.7;
+  }
+
+  /* ── Italic banner labels ── */
+  .banner-label {
+    font-size: 11px;
+    font-style: italic;
+    color: #C00000;
+    letter-spacing: 0.06em;
+    text-align: center;
+    padding: 5px 40px;
+  }
+
+  /* ── Student name ── */
+  .student-name {
+    background: #FFFFCC;
+    text-align: center;
+    padding: 10px 40px 6px;
+    flex-shrink: 0;
+  }
+  .name-text {
+    font-family: 'Brush Script MT', 'Segoe Script', Georgia, cursive;
+    font-size: 40px;
+    font-weight: 400;
+    color: #000;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Program name ── */
+  .program-block {
+    background: #FFFFCC;
+    text-align: center;
+    padding: 8px 60px 6px;
+    flex-shrink: 0;
+  }
+  .program-name {
+    font-size: 18px;
+    font-weight: 900;
+    color: #000;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+  .program-badge {
+    font-size: 9.5px;
+    color: #C00000;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-style: italic;
+    margin-top: 3px;
+  }
+
+  /* ── Body copy ── */
+  .body-copy {
+    background: #FFFF99;
+    border-top: 1.5px solid #CC9900;
+    border-bottom: 1.5px solid #CC9900;
+    text-align: center;
+    padding: 6px 70px;
+    flex-shrink: 0;
+  }
+  .body-copy p {
+    font-size: 10.5px;
+    color: #000;
+    line-height: 1.65;
+  }
+
+  /* ── Data fields row ── */
+  .data-row {
+    background: #FFFFCC;
+    padding: 8px 50px 4px;
+    flex-shrink: 0;
+  }
+  .data-table {
+    width: 100%;
+  }
+  .data-label {
+    color: #C00000;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    font-size: 10px;
+  }
+  .data-value {
+    font-size: 10px;
+    color: #000;
+  }
+  .cert-id-row {
+    text-align: center;
+    font-size: 9.5px;
+    color: #4a3000;
+    padding-top: 4px;
+    letter-spacing: 0.07em;
+  }
+
+  /* ── Gold rules ── */
+  .triple-rule {
+    background: #FFFFCC;
+    padding: 0 40px;
+    flex-shrink: 0;
+  }
+  .triple-rule-inner {
+    border-top: 2.5px solid #CC9900;
+  }
+  .triple-rule-inner2 {
+    border-top: 1px solid #CC9900;
+    margin-top: 2.5px;
+  }
+
+  /* ── Signature block ── */
+  .sig-block {
+    background: #FFFFCC;
+    padding: 6px 40px 4px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .sig-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .sig-name {
+    font-family: 'Brush Script MT', 'Segoe Script', Georgia, cursive;
+    font-size: 20px;
+    color: #000;
+    line-height: 1;
+    margin-bottom: 3px;
+    text-align: center;
+  }
+  .sig-line-cell {
+    text-align: center;
+    vertical-align: bottom;
+    padding: 0 6px;
+    width: 38%;
+  }
+  .sig-line {
+    border-top: 1.5px solid #8a7000;
+    padding-top: 4px;
+  }
+  .sig-title {
+    font-size: 9px;
+    font-weight: 700;
+    color: #000;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .sig-seal-cell {
+    text-align: center;
+    vertical-align: top;
+    padding: 6px 6px 0;
+    width: 38%;
+  }
+  .sig-centre-cell {
+    text-align: center;
+    vertical-align: top;
+    padding: 6px 4px 0;
+    width: 24%;
+  }
+  .seal-sm {
+    width: 90px;
+    height: 90px;
+    display: block;
+    margin: 0 auto;
+  }
+  .seal-tfa {
+    width: 110px;
+    height: 110px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* ── Footer order badge ── */
+  .order-badge {
+    background: #FFFFCC;
+    text-align: center;
+    padding: 4px 60px 2px;
+    flex-shrink: 0;
+  }
+  .order-badge-text {
+    font-size: 10px;
+    font-weight: 900;
+    color: #EE0000;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+<div class="envelope">
+  <div class="card">
+
+    <!-- THICK GOLD TOP BAR -->
+    <div class="gold-bar"></div>
+
+    <!-- YELLOW TOP BAND -->
+    <div class="yellow-band-top"></div>
+
+    <!-- TITLE ROW -->
+    <div class="title-row">
+      <div class="gold-rule"></div>
+      <div class="cert-title">Certificate of Completion</div>
+      <div class="red-rule"></div>
+    </div>
+
+    <!-- "this certificate is proudly presented to:" -->
+    <div class="yellow-band">
+      <div class="banner-label">this certificate is proudly presented to:</div>
+    </div>
+
+    <!-- STUDENT NAME -->
+    <div class="student-name">
+      <div class="name-text">{{MEMBER_NAME}}</div>
+    </div>
+
+    <!-- "for successfully completing the" -->
+    <div class="yellow-band">
+      <div class="banner-label">for successfully completing the</div>
+    </div>
+
+    <!-- PROGRAM NAME -->
+    <div class="program-block">
+      <div class="program-name">{{PROGRAM_TITLE}}</div>
+      <div class="program-badge">&#10022; Knights Templar Journey of Knowledge &#10022;</div>
+    </div>
+
+    <!-- BODY COPY -->
+    <div class="body-copy">
+      <p>at Templar Forge Academy.<br>
+      through dedication, discipline, and commitment to excellence, this student has fulfilled the<br>
+      requirements of the program and demonstrated meaningful achievement in their course of study.</p>
+    </div>
+
+    <!-- DATA FIELDS -->
+    <div class="data-row">
+      <table class="data-table">
+        <tr>
+          <td style="vertical-align:top; text-align:left;">
+            <span class="data-label">Date of Completion:</span><br>
+            <span class="data-value">{{COMPLETION_DATE}}</span>
+          </td>
+          <td style="vertical-align:top; text-align:right;">
+            <span class="data-label">Member ID:</span><br>
+            <span class="data-value">{{MEMBER_ID}}</span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" class="cert-id-row">
+            <span class="data-label">Certificate ID:</span>&nbsp;<span class="data-value">{{CERT_ID}}</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- GOLD TRIPLE RULE -->
+    <div class="triple-rule">
+      <div class="triple-rule-inner"></div>
+      <div class="triple-rule-inner2"></div>
+    </div>
+
+    <!-- ORDER BADGE -->
+    <div class="order-badge">
+      <div class="order-badge-text">&#10022; Knights Templar of the Kingdom of Christ &#10022;</div>
+    </div>
+
+    <!-- DUAL SIGNATURE + SEALS BLOCK -->
+    <div class="sig-block">
+      <table class="sig-table">
+
+        <!-- Row 1: Signature names + titles -->
+        <tr>
+          <td class="sig-line-cell">
+            <div class="sig-name">Schoolmaster Hall</div>
+            <div class="sig-line">
+              <div class="sig-title">Academy Director</div>
+            </div>
+          </td>
+          <td style="width:24%; text-align:center; vertical-align:bottom; padding:0 4px;">
+            &nbsp;
+          </td>
+          <td class="sig-line-cell">
+            <div class="sig-name">Michael G. Dynak</div>
+            <div class="sig-line">
+              <div class="sig-title">Grand Master</div>
+            </div>
+          </td>
+        </tr>
+
+        <!-- Row 2: Seal images — loaded from disk via file:// -->
+        <tr>
+          <td class="sig-seal-cell">
+            <img class="seal-sm"
+                 src="__SEAL_DIR__/seal-schoolmaster.png"
+                 alt="Schoolmaster Seal">
+          </td>
+          <td class="sig-centre-cell">
+            <img class="seal-tfa"
+                 src="__SEAL_DIR__/seal-tfa.png"
+                 alt="Templar Forge Academy Seal">
+          </td>
+          <td class="sig-seal-cell">
+            <img class="seal-sm"
+                 src="__SEAL_DIR__/seal-grandmaster.png"
+                 alt="Grand Master Seal">
+          </td>
+        </tr>
+
+      </table>
+    </div>
+
+    <!-- YELLOW BOTTOM BAND -->
+    <div class="yellow-band-bottom"></div>
+
+    <!-- THICK GOLD BOTTOM BAR -->
+    <div class="gold-bar"></div>
+
+  </div><!-- .card -->
+</div><!-- .envelope -->
+</body>
+</html>

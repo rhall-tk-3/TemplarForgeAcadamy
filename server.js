@@ -1020,8 +1020,8 @@ app.get('/admin/members', requireAdmin, (_req, res) => {
 async function handleCertDownload(req, res) {
   const { findById, getMemberUsers } = require('./src/auth/userStore');
   const { getCurriculumIndex }       = require('./src/services/curriculumService');
-  const { buildCertHtml, generateCertId, fmtDate } = require('./src/services/certificateService');
-  const { renderCertificatePdf }     = require('./src/services/certificatePdfService');
+  const { generateCertId, fmtDate } = require('./src/services/certificateService');
+  const { renderCertificatePdf }    = require('./src/services/certificatePdfService');
 
   // Only members (not admin) download their own certs
   if (req.session.role === 'admin') {
@@ -1049,16 +1049,25 @@ async function handleCertDownload(req, res) {
   const certId = entry.certId || generateCertId(user, slug, entry.completedAt);
 
   try {
-    const html = buildCertHtml(user, programTitle, entry.completedAt, entry.grade || null, certId, slug);
-    const pdf  = await renderCertificatePdf(html);
-
-    // Safe filename: "TFA-Certificate-Squire-School-2026-06-01.pdf"
+    // Build the short program title (strip " — Templar Forge Academy" suffix)
     const shortTitle = (programTitle.includes(' — ')
       ? programTitle.split(' — ')[0]
       : programTitle
-    ).trim().replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, '-');
-    const dateTag    = new Date(entry.completedAt).toISOString().slice(0, 10);
-    const filename   = `TFA-Certificate-${shortTitle}-${dateTag}.pdf`;
+    ).trim();
+
+    const displayName = (user.salutation ? user.salutation + ' ' : '') + user.username;
+
+    const pdf = await renderCertificatePdf({
+      memberName:     displayName,
+      programTitle:   shortTitle + ' Program',
+      completionDate: fmtDate(entry.completedAt),
+      memberId:       user.memberId || '—',
+      certId,
+    });
+
+    // Safe filename: "TFA-Certificate-Squire-School-2026-06-01.pdf"
+    const dateTag  = new Date(entry.completedAt).toISOString().slice(0, 10);
+    const filename = `TFA-Certificate-${shortTitle.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, '-')}-${dateTag}.pdf`;
 
     res.setHeader('Content-Type',        'application/pdf');
     res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
