@@ -1,7 +1,7 @@
 'use strict';
 
 // ── DEPLOY VERSION — updated on every push so Railway logs confirm new code ──
-const DEPLOY_VERSION = '1.7.7-2026-06-02';
+const DEPLOY_VERSION = '1.7.9-2026-06-02';
 
 // First thing printed — confirms this file was reached by Node
 process.stdout.write(`[boot] server.js loaded — v${DEPLOY_VERSION} — pid ${process.pid}\n`);
@@ -1077,7 +1077,7 @@ async function handleCertDownload(req, res) {
     const filename = `TFA-Certificate-${shortTitle.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, '-')}-${dateTag}.pdf`;
 
     res.setHeader('Content-Type',        'application/pdf');
-    res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
+    res.setHeader('Content-Disposition', `inline; filename="${filename}"`);
     res.setHeader('Content-Length',      pdf.length);
     res.setHeader('Cache-Control',       'no-store');
     return res.send(pdf);

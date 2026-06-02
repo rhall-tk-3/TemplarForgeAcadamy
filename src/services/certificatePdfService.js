@@ -138,18 +138,18 @@ async function renderCertificatePdf({ memberName, programTitle, completionDate, 
   const page    = await browser.newPage();
 
   try {
-    await page.setViewport({ width: 1123, height: 795, deviceScaleFactor: 2 });
-
+    // No viewport needed — page.pdf() is driven by @page CSS and preferCSSPageSize.
     await page.goto('file://' + tmpFile, {
       waitUntil: 'networkidle0',
-      timeout:   20000,
+      timeout:   30000,
     });
 
     const pdf = await page.pdf({
-      width:           '297mm',
-      height:          '210mm',
-      printBackground: true,
-      margin:          { top: '0', right: '0', bottom: '0', left: '0' },
+      // preferCSSPageSize lets the @page { size: 297mm 210mm landscape } rule
+      // in the template take full control — no JS dimension override needed.
+      preferCSSPageSize: true,
+      printBackground:   true,
+      margin:            { top: '0', right: '0', bottom: '0', left: '0' },
     });
 
     return pdf; // Buffer
