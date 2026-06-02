@@ -3,6 +3,9 @@
 // ── DEPLOY VERSION — updated on every push so Railway logs confirm new code ──
 const DEPLOY_VERSION = '1.7.6-2026-06-02';
 
+// First thing printed — confirms this file was reached by Node
+process.stdout.write(`[boot] server.js loaded — v${DEPLOY_VERSION} — pid ${process.pid}\n`);
+
 // ── Load .env in development (ignored on Railway — vars injected by platform) ──
 try { require('dotenv').config(); } catch (_) { /* dotenv optional */ }
 
@@ -1544,16 +1547,22 @@ function seedVolumeIfNeeded() {
 
 // ── BOOT ──
 async function start() {
+  console.log(`✠ Starting Templar Forge Academy v${DEPLOY_VERSION} — NODE_ENV=${process.env.NODE_ENV || 'unset'} PORT=${process.env.PORT || 3000}`);
+
   // Seed volume data files before anything else touches them
+  console.log('✠ [1/3] seedVolumeIfNeeded...');
   seedVolumeIfNeeded();
+  console.log('✠ [1/3] done');
 
   // Seed / sync the one Schoolmaster account
+  console.log('✠ [2/3] seedSchoolmaster...');
   await seedSchoolmaster();
-  console.log(`✠ Schoolmaster account ready: ${process.env.SM_USERNAME || 'Schoolmaster26'}`);
+  console.log(`✠ [2/3] done — Schoolmaster account ready: ${process.env.SM_USERNAME || 'Schoolmaster26'}`);
 
   if (require.main === module) {
+    console.log(`✠ [3/3] app.listen on port ${PORT}...`);
     app.listen(PORT, () => {
-      console.log(`✠ Templar Forge Academy v${DEPLOY_VERSION} — http://localhost:${PORT}`);
+      console.log(`✠ [3/3] READY — Templar Forge Academy v${DEPLOY_VERSION} listening on port ${PORT}`);
     });
   }
 }
