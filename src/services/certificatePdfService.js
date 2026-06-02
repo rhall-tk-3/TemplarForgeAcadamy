@@ -24,9 +24,11 @@ const fs   = require('fs');
 const path = require('path');
 const os   = require('os');
 
+// puppeteer-core has no bundled browser — it uses the system Chromium
+// installed via nixpacks on Railway (set via PUPPETEER_EXECUTABLE_PATH).
 let puppeteer;
 try {
-  puppeteer = require('puppeteer');
+  puppeteer = require('puppeteer-core');
 } catch (e) {
   puppeteer = null;
 }
@@ -37,6 +39,28 @@ const SEAL_DIR      = path.join(__dirname, '../../public/images');
 
 // Browser singleton — reused across requests
 let _browser = null;
+
+/**
+ * Locate the system Chromium binary.
+ * Priority:
+ *   1. PUPPETEER_EXECUTABLE_PATH env var (Railway Variables panel override)
+ *   2. `which chromium`        (Nix package name on Railway)
+ *   3. `which chromium-browser` (Debian/Ubuntu fallback)
+ *   4. undefined — let puppeteer-core throw a useful error
+ */
+function getChromiumPath() {
+  if (process.env.PUPPETEER_EXECUTABLE_PATH) {
+    return process.env.PUPPETEER_EXECUTABLE_PATH;
+  }
+  const { execSync } = require('child_process');
+  for (const cmd of ['which chromium', 'which chromium-browser']) {
+    try {
+      const p = execSync(cmd, { stdio: ['pipe', 'pipe', 'ignore'] }).toString().trim();
+      if (p) return p;
+    } catch (_) {}
+  }
+  return undefined; // puppeteer-core will surface a clear error
+}
 
 async function getBrowser() {
   if (_browser) {
@@ -49,10 +73,10 @@ async function getBrowser() {
   }
 
   if (!puppeteer) {
-    throw new Error('puppeteer is not installed. Run: npm install puppeteer');
+    throw new Error('puppeteer-core is not installed. Run: npm install puppeteer-core');
   }
 
-  const executablePath = process.env.PUPPETEER_EXECUTABLE_PATH || undefined;
+  const executablePath = getChromiumPath();
 
   _browser = await puppeteer.launch({
     headless: true,

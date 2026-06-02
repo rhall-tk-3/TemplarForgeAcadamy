@@ -1,6 +1,6 @@
 # nixpacks.toml — Railway build configuration
 # Pins Node 20 LTS and skips devDependencies in the production install.
-# Chromium system libs required by puppeteer for PDF certificate generation.
+# Uses system Chromium from Nix — puppeteer-core does NOT download its own browser.
 
 [phases.setup]
 nixPkgs = [
@@ -26,6 +26,14 @@ nixPkgs = [
 
 [phases.install]
 cmds = ["npm ci --omit=dev"]
+
+[variables]
+# Prevent puppeteer-core from trying to download a browser at install time.
+# The service locates system Chromium dynamically via `which chromium` at
+# runtime, so PUPPETEER_EXECUTABLE_PATH does NOT need to be set here.
+# If Railway ever changes the Nix chromium path, set this in the Railway
+# Variables panel to override the runtime auto-detection.
+PUPPETEER_SKIP_DOWNLOAD = "1"
 
 [start]
 cmd = "node server.js"
