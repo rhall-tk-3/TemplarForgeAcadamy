@@ -1,10 +1,14 @@
 'use strict';
 
 /**
- * certificatePdfService.js  — v5.0 (PDFKit — no browser required)
+ * certificatePdfService.js  — v5.1 (PDFKit — custom fonts: Cinzel + Great Vibes)
  *
  * Generates a landscape A4 certificate PDF using PDFKit.
  * All layout is relative to the card bounds — nothing overflows.
+ *
+ * Fonts:
+ *   Cinzel-Bold       — Algerian-style engraved Roman capitals (headings/title)
+ *   GreatVibes        — Cursive/handwritten calligraphy (signature names)
  */
 
 const fs   = require('fs');
@@ -19,6 +23,10 @@ const SEAL_DIR = path.join(__dirname, '../../public/images');
 const SEAL_SM  = path.join(SEAL_DIR, 'seal-schoolmaster.png');
 const SEAL_TFA = path.join(SEAL_DIR, 'seal-tfa.png');
 const SEAL_GM  = path.join(SEAL_DIR, 'seal-grandmaster.png');
+
+const FONT_DIR    = path.join(__dirname, '../../public/fonts');
+const CINZEL_BOLD = path.join(FONT_DIR, 'Cinzel-Bold.ttf');
+const GREAT_VIBES = path.join(FONT_DIR, 'GreatVibes-Regular.ttf');
 
 // A4 landscape in points
 const PW = 841.89;
@@ -62,6 +70,10 @@ function renderCertificatePdf({ memberName, programTitle, completionDate, member
         size: [PW, PH], margin: 0,
         info: { Title: 'Certificate of Completion — Templar Forge Academy', Author: 'TFA' },
       });
+
+      // Register custom fonts — fallback to built-ins if files missing
+      if (fs.existsSync(CINZEL_BOLD))   doc.registerFont('Cinzel-Bold',   CINZEL_BOLD);
+      if (fs.existsSync(GREAT_VIBES))   doc.registerFont('GreatVibes',    GREAT_VIBES);
       const chunks = [];
       doc.on('data', c => chunks.push(c));
       doc.on('end',  () => resolve(Buffer.concat(chunks)));
@@ -104,7 +116,7 @@ function _draw(doc, { memberName, programTitle, completionDate, memberId, certId
   const TH = mm(20);
   R(y, TH, CREAM);
   HL(y + mm(3.5), 1.5, mm(18));                          // gold rule above title
-  CH('CERTIFICATE OF COMPLETION', y + mm(7), 'Helvetica-Bold', 21, RED, { characterSpacing: 1.8 });
+  CH('CERTIFICATE OF COMPLETION', y + mm(7), 'Cinzel-Bold', 21, RED, { characterSpacing: 1.8 });
   // red underline rule
   hline(doc, cx + cw*0.14, y + TH - mm(3), cw * 0.72, RED, 1.5);
   y += TH;
@@ -129,7 +141,7 @@ function _draw(doc, { memberName, programTitle, completionDate, memberId, certId
   // ── Programme name ────────────────────────────────────────────────────────
   const PRGH = mm(16);
   R(y, PRGH, CREAM);
-  CH((programTitle || '').toUpperCase(), y + mm(2.5), 'Helvetica-Bold', 16, BLACK, { characterSpacing: 1.2 });
+  CH((programTitle || '').toUpperCase(), y + mm(2.5), 'Cinzel-Bold', 16, BLACK, { characterSpacing: 1.2 });
   CH('* Knights Templar Journey of Knowledge *', y + mm(10), 'Helvetica-Oblique', 9, CRIMSON, { characterSpacing: 1.5 });
   y += PRGH;
 
@@ -173,7 +185,7 @@ function _draw(doc, { memberName, programTitle, completionDate, memberId, certId
   y += mm(6);
 
   // ── KT badge line ─────────────────────────────────────────────────────────
-  CH('* KNIGHTS TEMPLAR OF THE KINGDOM OF CHRIST *', y + mm(0.5), 'Helvetica-Bold', 10.5, RED, { characterSpacing: 1.8 });
+  CH('* KNIGHTS TEMPLAR OF THE KINGDOM OF CHRIST *', y + mm(0.5), 'Cinzel-Bold', 10.5, RED, { characterSpacing: 1.8 });
   y += mm(8);
 
   // ── Signature + seal block ────────────────────────────────────────────────
@@ -187,7 +199,7 @@ function _draw(doc, { memberName, programTitle, completionDate, memberId, certId
 
   // Signature names — positioned at top of sig block
   const sigNameY = y + mm(2);
-  doc.save().font('Times-BoldItalic').fontSize(17).fillColor(BLACK)
+  doc.save().font('GreatVibes').fontSize(22).fillColor(BLACK)
      .text('Schoolmaster Hall', cx, sigNameY, { width: col, align: 'center', lineBreak: false })
      .restore();
   hline(doc, cx + mm(6), sigNameY + mm(9), col - mm(12), DKGOLD, 1.2);
@@ -195,7 +207,7 @@ function _draw(doc, { memberName, programTitle, completionDate, memberId, certId
      .text('ACADEMY DIRECTOR', cx, sigNameY + mm(11), { width: col, align: 'center', lineBreak: false, characterSpacing: 1.5 })
      .restore();
 
-  doc.save().font('Times-BoldItalic').fontSize(17).fillColor(BLACK)
+  doc.save().font('GreatVibes').fontSize(22).fillColor(BLACK)
      .text('Michael G. Dynak', cx + col * 2, sigNameY, { width: col, align: 'center', lineBreak: false })
      .restore();
   hline(doc, cx + col * 2 + mm(6), sigNameY + mm(9), col - mm(12), DKGOLD, 1.2);
