@@ -1126,9 +1126,9 @@ async function handleCertDownload(req, res) {
     return res.send(pdf);
 
   } catch (err) {
-    console.error('✠ Certificate PDF generation failed:', err.message);
-    // For browser nav return a readable error page; for XHR return JSON
-    if (req.xhr || (req.headers.accept || '').includes('application/json')) {
+    console.error('✠ Certificate PDF generation failed:', err.message, err.stack);
+    // /api/ routes always get JSON; browser-nav route gets a readable HTML page
+    if (req.path.startsWith('/api/')) {
       return res.status(500).json({ error: 'Could not generate PDF: ' + err.message });
     }
     return res.status(500).send(`<h2 style="font-family:sans-serif;color:#8a2000;">Certificate generation failed</h2><p>${err.message}</p><p><a href="/member">Return to dashboard</a></p>`);
