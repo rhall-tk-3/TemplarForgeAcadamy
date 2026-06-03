@@ -30,13 +30,8 @@
     .page {
       position: relative;
       width: 100%;
-      /* dvh = dynamic viewport height — correct on iOS Safari (excludes browser chrome).
-         Falls back to 100vh on browsers that don't support dvh. */
       min-height: 100vh;
       min-height: 100dvh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       overflow: hidden;
       /* Safe area insets for notched phones (iPhone X+) */
       padding-left:  env(safe-area-inset-left);
@@ -140,22 +135,79 @@
       }
     }
 
-    /* ── CENTER CONTENT ── */
-    .center {
+    /* ── HERO LAYOUT: three-column flex row ── */
+    .hero-row {
       position: relative;
       z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100dvh;
+      padding-top:    clamp(70px, 10vh, 100px);   /* clear top nav */
+      padding-bottom: clamp(60px, 9vh,  90px);    /* clear footer */
+      padding-left:  max(clamp(8px, 2vw, 20px), env(safe-area-inset-left));
+      padding-right: max(clamp(8px, 2vw, 20px), env(safe-area-inset-right));
+      gap: clamp(8px, 2vw, 32px);
+    }
+
+    /* ── HERO SEAL COLUMNS ── */
+    .hero-seal-col {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* Each seal column: 22% of viewport width, capped at 280px */
+      width: clamp(120px, 22vw, 280px);
+    }
+
+    .hero-seal-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      /* Transparent PNG — rich drop-shadow to make it pop on dark BG */
+      filter:
+        drop-shadow(0 0  12px rgba(201,162,39,0.45))
+        drop-shadow(0 4px 8px  rgba(0,0,0,0.90))
+        drop-shadow(0 12px 32px rgba(0,0,0,0.75));
+      transition: filter 0.3s ease, transform 0.3s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .hero-seal-img:hover {
+        filter:
+          drop-shadow(0 0  22px rgba(201,162,39,0.70))
+          drop-shadow(0 6px 14px rgba(0,0,0,0.95))
+          drop-shadow(0 16px 48px rgba(140,0,0,0.55));
+        transform: scale(1.03);
+      }
+    }
+
+    /* Label beneath each hero seal */
+    .hero-seal-label {
+      font-family: 'Cinzel', 'Palatino Linotype', Georgia, serif;
+      font-size: clamp(0.5rem, 1.1vw, 0.75rem);
+      font-weight: 700;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: #c9a227;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.9), 0 0 14px rgba(197,150,20,0.4);
+      text-align: center;
+      margin-top: clamp(4px, 0.8vh, 10px);
+    }
+
+    /* ── CENTER CONTENT ── */
+    .center {
+      flex: 1 1 auto;
+      min-width: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      /* Top/bottom padding keeps content clear of crest/seal and footer */
-      padding: clamp(90px, 14vh, 140px) clamp(16px, 5vw, 48px) clamp(80px, 12vh, 120px);
       gap: clamp(12px, 3vh, 28px);
-      width: 100%;
-      /* Prevent content touching notch edges */
-      padding-left:  max(clamp(16px, 5vw, 48px), env(safe-area-inset-left));
-      padding-right: max(clamp(16px, 5vw, 48px), env(safe-area-inset-right));
+      padding: 0 clamp(8px, 2vw, 24px);
     }
 
     /* Decorative rule line */
@@ -292,7 +344,7 @@
       margin-top: 3px;
     }
 
-    /* ── SMALL PHONES (≤ 640px) ── */
+    /* ── SMALL PHONES (≤ 640px) — seals above center, side-by-side ── */
     @media (max-width: 640px) {
       .crest { width: clamp(44px, 12vw, 72px); }
       .seal  { width: clamp(44px, 12vw, 68px); }
@@ -300,6 +352,26 @@
       .enter-btn { padding: 12px 28px; font-size: 0.85rem; letter-spacing: 0.12em; }
       .rule  { width: clamp(100px, 68vw, 300px); }
       .center { gap: 10px; }
+
+      /* On mobile: column layout — both seal cols go in a flex row via order trick */
+      .hero-row {
+        flex-direction: column;
+        gap: clamp(14px, 3vw, 22px);
+        padding-top:    clamp(64px, 12vh, 90px);
+        padding-bottom: clamp(54px, 10vh, 80px);
+        align-items: center;
+      }
+      /* Both seal cols float into a row by using flex wrap */
+      #hero-seal-left  { order: 1; width: clamp(90px, 38vw, 180px); }
+      #hero-seal-right { order: 2; width: clamp(90px, 38vw, 180px); }
+      .center          { order: 3; }
+      /* Side-by-side trick: wrap hero-row and let seals flow into same row */
+      .hero-row { flex-wrap: wrap; justify-content: center; }
+      #hero-seal-left, #hero-seal-right {
+        flex: 0 0 auto;
+      }
+      .hero-seal-label { font-size: 0.48rem; letter-spacing: 0.14em; }
+      .center { flex: 0 0 100%; }
     }
 
     /* ── VERY SMALL PHONES (≤ 380px — iPhone SE, Galaxy A series) ── */
@@ -310,11 +382,14 @@
       .enter-btn { padding: 11px 20px; font-size: 0.8rem; letter-spacing: 0.1em; }
       .footer-name { font-size: 0.52rem; letter-spacing: 0.06em; }
       .divider { letter-spacing: 0.2em; }
+      .hero-seal-col { width: clamp(80px, 36vw, 150px); }
     }
 
     /* ── LANDSCAPE MOBILE (short screens — iPhone landscape, etc.) ── */
     @media (max-height: 500px) and (orientation: landscape) {
-      .center {
+      .hero-row {
+        flex-direction: row;
+        flex-wrap: nowrap;
         padding-top:    clamp(50px, 10vh, 80px);
         padding-bottom: clamp(50px, 10vh, 80px);
         gap: 8px;
@@ -323,11 +398,20 @@
       .crest { width: clamp(36px, 7vh, 60px); }
       .seal  { width: clamp(36px, 7vh, 60px); }
       .rule  { display: none; }
+      #hero-seal-left, #hero-seal-right { order: unset; width: clamp(60px, 14vh, 120px); flex: 0 0 auto; }
+      .center { flex: 1 1 auto; order: unset; }
+      .hero-seal-label { display: none; }
     }
 
     /* ── LARGE SCREENS / TABLETS ── */
     @media (min-width: 1024px) {
       .title { font-size: clamp(2.8rem, 4.5vw, 4.8rem); }
+      .hero-seal-col { width: clamp(180px, 20vw, 300px); }
+    }
+
+    /* ── VERY LARGE SCREENS ── */
+    @media (min-width: 1400px) {
+      .hero-seal-col { width: clamp(220px, 18vw, 340px); }
     }
 
     /* ── PRINT — hide decorative elements ── */
@@ -335,6 +419,7 @@
       .bg, .crest-link, .seal-link, .footer { display: none; }
       .center { padding: 20px; }
       .title { color: #000; text-shadow: none; }
+      .hero-seal-col { display: none; }
     }
   </style>
 </head>
@@ -356,18 +441,48 @@
       <img class="seal" src="/images/order-seal.png" alt="Order Seal">
     </a>
 
-    <!-- CENTER: Main welcome content -->
-    <div class="center">
-      <div class="rule"></div>
+    <!-- HERO ROW: TFA Seal | Center Content | Schoolmaster Seal -->
+    <div class="hero-row">
 
-      <h1 class="title">Welcome to<br>Templar Forge Academy</h1>
+      <!-- LEFT: TFA Official Seal — desktop column, mobile part of side-by-side row -->
+      <div class="hero-seal-col" id="hero-seal-left">
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <img class="hero-seal-img"
+               src="/images/seal-tfa-hero.png"
+               alt="Templar Forge Academy Official Seal"
+               loading="eager"
+               decoding="async">
+          <div class="hero-seal-label">Templar Forge Academy</div>
+        </div>
+      </div>
 
-      <div class="divider" aria-hidden="true">✦ ✠ ✦</div>
+      <!-- CENTER: Main welcome content -->
+      <div class="center">
+        <div class="rule"></div>
 
-      <a class="enter-btn" href="/login">Enter the Forge</a>
+        <h1 class="title">Welcome to<br>Templar Forge Academy</h1>
 
-      <div class="rule"></div>
+        <div class="divider" aria-hidden="true">✦ ✠ ✦</div>
+
+        <a class="enter-btn" href="/login">Enter the Forge</a>
+
+        <div class="rule"></div>
+      </div>
+
+      <!-- RIGHT: Schoolmaster Official Seal -->
+      <div class="hero-seal-col" id="hero-seal-right">
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <img class="hero-seal-img"
+               src="/images/seal-schoolmaster-hero.png"
+               alt="Schoolmaster Official Seal"
+               loading="eager"
+               decoding="async">
+          <div class="hero-seal-label">Schoolmaster</div>
+        </div>
+      </div>
+
     </div>
+    <!-- /hero-row -->
 
     <!-- BOTTOM FOOTER: Order name + trademark -->
     <footer class="footer">
