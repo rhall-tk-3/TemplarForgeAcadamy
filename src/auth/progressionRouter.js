@@ -2,7 +2,7 @@
  * Progression API
  *
  * Member-facing:
- *   GET  /api/progression/me            — own progress record
+ *   GET  /api/progression/me/discussion-weeks  — all weeks + questions + submission status
  *   POST /api/progression/me/exam       — submit exam answers for review
  *
  * Admin (Schoolmaster) only:
@@ -27,7 +27,7 @@ const fs       = require('fs');
 const { findById, updateUser, deleteUser, getMemberUsers, safeUser } = require('./userStore');
 const { ACCOUNTS_FILE, SUBMISSIONS_FILE } = require('../config/dataPaths');
 const { getCurriculumIndex } = require('../services/curriculumService');
-const { getLessonForWeek }   = require('../services/lessonService');
+const { getLessonForWeek, getLessonProgram } = require('../services/lessonService');
 const { readStore, studentKey } = require('../services/submissionStoreService');
 const { sendCertificate }    = require('../services/certificateService');
 
@@ -200,6 +200,55 @@ router.get('/me/lesson/:week', requireMember, (req, res) => {
     week:          requestedWeek,
     programStatus: user.programStatus || 'active',
     statusNote:    user.statusNote    || null
+  });
+});
+
+// GET /api/progression/me/discussion-weeks
+// Returns all weeks of the member's current program with their discussion
+// questions and submission status. Weeks already submitted show answers;
+// incomplete weeks show blank questions ready to fill out.
+router.get('/me/discussion-weeks', requireMember, (req, res) => {
+  const user = findById(req.session.userId);
+  if (!user) return res.status(401).json({ error: 'Session expired.' });
+  if (!user.assignedProgram) {
+    return res.status(404).json({ error: 'No program currently assigned.' });
+  }
+
+  const program = getLessonProgram(user.assignedProgram);
+  if (!program) {
+    return res.status(404).json({ error: 'Lesson content not found for this program.' });
+  }
+
+  const currentWeek = user.currentWeek || 1;
+  const submissions = user.examSubmissions || [];
+
+  const weeks = program.weeks
+    .filter(w => w.week <= currentWeek)   // only weeks the member has reached
+    .map(w => {
+      const questions = (w.examQuestions || []).map(q => q.question || q);
+      // Find if this week was already submitted
+      const sub = submissions.find(
+        s => s.programSlug === user.assignedProgram && Number(s.week) === Number(w.week)
+      );
+      return {
+        week:       w.week,
+        title:      w.title || `Week ${w.week}`,
+        questions,
+        submitted:  !!sub,
+        submittedAt: sub ? sub.submittedAt : null,
+        answers:    sub ? (sub.answers || []) : [],
+        reviewedAt: sub ? sub.reviewedAt  : null,
+        grade:      sub ? sub.grade       : null,
+      };
+    });
+
+  res.json({
+    programSlug:   user.assignedProgram,
+    programTitle:  program.title || user.assignedProgram,
+    currentWeek,
+    programStatus: user.programStatus || 'active',
+    statusNote:    user.statusNote || null,
+    weeks,
   });
 });
 

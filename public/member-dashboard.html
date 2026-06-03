@@ -390,23 +390,35 @@
 
     <!-- ── READING LOG ── -->
     <div style="margin-bottom:28px;">
-      <div class="section-title">📖 Reading Log</div>
+      <div class="section-title">📖 Reading Log &amp; Discussion Questions</div>
       <div style="background:rgba(180,140,60,0.07);border:1px solid rgba(180,140,60,0.3);
                   border-radius:8px;padding:18px 20px;">
         <p style="margin:0 0 12px;font-size:0.92rem;color:#c8a060;line-height:1.6;">
-          Track your required reading documents, mark each item as in-progress or completed,
-          and export your reading record as a JSON file for Schoolmaster review.
+          Track your required reading documents and submit discussion questions for any week
+          you may have missed or want to revisit.
         </p>
-        <a href="/reading-log"
-           style="display:inline-block;background:rgba(180,140,60,0.15);
-                  border:1px solid rgba(180,140,60,0.45);color:#e8c050;
-                  text-decoration:none;padding:10px 20px;border-radius:6px;
-                  font-family:'Cinzel',serif;font-size:0.84rem;letter-spacing:0.06em;
-                  transition:background 0.2s,color 0.2s;"
-           onmouseover="this.style.background='rgba(180,140,60,0.28)';this.style.color='#f0d060';"
-           onmouseout="this.style.background='rgba(180,140,60,0.15)';this.style.color='#e8c050';">
-          📖 Open Reading Log
-        </a>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="/reading-log"
+             style="display:inline-block;background:rgba(180,140,60,0.15);
+                    border:1px solid rgba(180,140,60,0.45);color:#e8c050;
+                    text-decoration:none;padding:10px 20px;border-radius:6px;
+                    font-family:'Cinzel',serif;font-size:0.84rem;letter-spacing:0.06em;
+                    transition:background 0.2s,color 0.2s;"
+             onmouseover="this.style.background='rgba(180,140,60,0.28)';this.style.color='#f0d060';"
+             onmouseout="this.style.background='rgba(180,140,60,0.15)';this.style.color='#e8c050';">
+            📖 Open Reading Log
+          </a>
+          <a href="/discussion-questions"
+             style="display:inline-block;background:rgba(120,60,180,0.12);
+                    border:1px solid rgba(140,80,200,0.38);color:#c090f0;
+                    text-decoration:none;padding:10px 20px;border-radius:6px;
+                    font-family:'Cinzel',serif;font-size:0.84rem;letter-spacing:0.06em;
+                    transition:background 0.2s,color 0.2s;"
+             onmouseover="this.style.background='rgba(120,60,180,0.22)';this.style.color='#d8b0ff';"
+             onmouseout="this.style.background='rgba(120,60,180,0.12)';this.style.color='#c090f0';">
+            ✠ Discussion Questions
+          </a>
+        </div>
       </div>
     </div>
 
@@ -554,6 +566,15 @@ function renderActiveProgram() {
            onmouseover="this.style.background='rgba(180,140,60,0.18)';this.style.color='#e8c040';"
            onmouseout="this.style.background='rgba(180,140,60,0.08)';this.style.color='#c9a84c';">
           📖 Reading Log
+        </a>
+        <a class="prog-link" href="/discussion-questions"
+           style="background:rgba(120,60,180,0.08);border:1px solid rgba(140,80,200,0.28);
+                  color:#b080e0;border-radius:6px;padding:10px 18px;text-decoration:none;
+                  font-family:'Cinzel',serif;font-size:0.82rem;letter-spacing:0.05em;
+                  display:inline-block;transition:background 0.2s,color 0.2s;"
+           onmouseover="this.style.background='rgba(120,60,180,0.18)';this.style.color='#c8a0f8';"
+           onmouseout="this.style.background='rgba(120,60,180,0.08)';this.style.color='#b080e0';">
+          ✠ Discussion Questions
         </a>
       </div>
     </div>`;
