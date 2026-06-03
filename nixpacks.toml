@@ -1,6 +1,6 @@
 # nixpacks.toml — Railway build configuration
 # Pins Node 20 LTS. Uses the full `puppeteer` package which downloads
-# its own bundled Chromium during `npm install` — no system browser needed.
+# its own bundled Chromium during the build phase.
 
 [phases.setup]
 nixPkgs = [
@@ -24,13 +24,19 @@ nixPkgs = [
 ]
 
 [phases.install]
-cmds = ["npm ci --omit=dev"]
+cmds = [
+  "npm ci --omit=dev",
+  "node node_modules/puppeteer/install.mjs"
+]
 
 [variables]
-# Tell puppeteer where to cache the downloaded browser so it persists
-# across Railway builds (Railway caches node_modules between builds,
-# and puppeteer stores the browser inside its own package directory).
-PUPPETEER_CACHE_DIR = "/app/node_modules/puppeteer/.local-chromium"
+# Explicitly unset skip flags so the install step above always downloads Chrome.
+# This overrides any PUPPETEER_SKIP_DOWNLOAD that may have been set previously
+# in the Railway service Variables panel.
+PUPPETEER_SKIP_DOWNLOAD = "0"
+PUPPETEER_SKIP_CHROME_DOWNLOAD = "0"
+# Cache directory inside the app — survives Railway's node_modules cache
+PUPPETEER_CACHE_DIR = "/app/.puppeteer-cache"
 
 [start]
 cmd = "node server.js"
