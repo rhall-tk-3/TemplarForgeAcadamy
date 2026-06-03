@@ -1109,7 +1109,7 @@ async function handleCertDownload(req, res) {
 
     const pdf = await renderCertificatePdf({
       memberName:     displayName,
-      programTitle:   shortTitle + ' Program',
+      programTitle:   shortTitle.replace(/\s*Program\s*$/i, '').trim() + ' Program',
       completionDate: fmtDate(entry.completedAt),
       memberId:       user.memberId || '—',
       certId,
