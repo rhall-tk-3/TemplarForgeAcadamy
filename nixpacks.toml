@@ -1,42 +1,12 @@
 # nixpacks.toml — Railway build configuration
-# Pins Node 20 LTS. Uses the full `puppeteer` package which downloads
-# its own bundled Chromium during the build phase.
+# Pins Node 20 LTS. PDF generation uses PDFKit (pure Node.js) —
+# no Chromium, no browser, no special system packages required.
 
 [phases.setup]
-nixPkgs = [
-  "nodejs_20",
-  "nss",
-  "nspr",
-  "atk",
-  "at-spi2-atk",
-  "xorg.libxkbcommon",
-  "xorg.libXcomposite",
-  "xorg.libXdamage",
-  "xorg.libXrandr",
-  "libgbm",
-  "libdrm",
-  "alsa-lib",
-  "cups",
-  "pango",
-  "cairo",
-  "glib",
-  "gtk3"
-]
+nixPkgs = ["nodejs_20"]
 
 [phases.install]
-cmds = [
-  "npm ci --omit=dev",
-  "node node_modules/puppeteer/install.mjs"
-]
-
-[variables]
-# Explicitly unset skip flags so the install step above always downloads Chrome.
-# This overrides any PUPPETEER_SKIP_DOWNLOAD that may have been set previously
-# in the Railway service Variables panel.
-PUPPETEER_SKIP_DOWNLOAD = "0"
-PUPPETEER_SKIP_CHROME_DOWNLOAD = "0"
-# Cache directory inside the app — survives Railway's node_modules cache
-PUPPETEER_CACHE_DIR = "/app/.puppeteer-cache"
+cmds = ["npm ci --omit=dev"]
 
 [start]
 cmd = "node server.js"

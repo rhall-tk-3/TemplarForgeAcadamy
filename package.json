@@ -26,7 +26,8 @@
     "mammoth": "^1.12.0",
     "multer": "^2.1.1",
     "nodemailer": "^8.0.8",
-    "puppeteer": "^24.43.1",
+    "pdfkit": "^0.18.0",
+    "pdfkit": "^0.18.0",
     "sanitize-filename": "^1.6.4",
     "uuid": "^14.0.0"
   },
