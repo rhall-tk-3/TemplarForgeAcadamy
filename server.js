@@ -1207,6 +1207,9 @@ app.get('/lesson', requireMember, (req, res) => {
 app.get('/reading-log', requireMember, (_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'reading-log', 'index.html'));
 });
+app.get('/discussion-questions', requireMember, (_req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'discussion-questions', 'index.html'));
+});
 app.get('/schoolmaster/reading-log', requireAdmin, (_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'schoolmaster', 'reading-log', 'index.html'));
 });
