@@ -707,6 +707,12 @@
           style="background:rgba(20,60,30,.85);border-color:#2a8040;color:#80d890;font-size:.75rem;">
           ⚙ Fix Stuck Logins
         </button>
+        <button class="sm-btn" id="repair-sources-btn"
+          onclick="repairMemberSources()"
+          title="Tag any members missing a source field so they survive Railway restarts"
+          style="background:rgba(40,20,60,.85);border-color:#6040a0;color:#b090e8;font-size:.75rem;">
+          🛡 Repair Member Roster
+        </button>
         <button class="sm-btn" id="test-cert-btn"
           onclick="sendTestCertificate()"
           title="Send a test certificate email to verify Resend is working"
@@ -715,6 +721,8 @@
         </button>
         <span id="promote-pending-status"
           style="font-family:'Crimson Text',serif;font-size:.85rem;color:#80c890;display:none;"></span>
+        <span id="repair-sources-status"
+          style="font-family:'Crimson Text',serif;font-size:.85rem;color:#b090e8;display:none;"></span>
         <span id="test-cert-status"
           style="font-family:'Crimson Text',serif;font-size:.85rem;display:none;"></span>
       </div>
@@ -2067,6 +2075,38 @@ async function promotePendingAccounts() {
   } finally {
     btn.disabled = false;
     btn.textContent = '⚙ Fix Stuck Logins';
+  }
+}
+
+// ── Repair Member Sources — tag members missing source field ──
+async function repairMemberSources() {
+  const btn    = document.getElementById('repair-sources-btn');
+  const status = document.getElementById('repair-sources-status');
+  btn.disabled = true;
+  btn.textContent = '🛡 Repairing...';
+  status.style.display = 'none';
+  try {
+    const res = await fetch('/api/admin/repair-sources', {
+      method: 'POST',
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' }
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Failed');
+    const count = (data.repaired || []).length;
+    status.textContent = count
+      ? `✓ Tagged ${count} member(s): ${data.repaired.map(r=>r.username).join(', ')}`
+      : '✓ All members already tagged — nothing to repair.';
+    status.style.color = '#b090e8';
+    status.style.display = 'inline';
+    if (count) await loadData();
+  } catch(e) {
+    status.textContent = '✗ ' + e.message;
+    status.style.color = '#e07070';
+    status.style.display = 'inline';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '🛡 Repair Member Roster';
   }
 }
 

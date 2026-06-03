@@ -46,6 +46,12 @@ router.post('/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = createUser({ username, hashedPassword, salutation, role: 'member' });
 
+    // Tag the user as self-registered so volume migrations don't purge them.
+    // createUser() doesn't set `source`, so we patch it here.
+    try {
+      updateUser(user.id, { source: 'registered' });
+    } catch (_) { /* non-fatal — migration will preserve accounts with a password field anyway */ }
+
     req.session.userId   = user.id;
     req.session.role     = user.role;
     req.session.username = user.username;

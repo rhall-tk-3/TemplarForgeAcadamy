@@ -1,7 +1,7 @@
 'use strict';
 
 // ── DEPLOY VERSION — updated on every push so Railway logs confirm new code ──
-const DEPLOY_VERSION = '1.7.9-2026-06-02';
+const DEPLOY_VERSION = '1.8.0-2026-06-02';
 
 // First thing printed — confirms this file was reached by Node
 process.stdout.write(`[boot] server.js loaded — v${DEPLOY_VERSION} — pid ${process.pid}\n`);
@@ -587,6 +587,49 @@ app.use('/auth', authRouter);
       return res.json({ ok: true, results });
     } catch (e) {
       console.error('✠ promote-pending error:', e.message);
+      return res.status(500).json({ error: e.message });
+    }
+  });
+
+  // ── POST /api/admin/repair-sources  — SM only ──
+  // One-shot repair: tags every member in userStore that is missing a `source` field
+  // (registered before the source-tagging was introduced) as 'registered' so the
+  // volume migration no longer purges them on Railway restart.
+  // Also tags any 'sm-created' members that somehow lost their source field.
+  // Safe to call multiple times — only writes if changes are needed.
+  app.post('/api/admin/repair-sources', (req, res) => {
+    if (!smJwtCheck(req, res)) return;
+    try {
+      const { getAllUsers, updateUser: _updateUser } = require('./src/auth/userStore');
+      const allUsers = getAllUsers();
+      const repaired = [];
+
+      // We need direct file access to patch source without going through safeUser (which strips password)
+      const { USERS_FILE } = require('./src/config/dataPaths');
+      const fsSync = require('fs');
+      const rawUsers = JSON.parse(fsSync.readFileSync(USERS_FILE, 'utf8'));
+
+      let changed = false;
+      rawUsers.forEach(u => {
+        if (u.role === 'admin') return;            // never touch admin
+        if (u.source) return;                      // already tagged
+        if (!u.password) return;                   // no password = old demo seed; skip
+        // Has a password but no source — tag as 'registered' (safe default)
+        u.source = 'registered';
+        repaired.push({ id: u.id, username: u.username });
+        changed = true;
+      });
+
+      if (changed) {
+        fsSync.writeFileSync(USERS_FILE, JSON.stringify(rawUsers, null, 2), 'utf8');
+        console.log(`✠ repair-sources: tagged ${repaired.length} member(s) with source:'registered'`);
+      }
+
+      return res.json({ ok: true, repaired, message: changed
+        ? `Tagged ${repaired.length} member(s) with source:'registered'. They will survive future volume migrations.`
+        : 'All members already have source tags — nothing to repair.' });
+    } catch (e) {
+      console.error('✠ repair-sources error:', e.message);
       return res.status(500).json({ error: e.message });
     }
   });
@@ -1459,14 +1502,27 @@ function seedVolumeIfNeeded() {
         console.log(`✠ Volume seed: copied repo data/users.json → ${USERS_FILE}`);
       }
     } else {
-      // Migration: remove old pre-seeded members (no source:'registered') from volume
+      // Migration (v2): remove old pre-seeded demo members from volume.
+      // Keep any user that is:
+      //   • admin
+      //   • source === 'registered'  (self-registered + SM-approved via new flow)
+      //   • source === 'sm-created'  (directly created by SM via Create Member form)
+      //   • has NO source field but has a passwordHash/password (old /auth/register accounts
+      //     from before the source tag was introduced — treat as legitimately registered)
+      // Only purge users with no password AND no recognised source (old demo/pre-seeded rows).
       try {
         const volumeUsers = JSON.parse(fsSync.readFileSync(USERS_FILE, 'utf8'));
-        const cleaned = volumeUsers.filter(u => u.role === 'admin' || u.source === 'registered');
+        const KEEP_SOURCES = new Set(['registered', 'sm-created']);
+        const cleaned = volumeUsers.filter(u => {
+          if (u.role === 'admin') return true;                      // always keep admin
+          if (KEEP_SOURCES.has(u.source)) return true;             // new-flow members
+          if (u.password) return true;                             // has a real password — keep
+          return false;                                            // no password, no source tag → purge
+        });
         if (cleaned.length !== volumeUsers.length) {
           const removed = volumeUsers.length - cleaned.length;
           fsSync.writeFileSync(USERS_FILE, JSON.stringify(cleaned, null, 2), 'utf8');
-          console.log(`✠ Volume migration: purged ${removed} old pre-seeded member(s). Kept ${cleaned.length}.`);
+          console.log(`✠ Volume migration v2: purged ${removed} passwordless pre-seeded member(s). Kept ${cleaned.length}.`);
         }
       } catch (e) {
         console.error('✠ Volume migration error (users.json):', e.message);
