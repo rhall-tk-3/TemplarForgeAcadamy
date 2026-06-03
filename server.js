@@ -1,7 +1,7 @@
 'use strict';
 
 // ── DEPLOY VERSION — updated on every push so Railway logs confirm new code ──
-const DEPLOY_VERSION = '1.9.0-2026-06-03';
+const DEPLOY_VERSION = '1.9.1-2026-06-03';
 
 // First thing printed — confirms this file was reached by Node
 process.stdout.write(`[boot] server.js loaded — v${DEPLOY_VERSION} — pid ${process.pid}\n`);
