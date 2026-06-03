@@ -119,7 +119,16 @@ function getStudentProgress(slug, studentName, studentEmail) {
   }
   const store = readStore();
   const studentId = studentKey(studentName, studentEmail);
-  const submissions = getStudentSubmissions(store, slug, studentId);
+  // Dual-key: also collect submissions keyed by name (submitted before email was set)
+  const nameId = String(studentName || '').trim().toLowerCase().replace(/\s+/g, '-');
+  let submissions = getStudentSubmissions(store, slug, studentId);
+  if (nameId && nameId !== studentId) {
+    const nameSubs = getStudentSubmissions(store, slug, nameId);
+    // Merge, deduplicating by submission id
+    const seen = new Set(submissions.map(s => s.id));
+    nameSubs.forEach(s => { if (!seen.has(s.id)) { submissions.push(s); seen.add(s.id); } });
+    submissions.sort((a, b) => new Date(a.submittedAt).getTime() - new Date(b.submittedAt).getTime());
+  }
   const progressWeeks = [];
   let unlocked = true;
   let passedCount = 0;

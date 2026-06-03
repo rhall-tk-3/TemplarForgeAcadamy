@@ -713,6 +713,12 @@
           style="background:rgba(40,20,60,.85);border-color:#6040a0;color:#b090e8;font-size:.75rem;">
           🛡 Repair Member Roster
         </button>
+        <button class="sm-btn" id="repair-student-ids-btn"
+          onclick="repairStudentIds()"
+          title="Fix exam submissions keyed by name instead of email (restores missing exam counts)"
+          style="background:rgba(60,30,10,.85);border-color:#a06020;color:#e0a060;font-size:.75rem;">
+          🔧 Fix Exam Records
+        </button>
         <button class="sm-btn" id="test-cert-btn"
           onclick="sendTestCertificate()"
           title="Send a test certificate email to verify Resend is working"
@@ -723,6 +729,8 @@
           style="font-family:'Crimson Text',serif;font-size:.85rem;color:#80c890;display:none;"></span>
         <span id="repair-sources-status"
           style="font-family:'Crimson Text',serif;font-size:.85rem;color:#b090e8;display:none;"></span>
+        <span id="repair-student-ids-status"
+          style="font-family:'Crimson Text',serif;font-size:.85rem;color:#e0a060;display:none;"></span>
         <span id="test-cert-status"
           style="font-family:'Crimson Text',serif;font-size:.85rem;display:none;"></span>
       </div>
@@ -2107,6 +2115,38 @@ async function repairMemberSources() {
   } finally {
     btn.disabled = false;
     btn.textContent = '🛡 Repair Member Roster';
+  }
+}
+
+// ── Fix Exam Records — re-key name-based studentIds to email-based ──
+// Restores "missing" exam counts for members who submitted before their email was set.
+async function repairStudentIds() {
+  const btn    = document.getElementById('repair-student-ids-btn');
+  const status = document.getElementById('repair-student-ids-status');
+  btn.disabled = true;
+  btn.textContent = '🔧 Fixing...';
+  status.style.display = 'none';
+  try {
+    const res = await fetch('/api/admin/repair-student-ids', {
+      method: 'POST',
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' }
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Failed');
+    status.textContent = data.fixed > 0
+      ? `✓ Re-keyed ${data.fixed} submission(s) — exam counts updated.`
+      : '✓ All exam records already correct — nothing to fix.';
+    status.style.color = '#e0a060';
+    status.style.display = 'inline';
+    if (data.fixed > 0) await loadData();
+  } catch(e) {
+    status.textContent = '✗ ' + e.message;
+    status.style.color = '#e07070';
+    status.style.display = 'inline';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '🔧 Fix Exam Records';
   }
 }
 

@@ -1,7 +1,7 @@
 'use strict';
 
 // ── DEPLOY VERSION — updated on every push so Railway logs confirm new code ──
-const DEPLOY_VERSION = '1.8.1-2026-06-03';
+const DEPLOY_VERSION = '1.9.0-2026-06-03';
 
 // First thing printed — confirms this file was reached by Node
 process.stdout.write(`[boot] server.js loaded — v${DEPLOY_VERSION} — pid ${process.pid}\n`);
@@ -389,8 +389,8 @@ app.use('/auth', authRouter);
       { expiresIn: '8h' }
     );
     res.setHeader('Set-Cookie', SESSION_COOKIE(token));
-    // Send new member to profile page (?new=1 triggers welcome banner)
-    return res.json({ ok: true, redirect: '/member/profile?new=1' });
+    // Send new member to dashboard (?new=1 triggers welcome banner)
+    return res.json({ ok: true, redirect: '/member?new=1' });
   });
 
   // ── POST /api/auth/change-password  { currentPassword?, newPassword } ──
@@ -495,16 +495,19 @@ app.use('/auth', authRouter);
           username:        acct.fullName,
           salutation:      null,
           role:            'member',
-          memberId:        null,          // SM assigns Member ID later via profile
+          memberId:        acct.memberId || null,
           password:        acct.passwordHash,
           email:           acct.email || null,
+          source:          'registered',   // ← required to survive volume migration v2
           createdAt:       acct.createdAt || new Date().toISOString(),
           assignedProgram: null,
           programHistory:  [],
           currentWeek:     null,
           examSubmissions: [],
           progressNotes:   [],
-          unlockedSlugs:   [],  // SM unlocks programs after profile is complete
+          unlockedSlugs:   ['levie','squire','corporal','sergeant','sfc',
+                            'knight-aspirant','knight','lieutenant','captain',
+                            'major','commander','chaplain'],
           rank:            null,
           rankName:        null,
           rankAssignedAt:  null,
@@ -587,6 +590,123 @@ app.use('/auth', authRouter);
       return res.json({ ok: true, results });
     } catch (e) {
       console.error('✠ promote-pending error:', e.message);
+      return res.status(500).json({ error: e.message });
+    }
+  });
+
+  // ── POST /api/admin/repair-student-ids  — SM only ──
+  // Fixes exam submissions where studentId was set to the member's name
+  // (when they had no email at submission time) instead of their email.
+  // Finds all curriculum-submissions.json entries whose studentId matches a
+  // username but NOT an email format, then re-keys them to that member's email
+  // so progress loads correctly in buildProgressView.
+  // Also supports merging submissions under a specific old studentId to a new one.
+  // Body (optional): { fromStudentId, toStudentId } — if omitted, auto-repair all.
+  app.post('/api/admin/repair-student-ids', (req, res) => {
+    if (!smJwtCheck(req, res)) return;
+    try {
+      const fsSync = require('fs');
+      const { SUBMISSIONS_FILE } = require('./src/config/dataPaths');
+      const { getAllUsers } = require('./src/auth/userStore');
+      const { studentKey } = require('./src/services/submissionStoreService');
+
+      const store = JSON.parse(fsSync.readFileSync(SUBMISSIONS_FILE, 'utf8'));
+      const subs  = store.submissions || [];
+      const members = (getAllUsers() || []).filter(u => u.role === 'member');
+
+      const { fromStudentId, toStudentId } = req.body || {};
+      let fixed = 0;
+      const changes = [];
+
+      if (fromStudentId && toStudentId) {
+        // Manual targeted merge: rename all fromStudentId → toStudentId
+        subs.forEach(s => {
+          if (s.studentId === fromStudentId) {
+            s.studentId = toStudentId;
+            // Also update studentEmail if toStudentId looks like an email
+            if (toStudentId.includes('@')) s.studentEmail = toStudentId;
+            fixed++;
+          }
+        });
+        changes.push({ from: fromStudentId, to: toStudentId, count: fixed });
+      } else {
+        // Auto-repair: find name-keyed entries and re-key to email
+        // Build a map of normalizedName → member
+        const byName = new Map(
+          members.map(m => [m.username.trim().toLowerCase(), m])
+        );
+
+        subs.forEach(s => {
+          // Skip entries that already look like email addresses
+          if (s.studentId.includes('@')) return;
+
+          // Try to find a member whose username matches this studentId
+          const member = byName.get(s.studentId.trim().toLowerCase());
+          if (!member || !member.email) return;
+
+          const correctId = studentKey(member.username, member.email);
+          if (correctId === s.studentId) return; // already correct
+
+          changes.push({ from: s.studentId, to: correctId, name: member.username });
+          s.studentId    = correctId;
+          s.studentEmail = member.email;
+          fixed++;
+        });
+      }
+
+      if (fixed > 0) {
+        store.submissions = subs;
+        fsSync.writeFileSync(SUBMISSIONS_FILE, JSON.stringify(store, null, 2), 'utf8');
+        console.log(`✠ repair-student-ids: re-keyed ${fixed} submission(s)`);
+      }
+
+      return res.json({
+        ok: true, fixed, changes,
+        message: fixed > 0
+          ? `Re-keyed ${fixed} submission(s) to correct student IDs.`
+          : 'No submissions needed repair.'
+      });
+    } catch (e) {
+      console.error('✠ repair-student-ids error:', e.message);
+      return res.status(500).json({ error: e.message });
+    }
+  });
+
+  // ── GET /api/admin/student-progress/:memberId  — SM only ──
+  // Returns full exam progress for a given member across ALL programs.
+  // Useful for diagnosing "wrong exam count" issues.
+  app.get('/api/admin/student-progress/:memberId', (req, res) => {
+    if (!smJwtCheck(req, res)) return;
+    try {
+      const { findById } = require('./src/auth/userStore');
+      const { studentKey, readStore } = require('./src/services/submissionStoreService');
+      const memberId = req.params.memberId;
+      const user = findById(memberId);
+      if (!user) return res.status(404).json({ error: 'Member not found.' });
+
+      const store = readStore();
+      const emailKey = studentKey(user.username, user.email);
+      const nameKey  = user.username.trim().toLowerCase().replace(/\s+/g, '-');
+
+      // Find all submissions for this member (both keyed-by-email and keyed-by-name)
+      const byEmail = store.submissions.filter(s => s.studentId === emailKey);
+      const byName  = store.submissions.filter(s => s.studentId === nameKey && s.studentId !== emailKey);
+
+      const summary = {
+        memberId,
+        username:  user.username,
+        email:     user.email,
+        emailKey,
+        nameKey,
+        byEmailCount: byEmail.length,
+        byNameCount:  byName.length,
+        totalFound:   byEmail.length + byName.length,
+        byEmail: byEmail.map(s => ({ slug: s.slug, week: s.weekNumber, passed: s.passed, score: s.score })),
+        byName:  byName.map(s =>  ({ slug: s.slug, week: s.weekNumber, passed: s.passed, score: s.score })),
+      };
+
+      return res.json(summary);
+    } catch (e) {
       return res.status(500).json({ error: e.message });
     }
   });
@@ -1192,6 +1312,11 @@ app.get('/member', requireMember, (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'member-dashboard.html'));
 });
 app.get('/profile', requireMember, (req, res) => {
+  if (req.session.role === 'admin') return res.redirect('/schoolmaster');
+  res.sendFile(path.join(__dirname, 'public', 'member-profile.html'));
+});
+// Alias: /member/profile → /profile (registration flow redirects here after sign-up)
+app.get('/member/profile', requireMember, (req, res) => {
   if (req.session.role === 'admin') return res.redirect('/schoolmaster');
   res.sendFile(path.join(__dirname, 'public', 'member-profile.html'));
 });

@@ -764,10 +764,14 @@ function buildProgressView(user, programs) {
   let pendingCurriculumCount = 0;
   try {
     const store = readStore();
-    const studentId = studentKey(user.username, user.email);
-    // Collect all submissions across all programs for this student
+    const emailStudentId = studentKey(user.username, user.email);
+    // Name-based fallback key (used when email was absent at submission time)
+    const nameStudentId  = user.username.trim().toLowerCase().replace(/\s+/g, '-');
+    const matchIds = new Set([emailStudentId]);
+    if (nameStudentId && nameStudentId !== emailStudentId) matchIds.add(nameStudentId);
+    // Collect all submissions across all programs for this student (both keys)
     curriculumExams = store.submissions
-      .filter(s => s.studentId === studentId)
+      .filter(s => matchIds.has(s.studentId))
       .sort((a, b) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime())
       .map(s => ({
         id:            s.id,
@@ -794,7 +798,7 @@ function buildProgressView(user, programs) {
     const retestApprovals  = store.retestApprovals || [];
     if (assigned) {
       // Count weeks where the student has failed and has no active retest or pass
-      const studentSubs = store.submissions.filter(s => s.studentId === studentId && s.slug === user.assignedProgram);
+      const studentSubs = store.submissions.filter(s => matchIds.has(s.studentId) && s.slug === user.assignedProgram);
       const weekNums = [...new Set(studentSubs.map(s => s.weekNumber))];
       for (const wn of weekNums) {
         const weekSubs = studentSubs.filter(s => s.weekNumber === wn).sort((a, b) => new Date(a.submittedAt) - new Date(b.submittedAt));
