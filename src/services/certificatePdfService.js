@@ -87,8 +87,10 @@ async function getBrowser() {
       '--disable-dev-shm-usage',
       '--disable-gpu',
       '--disable-extensions',
-      '--single-process',
       '--no-zygote',
+      '--font-render-hinting=none',
+      '--disable-web-security',
+      '--run-all-compositor-stages-before-draw',
     ],
   });
 
@@ -104,6 +106,20 @@ async function getBrowser() {
  * via file:// — they always appear regardless of domain/DNS state.
  */
 async function renderCertificatePdf({ memberName, programTitle, completionDate, memberId, certId }) {
+  // Attempt once; if the browser crashes during the run, reset and retry once.
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    try {
+      return await _renderOnce({ memberName, programTitle, completionDate, memberId, certId });
+    } catch (err) {
+      console.error(`✠ PDF render attempt ${attempt} failed:`, err.message);
+      // Force-reset the browser singleton so the next attempt gets a fresh one
+      _browser = null;
+      if (attempt === 2) throw err; // re-throw on second failure
+    }
+  }
+}
+
+async function _renderOnce({ memberName, programTitle, completionDate, memberId, certId }) {
   // Read the static template
   let html = fs.readFileSync(TEMPLATE_PATH, 'utf8');
 
@@ -141,7 +157,7 @@ async function renderCertificatePdf({ memberName, programTitle, completionDate, 
     // No viewport needed — page.pdf() is driven by @page CSS and preferCSSPageSize.
     await page.goto('file://' + tmpFile, {
       waitUntil: 'networkidle0',
-      timeout:   30000,
+      timeout:   45000,
     });
 
     const pdf = await page.pdf({
