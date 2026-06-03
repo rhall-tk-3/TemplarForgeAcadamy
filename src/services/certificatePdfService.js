@@ -1,36 +1,34 @@
 'use strict';
 
 /**
- * certificatePdfService.js  — v2.0
+ * certificatePdfService.js  — v3.0
  *
  * Renders a certificate PDF from the static template at
  * public/certificate-template.html using Puppeteer.
  *
- * The template contains four placeholders:
+ * Uses the full `puppeteer` package (not puppeteer-core) which downloads
+ * and manages its own bundled Chromium — no system browser required.
+ *
+ * The template contains five placeholders:
  *   {{MEMBER_NAME}}      — member display name (salutation + username)
  *   {{PROGRAM_TITLE}}    — short program title + " Program"
  *   {{COMPLETION_DATE}}  — formatted date string
  *   {{MEMBER_ID}}        — member ID
  *   {{CERT_ID}}          — certificate ID
- *
- * Seal images are referenced via file:// URLs pointing to
- * public/images/seal-*.png  — Puppeteer loads them directly from disk,
- * so they always render regardless of DNS or network issues.
- *
- * Railway deployment: chromium system libs are installed via nixpacks.toml.
+ *   __SEAL_DIR__         — absolute file:// URL prefix for seal PNGs
  */
 
 const fs   = require('fs');
 const path = require('path');
 const os   = require('os');
 
-// puppeteer-core has no bundled browser — it uses the system Chromium
-// installed via nixpacks on Railway (set via PUPPETEER_EXECUTABLE_PATH).
+// Full puppeteer — bundles its own Chromium, no executablePath needed
 let puppeteer;
 try {
-  puppeteer = require('puppeteer-core');
+  puppeteer = require('puppeteer');
 } catch (e) {
-  puppeteer = null;
+  // Fallback to puppeteer-core if somehow only that is installed
+  try { puppeteer = require('puppeteer-core'); } catch (_) {}
 }
 
 // Paths
@@ -40,32 +38,10 @@ const SEAL_DIR      = path.join(__dirname, '../../public/images');
 // Browser singleton — reused across requests
 let _browser = null;
 
-/**
- * Locate the system Chromium binary.
- * Priority:
- *   1. PUPPETEER_EXECUTABLE_PATH env var (Railway Variables panel override)
- *   2. `which chromium`        (Nix package name on Railway)
- *   3. `which chromium-browser` (Debian/Ubuntu fallback)
- *   4. undefined — let puppeteer-core throw a useful error
- */
-function getChromiumPath() {
-  if (process.env.PUPPETEER_EXECUTABLE_PATH) {
-    return process.env.PUPPETEER_EXECUTABLE_PATH;
-  }
-  const { execSync } = require('child_process');
-  for (const cmd of ['which chromium', 'which chromium-browser']) {
-    try {
-      const p = execSync(cmd, { stdio: ['pipe', 'pipe', 'ignore'] }).toString().trim();
-      if (p) return p;
-    } catch (_) {}
-  }
-  return undefined; // puppeteer-core will surface a clear error
-}
-
 async function getBrowser() {
   if (_browser) {
     try {
-      await _browser.version(); // health-check
+      await _browser.version(); // health-check — throws if disconnected
       return _browser;
     } catch (_) {
       _browser = null;
@@ -73,14 +49,13 @@ async function getBrowser() {
   }
 
   if (!puppeteer) {
-    throw new Error('puppeteer-core is not installed. Run: npm install puppeteer-core');
+    throw new Error('puppeteer is not installed. Run: npm install puppeteer');
   }
 
-  const executablePath = getChromiumPath();
-
+  // With full `puppeteer`, executablePath() always resolves to the bundled browser.
+  // No env var or `which` lookup needed.
   _browser = await puppeteer.launch({
     headless: true,
-    executablePath,
     args: [
       '--no-sandbox',
       '--disable-setuid-sandbox',
@@ -90,7 +65,6 @@ async function getBrowser() {
       '--no-zygote',
       '--font-render-hinting=none',
       '--disable-web-security',
-      '--run-all-compositor-stages-before-draw',
     ],
   });
 
@@ -101,20 +75,17 @@ async function getBrowser() {
 /**
  * renderCertificatePdf({ memberName, programTitle, completionDate, memberId, certId })
  *
- * Fills the static template with the five data fields and renders a
- * landscape A4 PDF Buffer.  Seals are served from the local filesystem
- * via file:// — they always appear regardless of domain/DNS state.
+ * Fills the static template and renders a landscape A4 PDF Buffer.
+ * Retries once on browser crash, resetting the singleton.
  */
 async function renderCertificatePdf({ memberName, programTitle, completionDate, memberId, certId }) {
-  // Attempt once; if the browser crashes during the run, reset and retry once.
   for (let attempt = 1; attempt <= 2; attempt++) {
     try {
       return await _renderOnce({ memberName, programTitle, completionDate, memberId, certId });
     } catch (err) {
       console.error(`✠ PDF render attempt ${attempt} failed:`, err.message);
-      // Force-reset the browser singleton so the next attempt gets a fresh one
-      _browser = null;
-      if (attempt === 2) throw err; // re-throw on second failure
+      _browser = null; // force fresh browser on retry
+      if (attempt === 2) throw err;
     }
   }
 }
@@ -124,7 +95,6 @@ async function _renderOnce({ memberName, programTitle, completionDate, memberId,
   let html = fs.readFileSync(TEMPLATE_PATH, 'utf8');
 
   // Inject the absolute file:// path for seal images
-  // On all platforms: file:///absolute/path/to/public/images
   const sealDirUrl = 'file://' + SEAL_DIR.replace(/\\/g, '/');
   html = html.replace(/__SEAL_DIR__/g, sealDirUrl);
 
@@ -144,9 +114,8 @@ async function _renderOnce({ memberName, programTitle, completionDate, memberId,
     .replace(/\{\{MEMBER_ID\}\}/g,       esc(memberId))
     .replace(/\{\{CERT_ID\}\}/g,         esc(certId));
 
-  // Write filled HTML to a temp file so Puppeteer loads it as file://
-  // This is critical — page.goto('file://...') allows the browser to load
-  // sibling file:// images, whereas page.setContent() blocks them.
+  // Write to temp file — page.goto('file://...') lets Puppeteer load
+  // sibling file:// seal images; page.setContent() blocks them.
   const tmpFile = path.join(os.tmpdir(), `tfa-cert-${Date.now()}.html`);
   fs.writeFileSync(tmpFile, html);
 
@@ -154,16 +123,13 @@ async function _renderOnce({ memberName, programTitle, completionDate, memberId,
   const page    = await browser.newPage();
 
   try {
-    // No viewport needed — page.pdf() is driven by @page CSS and preferCSSPageSize.
     await page.goto('file://' + tmpFile, {
       waitUntil: 'networkidle0',
       timeout:   45000,
     });
 
     const pdf = await page.pdf({
-      // preferCSSPageSize lets the @page { size: 297mm 210mm landscape } rule
-      // in the template take full control — no JS dimension override needed.
-      preferCSSPageSize: true,
+      preferCSSPageSize: true,   // honours @page { size: 297mm 210mm landscape }
       printBackground:   true,
       margin:            { top: '0', right: '0', bottom: '0', left: '0' },
     });
@@ -171,14 +137,12 @@ async function _renderOnce({ memberName, programTitle, completionDate, memberId,
     return pdf; // Buffer
   } finally {
     await page.close();
-    // Clean up temp file
     try { fs.unlinkSync(tmpFile); } catch (_) {}
   }
 }
 
 /**
- * closeBrowser()
- * Gracefully shuts down the shared browser instance.
+ * closeBrowser() — graceful shutdown of the shared browser instance.
  */
 async function closeBrowser() {
   if (_browser) {
