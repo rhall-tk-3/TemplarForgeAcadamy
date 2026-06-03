@@ -1,7 +1,7 @@
 'use strict';
 
 // ── DEPLOY VERSION — updated on every push so Railway logs confirm new code ──
-const DEPLOY_VERSION = '1.8.0-2026-06-02';
+const DEPLOY_VERSION = '1.8.1-2026-06-03';
 
 // First thing printed — confirms this file was reached by Node
 process.stdout.write(`[boot] server.js loaded — v${DEPLOY_VERSION} — pid ${process.pid}\n`);
@@ -1521,8 +1521,34 @@ function seedVolumeIfNeeded() {
         });
         if (cleaned.length !== volumeUsers.length) {
           const removed = volumeUsers.length - cleaned.length;
-          fsSync.writeFileSync(USERS_FILE, JSON.stringify(cleaned, null, 2), 'utf8');
           console.log(`✠ Volume migration v2: purged ${removed} passwordless pre-seeded member(s). Kept ${cleaned.length}.`);
+        }
+
+        // ── Migration v3: merge any repo members missing from the volume ──
+        // The repo's data/users.json is the authoritative list of SM-approved
+        // accounts. If a member exists in the repo (source:'registered' or
+        // source:'sm-created') but is absent from the volume (e.g. because they
+        // were merged/added after the volume was last seeded), inject them now.
+        // We match by ID — never overwrite a volume entry with the same ID.
+        let merged = 0;
+        if (fsSync.existsSync(REPO_USERS)) {
+          const repoUsers = JSON.parse(fsSync.readFileSync(REPO_USERS, 'utf8'));
+          const volumeIds = new Set(cleaned.map(u => u.id));
+          const INJECT_SOURCES = new Set(['registered', 'sm-created']);
+          for (const ru of repoUsers) {
+            if (volumeIds.has(ru.id)) continue;               // already on volume
+            if (ru.role === 'admin') continue;                // never inject admin
+            if (!INJECT_SOURCES.has(ru.source) && !ru.password) continue; // skip demo rows
+            cleaned.push(ru);
+            volumeIds.add(ru.id);
+            merged++;
+            console.log(`✠ Volume migration v3: injected missing member "${ru.username}" (id=${ru.id})`);
+          }
+        }
+
+        if (cleaned.length !== volumeUsers.length || merged > 0) {
+          fsSync.writeFileSync(USERS_FILE, JSON.stringify(cleaned, null, 2), 'utf8');
+          console.log(`✠ Volume migration complete: ${cleaned.length} users on volume (${merged} injected).`);
         }
       } catch (e) {
         console.error('✠ Volume migration error (users.json):', e.message);
