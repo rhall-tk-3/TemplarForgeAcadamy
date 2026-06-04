@@ -1,7 +1,7 @@
 'use strict';
 
 // ── DEPLOY VERSION — updated on every push so Railway logs confirm new code ──
-const DEPLOY_VERSION = '1.9.2-2026-06-04';
+const DEPLOY_VERSION = '1.9.3-2026-06-04';
 
 // First thing printed — confirms this file was reached by Node
 process.stdout.write(`[boot] server.js loaded — v${DEPLOY_VERSION} — pid ${process.pid}\n`);
@@ -630,18 +630,31 @@ app.use('/auth', authRouter);
         });
         changes.push({ from: fromStudentId, to: toStudentId, count: fixed });
       } else {
-        // Auto-repair: find name-keyed entries and re-key to email
-        // Build a map of normalizedName → member
-        const byName = new Map(
-          members.map(m => [m.username.trim().toLowerCase(), m])
-        );
+        // Auto-repair: find name-keyed entries and re-key to email.
+        // Build a multi-key map: plain lowercase, hyphenated, and no-spaces variants
+        // so we match however the name was stored (e.g. "ryan", "john-goodwin", etc.)
+        const byKey = new Map();
+        members.forEach(m => {
+          const lower  = m.username.trim().toLowerCase();
+          const hyphen = lower.replace(/\s+/g, '-');
+          const nsp    = lower.replace(/\s+/g, '');
+          byKey.set(lower,  m);
+          byKey.set(hyphen, m);
+          byKey.set(nsp,    m);
+        });
 
         subs.forEach(s => {
           // Skip entries that already look like email addresses
-          if (s.studentId.includes('@')) return;
+          if ((s.studentId || '').includes('@')) return;
 
-          // Try to find a member whose username matches this studentId
-          const member = byName.get(s.studentId.trim().toLowerCase());
+          const sid        = (s.studentId   || '').trim().toLowerCase();
+          const sname      = (s.studentName || '').trim().toLowerCase();
+          const snameHyphen = sname.replace(/\s+/g, '-');
+
+          // Try studentId first, then fall back to studentName on the submission
+          const member = byKey.get(sid)
+                      || byKey.get(sname)
+                      || byKey.get(snameHyphen);
           if (!member || !member.email) return;
 
           const correctId = studentKey(member.username, member.email);
@@ -1823,16 +1836,42 @@ function autoRepairStudentIds() {
     const subs  = Array.isArray(store) ? store : (store.submissions || []);
     const members = (getAllUsers() || []).filter(u => u.role === 'member');
 
-    // Build name → member map
-    const byName = new Map(members.map(m => [m.username.trim().toLowerCase(), m]));
+    // Build a multi-key lookup map so we match ALL ways a student's name could
+    // have been recorded as a studentId key:
+    //   1. lowercase username as-is        e.g. "ryan"
+    //   2. hyphenated lowercase username    e.g. "ryan-patrick-hall"  (spaces → hyphens)
+    //   3. lowercase studentName from sub   e.g. "john goodwin" or "john-goodwin"
+    // We also match by studentName field on the submission itself.
+    const byKey = new Map();
+    members.forEach(m => {
+      const lower    = m.username.trim().toLowerCase();
+      const hyphen   = lower.replace(/\s+/g, '-');
+      const noSpaces = lower.replace(/\s+/g, '');
+      byKey.set(lower,    m);
+      byKey.set(hyphen,   m);
+      byKey.set(noSpaces, m);
+    });
+
     let fixed = 0;
 
     subs.forEach(s => {
       if ((s.studentId || '').includes('@')) return;           // already email-keyed
-      const member = byName.get((s.studentId || '').trim().toLowerCase());
+
+      // Try studentId lookup first, then fall back to matching by studentName
+      const sid   = (s.studentId   || '').trim().toLowerCase();
+      const sname = (s.studentName || '').trim().toLowerCase();
+      const snameHyphen = sname.replace(/\s+/g, '-');
+
+      let member = byKey.get(sid)
+                || byKey.get(sname)
+                || byKey.get(snameHyphen);
+
       if (!member || !member.email) return;
+
       const correctId = studentKey(member.username, member.email);
-      if (correctId === s.studentId) return;
+      if (correctId === s.studentId) return;                    // already correct
+
+      console.log(`✠ autoRepairStudentIds: "${s.studentId}" → "${correctId}" (${member.username})`);
       s.studentId    = correctId;
       s.studentEmail = member.email;
       fixed++;
