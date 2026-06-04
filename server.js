@@ -1,7 +1,7 @@
 'use strict';
 
 // ── DEPLOY VERSION — updated on every push so Railway logs confirm new code ──
-const DEPLOY_VERSION = '1.9.1-2026-06-03';
+const DEPLOY_VERSION = '1.9.2-2026-06-04';
 
 // First thing printed — confirms this file was reached by Node
 process.stdout.write(`[boot] server.js loaded — v${DEPLOY_VERSION} — pid ${process.pid}\n`);
@@ -1658,15 +1658,37 @@ function seedVolumeIfNeeded() {
         // source:'sm-created') but is absent from the volume (e.g. because they
         // were merged/added after the volume was last seeded), inject them now.
         // We match by ID — never overwrite a volume entry with the same ID.
+        // IMPORTANT: We skip any IDs recorded in deleted-ids.json — these were
+        // deliberately deleted by the SM and must never be resurrected.
         let merged = 0;
         if (fsSync.existsSync(REPO_USERS)) {
           const repoUsers = JSON.parse(fsSync.readFileSync(REPO_USERS, 'utf8'));
           const volumeIds = new Set(cleaned.map(u => u.id));
           const INJECT_SOURCES = new Set(['registered', 'sm-created']);
+
+          // Load the deleted-IDs guard list (written when SM deletes a member)
+          const { DELETED_IDS_FILE } = require('./src/config/dataPaths');
+          let deletedIds = new Set();
+          try {
+            if (fsSync.existsSync(DELETED_IDS_FILE)) {
+              const raw = JSON.parse(fsSync.readFileSync(DELETED_IDS_FILE, 'utf8'));
+              deletedIds = new Set(Array.isArray(raw) ? raw : []);
+              if (deletedIds.size > 0) {
+                console.log(`✠ Volume migration v3: ${deletedIds.size} deleted ID(s) on guard list — will not be re-injected.`);
+              }
+            }
+          } catch (delErr) {
+            console.warn('✠ Volume migration v3: could not read deleted-ids.json:', delErr.message);
+          }
+
           for (const ru of repoUsers) {
             if (volumeIds.has(ru.id)) continue;               // already on volume
             if (ru.role === 'admin') continue;                // never inject admin
             if (!INJECT_SOURCES.has(ru.source) && !ru.password) continue; // skip demo rows
+            if (deletedIds.has(ru.id)) {                      // ← was explicitly deleted
+              console.log(`✠ Volume migration v3: skipping deleted member "${ru.username}" (id=${ru.id})`);
+              continue;
+            }
             cleaned.push(ru);
             volumeIds.add(ru.id);
             merged++;
@@ -1684,10 +1706,40 @@ function seedVolumeIfNeeded() {
     }
 
     // Seed curriculum-submissions.json
-    const { SUBMISSIONS_FILE } = require('./src/config/dataPaths');
+    const { SUBMISSIONS_FILE, DELETED_IDS_FILE } = require('./src/config/dataPaths');
     if (!fsSync.existsSync(SUBMISSIONS_FILE)) {
       fsSync.writeFileSync(SUBMISSIONS_FILE, '[]', 'utf8');
       console.log(`✠ Volume seed: created empty submissions file at ${SUBMISSIONS_FILE}`);
+    }
+
+    // Seed / merge deleted-ids.json — ensure repo-level deletions are always respected
+    // on the volume.  If the volume already has a deleted-ids.json, we merge in any
+    // additional IDs from the repo copy so manual SM deletions AND repo-cleaned IDs
+    // are both honoured.
+    const REPO_DELETED_IDS = path.join(__dirname, 'data', 'deleted-ids.json');
+    try {
+      if (!fsSync.existsSync(DELETED_IDS_FILE)) {
+        // First time — write the repo copy to the volume
+        const repoIds = fsSync.existsSync(REPO_DELETED_IDS)
+          ? JSON.parse(fsSync.readFileSync(REPO_DELETED_IDS, 'utf8'))
+          : [];
+        fsSync.writeFileSync(DELETED_IDS_FILE, JSON.stringify(repoIds, null, 2), 'utf8');
+        console.log(`✠ Volume seed: created deleted-ids.json with ${repoIds.length} ID(s).`);
+      } else if (fsSync.existsSync(REPO_DELETED_IDS)) {
+        // Merge — add any repo IDs not already on the volume
+        const volumeIds = new Set(JSON.parse(fsSync.readFileSync(DELETED_IDS_FILE, 'utf8')));
+        const repoIds   = JSON.parse(fsSync.readFileSync(REPO_DELETED_IDS, 'utf8'));
+        let added = 0;
+        for (const id of repoIds) {
+          if (!volumeIds.has(id)) { volumeIds.add(id); added++; }
+        }
+        if (added > 0) {
+          fsSync.writeFileSync(DELETED_IDS_FILE, JSON.stringify([...volumeIds], null, 2), 'utf8');
+          console.log(`✠ Volume seed: merged ${added} repo-deleted ID(s) into deleted-ids.json.`);
+        }
+      }
+    } catch (didErr) {
+      console.warn('✠ Volume seed: could not seed deleted-ids.json:', didErr.message);
     }
 
     // Ensure private/ dir exists
@@ -1756,6 +1808,52 @@ function seedVolumeIfNeeded() {
 }
 
 // ── BOOT ──
+// ── Auto-repair: re-key any name-keyed submissions to email keys ──
+// Runs on every boot so exam counts are always correct without manual
+// intervention.  Mirrors the logic in POST /api/admin/repair-student-ids.
+function autoRepairStudentIds() {
+  try {
+    const fsSync = require('fs');
+    const { SUBMISSIONS_FILE } = require('./src/config/dataPaths');
+    const { getAllUsers } = require('./src/auth/userStore');
+    const { studentKey } = require('./src/services/submissionStoreService');
+
+    if (!fsSync.existsSync(SUBMISSIONS_FILE)) return;
+    const store = JSON.parse(fsSync.readFileSync(SUBMISSIONS_FILE, 'utf8'));
+    const subs  = Array.isArray(store) ? store : (store.submissions || []);
+    const members = (getAllUsers() || []).filter(u => u.role === 'member');
+
+    // Build name → member map
+    const byName = new Map(members.map(m => [m.username.trim().toLowerCase(), m]));
+    let fixed = 0;
+
+    subs.forEach(s => {
+      if ((s.studentId || '').includes('@')) return;           // already email-keyed
+      const member = byName.get((s.studentId || '').trim().toLowerCase());
+      if (!member || !member.email) return;
+      const correctId = studentKey(member.username, member.email);
+      if (correctId === s.studentId) return;
+      s.studentId    = correctId;
+      s.studentEmail = member.email;
+      fixed++;
+    });
+
+    if (fixed > 0) {
+      if (Array.isArray(store)) {
+        fsSync.writeFileSync(SUBMISSIONS_FILE, JSON.stringify(subs, null, 2), 'utf8');
+      } else {
+        store.submissions = subs;
+        fsSync.writeFileSync(SUBMISSIONS_FILE, JSON.stringify(store, null, 2), 'utf8');
+      }
+      console.log(`✠ autoRepairStudentIds: re-keyed ${fixed} submission(s) to email-based student IDs.`);
+    } else {
+      console.log('✠ autoRepairStudentIds: all submissions already correctly keyed.');
+    }
+  } catch (e) {
+    console.error('✠ autoRepairStudentIds error:', e.message);
+  }
+}
+
 async function start() {
   console.log(`✠ Starting Templar Forge Academy v${DEPLOY_VERSION} — NODE_ENV=${process.env.NODE_ENV || 'unset'} PORT=${process.env.PORT || 3000}`);
 
@@ -1763,6 +1861,12 @@ async function start() {
   console.log('✠ [1/3] seedVolumeIfNeeded...');
   seedVolumeIfNeeded();
   console.log('✠ [1/3] done');
+
+  // Auto-repair: fix any name-keyed exam submissions → email-keyed
+  // (Runs after seedVolumeIfNeeded so the submissions file always exists first)
+  console.log('✠ [1b] autoRepairStudentIds...');
+  autoRepairStudentIds();
+  console.log('✠ [1b] done');
 
   // Seed / sync the one Schoolmaster account
   console.log('✠ [2/3] seedSchoolmaster...');

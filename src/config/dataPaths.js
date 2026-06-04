@@ -31,9 +31,10 @@ module.exports = {
   PRIVATE_DIR,
 
   // ── data/ files ──
-  USERS_FILE:       path.join(DATA_DIR, 'users.json'),
-  SUBMISSIONS_FILE: path.join(DATA_DIR, 'curriculum-submissions.json'),
-  RESET_LOG_FILE:   path.join(DATA_DIR, 'reset-log.json'),
+  USERS_FILE:         path.join(DATA_DIR, 'users.json'),
+  SUBMISSIONS_FILE:   path.join(DATA_DIR, 'curriculum-submissions.json'),
+  RESET_LOG_FILE:     path.join(DATA_DIR, 'reset-log.json'),
+  DELETED_IDS_FILE:   path.join(DATA_DIR, 'deleted-ids.json'),
 
   // ── private/ files ──
   ACCOUNTS_FILE:    path.join(PRIVATE_DIR, 'accounts.json'),
