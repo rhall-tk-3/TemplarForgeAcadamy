@@ -9,6 +9,77 @@
     "memberId": "KTKC-0000"
   },
   {
+    "id": "1779588436465",
+    "username": "John Goodwin",
+    "salutation": "Brother",
+    "role": "member",
+    "memberId": "KTKC-0008",
+    "password": "$2b$12$Va/WHxad1aigd5FQ70RpKOb0ZWWiiBwRaJEk9.ESRAOH1tjbDzXdu",
+    "email": "jgoodwin@tkkc.info",
+    "source": "registered",
+    "createdAt": "2026-05-24T02:07:16.465Z",
+    "assignedProgram": "squire",
+    "programHistory": [
+      {
+        "slug": "lieutenant",
+        "assignedAt": "2026-05-24T03:18:21.847Z",
+        "completedAt": null,
+        "grade": null
+      }
+    ],
+    "currentWeek": 8,
+    "examSubmissions": [
+      {
+        "programSlug": "lieutenant",
+        "week": 1,
+        "answers": [
+          {
+            "question": "What is the key difference between rank formation and officer formation?",
+            "answer": "The difference between rank formation and officer formation. Is officer formation is about leading others, helping them, and guiding them. You no longer worry about yourself, but now your responsible for those below you, while also holding yourself accountable, and to a higher standard."
+          },
+          {
+            "question": "What does 'institutional thinking' require of a Lieutenant?",
+            "answer": "This line of thinking is more selfless, where you are no longer worried about just only yourself. It's about being proactive within the Order and asking yourself what can I do to help improve the Order as a whole."
+          },
+          {
+            "question": "Describe one specific responsibility you expect to carry as a Lieutenant. How will you prepare?",
+            "answer": "Maintaining constant communication with members I'm in charge of leading. And being a mentor to those same individuals. To perform these duties, I would have weekly/or daily check inside with squires, or mentors. Checking in on them on both a personal and professional level. Having open communication between each individual, and showing them I'm there for them. At the end of the day we are all brothers/sisters and our main goal is to build a better relationship with each other and grow closer to God."
+          }
+        ],
+        "submittedAt": "2026-05-24T15:52:54.016Z",
+        "reviewedAt": "2026-05-25T04:44:07.817Z",
+        "grade": "100",
+        "notes": ""
+      }
+    ],
+    "progressNotes": [],
+    "unlockedSlugs": [
+      "levie",
+      "squire",
+      "lieutenant"
+    ],
+    "rank": "lieutenant",
+    "rankName": "Lieutenant",
+    "rankAssignedAt": "2026-05-24T03:18:42.034Z",
+    "rankHistory": [
+      {
+        "rank": "lieutenant",
+        "rankName": "Lieutenant",
+        "assignedAt": "2026-05-24T03:18:42.034Z",
+        "assignedBy": "Schoolmaster"
+      }
+    ],
+    "programStatus": "active",
+    "statusNote": null,
+    "statusChangedAt": "2026-05-28T21:35:34.884Z",
+    "programAssignedAt": "2026-05-26T03:18:33.027Z",
+    "weekSetAt": "2026-05-26T05:22:27.383Z",
+    "temple": "North Carolina",
+    "phone": "(910) 995-6901",
+    "photoPath": null,
+    "birthday": "1990-04-14"
+  },
+  {
     "id": "1780193566863",
     "username": "Sir Roland",
     "salutation": null,
@@ -76,37 +147,6 @@
     "phone": null,
     "photoPath": null,
     "birthday": null
-  },
-  {
-    "id": "17803738422934",
-    "username": "John Goodwin",
-    "salutation": null,
-    "role": "member",
-    "memberId": null,
-    "password": "$2b$12$Va/WHxad1aigd5FQ70RpKOb0ZWWiiBwRaJEk9.ESRAOH1tjbDzXdu",
-    "email": "jgoodwin@tkkc.info",
-    "source": "registered",
-    "createdAt": "2026-05-31T01:58:53.065Z",
-    "assignedProgram": null,
-    "programHistory": [],
-    "currentWeek": null,
-    "examSubmissions": [],
-    "progressNotes": [],
-    "unlockedSlugs": [
-      "levie",
-      "squire"
-    ],
-    "rank": null,
-    "rankName": null,
-    "rankAssignedAt": null,
-    "rankHistory": [],
-    "programStatus": "active",
-    "statusNote": null,
-    "statusChangedAt": null,
-    "temple": "North Carolina",
-    "phone": "(910) 995-6901",
-    "photoPath": null,
-    "birthday": "1990-04-14"
   },
   {
     "id": "17803738422945",
