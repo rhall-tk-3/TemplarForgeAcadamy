@@ -25,7 +25,7 @@
 const express  = require('express');
 const fs       = require('fs');
 const { findById, updateUser, deleteUser, getMemberUsers, safeUser } = require('./userStore');
-const { ACCOUNTS_FILE, SUBMISSIONS_FILE } = require('../config/dataPaths');
+const { ACCOUNTS_FILE, SUBMISSIONS_FILE, DELETED_IDS_FILE } = require('../config/dataPaths');
 const { getCurriculumIndex } = require('../services/curriculumService');
 const { getLessonForWeek, getLessonProgram } = require('../services/lessonService');
 const { readStore, studentKey } = require('../services/submissionStoreService');
@@ -723,7 +723,21 @@ router.delete('/member/:id', requireAdmin, (req, res) => {
       console.warn(`✠ Delete: could not clean submissions for ${username}:`, subErr.message);
     }
 
-    console.log(`✠ Member "${username}" permanently deleted (userStore + accounts.json + submissions).`);
+    // 4. Record this ID in deleted-ids.json so migration v3 never re-injects it
+    try {
+      const deletedIds = fs.existsSync(DELETED_IDS_FILE)
+        ? JSON.parse(fs.readFileSync(DELETED_IDS_FILE, 'utf8'))
+        : [];
+      if (!deletedIds.includes(user.id)) {
+        deletedIds.push(user.id);
+        fs.writeFileSync(DELETED_IDS_FILE, JSON.stringify(deletedIds, null, 2), 'utf8');
+        console.log(`✠ Delete: recorded id=${user.id} in deleted-ids.json — will not be re-injected on reboot.`);
+      }
+    } catch (delErr) {
+      console.warn(`✠ Delete: could not write deleted-ids.json for ${username}:`, delErr.message);
+    }
+
+    console.log(`✠ Member "${username}" permanently deleted (userStore + accounts.json + submissions + deleted-ids).`);
     res.json({ ok: true, message: `Member "${username}" has been permanently deleted.` });
   } catch (err) {
     res.status(500).json({ error: err.message });
