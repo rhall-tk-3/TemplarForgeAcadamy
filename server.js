@@ -1,7 +1,7 @@
 'use strict';
 
 // ── DEPLOY VERSION — updated on every push so Railway logs confirm new code ──
-const DEPLOY_VERSION = '1.9.4-2026-06-04';
+const DEPLOY_VERSION = '1.9.5-2026-06-05';
 
 // First thing printed — confirms this file was reached by Node
 process.stdout.write(`[boot] server.js loaded — v${DEPLOY_VERSION} — pid ${process.pid}\n`);
@@ -635,12 +635,14 @@ app.use('/auth', authRouter);
         // so we match however the name was stored (e.g. "ryan", "john-goodwin", etc.)
         const byKey = new Map();
         members.forEach(m => {
-          const lower  = m.username.trim().toLowerCase();
-          const hyphen = lower.replace(/\s+/g, '-');
-          const nsp    = lower.replace(/\s+/g, '');
-          byKey.set(lower,  m);
-          byKey.set(hyphen, m);
-          byKey.set(nsp,    m);
+          const lower     = m.username.trim().toLowerCase();
+          const hyphen    = lower.replace(/\s+/g, '-');
+          const nsp       = lower.replace(/\s+/g, '');
+          const firstWord = lower.split(/\s+/)[0];  // e.g. "ryan" from "ryan patrick hall"
+          byKey.set(lower,     m);
+          byKey.set(hyphen,    m);
+          byKey.set(nsp,       m);
+          if (firstWord && firstWord !== lower) byKey.set(firstWord, m);
         });
 
         subs.forEach(s => {
@@ -1838,18 +1840,22 @@ function autoRepairStudentIds() {
 
     // Build a multi-key lookup map so we match ALL ways a student's name could
     // have been recorded as a studentId key:
-    //   1. lowercase username as-is        e.g. "ryan"
+    //   1. lowercase username as-is        e.g. "ryan patrick hall"
     //   2. hyphenated lowercase username    e.g. "ryan-patrick-hall"  (spaces → hyphens)
-    //   3. lowercase studentName from sub   e.g. "john goodwin" or "john-goodwin"
+    //   3. no-spaces lowercase              e.g. "ryanpatrickhall"
+    //   4. first word only                  e.g. "ryan"  ← catches submissions made
+    //                                            when username was just "Ryan"
     // We also match by studentName field on the submission itself.
     const byKey = new Map();
     members.forEach(m => {
       const lower    = m.username.trim().toLowerCase();
       const hyphen   = lower.replace(/\s+/g, '-');
       const noSpaces = lower.replace(/\s+/g, '');
-      byKey.set(lower,    m);
-      byKey.set(hyphen,   m);
-      byKey.set(noSpaces, m);
+      const firstWord = lower.split(/\s+/)[0];   // e.g. "ryan" from "ryan patrick hall"
+      byKey.set(lower,     m);
+      byKey.set(hyphen,    m);
+      byKey.set(noSpaces,  m);
+      if (firstWord && firstWord !== lower) byKey.set(firstWord, m);
     });
 
     let fixed = 0;

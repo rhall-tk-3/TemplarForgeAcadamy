@@ -80,6 +80,127 @@
     "birthday": "1990-04-14"
   },
   {
+    "id": "1779525248778",
+    "username": "Ryan Patrick Hall",
+    "salutation": "Brother",
+    "role": "member",
+    "memberId": "KTKC-0004",
+    "password": "$2b$12$FqAsdtMSMLgJR/2EauB1kex0lS3XCCm4nGNoWZv.tOAvTKSke.LcC",
+    "email": "rhall@tkkc.info",
+    "source": "registered",
+    "createdAt": "2026-05-23T08:34:08.778Z",
+    "assignedProgram": "squire",
+    "programAssignedAt": "2026-05-26T03:18:57.627Z",
+    "programHistory": [
+      {
+        "slug": "levie",
+        "assignedAt": "2026-05-23T08:52:11.454Z",
+        "completedAt": null,
+        "grade": null
+      }
+    ],
+    "currentWeek": 8,
+    "examSubmissions": [
+      {
+        "programSlug": "levie",
+        "week": 1,
+        "answers": [
+          {
+            "question": "State the consecration of the Order and the purpose it serves.",
+            "answer": "Separation from OMSDT for unfaithful and monetary practices. To serve faithfully as a brother in the knights templar"
+          },
+          {
+            "question": "What is the Levie class period, and how long does it last?",
+            "answer": "entry level training- 2 months"
+          },
+          {
+            "question": "What does Ecumenical Fellowship mean, and why does the Order practice it?",
+            "answer": "Love of everyone"
+          }
+        ],
+        "submittedAt": "2026-05-24T02:14:56.516Z",
+        "reviewedAt": "2026-05-25T22:12:31.148Z",
+        "grade": "85",
+        "notes": ""
+      }
+    ],
+    "progressNotes": [
+      {
+        "date": "2026-05-24T01:54:06.148Z",
+        "note": "Takes to long to complete course"
+      }
+    ],
+    "unlockedSlugs": [
+      "levie",
+      "squire",
+      "corporal",
+      "sergeant",
+      "sfc",
+      "knight-aspirant",
+      "knight",
+      "lieutenant",
+      "captain",
+      "major",
+      "commander",
+      "chaplain"
+    ],
+    "rank": "knight-aspirant",
+    "rankName": "Knight Aspirant",
+    "rankAssignedAt": "2026-05-24T01:53:38.108Z",
+    "rankHistory": [
+      {
+        "rank": "corporal",
+        "rankName": "CPL RYAN",
+        "assignedAt": "2026-05-23T11:15:55.007Z",
+        "assignedBy": "Schoolmaster"
+      },
+      {
+        "rank": "levie",
+        "rankName": null,
+        "assignedAt": "2026-05-23T11:17:37.868Z",
+        "assignedBy": "Schoolmaster"
+      },
+      {
+        "rank": "levie",
+        "rankName": "New Member",
+        "assignedAt": "2026-05-23T11:18:46.607Z",
+        "assignedBy": "Schoolmaster"
+      },
+      {
+        "rank": "corporal",
+        "rankName": "Corporal",
+        "assignedAt": "2026-05-23T23:51:18.454Z",
+        "assignedBy": "Schoolmaster"
+      },
+      {
+        "rank": "knight-aspirant",
+        "rankName": "Knight Aspirant",
+        "assignedAt": "2026-05-24T01:53:38.108Z",
+        "assignedBy": "Schoolmaster"
+      }
+    ],
+    "programStatus": "active",
+    "statusNote": null,
+    "statusChangedAt": "2026-05-23T11:14:33.871Z",
+    "readingLog": [
+      {
+        "id": 1779593055837,
+        "week": 1,
+        "programSlug": "levie",
+        "title": "Articles of KTKC",
+        "author": "High Counsel",
+        "pages": "article 1-4",
+        "notes": "very understanding and easy to read",
+        "loggedAt": "2026-05-24T03:24:15.837Z"
+      }
+    ],
+    "weekSetAt": "2026-05-26T05:09:43.957Z",
+    "temple": "Georgia",
+    "phone": "14782326293",
+    "photoPath": "/uploads/1779525248778-1779528660601.jpg",
+    "birthday": "1993-03-05"
+  },
+  {
     "id": "1780193566863",
     "username": "Sir Roland",
     "salutation": null,
@@ -119,34 +240,6 @@
     "photoPath": null,
     "birthday": null,
     "source": "registered"
-  },
-  {
-    "id": "17803738422880",
-    "username": "Ryan",
-    "salutation": null,
-    "role": "member",
-    "memberId": null,
-    "password": "$2b$12$FqAsdtMSMLgJR/2EauB1kex0lS3XCCm4nGNoWZv.tOAvTKSke.LcC",
-    "email": "rhall@tkkc.info",
-    "source": "registered",
-    "createdAt": "2026-05-30T21:06:07.581Z",
-    "assignedProgram": null,
-    "programHistory": [],
-    "currentWeek": null,
-    "examSubmissions": [],
-    "progressNotes": [],
-    "unlockedSlugs": [],
-    "rank": null,
-    "rankName": null,
-    "rankAssignedAt": null,
-    "rankHistory": [],
-    "programStatus": "active",
-    "statusNote": null,
-    "statusChangedAt": null,
-    "temple": null,
-    "phone": null,
-    "photoPath": null,
-    "birthday": null
   },
   {
     "id": "17803738422945",
