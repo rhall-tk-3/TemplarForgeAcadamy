@@ -1366,8 +1366,12 @@ function populateRoster() {
         retestCell = `<span class="pf-none">—</span>`;
       } else {
         lastResultCell = `<span class="pf-fail" title="Failed ${last.programSlug} Week ${last.weekNumber} — ${last.score}%">F</span>`;
-        // Auto-retest: SM does NOT approve retests for curriculum exams — 24hr cooldown is automatic.
-        retestCell = `<span class="retest-cooldown-badge" title="Auto-retest: student waits 24hr after failure — no SM approval needed">⏳ 24hr Auto</span>`;
+        // Curriculum retest: show a reset button so SM can immediately lift the 24hr cooldown.
+        retestCell = `<button class="retest-btn" style="font-size:.72rem;padding:2px 8px;"
+            title="Clear 24-hour retest cooldown — lets member retake ${last.programSlug} Week ${last.weekNumber} right now"
+            onclick="event.stopPropagation();resetRetestCooldown('${m.id}','${last.programSlug}',${last.weekNumber})">
+            ↺ Reset
+          </button>`;
       }
     } else {
       // Fall back to legacy examSubmissions
@@ -1832,8 +1836,13 @@ function renderExams(m) {
     const unlockBtn = s.passed
       ? `<div style="margin-top:6px;font-size:.76rem;color:#4a8040;font-family:'Crimson Text',serif;">
           ✔ Passed — Week ${s.weekNumber + 1} auto-unlocked · Use <em>Week Progression</em> above to adjust manually.</div>`
-      : `<div style="margin-top:6px;font-size:.76rem;color:#8a6040;font-family:'Crimson Text',serif;">
-          ✗ Failed — ${s.score}% (need ${s.passingScore}%) · Student auto-retests after 24-hour cooldown — no SM action required.
+      : `<div style="margin-top:6px;font-size:.76rem;color:#8a6040;font-family:'Crimson Text',serif;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          <span>✗ Failed — ${s.score}% (need ${s.passingScore}%) · Student retests after 24-hour cooldown.</span>
+          <button class="retest-btn" style="font-size:.74rem;padding:3px 10px;"
+            onclick="event.stopPropagation();resetRetestCooldown('${currentMember.id}','${s.programSlug}',${s.weekNumber})"
+            title="Back-date the failed submission so the 24-hour hold is lifted immediately">
+            ↺ Reset Cooldown
+          </button>
         </div>`;
 
     return `<div class="exam-item">
@@ -2373,6 +2382,39 @@ async function inlineRetest(memberId, examIdx) {
     populateStats();
   } else {
     toast(data.error || 'Retest approval failed.');
+  }
+}
+
+// ── Curriculum retest cooldown reset (SM manual override) ──
+async function resetRetestCooldown(memberId, programSlug, weekNumber) {
+  const member = allMembers.find(m => m.id === memberId);
+  const name   = member ? member.username : memberId;
+  if (!confirm(`Clear the 24-hour retest cooldown for ${name}?\n\n` +
+               `Program: ${programSlug}  ·  Week: ${weekNumber}\n\n` +
+               `This lets them retake the exam immediately.`)) return;
+
+  const res  = await fetch('/api/admin/reset-retest-cooldown', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ memberId, programSlug, weekNumber })
+  });
+  const data = await res.json();
+  if (res.ok) {
+    toast(`✔ Cooldown cleared — ${name} may retake Week ${weekNumber} now.`, true);
+    // Refresh member data so both the roster row and profile panel update
+    const r       = await fetch(`/api/progression/member/${memberId}`);
+    const updated = await r.json();
+    const idx     = allMembers.findIndex(m => m.id === memberId);
+    if (idx !== -1) allMembers[idx] = updated;
+    populateRoster();
+    populateStats();
+    // If the member panel is currently open, refresh it too
+    if (currentMember && currentMember.id === memberId) {
+      currentMember = updated;
+      renderMemberPanel(updated);
+    }
+  } else {
+    toast(data.error || 'Could not reset cooldown — check server logs.');
   }
 }
 
