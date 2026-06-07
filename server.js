@@ -1,7 +1,7 @@
 'use strict';
 
 // ── DEPLOY VERSION — updated on every push so Railway logs confirm new code ──
-const DEPLOY_VERSION = '1.9.5-2026-06-05';
+const DEPLOY_VERSION = '1.9.6-2026-06-07';
 
 // First thing printed — confirms this file was reached by Node
 process.stdout.write(`[boot] server.js loaded — v${DEPLOY_VERSION} — pid ${process.pid}\n`);
@@ -683,6 +683,79 @@ app.use('/auth', authRouter);
       });
     } catch (e) {
       console.error('✠ repair-student-ids error:', e.message);
+      return res.status(500).json({ error: e.message });
+    }
+  });
+
+  // ── POST /api/admin/reset-retest-cooldown  — SM only ──
+  // Immediately clears the 24-hour retest cooldown for a member's failed
+  // curriculum exam by back-dating the latest failed submission's submittedAt
+  // to 25 hours ago.  retestAvailable() then returns true on the next attempt.
+  // Body: { memberId, programSlug, weekNumber }
+  app.post('/api/admin/reset-retest-cooldown', (req, res) => {
+    if (!smJwtCheck(req, res)) return;
+    try {
+      const fsSync = require('fs');
+      const { SUBMISSIONS_FILE } = require('./src/config/dataPaths');
+      const { findById }         = require('./src/auth/userStore');
+      const { studentKey }       = require('./src/services/submissionStoreService');
+
+      const { memberId, programSlug, weekNumber } = req.body || {};
+      if (!memberId || !programSlug || weekNumber === undefined) {
+        return res.status(400).json({ error: 'memberId, programSlug and weekNumber are required.' });
+      }
+
+      const member = findById(String(memberId));
+      if (!member) return res.status(404).json({ error: 'Member not found.' });
+
+      const store = JSON.parse(fsSync.readFileSync(SUBMISSIONS_FILE, 'utf8'));
+      const subs  = store.submissions || [];
+
+      // Build the same multi-key set used everywhere else for student ID matching
+      const sKey     = studentKey(member.username, member.email);
+      const lower    = member.username.trim().toLowerCase();
+      const hyphen   = lower.replace(/\s+/g, '-');
+      const nsp      = lower.replace(/\s+/g, '');
+      const first    = lower.split(/\s+/)[0];
+      const matchIds = new Set([sKey, lower, hyphen, nsp, first].filter(Boolean));
+
+      // Find the latest failed submission for this member + program + week
+      const wn = Number(weekNumber);
+      const candidates = subs.filter(s =>
+        matchIds.has((s.studentId || '').toLowerCase()) &&
+        s.programSlug === programSlug &&
+        Number(s.weekNumber) === wn &&
+        s.passed === false
+      );
+
+      if (!candidates.length) {
+        return res.status(404).json({
+          error: `No failed submission found for ${member.username} — ${programSlug} Week ${wn}.`
+        });
+      }
+
+      // Sort desc by submittedAt — pick the most recent failure
+      candidates.sort((a, b) => new Date(b.submittedAt) - new Date(a.submittedAt));
+      const target = candidates[0];
+
+      // Back-date submittedAt by 25 hours so retestAvailable() is immediately true
+      const backdated = new Date(Date.now() - 25 * 60 * 60 * 1000).toISOString();
+      const subIdx    = subs.indexOf(target);
+      subs[subIdx].submittedAt = backdated;
+      subs[subIdx]._retestResetBy = 'schoolmaster';
+      subs[subIdx]._retestResetAt = new Date().toISOString();
+
+      store.submissions = subs;
+      fsSync.writeFileSync(SUBMISSIONS_FILE, JSON.stringify(store, null, 2), 'utf8');
+
+      console.log(`✠ reset-retest-cooldown: cleared for ${member.username} — ${programSlug} wk${wn}`);
+      return res.json({
+        ok: true,
+        message: `Retest cooldown cleared for ${member.username} — ${programSlug} Week ${wn}. They may retake now.`,
+        member: member.username, programSlug, weekNumber: wn
+      });
+    } catch (e) {
+      console.error('✠ reset-retest-cooldown error:', e.message);
       return res.status(500).json({ error: e.message });
     }
   });
