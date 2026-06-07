@@ -1839,7 +1839,7 @@ function renderExams(m) {
       : `<div style="margin-top:6px;font-size:.76rem;color:#8a6040;font-family:'Crimson Text',serif;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
           <span>✗ Failed — ${s.score}% (need ${s.passingScore}%) · Student retests after 24-hour cooldown.</span>
           <button class="retest-btn" style="font-size:.74rem;padding:3px 10px;"
-            onclick="event.stopPropagation();resetRetestCooldown('${currentMember.id}','${s.programSlug}',${s.weekNumber})"
+            onclick="event.stopPropagation();resetRetestCooldown('${selectedMember.id}','${s.programSlug}',${s.weekNumber})"
             title="Back-date the failed submission so the 24-hour hold is lifted immediately">
             ↺ Reset Cooldown
           </button>
@@ -2409,9 +2409,9 @@ async function resetRetestCooldown(memberId, programSlug, weekNumber) {
     populateRoster();
     populateStats();
     // If the member panel is currently open, refresh it too
-    if (currentMember && currentMember.id === memberId) {
-      currentMember = updated;
-      renderMemberPanel(updated);
+    if (selectedMember && selectedMember.id === memberId) {
+      selectedMember = updated;
+      renderDetailPanel(updated);
     }
   } else {
     toast(data.error || 'Could not reset cooldown — check server logs.');
