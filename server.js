@@ -1,7 +1,7 @@
 'use strict';
 
 // ── DEPLOY VERSION — updated on every push so Railway logs confirm new code ──
-const DEPLOY_VERSION = '1.9.6-2026-06-07';
+const DEPLOY_VERSION = '1.9.7-2026-06-10';
 
 // First thing printed — confirms this file was reached by Node
 process.stdout.write(`[boot] server.js loaded — v${DEPLOY_VERSION} — pid ${process.pid}\n`);
@@ -723,7 +723,7 @@ app.use('/auth', authRouter);
       const wn = Number(weekNumber);
       const candidates = subs.filter(s =>
         matchIds.has((s.studentId || '').toLowerCase()) &&
-        s.programSlug === programSlug &&
+        (s.slug === programSlug || s.programSlug === programSlug) &&
         Number(s.weekNumber) === wn &&
         s.passed === false
       );
