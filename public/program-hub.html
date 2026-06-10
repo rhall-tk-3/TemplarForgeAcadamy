@@ -1170,6 +1170,19 @@ async function initHub() {
 // ── Active countdown timers: weekNumber → intervalId ──
 const _retestTimers = {};
 
+// ── Visibility-change re-poll ──
+// When the student switches back to this tab, immediately re-fetch progress
+// so any SM reset is caught the instant they return (no wait for poll interval).
+document.addEventListener('visibilitychange', async () => {
+  if (document.visibilityState !== 'visible') return;
+  try {
+    const r = await fetch(`/api/assessment/${SLUG}/progress`, { credentials: 'include', headers: { 'Accept': 'application/json' } });
+    if (!r.ok) return;
+    const d = await r.json();
+    if (d.weeks) restoreExamState(d.weeks);
+  } catch(_) {}
+});
+
 function restoreExamState(progressWeeks) {
   for (const pw of progressWeeks) {
     const wn = pw.weekNumber;
@@ -1229,7 +1242,7 @@ function restoreExamState(progressWeeks) {
         <div class="exam-answer-review">${reviewHtml}</div>
       `;
       // Start live countdown — when it hits zero, replace banner with exam form.
-      // Also polls the server every 30s so a Schoolmaster reset is picked up immediately.
+      // Also polls the server every 5s so a Schoolmaster reset is picked up quickly.
       _retestTimers[wn] && clearInterval(_retestTimers[wn]);
       let _pollTick = 0;
       _retestTimers[wn] = setInterval(async () => {
@@ -1241,9 +1254,9 @@ function restoreExamState(progressWeeks) {
           _unlockRetestForm(wn, passingScore, stateDiv);
           return;
         }
-        // Server poll every 30 ticks (30 seconds) — catches SM manual reset
+        // Server poll every 5 ticks (5 seconds) — catches SM manual reset quickly
         _pollTick++;
-        if (_pollTick % 30 === 0) {
+        if (_pollTick % 5 === 0) {
           try {
             const r = await fetch(`/api/assessment/${SLUG}/progress`, { credentials: 'include', headers: { 'Accept': 'application/json' } });
             if (r.ok) {
@@ -1280,22 +1293,24 @@ function restoreExamState(progressWeeks) {
 
 // Inject a fresh exam form after the existing banner (retest unlock)
 function _unlockRetestForm(wn, passingScore, stateDiv) {
-  // Don't inject if form already present
+  // Don't inject if a retest form is already present inside the state div
   if (stateDiv.querySelector('.exam-form')) return;
 
   const origForm = document.getElementById(`exam-form-${wn}`);
   if (!origForm) return;  // week not rendered (shouldn't happen)
 
-  // Clone the original form and swap IDs so the new one is active
+  // Hide the original form (now a sibling of exam-state, outside stateDiv)
+  origForm.style.display = 'none';
+
+  // Clone it fresh — clear all inputs, re-wire submit handler
   const clone = origForm.cloneNode(true);
   clone.id = `exam-form-${wn}-retest`;
-  // Remove any disabled state from radio inputs
+  clone.style.display = '';
   clone.querySelectorAll('input').forEach(i => i.disabled = false);
   clone.querySelectorAll('input[type=radio]').forEach(i => i.checked = false);
-  // Re-wire onsubmit (cloneNode preserves attribute, but we need fresh handler)
   clone.onsubmit = (e) => submitExam(e, wn, passingScore);
-  // Hide the original (already replaced by banner)
-  origForm.style.display = 'none';
+
+  // Append the fresh form inside exam-state, below the result banner
   stateDiv.appendChild(clone);
 }
 
@@ -1512,16 +1527,16 @@ function renderHub(curr, readData) {
     <div class="week-tab-panel" id="exam-${weekNum}">
       <div class="section-label">Week ${weekNum} Examination</div>
       <p style="color:var(--text-dim);font-size:0.88rem;margin:8px 0 16px 0;">Answer all questions. Pass at ${passingScore}% or higher. If you fail, you may automatically retest after a 24-hour review period — no Schoolmaster approval required to retry.</p>
-      <div id="exam-state-${weekNum}">
-        ${mcQuestions ? `
-        <form class="exam-form" id="exam-form-${weekNum}" onsubmit="submitExam(event, ${weekNum}, ${passingScore})">
-          ${mcQuestions}
-          <div class="exam-submit-row">
-            <button class="btn-exam-submit" type="submit">Submit Exam</button>
-            <span style="font-size:0.82rem;color:var(--text-dim);">Passing score: ${passingScore}%</span>
-          </div>
-        </form>` : '<p style="color:var(--text-dim);">Exam questions not yet available. Open the Assessment Center.</p>'}
-      </div>
+      <!-- exam-state holds banners/results and is safely overwritten without losing the original form -->
+      <div id="exam-state-${weekNum}"></div>
+      ${mcQuestions ? `
+      <form class="exam-form" id="exam-form-${weekNum}" onsubmit="submitExam(event, ${weekNum}, ${passingScore})">
+        ${mcQuestions}
+        <div class="exam-submit-row">
+          <button class="btn-exam-submit" type="submit">Submit Exam</button>
+          <span style="font-size:0.82rem;color:var(--text-dim);">Passing score: ${passingScore}%</span>
+        </div>
+      </form>` : '<p style="color:var(--text-dim);">Exam questions not yet available. Open the Assessment Center.</p>'}
     </div>
   </div>
 </div>`;
@@ -1720,21 +1735,38 @@ async function submitExam(event, weekNum, passingScore) {
         </div>
         <div class="exam-answer-review">${reviewHtml}</div>
       `;
-      // Live countdown
+      // Live countdown — also polls server every 5s for SM manual reset
       _retestTimers[weekNum] && clearInterval(_retestTimers[weekNum]);
       const availableAt = retestAt.getTime();
-      _retestTimers[weekNum] = setInterval(() => {
+      let _pollTick2 = 0;
+      _retestTimers[weekNum] = setInterval(async () => {
         const remaining = availableAt - Date.now();
         const el = document.getElementById(countdownId);
         if (remaining <= 0) {
           clearInterval(_retestTimers[weekNum]);
           _unlockRetestForm(weekNum, passingScore, stateDiv);
-        } else {
-          const h = Math.floor(remaining / 3600000);
-          const m = Math.floor((remaining % 3600000) / 60000);
-          const s = Math.floor((remaining % 60000) / 1000);
-          if (el) el.textContent = `${h}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
+          return;
         }
+        _pollTick2++;
+        if (_pollTick2 % 5 === 0) {
+          try {
+            const r = await fetch(`/api/assessment/${SLUG}/progress`, { credentials: 'include', headers: { 'Accept': 'application/json' } });
+            if (r.ok) {
+              const d = await r.json();
+              const fresh = (d.weeks || []).find(w => w.weekNumber === weekNum);
+              if (fresh && (fresh.status === 'retest_ready' || fresh.status === 'available')) {
+                clearInterval(_retestTimers[weekNum]);
+                if (el) el.textContent = 'Ready!';
+                _unlockRetestForm(weekNum, passingScore, stateDiv);
+                return;
+              }
+            }
+          } catch(_) { /* network hiccup — keep counting */ }
+        }
+        const h = Math.floor(remaining / 3600000);
+        const m = Math.floor((remaining % 3600000) / 60000);
+        const s = Math.floor((remaining % 60000) / 1000);
+        if (el) el.textContent = `${h}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
       }, 1000);
     }
   } catch (err) {
