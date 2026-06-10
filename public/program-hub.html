@@ -1176,8 +1176,21 @@ function restoreExamState(progressWeeks) {
     const stateDiv = document.getElementById(`exam-state-${wn}`);
     if (!stateDiv) continue;
 
-    // Skip if exam was just submitted this session (banner already rendered)
-    if (stateDiv.querySelector('.exam-result-banner')) continue;
+    // Skip if exam was just submitted this session (banner already rendered),
+    // UNLESS the server now says retest_ready — in that case override to unlock.
+    if (stateDiv.querySelector('.exam-result-banner')) {
+      if (pw.status === 'retest_ready' && !stateDiv.querySelector('.exam-form')) {
+        const sub2 = pw.latestSubmission;
+        const ps2  = pw.passingScore || 70;
+        stateDiv.innerHTML = `
+          <div class="exam-result-banner failed" style="margin-bottom:12px;">
+            ✗ Failed — ${sub2 ? sub2.score : '?'}%. You need ${ps2}% to pass.<br>
+            <strong>✠ Cooldown cleared — your retest is ready below.</strong>
+          </div>`;
+        _unlockRetestForm(wn, ps2, stateDiv);
+      }
+      continue;
+    }
 
     const sub = pw.latestSubmission;
     if (!sub) continue;
@@ -1211,25 +1224,44 @@ function restoreExamState(progressWeeks) {
         <div class="exam-result-banner failed">
           ✗ Failed — ${score}%. You need ${passingScore}% to pass.<br>
           <strong>✠ Retest available in: <span id="${countdownId}">calculating…</span></strong><br>
-          <span style="font-size:.82rem;opacity:.8;">Review your answers below, then return when the timer reaches zero to retry automatically.</span>
+          <span style="font-size:.82rem;opacity:.8;">Review your answers below. The exam form will appear automatically when the cooldown lifts — or if your Schoolmaster clears it early.</span>
         </div>
         <div class="exam-answer-review">${reviewHtml}</div>
       `;
-      // Start live countdown — when it hits zero, replace banner with exam form
+      // Start live countdown — when it hits zero, replace banner with exam form.
+      // Also polls the server every 30s so a Schoolmaster reset is picked up immediately.
       _retestTimers[wn] && clearInterval(_retestTimers[wn]);
-      _retestTimers[wn] = setInterval(() => {
+      let _pollTick = 0;
+      _retestTimers[wn] = setInterval(async () => {
         const remaining = availableAt - Date.now();
         const el = document.getElementById(countdownId);
+        // Client-side timer expired
         if (remaining <= 0) {
           clearInterval(_retestTimers[wn]);
-          // Cooldown expired — swap banner for the live exam form
           _unlockRetestForm(wn, passingScore, stateDiv);
-        } else {
-          const h = Math.floor(remaining / 3600000);
-          const m = Math.floor((remaining % 3600000) / 60000);
-          const s = Math.floor((remaining % 60000) / 1000);
-          if (el) el.textContent = `${h}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
+          return;
         }
+        // Server poll every 30 ticks (30 seconds) — catches SM manual reset
+        _pollTick++;
+        if (_pollTick % 30 === 0) {
+          try {
+            const r = await fetch(`/api/assessment/${SLUG}/progress`, { credentials: 'include', headers: { 'Accept': 'application/json' } });
+            if (r.ok) {
+              const d = await r.json();
+              const fresh = (d.weeks || []).find(w => w.weekNumber === wn);
+              if (fresh && (fresh.status === 'retest_ready' || fresh.status === 'available')) {
+                clearInterval(_retestTimers[wn]);
+                if (el) el.textContent = 'Ready!';
+                _unlockRetestForm(wn, passingScore, stateDiv);
+                return;
+              }
+            }
+          } catch(_) { /* network hiccup — keep counting */ }
+        }
+        const h = Math.floor(remaining / 3600000);
+        const m = Math.floor((remaining % 3600000) / 60000);
+        const s = Math.floor((remaining % 60000) / 1000);
+        if (el) el.textContent = `${h}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
       }, 1000);
 
     } else if (pw.status === 'retest_ready') {
