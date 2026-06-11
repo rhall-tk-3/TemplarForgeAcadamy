@@ -9,7 +9,7 @@
 
 const path       = require("path");
 const fs         = require("fs");
-const formidable = require("formidable");
+const { formidable } = require("formidable");   // v3 named export
 const { requireSession } = require("../../lib/auth-session");
 const {
   ALLOWED_PROGRAMS,
