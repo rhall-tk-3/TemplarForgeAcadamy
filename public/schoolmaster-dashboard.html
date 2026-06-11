@@ -676,7 +676,7 @@
       </div>
       <div class="stat-box">
         <span class="num" id="stat-pending">—</span>
-        <div class="lbl">Exams Pending</div>
+        <div class="lbl">Pending Retests</div>
       </div>
       <div class="stat-box">
         <span class="num" id="stat-complete">—</span>
@@ -927,7 +927,7 @@
               <th>Assigned Program</th>
               <th>Week</th>
               <th>Status</th>
-              <th title="Total exams taken (pending failures shown in orange)">Exams Taken</th>
+              <th title="Total MC exams + discussion submissions taken">Exams / Discussions</th>
               <th style="text-align:center;">Last Result</th>
               <th style="text-align:center;">Retest Status</th>
             </tr>
@@ -1810,7 +1810,7 @@ function renderExams(m) {
   const legacySubs = m.examSubmissions || [];
 
   if (!currExams.length && !legacySubs.length) {
-    el.innerHTML = '<div style="color:#4a1020;font-size:.85rem;">No exam submissions yet.</div>';
+    el.innerHTML = '<div style="color:#4a1020;font-size:.85rem;">No exam or discussion submissions yet.</div>';
     return;
   }
 
@@ -1858,34 +1858,24 @@ function renderExams(m) {
     </div>`;
   }
 
-  // ── Helper: build a single exam-item for a legacy manual exam ──
+  // ── Helper: build a single read-only item for a discussion submission ──
   function buildLegacyItem(s, i) {
     const prog    = allPrograms.find(p => p.slug === s.programSlug);
-    const answers = (s.answers||[]).map(a => `
+    const dateStr = new Date(s.submittedAt).toLocaleString();
+    const answers = (s.answers||[]).map((a, ai) => `
       <div class="qa-item">
-        <div class="qa-q">${a.question || 'Q'+(i+1)}</div>
-        <div class="qa-a">${a.answer   || '<em style="color:#4a1020;">No answer</em>'}</div>
+        <div class="qa-q">${escHtml(a.question || `Q${ai+1}`)}</div>
+        <div class="qa-a" style="white-space:pre-wrap;">${escHtml(a.answer || '')}</div>
       </div>`).join('');
-    const status = s.reviewedAt
-      ? `<span class="exam-status-reviewed">✔ Reviewed · Grade: ${s.grade||'—'}</span>`
-      : `<span class="exam-status-pending">⏳ Pending Review</span>`;
-    const reviewForm = !s.reviewedAt
-      ? `<div class="review-form">
-          <input type="text" id="grade-${i}" placeholder="Grade (e.g. Pass / 85%)">
-          <textarea id="notes-${i}" placeholder="Feedback / notes…" rows="2"></textarea>
-          <button class="sm-btn gold" onclick="submitReview(${i})">Save Review</button>
-        </div>`
-      : `<div style="margin-top:8px;font-size:.82rem;color:#6a4040;">Notes: ${s.notes||'—'}</div>`;
     return `<div class="exam-item">
       <div class="exam-item-header">
         <div>
-          <div class="exam-meta">${prog ? prog.title : s.programSlug} · Week ${s.week||'—'}</div>
-          <div style="font-size:.76rem;color:#3a1010;margin-top:2px;">${new Date(s.submittedAt).toLocaleString()}</div>
+          <div class="exam-meta">${prog ? prog.title : (s.programSlug||'—')} · Week ${s.week||'—'}</div>
+          <div style="font-size:.76rem;color:#3a1010;margin-top:2px;">${dateStr}</div>
         </div>
-        ${status}
+        <span class="exam-status-reviewed">✔ Completed</span>
       </div>
       ${answers ? `<div class="qa-list">${answers}</div>` : ''}
-      ${reviewForm}
     </div>`;
   }
 
@@ -1910,14 +1900,11 @@ function renderExams(m) {
     let badgeHtml = '';
     if (type === 'curr') {
       const anyPass = items.some(s => s.passed);
-      const allFail = items.every(s => !s.passed);
       badgeHtml = anyPass
         ? `<span class="exam-group-pass-badge has-pass">✔ Passed</span>`
         : `<span class="exam-group-pass-badge all-fail">✗ Not Yet Passed</span>`;
     } else {
-      const anyPending = items.some(s => !s.reviewedAt);
-      if (anyPending)
-        badgeHtml = `<span class="exam-group-pass-badge all-fail">⏳ Pending Review</span>`;
+      badgeHtml = `<span class="exam-group-pass-badge has-pass">✔ Completed</span>`;
     }
 
     // Latest submission date
@@ -1925,11 +1912,8 @@ function renderExams(m) {
       !newest || new Date(s.submittedAt) > new Date(newest) ? s.submittedAt : newest, null);
     const latestStr = latestDate ? new Date(latestDate).toLocaleDateString() : '';
 
-    // Open by default only if there's a pending item (needs SM attention)
-    const hasPending = type === 'legacy'
-      ? items.some(s => !s.reviewedAt)
-      : false;   // curriculum exams are auto-graded — no SM action needed, default collapsed
-
+    // Discussions are always auto-completed — no pending state
+    const hasPending = false;
     const bodyHtml = type === 'curr'
       ? items.map(s => buildCurrItem(s)).join('')
       : items.map((s, i) => buildLegacyItem(s, legacyOffset + i)).join('');
@@ -1960,10 +1944,10 @@ function renderExams(m) {
     });
   }
 
-  // ── Legacy manual exams (old system, grouped by program) ──
+  // ── Discussion submissions (no SM review required, read-only here) ──
   if (legacySubs.length) {
     html += `<div style="font-size:.76rem;color:#8a6060;text-transform:uppercase;letter-spacing:.08em;margin:${currExams.length ? '14px' : '0px'} 0 8px;">
-      Legacy Manual Submissions</div>`;
+      ✠ Discussion Submissions</div>`;
     const groups = groupByProgram(legacySubs);
     let legacyOffset = 0;
     groups.forEach((items, slug) => {

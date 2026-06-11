@@ -177,16 +177,6 @@
     .submitted-notice-icon { font-size: 1rem; margin-top: 1px; }
     .submitted-date { font-size: 0.78rem; color: #4a8a48; margin-top: 2px; }
 
-    /* ── Grade badge ── */
-    .grade-row {
-      margin-top: 10px;
-      font-family: 'Cinzel', serif;
-      font-size: 0.78rem;
-    }
-    .grade-pass { color: #80d080; }
-    .grade-fail { color: #e07070; }
-    .grade-pending { color: #c0a040; }
-
     /* ── Q&A pairs (submitted view) ── */
     .qa-pair { margin-bottom: 18px; }
     .qa-question {
@@ -345,7 +335,7 @@
 <main class="dq-page">
 
   <h1 class="dq-heading">✠ Discussion Questions</h1>
-  <p class="dq-sub">Review and submit discussion questions for any completed week.</p>
+  <p class="dq-sub">Complete discussion questions for any accessible week. Your answers are recorded and may be reviewed by the Schoolmaster.</p>
 
   <div id="prog-badge" class="dq-prog-badge" style="display:none;"></div>
 
@@ -470,13 +460,6 @@
     const dateStr = wk.submittedAt
       ? new Date(wk.submittedAt).toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' })
       : '';
-    const gradeHtml = wk.reviewedAt
-      ? (() => {
-          const g = (wk.grade || '').toLowerCase();
-          const cls = g.includes('pass') ? 'grade-pass' : g.includes('fail') ? 'grade-fail' : 'grade-pending';
-          return `<div class="grade-row"><span class="${cls}">Grade: ${escHtml(wk.grade)}</span></div>`;
-        })()
-      : `<div class="grade-row grade-pending">Awaiting Schoolmaster review.</div>`;
 
     const qaPairs = (wk.questions || []).map((q, i) => {
       const ans = (wk.answers[i] || {}).answer || wk.answers[i] || '';
@@ -490,11 +473,10 @@
       <div class="submitted-notice">
         <span class="submitted-notice-icon">✔</span>
         <div>
-          <div>Discussion submitted successfully.</div>
+          <div>Discussion completed.</div>
           ${dateStr ? `<div class="submitted-date">${dateStr}</div>` : ''}
         </div>
       </div>
-      ${gradeHtml}
       <div style="margin-top:18px;">${qaPairs}</div>
     `;
   }
@@ -527,8 +509,7 @@
     return `
       <p class="dq-intro">
         Answer each question below thoughtfully and honestly.
-        Your responses will be reviewed by the Schoolmaster.
-        Submit only when you are satisfied with your work.
+        Submit when you are satisfied with your work — no Schoolmaster approval required.
       </p>
       ${fields}
       ${submitHtml}
@@ -581,8 +562,8 @@
           wk.submitted   = true;
           wk.submittedAt = new Date().toISOString();
           wk.answers     = answers;
-          wk.reviewedAt  = null;
-          wk.grade       = null;
+          wk.reviewedAt  = new Date().toISOString();
+          wk.grade       = 'Completed';
 
           block.classList.remove('current', 'open');
           block.classList.add('completed', 'open');
