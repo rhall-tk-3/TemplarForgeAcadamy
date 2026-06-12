@@ -252,35 +252,57 @@ function renderBoard() {
     });
   });
 
-  // Bind grade forms (file uploads only — written submissions are read-only in this view)
+  // Bind grade forms — file-upload submissions use /api/papers/grade,
+  // written submissions use /api/papers/grade-written
   board.querySelectorAll(".grade-form").forEach(form => {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const msg = form.querySelector(".save-msg");
-      const btn = form.querySelector("button[type=submit]");
-      const fd  = new FormData(form);
+      const msg      = form.querySelector(".save-msg");
+      const btn      = form.querySelector("button[type=submit]");
+      const fd       = new FormData(form);
+      const isWritten = form.dataset.type === "written";
       try {
         msg.textContent = "Saving\u2026";
         msg.className = "save-msg";
         if (btn) btn.disabled = true;
-        await apiJson("/api/papers/grade", {
-          method:  "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            submissionId: form.dataset.id,
-            status:       fd.get("status"),
-            grade:        fd.get("grade"),
-            feedback:     fd.get("feedback")
-          })
-        });
-        // Update local state so re-renders stay in sync
-        const idx = ALL_ITEMS.findIndex(x => x.submissionId === form.dataset.id);
-        if (idx !== -1) {
-          ALL_ITEMS[idx].status   = fd.get("status");
-          ALL_ITEMS[idx].grade    = fd.get("grade");
-          ALL_ITEMS[idx].feedback = fd.get("feedback");
-          ALL_ITEMS[idx].gradedAt = new Date().toISOString();
+
+        if (isWritten) {
+          await apiJson("/api/papers/grade-written", {
+            method:  "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              submissionId: form.dataset.id,
+              grade:        fd.get("grade"),
+              notes:        fd.get("notes")
+            })
+          });
+          const idx = ALL_ITEMS.findIndex(x => x.submissionId === form.dataset.id);
+          if (idx !== -1) {
+            ALL_ITEMS[idx].status   = "graded";
+            ALL_ITEMS[idx].grade    = fd.get("grade");
+            ALL_ITEMS[idx].feedback = fd.get("notes");
+            ALL_ITEMS[idx].gradedAt = new Date().toISOString();
+          }
+        } else {
+          await apiJson("/api/papers/grade", {
+            method:  "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              submissionId: form.dataset.id,
+              status:       fd.get("status"),
+              grade:        fd.get("grade"),
+              feedback:     fd.get("feedback")
+            })
+          });
+          const idx = ALL_ITEMS.findIndex(x => x.submissionId === form.dataset.id);
+          if (idx !== -1) {
+            ALL_ITEMS[idx].status   = fd.get("status");
+            ALL_ITEMS[idx].grade    = fd.get("grade");
+            ALL_ITEMS[idx].feedback = fd.get("feedback");
+            ALL_ITEMS[idx].gradedAt = new Date().toISOString();
+          }
         }
+
         msg.textContent = "\u2713 Saved.";
         msg.className = "save-msg success";
       } catch (err) {
@@ -423,12 +445,11 @@ function buildWrittenCard(item) {
         </div>`).join("")
     : `<p style="color:#64748b;font-size:0.85rem;font-style:italic;">No answers recorded.</p>`;
 
-  const gradeDisplay = item.grade
-    ? `<span style="margin-left:10px;padding:2px 10px;border-radius:999px;background:#14532d;border:1px solid #86efac;color:#bbf7d0;font-weight:700;font-size:0.78rem;">Grade: ${esc(item.grade)}</span>`
-    : "";
+  const isGraded = item.status === "graded";
 
   return `
     <div class="submission-card">
+      <!-- Header row: type pill · program · lesson · assignment · status pill -->
       <div class="sub-header-row">
         <div class="sub-meta">
           ${typePill("written")}
@@ -439,12 +460,10 @@ function buildWrittenCard(item) {
           <span class="sub-sep">·</span>
           <span class="sub-assign">${esc(item.assignmentTitle || "Written Assignment")}</span>
         </div>
-        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-          ${statusPill(item.status, item.grade)}
-          ${gradeDisplay}
-        </div>
+        <div>${statusPill(item.status, item.grade)}</div>
       </div>
 
+      <!-- Dates -->
       <div class="sub-detail-row">
         <div class="sub-dates">
           <span><strong>Submitted:</strong> ${fmtDate(item.uploadedAt)}</span>
@@ -454,12 +473,37 @@ function buildWrittenCard(item) {
 
       ${item.feedback ? `<div class="sub-feedback"><strong>SM Notes:</strong> ${esc(item.feedback)}</div>` : ""}
 
-      <!-- Answers accordion -->
+      <!-- Written answers accordion -->
       <details class="grade-details">
         <summary class="grade-summary">&#128196; View Written Answers (${answers.length})</summary>
         <div style="margin-top:12px;">
           ${answersHtml}
         </div>
+      </details>
+
+      <!-- Grade / approve form -->
+      <details class="grade-details" ${!isGraded ? "open" : ""}>
+        <summary class="grade-summary">&#9998; ${isGraded ? "Update Grade / Notes" : "Grade This Submission"}</summary>
+        <form class="grade-form" data-id="${esc(item.submissionId)}" data-type="written">
+          <div class="grade-grid">
+            <div>
+              <label class="field-label">Grade</label>
+              <input type="text" name="grade" value="${esc(item.grade || "")}"
+                     placeholder="Pass / Fail / A / 92\u2026" />
+            </div>
+            <div style="display:flex;align-items:flex-end;gap:10px;">
+              <button type="submit" class="save-btn" style="white-space:nowrap;">
+                &#10003; ${isGraded ? "Update Grade" : "Approve &amp; Save Grade"}
+              </button>
+            </div>
+          </div>
+          <label class="field-label" style="margin-top:10px;display:block;">Notes to Student</label>
+          <textarea name="notes" rows="3"
+                    placeholder="Optional feedback or notes visible to the student\u2026">${esc(item.feedback || "")}</textarea>
+          <div style="display:flex;align-items:center;gap:14px;margin-top:10px;">
+            <div class="save-msg"></div>
+          </div>
+        </form>
       </details>
     </div>
   `;

@@ -1537,6 +1537,7 @@ const paperMySubmissions      = require('./api/papers/my-submissions');
 const paperList               = require('./api/papers/list');
 const paperWrittenSubmissions = require('./api/papers/written-submissions');
 const paperGrade              = require('./api/papers/grade');
+const paperGradeWritten       = require('./api/papers/grade-written');
 const paperDownload           = require('./api/papers/download');
 
 // Members: upload a paper
@@ -1547,8 +1548,10 @@ app.get('/api/papers/my-submissions', (req, res) => paperMySubmissions.handler(r
 app.get('/api/papers/list', (req, res) => paperList.handler(req, res));
 // Schoolmaster: list all written (discussion/exam) submissions from users.json
 app.get('/api/papers/written-submissions', (req, res) => paperWrittenSubmissions.handler(req, res));
-// Schoolmaster: grade a submission
+// Schoolmaster: grade a file-upload submission
 app.post('/api/papers/grade', (req, res) => paperGrade.handler(req, res));
+// Schoolmaster: grade a written (examSubmissions) submission
+app.post('/api/papers/grade-written', (req, res) => paperGradeWritten.handler(req, res));
 // Members + schoolmaster: download a stored paper file
 // Supports both /api/papers/download/:submissionId (path param) and
 //              /api/papers/download?submissionId=  (query param, used by hub JS)
