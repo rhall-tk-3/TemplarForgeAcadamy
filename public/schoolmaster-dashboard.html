@@ -271,6 +271,9 @@
     .exam-group-pass-badge.all-fail {
       background:rgba(139,0,0,.15); border:1px solid #4a0010; color:#e8c96a;
     }
+    .exam-group-pass-badge.awaiting-review {
+      background:rgba(120,90,0,.22); border:1px solid #a07c20; color:#fde68a;
+    }
     .exam-group-body { padding:12px; display:flex; flex-direction:column; gap:8px; }
     .exam-group-body .exam-item { margin-bottom:0; }
 
@@ -1409,7 +1412,13 @@ function populateRoster() {
             title="${last.grade}">${(last.grade||'').slice(0,6)}</span>`;
         }
       } else if (legacySubs.length) {
-        lastResultCell = `<span style="font-family:'Cinzel',serif;font-size:.62rem;color:#6a4020;">Pending</span>`;
+        const pendingLegacy = legacySubs.filter(s => !s.reviewedAt || !s.grade || s.grade === '').length;
+        if (pendingLegacy > 0) {
+          lastResultCell = `<span class="exam-status-pending" style="font-size:.72rem;">⏳ ${pendingLegacy} Pending</span>`;
+          retestCell = `<a href="/schoolmaster/paper-grading/" style="font-family:'Cinzel',serif;font-size:.68rem;color:#fbbf24;text-decoration:underline;white-space:nowrap;" title="Grade pending discussion submissions">→ Review</a>`;
+        } else {
+          lastResultCell = `<span class="exam-status-reviewed" style="font-size:.72rem;">✔ Reviewed</span>`;
+        }
       }
     }
 
@@ -1868,24 +1877,41 @@ function renderExams(m) {
     </div>`;
   }
 
-  // ── Helper: build a single read-only item for a discussion submission ──
+  // ── Helper: build a single item for a discussion/written submission ──
   function buildLegacyItem(s, i) {
-    const prog    = allPrograms.find(p => p.slug === s.programSlug);
-    const dateStr = new Date(s.submittedAt).toLocaleString();
+    const prog      = allPrograms.find(p => p.slug === s.programSlug);
+    const dateStr   = new Date(s.submittedAt).toLocaleString();
+    const isReviewed = s.reviewedAt && s.grade && s.grade !== '';
+    const isPending  = !isReviewed;
+    const statusHtml = isReviewed
+      ? `<span class="exam-status-reviewed">✔ Approved — ${escHtml(s.grade)}</span>`
+      : `<span class="exam-status-pending">⏳ Awaiting SM Review</span>`;
     const answers = (s.answers||[]).map((a, ai) => `
       <div class="qa-item">
         <div class="qa-q">${escHtml(a.question || `Q${ai+1}`)}</div>
         <div class="qa-a" style="white-space:pre-wrap;">${escHtml(a.answer || '')}</div>
       </div>`).join('');
-    return `<div class="exam-item">
+    const notesHtml = (isReviewed && s.notes)
+      ? `<div style="margin-top:6px;font-size:.78rem;color:#8a7060;"><strong>SM Notes:</strong> ${escHtml(s.notes)}</div>`
+      : '';
+    const reviewLinkHtml = isPending
+      ? `<div style="margin-top:6px;">
+          <a href="/schoolmaster/paper-grading/" style="font-size:.75rem;color:#fbbf24;text-decoration:underline;">
+            → Grade in Paper Grading Hub
+          </a>
+        </div>`
+      : '';
+    return `<div class="exam-item" style="${isPending ? 'border-color:#a07c20;' : ''}">
       <div class="exam-item-header">
         <div>
           <div class="exam-meta">${prog ? prog.title : (s.programSlug||'—')} · Week ${s.week||'—'}</div>
           <div style="font-size:.76rem;color:#3a1010;margin-top:2px;">${dateStr}</div>
         </div>
-        <span class="exam-status-reviewed">✔ Completed</span>
+        ${statusHtml}
       </div>
       ${answers ? `<div class="qa-list">${answers}</div>` : ''}
+      ${notesHtml}
+      ${reviewLinkHtml}
     </div>`;
   }
 
@@ -1914,7 +1940,13 @@ function renderExams(m) {
         ? `<span class="exam-group-pass-badge has-pass">✔ Passed</span>`
         : `<span class="exam-group-pass-badge all-fail">✗ Not Yet Passed</span>`;
     } else {
-      badgeHtml = `<span class="exam-group-pass-badge has-pass">✔ Completed</span>`;
+      // Legacy (discussion/written): check if any items are unreviewed
+      const pendingLegacy = items.filter(s => !s.reviewedAt || !s.grade || s.grade === '').length;
+      if (pendingLegacy > 0) {
+        badgeHtml = `<span class="exam-group-pass-badge awaiting-review">⏳ ${pendingLegacy} Awaiting Review</span>`;
+      } else {
+        badgeHtml = `<span class="exam-group-pass-badge has-pass">✔ All Reviewed</span>`;
+      }
     }
 
     // Latest submission date
@@ -1922,8 +1954,10 @@ function renderExams(m) {
       !newest || new Date(s.submittedAt) > new Date(newest) ? s.submittedAt : newest, null);
     const latestStr = latestDate ? new Date(latestDate).toLocaleDateString() : '';
 
-    // Discussions are always auto-completed — no pending state
-    const hasPending = false;
+    // Auto-open accordion if any items are pending review
+    const hasPending = type === 'curr'
+      ? items.some(s => !s.passed)
+      : items.some(s => !s.reviewedAt || !s.grade || s.grade === '');
     const bodyHtml = type === 'curr'
       ? items.map(s => buildCurrItem(s)).join('')
       : items.map((s, i) => buildLegacyItem(s, legacyOffset + i)).join('');
@@ -1954,10 +1988,11 @@ function renderExams(m) {
     });
   }
 
-  // ── Discussion submissions (no SM review required, read-only here) ──
+  // ── Discussion / written submissions (require SM review) ──
   if (legacySubs.length) {
+    const anyPending = legacySubs.some(s => !s.reviewedAt || !s.grade || s.grade === '');
     html += `<div style="font-size:.76rem;color:#8a6060;text-transform:uppercase;letter-spacing:.08em;margin:${currExams.length ? '14px' : '0px'} 0 8px;">
-      ✠ Discussion Submissions</div>`;
+      ✠ Discussion Submissions${ anyPending ? ' <span style="color:#fbbf24;font-size:.72rem;">(Pending Review)</span>' : ''}</div>`;
     const groups = groupByProgram(legacySubs);
     let legacyOffset = 0;
     groups.forEach((items, slug) => {
