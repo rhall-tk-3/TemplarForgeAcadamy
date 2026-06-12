@@ -46,11 +46,16 @@ function handler(req, res) {
     return res.status(404).json({ error: "Submission not found." });
   }
 
+  const gradeVal = String(grade ?? submissions[examIdx].grade ?? "");
+  // If grade is being cleared (empty string), reset reviewedAt too — treats
+  // submission as pending again so it re-appears in the grading hub.
+  const reviewedAt = gradeVal === "" ? null : new Date().toISOString();
+
   submissions[examIdx] = {
     ...submissions[examIdx],
-    grade:      String(grade      ?? submissions[examIdx].grade      ?? ""),
-    notes:      String(notes      ?? submissions[examIdx].notes      ?? ""),
-    reviewedAt: new Date().toISOString()
+    grade:      gradeVal,
+    notes:      String(notes ?? submissions[examIdx].notes ?? ""),
+    reviewedAt
   };
 
   updateUser(user.id, { examSubmissions: submissions });

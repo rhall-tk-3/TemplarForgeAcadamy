@@ -315,25 +315,40 @@ function renderBoard() {
   });
 
   // ── Quick Approve / Pass / Fail buttons ──────────────────
-  async function quickGrade(submissionId, action) {
-    const msgEl = board.querySelector(`#qa-msg-${CSS.escape(submissionId)}`);
-    const row   = board.querySelector(`.quick-approve-row[data-sid="${CSS.escape(submissionId)}"]`);
+  // Branches on submissionType: written submissions use /api/papers/grade-written
+  // (stores in users.json examSubmissions[]); file uploads use /api/papers/grade
+  // (stores in metadata.json).
+  async function quickGrade(submissionId, action, submissionType) {
+    // Find UI elements via data attribute (avoids CSS.escape issues with UUID dashes)
+    const row     = board.querySelector(`.quick-approve-row[data-sid="${submissionId}"]`);
+    const msgEl   = row ? row.querySelector(".qa-msg") : null;
     const passBtn = row ? row.querySelector(".qa-pass") : null;
     const failBtn = row ? row.querySelector(".qa-fail") : null;
 
+    const gradeVal  = (action === "pass") ? "Pass" : "Fail";
     const statusVal = (action === "pass") ? "graded" : "revision-requested";
-    const gradeVal  = (action === "pass") ? "Pass"   : "Fail";
+    const isWritten = submissionType === "written";
 
     try {
       if (msgEl) { msgEl.textContent = "Saving\u2026"; msgEl.style.color = "#94a3b8"; }
       if (passBtn) passBtn.disabled = true;
       if (failBtn) failBtn.disabled = true;
 
-      await apiJson("/api/papers/grade", {
-        method:  "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ submissionId, status: statusVal, grade: gradeVal, feedback: "" })
-      });
+      if (isWritten) {
+        // Written submissions: update users.json examSubmissions[] via grade-written
+        await apiJson("/api/papers/grade-written", {
+          method:  "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ submissionId, grade: gradeVal, notes: "" })
+        });
+      } else {
+        // File-upload submissions: update metadata.json via grade
+        await apiJson("/api/papers/grade", {
+          method:  "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ submissionId, status: statusVal, grade: gradeVal, feedback: "" })
+        });
+      }
 
       // Update in-memory state
       const idx = ALL_ITEMS.findIndex(x => x.submissionId === submissionId);
@@ -341,45 +356,58 @@ function renderBoard() {
         ALL_ITEMS[idx].status   = statusVal;
         ALL_ITEMS[idx].grade    = gradeVal;
         ALL_ITEMS[idx].gradedAt = new Date().toISOString();
+        if (isWritten) ALL_ITEMS[idx].reviewedAt = new Date().toISOString();
       }
 
       // Re-render so the card reflects the new state
       renderBoard();
     } catch (err) {
-      if (msgEl) { msgEl.textContent = err.message; msgEl.style.color = "#fca5a5"; }
+      if (msgEl) { msgEl.textContent = "\u26a0 " + err.message; msgEl.style.color = "#fca5a5"; }
       if (passBtn) passBtn.disabled = false;
       if (failBtn) failBtn.disabled = false;
     }
   }
 
-  // Pass / Fail quick buttons
+  // Pass / Fail quick buttons — pass submissionType from data attribute
   board.querySelectorAll(".qa-pass, .qa-fail").forEach(btn => {
     btn.addEventListener("click", () => {
-      quickGrade(btn.dataset.sid, btn.dataset.action);
+      quickGrade(btn.dataset.sid, btn.dataset.action, btn.dataset.type);
     });
   });
 
   // Re-open (reset to submitted) quick button
   board.querySelectorAll(".qa-reopen").forEach(btn => {
     btn.addEventListener("click", async () => {
-      const sid = btn.dataset.sid;
+      const sid  = btn.dataset.sid;
+      const type = btn.dataset.type;
       try {
         btn.disabled = true;
-        await apiJson("/api/papers/grade", {
-          method:  "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ submissionId: sid, status: "submitted", grade: "", feedback: "" })
-        });
+        if (type === "written") {
+          // Reset written submission — grade-written with empty grade clears the review
+          await apiJson("/api/papers/grade-written", {
+            method:  "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ submissionId: sid, grade: "", notes: "" })
+          });
+        } else {
+          await apiJson("/api/papers/grade", {
+            method:  "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ submissionId: sid, status: "submitted", grade: "", feedback: "" })
+          });
+        }
         const idx = ALL_ITEMS.findIndex(x => x.submissionId === sid);
         if (idx !== -1) {
-          ALL_ITEMS[idx].status   = "submitted";
-          ALL_ITEMS[idx].grade    = "";
-          ALL_ITEMS[idx].gradedAt = null;
+          ALL_ITEMS[idx].status    = "submitted";
+          ALL_ITEMS[idx].grade     = "";
+          ALL_ITEMS[idx].gradedAt  = null;
+          if (type === "written") ALL_ITEMS[idx].reviewedAt = null;
         }
         renderBoard();
       } catch (err) {
         btn.disabled = false;
-        btn.textContent = "Error — retry";
+        btn.title = err.message;
+        btn.textContent = "\u26a0 Error \u2014 retry";
       }
     });
   });
@@ -478,21 +506,29 @@ function buildUploadCard(item) {
       <!-- Quick approve buttons — always visible on pending cards -->
       ${item.status === "submitted" ? `
       <div class="quick-approve-row" data-sid="${esc(item.submissionId)}">
-        <button class="qa-btn qa-pass" data-sid="${esc(item.submissionId)}" data-action="pass"
+        <button class="qa-btn qa-pass"
+                data-sid="${esc(item.submissionId)}"
+                data-action="pass"
+                data-type="upload"
                 title="Mark as Graded — Pass">
           &#10003; Approve / Pass
         </button>
-        <button class="qa-btn qa-fail" data-sid="${esc(item.submissionId)}" data-action="fail"
+        <button class="qa-btn qa-fail"
+                data-sid="${esc(item.submissionId)}"
+                data-action="fail"
+                data-type="upload"
                 title="Mark as Revision Required — Fail">
           &#10007; Fail / Revision
         </button>
-        <div class="qa-msg" id="qa-msg-${esc(item.submissionId)}"></div>
+        <div class="qa-msg"></div>
       </div>` : `
       <div style="margin:8px 0 4px;display:flex;align-items:center;gap:10px;">
         <span style="font-size:0.8rem;color:#64748b;font-style:italic;">
           ${item.status === "graded" ? `&#10003; Graded${item.grade ? ": " + esc(item.grade) : ""}` : `Revision requested${item.grade ? ": " + esc(item.grade) : ""}`}
         </span>
-        <button class="qa-btn qa-reopen" data-sid="${esc(item.submissionId)}"
+        <button class="qa-btn qa-reopen"
+                data-sid="${esc(item.submissionId)}"
+                data-type="upload"
                 style="font-size:0.75rem;padding:2px 10px;"
                 title="Reset to Pending so you can re-grade">
           &#8635; Re-open
@@ -570,6 +606,38 @@ function buildWrittenCard(item) {
 
       ${item.feedback ? `<div class="sub-feedback"><strong>SM Notes:</strong> ${esc(item.feedback)}</div>` : ""}
 
+      <!-- Quick approve buttons for pending written submissions -->
+      ${item.status === "submitted" ? `
+      <div class="quick-approve-row" data-sid="${esc(item.submissionId)}">
+        <button class="qa-btn qa-pass"
+                data-sid="${esc(item.submissionId)}"
+                data-action="pass"
+                data-type="written"
+                title="Approve — Pass">
+          &#10003; Approve / Pass
+        </button>
+        <button class="qa-btn qa-fail"
+                data-sid="${esc(item.submissionId)}"
+                data-action="fail"
+                data-type="written"
+                title="Mark as Revision Required">
+          &#10007; Fail / Revision
+        </button>
+        <div class="qa-msg"></div>
+      </div>` : `
+      <div style="margin:8px 0 4px;display:flex;align-items:center;gap:10px;">
+        <span style="font-size:0.8rem;color:#64748b;font-style:italic;">
+          ${item.status === "graded" ? `&#10003; Graded${item.grade ? ": " + esc(item.grade) : ""}` : `Revision requested${item.grade ? ": " + esc(item.grade) : ""}`}
+        </span>
+        <button class="qa-btn qa-reopen"
+                data-sid="${esc(item.submissionId)}"
+                data-type="written"
+                style="font-size:0.75rem;padding:2px 10px;"
+                title="Reset to Pending so you can re-grade">
+          &#8635; Re-open
+        </button>
+      </div>`}
+
       <!-- Written answers accordion -->
       <details class="grade-details">
         <summary class="grade-summary">&#128196; View Written Answers (${answers.length})</summary>
@@ -578,7 +646,7 @@ function buildWrittenCard(item) {
         </div>
       </details>
 
-      <!-- Grade / approve form -->
+      <!-- Grade / approve form (detailed — for custom grades/notes) -->
       <details class="grade-details" ${!isGraded ? "open" : ""}>
         <summary class="grade-summary">&#9998; ${isGraded ? "Update Grade / Notes" : "Grade This Submission"}</summary>
         <form class="grade-form" data-id="${esc(item.submissionId)}" data-type="written">
