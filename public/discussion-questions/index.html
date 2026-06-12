@@ -140,9 +140,10 @@
       border-radius: 10px;
       border: 1px solid;
     }
-    .badge-done  { background: rgba(0,80,0,.18); border-color: #2a6020; color: #80d080; }
-    .badge-open  { background: rgba(139,60,0,.18); border-color: #6a3010; color: #e8a860; }
+    .badge-done    { background: rgba(0,80,0,.18);   border-color: #2a6020; color: #80d080; }
+    .badge-open    { background: rgba(139,60,0,.18); border-color: #6a3010; color: #e8a860; }
     .badge-current { background: rgba(180,100,0,.20); border-color: #8a4010; color: #f0c060; }
+    .badge-pending { background: rgba(120,80,0,.22);  border-color: #a07010; color: #f0c840; }
     .week-chevron {
       font-size: 0.65rem;
       color: #4a2010;
@@ -413,11 +414,16 @@
     // Auto-open: most recent incomplete week (first in sorted list that isn't submitted)
     const autoOpen = (idx === sorted.findIndex(w => !w.submitted)) ? ' open' : '';
 
-    const statusBadge = isComplete
-      ? `<span class="week-status-badge badge-done">✔ Submitted</span>`
-      : isCurrent
-        ? `<span class="week-status-badge badge-current">⟳ Current Week</span>`
-        : `<span class="week-status-badge badge-open">○ Open</span>`;
+    // Determine exact badge state: submitted+graded vs submitted+pending vs unsubmitted
+    const isGraded  = wk.submitted && wk.reviewedAt && wk.grade && wk.grade !== '';
+    const isPending = wk.submitted && !isGraded;
+    const statusBadge = isGraded
+      ? `<span class="week-status-badge badge-done">✔ Approved — ${escHtml(wk.grade)}</span>`
+      : isPending
+        ? `<span class="week-status-badge badge-pending">⏳ Awaiting SM Review</span>`
+        : isCurrent
+          ? `<span class="week-status-badge badge-current">⟳ Current Week</span>`
+          : `<span class="week-status-badge badge-open">○ Open</span>`;
 
     const block = document.createElement('div');
     block.className = `week-block ${blockClass}${autoOpen}`;
@@ -460,6 +466,29 @@
     const dateStr = wk.submittedAt
       ? new Date(wk.submittedAt).toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' })
       : '';
+    const gradedDateStr = wk.reviewedAt
+      ? new Date(wk.reviewedAt).toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' })
+      : '';
+
+    const isGraded = wk.reviewedAt && wk.grade && wk.grade !== '';
+
+    const statusNotice = isGraded
+      ? `<div class="submitted-notice" style="background:rgba(0,80,0,.15);border-color:#2a6020;">
+           <span class="submitted-notice-icon" style="color:#80d080;">✔</span>
+           <div>
+             <div style="color:#80d080;font-weight:700;">Approved by Schoolmaster — ${escHtml(wk.grade)}</div>
+             ${gradedDateStr ? `<div class="submitted-date">Reviewed ${gradedDateStr}</div>` : ''}
+             ${wk.notes ? `<div style="margin-top:6px;padding:6px 10px;background:rgba(125,211,252,0.08);border-radius:4px;font-size:0.85rem;color:#bae6fd;"><strong>SM Notes:</strong> ${escHtml(wk.notes)}</div>` : ''}
+           </div>
+         </div>`
+      : `<div class="submitted-notice" style="background:rgba(120,80,0,.15);border-color:#a07010;">
+           <span class="submitted-notice-icon" style="color:#f0c840;">⏳</span>
+           <div>
+             <div style="color:#f0c840;font-weight:700;">Submitted — Awaiting Schoolmaster Review</div>
+             ${dateStr ? `<div class="submitted-date">Submitted ${dateStr}</div>` : ''}
+             <div style="margin-top:4px;font-size:0.8rem;color:#a09030;">Your answers have been received. The Schoolmaster will review and approve your discussion.</div>
+           </div>
+         </div>`;
 
     const qaPairs = (wk.questions || []).map((q, i) => {
       const ans = (wk.answers[i] || {}).answer || wk.answers[i] || '';
@@ -470,13 +499,7 @@
     }).join('');
 
     return `
-      <div class="submitted-notice">
-        <span class="submitted-notice-icon">✔</span>
-        <div>
-          <div>Discussion completed.</div>
-          ${dateStr ? `<div class="submitted-date">${dateStr}</div>` : ''}
-        </div>
-      </div>
+      ${statusNotice}
       <div style="margin-top:18px;">${qaPairs}</div>
     `;
   }
@@ -509,7 +532,7 @@
     return `
       <p class="dq-intro">
         Answer each question below thoughtfully and honestly.
-        Submit when you are satisfied with your work — no Schoolmaster approval required.
+        Your responses will be submitted to the Schoolmaster for review and approval.
       </p>
       ${fields}
       ${submitHtml}
@@ -562,18 +585,18 @@
           wk.submitted   = true;
           wk.submittedAt = new Date().toISOString();
           wk.answers     = answers;
-          wk.reviewedAt  = new Date().toISOString();
-          wk.grade       = 'Completed';
+          wk.reviewedAt  = null;   // pending SM review
+          wk.grade       = '';     // no grade yet
 
           block.classList.remove('current', 'open');
           block.classList.add('completed', 'open');
           block.querySelector('.week-header').style.background = '';
 
-          // Update status badge
+          // Update status badge to pending (not graded)
           const badge = block.querySelector('.week-status-badge');
           if (badge) {
-            badge.className = 'week-status-badge badge-done';
-            badge.textContent = '✔ Submitted';
+            badge.className = 'week-status-badge badge-pending';
+            badge.textContent = '⏳ Awaiting SM Review';
           }
 
           // Replace body with submitted view

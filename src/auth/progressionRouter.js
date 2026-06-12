@@ -65,8 +65,9 @@ router.get('/me', requireMember, (req, res) => {
 });
 
 // POST /api/progression/me/exam  { programSlug, week, answers: [{ question, answer }] }
-// Discussion questions are self-assessed — no SM review or approval is required.
-// The submission is auto-marked as reviewed/completed immediately on receipt.
+// Submits discussion answers for Schoolmaster review.
+// Submissions are NOT auto-approved — they land as pending until the SM grades them
+// via POST /api/papers/grade-written or /api/progression/member/:id/exam/:examIdx/review.
 router.post('/me/exam', requireMember, (req, res) => {
   const user = findById(req.session.userId);
   if (!user) return res.status(401).json({ error: 'Session expired.' });
@@ -82,8 +83,8 @@ router.post('/me/exam', requireMember, (req, res) => {
     week:        Number(week),
     answers,
     submittedAt: now,
-    reviewedAt:  now,       // auto-complete — no SM review step
-    grade:       'Completed',
+    reviewedAt:  null,   // awaiting Schoolmaster review
+    grade:       '',     // no grade yet
     notes:       null
   };
 
@@ -240,7 +241,8 @@ router.get('/me/discussion-weeks', requireMember, (req, res) => {
         submittedAt: sub ? sub.submittedAt : null,
         answers:    sub ? (sub.answers || []) : [],
         reviewedAt: sub ? sub.reviewedAt  : null,
-        grade:      sub ? sub.grade       : null,
+        grade:      sub ? (sub.grade || '') : null,
+        notes:      sub ? (sub.notes  || '') : null,
       };
     });
 
@@ -826,11 +828,11 @@ function buildProgressView(user, programs) {
     }
   } catch (_e) { /* curriculum store read errors are non-fatal */ }
 
-  // Discussion submissions are auto-completed — never count them as pending.
-  // Only curriculum (MC exam) failures that need a retest drive pendingExamCount.
-  const pendingExams = [];
-  // Keep a reference for the return object (SM can still view all submissions read-only)
+  // Discussion submissions now require SM review — count unreviewed ones as pending.
   const allDiscussionSubs = (user.examSubmissions || []).map((s, i) => ({ ...s, index: i }));
+  const pendingDiscussionCount = allDiscussionSubs.filter(
+    s => !s.reviewedAt || !s.grade || s.grade === ''
+  ).length;
 
   const overdue = computeOverdue(user);
 
@@ -865,9 +867,10 @@ function buildProgressView(user, programs) {
     weekSetAt:        user.weekSetAt   || null,
     overdue:          overdue,
     programHistory:   user.programHistory || [],
-    // Discussion submissions (old /api/progression/me/exam system — now auto-completed, no SM review)
+    // Discussion submissions — require SM review before considered complete
     examSubmissions:  allDiscussionSubs,
-    pendingExamCount: pendingCurriculumCount,   // discussions are never pending
+    pendingExamCount: pendingCurriculumCount + pendingDiscussionCount,
+    pendingDiscussionCount,   // discussions awaiting SM review
     // Total exams/discussions taken = all curriculum MC exams + all discussion submissions
     totalExamCount:   curriculumExams.length + allDiscussionSubs.length,
     // New curriculum-based exam submissions (program-hub.html → /api/assessment/:slug/submit)
