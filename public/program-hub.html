@@ -1872,18 +1872,30 @@ async function loadWeekUploadPanel(weekNum) {
     const submissionsHtml = subs.length
       ? subs.map(function(s) {
           const statusColor = { submitted: '#fbbf24', graded: '#86efac', 'revision-requested': '#fca5a5' }[s.status] || '#94a3b8';
+          const typeBadge = s.isWritten
+            ? `<span style="padding:2px 8px;border-radius:999px;background:rgba(120,60,180,0.25);border:1px solid rgba(160,100,220,0.5);color:#c8a0f8;font-weight:700;font-size:0.72rem;letter-spacing:0.05em;">Written</span>`
+            : `<span style="padding:2px 8px;border-radius:999px;background:rgba(29,78,216,0.2);border:1px solid rgba(96,165,250,0.4);color:#93c5fd;font-weight:700;font-size:0.72rem;letter-spacing:0.05em;">File Upload</span>`;
+          const lostBadge = s.lostUpload
+            ? `<span style="padding:2px 8px;border-radius:999px;background:rgba(120,53,15,0.4);border:1px solid #d97706;color:#fde68a;font-weight:700;font-size:0.72rem;">File Not Saved</span>`
+            : '';
+          const actionEl = s.isWritten || s.lostUpload
+            ? `<span style="color:#64748b;font-size:0.82rem;white-space:nowrap;flex-shrink:0;">${s.isWritten ? 'Written Answer' : 'No File'}</span>`
+            : `<a href="/api/papers/download?submissionId=${encodeURIComponent(s.submissionId)}" target="_blank" rel="noopener"
+               style="color:#7dd3fc;font-weight:700;font-size:0.85rem;white-space:nowrap;flex-shrink:0;">Download</a>`;
           return `<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--border);">
             <div>
               <strong style="color:var(--text-bright);">${escHtml(s.originalFileName)}</strong>
               <div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:8px;font-size:0.85rem;color:var(--text-dim);">
+                ${typeBadge}
                 <span style="padding:2px 8px;border-radius:999px;background:${statusColor};color:#111;font-weight:700;font-size:0.75rem;text-transform:uppercase;">${escHtml(s.status)}</span>
-                <span>Uploaded ${new Date(s.uploadedAt).toLocaleString()}</span>
+                ${lostBadge}
+                <span>Submitted ${new Date(s.uploadedAt).toLocaleString()}</span>
                 ${s.grade ? `<span>Grade: ${escHtml(s.grade)}</span>` : ''}
               </div>
+              ${s.lostUpload ? `<div style="margin-top:6px;padding:6px 10px;background:rgba(120,53,15,0.2);border-left:3px solid #d97706;font-size:0.82rem;color:#fde68a;">Note: Your submission was recorded but the file was not saved due to a system issue. The Schoolmaster has been notified and your work is on record.</div>` : ''}
               ${s.feedback ? `<div style="margin-top:8px;padding:8px 12px;background:rgba(125,211,252,0.08);border-radius:4px;font-size:0.88rem;"><strong>SM Feedback:</strong> ${escHtml(s.feedback)}</div>` : ''}
             </div>
-            <a href="/api/papers/download?submissionId=${encodeURIComponent(s.submissionId)}" target="_blank" rel="noopener"
-               style="color:#7dd3fc;font-weight:700;font-size:0.85rem;white-space:nowrap;flex-shrink:0;">Download</a>
+            ${actionEl}
           </div>`;
         }).join('')
       : `<p style="color:var(--text-dim);font-size:0.88rem;margin:0;">No papers submitted yet for this week.</p>`;
@@ -1960,15 +1972,50 @@ async function loadWeekUploadPanel(weekNum) {
     });
   }
 
-  // Fetch existing submissions for this program+week
+  // Fetch existing submissions for this program+week (file uploads + written exams)
   try {
-    const data = await fetch('/api/papers/my-submissions', { credentials: 'include' })
-      .then(function(r) { return r.json(); })
-      .catch(function() { return { items: [] }; });
-    const allSubs = data.items || data.submissions || [];
-    const weekSubs = allSubs.filter(function(s) {
+    const [fileData, progData] = await Promise.all([
+      fetch('/api/papers/my-submissions', { credentials: 'include' })
+        .then(function(r) { return r.json(); })
+        .catch(function() { return { items: [] }; }),
+      fetch('/api/progression/me', { credentials: 'include' })
+        .then(function(r) { return r.json(); })
+        .catch(function() { return {}; })
+    ]);
+
+    // File upload submissions
+    const allFileSubs = fileData.items || fileData.submissions || [];
+    const weekFileSubs = allFileSubs.filter(function(s) {
       return s.programSlug === SLUG && Number(s.lessonNumber) === Number(weekNum);
     });
+
+    // Written exam submissions from examSubmissions[]
+    const examSubs = progData.examSubmissions || [];
+    const weekExamSubs = examSubs
+      .filter(function(s) {
+        return (s.programSlug === SLUG || (!s.programSlug && SLUG === (progData.assignedProgram?.slug || '')))
+          && Number(s.week || s.weekNumber || 0) === Number(weekNum);
+      })
+      .map(function(s, idx) {
+        const graded = s.reviewedAt && s.grade && s.grade !== '';
+        return {
+          submissionId:    'written-' + weekNum + '-' + idx,
+          memberId:        progData.memberId || '',
+          fullName:        progData.username || '',
+          programSlug:     s.programSlug || SLUG,
+          lessonNumber:    Number(s.week || weekNum),
+          originalFileName: '✍ Written Answer — Week ' + weekNum,
+          status:          graded ? 'graded' : 'submitted',
+          grade:           s.grade || '',
+          feedback:        s.notes || '',
+          uploadedAt:      s.submittedAt || new Date(0).toISOString(),
+          isWritten:       true,
+          answers:         s.answers || []
+        };
+      });
+
+    // Merge: file uploads first, then written submissions
+    const weekSubs = weekFileSubs.concat(weekExamSubs);
     renderPanel(weekSubs);
   } catch (err) {
     panel.innerHTML = `<p style="color:#fca5a5;font-size:0.88rem;">Could not load submissions: ${escHtml(err.message)}</p>`;

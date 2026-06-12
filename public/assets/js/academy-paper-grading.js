@@ -386,13 +386,16 @@ function buildUploadCard(item) {
         <div>${statusPill(item.status, item.grade)}</div>
       </div>
 
+      ${item.lostUpload ? `<div style="padding:6px 12px;margin-bottom:8px;background:rgba(120,53,15,0.25);border-left:3px solid #f59e0b;font-size:0.82rem;color:#fde68a;"><strong>⚠ File Not Saved:</strong> This submission was recorded during system recovery. The original file was not retained due to a prior login issue. Grade this entry based on the student's verbal or re-submitted work.</div>` : ""}
+
       <div class="sub-detail-row">
         <div class="sub-file-info">
           <span class="sub-icon">&#128196;</span>
           <span class="sub-filename">${esc(item.originalFileName || "—")}</span>
-          <a class="sub-download" href="/api/papers/download?submissionId=${encodeURIComponent(item.submissionId)}" target="_blank" rel="noopener">
-            &#8681; Download
-          </a>
+          ${item.lostUpload || !item.storedRelativePath
+            ? `<span style="color:#f59e0b;font-size:0.82rem;font-weight:700;">No file available</span>`
+            : `<a class="sub-download" href="/api/papers/download?submissionId=${encodeURIComponent(item.submissionId)}" target="_blank" rel="noopener">&#8681; Download</a>`
+          }
         </div>
         <div class="sub-dates">
           <span><strong>Submitted:</strong> ${fmtDate(item.uploadedAt)}</span>

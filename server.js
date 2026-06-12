@@ -1,7 +1,7 @@
 'use strict';
 
 // ── DEPLOY VERSION — updated on every push so Railway logs confirm new code ──
-const DEPLOY_VERSION = '1.10.5-2026-06-12';
+const DEPLOY_VERSION = '1.10.6-2026-06-12';
 
 // First thing printed — confirms this file was reached by Node
 process.stdout.write(`[boot] server.js loaded — v${DEPLOY_VERSION} — pid ${process.pid}\n`);
@@ -281,6 +281,13 @@ app.use('/auth', authRouter);
     if (match) {
       const rawMember = findById(match.id);
       if (!rawMember) return res.status(403).json({ error: 'Member account not found.' });
+      // Guard: pre-seeded accounts may have no password field set.
+      // bcrypt.compare(str, undefined) throws "Illegal arguments" — catch it gracefully.
+      if (!rawMember.password) {
+        return res.status(401).json({
+          error: 'Your account does not have a password set. Please contact the Schoolmaster to reset your credentials.'
+        });
+      }
       const pwMatch = await bcrypt.compare(password, rawMember.password);
       if (!pwMatch) return res.status(401).json({ error: 'Incorrect password.' });
       req.session.userId   = rawMember.id;
@@ -1538,6 +1545,7 @@ const paperList               = require('./api/papers/list');
 const paperWrittenSubmissions = require('./api/papers/written-submissions');
 const paperGrade              = require('./api/papers/grade');
 const paperGradeWritten       = require('./api/papers/grade-written');
+const paperRecordManual       = require('./api/papers/record-manual');
 const paperDownload           = require('./api/papers/download');
 
 // Members: upload a paper
@@ -1552,6 +1560,8 @@ app.get('/api/papers/written-submissions', (req, res) => paperWrittenSubmissions
 app.post('/api/papers/grade', (req, res) => paperGrade.handler(req, res));
 // Schoolmaster: grade a written (examSubmissions) submission
 app.post('/api/papers/grade-written', (req, res) => paperGradeWritten.handler(req, res));
+// Schoolmaster: manually record a paper submission on behalf of a student
+app.post('/api/papers/record-manual', (req, res) => paperRecordManual.handler(req, res));
 // Members + schoolmaster: download a stored paper file
 // Supports both /api/papers/download/:submissionId (path param) and
 //              /api/papers/download?submissionId=  (query param, used by hub JS)

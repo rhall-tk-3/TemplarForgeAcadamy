@@ -94,26 +94,25 @@ router.post('/login', async (req, res) => {
   req.session.role     = user.role;
   req.session.username = user.username;
 
-  // For admin accounts, also issue an academy_session JWT cookie so that
-  // JWT-gated API routes (/api/auth/pending, /api/auth/approve, etc.) work
-  // without a separate login flow.
-  if (user.role === 'admin') {
-    try {
-      const jwt = require('jsonwebtoken');
-      const token = jwt.sign(
-        {
-          memberId: user.memberId || 'KTKC-0000',
-          fullName: user.username,
-          role:     'schoolmaster'
-        },
-        process.env.JWT_SECRET,
-        { expiresIn: '8h' }
-      );
-      const IS_PROD = process.env.NODE_ENV === 'production';
-      res.setHeader('Set-Cookie',
-        `academy_session=${token}; HttpOnly; Path=/; SameSite=Lax; Max-Age=28800${IS_PROD ? '; Secure' : ''}`);
-    } catch (_) { /* jwt not available — session-only fallback still works */ }
-  }
+  // Issue an academy_session JWT cookie for ALL authenticated users so that
+  // JWT-gated API routes work without a separate login flow.
+  // Admin → role:'schoolmaster'; members → role:'member'.
+  try {
+    const jwt = require('jsonwebtoken');
+    const jwtRole = user.role === 'admin' ? 'schoolmaster' : 'member';
+    const token = jwt.sign(
+      {
+        memberId: user.memberId || (user.role === 'admin' ? 'KTKC-0000' : null),
+        fullName: user.username,
+        role:     jwtRole
+      },
+      process.env.JWT_SECRET,
+      { expiresIn: '8h' }
+    );
+    const IS_PROD = process.env.NODE_ENV === 'production';
+    res.setHeader('Set-Cookie',
+      `academy_session=${token}; HttpOnly; Path=/; SameSite=Lax; Max-Age=28800${IS_PROD ? '; Secure' : ''}`);
+  } catch (_) { /* jwt not available — session-only fallback still works */ }
 
   const redirect = user.role === 'admin' ? '/schoolmaster' : '/member';
   return res.json({ ok: true, redirect });
