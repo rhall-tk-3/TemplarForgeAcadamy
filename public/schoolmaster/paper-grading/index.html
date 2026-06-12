@@ -5,68 +5,320 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Schoolmaster | Paper Grading Hub</title>
   <style>
+    /* ── tokens ───────────────────────────────────────────── */
     :root {
-      --bg: #0f172a;
-      --panel: #111827;
-      --line: rgba(148,163,184,.22);
-      --text: #e5e7eb;
-      --muted: #94a3b8;
-      --gold: #d4af37;
-      --accent: #7dd3fc;
+      --bg:       #0f172a;
+      --bg2:      #111827;
+      --bg3:      #0b1220;
+      --panel:    #131f35;
+      --line:     rgba(148,163,184,.18);
+      --line-hi:  rgba(148,163,184,.32);
+      --text:     #e5e7eb;
+      --muted:    #94a3b8;
+      --gold:     #d4af37;
+      --gold-dim: #a07c20;
+      --accent:   #7dd3fc;
+      --pending:  #fbbf24;
+      --pass:     #86efac;
+      --fail:     #fca5a5;
     }
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
       font-family: Inter, system-ui, sans-serif;
-      background: linear-gradient(180deg,#08101f 0%, #0f172a 100%);
+      background: linear-gradient(180deg, #08101f 0%, #0f172a 100%);
       color: var(--text);
+      min-height: 100vh;
     }
-    .wrap { max-width: 1200px; margin: 0 auto; padding: 28px 20px 72px; }
-    .hero, .grading-card {
-      background: linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));
+
+    /* ── layout ───────────────────────────────────────────── */
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 20px 80px; }
+
+    /* ── hero ─────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+      border: 1px solid var(--line-hi);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 1.45rem;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .hero p { color: var(--muted); font-size: 0.92rem; }
+
+    /* ── stats bar ────────────────────────────────────────── */
+    .stats-bar {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .stat-box {
+      flex: 1;
+      min-width: 120px;
+      background: var(--bg2);
       border: 1px solid var(--line);
-      border-radius: 24px;
+      border-radius: 12px;
+      padding: 14px 18px;
+      text-align: center;
     }
-    .hero { padding: 28px; margin-bottom: 20px; }
-    .grading-card { padding: 20px; margin-bottom: 18px; }
-    h1,h2,h3 { margin: 0 0 10px; }
-    .top {
+    .stat-box.pending-stat { border-color: rgba(251,191,36,.35); }
+    .stat-val {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1.1;
+    }
+    .stat-lbl {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 4px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* ── filter bar ───────────────────────────────────────── */
+    .filter-bar {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+    .filter-tabs { display: flex; gap: 6px; }
+    .ftab {
+      appearance: none;
+      border: 1px solid var(--line-hi);
+      border-radius: 999px;
+      padding: 7px 16px;
+      font: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: var(--bg2);
+      color: var(--muted);
+      transition: background 0.15s, color 0.15s;
+    }
+    .ftab:hover { background: var(--panel); color: var(--text); }
+    .ftab.active { background: var(--gold-dim); border-color: var(--gold); color: #f5e8b0; }
+
+    input[type="search"] {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line-hi);
+      background: var(--bg2);
+      color: var(--text);
+      font: inherit;
+      font-size: 0.88rem;
+      outline: none;
+    }
+    input[type="search"]:focus { border-color: var(--gold-dim); }
+
+    /* ── student accordion ────────────────────────────────── */
+    .student-accordion {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .student-accordion-header {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       gap: 16px;
-      align-items: flex-start;
-    }
-    .download-btn, button {
-      display: inline-block;
-      appearance: none;
-      border: 0;
-      border-radius: 12px;
-      padding: 10px 14px;
-      font: inherit;
-      font-weight: 700;
+      padding: 16px 20px;
       cursor: pointer;
-      background: var(--gold);
-      color: #111827;
-      text-decoration: none;
+      user-select: none;
+      transition: background 0.15s;
+      flex-wrap: wrap;
     }
-    .grade-form {
-      margin-top: 16px;
-      display: grid;
-      gap: 10px;
+    .student-accordion-header:hover { background: rgba(255,255,255,.03); }
+    .acc-left {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
     }
-    input, textarea, select {
-      width: 100%;
-      padding: 10px 12px;
-      border-radius: 12px;
+    .acc-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      margin-right: 4px;
+    }
+    .acc-member-id { color: var(--muted); font-size: 0.82rem; }
+    .acc-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.83rem;
+      color: var(--muted);
+    }
+    .acc-count {
+      background: var(--bg3);
       border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 0.78rem;
+    }
+
+    /* ── student panel ────────────────────────────────────── */
+    .student-accordion-panel {
+      border-top: 1px solid var(--line);
+      padding: 4px 18px 18px;
+    }
+
+    /* ── submission card ──────────────────────────────────── */
+    .submission-card {
+      background: var(--bg3);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin-top: 12px;
+    }
+
+    .sub-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .sub-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 0.88rem; }
+    .sub-program { font-weight: 700; color: var(--gold); }
+    .sub-sep { color: var(--muted); }
+    .sub-lesson { color: var(--text); }
+    .sub-assign { color: var(--accent); font-weight: 600; }
+
+    .sub-detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .sub-file-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+    }
+    .sub-icon { font-size: 1rem; }
+    .sub-filename { color: var(--text); }
+    .sub-download {
+      display: inline-block;
+      padding: 3px 12px;
+      border-radius: 999px;
+      background: rgba(125,211,252,.12);
+      border: 1px solid rgba(125,211,252,.35);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .sub-download:hover { background: rgba(125,211,252,.22); }
+    .sub-dates {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-align: right;
+    }
+    .sub-feedback {
+      margin: 8px 0;
+      padding: 8px 12px;
+      background: rgba(125,211,252,.06);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-left: 3px solid rgba(125,211,252,.3);
+    }
+
+    /* ── grade form (inside <details>) ───────────────────── */
+    .grade-details {
+      margin-top: 12px;
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+    }
+    .grade-summary {
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--muted);
+      list-style: none;
+      user-select: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 0;
+      transition: color 0.15s;
+    }
+    .grade-summary::-webkit-details-marker { display: none; }
+    .grade-summary:hover { color: var(--text); }
+    details[open] .grade-summary { color: var(--text); }
+
+    .grade-form { margin-top: 12px; }
+    .grade-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 2px;
+    }
+    @media (max-width: 560px) { .grade-grid { grid-template-columns: 1fr; } }
+
+    .field-label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    select, input[type="text"], textarea {
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--line-hi);
       background: #0b1220;
       color: var(--text);
       font: inherit;
+      font-size: 0.88rem;
     }
-    .member-id { color: var(--muted); }
-    .save-msg { margin-top: 4px; font-size: .92rem; }
+    select:focus, input[type="text"]:focus, textarea:focus {
+      outline: none;
+      border-color: var(--gold-dim);
+    }
+    textarea { resize: vertical; }
+
+    .save-btn {
+      appearance: none;
+      border: none;
+      border-radius: 8px;
+      padding: 9px 20px;
+      background: var(--gold-dim);
+      color: #f5e8b0;
+      font: inherit;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .save-btn:hover:not(:disabled) { background: var(--gold); color: #111; }
+    .save-btn:disabled { opacity: 0.55; cursor: default; }
+
+    .save-msg { font-size: 0.88rem; }
     .save-msg.success { color: #86efac; }
-    .save-msg.error { color: #fca5a5; }
+    .save-msg.error   { color: #fca5a5; }
   </style>
 </head>
 <body>
@@ -74,8 +326,8 @@
 
   <main class="wrap">
     <section class="hero">
-      <h1>Schoolmaster Paper Grading Hub</h1>
-      <p>Review uploaded student papers, download files, and record grade / feedback / revision status.</p>
+      <h1>✠ Paper Grading Hub</h1>
+      <p>All student paper submissions — grouped by student. Students with pending work appear first. Click a student row to expand their submissions.</p>
     </section>
 
     <div id="grading-board"></div>
