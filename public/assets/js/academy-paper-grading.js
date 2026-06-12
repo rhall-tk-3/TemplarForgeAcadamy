@@ -2,16 +2,19 @@
  * academy-paper-grading.js
  * Schoolmaster Paper Grading Hub — paper-grading/index.html
  *
- * Groups all submissions by student. Each student gets a collapsible
- * accordion panel listing every paper they have submitted, with full
- * grading controls inline.
+ * Fetches two sources and merges them into one unified view:
+ *   1. /api/papers/list              — file uploads from the paper upload hub
+ *   2. /api/papers/written-submissions — written/discussion answers stored in users.json
+ *
+ * Groups all submissions by student. Students with pending work appear first.
+ * Each student gets a collapsible accordion listing every submission.
  */
 
 /* ── helpers ─────────────────────────────────────────────── */
 async function apiJson(url, options = {}) {
   const res = await fetch(url, { credentials: "include", ...options });
   const data = await res.json().catch(() => ({}));
-  if (!res.ok) throw new Error(data.error || "Request failed.");
+  if (!res.ok) throw new Error(data.error || `${res.status} ${res.statusText}`);
   return data;
 }
 
@@ -42,6 +45,13 @@ function statusPill(status, grade) {
   return `<span style="display:inline-block;padding:2px 10px;border-radius:999px;background:${c.bg};border:1px solid ${c.border};color:${c.text};font-weight:700;font-size:0.75rem;letter-spacing:0.05em;text-transform:uppercase;">${c.label}${gradeStr}</span>`;
 }
 
+function typePill(submissionType) {
+  if (submissionType === "written") {
+    return `<span style="display:inline-block;padding:2px 9px;border-radius:999px;background:rgba(120,60,180,0.18);border:1px solid rgba(160,100,220,0.45);color:#c8a0f8;font-weight:700;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;">Written</span>`;
+  }
+  return `<span style="display:inline-block;padding:2px 9px;border-radius:999px;background:rgba(29,78,216,0.18);border:1px solid rgba(96,165,250,0.45);color:#93c5fd;font-weight:700;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;">File Upload</span>`;
+}
+
 function programLabel(slug) {
   const map = {
     "squire":          "Squire",
@@ -57,12 +67,12 @@ function programLabel(slug) {
     "commander":       "Commander",
     "chaplain":        "Chaplain"
   };
-  return map[slug] || esc(slug);
+  return map[slug] || esc(slug || "—");
 }
 
 /* ── state ───────────────────────────────────────────────── */
 let ALL_ITEMS       = [];
-let FILTER_STATUS   = "all";   // "all" | "pending" | "graded"
+let FILTER_STATUS   = "all";   // "all" | "pending" | "graded" | "written" | "uploads"
 let SEARCH_QUERY    = "";
 
 /* ── main load ───────────────────────────────────────────── */
@@ -72,12 +82,35 @@ async function loadGradingBoard() {
 
   board.innerHTML = '<p style="color:#94a3b8;padding:24px 0;">Loading submissions\u2026</p>';
 
-  try {
-    const data = await apiJson("/api/papers/list");
-    ALL_ITEMS = data.submissions || data.items || [];
-  } catch (err) {
-    board.innerHTML = `<p style="color:#fca5a5;padding:24px 0;">Could not load submissions: ${esc(err.message)}</p>`;
+  let fileItems    = [];
+  let writtenItems = [];
+  const errors     = [];
+
+  // Fetch both sources in parallel — tolerate individual failures
+  await Promise.all([
+    apiJson("/api/papers/list")
+      .then(d => { fileItems = d.submissions || d.items || []; })
+      .catch(err => { errors.push("File uploads: " + err.message); }),
+    apiJson("/api/papers/written-submissions")
+      .then(d => { writtenItems = d.items || []; })
+      .catch(err => { errors.push("Written submissions: " + err.message); })
+  ]);
+
+  if (fileItems.length === 0 && writtenItems.length === 0 && errors.length > 0) {
+    board.innerHTML = `<p style="color:#fca5a5;padding:24px 0;">Could not load submissions:<br>${errors.map(esc).join("<br>")}</p>`;
     return;
+  }
+
+  // Tag each item with its source type (written-submissions endpoint already tags them)
+  fileItems    = fileItems.map(i => ({ ...i, submissionType: i.submissionType || "upload" }));
+  writtenItems = writtenItems.map(i => ({ ...i, submissionType: "written" }));
+
+  // Merge — newest first
+  ALL_ITEMS = [...fileItems, ...writtenItems]
+    .sort((a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt));
+
+  if (errors.length > 0) {
+    console.warn("Paper grading hub — partial load errors:", errors);
   }
 
   renderBoard();
@@ -95,36 +128,43 @@ function renderBoard() {
     items = items.filter(i => i.status === "submitted");
   } else if (FILTER_STATUS === "graded") {
     items = items.filter(i => i.status === "graded" || i.status === "revision-requested");
+  } else if (FILTER_STATUS === "written") {
+    items = items.filter(i => i.submissionType === "written");
+  } else if (FILTER_STATUS === "uploads") {
+    items = items.filter(i => i.submissionType !== "written");
   }
 
   if (SEARCH_QUERY) {
     const q = SEARCH_QUERY.toLowerCase();
     items = items.filter(i =>
-      (i.fullName     || "").toLowerCase().includes(q) ||
-      (i.memberId     || "").toLowerCase().includes(q) ||
-      (i.programSlug  || "").toLowerCase().includes(q) ||
-      (i.lessonTitle  || "").toLowerCase().includes(q) ||
-      (i.assignmentTitle || "").toLowerCase().includes(q)
+      (i.fullName         || "").toLowerCase().includes(q) ||
+      (i.memberId         || "").toLowerCase().includes(q) ||
+      (i.programSlug      || "").toLowerCase().includes(q) ||
+      (i.lessonTitle      || "").toLowerCase().includes(q) ||
+      (i.assignmentTitle  || "").toLowerCase().includes(q)
     );
   }
 
-  // Stats (always from ALL_ITEMS, not filtered)
-  const totalSubs    = ALL_ITEMS.length;
-  const pendingCount = ALL_ITEMS.filter(i => i.status === "submitted").length;
-  const gradedCount  = ALL_ITEMS.filter(i => i.status === "graded" || i.status === "revision-requested").length;
-  const studentCount = new Set(ALL_ITEMS.map(i => i.memberId)).size;
+  // Counts always from ALL_ITEMS
+  const totalSubs     = ALL_ITEMS.length;
+  const pendingCount  = ALL_ITEMS.filter(i => i.status === "submitted").length;
+  const gradedCount   = ALL_ITEMS.filter(i => i.status === "graded" || i.status === "revision-requested").length;
+  const writtenCount  = ALL_ITEMS.filter(i => i.submissionType === "written").length;
+  const uploadCount   = ALL_ITEMS.filter(i => i.submissionType !== "written").length;
+  const studentCount  = new Set(ALL_ITEMS.map(i => i.memberId)).size;
 
-  // Group filtered items by memberId → sorted newest-first within each student
+  // Group filtered items by memberId
   const byStudent = new Map();
   items.forEach(item => {
-    if (!byStudent.has(item.memberId)) {
-      byStudent.set(item.memberId, { fullName: item.fullName, memberId: item.memberId, subs: [] });
+    const key = item.memberId || item.fullName || "unknown";
+    if (!byStudent.has(key)) {
+      byStudent.set(key, { fullName: item.fullName, memberId: item.memberId, subs: [] });
     }
-    byStudent.get(item.memberId).subs.push(item);
+    byStudent.get(key).subs.push(item);
   });
   // Sort each student's subs newest first
   byStudent.forEach(s => s.subs.sort((a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt)));
-  // Sort students: those with pending first, then by most recent upload
+  // Sort students: pending first, then most recent upload
   const students = [...byStudent.values()].sort((a, b) => {
     const aPending = a.subs.filter(s => s.status === "submitted").length;
     const bPending = b.subs.filter(s => s.status === "submitted").length;
@@ -137,7 +177,7 @@ function renderBoard() {
     <div class="stats-bar">
       <div class="stat-box">
         <div class="stat-val">${totalSubs}</div>
-        <div class="stat-lbl">Total Submissions</div>
+        <div class="stat-lbl">Total</div>
       </div>
       <div class="stat-box pending-stat">
         <div class="stat-val">${pendingCount}</div>
@@ -148,6 +188,14 @@ function renderBoard() {
         <div class="stat-lbl">Graded</div>
       </div>
       <div class="stat-box">
+        <div class="stat-val">${writtenCount}</div>
+        <div class="stat-lbl">Written</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val">${uploadCount}</div>
+        <div class="stat-lbl">File Uploads</div>
+      </div>
+      <div class="stat-box">
         <div class="stat-val">${studentCount}</div>
         <div class="stat-lbl">Students</div>
       </div>
@@ -156,19 +204,21 @@ function renderBoard() {
     <!-- Filter toolbar -->
     <div class="filter-bar">
       <div class="filter-tabs">
-        <button class="ftab ${FILTER_STATUS === "all"     ? "active" : ""}" data-filter="all">All (${ALL_ITEMS.length})</button>
+        <button class="ftab ${FILTER_STATUS === "all"     ? "active" : ""}" data-filter="all">All (${totalSubs})</button>
         <button class="ftab ${FILTER_STATUS === "pending" ? "active" : ""}" data-filter="pending">Pending (${pendingCount})</button>
         <button class="ftab ${FILTER_STATUS === "graded"  ? "active" : ""}" data-filter="graded">Graded (${gradedCount})</button>
+        <button class="ftab ${FILTER_STATUS === "written" ? "active" : ""}" data-filter="written">Written (${writtenCount})</button>
+        <button class="ftab ${FILTER_STATUS === "uploads" ? "active" : ""}" data-filter="uploads">Files (${uploadCount})</button>
       </div>
       <input id="paper-search" type="search" placeholder="Search student, program, lesson\u2026"
              value="${esc(SEARCH_QUERY)}"
-             style="flex:1;min-width:200px;max-width:360px;" />
+             style="flex:1;min-width:200px;max-width:340px;" />
     </div>
 
     <!-- Student accordions -->
     <div id="student-list">
       ${students.length === 0
-        ? `<p style="color:#94a3b8;padding:32px 0;text-align:center;">${ALL_ITEMS.length === 0 ? "No papers uploaded yet." : "No submissions match your filter."}</p>`
+        ? `<p style="color:#94a3b8;padding:32px 0;text-align:center;">${ALL_ITEMS.length === 0 ? "No submissions yet." : "No submissions match your filter."}</p>`
         : students.map(s => buildStudentAccordion(s)).join("")
       }
     </div>
@@ -202,7 +252,7 @@ function renderBoard() {
     });
   });
 
-  // Bind grade forms
+  // Bind grade forms (file uploads only — written submissions are read-only in this view)
   board.querySelectorAll(".grade-form").forEach(form => {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -242,7 +292,7 @@ function renderBoard() {
     });
   });
 
-  // Open any student panel that has pending submissions by default
+  // Auto-expand students with pending submissions
   board.querySelectorAll(".student-accordion-header").forEach(hdr => {
     const pending = parseInt(hdr.dataset.pending || "0", 10);
     if (pending > 0) {
@@ -256,14 +306,25 @@ function renderBoard() {
 
 /* ── student accordion builder ───────────────────────────── */
 function buildStudentAccordion({ fullName, memberId, subs }) {
-  const pendingCount = subs.filter(s => s.status === "submitted").length;
-  const programs = [...new Set(subs.map(s => programLabel(s.programSlug)))].join(", ");
+  const pendingCount  = subs.filter(s => s.status === "submitted").length;
+  const programs      = [...new Set(subs.map(s => programLabel(s.programSlug)))].join(", ");
+  const hasWritten    = subs.some(s => s.submissionType === "written");
+  const hasUploads    = subs.some(s => s.submissionType !== "written");
+
+  const typeTags = [
+    hasWritten ? `<span style="font-size:0.75rem;color:#c8a0f8;">Written</span>` : "",
+    hasUploads ? `<span style="font-size:0.75rem;color:#93c5fd;">Files</span>`   : ""
+  ].filter(Boolean).join(" · ");
 
   const pendingBadge = pendingCount > 0
     ? `<span style="display:inline-block;margin-left:10px;padding:2px 10px;border-radius:999px;background:#78350f;border:1px solid #fbbf24;color:#fde68a;font-weight:700;font-size:0.78rem;">${pendingCount} Pending</span>`
     : `<span style="display:inline-block;margin-left:10px;padding:2px 10px;border-radius:999px;background:#14532d;border:1px solid #86efac;color:#bbf7d0;font-weight:700;font-size:0.78rem;">All Graded</span>`;
 
-  const subsHtml = subs.map(item => buildSubmissionCard(item)).join("");
+  const subsHtml = subs.map(item =>
+    item.submissionType === "written"
+      ? buildWrittenCard(item)
+      : buildUploadCard(item)
+  ).join("");
 
   return `
     <div class="student-accordion">
@@ -271,11 +332,12 @@ function buildStudentAccordion({ fullName, memberId, subs }) {
         <div class="acc-left">
           <span class="acc-arrow" style="font-size:0.75rem;margin-right:10px;color:#94a3b8;">▶</span>
           <span class="acc-name">${esc(fullName || memberId)}</span>
-          <span class="acc-member-id">(${esc(memberId)})</span>
+          <span class="acc-member-id">(${esc(memberId || "—")})</span>
           ${pendingBadge}
         </div>
         <div class="acc-right">
           <span class="acc-meta">${programs}</span>
+          ${typeTags ? `<span class="acc-meta" style="color:#64748b;">${typeTags}</span>` : ""}
           <span class="acc-count">${subs.length} submission${subs.length !== 1 ? "s" : ""}</span>
         </div>
       </div>
@@ -286,13 +348,14 @@ function buildStudentAccordion({ fullName, memberId, subs }) {
   `;
 }
 
-/* ── individual submission card ──────────────────────────── */
-function buildSubmissionCard(item) {
+/* ── file-upload submission card ─────────────────────────── */
+function buildUploadCard(item) {
   return `
     <div class="submission-card">
-      <!-- Row 1: program / lesson / assignment + status pill -->
       <div class="sub-header-row">
         <div class="sub-meta">
+          ${typePill("upload")}
+          <span class="sub-sep" style="margin-left:6px;">·</span>
           <span class="sub-program">${programLabel(item.programSlug)}</span>
           <span class="sub-sep">·</span>
           <span class="sub-lesson">Lesson ${item.lessonNumber}${item.lessonTitle ? " — " + esc(item.lessonTitle) : ""}</span>
@@ -301,11 +364,10 @@ function buildSubmissionCard(item) {
         <div>${statusPill(item.status, item.grade)}</div>
       </div>
 
-      <!-- Row 2: file + dates -->
       <div class="sub-detail-row">
         <div class="sub-file-info">
           <span class="sub-icon">&#128196;</span>
-          <span class="sub-filename">${esc(item.originalFileName)}</span>
+          <span class="sub-filename">${esc(item.originalFileName || "—")}</span>
           <a class="sub-download" href="/api/papers/download?submissionId=${encodeURIComponent(item.submissionId)}" target="_blank" rel="noopener">
             &#8681; Download
           </a>
@@ -318,7 +380,6 @@ function buildSubmissionCard(item) {
 
       ${item.feedback ? `<div class="sub-feedback"><strong>Previous Feedback:</strong> ${esc(item.feedback)}</div>` : ""}
 
-      <!-- Grade form -->
       <details class="grade-details">
         <summary class="grade-summary">&#9998; Grade / Feedback</summary>
         <form class="grade-form" data-id="${esc(item.submissionId)}">
@@ -343,6 +404,62 @@ function buildSubmissionCard(item) {
             <div class="save-msg"></div>
           </div>
         </form>
+      </details>
+    </div>
+  `;
+}
+
+/* ── written-answer submission card ──────────────────────── */
+function buildWrittenCard(item) {
+  const answers = item.answers || [];
+
+  const answersHtml = answers.length
+    ? answers.map((a, i) => `
+        <div style="margin-bottom:14px;">
+          <div style="font-size:0.82rem;font-weight:700;color:#94a3b8;letter-spacing:0.04em;margin-bottom:4px;">
+            Q${i + 1}. ${esc(a.question || "")}
+          </div>
+          <div style="background:#0b1220;border:1px solid rgba(148,163,184,.2);border-radius:6px;padding:10px 14px;font-size:0.88rem;color:#e5e7eb;white-space:pre-wrap;">${esc(a.answer || "")}</div>
+        </div>`).join("")
+    : `<p style="color:#64748b;font-size:0.85rem;font-style:italic;">No answers recorded.</p>`;
+
+  const gradeDisplay = item.grade
+    ? `<span style="margin-left:10px;padding:2px 10px;border-radius:999px;background:#14532d;border:1px solid #86efac;color:#bbf7d0;font-weight:700;font-size:0.78rem;">Grade: ${esc(item.grade)}</span>`
+    : "";
+
+  return `
+    <div class="submission-card">
+      <div class="sub-header-row">
+        <div class="sub-meta">
+          ${typePill("written")}
+          <span class="sub-sep" style="margin-left:6px;">·</span>
+          <span class="sub-program">${programLabel(item.programSlug)}</span>
+          <span class="sub-sep">·</span>
+          <span class="sub-lesson">Lesson ${item.lessonNumber}${item.lessonTitle ? " — " + esc(item.lessonTitle) : ""}</span>
+          <span class="sub-sep">·</span>
+          <span class="sub-assign">${esc(item.assignmentTitle || "Written Assignment")}</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+          ${statusPill(item.status, item.grade)}
+          ${gradeDisplay}
+        </div>
+      </div>
+
+      <div class="sub-detail-row">
+        <div class="sub-dates">
+          <span><strong>Submitted:</strong> ${fmtDate(item.uploadedAt)}</span>
+          ${item.gradedAt ? `<span><strong>Graded:</strong> ${fmtDate(item.gradedAt)}</span>` : ""}
+        </div>
+      </div>
+
+      ${item.feedback ? `<div class="sub-feedback"><strong>SM Notes:</strong> ${esc(item.feedback)}</div>` : ""}
+
+      <!-- Answers accordion -->
+      <details class="grade-details">
+        <summary class="grade-summary">&#128196; View Written Answers (${answers.length})</summary>
+        <div style="margin-top:12px;">
+          ${answersHtml}
+        </div>
       </details>
     </div>
   `;

@@ -1532,18 +1532,21 @@ app.get('/api/assessment/:slug/combined', requireAdmin, (req, res) => {
 });
 
 // ── PAPER SUBMISSIONS API ──
-const paperUpload        = require('./api/papers/upload');
-const paperMySubmissions = require('./api/papers/my-submissions');
-const paperList          = require('./api/papers/list');
-const paperGrade         = require('./api/papers/grade');
-const paperDownload      = require('./api/papers/download');
+const paperUpload             = require('./api/papers/upload');
+const paperMySubmissions      = require('./api/papers/my-submissions');
+const paperList               = require('./api/papers/list');
+const paperWrittenSubmissions = require('./api/papers/written-submissions');
+const paperGrade              = require('./api/papers/grade');
+const paperDownload           = require('./api/papers/download');
 
 // Members: upload a paper
 app.post('/api/papers/upload', (req, res) => paperUpload.handler(req, res));
 // Members: view own submissions
 app.get('/api/papers/my-submissions', (req, res) => paperMySubmissions.handler(req, res));
-// Schoolmaster: list all submissions (with optional filters)
+// Schoolmaster: list all file-upload submissions
 app.get('/api/papers/list', (req, res) => paperList.handler(req, res));
+// Schoolmaster: list all written (discussion/exam) submissions from users.json
+app.get('/api/papers/written-submissions', (req, res) => paperWrittenSubmissions.handler(req, res));
 // Schoolmaster: grade a submission
 app.post('/api/papers/grade', (req, res) => paperGrade.handler(req, res));
 // Members + schoolmaster: download a stored paper file
