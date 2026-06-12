@@ -555,7 +555,6 @@ function buildUploadCard(item) {
           <label class="field-label" style="margin-top:10px;display:block;">Feedback to Student</label>
           <textarea name="feedback" rows="3" placeholder="Notes or feedback visible to the student\u2026">${esc(item.feedback || "")}</textarea>
           <div style="display:flex;align-items:center;gap:14px;margin-top:10px;">
-            <button type="submit" class="save-btn">&#10003; Save Grade</button>
             <div class="save-msg"></div>
           </div>
         </form>
@@ -656,11 +655,7 @@ function buildWrittenCard(item) {
               <input type="text" name="grade" value="${esc(item.grade || "")}"
                      placeholder="Pass / Fail / A / 92\u2026" />
             </div>
-            <div style="display:flex;align-items:flex-end;gap:10px;">
-              <button type="submit" class="save-btn" style="white-space:nowrap;">
-                &#10003; ${isGraded ? "Update Grade" : "Approve &amp; Save Grade"}
-              </button>
-            </div>
+
           </div>
           <label class="field-label" style="margin-top:10px;display:block;">Notes to Student</label>
           <textarea name="notes" rows="3"
