@@ -438,6 +438,7 @@
 <script>
 let userProgression  = null;
 let allPrograms      = [];
+let userPaperSubs    = [];
 let memberProfile    = null;  // cached profile for lock/unlock decisions
 
 // ── Load session + profile ──
@@ -488,14 +489,16 @@ Promise.all([
   .catch(() => { window.location.href = '/login'; });
 
 async function loadData() {
-  const [progRes, currRes, resRes] = await Promise.all([
+  const [progRes, currRes, resRes, paperRes] = await Promise.all([
     fetch('/api/progression/me').then(r => r.json()),
     fetch('/api/curriculum').then(r => r.json()),
-    fetch('/api/resources/for-program').then(r => r.ok ? r.json() : { sections: [] })
+    fetch('/api/resources/for-program').then(r => r.ok ? r.json() : { sections: [] }),
+    fetch('/api/papers/my-submissions', { credentials: 'include' }).then(r => r.ok ? r.json() : { items: [] }).catch(() => ({ items: [] }))
   ]);
 
   userProgression = progRes;
   allPrograms     = currRes.programs || [];
+  userPaperSubs   = (paperRes.items || paperRes.submissions || []);
 
   renderStats();
   renderActiveProgram();
@@ -539,6 +542,39 @@ function renderActiveProgram() {
   const total    = prog.durationWeeks;
   const pct      = Math.round((week / total) * 100);
 
+  // Knight-aspirant final essay notification badge
+  let essayBadgeHtml = '';
+  if (prog.slug === 'knight-aspirant') {
+    const essaySubs = userPaperSubs.filter(s => s.programSlug === 'knight-aspirant' && s.assignmentTitle === 'Final Essay');
+    if (essaySubs.length) {
+      const latest = essaySubs.slice().sort((a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt))[0];
+      const g = (latest.grade || '').toLowerCase();
+      if (latest.status === 'submitted') {
+        essayBadgeHtml = `
+          <div style="margin:14px 0 4px 0;padding:10px 16px;border-radius:6px;background:#78350f;border:1px solid #fbbf24;
+                      display:flex;align-items:center;gap:10px;font-family:'Cinzel',serif;font-size:0.82rem;letter-spacing:0.06em;color:#fde68a;">
+            <span style="font-size:1.1rem;">&#9203;</span>
+            <span><strong>Pending Essay Grading</strong> — Your final essay is awaiting Schoolmaster review.</span>
+          </div>`;
+      } else if (latest.status === 'graded' && g.includes('pass')) {
+        essayBadgeHtml = `
+          <div style="margin:14px 0 4px 0;padding:10px 16px;border-radius:6px;background:#14532d;border:1px solid #86efac;
+                      display:flex;align-items:center;gap:10px;font-family:'Cinzel',serif;font-size:0.82rem;letter-spacing:0.06em;color:#bbf7d0;">
+            <span style="font-size:1.1rem;">&#10004;</span>
+            <span><strong>Essay Accepted — Pass</strong> — Your final essay has been accepted. Well done.</span>
+          </div>`;
+      } else if (latest.status === 'revision-requested' || (latest.status === 'graded' && (g.includes('fail') || !g.includes('pass')))) {
+        const isRevision = latest.status === 'revision-requested';
+        essayBadgeHtml = `
+          <div style="margin:14px 0 4px 0;padding:10px 16px;border-radius:6px;background:#450a0a;border:1px solid #fca5a5;
+                      display:flex;align-items:center;gap:10px;font-family:'Cinzel',serif;font-size:0.82rem;letter-spacing:0.06em;color:#fecaca;">
+            <span style="font-size:1.1rem;">&#10007;</span>
+            <span><strong>Essay Returned — ${isRevision ? 'Revision Required' : 'Fail'}</strong> — Review the SM's feedback and resubmit when ready.</span>
+          </div>`;
+      }
+    }
+  }
+
   container.innerHTML = `
     <div class="active-prog-card">
       <div class="prog-title">✠ ${prog.title}</div>
@@ -553,6 +589,8 @@ function renderActiveProgram() {
           <div class="prog-bar-fill" style="width:${pct}%"></div>
         </div>
       </div>
+
+      ${essayBadgeHtml}
 
       <div class="prog-links">
         <a class="prog-link primary" href="/lesson">

@@ -1474,6 +1474,7 @@ function renderHub(curr, readData) {
       <div class="week-tab" onclick="switchTab(this, 'terms-${weekNum}')">Key Terms</div>
       <div class="week-tab" onclick="switchTab(this, 'exam-${weekNum}')">Exam Questions</div>
       <div class="week-tab" onclick="switchTab(this, 'upload-${weekNum}'); loadWeekUploadPanel(${weekNum})">Paper Upload</div>
+      ${SLUG === 'knight-aspirant' && weekNum === 8 ? `<div class="week-tab" onclick="switchTab(this, 'essay-8'); loadFinalEssayPanel()">✠ Final Essay</div>` : ''}
     </div>
 
     <!-- LESSON TAB -->
@@ -1522,6 +1523,12 @@ function renderHub(curr, readData) {
     <div class="week-tab-panel" id="upload-${weekNum}">
       <div id="upload-panel-${weekNum}"><p style="color:var(--text-dim);font-size:0.88rem;">Loading…</p></div>
     </div>
+
+    <!-- FINAL ESSAY TAB (knight-aspirant Week 8 only) -->
+    ${SLUG === 'knight-aspirant' && weekNum === 8 ? `
+    <div class="week-tab-panel" id="essay-8">
+      <div id="final-essay-panel"><p style="color:var(--text-dim);font-size:0.88rem;">Loading…</p></div>
+    </div>` : ''}
 
     <!-- EXAM QUESTIONS TAB (live submittable MC form) -->
     <div class="week-tab-panel" id="exam-${weekNum}">
@@ -1965,6 +1972,162 @@ async function loadWeekUploadPanel(weekNum) {
     renderPanel(weekSubs);
   } catch (err) {
     panel.innerHTML = `<p style="color:#fca5a5;font-size:0.88rem;">Could not load submissions: ${escHtml(err.message)}</p>`;
+  }
+}
+
+// ── FINAL ESSAY PANEL (knight-aspirant Week 8) ──
+async function loadFinalEssayPanel() {
+  const panel = document.getElementById('final-essay-panel');
+  if (!panel || panel.dataset.loaded) return;
+  panel.dataset.loaded = 'true';
+
+  const ESSAY_LESSON_TITLE     = 'Week 8: Essay Week IV \u2014 Final Submission and Knight Review';
+  const ESSAY_ASSIGNMENT_TITLE = 'Final Essay';
+  const ESSAY_LESSON_NUMBER    = 8;
+
+  function statusBadge(status, grade) {
+    if (!status) return '';
+    if (status === 'submitted') {
+      return `<span style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:#78350f;border:1px solid #fbbf24;color:#fde68a;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;">
+        <span style="font-size:0.9rem;">&#9203;</span> Pending Essay Grading
+      </span>`;
+    }
+    if (status === 'graded') {
+      const g = (grade || '').toLowerCase();
+      if (g.includes('pass')) {
+        return `<span style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:#14532d;border:1px solid #86efac;color:#bbf7d0;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;">
+          &#10004; Essay Accepted \u2014 Pass
+        </span>`;
+      }
+      if (g.includes('fail')) {
+        return `<span style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:#450a0a;border:1px solid #fca5a5;color:#fecaca;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;">
+          &#10007; Essay Returned \u2014 Fail
+        </span>`;
+      }
+      // graded but grade text is something else — show generic graded
+      return `<span style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:#1e3a5f;border:1px solid #7dd3fc;color:#bae6fd;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;">
+        &#10004; Essay Graded${grade ? ': ' + escHtml(grade) : ''}
+      </span>`;
+    }
+    if (status === 'revision-requested') {
+      return `<span style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:#450a0a;border:1px solid #fca5a5;color:#fecaca;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;">
+        &#10007; Essay Returned \u2014 Revision Required
+      </span>`;
+    }
+    return '';
+  }
+
+  function renderEssayPanel(essaySubs) {
+    // Most recent submission first
+    const sorted = essaySubs.slice().sort(function(a, b) { return new Date(b.uploadedAt) - new Date(a.uploadedAt); });
+    const latest = sorted[0] || null;
+
+    const currentStatusHtml = latest
+      ? `<div style="margin-bottom:18px;">${statusBadge(latest.status, latest.grade)}</div>`
+      : '';
+
+    const submissionsHtml = sorted.length
+      ? sorted.map(function(s) {
+          const statusColor = { submitted: '#fbbf24', graded: '#86efac', 'revision-requested': '#fca5a5' }[s.status] || '#94a3b8';
+          return `<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--border);">
+            <div>
+              <strong style="color:var(--text-bright);">${escHtml(s.originalFileName)}</strong>
+              <div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:8px;font-size:0.85rem;color:var(--text-dim);">
+                <span style="padding:2px 8px;border-radius:999px;background:${statusColor};color:#111;font-weight:700;font-size:0.75rem;text-transform:uppercase;">${escHtml(s.status)}</span>
+                <span>Uploaded ${new Date(s.uploadedAt).toLocaleString()}</span>
+                ${s.grade ? `<span>Grade: ${escHtml(s.grade)}</span>` : ''}
+              </div>
+              ${s.feedback ? `<div style="margin-top:8px;padding:8px 12px;background:rgba(125,211,252,0.08);border-radius:4px;font-size:0.88rem;"><strong>SM Feedback:</strong> ${escHtml(s.feedback)}</div>` : ''}
+            </div>
+            <a href="/api/papers/download?submissionId=${encodeURIComponent(s.submissionId)}" target="_blank" rel="noopener"
+               style="color:#7dd3fc;font-weight:700;font-size:0.85rem;white-space:nowrap;flex-shrink:0;">Download</a>
+          </div>`;
+        }).join('')
+      : `<p style="color:var(--text-dim);font-size:0.88rem;margin:0;">No essay submitted yet.</p>`;
+
+    panel.innerHTML = `
+      <div style="max-width:680px;">
+        <div class="section-label">Final Essay \u2014 Week 8</div>
+        <p style="color:var(--text-dim);font-size:0.88rem;margin:6px 0 18px 0;">
+          <strong style="color:var(--text);">Week 8: Essay Week IV \u2014 Final Submission and Knight Review</strong><br>
+          Submit your final essay here. The Schoolmaster will review and grade your submission.
+          If your essay is returned, you may revise and re-upload at any time.
+        </p>
+
+        ${currentStatusHtml}
+
+        <form id="final-essay-upload-form"
+              style="background:var(--bg3);border:1px solid var(--border-hi);padding:18px 20px;margin-bottom:20px;">
+          <label style="display:block;font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.12em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:8px;">
+            ${sorted.length ? 'Submit Revised Essay (.pdf or .docx)' : 'Choose file (.pdf or .docx)'}
+          </label>
+          <input type="file" name="paper" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                 required
+                 style="display:block;width:100%;color:var(--text);margin-bottom:12px;" />
+          <button type="submit" class="btn-primary" style="border-radius:2px;">
+            &#10011; Submit Final Essay
+          </button>
+          <span id="final-essay-upload-msg" style="margin-left:14px;font-size:0.88rem;"></span>
+        </form>
+
+        <div style="background:var(--bg2);border:1px solid var(--border);padding:16px 18px;">
+          <div class="section-label" style="margin-bottom:10px;">Submission History</div>
+          <div id="final-essay-sub-list">${submissionsHtml}</div>
+        </div>
+      </div>
+    `;
+
+    // Bind upload form
+    const form = document.getElementById('final-essay-upload-form');
+    const msg  = document.getElementById('final-essay-upload-msg');
+    if (!form) return;
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const fileInput = form.querySelector('input[type="file"]');
+      if (!fileInput || !fileInput.files.length) {
+        msg.textContent = 'Please choose a file.';
+        msg.style.color = '#fca5a5';
+        return;
+      }
+      const btn = form.querySelector('button[type="submit"]');
+      try {
+        msg.textContent = 'Uploading\u2026';
+        msg.style.color = 'var(--text-dim)';
+        if (btn) btn.disabled = true;
+        const fd = new FormData();
+        fd.append('paper',           fileInput.files[0]);
+        fd.append('programSlug',     SLUG);
+        fd.append('lessonNumber',    ESSAY_LESSON_NUMBER);
+        fd.append('lessonTitle',     ESSAY_LESSON_TITLE);
+        fd.append('assignmentTitle', ESSAY_ASSIGNMENT_TITLE);
+        const res  = await fetch('/api/papers/upload', { method: 'POST', body: fd, credentials: 'include' });
+        const data = await res.json().catch(function() { return {}; });
+        if (!res.ok) throw new Error(data.error || 'Upload failed.');
+        msg.textContent = '\u2713 Essay submitted successfully.';
+        msg.style.color = '#86efac';
+        fileInput.value = '';
+        // Reload panel with fresh submission data
+        panel.dataset.loaded = '';
+        await loadFinalEssayPanel();
+      } catch (err) {
+        msg.textContent = err.message || 'Upload failed.';
+        msg.style.color = '#fca5a5';
+        if (btn) btn.disabled = false;
+      }
+    });
+  }
+
+  try {
+    const data = await fetch('/api/papers/my-submissions', { credentials: 'include' })
+      .then(function(r) { return r.json(); })
+      .catch(function() { return { items: [] }; });
+    const allSubs = data.items || data.submissions || [];
+    const essaySubs = allSubs.filter(function(s) {
+      return s.programSlug === 'knight-aspirant' && s.assignmentTitle === 'Final Essay';
+    });
+    renderEssayPanel(essaySubs);
+  } catch (err) {
+    panel.innerHTML = `<p style="color:#fca5a5;font-size:0.88rem;">Could not load essay data: ${escHtml(err.message)}</p>`;
   }
 }
 
