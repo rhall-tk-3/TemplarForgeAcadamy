@@ -314,6 +314,76 @@ function renderBoard() {
     });
   });
 
+  // ── Quick Approve / Pass / Fail buttons ──────────────────
+  async function quickGrade(submissionId, action) {
+    const msgEl = board.querySelector(`#qa-msg-${CSS.escape(submissionId)}`);
+    const row   = board.querySelector(`.quick-approve-row[data-sid="${CSS.escape(submissionId)}"]`);
+    const passBtn = row ? row.querySelector(".qa-pass") : null;
+    const failBtn = row ? row.querySelector(".qa-fail") : null;
+
+    const statusVal = (action === "pass") ? "graded" : "revision-requested";
+    const gradeVal  = (action === "pass") ? "Pass"   : "Fail";
+
+    try {
+      if (msgEl) { msgEl.textContent = "Saving\u2026"; msgEl.style.color = "#94a3b8"; }
+      if (passBtn) passBtn.disabled = true;
+      if (failBtn) failBtn.disabled = true;
+
+      await apiJson("/api/papers/grade", {
+        method:  "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ submissionId, status: statusVal, grade: gradeVal, feedback: "" })
+      });
+
+      // Update in-memory state
+      const idx = ALL_ITEMS.findIndex(x => x.submissionId === submissionId);
+      if (idx !== -1) {
+        ALL_ITEMS[idx].status   = statusVal;
+        ALL_ITEMS[idx].grade    = gradeVal;
+        ALL_ITEMS[idx].gradedAt = new Date().toISOString();
+      }
+
+      // Re-render so the card reflects the new state
+      renderBoard();
+    } catch (err) {
+      if (msgEl) { msgEl.textContent = err.message; msgEl.style.color = "#fca5a5"; }
+      if (passBtn) passBtn.disabled = false;
+      if (failBtn) failBtn.disabled = false;
+    }
+  }
+
+  // Pass / Fail quick buttons
+  board.querySelectorAll(".qa-pass, .qa-fail").forEach(btn => {
+    btn.addEventListener("click", () => {
+      quickGrade(btn.dataset.sid, btn.dataset.action);
+    });
+  });
+
+  // Re-open (reset to submitted) quick button
+  board.querySelectorAll(".qa-reopen").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const sid = btn.dataset.sid;
+      try {
+        btn.disabled = true;
+        await apiJson("/api/papers/grade", {
+          method:  "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ submissionId: sid, status: "submitted", grade: "", feedback: "" })
+        });
+        const idx = ALL_ITEMS.findIndex(x => x.submissionId === sid);
+        if (idx !== -1) {
+          ALL_ITEMS[idx].status   = "submitted";
+          ALL_ITEMS[idx].grade    = "";
+          ALL_ITEMS[idx].gradedAt = null;
+        }
+        renderBoard();
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = "Error — retry";
+      }
+    });
+  });
+
   // Auto-expand students with pending submissions
   board.querySelectorAll(".student-accordion-header").forEach(hdr => {
     const pending = parseInt(hdr.dataset.pending || "0", 10);
@@ -404,6 +474,30 @@ function buildUploadCard(item) {
       </div>
 
       ${item.feedback ? `<div class="sub-feedback"><strong>Previous Feedback:</strong> ${esc(item.feedback)}</div>` : ""}
+
+      <!-- Quick approve buttons — always visible on pending cards -->
+      ${item.status === "submitted" ? `
+      <div class="quick-approve-row" data-sid="${esc(item.submissionId)}">
+        <button class="qa-btn qa-pass" data-sid="${esc(item.submissionId)}" data-action="pass"
+                title="Mark as Graded — Pass">
+          &#10003; Approve / Pass
+        </button>
+        <button class="qa-btn qa-fail" data-sid="${esc(item.submissionId)}" data-action="fail"
+                title="Mark as Revision Required — Fail">
+          &#10007; Fail / Revision
+        </button>
+        <div class="qa-msg" id="qa-msg-${esc(item.submissionId)}"></div>
+      </div>` : `
+      <div style="margin:8px 0 4px;display:flex;align-items:center;gap:10px;">
+        <span style="font-size:0.8rem;color:#64748b;font-style:italic;">
+          ${item.status === "graded" ? `&#10003; Graded${item.grade ? ": " + esc(item.grade) : ""}` : `Revision requested${item.grade ? ": " + esc(item.grade) : ""}`}
+        </span>
+        <button class="qa-btn qa-reopen" data-sid="${esc(item.submissionId)}"
+                style="font-size:0.75rem;padding:2px 10px;"
+                title="Reset to Pending so you can re-grade">
+          &#8635; Re-open
+        </button>
+      </div>`}
 
       <details class="grade-details">
         <summary class="grade-summary">&#9998; Grade / Feedback</summary>

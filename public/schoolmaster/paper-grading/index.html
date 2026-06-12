@@ -319,6 +319,66 @@
     .save-msg { font-size: 0.88rem; }
     .save-msg.success { color: #86efac; }
     .save-msg.error   { color: #fca5a5; }
+
+    /* ── Quick Approve Buttons ── */
+    .quick-approve-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 10px 0 6px;
+      flex-wrap: wrap;
+    }
+    .qa-btn {
+      appearance: none;
+      border-radius: 6px;
+      padding: 7px 18px;
+      font: inherit;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      border: 2px solid transparent;
+      white-space: nowrap;
+    }
+    .qa-btn:active:not(:disabled) { transform: scale(0.97); }
+    .qa-btn:disabled { opacity: 0.5; cursor: default; }
+
+    .qa-pass {
+      background: #14532d;
+      border-color: #22c55e;
+      color: #bbf7d0;
+    }
+    .qa-pass:hover:not(:disabled) {
+      background: #166534;
+      border-color: #4ade80;
+      color: #dcfce7;
+    }
+
+    .qa-fail {
+      background: #450a0a;
+      border-color: #dc2626;
+      color: #fecaca;
+    }
+    .qa-fail:hover:not(:disabled) {
+      background: #7f1d1d;
+      border-color: #f87171;
+      color: #fee2e2;
+    }
+
+    .qa-reopen {
+      background: transparent;
+      border-color: #475569;
+      color: #94a3b8;
+    }
+    .qa-reopen:hover:not(:disabled) {
+      border-color: #94a3b8;
+      color: #e2e8f0;
+    }
+
+    .qa-msg {
+      font-size: 0.82rem;
+      color: #94a3b8;
+    }
   </style>
 </head>
 <body>
