@@ -1934,8 +1934,8 @@ async function loadWeekUploadPanel(weekNum) {
         fd.append('paper', fileInput.files[0]);
         fd.append('programSlug', SLUG);
         fd.append('lessonNumber', weekNum);
-        fd.append('lessonTitle',       lesson ? (lesson.lessonTitle       || '') : 'Week ' + weekNum);
-        fd.append('assignmentTitle',   lesson ? (lesson.assignmentTitle   || '') : '');
+        fd.append('lessonTitle',       lesson ? (lesson.lessonTitle       || ('Week ' + weekNum)) : ('Week ' + weekNum));
+        fd.append('assignmentTitle',   lesson ? (lesson.assignmentTitle   || 'Written Assignment') : 'Written Assignment');
         const res  = await fetch('/api/papers/upload', { method: 'POST', body: fd, credentials: 'include' });
         const data = await res.json().catch(function() { return {}; });
         if (!res.ok) throw new Error(data.error || 'Upload failed.');

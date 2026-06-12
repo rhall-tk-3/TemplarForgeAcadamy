@@ -62,8 +62,8 @@ async function handler(req, res) {
 
   const programSlug     = String(f(fields.programSlug)     || "").trim();
   const lessonNumber    = safeLessonNumber(f(fields.lessonNumber));
-  const lessonTitle     = String(f(fields.lessonTitle)     || "").trim();
-  const assignmentTitle = String(f(fields.assignmentTitle) || "").trim();
+  const lessonTitle     = String(f(fields.lessonTitle)     || "").trim() || `Week ${lessonNumber}`;
+  const assignmentTitle = String(f(fields.assignmentTitle) || "").trim() || "Written Assignment";
 
   // File field is named "paper" (matches the upload form's fd.append("paper", ...))
   const paper = files.paper
@@ -75,9 +75,6 @@ async function handler(req, res) {
   }
   if (!lessonNumber) {
     return res.status(400).json({ error: "lessonNumber must be an integer between 1 and 20." });
-  }
-  if (!lessonTitle || !assignmentTitle) {
-    return res.status(400).json({ error: "Missing upload fields." });
   }
   if (!paper) {
     return res.status(400).json({ error: "No file received." });
