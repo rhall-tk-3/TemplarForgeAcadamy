@@ -12,8 +12,25 @@ const defaultSharedResourceKeys = [
   'final-evaluation-forms'
 ];
 
+// ── In-process mtime-gated cache (mirrors fullCurriculumService pattern) ──────
+// curriculum/index.json is read-only at runtime (never written by the app),
+// so in practice this cache is populated once and never invalidated.
+// mtime checks ensure hot-reloads still work in development.
+let _cache      = null;
+let _cacheMtime = 0;
+
 function readConfig() {
-  return JSON.parse(fs.readFileSync(configPath, 'utf8'));
+  try {
+    const mtime = fs.statSync(configPath).mtimeMs;
+    if (_cache && mtime === _cacheMtime) return _cache;
+    _cache      = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+    _cacheMtime = mtime;
+    return _cache;
+  } catch (_e) {
+    _cache      = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+    _cacheMtime = 0;
+    return _cache;
+  }
 }
 
 function enrichProgram(program) {
@@ -33,8 +50,20 @@ function enrichProgram(program) {
   };
 }
 
+// Enriched-program cache — rebuilt when readConfig() cache is refreshed
+let _indexCache     = null;
+let _indexCacheMtime = 0;
+
 function getCurriculumIndex() {
-  return readConfig().programs.map(enrichProgram);
+  try {
+    const mtime = fs.statSync(configPath).mtimeMs;
+    if (_indexCache && mtime === _indexCacheMtime) return _indexCache;
+    _indexCache      = readConfig().programs.map(enrichProgram);
+    _indexCacheMtime = mtime;
+    return _indexCache;
+  } catch (_e) {
+    return readConfig().programs.map(enrichProgram);
+  }
 }
 
 function getProgramBySlug(slug) {

@@ -16,24 +16,48 @@ const storePath = SUBMISSIONS_FILE;
 // Passing an exam automatically unlocks the next week — no unlock approval required.
 const RETEST_COOLDOWN_MS = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
+// ── In-process mtime-gated cache ─────────────────────────────────────────────
+let _storeCache     = null;
+let _storeCacheMtime = 0;
+
+function _invalidateStoreCache() {
+  _storeCache     = null;
+  _storeCacheMtime = 0;
+}
+// ─────────────────────────────────────────────────────────────────────────────
+
 function ensureStore() {
   fs.mkdirSync(dataDir, { recursive: true });
   if (!fs.existsSync(storePath)) {
     fs.writeFileSync(storePath, JSON.stringify({ submissions: [], retestApprovals: [], unlockApprovals: [] }, null, 2));
+    _invalidateStoreCache();
   }
 }
 
 function readStore() {
   ensureStore();
-  const raw = JSON.parse(fs.readFileSync(storePath, 'utf8'));
-  // Back-compat: ensure unlockApprovals array exists on older store files
-  if (!raw.unlockApprovals) raw.unlockApprovals = [];
-  return raw;
+  try {
+    const mtime = fs.statSync(storePath).mtimeMs;
+    if (_storeCache && mtime === _storeCacheMtime) return _storeCache;
+    const raw = JSON.parse(fs.readFileSync(storePath, 'utf8'));
+    // Back-compat: ensure unlockApprovals array exists on older store files
+    if (!raw.unlockApprovals) raw.unlockApprovals = [];
+    _storeCache      = raw;
+    _storeCacheMtime = mtime;
+    return _storeCache;
+  } catch (_e) {
+    const raw = JSON.parse(fs.readFileSync(storePath, 'utf8'));
+    if (!raw.unlockApprovals) raw.unlockApprovals = [];
+    return raw;
+  }
 }
 
 function writeStore(store) {
   ensureStore();
   fs.writeFileSync(storePath, JSON.stringify(store, null, 2));
+  // Update cache immediately after write
+  _storeCache      = store;
+  _storeCacheMtime = fs.statSync(storePath).mtimeMs;
 }
 
 function studentKey(name = '', email = '') {

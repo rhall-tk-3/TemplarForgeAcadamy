@@ -5,6 +5,12 @@
  * Schoolmaster26 is the ONE hardcoded admin account.
  * It is seeded on every startup; its credentials come from env vars
  * (or the fixed defaults below) and cannot be changed via the API.
+ *
+ * Performance: an in-process cache avoids re-reading the file on every
+ * request. The cache is populated on first read and invalidated on every
+ * write so all callers within the same Node process share one parsed copy.
+ * File mtime is checked on cache hits so external edits (e.g. direct volume
+ * writes) are still picked up within one request cycle.
  */
 const fs    = require('fs');
 const path  = require('path');
@@ -19,20 +25,51 @@ const SM_USERNAME = process.env.SM_USERNAME || 'Schoolmaster26';
 // SM_PASSWORD is guaranteed non-empty by assertSecrets() in server.js at startup.
 const SM_PASSWORD = process.env.SM_PASSWORD;
 
+// ── In-process cache ──────────────────────────────────────────────────────────
+// _cache   : the parsed users array (null until first read)
+// _cacheMtime : mtime (ms) of the file when _cache was last populated
+// On every write we bump _cacheMtime to the new mtime so the next read
+// doesn't hit the disk unnecessarily.
+let _cache     = null;
+let _cacheMtime = 0;
+
+function _invalidateCache() {
+  _cache     = null;
+  _cacheMtime = 0;
+}
+// ─────────────────────────────────────────────────────────────────────────────
+
 // ── Ensure data dir + file exist ──
 function init() {
   // dataPaths.js already ensures the directory exists on require
-  if (!fs.existsSync(USERS_FILE)) fs.writeFileSync(USERS_FILE, JSON.stringify([], null, 2));
+  if (!fs.existsSync(USERS_FILE)) {
+    fs.writeFileSync(USERS_FILE, JSON.stringify([], null, 2));
+    _invalidateCache();
+  }
 }
 
 function readAll() {
   init();
-  return JSON.parse(fs.readFileSync(USERS_FILE, 'utf8'));
+  try {
+    const mtime = fs.statSync(USERS_FILE).mtimeMs;
+    if (_cache && mtime === _cacheMtime) return _cache;
+    _cache     = JSON.parse(fs.readFileSync(USERS_FILE, 'utf8'));
+    _cacheMtime = mtime;
+    return _cache;
+  } catch (_e) {
+    // Fallback: read fresh on any stat/parse error
+    _cache     = JSON.parse(fs.readFileSync(USERS_FILE, 'utf8'));
+    _cacheMtime = 0;
+    return _cache;
+  }
 }
 
 function writeAll(users) {
   init();
   fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
+  // Update cache immediately — avoids a redundant disk read on the very next call
+  _cache     = users;
+  _cacheMtime = fs.statSync(USERS_FILE).mtimeMs;
 }
 
 // ── Seed the single Schoolmaster account ──

@@ -612,12 +612,10 @@ app.use('/auth', authRouter);
   app.post('/api/admin/repair-student-ids', (req, res) => {
     if (!smJwtCheck(req, res)) return;
     try {
-      const fsSync = require('fs');
-      const { SUBMISSIONS_FILE } = require('./src/config/dataPaths');
       const { getAllUsers } = require('./src/auth/userStore');
-      const { studentKey } = require('./src/services/submissionStoreService');
+      const { readStore, writeStore, studentKey } = require('./src/services/submissionStoreService');
 
-      const store = JSON.parse(fsSync.readFileSync(SUBMISSIONS_FILE, 'utf8'));
+      const store = readStore();
       const subs  = store.submissions || [];
       const members = (getAllUsers() || []).filter(u => u.role === 'member');
 
@@ -678,7 +676,7 @@ app.use('/auth', authRouter);
 
       if (fixed > 0) {
         store.submissions = subs;
-        fsSync.writeFileSync(SUBMISSIONS_FILE, JSON.stringify(store, null, 2), 'utf8');
+        writeStore(store);
         console.log(`✠ repair-student-ids: re-keyed ${fixed} submission(s)`);
       }
 
@@ -715,7 +713,8 @@ app.use('/auth', authRouter);
       const member = findById(String(memberId));
       if (!member) return res.status(404).json({ error: 'Member not found.' });
 
-      const store = JSON.parse(fsSync.readFileSync(SUBMISSIONS_FILE, 'utf8'));
+      const { readStore: _readStore2, writeStore: _writeStore2 } = require('./src/services/submissionStoreService');
+      const store = _readStore2();
       const subs  = store.submissions || [];
 
       // Build the same multi-key set used everywhere else for student ID matching
@@ -753,7 +752,7 @@ app.use('/auth', authRouter);
       subs[subIdx]._retestResetAt = new Date().toISOString();
 
       store.submissions = subs;
-      fsSync.writeFileSync(SUBMISSIONS_FILE, JSON.stringify(store, null, 2), 'utf8');
+      _writeStore2(store);
 
       console.log(`✠ reset-retest-cooldown: cleared for ${member.username} — ${programSlug} wk${wn}`);
       return res.json({

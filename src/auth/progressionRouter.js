@@ -264,7 +264,11 @@ router.get('/me/discussion-weeks', requireMember, (req, res) => {
 router.get('/members', requireAdmin, (_req, res) => {
   const programs = getCurriculumIndex();
   const members  = getMemberUsers();
-  const list = members.map(m => buildProgressView(m, programs));
+  // Pre-load the curriculum-submissions store ONCE so buildProgressView
+  // does not re-read the file for every member in the list.
+  let sharedStore = null;
+  try { sharedStore = readStore(); } catch (_e) { /* non-fatal */ }
+  const list = members.map(m => buildProgressView(m, programs, sharedStore));
   res.json({ members: list });
 });
 
@@ -766,7 +770,10 @@ function computeOverdue(user) {
 // ─────────────────────────────────────────
 //  Helper: build a clean progress view
 // ─────────────────────────────────────────
-function buildProgressView(user, programs) {
+// buildProgressView(user, programs?, preloadedStore?)
+// preloadedStore: caller may pass an already-read store object so that batch
+// operations (e.g. /members) only hit the disk once instead of once per member.
+function buildProgressView(user, programs, preloadedStore) {
   programs = programs || getCurriculumIndex();
   const assigned = user.assignedProgram
     ? programs.find(p => p.slug === user.assignedProgram) || null
@@ -781,7 +788,7 @@ function buildProgressView(user, programs) {
   let curriculumExams = [];
   let pendingCurriculumCount = 0;
   try {
-    const store = readStore();
+    const store = preloadedStore || readStore();
     const emailStudentId = studentKey(user.username, user.email);
     // Name-based fallback key (used when email was absent at submission time)
     const nameStudentId  = user.username.trim().toLowerCase().replace(/\s+/g, '-');
