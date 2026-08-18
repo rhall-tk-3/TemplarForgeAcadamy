@@ -46,6 +46,9 @@ body {
 .doc-sub {
   font-size: 0.88rem; color: #8a7040; font-style: italic;
 }
+.doc-note {
+  font-size: 0.82rem; color: #6a5820; font-style: italic; margin-top: 8px;
+}
 
 /* ── Section headings ── */
 h2.section-h {
@@ -119,12 +122,28 @@ ul.list-ul li strong {
   padding: 3px 10px; border-radius: 2px;
   margin-bottom: 8px;
 }
+.week-phase {
+  display: inline-block; margin-left: 8px;
+  font-family: 'Cinzel', serif; font-size: 0.62rem;
+  font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: #b89040; background: rgba(200,160,32,0.1);
+  border: 1px solid rgba(200,160,32,0.3);
+  padding: 2px 9px; border-radius: 2px;
+}
 .week-title {
   font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 700;
   color: #e8c850; margin-bottom: 16px; line-height: 1.3;
 }
 .week-block h3.section-sh { margin-top: 14px; margin-bottom: 5px; }
 .week-block p.body-p { margin-bottom: 10px; }
+.week-block ul.list-ul { margin-bottom: 8px; }
+
+/* ── Scripture reference ── */
+.scripture-ref {
+  font-family: 'Cinzel', serif; font-size: 0.76rem;
+  color: #8a7040; letter-spacing: 0.04em; font-style: italic;
+  margin-top: 10px;
+}
 
 /* ── Note / callout blocks ── */
 .note-block {
@@ -143,6 +162,15 @@ ul.list-ul li strong {
   border-radius: 5px; padding: 18px 22px; margin: 18px 0 28px;
 }
 .overview-callout p.body-p { margin-bottom: 0; font-style: italic; color: #c8b460; }
+
+/* ── Essay spec callout ── */
+.essay-spec {
+  background: rgba(200,160,32,0.05);
+  border: 1px solid rgba(200,160,32,0.22);
+  border-radius: 5px; padding: 18px 22px; margin: 14px 0 20px;
+}
+.essay-spec p.body-p { margin-bottom: 8px; }
+.essay-spec p.body-p:last-child { margin-bottom: 0; }
 
 /* ── Records grid ── */
 .records-grid {
@@ -185,10 +213,22 @@ ul.list-ul li strong {
   font-style: italic; color: #c8b880; line-height: 1.9; margin-bottom: 0;
 }
 
+/* ── Download link ── */
+.download-link {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: 'Cinzel', serif; font-size: 0.78rem;
+  color: #b8960c; text-decoration: none;
+  border: 1px solid rgba(184,150,12,0.35);
+  border-radius: 4px; padding: 7px 16px; margin: 18px 0 28px;
+  letter-spacing: 0.05em;
+  transition: background 0.18s;
+}
+.download-link:hover { background: rgba(184,150,12,0.1); color: #e8c040; }
+
 /* ── Print ── */
 @media print {
   body { background:#fff; color:#111; padding:20px; }
-  .back { display:none; }
+  .back, .download-link { display:none; }
   .doc-title { color:#111; }
   .doc-kicker, .doc-sub { color:#666; }
   h2.section-h { color:#333; border-color:#ccc; }
@@ -198,7 +238,7 @@ ul.list-ul li strong {
   .week-block { border:1px solid #ccc; background:#fafafa; }
   .week-num { background:#333; color:#fff; }
   .week-title { color:#111; }
-  .note-block, .overview-callout, .affirmation-block { background:#f5f5f5; border-color:#ccc; }
+  .note-block, .overview-callout, .affirmation-block, .essay-spec { background:#f5f5f5; border-color:#ccc; }
   .spec-table th { background:#eee; color:#333; }
   .spec-table td { color:#333; }
   .spec-table td:first-child { color:#555; }
@@ -214,67 +254,78 @@ ul.list-ul li strong {
   <div class="doc-header">
     <div class="doc-kicker">&#10013; Knights Templar of the Kingdom of Christ &middot; Templar Forge Academy</div>
     <div class="doc-title">Knight Aspirant Program Handbook</div>
-    <div class="doc-sub">Templar Forge Academy &mdash; 8-Week Sergeant Formation Program</div>
+    <div class="doc-sub">Templar Forge Academy &mdash; 8-Week Knight Aspirant Formation Program &mdash; Revised Edition</div>
+    <div class="doc-note">This handbook supersedes earlier circulated editions and reflects the Academy&rsquo;s official 8-week Knight Aspirant curriculum. All internal ranks, including that of Knight, are organizational and instructional only.</div>
   </div>
 
-  <!-- ═══════════════════════════════════════════
-       PURPOSE OF THE ACADEMY AND SERGEANT PROGRAM
-       ═══════════════════════════════════════════ -->
-  <h2 class="section-h">Purpose of the Academy and Sergeant Program</h2>
-  <p class="body-p">This handbook establishes the curriculum and operational guidelines for the Sergeant program of the Knights Templar of the Kingdom of Christ — Templar Forge Academy. The Academy is strictly educational, charitable, historical, and moral in purpose. The Sergeant program serves as a critical phase of adult formation, requiring candidates to move beyond introductory frameworks and assume greater responsibility in historical understanding and organizational stewardship.</p>
-  <p class="body-p">It must be explicitly stated that the Order and its Academy are not military or paramilitary in nature. All internal ranks, including that of Sergeant, are organizational and instructional only. The program exists to forge individuals of strong moral character dedicated to charitable works and rigorous intellectual formation, completely devoid of martial posturing.</p>
+  <a class="download-link" href="/documents/knight-aspirant/knight-aspirant-handbook.docx" download>
+    &#8659; Download Handbook (.docx)
+  </a>
 
-  <!-- ═════════════════════════════════
-       MISSION AND HISTORICAL FOUNDATION
-       ═════════════════════════════════ -->
-  <h2 class="section-h">Mission and Historical Foundation</h2>
-  <p class="body-p">The primary mission of the Templar Forge Academy is to cultivate a truthful understanding of the medieval Knights Templar, rejecting conjecture and myth in favor of rigorous, source-based history. The Order is forever consecrated to Jesus Christ, and this dedication shapes our modern mission to provide a truthful, nonviolent witness to His gospel through sacrificial service and brotherhood.</p>
-  <p class="body-p">The historical foundation of the Sergeant program delves deeply into the complex realities of the Order's expansion, hierarchy, and logistical brilliance. We examine their administrative structure, the burden of their logistics, the strict discipline of the Latin Rule, and the vulnerabilities brought on by vast wealth and political entanglement.</p>
+  <!-- ═══════════════════════════════════════════
+       1. PURPOSE OF THE ACADEMY AND KNIGHT ASPIRANT PROGRAM
+       ═══════════════════════════════════════════ -->
+  <h2 class="section-h">1. Purpose of the Academy and the Knight Aspirant Program</h2>
+  <p class="body-p">This handbook establishes the curriculum and operational guidelines for the Knight Aspirant program of the Knights Templar of the Kingdom of Christ &mdash; Templar Forge Academy. The Academy is strictly educational, charitable, historical, and moral in purpose. All internal ranks, including that of Knight, are organizational and instructional only.</p>
+  <p class="body-p">The Knight Aspirant program is an advanced adult formation program designed for members who have successfully completed the Sergeant First Class program. It represents a profound transition in purpose and identity &mdash; from student of history to a man committed to living the virtues of Christian knighthood in daily life.</p>
+  <p class="body-p">The program is built on the foundational conviction that a true Templar Knight must first become a monk before he can rightly stand as a warrior. No man advances to knighthood on the strength of outward performance alone. The Knight Aspirant is called to cultivate genuine inward holiness, self-mastery, and a life of visible Christian virtue.</p>
+
+  <!-- ════════════════════════════════════
+       2. DISTINCTION BETWEEN CLASS AND ESSAY PHASES
+       ════════════════════════════════════ -->
+  <h2 class="section-h">2. Distinction Between Class Phase and Essay Phase</h2>
+  <p class="body-p">The 8-week Knight Aspirant program is divided into two distinct phases:</p>
+  <ul class="list-ul">
+    <li><strong>Class Phase (Weeks 1&ndash;4)</strong> &mdash; Four weeks of active formation covering the spiritual, moral, and relational foundations of Christian knighthood. The Aspirant studies the theology of vocation, the discipline of self-mastery, the practice of active charity, and the exercise of mature judgment.</li>
+    <li><strong>Essay Phase (Weeks 5&ndash;8)</strong> &mdash; Four weeks dedicated to the development, drafting, revision, and final submission of the Knight Aspirant Essay. This is a formal written expression of the Aspirant&rsquo;s personal conviction, calling, and readiness for knighthood.</li>
+  </ul>
+  <p class="body-p">Both phases are of equal weight and importance. The essay cannot be divorced from the formation &mdash; it is the culminating expression of what the first four weeks have built in the man.</p>
 
   <!-- ════════════════
-       CORE PRINCIPLES
+       3. CORE PRINCIPLES
        ════════════════ -->
-  <h2 class="section-h">Core Principles</h2>
-  <p class="body-p">The Sergeant program requires strict adherence to the core principles that govern the conduct, study, and daily lives of our members. Candidates are trained to embody:</p>
+  <h2 class="section-h">3. Core Principles of the Knight Aspirant</h2>
+  <p class="body-p">The Knight Aspirant is held to the following non-negotiable principles throughout the program and beyond:</p>
   <ul class="list-ul">
-    <li><strong>Truth before legend</strong> — Committing to rigorous, source-based historical analysis over popular, romanticized fabrications.</li>
-    <li><strong>Service before status</strong> — Embracing the principle of service before self, viewing advancement as a call to heavier burdens, not greater privileges.</li>
-    <li><strong>Discipline before display</strong> — Emphasizing internal spiritual mastery, strict conduct, and obedience over outward organizational pageantry.</li>
-    <li><strong>Charity before privilege</strong> — Ensuring that the resources, influence, and efforts of the Order are directed toward those in genuine need.</li>
-    <li><strong>Leadership through accountability</strong> — Recognizing that no member is above reproach, and all are accountable to God, Scripture, and the fellowship of the Order.</li>
+    <li><strong>Monk before warrior</strong> &mdash; Inward holiness, prayer, and submission to Christ precede any outward expression of knighthood.</li>
+    <li><strong>Service before title</strong> &mdash; The rank of Knight is a call to heavier burdens, not greater privileges. Advancement is earned through faithful service.</li>
+    <li><strong>Charity before display</strong> &mdash; The works of a Knight must be directed toward those in genuine need, not toward personal recognition or organizational pageantry.</li>
+    <li><strong>Discipline before recognition</strong> &mdash; Internal self-mastery, accountability, and humility precede any external recognition of rank.</li>
+    <li><strong>Truth before legend</strong> &mdash; All historical study is grounded in source-based, rigorous scholarship, rejecting myth, fabrication, and romantic embellishment.</li>
   </ul>
 
   <!-- ════════════════════════
-       PROGRAM AUDIENCE & SCOPE
+       4. PROGRAM AUDIENCE & SCOPE
        ════════════════════════ -->
-  <h2 class="section-h">Program Audience and Scope</h2>
-  <p class="body-p">The Sergeant program is an 8-week adult formation program specifically designed for members who have successfully completed the Corporal program. It transitions the candidate from a foundational study of the Order's history into a rigorous, source-based analysis of the medieval Knights Templar's operations, logistics, and discipline, preparing the candidate for mature organizational leadership.</p>
+  <h2 class="section-h">4. Program Audience and Scope</h2>
+  <p class="body-p">The Knight Aspirant program is an 8-week adult formation program specifically designed for members who have successfully completed the Sergeant First Class program. Candidates must enter the program with a foundation of historical knowledge, organizational commitment, and demonstrated Christian character.</p>
+  <p class="body-p">The program prepares the Aspirant for evaluation by the Board of Promotion, which will assess the whole man &mdash; not merely academic performance, but character, humility, conduct, and genuine readiness for the responsibilities of knighthood.</p>
 
   <!-- ═══════════════════════════════════════
-       PROGRAM STANDARDS & LEGITIMACY MEASURES
+       5. PROGRAM STANDARDS & LEGITIMACY MEASURES
        ═══════════════════════════════════════ -->
-  <h2 class="section-h">Program Standards and Legitimacy Measures</h2>
-  <p class="body-p">Institutional integrity is guarded through strict adherence to established program standards. The Academy utilizes signed enrollment records, direct Schoolmaster oversight, written course standards, formal rank boards, and an annual curriculum review to maintain the highest quality of formation. Reading requirements and mandatory service work are integrated directly into the curriculum.</p>
-  <p class="body-p">The Templar Forge Academy enforces a clear and absolute rejection of false lineage claims, invented authority, theatrical succession claims, and any unofficial military style. The Order is educational, charitable, historical, and moral in purpose, and not military or paramilitary in nature. Internal ranks are organizational and instructional only.</p>
+  <h2 class="section-h">5. Program Standards and Legitimacy Measures</h2>
+  <p class="body-p">Institutional integrity is guarded through strict adherence to established program standards. The Academy utilizes signed enrollment records, direct Schoolmaster oversight, written course standards, formal rank boards, and an annual curriculum review to maintain the highest quality of formation.</p>
+  <p class="body-p">The Templar Forge Academy enforces a clear and absolute rejection of false lineage claims, invented authority, theatrical succession claims, and any unofficial military style. The Order is educational, charitable, historical, and moral in purpose, and not military or paramilitary in nature.</p>
 
   <!-- ══════════════════════════════════════
-       STUDENT EXPECTATIONS & RECORDS MAINTAINED
+       6. STUDENT EXPECTATIONS & RECORDS
        ══════════════════════════════════════ -->
-  <h2 class="section-h">Student Expectations and Records Maintained</h2>
-  <p class="body-p">Candidates in the Sergeant program are expected to maintain the highest standards of participation, rigorous study, and selfless service. To ensure these standards are met, the Academy requires meticulous maintenance of the following records:</p>
+  <h2 class="section-h">6. Student Expectations and Records Maintained</h2>
+  <p class="body-p">Knight Aspirants are expected to maintain the highest standards of participation, study, daily formation, and selfless service. The Academy requires meticulous maintenance of the following records:</p>
   <div class="records-grid">
     <div class="rec-item">Attendance Logs</div>
     <div class="rec-item">Reading Logs</div>
     <div class="rec-item">Service Logs</div>
-    <div class="rec-item">Assessment Sheets</div>
-    <div class="rec-item">Oral-Board Notes</div>
+    <div class="rec-item">Prayer &amp; Formation Logs</div>
+    <div class="rec-item">Essay Progress Records</div>
     <div class="rec-item">Advancement Recommendations</div>
   </div>
 
   <!-- ════════════════
-       ASSESSMENT MODEL
+       7. ASSESSMENT MODEL
        ════════════════ -->
-  <h2 class="section-h">Assessment Model</h2>
+  <h2 class="section-h">7. Assessment Model</h2>
   <p class="body-p">Throughout the 8-week program, candidates are evaluated based on five foundational pillars of assessment:</p>
   <table class="spec-table">
     <thead>
@@ -285,189 +336,286 @@ ul.list-ul li strong {
     </thead>
     <tbody>
       <tr>
-        <td>Knowledge</td>
-        <td>Mastery of source-based history, organizational structure, and logistics.</td>
+        <td>Holiness</td>
+        <td>Demonstrated daily prayer, Scripture reading, and a submitted walk with Christ.</td>
       </tr>
       <tr>
-        <td>Judgment</td>
-        <td>The exercise of mature Christian discernment and critical thinking in historical analysis.</td>
+        <td>Self-Mastery</td>
+        <td>Visible discipline over speech, emotion, impulse, and conduct.</td>
       </tr>
       <tr>
         <td>Service</td>
-        <td>Active, documented participation in the charitable works and stewardship of the Order.</td>
+        <td>Active, documented participation in charitable works and selfless ministry.</td>
       </tr>
       <tr>
         <td>Character</td>
-        <td>Consistent demonstration of rigorous discipline, brotherhood, and moral integrity.</td>
+        <td>Consistent demonstration of humility, brotherhood, integrity, and moral courage.</td>
       </tr>
       <tr>
-        <td>Communication</td>
-        <td>The ability to articulate the history and complex principles of the Order effectively and truthfully.</td>
+        <td>Essay</td>
+        <td>A well-crafted, honest, and substantive written expression of personal conviction and calling.</td>
       </tr>
     </tbody>
   </table>
 
   <!-- ════════════════
-       PROGRAM OVERVIEW
+       8. PROGRAM OVERVIEW
        ════════════════ -->
-  <h2 class="section-h">Program Overview</h2>
+  <h2 class="section-h">8. Program Overview</h2>
   <div class="overview-callout">
-    <p class="body-p">The Sergeant program advances adult members from foundational study into source-based historical analysis, organization, logistics, stewardship, disciplined service, and accountable leadership. Through this rigorous 8-week study, candidates prepare to bear the practical burdens of the Order.</p>
+    <p class="body-p">The Knight Aspirant program advances members from historical study into a season of intentional Christian formation. Through four weeks of class and four weeks of essay development, the Aspirant prepares to stand before the Board of Promotion as a man of proven character, inward discipline, and genuine conviction.</p>
   </div>
 
-  <!-- ═══════════════════════════
-       FULL 8-WEEK SERGEANT CURRICULUM
-       ═══════════════════════════ -->
-  <h2 class="section-h">Full 8-Week Sergeant Curriculum</h2>
+  <!-- ═══════════════════════════════════════
+       9. FULL 8-WEEK KNIGHT ASPIRANT CURRICULUM
+       ═══════════════════════════════════════ -->
+  <h2 class="section-h">9. Full 8-Week Knight Aspirant Curriculum</h2>
 
   <!-- Week 1 -->
   <div class="week-block">
-    <div class="week-num">Week 1</div>
-    <div class="week-title">From Corporal to Sergeant — Historical Review, Scope, and Source-Based Method</div>
+    <div class="week-num">Week 1</div><span class="week-phase">Class Phase</span>
+    <div class="week-title">The Knight Aspirant Calling &mdash; Monk Before Warrior</div>
     <h3 class="section-sh">Primary Focus</h3>
-    <p class="body-p">Transition from Corporal foundations into critical, source-based history and disciplined study methods.</p>
-    <h3 class="section-sh">Key Historical Subjects</h3>
-    <p class="body-p">Primary vs. secondary historical sources, historiography of the Templars, and critical review of initial lore.</p>
+    <p class="body-p">Inward formation, the necessity of daily prayer, immersion in Scripture, and the embrace of humility. Outward titles are hollow without an inward devotion to Christ and obedience to His Word.</p>
     <h3 class="section-sh">Formation Emphasis</h3>
-    <p class="body-p">Cultivating intellectual rigor, analytical discipline, and an unwavering commitment to objective truth.</p>
+    <p class="body-p">Recognizing that Christian knighthood begins entirely with surrender to Christ, and that the heart of a monk must come before the mantle of a warrior.</p>
     <h3 class="section-sh">Readiness Goal</h3>
-    <p class="body-p">Demonstrate the ability to analyze historical texts and distinguish source-based fact from historical fiction.</p>
+    <p class="body-p">Establish a dedicated, unbroken daily rhythm of prayer and Scripture reading.</p>
+    <h3 class="section-sh">Key Emphasis</h3>
+    <ul class="list-ul">
+      <li>Monk before warrior</li>
+      <li>Prayerful obedience</li>
+      <li>Rule, order, and humility</li>
+      <li>Seriousness of vocation</li>
+    </ul>
+    <h3 class="section-sh">Reflection Questions</h3>
+    <ul class="list-ul">
+      <li>In what areas of your life do you need to cultivate the &ldquo;monk&rdquo; (inward discipline) before you can act as the &ldquo;warrior&rdquo; (outward action)?</li>
+      <li>How does total surrender to Christ change your understanding of knighthood?</li>
+    </ul>
+    <p class="scripture-ref">Scripture Anchors: Micah 6:8 &mdash; Matthew 5:9</p>
   </div>
 
   <!-- Week 2 -->
   <div class="week-block">
-    <div class="week-num">Week 2</div>
-    <div class="week-title">Expansion, Patronage, and Legitimacy in Europe</div>
+    <div class="week-num">Week 2</div><span class="week-phase">Class Phase</span>
+    <div class="week-title">Spiritual Warfare, Self-Mastery, and Christian Conduct</div>
     <h3 class="section-sh">Primary Focus</h3>
-    <p class="body-p">European expansion, noble patronage, papal privileges, and institutional legitimacy.</p>
-    <h3 class="section-sh">Key Historical Subjects</h3>
-    <p class="body-p">The papal bull <em>Omne Datum Optimum</em>, acquisition of European estates, and the network of aristocratic support.</p>
+    <p class="body-p">Putting on the full armor of God; mastery over speech, anger, impulse, and vanity; distinguishing between righteous zeal and reckless behavior.</p>
     <h3 class="section-sh">Formation Emphasis</h3>
-    <p class="body-p">Understanding how legitimate authority and strategic stewardship are required to sustain a charitable mission.</p>
+    <p class="body-p">The hardest battles are fought within. True spiritual warfare means conquering one&rsquo;s own ego and worldly desires.</p>
     <h3 class="section-sh">Readiness Goal</h3>
-    <p class="body-p">Map the expansion of the Order's influence across Europe and explain the impact of papal privileges.</p>
+    <p class="body-p">Demonstrate visible restraint in speech and emotional response during conflicts or disagreements.</p>
+    <h3 class="section-sh">Key Emphasis</h3>
+    <ul class="list-ul">
+      <li>Full armor of God (Eph. 6)</li>
+      <li>Speech and anger mastery</li>
+      <li>Righteous zeal vs. reckless behavior</li>
+      <li>Inward conquest</li>
+    </ul>
+    <h3 class="section-sh">Reflection Questions</h3>
+    <ul class="list-ul">
+      <li>When are you most tempted to respond with reckless emotion rather than disciplined restraint?</li>
+      <li>Which piece of the Armor of God (Ephesians 6) do you feel you lack the most right now, and why?</li>
+    </ul>
+    <p class="scripture-ref">Scripture Anchors: Ephesians 6:10&ndash;18 &mdash; 2 Corinthians 10:3&ndash;5 &mdash; James 1:19&ndash;20</p>
   </div>
 
   <!-- Week 3 -->
   <div class="week-block">
-    <div class="week-num">Week 3</div>
-    <div class="week-title">Organization, Offices, Provinces, and Internal Classes</div>
+    <div class="week-num">Week 3</div><span class="week-phase">Class Phase</span>
+    <div class="week-title">Charity, Brotherhood, Service, and Witness in Modern Society</div>
     <h3 class="section-sh">Primary Focus</h3>
-    <p class="body-p">Hierarchy, provinces, preceptories, internal classes, and administrative structure.</p>
-    <h3 class="section-sh">Key Historical Subjects</h3>
-    <p class="body-p">The division of provinces, the roles of local Preceptors and Priors, and the distinction between internal classes.</p>
+    <p class="body-p">Practicing mercy, selfless service, active fellowship, protection of the weak, and maintaining a Christian witness in secular society.</p>
     <h3 class="section-sh">Formation Emphasis</h3>
-    <p class="body-p">Valuing organizational structure, clear communication, and the necessity of accountable delegation.</p>
+    <p class="body-p">Templar virtues must transfer into ordinary, daily life &mdash; at home, at work, and in the community.</p>
     <h3 class="section-sh">Readiness Goal</h3>
-    <p class="body-p">Accurately outline the provincial hierarchy and administrative network of the medieval Knights Templar.</p>
+    <p class="body-p">Identify and execute a specific act of anonymous charity or selfless service this week.</p>
+    <h3 class="section-sh">Key Emphasis</h3>
+    <ul class="list-ul">
+      <li>Anonymous charity</li>
+      <li>Brotherhood and fellowship</li>
+      <li>Protection of the weak</li>
+      <li>Christian witness in daily life</li>
+    </ul>
+    <h3 class="section-sh">Reflection Questions</h3>
+    <ul class="list-ul">
+      <li>How can you practically protect the weak or serve the marginalized in your current modern context?</li>
+      <li>Is your daily conduct at work and home a true reflection of the Christian witness you profess?</li>
+    </ul>
+    <p class="scripture-ref">Scripture Anchors: Micah 6:8 &mdash; Romans 12:18 &mdash; Matthew 5:9</p>
   </div>
 
   <!-- Week 4 -->
   <div class="week-block">
-    <div class="week-num">Week 4</div>
-    <div class="week-title">Military Operations, Logistics, Command, and Disciplined Service</div>
+    <div class="week-num">Week 4</div><span class="week-phase">Class Phase</span>
+    <div class="week-title">Knightly Responsibility, Discernment, and Readiness</div>
     <h3 class="section-sh">Primary Focus</h3>
-    <p class="body-p">Castle logistics, command structure, campaign support, disciplined service, and the difference between historical military study and modern non-military identity.</p>
-    <h3 class="section-sh">Key Historical Subjects</h3>
-    <p class="body-p">Supply chains, the maintenance of Crusader castles, strategic command, and the logistical burden of the Holy Land.</p>
+    <p class="body-p">Exercising mature judgment, knowing when to stand firm versus when to withdraw, honoring authority, and rejecting ego-driven conflict.</p>
     <h3 class="section-sh">Formation Emphasis</h3>
-    <p class="body-p">Recognizing that effective service relies on unseen logistical support and disciplined preparation, not just outward action.</p>
+    <p class="body-p">True strength is often found in restraint. A Knight must discern the difference between a battle worth fighting and a distraction meant to derail them.</p>
     <h3 class="section-sh">Readiness Goal</h3>
-    <p class="body-p">Analyze the logistical operations of the Order while clearly articulating why the modern Order rejects paramilitary styling.</p>
+    <p class="body-p">Prepare mentally and spiritually to begin drafting the Knight Aspirant essay.</p>
+    <h3 class="section-sh">Key Emphasis</h3>
+    <ul class="list-ul">
+      <li>Mature judgment and discernment</li>
+      <li>When to stand firm vs. withdraw</li>
+      <li>Honoring authority</li>
+      <li>Spiritual and essay readiness</li>
+    </ul>
+    <h3 class="section-sh">Reflection Questions</h3>
+    <ul class="list-ul">
+      <li>Can you recall a time when withdrawing or remaining silent took more courage than fighting or arguing?</li>
+      <li>Are you spiritually and emotionally ready to bear the weight of Knightly responsibility?</li>
+    </ul>
+    <p class="scripture-ref">Scripture Anchors: Romans 12:18 &mdash; Proverbs 15:1 &mdash; Ecclesiastes 3:8</p>
   </div>
 
   <!-- Week 5 -->
   <div class="week-block">
-    <div class="week-num">Week 5</div>
-    <div class="week-title">Finance, Stewardship, Administration, and Public Trust</div>
+    <div class="week-num">Week 5</div><span class="week-phase">Essay Phase</span>
+    <div class="week-title">Essay Planning and Outline</div>
     <h3 class="section-sh">Primary Focus</h3>
-    <p class="body-p">Treasury, transport, stewardship, ethical dangers of wealth, and public confidence.</p>
-    <h3 class="section-sh">Key Historical Subjects</h3>
-    <p class="body-p">The Templars as medieval bankers, the safe transport of funds, and the management of vast European treasuries.</p>
+    <p class="body-p">Review the essay specifications and draft a comprehensive outline covering spiritual calling, the &ldquo;monk before warrior&rdquo; ethos, Templar virtues, and personal readiness.</p>
     <h3 class="section-sh">Formation Emphasis</h3>
-    <p class="body-p">The moral weight of financial stewardship, transparency, and the profound spiritual dangers associated with wealth.</p>
+    <p class="body-p">Clarity of thought reflects clarity of calling. Organizing the essay is an exercise in organizing one&rsquo;s spiritual priorities.</p>
     <h3 class="section-sh">Readiness Goal</h3>
-    <p class="body-p">Explain the Order's financial mechanisms and articulate the modern ethical standards required of a Sergeant.</p>
+    <p class="body-p">Complete a structured, detailed outline for the essay.</p>
+    <h3 class="section-sh">Key Emphasis</h3>
+    <ul class="list-ul">
+      <li>Essay title: &ldquo;What Does a Templar Knight Mean to You?&rdquo;</li>
+      <li>Outline: calling, monk before warrior, virtues, readiness</li>
+      <li>College essay format with cover page</li>
+      <li>Single-spaced, 2 typed pages or 1 handwritten front-and-back</li>
+    </ul>
+    <h3 class="section-sh">Reflection Questions</h3>
+    <ul class="list-ul">
+      <li>What is the single most important conviction you want to convey in your essay?</li>
+    </ul>
+    <p class="scripture-ref">Scripture Anchors: 1 Timothy 4:7&ndash;8 &mdash; 2 Timothy 2:3&ndash;4</p>
   </div>
 
   <!-- Week 6 -->
   <div class="week-block">
-    <div class="week-num">Week 6</div>
-    <div class="week-title">Rule, Discipline, Conduct, and Brotherhood</div>
+    <div class="week-num">Week 6</div><span class="week-phase">Essay Phase</span>
+    <div class="week-title">First Draft and Personal Conviction</div>
     <h3 class="section-sh">Primary Focus</h3>
-    <p class="body-p">The Latin Rule, internal discipline, spiritual accountability, brotherhood, and conduct standards.</p>
-    <h3 class="section-sh">Key Historical Subjects</h3>
-    <p class="body-p">The specific chapters of the Latin Rule, methods of internal correction, penance, and the daily life of the brethren.</p>
+    <p class="body-p">Write the rough draft of the essay, meeting the length requirements (one page front and back if handwritten, or two full typed pages).</p>
     <h3 class="section-sh">Formation Emphasis</h3>
-    <p class="body-p">Submission to communal discipline, the correction of peers in love, and the forging of deep Christian brotherhood.</p>
+    <p class="body-p">Vulnerability and honesty before God. Do not write what sounds impressive; write what is true to your calling.</p>
     <h3 class="section-sh">Readiness Goal</h3>
-    <p class="body-p">Demonstrate a comprehensive understanding of the Latin Rule's approach to discipline and accountability.</p>
+    <p class="body-p">Complete the first full draft of the essay.</p>
+    <h3 class="section-sh">Key Emphasis</h3>
+    <ul class="list-ul">
+      <li>Complete rough draft</li>
+      <li>Honesty over impression</li>
+      <li>Personal conviction and calling</li>
+      <li>Length: 2 typed pages or 1 front-and-back handwritten</li>
+    </ul>
+    <h3 class="section-sh">Reflection Questions</h3>
+    <ul class="list-ul">
+      <li>Does your draft reflect a desire to serve Christ, or a desire for a title?</li>
+    </ul>
+    <p class="scripture-ref">Scripture Anchors: Ephesians 6:10&ndash;18 &mdash; Micah 6:8</p>
   </div>
 
   <!-- Week 7 -->
   <div class="week-block">
-    <div class="week-num">Week 7</div>
-    <div class="week-title">Decline, Political Pressure, and Institutional Vulnerability</div>
+    <div class="week-num">Week 7</div><span class="week-phase">Essay Phase</span>
+    <div class="week-title">Revision, Clarity, and Alignment with Templar Virtues</div>
     <h3 class="section-sh">Primary Focus</h3>
-    <p class="body-p">Political exposure, reputation risk, suppression pressures, and vulnerability created by wealth and influence.</p>
-    <h3 class="section-sh">Key Historical Subjects</h3>
-    <p class="body-p">The shift in public perception, the loss of the Holy Land (1291), and the growing tension with secular monarchs.</p>
+    <p class="body-p">Edit the essay for grammar, flow, and formatting. Ensure the cover page is correct, the document is single-spaced, and the essay clearly articulates the &ldquo;monk before warrior&rdquo; concept.</p>
     <h3 class="section-sh">Formation Emphasis</h3>
-    <p class="body-p">The inevitability of worldly hostility, managing institutional vulnerability, and leading faithfully under pressure.</p>
+    <p class="body-p">Discipline in the small things. Presenting a neat, well-edited document demonstrates respect for the Order and the process.</p>
     <h3 class="section-sh">Readiness Goal</h3>
-    <p class="body-p">Evaluate the socio-political factors that made the Templars vulnerable to the machinations of the French Crown.</p>
+    <p class="body-p">Finalize the essay draft, completely free of errors.</p>
+    <h3 class="section-sh">Key Emphasis</h3>
+    <ul class="list-ul">
+      <li>Grammar, flow, and formatting reviewed</li>
+      <li>Cover page and single-spacing verified</li>
+      <li>&ldquo;Monk before warrior&rdquo; clearly expressed</li>
+      <li>Zero errors before final submission</li>
+    </ul>
+    <h3 class="section-sh">Reflection Questions</h3>
+    <ul class="list-ul">
+      <li>How does the discipline of revising your work mirror the discipline of spiritual repentance?</li>
+    </ul>
+    <p class="scripture-ref">Scripture Anchors: Proverbs 15:1 &mdash; Romans 12:18</p>
   </div>
 
   <!-- Week 8 -->
   <div class="week-block">
-    <div class="week-num">Week 8</div>
-    <div class="week-title">Legacy, Judgment, and Sergeant Readiness Review</div>
+    <div class="week-num">Week 8</div><span class="week-phase">Essay Phase</span>
+    <div class="week-title">Final Submission, Oral Readiness, and Review</div>
     <h3 class="section-sh">Primary Focus</h3>
-    <p class="body-p">Full review, historical lessons, accountability, oral review, and readiness for Sergeant promotion evaluation.</p>
-    <h3 class="section-sh">Key Historical Subjects</h3>
-    <p class="body-p">Comprehensive review of source-based history, logistics, and the administrative legacy of the Order.</p>
+    <p class="body-p">Submit the final essay by the assigned deadline and prepare to orally articulate the core points of the essay to leadership if asked.</p>
     <h3 class="section-sh">Formation Emphasis</h3>
-    <p class="body-p">Consolidating historical knowledge with moral judgment to prepare for accountable leadership within the Order.</p>
+    <p class="body-p">Standing ready. The aspirant has done the work and now submits to the judgment and timing of the Order&rsquo;s leadership.</p>
     <h3 class="section-sh">Readiness Goal</h3>
-    <p class="body-p">Demonstrate absolute readiness for the Sergeant oral review and promotion evaluation board.</p>
+    <p class="body-p">Submit the final essay and maintain impeccable conduct during the review period.</p>
+    <h3 class="section-sh">Key Emphasis</h3>
+    <ul class="list-ul">
+      <li>Final essay submitted on deadline</li>
+      <li>Oral articulation readiness</li>
+      <li>Impeccable conduct during review period</li>
+      <li>Yield to the Board of Promotion</li>
+    </ul>
+    <h3 class="section-sh">Reflection Questions</h3>
+    <ul class="list-ul">
+      <li>Are you at peace with yielding your advancement entirely to the discernment of the Board of Promotion?</li>
+    </ul>
+    <p class="scripture-ref">Scripture Anchors: 1 Timothy 4:7&ndash;8 &mdash; Micah 6:8</p>
   </div>
 
-  <!-- ═══════════════════
-       SCHOOLMASTER GUIDANCE
-       ═══════════════════ -->
-  <h2 class="section-h">Schoolmaster Guidance</h2>
+  <!-- ══════════════════════
+       10. ESSAY SPECIFICATIONS
+       ══════════════════════ -->
+  <h2 class="section-h">10. Essay Specifications</h2>
+  <div class="essay-spec">
+    <p class="body-p"><strong>Title:</strong> &ldquo;What Does a Templar Knight Mean to You?&rdquo;</p>
+    <p class="body-p"><strong>Format:</strong> College essay format with a formal cover page. Cover page must include full name, date, and program title.</p>
+    <p class="body-p"><strong>Length:</strong> Two full typed pages (single-spaced) or one handwritten page (front and back, full). No significant blank space.</p>
+    <p class="body-p"><strong>Submission:</strong> Submitted digitally through the Academy portal or in person to the Schoolmaster by the assigned deadline (Week 8).</p>
+    <p class="body-p"><strong>Content:</strong> The essay must reflect the Aspirant&rsquo;s personal spiritual calling, their understanding of the &ldquo;monk before warrior&rdquo; principle, which Templar virtues they intend to live, and their personal readiness for the responsibilities of knighthood.</p>
+  </div>
+
+  <!-- ══════════════════════════════════
+       11. SCHOOLMASTER GUIDANCE
+       ══════════════════════════════════ -->
+  <h2 class="section-h">11. Schoolmaster Guidance</h2>
   <div class="note-block">
-    <p class="body-p">Schoolmasters bear the burden of ensuring that candidates for Sergeant meet the rigorous demands of this program. Candidates must complete the 8-week class in its entirety, remain current with assigned classwork and readings, maintain regular attendance at meetings, Bible studies, and Round Tables, and demonstrate active fellowship and participation in the daily life of the Order.</p>
-    <p class="body-p">Advancement must be based on demonstrated faithfulness, discipline, participation, and completion of all requirements. Deficiencies in conduct or coursework may delay promotion, subject to Board review. Schoolmasters must emphasize factual history, active charitable works, disciplined character, and visible humility above all else.</p>
+    <p class="body-p">Schoolmasters bear the burden of ensuring that Knight Aspirants meet the rigorous demands of this program. Candidates must complete the 8-week program in its entirety, remain current with assigned classwork and readings, maintain regular attendance at meetings, Bible studies, and Round Tables, and demonstrate active fellowship and participation in the daily life of the Order.</p>
+    <p class="body-p">Advancement must be based on demonstrated faithfulness, discipline, participation, and completion of all requirements &mdash; including the essay. Deficiencies in conduct, coursework, or character may delay promotion, subject to Board review. Schoolmasters must emphasize genuine holiness, active charitable works, disciplined character, and visible humility above all else.</p>
   </div>
 
   <!-- ══════════════════════════
-       PROMOTION READINESS STATEMENT
+       12. PROMOTION READINESS STATEMENT
        ══════════════════════════ -->
-  <h2 class="section-h">Promotion Readiness Statement</h2>
-  <p class="body-p">Completion of the 8-week Sergeant curriculum is required but does not guarantee automatic promotion. The Board of Promotion Review will conduct a holistic evaluation of the candidate. This evaluation considers coursework completion, logged attendance, active participation, committed service, disciplined conduct, and overall conduct becoming of a member.</p>
+  <h2 class="section-h">12. Promotion Readiness Statement</h2>
+  <p class="body-p">Completion of the 8-week Knight Aspirant curriculum is required but does not guarantee automatic promotion. The Board of Promotion Review will conduct a holistic evaluation of the candidate. This evaluation considers coursework completion, essay quality, logged attendance, active participation, committed service, disciplined conduct, and overall character becoming of a Knight.</p>
   <p class="body-p">It is an unyielding principle of the Knights Templar of the Kingdom of Christ that ranks cannot be bought or sold. Advancement is earned solely through merit, character, and an ongoing dedication to the charitable and educational mission of the Order.</p>
 
   <!-- ════════════════════════════
-       SUGGESTED ANNUAL ACADEMY CYCLE
+       13. SUGGESTED ANNUAL ACADEMY CYCLE
        ════════════════════════════ -->
-  <h2 class="section-h">Suggested Annual Academy Cycle</h2>
-  <p class="body-p">To provide structure and consistency for adult formation, the Sergeant program operates on a suggested annual cycle:</p>
+  <h2 class="section-h">13. Suggested Annual Academy Cycle</h2>
+  <p class="body-p">To provide structure and consistency for adult formation, the Knight Aspirant program operates on a suggested annual cycle:</p>
   <ol class="cycle-list">
-    <li>Two major eight-week terms for advancing Corporal graduates.</li>
-    <li>One review term dedicated to remediation, deep historical study, and fellowship.</li>
-    <li>One chapter lecture series bringing in advanced topics and guest instruction.</li>
-    <li>One annual service campaign where Sergeants are expected to take active operational roles.</li>
-    <li>One recognition ceremony to formally elevate those who have met the standards of the Board.</li>
+    <li>One or two major eight-week terms for advancing Sergeant First Class graduates.</li>
+    <li>One review term dedicated to formation deepening, remediation, and fellowship.</li>
+    <li>One chapter lecture series bringing in advanced historical and spiritual topics.</li>
+    <li>One annual service campaign where Knight Aspirants take active operational roles in charitable work.</li>
+    <li>One recognition ceremony to formally elevate those who have met the standards of the Board of Promotion.</li>
   </ol>
 
   <!-- ═══════════════════
-       CLOSING AFFIRMATION
+       14. CLOSING AFFIRMATION
        ═══════════════════ -->
-  <h2 class="section-h">Closing Affirmation</h2>
+  <h2 class="section-h">14. Closing Affirmation</h2>
   <div class="affirmation-block">
-    <p class="body-p">The Sergeant Program of the Templar Forge Academy stands as a testament to our commitment to a truthful understanding of the medieval Knights Templar. We remain an organization that is strictly educational, charitable, historical, and moral in purpose, forever consecrated to Jesus Christ. We affirm that service before self is our highest calling, and we declare unconditionally that no superior can command an act violating Scripture or civil law.</p>
-    <p class="body-p">Those who achieve the rank of Sergeant, and those who lead them, are held to a higher standard of visible virtue and humility, ensuring that our Order remains a beacon of nonviolent, truthful witness. We are not military or paramilitary in nature; our internal ranks are organizational and instructional only, functioning solely to structure our pursuit of truth, charity, and Christ-like discipline.</p>
+    <p class="body-p">The Knight Aspirant Program of the Templar Forge Academy stands as a testament to our commitment to forming men of genuine Christian virtue, historical integrity, and sacrificial service. We remain an organization that is strictly educational, charitable, historical, and moral in purpose, forever consecrated to Jesus Christ.</p>
+    <p class="body-p">The aspirant who completes this program and stands before the Board of Promotion does so not as one who has mastered outward performance, but as one who has cultivated the heart of a monk, the discipline of a servant, and the humility of a man who knows his calling comes from God alone &mdash; not from any title conferred by men.</p>
+    <p class="body-p">We affirm that service before self is our highest calling, and we declare unconditionally that no superior can command an act violating Scripture or civil law. Those who bear the title of Knight are held to a higher standard of visible virtue and humility, ensuring that our Order remains a beacon of nonviolent, truthful witness to the Kingdom of Christ.</p>
   </div>
 
 </div><!-- /.wrap -->
